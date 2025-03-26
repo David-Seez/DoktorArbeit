@@ -1,0 +1,160 @@
+\section{Orientations with K-theorie}
+Before we start the hole section, we establish a little reminder on how the $K$-Groups of the spheres look like:
+First of all the $n$-th K-group of a k-Sphere is by definition the reduced K-group of a $n+k$ Sphere. with this we have the general rule:
+
+\begin{tcolorbox}[colback=PineGreen!50!White]
+\begin{centering}
+    If the dimension is \textbf{odd}, the K-group matters \textbf{not}!
+\end{centering}
+\end{tcolorbox}
+\begin{definition}[Orientations on Vector Spaces] \label{def: Orientations on Vector Spaces}
+    Let’s start with a recall of what an orientation is. For this consideration we start with a vector space $V\cong \R^m$. An orientation of $V$ is the equivalence class of an \textbf{ordered basis} $(v_1,\dots v_m)$, where the relation is as follows: \\
+    Two basis $v=(v_1,\dots ,v_m)$ and $w=(w_1,\dots w_m)$ are equivalent, if the base-change matrix $M^v_w$ has positive determinant. By this relation we get two orientations on $\R^m$. If $m=0$, we define the orientation to be either $1$ or $-1$. A vector space $V$ together with an orientation $\theta=\overline{v}$ is called an oriented vector space and an ordered basis $w$ of $V$ is called \textbf{positive}, if $w\in \theta$, or in other words, if $w\sim v$.
+\end{definition}
+\begin{remark}[From Real Space to the Sphere]
+    We now want to construct a canonical homeomorphism between $S^m$ and $\overline{\R^m}$. First we use the stereographic projection from the South Pole:
+    \begin{align*}
+        \pi_S:S^m\setminus \{S\}\subseteq \R^{m+1} &\to       \R^m\\
+        (x_1,\dots,x_m,x_{m+1})                            &\mapsto   \left(\frac{x_1}{1+x_{m+1}},\dots, \frac{x_m}{1+x_{m+1}} \right)
+    \end{align*} with its inverse: 
+    \begin{align*}
+        \pi_S^{-1}:\R^m       &\to     S^m\setminus\{S\}\subseteq \R^{m+1}\\
+        (y_1,\dots y_m)       &\mapsto  \left(\frac{2y_1}{1+\norm{y}^2},\dots,\frac{2y_m}{1+\norm{y}^2},\frac{1-\norm{y}}{1+\norm{y}} \right)
+    \end{align*}
+    Those are inverse maps and they give rise to maps between their one-point-compactifications. Hence $\overline{\R^m}\cong S^m$. Lets calculate $\pi_S^{-1}\circ \pi_s$, since we will later need a little bit of insight in those calculations:
+    \begin{align*}
+        \pi_S^{-1}\circ \pi_s(x_1,\dots ,x_{m+1})
+        &= \pi_S^{-1}\left(\frac{x_1}{1+x_{m+1}},\dots, \frac{x_m}{1+x_{m+1}} \right)\\
+        &= \left(\frac{2\frac{x_1}{1+x_{m+1}}}{1+\sum_{i=1}^m(\frac{x_i^2}{(1+x_{m+1})^2})},\dots, \frac{2\frac{x_m}{1+x_{m+1}}}{1+\sum_{i=1}^m(\frac{x_i^2}{(1+x_{m+1})^2})},\frac{1-\sum_{i=1}^m(\frac{x_i^2}{(1+x_{m+1})^2})}{1+\sum_{i=1}^m(\frac{x_i^2}{(1+x_{m+1})^2})} \right)\\
+        &=
+    \end{align*} Before we keep calculating, we notice the denominator can be rewritten as:
+    \begin{align*}
+        1+\sum_{i=1}^m(\frac{x_i^2}{(1+x_{m+1})^2})=\frac{(1+x_{m+1})^2+\sum_{i=1}^m x_i^2}{(1+x_{m+1})^2}
+    \end{align*} And hence:
+    \begin{align}
+        \frac{2\frac{x_j}{1+x_{m+1}}}{1+\sum_{i=1}^m(\frac{x_i^2}{(1+x_{m+1})^2})}& = \frac{2\frac{x_j}{1+x_{m+1}}}{\frac{(1+x_{m+1})^2+\sum_{i=1}^m x_i^2}{(1+x_{m+1})^2}} \\
+        & =\frac{2x_j(1+x_{m+1})}{(1+x_{m+1})^2+\sum_{i=1}^m x_i^2} \\
+        & =\frac{2x_j(1+x_{m+1})}{(1+x_{m+1})^2+\sum_{i=1}^m x_i^2}\\
+        & = \frac{2x_j(1+x_{m+1})}{1+2 x_{m+1}+\underbrace{\sum_{i=1}^{m+1} x_i^2}_{=1}} \\
+        & = x_j
+    \end{align}
+    And the calculation of the last term is:
+    \begin{align*}
+        \frac{1-\sum_{i=1}^m(\frac{x_i^2}{(1+x_{m+1})^2})}{1+\sum_{i=1}^m(\frac{x_i^2}{(1+x_{m+1})^2})} 
+        & = \frac{\frac{(1+x_{m+1})^2-\sum_{i=1}^m x_i^2}{(1+x_{m+1})^2}}{\frac{(1+x_{m+1})^2+\sum_{i=1}^m x_i^2}{(1+x_{m+1})^2}}\\
+        & =\frac{(1+x_{m+1})^2-\sum_{i=1}^m x_i^2}{(1+x_{m+1})^2+\sum_{i=1}^m x_i^2} \\
+        & = \frac{1+2x_{m+1}+x_{m+1}^2-\sum_{i=1}^m x_i^2}{1+2x_{m+1}+\underbrace{x_{m+1}^2+\sum_{i=1}^m x_i^2}_{=1}} \\
+        & = \frac{1+2x_{m+1}+2x_{m+1}^2-\sum_{i=1}^{m+1} x_i^2}{2+2x_{m+1}} \\
+        & = \frac{x_{m+1}(2+2x_{m+1})}{2+2x_{m+1}}=x_{m+1}
+    \end{align*}
+This concludes the calculation of $\pi_S^{-1}\circ \pi_s=\id$ the other order is similar.
+\end{remark}
+
+
+
+
+\begin{definition}[K-theoretic orientations]
+
+     We define a \textbf{K-theoretic orientation} of a vector space $V$ to be a generator of the group $K^m(\overline{V})$. As a sainity check we can confirm: since $\overline{V}\cong S^m$ we are looking at a generator of a group isomorphic to $K(S^{2m})\cong \Z$, which has two possible generators.
+
+     Now $V$ is congruent to $\R^m$ via the coordinate map $B_v$ and that depends on an ordered  basis $v$ of $v$. So the idea is as follows: 
+     We have a canonical generator of $K^m(S^m)$ and a map:
+   \begin{center}
+        % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAGkA9MACgGVuAShABfUuky58hFAEZyVWoxZsuvADrqINGACcGWMDGCaASpwC2I4WInY8BIgCYF1es1aIOlnpu16DI2AANWtRRRgoAHN4IlAAM10ICyQyEBwIJHklDzZfdTQsAH0BYABaWWtOACpRcRBE5KzqDKQXHJUvACEimhrwkSA
+\begin{tikzcd}
+K^n(S^n) \arrow[r, "(\pi_S^{-1})^*"] & K^n(\overline{\R^m}) \arrow[r, "B_v^*"] & K^m(\overline{V})
+\end{tikzcd}
+   \end{center}
+     This induces a generator in $K^m(\overline{V})$ that depends on the ordered basis. 
+\end{definition}
+\begin{remark} \label{rem: K-orientaion only depends on the orientation}
+\todo{replace $B_v^*$ mit $B_v^-1$, 
+      extension und so wohl unterscheiden. 
+      Vllt den beweis funktoriell aufziehen und faktorisiert über hTop  verwenden}
+    The $K-$theoretic orientaion only depends on the orientation.
+\end{remark}
+\begin{proof}
+Let $v$ and $v'$ be two equivalent orientations, meanin $\det(M^v_{v'})>0$. This means that $M^v_{v'}\simeq \id$, since $\GLR{m}$ has two path-connected components determined by the determinant. Alternative we can give an homotopy explicit by 
+\begin{align*}
+    H: \overline{\R^m}\times I & \to        \overline{\R^m}\\
+    (x,t)                      & \mapsto    (1-t)M^v_{v'}+t(\id) \\
+    (\infty,t)                 & \mapsto \infty
+\end{align*}
+This is continuos for all $t$, since it is continuous for all $x\neq \infty$. Furthermore, it is invertible for all $t$ and $x\neq \infty$, because for $x\neq \infty $ we can view $H$ as a continuous map $H(\cdot,t):I\to \GLR{m}$ and since $I$ is connected it maps into one connected component and that is $\GL^+(n,\R)$. Hence, the composition maps into $\det(H(\cdot,t))\in \R_{>0}$ for all $t$. Finally, we have that the restricted map where the points at infinity are excluded is proper and thereby our extended map $H$ is continuos, giving us a continuous homotopy. With this we can conclude, that the diagramm commutes up to homotopy:
+\begin{center}
+% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB12IaYAnBrGBjAAagF8QY0uky58hFGQCMVWoxZtO3PgKHBOAJQB6AWwlSZ2PASJLyq+s1aIOXHv0HDxk6SAxX5W1IVakcNFy13XWFDU3NVGCgAc3giUAAzXggTJDIQHAgkACZQ9WdXLCgfDKycxDt8wsQAZlKnNgBZIxoAfWAaAHIJagAjGDAqluILEEzspAaCpFaQMYmkAFoAFgBONvCKqpm5uryl+v3ygCEemhBqBjoxhgAFWWsFEF4sJIALHGqs1qxWo5xWYWufUG8TEQA
+\begin{tikzcd}
+\overline{V} \arrow[r, "\id"] \arrow[d, "B_v"']                                  & \overline{V} \arrow[d, "B_{v'}"] \\
+\overline{\R^m} \arrow[r, "M^v_{v'}", bend left] \arrow[r, "\id", bend right=49] & \overline{\R^m}                 
+\end{tikzcd}
+\end{center}
+Hence, the diagram commutes, 
+\begin{center}
+    % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAGkA9AWwAoBlHgEoQAX1LpMufIRQBGclVqMWbLmF4AdTRBowATgyxgYwbQCUeokeMnY8BIgCZF1es1aIOPLTr2HjUwA1azEJEAx7GSIFOSV3VS91X10DIxMzTUtuUNsIqQdZZBc4txVPbz5tVICMkJtwyOlHFDJS5Q81H0FuGyUYKABzeCJQADN9CG4kMhAcCCQFDsSQXzQsAH1BYABaOWtOACow8cnpxCX5pBdlioAhDZojk5AJqcXqK8QAZjLOr20WCgLze5xuXwALH8VoDgXlQUhfnMFogobc2HcjhtgDQAOSiEFnJAAVk+KKRCQqa022z2B2OogooiAA
+\begin{tikzcd}
+K^m(S^m) \arrow[r, "(\pi_S^{-1})^*"] & K^n(\overline{\R^m}) \arrow[r, "B_v^*"] \arrow[d, "\id"] & K^m(\overline{V}) \arrow[d, "\id"] \\
+K^m(S^m) \arrow[r, "(\pi_S^{-1})^*"] & K^n(\overline{\R^m}) \arrow[r, "B^*_{v'}"]               & K^m(\overline{V})                 
+\end{tikzcd}
+\end{center}
+Thereby the induced generators agree.
+\end{proof}
+\begin{lemma}[K-Theoretic Orientations Detect Orientations]
+    Assume, that $v'$ and $v$ are non-equivalent orientations. Hence, $\det(M^v_{v'})<0$. Then they induce different generators.
+\end{lemma}
+\begin{proof}
+    With a similar argument to above we can conclude, that $M^v_{v'}\simeq \Big(x_1,\dots x_m)\mapsto (x_1,\dots x_{m-1},-x_m)\big)$ and again there extensions to the one point compactifications are homotypic.
+    Now we define two maps: 
+    \begin{align*}
+        T: S^m &\to S^m \\
+        (x_1,\dots,x_{m+1})&  \mapsto (-x_1,\dots,x_{m+1})
+    \end{align*}
+    and
+    \begin{align*}
+        S:\overline{R^m} & \to \overline{R^m} \\
+        (x_1,\dots x_m)  &\mapsto (-x_1,\dots x_m)
+    \end{align*}
+    With those maps we have the commutative diagram: 
+    \begin{center}
+        % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAGUA9AWxAF9S6TLnyEUZAIxVajFmy68BQ7HgJEJ5afWatEIADr6INGACcGWMDGCGASjz79BIDCtHrSU6trl7DxswsrG317bkc+aRgoAHN4IlAAM1MIXkQAJmocCCQyGR02QzQsAH04TmAAWgkI52TUpABmLJzEDXzfA31isorq2qSUtPbs3O9ZXRAAFSdBhsRmkFGM8YK9dn4KPiA
+\begin{tikzcd}
+S^m                & \overline{\R^m} \arrow[l, "\pi_s^{-1}"]                \\
+S^m \arrow[u, "T"] & \overline{\R^m} \arrow[l, "\pi_s^{-1}"] \arrow[u, "S"]
+\end{tikzcd}
+    \end{center}
+    And hence since $S\simeq \overline{M^v_{v'}}$ we get the diagram, that is commutative up to homotopie:
+\begin{center}
+    % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAGUA9AWxAF9S6TLnyEUZAIxVajFmy68BQ7HgJEJ5afWatEIADr6INGACcGWMDGCGASjz79BIDCtHrSU6trl7DxswsrG317bkclF2FVMWQAJk1vWV0DIxNzS2sANQjnVxE1FASvGR02f3Sg7IjpGCgAc3giUAAzUwheRASQHAgkMlLfVLQsAH04TmAAWglc1vbOgGZqXqQNQZTDEfHJmbmQNo61lb7EAZ8UgBUneaPEZZ7T7ov5G4OFpABWE6QAFiSyn59FgoG9Dp1-o8kM9kmwAEKjYA0ADkfF2szBH0Q3yh9wBQwRSLR0wxfAofCAA
+\begin{tikzcd}
+S^m                & \overline{\R^m} \arrow[l, "\pi_s^{-1}"]                & \overline{V} \arrow[l, "B_{v'}^{-1}"]                 \\
+S^m \arrow[u, "T"] & \overline{\R^m} \arrow[l, "\pi_s^{-1}"] \arrow[u, "S"] & \overline{V} \arrow[u, "\id"] \arrow[l, "B_{v}^{-1}"]
+\end{tikzcd}
+\end{center}
+    This induces the commutative diagramm 
+    \begin{equation} \label{eq: Comutativ diagramm -1 is orientation change}
+       % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAGkA9AWwAoBlHgEoQAX1LpMufIRQBGUnKq1GLNlz4AdTRBowATgyxgYwbQCUeokeMnY8BIgsrV6zVog49e23QaMmZpqW3NZiEiAY9jJEZEquqh5efILcNhFR0o4oAEzkym5qnho+OnqGxqYAamG2kVIOssh58Sru6t6+5QHVtcowUADm8ESgAGb6ENxIZCA4EEgAzAntngAqnABUINQMdABGMAwACg0xnvpYgwAWOOHjk9OIs-NIeW1FIKVoWAD6gsAALRyaxbe4gCZTJbUV6IBQfJLfP4A4Gg7a7A5HU7RbIgS43O51SFPd6w+GFJKCbZEx5vGELRAAFhWn14ACFfsAaKJOECQUIwTSoXD6UgAKwsxEcrkAch5fLROxAe0OJzOuPxt3BxKQzLmDIlCLY2iwUDEFFEQA
+\begin{tikzcd}
+K^m(S^m) \arrow[d, "T^*"'] \arrow[r, "(\pi_S^{-1})^*"] & K^m(\overline{\R^m}) \arrow[d, "S^*"] \arrow[r, "(B_{v}^{-1})^*"] & K^m(\overline{V}) \arrow[d, "\id"] \\
+K^m(S^m) \arrow[r, "(\pi_S^{-1})^*"']                  & K^m(\overline{\R^m}) \arrow[r, "(B_{v'}^{-1})^*"']                & K^m(\overline{V})                 
+\end{tikzcd}
+    \end{equation}
+Now we want to see that $T^*=-\id$.
+For this, we start by looking at $K^m(S^m)=K(S^{2m})$. In this case we define 
+\begin{align*}
+    T': S^m\wedge S^m =S^{2m}       & \to S^{2m}\\
+    (x_1,\dots x_m,y_1,\dots, y_m)  & \mapsto (x_1,\dots x_m,-y_1,\dots, y_m)
+\end{align*} Now by definition $T^*=(T'^)*$
+Now we have the homotopy between $T'$ and 
+\begin{align*}
+    R\wedge \id :S^{2m} & \to       S^{2m}\\
+    (x_1,\dots x_{2m})  & \mapsto   (-x_1,\dots x_{2m})
+\end{align*} because the change of order of bases elements is homotopic to the identity. (This can be seen by reusing the proof of lemma \ref{rem: K-orientaion only depends on the orientation}, since the needed base-change matrix has determinant $1$). Now the way we defined $S^{2m}\subseteq \R^{2m+1}$ the map $ R\wedge \id$ really is the wedge product of the identity on $S^{2m-1}$ with the map $R$, that exchanges the South and North Pole. Hence by the lemma we had before \todo{ Refrence einfügen Beweis les K-theorie}, this agrees with the multiplication with $-1$, and hence the map $T^*$ is the multiplication with $-1$. 
+Finally, we can compare the induced generators: for this we denote $\beta_v\coloneq (B_{v}^{-1})^*\circ (\pi^{-1}_S)^*(\beta)$ to be the generator given by the oriented basis $v$ and $\beta_{v'}\coloneq (B_{v'}^{-1})^*\circ (\pi^{-1}_S)^*(\beta)$ given by $v'$. Now by the commutativity of the diagram \ref{eq: Comutativ diagramm -1 is orientation change} we have that 
+\begin{align*}
+    -\beta_{v'} 
+    &= -(B_{v'}^{-1})^*\circ (\pi^{-1}_S)^*(\beta) \\
+    &= (B_{v'}^{-1})^*\circ (\pi^{-1}_S)^*(-\beta)\\
+    &= -\beta_{v'}=-(B_{v'}^{-1})^*\circ (\pi^{-1}_S)^*(\beta)\\
+    &= \underbrace{(B_{v'}^{-1})^*\circ (\pi^{-1}_S)^*\circ T^*}_{=(B_{v}^{-1})^*\circ (\pi^{-1}_S)^*}(\beta))\\
+    &= \beta_v
+\end{align*}
+\end{proof}

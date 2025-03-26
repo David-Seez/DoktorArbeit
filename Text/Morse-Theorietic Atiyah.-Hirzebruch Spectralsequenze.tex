@@ -1,0 +1,236 @@
+\section{Morsetheoretic Atiyah Hirzebruch Spectralsequeze}
+
+
+\begin{definition} Let $M$ be a smooth manifold with morse data and \begin{equation*}
+    \emptyset=:N_{-1}\subset N_0\subset N_1\subset \cdots \subset N_{m-1}\subset N_m=M,
+\end{equation*} be a filtrations constructed in \ref{def: Regular index pairs and a filtration on M}. Then we define the Groups
+    \begin{equation*}
+        E^{p,q}_r(M)\coloneq \frac{\ker\big[K^{p+q}(N_{p+r-1},N_{p-r})\to K^{p+q}(N_{p-1},N_{p-r})  \big]}{\ker\big[K^{p+q}(N_{p+r-1},N_{p-r})\to K^{p+q}(N_{p},N_{p-r})\big]} \, .
+    \end{equation*} To define a boundary operator, we proceed as follows:
+    The following diagram commutes (by naturality of the boundary in the triple sequence).
+    \begin{center}
+    % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAGkA9YNAagEcAvgAoAcgH0evAE4BaAIyDSEnrOmCAlCCXpMufIRTzyVWoxZsuUoWMlolKtGs3bSu7HgJEy80-WasiBzcfPy8irZSAExyisp2MgouOiAYHgZExr7U-hZBVqHhIo68MUnxPMluqXqehshRpNlmAZYhAkWRfLEOdsmmMFAA5vBEoABm0hAAtkhkIDgQSMYteSAAOuuMaAAWdK4TU7OI84tIjauBG+uwDDh0nABUkjjSWGgMMIIHIJMz59QzogAMw5cxXTYAIxg9x+f2OKyBoMubE2t3uTxebw+XzhRyQyKBABZBBRBEA
+\begin{tikzcd}
+{K^{p+q}(N_{p+r-1},N_{p-r})} \arrow[r, "\alpha"] \arrow[d, "\delta^*_{triple}"] & {K^{p+q}(N_{p},N_{p-r})} \arrow[d, "\delta^*_{triple}"] &                              \\
+{K^{p+q+1}(N_{p+2r-1},N_{p+r-1})} \arrow[r, "\beta"]                            & {K^{p+q+1}(N_{p+2r-1},N_{p})} \arrow[r]                 & {K^{p+q+1}(N_{p+r-1},N_{p})}
+\end{tikzcd}
+\end{center} Hence, $\beta\circ \delta^*_{triple}$ factors over ${K^{p+q}(N_{p+r-1},N_{p-r})}\slash \ker \alpha$ and because the bottom row is exact (by the triple sequence) we have get a map 
+\begin{equation*}
+    {K^{p+q}(N_{p+r-1},N_{p-r})}\slash \ker \alpha \to \ker\big[K_{p+q+1}(N_{p+2r-1},N_{p})\to K^{p+q+1}(N_{p+r-1},N_{p})  \big]
+\end{equation*} Now since ${K^{p+q}(N_{p+r-1},N_{p-r})}\supseteq \ker\big[K^{p+q}(N_{p+r-1},N_{p-r})\to K^{p+q}(N_{p-1},N_{p-r})  \big]$ we can restrict the domain and furthermore compose with the quotient map to get a well-defined map
+\begin{align*}
+    d_r^{p,q}: ~E^{p,q}_r &  \to E^{p+r,q-r+1}_{r}\\
+    [x]                   &  \mapsto [\beta\circ \delta^*_{triple}(x)]
+\end{align*}
+\end{definition}
+\begin{cor}[The first page]
+    We start by analysing the first page
+    \begin{align*}
+        E^{p,q}_1(M)\coloneq\frac{\ker\big[K^{p+q}(N_{p},N_{p-1})\to K^{p+q}(N_{p-1},N_{p-1})  \big]}{\ker\big[\underbrace{K^{p+q}(N_{p},N_{p-1})\to K^{p+q}(N_{p},N_{p-1})}_{\id}\big]} &\cong K^{p+q}(N_{p},N_{p-1})\\
+        &=\tilde{K}^{p+q}(N_p\slash N_{p-1})
+    \end{align*}
+    Now since $(N_p,N_{p-1})$ is a regular index pair for $\Crit_p(f)$ we have a flow induced homotopiy equivalentce:
+    
+    \begin{equation*}
+                         N_p\slash N_{p-1}
+        \simeq          \big(\bigcup_{w\in Crit_p(f)}D^u_\epsilon(w)\big) \slash (\bigcup_{w\in Crit_p(f)} \partial D^u_\epsilon(w)\big)
+        \cong           \bigvee_{w\in \Crit_p(f)}S^p
+    \end{equation*} Here, we use the definitions from above
+    \begin{align*}
+             D^{u}_\epsilon (w)&~\coloneq~ \phi_w^{-1} \big(\{v\in T_w^{u }M | \norm{v}\leq \epsilon \} \big), 
+    \end{align*}and the last isomorphism is induced by orientations in the unstable manifolds. We can continue our inspection:
+    \begin{align*}
+        E^{p,q}_1&\cong \tilde{K}^{p+q}(N_p\slash N_{p-1})\\
+        &\cong \bigoplus_{w\in \Crit_p(f)}\tilde{K}^q(pt)=C^k(M,f,g,\mathfrak{o};\tilde{K}^q(pt))\\
+    \end{align*} In sum we have the chain of horizontal isomorphisms: 
+\begin{center}
+% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAFEA9YNUgRwC+AfQCMIAaXSZc+QihHkqtRizYAdNXgaxgAaQHc0AakEAKAHJC0GuAzpwAFgAJLPALQiBASnGSQGbDwCIgAmRWp6ZlZEEA0AIywAcwg0ZjghYAB3DSwwJw0AYQAnXCtTADMvAQ0tHX1OPlM0HB8JKUDZIgBmcOUotgLDAVMAWVINAFs6HAdyoroAa2AAQQkarG0YPQNG5q9WvwCZYJQyESVI1RiuHiMFQVFfduO5ZAVziJVo2M0NuoNbiITMNXMZPDY7I4XBk0N4nv5pEFXmEPn0rj8EslUkx0lkcnlCiUcDC7sNKtVfpttg0mi14Uckd1SKjLt9BoDhmNJtNZvMlqtxpT-jS9q0lDAoIl4ERQHMIBMkGQQDgIEgFGjvhpGGgHHR4XKFYh1SqkGENeo1HEYDg9W0QAbFdQTYgACyffoxKCiQz8AT6orytVO1WIACsdodiDNzoAbBGA4aesqQwB2eOB13BpCh93orUMHV0ADk-ozOeTSBjuc1lutxdLiazUfThpTTbjFAEQA
+\begin{tikzcd}
+{E^{p,q}_1} \arrow[r, "\alpha"] \arrow[d, "{d_1^{p,q}}"] & \tilde{K}^{p+q}(N_p\slash N_{p-1}) \arrow[r, "\beta"] \arrow[d] & \bigoplus_{w\in \Crit_p(f)}\tilde{K}^q(pt) \arrow[d] & {C^{p}(M,\mathfrak{A},\tilde{K}^q(pt))} \arrow[d] \arrow[l] \\
+{E^{p+1,q}_1} \arrow[r, "\alpha'"]                       & \tilde{K}^{p+1+q}(N_{p+1}\slash N_{p}) \arrow[r, "\beta'"]      & \bigoplus_{w\in \Crit_{p+1}(f)}\tilde{K}^q(pt)       & {C^{p+1}(M,\mathfrak{A},\tilde{K}^q(pt))} \arrow[l]        
+\end{tikzcd}
+\end{center}
+By naturality of the triple boundary operator, that the second vertical map is the boundary operator. Now on the next rug we can induce two maps. From the left to make the diagram commute and from the right. Do they agree? Or asked differently, is the map induced from the $d_1$ map the boundary operator of morse homology?
+\end{cor}
+
+
+\begin{definition}
+    Let $q\in \Crit_{k+1}(f)$ and $p\in \Crit_p(f)$. Assume for the moment, that we have a regular index pair $(N_2,N_1)$ for $S\coloneq W(q\to p)\cup \{p,q\}$. For $c\in (f(p),f(q))$ we define $N_1=N_0\cup (N_2\cup M^c)$, where $M^c$ denotes the sublevelset. Now $(N_2,N_1)$ is a index pair for $q$ and $(N_1,N_0)$ is one for $p$. Assume that we are givben any two index pairs $(N_q,L_q)$ and $(N_p,L_p)$ of $q $ and $p$. Then we define a map
+    \begin{align*}
+        \Delta_k(q\to p): K^k(N_p,L_p)\to K^k(N_q,L_q)
+    \end{align*} as the composition:
+    \begin{center}
+        % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAGkA9AawAoA5APppSAGWEBKEAF9S6TLnyEUARnJVajFmy58ha8cSmz52PASIAmddXrNWiDjwGDr4lcbkgMZpUQDMNpr2Os5CAI5iguHGGjBQAObwRKAAZgBOEAC2SGQgOBBIasHajgA6ZQDGBAkyXhnZRdQFSNYlDiAVsAw4dILAOOlYaAww0nVpmTmIbS2Ige1sFdVgtdIU0kA
+\begin{tikzcd}
+{K^k(N_p,L_p)} \arrow[r, "\cong"] & {K^k(N_1,L_0)} \arrow[r, "\delta_{triple}"] & {K^k(N_2,L_1)} \arrow[r, "\cong"] & {K^k(N_q,L_q)}
+\end{tikzcd}
+    \end{center} 
+Putting all those together we have the definition of a map:
+\begin{align*}
+    \Delta_k: \bigoplus_{p\in \Crit_k(f)}K^k(N_p,L_p) ~~\to ~~  \bigoplus_{q\in \Crit_{k+1}(f)}K^k(N_q,L_q)
+\end{align*} If we denote the inclusion $i_q:K^k(N_q,L_q)\rightarrow \bigoplus_{q\in \Crit_{k+1}(f)}K^k(N_q,L_q)$ we have the above map given by: 
+\begin{align*}
+    \Delta_k=\sum_{q\in \Crit_{k+1}(f)} i_q\circ \big( \bigoplus_{p \in \Crit_f(q)} \Delta_k(q\to p) \big)
+\end{align*}
+\end{definition}
+\todo{all depends on the choice of index pairs?}
+
+\begin{lemma}
+    Let $M$ be an oriented manifold and $q\in \Crit(f)$. Furthermore, let $(N_q,L_q)$ be a regular index pair. Then an orientation in $T^u_qM$ induces a generator of $K^{\ind(q)}(N_p,L_p)$
+\end{lemma}
+\begin{proof}
+   First, a generator of $T^u_qM$ induces a generator of $K^{\ind(q)}(\overline{T^u_qM})$. Now we need to find a natural map $  (N_p\slash L_p) \to \overline{T^u_qM}$. We do this in steps. 
+   First, we define:
+   \begin{align*}
+       s: B^u_q(\epsilon)\coloneq \{x\in T^u_qM~|~\norm{x}\leq \epsilon\} 
+                &\to  \overline{T^u_qM}\\
+       x        &\mapsto \left\{\begin{array}{cc}
+           \frac{x}{\norm{x}-\epsilon} &  \text{ if }\norm{x}<\epsilon\\
+            \infty & \text{else .} 
+       \end{array} \right.
+   \end{align*} This map is can be made into a homomorphism if we make it bijective, meaning we identify all fibers of $\infty$ giving us the map 
+   \begin{align*}
+       \overline{s}:  B^u_q(\epsilon) \slash \partial  B^u_q(\epsilon)  &\to \overline{T^u_qM}\\
+            x                                                           & \mapsto s(x)        
+   \end{align*} now this map is again a homeomorphisms. Now we need to get a map from $N_p\slash L_p \to B^u_q(\epsilon) \slash \partial  B^u_q(\epsilon)$. We proceed as follows: First we get a diffrent index pair as follows: Let $\phi:U\to T^uM$ be a morse chart and $D^s_u(\epsilon)$ be a closed ball of radius $ \epsilon$ living in $T^s_qM$. Then $\big(\phi^{-1}(B^u_q(\epsilon)\times B^s_qM)~,~\phi^{-1}(\partial B^u_q(\epsilon)\times B^s_qM) \big)$ is a regular index pair for $q$, hence there is a flow induced map \begin{align*}
+       \psi: ~(N_p\slash L_p)    &\to  \big(\phi^{-1}(B^u_q(\epsilon)\times B^s_qM)~\big/~\phi^{-1}(\partial B^u_q(\epsilon)\times B^s_qM) \big)
+   \end{align*} Furthermore we have the homöomorphism induced from $\phi$:
+   \begin{align*}
+       \big(\phi^{-1}(B^u_q(\epsilon)\times B^s_qM)~\big/~\phi^{-1}(\partial B^u_q(\epsilon)\times B^s_qM) \big) \to \big(B^u_q(\epsilon)\times B^s_qM~\big/~\partial B^u_q(\epsilon)\times B^s_qM \big)
+   \end{align*}
+   and the contraction 
+   \begin{align*}
+       \big(B^u_q(\epsilon)\times B^s_qM~\big/~\partial B^u_q(\epsilon)\times B^s_qM \big)~\to ~ B^u_q(\epsilon)\slash B^s_q(\epsilon),
+   \end{align*} which concludes the proof. 
+   
+The independence of the choice of the chart comes from $M$ being oriented and hence diffrent charts induce the same orientation. Furthermore, in the definition of the map between regular index pairs, we choose a $T$, but diffrent suitable $T$ give homotopic maps! \todo{show T and T' induced maps between regular index pairs are homotopic}
+
+\end{proof}
+
+
+
+\begin{theorem}
+    Given the filtration $N_{-1}\subseteq N_0 \subseteq \cdots \subseteq N_{m-1} \subseteq N_m=M$   from \ref{eq: Filtration conley}.  The following diagram commutes:
+    \begin{center}
+ % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAGEA9YAawF8AFAFlSAHVEBbOjgAWAMwBOdHsACCfMaLwNYwANJ9uDQWhwBKMyA3pMufIRQBGclVqMWbLrwDUjwSPEpWUVlNQ1xbV0DIxNzS2sQDGw8AiIyR1d6ZlZEEHEAIywAcwg0ZjhxBiwJXDgAfWAAR3EsMAACcXYFXDqeATkzPgisHRh9Qx9jAQA5OsbSABk5+NIbZPsiZwzqLI9cguLS8srq2oa0FvbO7pwGnl9BAaGtEaiJ+4YHmbq0RZ+VtZ2VIoMgAJky7hyID03A+glmPFIs14AFo-ADErYUg5kM5wTtIWwYcA0N5Pn5vj4-EjevFXDAoEV4ERQIoIBIkGQQDgIEhnG5smxxGg6Ao8IxOGgrKsQGyOYguTykKCEnK+dQlYgAMyqhTspAAFg1vMQAFYCYL9qJYAwcHQGjhumUYHxpay9fLQcbDbr9drvWbfZ6A1qLXs8qIACIwW32yauvgUPhAA
+\begin{tikzcd}
+{C^{k}(M,\mathfrak{A},\tilde{K}^{l}(pt))} \arrow[r, "\partial^p"] \arrow[d]                      & {C^{k+1}(M,\mathfrak{A},\tilde{K}^{l}(pt))} \arrow[d]                        \\
+{\bigoplus\limits_{q\in \Crit_k(f)}\tilde{K}^{k+l}(N_q,L_q)} \arrow[d] \arrow[r, "\Delta_{k+l}"] & {\bigoplus\limits_{p\in \Crit_{k+1}(f)}\tilde{K}^{k+l+1}(N_p,L_p)} \arrow[d] \\
+{K^{k+l}(N_k,N_{k-1})} \arrow[r, "\delta_{triple}"]                                              & {K^{p+l+1}(N_{k+1},N_k)}                                                    
+\end{tikzcd}
+    \end{center}
+\end{theorem}
+\begin{proof}
+    The lower part should just be homological algebra. \todo{}
+    The top part is the interesting part! So we assume for the moment, that $q\in \Crit_{p+1}(f)$ and $p\in \Crit_p(f)$ are the only critical points in $f^{-1}([a,b])$, where $a\coloneq f^{-1}(p)$ and $b\coloneq f^{-1}(q)$. \todo{this can be archived by alternations of f}.
+
+    Now, we choose the index pairs wisely:
+    First we define the notations:
+    \begin{align*}
+        M^t\coloneq \{x\in M| f(x)\leq t\}~,~ M_t\coloneq \{x\in M| f(x)\geq t\}
+    \end{align*}
+    and the constants:
+    \begin{align*}
+        c\in (a,b)~,~ \epsilon>0 \text{ small enough }~,~ T>0 \text{ large enough}
+    \end{align*}
+    Now we define the following sets:
+    \begin{align*}
+        N_q  & \coloneq    \{ x\in M_c |f(\phi_{-T}(x))  \leq b+ \epsilon  \}    \\
+        L_q  & \coloneq    \{ x\in N_q |f(x)             =    c            \}    \\
+        N_p  & \coloneq    \{ x\in M^c |f(\phi_T(x))     \geq a-\epsilon   \}    \\
+        L_p  & \coloneq    \{ x\in N_p |f( \phi_T(x))    =    a-\epsilon   \}
+    \end{align*}
+    and with those the sets;
+    \begin{align*}
+        C  & \coloneq  N_p \cup N_q                      \\
+        B  & \coloneq  N_p \cup L_q                      \\
+        A  & \coloneq  L_p \cup \mathring{(L_q-N_p)}
+    \end{align*}
+    With those we have the following list of facts:
+    \begin{enumerate}
+        \item $(N_q,L_q)$ is a regular index pair for $q$.
+        \item $(C,B)$ is an index pair for $q$.
+        \item $(N_p,L_p)$ is a regular index pair for $p$.
+        \item $(B,A)$ is an index pair for $p$
+    \end{enumerate}
+    \todo{proof the list}
+    We have a contraction
+    \begin{align*}
+      c:        (N_q,L_q )      &\to        (W(q\to)\cap M_c,W(q\to )\cap f^{-1}(c))
+    \end{align*} 
+ \todo{Muss noch gezeigt werden, dass das wirrklich deformiert!}
+ Furthermore we show that $N_p$ is a tubular neighbourhood of $W(\to p)\cap M^c$ and hence after analysing $L_p$ we get the isomorphisms to : \todo{Hier fehlt auch noch ein Beweis}
+ \begin{align*}
+     (N_p,L_p)\cong (\underbrace{D^{k-1}}_{\dim W(p \to)}\times \underbrace{D^{m-k+1}}_{\dim W(\to p)},\partial D^{k-1}\times D^{m-k+1})
+ \end{align*}
+ Now by compactnes the space $N_p\cap (W(q\to)\cap f^{-1}(c))$ has finitly many connected components $V_1,\dots V_n$, and for each $V_j$ there is a $x_j\in V_j\cap W(q\to p)$.
+ Since $N_p$ is a tubular neighbourhood we get the diffeomorphism 
+ \begin{align*}
+     \psi_p:N_p\to \underbrace{D^{k-1}}_{\dim W(p \to)}\times \underbrace{D^{m-k+1}}_{\dim W(\to p)}
+ \end{align*} such that
+ \begin{enumerate}
+     \item $\psi(L_p)=\partial D^{k-1}\times D^{m-k+1}$ ,
+     \item $\psi_p(N_p\cap W(\to p)=\{0\}\times D^{m-k+1}$ ,
+     \item $\psi(V_j)=D^{k-1}\times \{\theta_j\}$ where $\theta_j\in \partial D^{m-k+1}$.
+ \end{enumerate}
+ Using this map we get diffoemorphisms 
+ \begin{align*}
+     \psi_j:   V_j &\to D^{k-1}\\
+     x             &\mapsto \pi_1\circ \psi_p(x) \text{ where $\pi_1$ is the projection onto the first factor.}
+ \end{align*} This map resticts to a diffeomorphism from $\partial V_j=V_j\cap L_p$\todo{das durchdenken, ob das klar ist} to $\partial D^{k-1}$  Hence, we get the continouos maps.
+ \begin{center}
+     % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAAoA5AfTVIBleAShABfUuky58hFAEZyVWoxZt2AEQB6wANYBaOeIA6RtHQBOeRgAItug6JHjJ2PASIAmRdXrNWiDgA1bgArUhMzSywbYJCnJRgoAHN4IlAAM3MIAFskMhAcCCQFZT82CKxuORMAYyxzGusI7F4xCRBMnKQvAqLEEt9VAObKkJBqBjoAIxgGAAUpN1kQcywkgAscMQpRIA
+\begin{tikzcd}
+{(N_p,L_p)} \arrow[r, "\pi_1\circ \psi_p"] & {(D^{k-1},\partial D^{k-1})} & {(V_j,\partial V_j)} \arrow[l, "\psi_j"']
+\end{tikzcd}
+ \end{center} and hence 
+ \begin{center}
+     % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAGkA9YAawFoAjAF8AFADkA+mlIAZKQEoQQ0uky58hFAPJVajFmy69BogCLd+w0gB1raOgCc8jAATnjwxctXY8BIgBMOtT0zKyIHBYmIgBqEgBWNnaOzgwucfFeujBQAObwRKAAZg4QALZI2iA4EEhBemFsIrZo2AnynABUSiogJeWV1DVIZA0GEc12WBICtgDGWA5zLi1taB3d1Ax0AEYwDAAKan6aIA5YuQAWOEoUQkA
+\begin{tikzcd}
+{K^{k-1}(N_p,L_p)} & {K^{k-1}(D^{k-1},\partial D^{k-1})} \arrow[r, "(\psi_j)^*"] \arrow[l, "(\pi_1\circ \psi_p)^*"'] & {K^{k-1}(V_j,\partial V_j)}
+\end{tikzcd}
+ \end{center}
+An orientation of $T^u_pM$ induces a generator in the middle from the left (via $((\pi_1\circ \psi_p)^*)^{-1}$). This generator can be mapped via $((\psi_j)^*)^{-1}$ to $K^{k-1}(V_j,\partial V_j)$. Another way to get a generator on the right side is from an orientation of $T^u_qM$ as follows:
+We notice, that 
+ \begin{align*}
+     T_{x_j}V_j=(-\grad(f)_{x_j})^{\perp}\cap T_{x_j}W(q\to)
+ \end{align*} Hence, a orthogonal oriented basis $(-\grad(f)_{x_j}~,~b^u_q)$ gives a basis $(b^u_q)$ of $ T_{x_j}V_j$, and hence a generator of $K^{k-1}()$
+
+
+ \subsection*{different idea}
+ Using parallel transport, we get a basis of $T_{x_j}V_j$ in two ways: First from a basis of $T^u_pM$ via parrallel transport along the flow line of $\phi_t(x_j)$ and secondly because 
+  \begin{align*}
+     T_{x_j}V_j=(-\grad(f)_{x_j})^{\perp}\cap T_{x_j}W(q\to)
+he  \end{align*} Hence, a orthogonal oriented basis $(-\grad(f)_{x_j}~,~b^u_q)$ gives a basis $(b^u_q)$ of $ T_{x_j}V_j$. We define $n_j=\pm1$ depending on wheather those agree ore not. (This agrees with the sign in the Morse boundary operator associated to the orbit containing $x_j$) Now define $S(q\to)\coloneq W(q\to )\cap f^{-1}(c)=W^u(q)\cup L_q$. 
+With this we have the commuting diagram
+\begin{center}
+% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBoAmAXVJADcBDAGwFcYkQBpAPQGsAKAEKkAggEoQAX1LpMufIRQBGCtTpNW7bsB4BqRRL4BhUgPFSZ2PASJlFqhizaJOvPgGU+ARwA63nBFFSXwhaGAAnRiwwGGAPHz8A3zgYHABbKOY4AAJfACMsAHM4TwBjZjRfSPScOAB9ACsANQaJM2kQDEt5ImU7GgcNZy1dfT4AdS9ff1FfEvo0LIA5Ws9SOKmAtos5axQyYnt1JxA8wog0FjhKrGq6+qzufnWEwODQiKiY5+mklPSwTJZZr1VqSVQwKAFeBEUAAMzCEFSSDIIH8SGUakc7F8sEYOHotWAODCWAuMAkkna8MRSHINDRiGI5hA1KRiAAzPSIOjmazaVykJzMYMTt5cfjCcTSYxyZS4Qi2QAWAWIcgSSgSIA
+\begin{tikzcd}
+{\bigoplus\limits_j K^k(S(q\to),\overline{S(q\to)\setminus V_j})} \arrow[d]                             &                                              \\
+{K^k(S(q\to),\overline{S(q\to)\setminus \bigsqcup\limits_jV_j})} \arrow[d] \arrow[r, "\delta_{triple}"] & {K^{k+1}(W(q\to)\cap N_q,S(q\to))} \arrow[d] \\
+{K^k(B,A)} \arrow[r, "\delta_{triple}"]                                                                 & {K^{k+1}(C,B)}                              
+\end{tikzcd}
+\end{center}
+Now inspect the map 
+\begin{align*}
+    \delta_j: K^k(S(q\to),\overline{S(q\to)\setminus V_j})\to K^{k+1}(W(q\to)\cap N_q,S(q\to))
+\end{align*}
+This map is induced by the follwing maps:
+\begin{center}
+% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAAIAKAdU4EcAOgJwR2ASiEBjOmnYA5APp8JAyU1kBhBQEZ2AZX5CRYkAF9S6TLnyEUZbVVqMWbIQCEsAc05deg4aIq0rKKylLq7Fq6Bv7G7l5BEVoATL6GAeJSMvJKJuaW2HgERGTJjvTMrIgg8Z7e7LU+POkimarZoYmaOvotECoenl2RCqnNsYFZIbm1Q+GyIwDMXFENAhA0MABODFhgMMAxRv1CcDA4ALZ7THDsAGoKAFameRYgGIU2RNrk5c5VID8xzawRyYQEACMvAB6ThHAJiV4FazFFA-BzUCouap6IQAdxgUE8MC48OMSPeViKtmQPzKmP+bFxAgJRJJcL6iKEUM80NJ+MJxKEG22u32h05p3OVzAN3uT1M4jMjkF8CIoAAZlsIBckGQQCIkD8DXQsAw2AALCAQADWZjeWp1RuohsQyRdpvN1Sttvtmu1usQ+tdi3yIEdgeNroALGGI0hFi6IEhYw6Aymk0gAKxx9NuzOIHNpp35g3JwumCimIA
+\begin{tikzcd}
+ (W(q\to )\cap N_q)\cup C_1 S(q\to) \arrow[d, hook] \arrow[r]                                                                                            & W(q\to )\cap N_q)\big/(S(q\to)) \arrow[d]                        \\
+\Big( (W(q\to )\cap N_q)\cup C_1 S(q\to)\Big)\cup C_2 (W(q\to )\cap N_q) \arrow[d, hook] \arrow[r]                                                       & S\wedge (S(q\to)) \arrow[d]                                      \\
+\Bigg( \Big( (W(q\to )\cap N_q)\cup C_1 S(q\to)\Big)\cup C_2 (W(q\to )\cap N_q)\Bigg)\cup  C_3 (C_1 \overline{S(q\to)\setminus V_j}) \arrow[r] \arrow[r] & S\wedge (S(q\to))\big/ (S\wedge\overline{S(q\to)\setminus V_j} )
+\end{tikzcd}
+\end{center}
+
+
+ Let $\beta$ be a generator of the Group 
+ \begin{align*}
+     K^{k+1}(W(q\to)\cup N_q,W(q\to)\cup L_q)
+ \end{align*} Since The $V_j\subset W(q\to)\cup N_q$ are contractible, without restrictions we have that $\beta\einsch{V_j}=V_j\times \C^{k+1}$ with the basis $(b_j,v_j)$ such that $b_j$ is an orientation of $T_{x_j}V_j$ and $(b_j,v_j)$ is an oriented basis of $T_{x_j} (W(q\to)\cup N_q)$. Now how does 
+ \begin{align*}
+     \delta^j_{pair} (\beta)\in K^{k}
+ \end{align*}
+\end{proof}
