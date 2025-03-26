@@ -233,5 +233,12 @@ This map is induced by the follwing maps:
  \begin{align*}
      \delta^j_{pair} (\beta)\in K^{k}
  \end{align*}
- Tester 
+Notice how our map is from a $k+1-$ sphere $(W(q\to)\cap N_q)\big/ S(q\to )\cong S^{k+1}$ to a $k+1-$Sphere $S\wedge (V_j\big/ \partial V_j)\cong S^{k+1}$. Hence, we want to figure out, if it is orientation reversing or not. For this we need to really focus on the sphere-isomorphisms. And ask, how the map looks if the diagramm commutes:
+\begin{center}
+	% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAAIAKAdU4EcAOgJwR2ASiEBjOmnYA5APp8JAyU1kBhBQEZ2AZX5CRYkAF9S6TLnyEUZbVVqMWbIQCEsAc0+d27r748hsKiKtKyispS6uxaugaCISoenmExWgBMXLyJIuJSMvJKyV6p0bKxCgDMXHF+AhA0MABODFhgMMAJRhAqcDA4ALbtTHDsAGoKAFamJuaW2HgERNrkjvTMrIggegB6wADWANTapmYWIBiLNiukDtQbLtt7hydnpo4wUJ7wRKAAZs0IIMkGQQCIkKtwXQsAw2AALCAQA7nAFAkGIMEQxAZeYgQHAyHUbFVPEEjEZYkQJCkiimIA
+	\begin{tikzcd}
+		(W(q\to )\cap N_q)\cup C_1 S(q\to) \arrow[d, hook] \arrow[r]                                                                                  & S^{k+1} \arrow[d] \\
+		\Bigg( \Big( (W(q\to )\cap N_q)\cup C_1 S(q\to)\Big)\cup C_2 (W(q\to )\cap N_q)\Bigg)\cup  C_3 (C_1 \overline{S(q\to)\setminus V_j}) \arrow[r] & S^{k+1}          
+	\end{tikzcd}
+\end{center}
 \end{proof}
