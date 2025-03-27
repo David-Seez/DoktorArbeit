@@ -241,4 +241,22 @@ Notice how our map is from a $k+1-$ sphere $(W(q\to)\cap N_q)\big/ S(q\to )\cong
 		\Bigg( \Big( (W(q\to )\cap N_q)\cup C_1 S(q\to)\Big)\cup C_2 (W(q\to )\cap N_q)\Bigg)\cup  C_3 (C_1 \overline{S(q\to)\setminus V_j}) \arrow[r] & S^{k+1}          
 	\end{tikzcd}
 \end{center}
-\end{proof}
+Hence we need to specify the horizontal (and vertical) maps. 
+So we start with the top one:
+\begin{align*}
+	\big(W(q\to )\cap N_q \cup C_1 S(q\to ) \big)& \to S^{k+1}
+\end{align*}
+First we have a map $E^u:T^u_qM \to W(q\to)$ from theorem \ref{thm: stable and unstable manifold theorem} which is a diffeomorphism onto its range. Hence, using its inverse we have a homeopmorphism $W(q \to) \to T^u_qM \cong \R^{k+1}$ where the last congruence is given by an orientation. We can restrict this homeomorphism to $W(q\to)\cap N_q=W(q\to)\cap M_c$ to get a mapping onto a closed subspace of $R^{k+1}$ and after a rescaling this is a closed Disk in $R^{k+1}$. This follows from $f(E^u(x))$ strictly decreasing if $\norm{x}$ decreses, which again follows from the definiton of $E^u$, which comes from \glqq flowing along the flow downwards \grqq\. Hence the condition in the image of $f$ being greater or equal to $c$ translates to a condition in the domain of having norm less or equal to someting. 
+
+
+
+In fact this is a closed Disc, since the map $E^u(x)=E^u_n(x)=\phi^n\circ \chi^{-1} \circ \tilde{h}^n(x)$ for a suitible $n$. ($\chi$ is a chart in this context and we can assume that its image is a disc of radius $1$) Careful, we swiched back to our discrete setting defining $\phi:=\phi_1$. Compare the proof of theorem \ref{thm: stable and unstable manifold theorem} to the definitinos. Hence, the inverse is given by $\tilde{h}^{-n}(x)\circ \chi \circ \phi^{-n}$. Since there is no critical point above $c$ we can assume, that all points in $W(q\to)$ flow below $c$ in finite time. 
+Let $U\subset W(q\to)\cap M_c$ be the domain of $\chi$ and $\partial U$ be its boundary. Now for each $x\in D^{k+1}$ we have $\chi^{-1}(\frac{x}{\norm{x}})\in \partial U$ and for each $x$ we  define $t_x$ such that $\phi_{t_x}(\chi^{-1}(\frac{x}{\norm{x}}))\in f^{-1}(x)$. With this we define the rescaling
+\begin{align*}
+	\chi\big( \phi^{-n}(W(q\to)\cap M_c)\big) & \to 	 \overline{D^{k+1}}\\
+	x										  & \mapsto  t_{x}x
+\end{align*}
+
+Define $t_x$ such that $f(\phi_{t_x}(x))=c$. Now let $n$ be the smallest natural number such $\phi^{-n}(W(q\to )\cap M_c$) is contained in the domain of $\chi$. Now $\phi^{-n}(W(q\to)\cup f^{-1}(c))$
+
+ \end{proof}
