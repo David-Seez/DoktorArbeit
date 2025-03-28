@@ -259,4 +259,87 @@ Let $U\subset W(q\to)\cap M_c$ be the domain of $\chi$ and $\partial U$ be its b
 
 Define $t_x$ such that $f(\phi_{t_x}(x))=c$. Now let $n$ be the smallest natural number such $\phi^{-n}(W(q\to )\cap M_c$) is contained in the domain of $\chi$. Now $\phi^{-n}(W(q\to)\cup f^{-1}(c))$
 
+Lets restrict the chart $\chi^0 \eqcolon \chi:T^uM\supset U\to W(q\to)$ such that $U=\overline{D^{k+1}}$ is a closed Disc. Now for each 
+
+$x\in  U\setminus q$ there is a number $t_{0,x}\geq 0$ such that $\phi_{t_{0,x}}(\chi(x))\in \chi(\partial U)$. Furthermore for each $x\in  U$, there is a number$t_{1,x}$ such that $\phi_{t_{1,x}}(\chi(x))\in f^{-1}(c)$ Those numbers all smoothly depend on $x$.
+
+
+
+ Now define the map
+\begin{align*}
+\Psi:	\overline {D^{k+1}}			&\to 		W(q\to)\cap M_c\\
+	x				&\mapsto	\phi_{(t_{1,x}-t_{0,x})}\chi((x))
+\end{align*}
+
+
+
+
+
+This map is a homeomorphism, since $\chi$ is one, and the flow as a map $\phi: \R \times M \to M$ is continouos. Furthermore there is an inverse given as follows: For each $x\in W(q\to)\cap M_c$ there is a real number $s_{0,x}$ such that $\phi_{s_{0,x}}(x)\in \chi(\partial U)$, and a real number $s_{1,x}$ such that $\phi_{s_{1,x}}(x)\in f^{-1}(c)$. Then the map 
+\begin{align*}
+\Phi: W(q\to)\cap M_c 	&\to     \overline {D^{k+1}} \\
+x						&\mapsto \chi^{-1}(\phi_{{s_0,x}-s_{1,x}})(x)
+\end{align*}
+is the inverse of $\chi$: To see this notice that for $y=\chi(x)$ we have $t_{0,x}=s_{0,y}$, and $t_{1,x}=s_{1,y}$ by definition. 
+
+
+
+Now call $A\coloneq  \phi_{(t_{1,x}-t_{0,x})}\chi(x)=\phi_{(s_{1,\chi(x)}-s_{0,\chi(y)})}\chi(x)$, then we have:
+\begin{itemize}
+	\item $s_{1,A}=s_{0,\chi(x)}$ and,
+	\item $s_{0,A}=-s_{1,\chi(x)}+2s_{0,\chi(x)}$.
+\end{itemize}
+This is because:
+\begin{equation*}
+		\phi_{s_{0,\chi(x)}}\circ \phi_{(t_{1,x}-t_{0,x})}\chi(x)=\phi_{s_{0,\chi(x)}}\circ  \phi_{(s_{1,\chi(x)}-s_{0,\chi(y)})}\chi(x)= \phi_{(s_{1,\chi(x)})}\chi((x)) \in f^{-1}(c)\, ,
+\end{equation*} 
+and 
+\begin{equation*}
+	\phi_{-s_{1,\chi(x)}+2s_{0,\chi(x)}}\circ \phi_{(s_{1,\chi(x)}-s_{0,\chi(y)})}\chi(x)= \phi_{(s_{0,\chi(x)})}\chi((x)) \in f(\partial U)\, .
+\end{equation*} 
+Hence  
+\begin{align*}
+	\Phi \circ \Psi(x)
+	&= 	\Phi\Big( \phi_{(t_{1,x}-t_{0,x})}\chi((x)) \Big) \\
+	&= 	\Phi\Big( \underbrace{\phi_{(s_{1,\chi(x)}-s_{0,\chi(y)})}\chi(x)}_{=A} \Big) \\
+	&=  \chi^{-1}\circ \phi_{s_{0,A}-s_{1,A}}(\phi_{(s_{1,\chi(x)}-s_{0,\chi(y)})}\chi(x)) \\
+	&=  \chi^{-1}\circ \underbrace{\phi_{-s_{1,\chi(x)}+2s_{0,\chi(x)} -s_{0,\chi(x)} }(\phi_{(s_{1,\chi(x)}-s_{0,\chi(y)})}}_{=\id}\chi(x)) \\
+	&=  x
+\end{align*}
+
+And the other way round we have the relations for $B\coloneq \chi^{-1}(\phi_{s_{0,x}-s_{1,x}}(x))$:
+\begin{align*}
+t_{0,B}&=	s_{1,x}\\
+t_{1,B}&=	-s_{0,x}+2s_{1,x}\, , 
+\end{align*}
+since we can calculate:
+\begin{align*}
+	\phi_{s_{1,x}}(\chi(B))			  &= \phi_{s_{1,x}}(\phi_{s_{0,x}-s_{1,x}})=\phi_{s_{0,x}}(x)\in f(\partial U)\\
+	\phi_{-s_{0,x}+2s_{1,x}}(\chi(B)) &= \phi_{-s_{0,x}+2s_{1,x}}(\phi_{s_{0,x}-s_{1,x}})= \phi_{s_{1,x}}(x) \in f^{-1}(c)
+\end{align*}
+\begin{align*}
+	\Psi\circ \Phi(x)
+	&=	\Psi \big( \chi^{-1}(\phi_{s_{0,x}-s_{1,x}})(x) \big)  \\
+	&=	\phi_{t_{1,B}-t_{0,B}}\chi \circ \chi^{-1}(\phi_{s_{0,x}-s_{1,x}})(x) \\
+	&=  \phi_{	-s_{0,x}+2s_{1,x}-s_{1,x}}\phi_{s_{0,x}-s_{1,x}})(x) \\
+	&=  x
+\end{align*}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  \end{proof}
