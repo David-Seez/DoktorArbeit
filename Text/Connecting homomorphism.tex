@@ -62,13 +62,13 @@ Using this map we get diffoemorphisms
 \end{center}
 Notice how our map is from a $k+1-$ sphere $(W(q\to)\cap N_q)\big/ S(q\to )\cong S^{k+1}$ to a $k+1-$Sphere $S\wedge (V_j\big/ \partial V_j)\cong S^{k+1}$. Hence, we want to figure out, if it is orientation reversing or not. For this we need to really focus on the sphere-isomorphisms. And ask, how the map looks if the diagramm commutes:
 \begin{center}
-	% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAAIAKAdU4EcAOgJwR2ASiEBjOmnYA5APp8JAyU1kBhBQEZ2AZX5CRYkAF9S6TLnyEUZbVVqMWbIQCEsAc0+d27r748hsKiKtKyispS6uxaugaCISoenmExWgBMXLyJIuJSMvJKyV6p0bKxCgDMXHF+AhA0MABODFhgMMAJRhAqcDA4ALbtTHDsAGoKAFamJuaW2HgERNrkjvTMrIggegB6wADWANTapmYWIBiLNiukDtQbLtt7hydnpo4wUJ7wRKAAZs0IIMkGQQCIkKtwXQsAw2AALCAQA7nAFAkGIMEQxAZB7OLYgIQABXhWFRIEBwMh1GxVXmFPRSFx4IgSDpFFMQA
-	\begin{tikzcd}
-		(W(q\to )\cap N_q)\cup C_1 S(q\to) \arrow[d, hook] \arrow[r, "\Phi"]                                                                          & S^{k+1} \arrow[d] \\
-		\Bigg( \Big( (W(q\to )\cap N_q)\cup C_1 S(q\to)\Big)\cup C_2 (W(q\to )\cap N_q)\Bigg)\cup  C_3 (C_1 \overline{S(q\to)\setminus V_j}) \arrow[r] & S^{k+1}          
-	\end{tikzcd}
+% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAAIAKAdU4EcAOgJwR2ASiEBjOmnYA5APp8JAyU1kBhBQEZ2AZX5CRYkAF9S6TLnyEUZbVVqMWbIQCEsAc0+d27r748hsKiKtKyispS6uxaugaCISoenmExWgBMXLyJIuJSMvJKyV6p0bKxCgDMXHF+AhA0MABODFhgMMAJRhAqcDA4ALbtTHDsAGoKAFamJuaW2HgERNrkjvTMrIggegB6wADWANTapmYWIBiLNiukDtQbLtt7hydnpo4wUJ7wRKAAZs0IIMkGQQCIkKtwXQsAw2AALCAQA7nAFAkGIMEQxAZB7OLYgIQABXhWFRIEBwMh1GxVTxm1cAiJ2HJlIxuPBECQVQ+piAA
+\begin{tikzcd}
+	(W(q\to )\cap N_q)\cup C_1 S(q\to) \arrow[d, hook] \arrow[r, "\Phi"]                                                                                  & S^{k+1} \arrow[d] \\
+	\Bigg( \Big( (W(q\to )\cap N_q)\cup C_1 S(q\to)\Big)\cup C_2 (W(q\to )\cap N_q)\Bigg)\cup  C_3 (C_1 \overline{S(q\to)\setminus V_j}) \arrow[r, "\Psi"] & S^{k+1}          
+\end{tikzcd}
 \end{center}
-Hence we need to specify the horizontal (and vertical) maps. 
+Hence we need to specify the horizontal (and vertical) maps. \todo{Why is the left an inclusion?}
 So we start with the top one(or rqther its inverse):
 From the proof of theorem \ref{thm: stable and unstable manifold theorem} we recycle a view maps. 
 Lets restrict the chart $\chi^0 \eqcolon \chi:T^uM\supset U\to W(q\to)$ such that $U=\overline{D^{k+1}}$ is a closed Disc. Now for each 
@@ -161,18 +161,26 @@ To summarize, we get a continouos map $\Theta$:
 	\to \big( C_1 V_j \big)\big/ \big( V_j \cap C_1(\partial V_j)\big) 
 \end{align*}
 Again this is continouos but not even a homotopie equivalence. However, it induces an isomorphism in the K-groups. 
-via $\psi$ we get a map $V_j\to \overline{D^k}$, which lets us build a map 
+via $\psi$ we get a map $V_j\to \overline{D^k}$. 
 \begin{align*}
 	\tilde{\psi}: \big( C_1 V_j \big)\big/ \big( V_j \cap C_1(\partial V_j)\big)  &\to \overline{D^k}\times I \big/ \big(\partial \overline{D^k}\times I\cup \overline{D^k}\times \{0,1\} \big)\\
 	(x,t)					&\mapsto \psi(x,t)
 \end{align*}
-Hence we get the map 
-Now we have the homromorphism
+Now by rescaling the last factor:
 \begin{align*}
-	\overline{D^k}\times I \big/ \big(\partial \overline{D^k}\times I\cup \overline{D^k}\times \{0,1\} \big) 
+	\tilde{r}: \overline{D^k}\times I \to \overline{D^{k+1}}
+\end{align*} 
+we get the homomorphism
+\begin{align*}
+	r:\overline{D^k}\times I \big/ \big(\partial \overline{D^k}\times I\cup \overline{D^k}\times \{0,1\} \big) 
 				&\to \overline{D^{k+1}} \big/ \partial \overline{D^{k+1}}\\
-	(x,t)		&\mapsto \norm{(\norm{x}_2,t)}_{\infty} (x,t) 
-\end{align*}
-\todo{passt noch nicht}
+	(x,t)		& \mapsto \overline{r(x,t)}\, .
+\end{align*} To see the well definition, notice how for closed sets we have the equality $\partial(A\times B)=\partial A \times B \cup A\times \partial B$. 
+In sum we get the map :
+\begin{align*}
+	\Psi: 	\Bigg( \Big( (W(q\to )\cap N_q)\cup C_1 S(q\to)\Big)\cup C_2 (W(q\to )\cap N_q)\Bigg)\cup  C_3 (C_1 \overline{S(q\to)\setminus V_j}) \\ 
+	\to \overline{D^{k+1}} \big/ \partial \overline{D^{k+1}}
+\end{align*} given by $\Psi: r \circ \tilde{\psi} \circ \Theta$
+Now we have all maps to 
 \end{proof}
 	
