@@ -1,0 +1,178 @@
+\begin{theorem}
+	Given the filtration $N_{-1}\subseteq N_0 \subseteq \cdots \subseteq N_{m-1} \subseteq N_m=M$   from \ref{eq: Filtration conley}.  The following diagram commutes:
+	\begin{center}
+	% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAGEA9YAawF8AFAFlSAHVEBbOjgAWAMwBOdHsACCfMaLwNYwANJ9uDQWhwBKMyA3pMufIRQBGclVqMWbLrwDUjwSPEpWUVlNQ1xbV0DIxNzS2sQDGw8AiIyR1d6ZlZEEHEAIywAcwg0ZjhxBiwJXDgAfWA0cSwwAAJxdgVcOp4BOTM+CKwdGH1DH2MBADk6tFIAGVn40htk+yJnDOosj1yC4tLyyurahoBHZraOrpwGnl9BfsGtYajx+4YH6bqzhZ-l1Z2VIoMgAJky7hyID03A+ghmPFIM14AFo-ADErYUg5kM5wdtIWwYY1vJ8-N8fH4kT14q4YFAivAiKBFBAJEgyCAcBAkM43Nk2OI0HQFHhGJw0FYViBWezEJzuUhQQlZbzqIrEABmFUKNlIAAs6p5iAArASBXtRLAGDg6A0cF0yjA+FKWbq5aCjQadXqtV7TT6Pf7NebdnlRAARGA2u0TF18Ch8IA
+	\begin{tikzcd}
+		{C^{k}(M,\mathfrak{A},\tilde{K}^{l}(pt))} \arrow[r, "\partial^p"] \arrow[d]                      & {C^{k+1}(M,\mathfrak{A},\tilde{K}^{l}(pt))} \arrow[d]                        \\
+		{\bigoplus\limits_{p\in \Crit_k(f)}\tilde{K}^{k+l}(N_p,L_p)} \arrow[d] \arrow[r, "\Delta_{k+l}"] & {\bigoplus\limits_{q\in \Crit_{k+1}(f)}\tilde{K}^{k+l+1}(N_q,L_q)} \arrow[d] \\
+		{K^{k+l}(N_k,N_{k-1})} \arrow[r, "\delta_{triple}"]                                              & {K^{p+l+1}(N_{k+1},N_k)}                                                    
+	\end{tikzcd}
+	\end{center}
+\end{theorem}
+\begin{proof}
+So we assume for the moment, that $q\in \Crit_{k+1}(f)$ and $p\in \Crit_k(f)$ are the only critical points in $f^{-1}([a,b])$, where $a\coloneq f^{-1}(p)$ and $b\coloneq f^{-1}(q)$.
+Now, we choose the index pairs wisely:
+First we define the notations:
+\begin{align*}
+	M^t\coloneq \{x\in M| f(x)\leq t\}~,~ M_t\coloneq \{x\in M| f(x)\geq t\}
+\end{align*}
+and the constants:
+\begin{align*}
+	c\in (a,b)~,~ \epsilon>0 \text{ small enough }~,~ T>0 \text{ large enough}
+\end{align*}
+Now we define the following sets:
+\begin{align*}
+	N_q  & \coloneq    \{ x\in M_c |f(\phi_{-T}(x))  \leq b+ \epsilon  \}    \\
+	L_q  & \coloneq    \{ x\in N_q |f(x)             =    c            \}    \\
+	N_p  & \coloneq    \{ x\in M^c |f(\phi_T(x))     \geq a-\epsilon   \}    \\
+	L_p  & \coloneq    \{ x\in N_p |f( \phi_T(x))    =    a-\epsilon   \}
+\end{align*}
+and with those the sets;
+\begin{align*}
+	C  & \coloneq  N_p \cup N_q                      \\
+	B  & \coloneq  N_p \cup L_q                      \\
+	A  & \coloneq  L_p \cup \mathring{(L_q-N_p)}
+\end{align*}
+With those we have the following list of facts:
+\begin{enumerate}
+	\item $(N_q,L_q)$ is a regular index pair for $q$.
+	\item $(C,B)$ is an index pair for $q$.
+	\item $(N_p,L_p)$ is a regular index pair for $p$.
+	\item $(B,A)$ is an index pair for $p$
+\end{enumerate}
+ Since $N_p$ is a tubular neighbourhood we get the diffeomorphism 
+\begin{align*}
+	\psi_p:N_p\to \underbrace{D^{k-1}}_{\dim W(p \to)}\times \underbrace{D^{m-k+1}}_{\dim W(\to p)}
+\end{align*} such that
+\begin{enumerate}
+	\item $\psi(L_p)=\partial D^{k-1}\times D^{m-k+1}$ ,
+	\item $\psi_p(N_p\cap W(\to p)=\{0\}\times D^{m-k+1}$ ,
+	\item $\psi(V_j)=D^{k-1}\times \{\theta_j\}$ where $\theta_j\in \partial D^{m-k+1}$.
+\end{enumerate}
+Using this map we get diffoemorphisms 
+\begin{align*}
+	\psi_j:   V_j &\to D^{k-1}\\
+	x             &\mapsto \pi_1\circ \psi_p(x) \text{ where $\pi_1$ is the projection onto the first factor.}
+\end{align*} This map resticts to a diffeomorphism from $\partial V_j=V_j\cap L_p$\todo{das durchdenken, ob das klar ist} to $\partial D^{k-1}$  Hence, we get the continouos maps.
+\begin{center}
+	% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAAoA5AfTVIBleAShABfUuky58hFAEZyVWoxZt2AEQB6wANYBaOeIA6RtHQBOeRgAItug6JHjJ2PASIAmRdXrNWiDgA1bgArUhMzSywbYJCnJRgoAHN4IlAAM3MIAFskMhAcCCQFZT82CKxuORMAYyxzGusI7F4xCRBMnKQvAqLEEt9VAObKkJBqBjoAIxgGAAUpN1kQcywkgAscMQpRIA
+	\begin{tikzcd}
+		{(N_p,L_p)} \arrow[r, "\pi_1\circ \psi_p"] & {(D^{k-1},\partial D^{k-1})} & {(V_j,\partial V_j)} \arrow[l, "\psi_j"']
+	\end{tikzcd}
+\end{center}
+Notice how our map is from a $k+1-$ sphere $(W(q\to)\cap N_q)\big/ S(q\to )\cong S^{k+1}$ to a $k+1-$Sphere $S\wedge (V_j\big/ \partial V_j)\cong S^{k+1}$. Hence, we want to figure out, if it is orientation reversing or not. For this we need to really focus on the sphere-isomorphisms. And ask, how the map looks if the diagramm commutes:
+\begin{center}
+	% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAAIAKAdU4EcAOgJwR2ASiEBjOmnYA5APp8JAyU1kBhBQEZ2AZX5CRYkAF9S6TLnyEUZbVVqMWbIQCEsAc0+d27r748hsKiKtKyispS6uxaugaCISoenmExWgBMXLyJIuJSMvJKyV6p0bKxCgDMXHF+AhA0MABODFhgMMAJRhAqcDA4ALbtTHDsAGoKAFamJuaW2HgERNrkjvTMrIggegB6wADWANTapmYWIBiLNiukDtQbLtt7hydnpo4wUJ7wRKAAZs0IIMkGQQCIkKtwXQsAw2AALCAQA7nAFAkGIMEQxAZB7OLYgIQABXhWFRIEBwMh1GxVXmFPRSFx4IgSDpFFMQA
+	\begin{tikzcd}
+		(W(q\to )\cap N_q)\cup C_1 S(q\to) \arrow[d, hook] \arrow[r, "\Phi"]                                                                          & S^{k+1} \arrow[d] \\
+		\Bigg( \Big( (W(q\to )\cap N_q)\cup C_1 S(q\to)\Big)\cup C_2 (W(q\to )\cap N_q)\Bigg)\cup  C_3 (C_1 \overline{S(q\to)\setminus V_j}) \arrow[r] & S^{k+1}          
+	\end{tikzcd}
+\end{center}
+Hence we need to specify the horizontal (and vertical) maps. 
+So we start with the top one(or rqther its inverse):
+From the proof of theorem \ref{thm: stable and unstable manifold theorem} we recycle a view maps. 
+Lets restrict the chart $\chi^0 \eqcolon \chi:T^uM\supset U\to W(q\to)$ such that $U=\overline{D^{k+1}}$ is a closed Disc. Now for each 
+$x\in  U\setminus q$ there is a number $t_{0,x}\geq 0$ such that $\phi_{t_{0,x}}(\chi(x))\in \chi(\partial U)$. Furthermore for each $x\in  U$, there is a number$t_{1,x}$ such that $\phi_{t_{1,x}}(\chi(x))\in f^{-1}(c)$ Those numbers all smoothly depend on $x$.
+
+Now define the map
+\begin{align*}
+	\tilde{\Phi}:	\overline {D^{k+1}}			&\to 		W(q\to)\cap M_c\\
+	x				&\mapsto	\phi_{(t_{1,x}-t_{0,x})}\chi((x)) \, .
+\end{align*}
+
+
+This map is a homeomorphism, since $\chi$ is one, and the flow as a map $\phi: \R \times M \to M$ is continouos. Furthermore there is an inverse given as follows: For each $x\in W(q\to)\cap M_c$ there is a real number $s_{0,x}$ such that $\phi_{s_{0,x}}(x)\in \chi(\partial U)$, and a real number $s_{1,x}$ such that $\phi_{s_{1,x}}(x)\in f^{-1}(c)$. Then the map 
+\begin{align*}
+	\Phi: W(q\to)\cap M_c 	&\to     \overline {D^{k+1}} \\
+	x						&\mapsto \chi^{-1}(\phi_{s_{0,x}-s_{1,x}})(x)
+\end{align*}
+is the inverse of $\tilde{\Phi}$: To see this notice that for $y=\chi(x)$ we have $t_{0,x}=s_{0,y}$, and $t_{1,x}=s_{1,y}$ by definition. 
+
+
+
+Now call $A\coloneq  \phi_{(t_{1,x}-t_{0,x})}\chi(x)=\phi_{(s_{1,\chi(x)}-s_{0,\chi(y)})}\chi(x)$, then we have:
+\begin{itemize}
+	\item $s_{1,A}=s_{0,\chi(x)}$ and,
+	\item $s_{0,A}=-s_{1,\chi(x)}+2s_{0,\chi(x)}$.
+\end{itemize}
+This is because:
+\begin{equation*}
+	\phi_{s_{0,\chi(x)}}\circ \phi_{(t_{1,x}-t_{0,x})}\chi(x)=\phi_{s_{0,\chi(x)}}\circ  \phi_{(s_{1,\chi(x)}-s_{0,\chi(y)})}\chi(x)= \phi_{(s_{1,\chi(x)})}\chi((x)) \in f^{-1}(c)\, ,
+\end{equation*} 
+and 
+\begin{equation*}
+	\phi_{-s_{1,\chi(x)}+2s_{0,\chi(x)}}\circ \phi_{(s_{1,\chi(x)}-s_{0,\chi(y)})}\chi(x)= \phi_{(s_{0,\chi(x)})}\chi((x)) \in f(\partial U)\, .
+\end{equation*} 
+Hence  
+\begin{align*}
+	\Phi \circ \tilde{\Phi}(x)
+	&= 	\Phi\Big( \phi_{(t_{1,x}-t_{0,x})}\chi((x)) \Big) \\
+	&= 	\Phi\Big( \underbrace{\phi_{(s_{1,\chi(x)}-s_{0,\chi(y)})}\chi(x)}_{=A} \Big) \\
+	&=  \chi^{-1}\circ \phi_{s_{0,A}-s_{1,A}}(\phi_{(s_{1,\chi(x)}-s_{0,\chi(y)})}\chi(x)) \\
+	&=  \chi^{-1}\circ \underbrace{\phi_{-s_{1,\chi(x)}+2s_{0,\chi(x)} -s_{0,\chi(x)} }(\phi_{(s_{1,\chi(x)}-s_{0,\chi(y)})}}_{=\id}\chi(x)) \\
+	&=  x
+\end{align*}
+
+And the other way round we have the relations for $B\coloneq \chi^{-1}(\phi_{s_{0,x}-s_{1,x}}(x))$:
+\begin{align*}
+	t_{0,B}&=	s_{1,x}\\
+	t_{1,B}&=	-s_{0,x}+2s_{1,x}\, , 
+\end{align*}
+since we can calculate:
+\begin{align*}
+	\phi_{s_{1,x}}(\chi(B))			  &= \phi_{s_{1,x}}(\phi_{s_{0,x}-s_{1,x}})=\phi_{s_{0,x}}(x)\in f(\partial U)\\
+	\phi_{-s_{0,x}+2s_{1,x}}(\chi(B)) &= \phi_{-s_{0,x}+2s_{1,x}}(\phi_{s_{0,x}-s_{1,x}})= \phi_{s_{1,x}}(x) \in f^{-1}(c)
+\end{align*}
+\begin{align*}
+	\tilde{\Phi}\circ \Phi(x)
+	&=	\tilde{\Phi} \big( \chi^{-1}(\phi_{s_{0,x}-s_{1,x}})(x) \big)  \\
+	&=	\phi_{t_{1,B}-t_{0,B}}\chi \circ \chi^{-1}(\phi_{s_{0,x}-s_{1,x}})(x) \\
+	&=  \phi_{	-s_{0,x}+2s_{1,x}-s_{1,x}}\phi_{s_{0,x}-s_{1,x}})(x) \\
+	&=  x
+\end{align*}
+
+So now we have a diffeomorpism $\Phi:W(q\to)\cap N_q\to \overline{D^{k+1}}$. We extend this to a continuous map 
+\begin{align*}
+	(W(q\to)\cap N_q)\cup C_1S(q\to) \to \overline{D^{k+1}}\slash \partial \overline{D^{k+1}}
+\end{align*} by first contracting $C_1S(q\to)$:
+\begin{align*}
+	(W(q\to)\cap N_q)\cup C_1S(q\to) \to 	(W(q\to)\cap N_q) \big/ S(q\to)
+\end{align*} This is neither a homeopmorphism nor a homotopie equivalence. But it is continouos and since $C_1S(q\to)$ was contractible, it induces an isomorphims in the K-groups. Now since $\Phi$ maps $S(q\to)$ to $\partial D^{k+1}$ we can compose the contracting with $\Phi$ to get a continouos map that induces an isomorphism in the K-group, and which we will also call $\Phi$:
+\begin{align*}
+	\Phi: (W(q\to)\cap N_q)\cup C_1S(q\to) \to \overline{D^{k+1}}\slash \partial \overline{D^{k+1}} \,. 
+\end{align*}
+
+Now we want to construct the map 
+\begin{equation}
+	\Psi: \Bigg( \Big( (W(q\to )\cap N_q)\cup C_1 S(q\to)\Big)\cup C_2 (W(q\to )\cap N_q)\Bigg)\cup  C_3 (C_1 \overline{S(q\to)\setminus V_j}) \to S^{k+1}
+\end{equation}
+First we contract all unnecesarry parts: 
+\begin{align*}
+	\Bigg( \Big( (W(q\to )\cap N_q)\cup C_1 S(q\to)\Big)\cup C_2 (W(q\to )\cap N_q)\Bigg)\cup  C_3 (C_1 \overline{S(q\to)\setminus V_j}) \\
+	\to \Bigg( \Big( (W(q\to )\cap N_q)\cup C_1 S(q\to)\Big) \Big/ (W(q\to )\cap N_q)\Bigg) \Big/ (C_1 \overline{S(q\to)\setminus V_j}) \\
+	=   \Big( (W(q\to )\cap N_q)\cup C_1 S(q\to)\Big)         \Big/     
+	\Big( (W(q\to )\cap N_q) \cup (C_1 \overline{S(q\to)\setminus V_j}) \Big) \\
+	= \Big( C_1 S(q\to)  \Big)  \big/   \big( S(q\to ) \cup (C_1 \overline{S(q\to)\setminus V_j}) \big)\\
+	= \big( C_1 V_j \big)\big/ \big( V_j \cap C_1(\partial V_j)\big) 
+\end{align*}
+To summarize, we get a continouos map $\Theta$: 
+\begin{align*}
+	\Bigg( \Big( (W(q\to )\cap N_q)\cup C_1 S(q\to)\Big)\cup C_2 (W(q\to )\cap N_q)\Bigg)\cup  C_3 (C_1 \overline{S(q\to)\setminus V_j}) \\ 
+	\to \big( C_1 V_j \big)\big/ \big( V_j \cap C_1(\partial V_j)\big) 
+\end{align*}
+Again this is continouos but not even a homotopie equivalence. However, it induces an isomorphism in the K-groups. 
+via $\psi$ we get a map $V_j\to \overline{D^k}$, which lets us build a map 
+\begin{align*}
+	\tilde{\psi}: \big( C_1 V_j \big)\big/ \big( V_j \cap C_1(\partial V_j)\big)  &\to \overline{D^k}\times I \big/ \big(\partial \overline{D^k}\times I\cup \overline{D^k}\times \{0,1\} \big)\\
+	(x,t)					&\mapsto \psi(x,t)
+\end{align*}
+Hence we get the map 
+Now we have the homromorphism
+\begin{align*}
+	\overline{D^k}\times I \big/ \big(\partial \overline{D^k}\times I\cup \overline{D^k}\times \{0,1\} \big) 
+				&\to \overline{D^{k+1}} \big/ \partial \overline{D^{k+1}}\\
+	(x,t)		&\mapsto \norm{(\norm{x}_2,t)}_{\infty} (x,t) 
+\end{align*}
+\todo{passt noch nicht}
+\end{proof}
+	

@@ -246,7 +246,7 @@ So we start with the top one:
 \begin{align*}
 	\big(W(q\to )\cap N_q \cup C_1 S(q\to ) \big)& \to S^{k+1}
 \end{align*}
-First we have a map $E^u:T^u_qM \to W(q\to)$ from theorem \ref{thm: stable and unstable manifold theorem} which is a diffeomorphism onto its range. Hence, using its inverse we have a homeopmorphism $W(q \to) \to T^u_qM \cong \R^{k+1}$ where the last congruence is given by an orientation. We can restrict this homeomorphism to $W(q\to)\cap N_q=W(q\to)\cap M_c$ to get a mapping onto a closed subspace of $R^{k+1}$ and after a rescaling this is a closed Disk in $R^{k+1}$. This follows from $f(E^u(x))$ strictly decreasing if $\norm{x}$ decreses, which again follows from the definiton of $E^u$, which comes from \glqq flowing along the flow downwards \grqq\. Hence the condition in the image of $f$ being greater or equal to $c$ translates to a condition in the domain of having norm less or equal to someting. 
+First we have a map $E^u:T^u_qM \to W(q\to)$ from theorem \ref{thm: stable and unstable manifold theorem} which is a diffeomorphism onto its range. Hence, using its inverse we have a homeopmorphism $W(q \to) \to T^u_qM \cong \R^{k+1}$ where the last congruence is given by an orientation. We can restrict this homeomorphism to $W(q\to)\cap N_q=W(q\to)\cap M_c$ to get a mapping onto a closed subspace of $R^{k+1}$ and after a rescaling this is a closed Disk in $R^{k+1}$. This follows from $f(E^u(x))$ strictly decreasing if $\norm{x}$ decreses, which again follows from the definiton of $E^u$, which comes from \glqq flowing along the flow downwards \grqq\. Hence the condition in the image of $f$ being greater or equal to $c$ translates to a condition in the domain of having norm less or equal to someting. w
 
 
 
@@ -278,7 +278,7 @@ $x\in  U\setminus q$ there is a number $t_{0,x}\geq 0$ such that $\phi_{t_{0,x}}
 This map is a homeomorphism, since $\chi$ is one, and the flow as a map $\phi: \R \times M \to M$ is continouos. Furthermore there is an inverse given as follows: For each $x\in W(q\to)\cap M_c$ there is a real number $s_{0,x}$ such that $\phi_{s_{0,x}}(x)\in \chi(\partial U)$, and a real number $s_{1,x}$ such that $\phi_{s_{1,x}}(x)\in f^{-1}(c)$. Then the map 
 \begin{align*}
 \Phi: W(q\to)\cap M_c 	&\to     \overline {D^{k+1}} \\
-x						&\mapsto \chi^{-1}(\phi_{{s_0,x}-s_{1,x}})(x)
+x						&\mapsto \chi^{-1}(\phi_{s_{0,x}-s_{1,x}})(x)
 \end{align*}
 is the inverse of $\chi$: To see this notice that for $y=\chi(x)$ we have $t_{0,x}=s_{0,y}$, and $t_{1,x}=s_{1,y}$ by definition. 
 
@@ -325,21 +325,43 @@ since we can calculate:
 	&=  x
 \end{align*}
 
+So now we have a diffeomorpism $\Psi:W(q\to)\cap N_q\to \overline{D^{k+1}}$. We extend this to a homeomorphism
+\begin{align*}
+	(W(q\to)\cap N_q)\cup C_1S(q\to)	& \to \overline{D^{k+1}}\cup C(\partial D^{k+1}) \subseteq (\R^{k+1}\times I)\big/ {\R^{k+1}\times \{1\}} \\
+	(x,t)								& \mapsto (\Phi(x),t)	
+\end{align*}
+This map is well defined, since $S(q\to)=W(q\to)\cap f^{-1}(c)$, and  if $x\in S(q\to)$, then $ s_{1,x}=0$ and hence:
+\begin{align*}
+	\Phi(x) = \chi^{-1}(\underbrace{\phi_{s_{0,x}}(x)}_{\in \chi (\partial U)}) \in \partial (U)=\partial (\overline{D^{k+1}})
+\end{align*}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Now we want to construct the map 
+\begin{equation}
+	\Bigg( \Big( (W(q\to )\cap N_q)\cup C_1 S(q\to)\Big)\cup C_2 (W(q\to )\cap N_q)\Bigg)\cup  C_3 (C_1 \overline{S(q\to)\setminus V_j}) \to S^{k+1}
+\end{equation}
+First we contract all unnecesarry parts: 
+\begin{align*}
+	\Bigg( \Big( (W(q\to )\cap N_q)\cup C_1 S(q\to)\Big)\cup C_2 (W(q\to )\cap N_q)\Bigg)\cup  C_3 (C_1 \overline{S(q\to)\setminus V_j}) \\
+	\to \Bigg( \Big( (W(q\to )\cap N_q)\cup C_1 S(q\to)\Big) \Big/ (W(q\to )\cap N_q)\Bigg) \Big/ (C_1 \overline{S(q\to)\setminus V_j}) \\
+	=   \Big( (W(q\to )\cap N_q)\cup C_1 S(q\to)\Big)         \Big/     
+	    \Big( (W(q\to )\cap N_q) \cup (C_1 \overline{S(q\to)\setminus V_j}) \Big) \\
+	= \Big( C_1 S(q\to)  \Big)  \big/   \big( S(q\to ) \cup (C_1 \overline{S(q\to)\setminus V_j}) \big)\\
+	= \big( C_1 V_j \big)\big/ \big( V_j \cap C_1(\partial V_j)\big) 
+\end{align*}
+To summarize, we get a continouos map $\Theta$: 
+\begin{align*}
+	\Bigg( \Big( (W(q\to )\cap N_q)\cup C_1 S(q\to)\Big)\cup C_2 (W(q\to )\cap N_q)\Bigg)\cup  C_3 (C_1 \overline{S(q\to)\setminus V_j}) \\ 
+	\to \big( C_1 V_j \big)\big/ \big( V_j \cap C_1(\partial V_j)\big) 
+\end{align*}
+Careful! This map does not neet to be a homotopy equivalence and hence does not give us a continuous inverse up to homotopie. It is a quotiet map induced by collapsing contractible subsets, and hence induces an isomorphism in the K-groups. 
+via $\psi$ we get a map $V_j\to D^k$, which lets us build a map 
+\begin{align*}
+	\tilde{\psi}: \big( C_1 V_j \big)\big/ \big( V_j \cap C_1(\partial V_j)\big)  &\to D^k\times I \big/ \big(\partial D^k\times I\cup D^k\times \{0,1\} \big)\\
+	(x,t)					&\mapsto \psi(x,t)
+\end{align*}
+Hence we get the map 
+\begin{align*}
+	Inhalt...
+\end{align*}
 
  \end{proof}
