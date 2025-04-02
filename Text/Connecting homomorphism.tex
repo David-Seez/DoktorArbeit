@@ -40,27 +40,23 @@ With those we have the following list of facts:
 	\item $(N_p,L_p)$ is a regular index pair for $p$.
 	\item $(B,A)$ is an index pair for $p$
 \end{enumerate}
- Since $N_p$ is a tubular neighbourhood we get the diffeomorphism 
+ Since $N_p$ is a tubular neighbourhood of the contractible $W(\to p)\cap M^c$ we get the diffeomorphism: 
 \begin{align*}
-	\psi_p:N_p\to \underbrace{D^{k-1}}_{\dim W(p \to)}\times \underbrace{D^{m-k+1}}_{\dim W(\to p)}
-\end{align*} such that
+	\psi_p:N_p\to \underbrace{ \overline{D^{m-k}} }_{\dim W(\to p)} \times \overline{D^k}\subseteq T^u_pM
+\end{align*} The image here is a subspace of the total space of the trivialized normal bundle. This map satisfies that
 \begin{enumerate}
-	\item $\psi(L_p)=\partial D^{k-1}\times D^{m-k+1}$ ,
-	\item $\psi_p(N_p\cap W(\to p)=\{0\}\times D^{m-k+1}$ ,
-	\item $\psi(V_j)=D^{k-1}\times \{\theta_j\}$ where $\theta_j\in \partial D^{m-k+1}$.
+	\item $\psi(L_p)=\overline{D^{m-k}}\partial D^{k}$ ,
+	\item $\psi_p(N_p\cap W(\to p)=\{0\}\times \overline{D^{m-k}}$ ,
+	\item $\psi(V_j)=\{\theta_j\} \times \overline{D^{k}} $ where $\theta_j\in \partial D^{m-k}$.
 \end{enumerate}
 Using this map we get diffoemorphisms 
 \begin{align*}
-	\psi_j:   V_j &\to D^{k-1}\\
+	\psi_j:   V_j &\to \overline{D^{k}}\\
 	x             &\mapsto \pi_1\circ \psi_p(x) \text{ where $\pi_1$ is the projection onto the first factor.}
-\end{align*} This map resticts to a diffeomorphism from $\partial V_j=V_j\cap L_p$\todo{das durchdenken, ob das klar ist} to $\partial D^{k-1}$  Hence, we get the continouos maps.
-\begin{center}
-	% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAAoA5AfTVIBleAShABfUuky58hFAEZyVWoxZt2AEQB6wANYBaOeIA6RtHQBOeRgAItug6JHjJ2PASIAmRdXrNWiDgA1bgArUhMzSywbYJCnJRgoAHN4IlAAM3MIAFskMhAcCCQFZT82CKxuORMAYyxzGusI7F4xCRBMnKQvAqLEEt9VAObKkJBqBjoAIxgGAAUpN1kQcywkgAscMQpRIA
-	\begin{tikzcd}
-		{(N_p,L_p)} \arrow[r, "\pi_1\circ \psi_p"] & {(D^{k-1},\partial D^{k-1})} & {(V_j,\partial V_j)} \arrow[l, "\psi_j"']
-	\end{tikzcd}
-\end{center}
-Notice how our map is from a $k+1-$ sphere $(W(q\to)\cap N_q)\big/ S(q\to )\cong S^{k+1}$ to a $k+1-$Sphere $S\wedge (V_j\big/ \partial V_j)\cong S^{k+1}$. Hence, we want to figure out, if it is orientation reversing or not. For this we need to really focus on the sphere-isomorphisms. And ask, how the map looks if the diagramm commutes:
+\end{align*} This map resticts to a diffeomorphism from $\partial V_j=V_j\cap L_p$\todo{das durchdenken, ob das klar ist} to $\partial D^{k-1}$ Hence, an orientation of the unstable tangend space of $p$ induces a map:
+$V_j\to \overline D^k$
+
+Now we want to figure out how the map between the spheres on the right looks if the diagramm commutes:
 \begin{center}
 % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAAIAKAdU4EcAOgJwR2ASiEBjOmnYA5APp8JAyU1kBhBQEZ2AZX5CRYkAF9S6TLnyEUZbVVqMWbIQCEsAc0+d27r748hsKiKtKyispS6uxaugaCISoenmExWgBMXLyJIuJSMvJKyV6p0bKxCgDMXHF+AhA0MABODFhgMMAJRhAqcDA4ALbtTHDsAGoKAFamJuaW2HgERNrkjvTMrIggegB6wADWANTapmYWIBiLNiukDtQbLtt7hydnpo4wUJ7wRKAAZs0IIMkGQQCIkKtwXQsAw2AALCAQA7nAFAkGIMEQxAZB7OLYgIQABXhWFRIEBwMh1GxVTxm1cAiJ2HJlIxuPBECQVQ+piAA
 \begin{tikzcd}
@@ -71,7 +67,7 @@ Notice how our map is from a $k+1-$ sphere $(W(q\to)\cap N_q)\big/ S(q\to )\cong
 Hence we need to specify the horizontal (and vertical) maps. \todo{Why is the left an inclusion?}
 So we start with the top one(or rqther its inverse):
 From the proof of theorem \ref{thm: stable and unstable manifold theorem} we recycle a view maps. 
-Lets restrict the chart $\chi^0 \eqcolon \chi:T^uM\supset U\to W(q\to)$ such that $U=\overline{D^{k+1}}$ is a closed Disc. Now for each 
+Notice how the orientation of $T^u_qM$ gives us a way to identify $T^u_qM$ with $\R^{k+1}$ (the coordinate map) and hence we can restrict the chart $\chi^0 \eqcolon \chi:T^u_q M\supset U\to W(q\to)$ such that $U=\overline{D^{k+1}}$ is a closed Disc in $\R^n$ . Now for each 
 $x\in  U\setminus q$ there is a number $t_{0,x}\geq 0$ such that $\phi_{t_{0,x}}(\chi(x))\in \chi(\partial U)$. Furthermore for each $x\in  U$, there is a number$t_{1,x}$ such that $\phi_{t_{1,x}}(\chi(x))\in f^{-1}(c)$ Those numbers all smoothly depend on $x$.
 
 Now define the map
@@ -181,6 +177,17 @@ In sum we get the map :
 	\Psi: 	\Bigg( \Big( (W(q\to )\cap N_q)\cup C_1 S(q\to)\Big)\cup C_2 (W(q\to )\cap N_q)\Bigg)\cup  C_3 (C_1 \overline{S(q\to)\setminus V_j}) \\ 
 	\to \overline{D^{k+1}} \big/ \partial \overline{D^{k+1}}
 \end{align*} given by $\Psi: r \circ \tilde{\psi} \circ \Theta$
-Now we have all maps to 
+Now we want to ask, how the map 
+\begin{align*}
+	\Psi \circ i\circ \Phi^{-1}:\overline{D^{k+1}} \big/ \partial \overline{D^{k+1}} \to \overline{D^{k+1}} \big/ \partial \overline{D^{k+1}}
+\end{align*} looks like. Our claim is, that this map is homotopic to the identity, if the orientation in $T_{x_j}V_j$ induced from the one in $T^u_qM$ and from $T^u_pM$ agree. 
+To do this we start with the inclusion. (But we need the "Coordinates from $\Phi$ maby we can look at $\Phi(x,t)$ and compare it to $\Psi\circ i (x,t)$. 
+\begin{align*}
+	i: 	(W(q\to)\cap N_q)\cup C_1S(q\to)  \\
+	\to 	\Bigg( \Big( (W(q\to )\cap N_q)\cup C_1 S(q\to)\Big)\cup C_2 (W(q\to )\cap N_q)\Bigg)\cup  C_3 (C_1 \overline{S(q\to)\setminus V_j})
+\end{align*}So assume $(t,x)$ lives in the domain. Then 
+$(\Theta\circ i )(t,x)=\overline{(t,x)}$ where the equivalence is given by the collaps of everything but the interior of $C_1V_j$. 	
+Now inspect $\psi(V_j)$. we can identify via a trivialitation of the normal bundle $\psi(V_j)$ with $T^u_pM$ and the orientation of the latter induces a map to $D^{k-1}$. 
+
 \end{proof}
 	
