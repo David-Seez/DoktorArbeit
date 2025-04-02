@@ -1,4 +1,5 @@
 
-\newgeometry{margin=0pt}
-\includepdf[pages=-]{TitlePage.pdf}  % Ohne geschweifte Klammern!
-\restoregeometry
+\newgeometry{margin=0pt} % Setzt alle Ränder auf 0
+\thispagestyle{empty} % Entfernt Kopf- und Fußzeilen
+\includepdf[pages=-, noautoscale=true, fitpaper=true]{Text/Pictures/TitlePageCropA4}
+\restoregeometry % Setzt die normalen Ränder wiederher
