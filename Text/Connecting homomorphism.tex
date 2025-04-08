@@ -204,4 +204,56 @@ $(\Theta\circ i )(t,x)=\overline{(t,x)}$ where the equivalence is given by the c
 Now inspect $\psi(V_j)$. we can identify via a trivialitation of the normal bundle $\psi(V_j)$ with $T^u_pM$ and the orientation of the latter induces a map to $D^{k-1}$. 
 
 \end{proof}
+\begin{cor}[The Logic and To-Dos of my Proof]
+	We have the definitions above, of all sets. with those we first want to construct a map of triples
+	\begin{align*}
+		t:(A,B,C)\to (N_{p+1},N_p,N_{p-1})
+	\end{align*} By naturality and definition we then have the commutative diagram: 
+	\begin{center}
+		% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAGkA9YAWjQGoAjAF8AFADkA+sAEjSUtAEpFIYaXSZc+QijKCqtRizZdeaMVJlrLaHiJVqN2PASKDS+6vWatEHbnxiAEKkAMIO6iAYztpu5Abexn6mfEJiAIKkQRFOWq4oAEzxXka+-mZpopnZqpHReTrIRZ6GPiYBsmJwADrdNDAwAASiIeEOBjBQAObwRKAAZgBOEAC2SO4gOBBIZK1JIL2wDDh00jiLWGgMMMK1C8triBtbSEV7ZTicAFR3IEurO2oL0QAGYSm0-J8fo4-g9XkDtqDwftDjBjqdgOdLtdbjD-o8wZtEQAWagMLBgMpQCBMABG1xA1AAFjA6FA2JBKYzNnQsAwOQRWHi4Yg3sCAKxkilUmn01jM1nsvyc+U8vkCrnCgGISVEpCk95sODfVQUYRAA
+		\begin{tikzcd}
+			{K^{-p+1}(N_{p+1},N_p))} \arrow[r, "t^*"]                             & {K^{-p+1}(A,B)} \arrow[r, no head, Rightarrow]                            & {K^{-p+1}(A,B)}                          \\
+			{K^{-p}(N_{p},N_{p-1})} \arrow[u, "\delta_{triple}"] \arrow[r, "t^*"] & {K^{-p}(B,C)} \arrow[u, "\delta_{triple}"] \arrow[r, no head, Rightarrow] & {K^{-p+1}(s\vee (B,C))} \arrow[u, "s^*"]
+		\end{tikzcd}
+	\end{center}
+	We now have to show that $s^*$ is induced from a continuous map. Then we want to use the maps $\Phi$ and $\Psi$ to induce a map $p\simeq \pm \id $ such that the diagram commutes up to homotopie:
+	\begin{center}
+		% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAAoBBUgIQEoQAX1LpMufIRRkAjFVqMWbAMoAdFTRgwABOx6kAwgOGjseAkWnk59Zq0QglAPWABrANTTBQkSAymJFqSy1DaK9k6uHl6CcjBQAObwRKAAZgBOEAC2SGQgOBBIlvK2bAjGIOlZOdT5SABMIQp2IGoACgAWWN6pGdmIRbWIAMyNJfZt2N0VvfU1BcOjYS0qaJlaalhQWkIUgkA
+		\begin{tikzcd}
+			{(A,B)} \arrow[d, "s"] \arrow[r, "\Phi"] & S^{k+1} \arrow[d, "\pm \id "] \\
+			{S\vee (B,C)} \arrow[r, "\Psi"]          & S^{k+1}                      
+		\end{tikzcd}
+	\end{center}
+	Now since  $K^{-p+1}(S^{p+1})\cong \Z$ we can define the following maps. Let $\beta_q$ be a generator of $K^{-p+1}(A,B)$ and $\beta_p$ of $K^{-p+1}(S\vee (B,C))$. Then define the koordinate maps 
+	\begin{align*}
+		q_q: K^{-p+1}(A,B) \to \Z; & (\Phi^*)^{-1}(\beta_q)\mapsto 1 \\
+		q_q: K^{-p+1}(S\vee(B,C)) \to \Z; & (\Psi^*)^{-1}(\beta_p)\mapsto 1 \, . 
+	\end{align*}
+	With those we get the diagram: 
+	\begin{center}
+		% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAGkA9YAWjQGoAjAF8AFAEFSAIQCUIYaXSZc+QijKCqtRizZdeAkaLgAdEzRgwABKKmkAwjLkKl2PASKDyW+s1aIObj4hMQBlbgBrEOdFEAw3VU9STWpfXQD9YKNw4CiRGNcVDxQAJm9UnX8QMwAteVj4orVkMpTtPzZa+S0YKABzeCJQADMAJwgAWyQvEBwIJDJ29JA4TgAqepHxqcQy2fnERbSqswAFAAssdc2QMcmkAGZqOemKjoCz7GuXW+2kPZeiAALG9lgBHAD6YJudx2T32SAArKCqpC0DC-oh4YC9sdOiY0BMrFgoN9YrCkc8DiClicCUSSd1hEA
+		\begin{tikzcd}
+			{K^{-p+1}(A,B)}                          & K^{-p+1}(S^{k+1}) \arrow[l, "\Phi^*"] \arrow[r, "q_q"]                       & \Z                     \\
+			{K^{-p+1}(s\vee (B,C))} \arrow[u, "s^*"] & K^{-p+1}(S^{k+1}) \arrow[l, "\Psi^*"] \arrow[r, "q_p"] \arrow[u, "\pm id^*"] & \Z \arrow[u, "\pm id"]
+		\end{tikzcd}
+	\end{center}
+	This all concludes in the final calculation: 
+	\begin{align*}
+		s^*(\beta_p) &= \Phi^*\circ \pm id ^*\circ (\phi^*)^{-1}(\beta_p)\\
+		&= \Phi^*\circ \pm q_q^{-1}\circ \pm id \circ q_p \circ (\phi^*)^{-1}(\beta_p)\\
+		&= \Phi^*\circ \pm q_q^{-1}\circ \pm id 1\\
+		&= \pm \Phi^*\circ  q_q^{-1}( 1)\\
+		&= \pm \Phi^*\circ  (\Phi^*)^{-1}(\beta_q) \\
+		&= \pm \beta_q
+	\end{align*}
+	Now the hope is that $\pm$ is the sign that i would get from inspecting the morse boundary operator along a certain place.
+	The todo's are:
+	\begin{enumerate}
+		\item The map $t$.
+		\item The map $\Phi$.
+		\item The map $\Psi$.
+		\item Is the map $s^*$ induced?
+		\item The map $\pm id$
+	\end{enumerate}
+\end{cor}
 	
