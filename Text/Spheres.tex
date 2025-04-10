@@ -1,0 +1,30 @@
+\section{What are Spheres}
+In this section we want to inspect representations of homotopical Spheres. To give a little overview we will define the sphere to come with an orientation. To be more specific we have the definition:
+\begin{definition}[The $k-$-Sphere]
+	Let $\R^k$ be the k-dimensional vector space given as the span of $e_1,\dots e_k$ together with the eucliden metric $\norm{\cdot}_2$. Then the set
+	\begin{align*}
+		S^k\coloneq \{x\in \R^k|\norm{x}_2=1 \}
+	\end{align*} is called the \textbf{$k-$sphere}.
+\end{definition} This sphere will be our save haven where we will always come back to. In this definition there is no room for "diffrent orientations on a sphere". In our reality we will detect the two  "different orientations" of a space $A$ homotopic to a sphere that arise from two constructions as follows: assume that $\alpha$ and $\beta$ are the maps $A\to S^k$. then there is an endomorphism $f: S^k\to S^k$ such that our diagramm commutes:
+\begin{center}
+% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZARgBoAGAXVJADcBDAGwFcYkQBBEAX1PU1z5CKAEyli1Ok1bsAygD0A1jz4gM2PASLlxkhizaIQC5d0kwoAc3hFQAMwBOEALZIdIHBCRkpB9gB1-ACMYHHoVeydXRHdPJDFfGSNApjQAC3CaRnoQxgAFAU1hEAcsSzScCJBHF3iaOMQffSTqnkpuIA
+\begin{tikzcd}
+	& A \arrow[rd, "\beta"] \arrow[ld, "\alpha"'] &     \\
+	S^k \arrow[rr, "f"] &                                             & S^k
+\end{tikzcd}
+\end{center}
+ Now $f^*:K^n(S^k)\to K^n(S^k)$ is an isomorphism and hence either the identity or minus the identity.
+ 
+ 
+Now we have a lot of spaces that are homotopic or even homeomorph to the sphere. Just to name a view constructions:
+\begin{enumerate}
+	\item A disc in $\R^k$ modulo its boundary $D^k\slash \partial D^k$.
+	\item The cone over $D^{k-1}$.
+	\item The resduced and unreduced susopension of a $k-1$ sphere. 
+	\item The one-point compactification of a vector space together with an oriented basis.
+\end{enumerate}
+We already saw how we can map the one-point compactification of a vector space with an ordered basis to a sphere wia the stereographic projections from the south pole. 
+So lets inspect the other constructions
+\begin{cor}
+	Inhalt...
+\end{cor}
