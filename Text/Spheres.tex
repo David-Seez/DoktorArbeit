@@ -18,13 +18,52 @@ In this section we want to inspect representations of homotopical Spheres. To gi
  
 Now we have a lot of spaces that are homotopic or even homeomorph to the sphere. Just to name a view constructions:
 \begin{enumerate}
-	\item A disc in $\R^k$ modulo its boundary $D^k\slash \partial D^k$.
-	\item The cone over $D^{k-1}$.
+	\item The disc in $\R^k$ modulo its boundary $D^k\slash \partial D^k$.
+	\item The cone over the boundary of a $D^k$ disc. 
 	\item The resduced and unreduced susopension of a $k-1$ sphere. 
 	\item The one-point compactification of a vector space together with an oriented basis.
 \end{enumerate}
 We already saw how we can map the one-point compactification of a vector space with an ordered basis to a sphere wia the stereographic projections from the south pole. 
-So lets inspect the other constructions
+So lets inspect the other construction
 \begin{cor}
-	Inhalt...
+	Given the disk $D^k\subseteq \R^k$ we have a homeomorphism 
+	\begin{align*}
+		\overline{D^k} \slash \partial D^k\to S^k
+	\end{align*}
 \end{cor}
+\begin{proof}
+	We will construct a proper map from the open disk to $R^k$ and by this we get a homeomorphism between their one-point-compaktifications.
+	\begin{align*}
+		s: D^k&\to \R^k\\
+			x &\mapsto x \cdot \frac{1}{1-\norm{x}_2}
+	\end{align*}
+	This is a homeomorphism and proper. Hence, we get a map between the onepoint compactifications
+	\begin{align*}
+		\overline{D^k}\slash \partial D^k \to \R^k\cup \{\infty\}
+	\end{align*} and the latter is homeomorphic to the Sphere. 
+\end{proof}
+\begin{cor}
+Let $\overline{D^k}\cup C \partial D^k$ be the cone over the boundary of the disk. This is homeomorphic to the $k-$sphere. 
+\end{cor}
+\begin{proof}
+	Again we will use the language of onepoint compactifications. First we give a homeomorphism from the "open cone" over the boundary to the open disc. To do this we include our space into $R^k$ as follows:
+	\begin{align*}
+	f:	\overline{D^k}\cup \partial D^k \times [0,1) &\to R^{k}\\
+		x								 &\mapsto
+		 \left\{ \begin{array}{ll}
+		 	x & \text{if } x \in \overline{D^k} \, , \\
+		 	(1+t)x& \text{if } (x,t)\in \partial D^k \times [0,1) \, . 
+		 \end{array}
+		 \right.
+	\end{align*} This is a homeomorphism (if we restrict the image to $\{x\in R^k| \norm{x}_2<2\})$. This can be seen as follows:
+	Obviously it is bijective and the contiuouty can be derived from the gluing lemma. To see the contiuoity of the invese we can explicitly describe it:
+\begin{align*}
+	f^{-1}: \{x\in R^k| \norm{x}_2<2\}  &\to    \overline{D^k}\cup \partial D^k \times [0,1) \\
+	x 									&\mapsto \left\{ 
+	\begin{array}{ll}
+		x & \text{ if } x\in \overline{D^k} \,,  \\
+		(\frac{x}{\norm{x}_2},(1-\norm{x}_2)) & \text{ if } \norm{x}_2\geq 1 \,,
+	\end{array}
+	\right.
+\end{align*}
+\end{proof}
