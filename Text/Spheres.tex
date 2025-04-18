@@ -66,5 +66,14 @@ Let $\overline{D^k}\cup C \partial D^k$ be the cone over the boundary of the dis
 	\end{array}
 	\right.
 \end{align*} Again, gluing lemma gives continouity, and a calculating gives us that they are inverse to each other. To see that the map is proper, we check if preimages of compact sets are compact. So let $K\subset \{x\in R^k| \norm{x}_2<2\}$ be compact. Then $K=A\cup B$ where $A= K\cap \overline{D^k}$ and $B=K\cap \{x\in R^k| 1\leq \norm{x}_2<2\}$. Now $A$ and $B$ are again compact. ($A$ is the intersection of two compact Hausdorff spaces and $B$ can also be constructed as such a intersection) Since $f^{-1}(A\cup B)=f^{-1}(A)\cup f^{-1}(B)$ we have to check if $f^{-1}$ is a closed map restricted to $\overline{D^k}$ and $\{x\in R^k| 1\leq \norm{x}_2<2\}$. But those restrictions give rise to homeomorphisms and hence they are closed. 
-Now we have a proper homeomorphism which lets us conclude, that the map induced on their onepoint compactifications are also homeomorphisms. This lets us deduce the statment, as the onepoint compactification of the disk can be mapped to the sphere as seen in the corollary above.
+Now we have a proper homeomorphism which lets us conclude, that the map induced on their onepoint compactifications are also homeomorphisms.  After the rescaling:
+\begin{align*}
+	r: \{x\in R^k| \norm{x}_2<2\} & \to D^k\\
+	x\mapsto \frac{x}{2}
+\end{align*} we have a proper homeomorphism $\overline{D^k}\cup \partial D^k \times [0,1) \to D^k$.
+This lets us deduce the statment, as the onepoint compactification of the disk can be mapped to the sphere as seen in the corollary above.
 \end{proof}
+We will later use similar maps in our main prove. 
+\begin{cor}
+We want to understand homöomorphisms between boukettes of spheres. 
+\end{cor}

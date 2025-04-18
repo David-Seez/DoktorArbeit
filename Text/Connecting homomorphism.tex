@@ -215,45 +215,54 @@ Now inspect $\psi(V_j)$. we can identify via a trivialitation of the normal bund
 			{K^{-p+1}(N_{p+1},N_p))} \arrow[r, "t^*"]                             & {K^{-p+1}(A,B)} \arrow[r, no head, Rightarrow]                            & {K^{-p+1}(A,B)}                          \\
 			{K^{-p}(N_{p},N_{p-1})} \arrow[u, "\delta_{triple}"] \arrow[r, "t^*"] & {K^{-p}(B,C)} \arrow[u, "\delta_{triple}"] \arrow[r, no head, Rightarrow] & {K^{-p+1}(s\vee (B,C))} \arrow[u, "s^*"]
 		\end{tikzcd}
-	\end{center}
+	\end{center} 
 	We now have to show that $s^*$ is induced from a continuous map. Then we want to use the maps $\Phi$ and $\Psi$ to induce a map $p\simeq \pm \id $ such that the diagram commutes up to homotopie:
 	\begin{center}
 		% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAAoBBUgIQEoQAX1LpMufIRRkAjFVqMWbAMoAdFTRgwABOx6kAwgOGjseAkWnk59Zq0QglAPWABrANTTBQkSAymJFqSy1DaK9k6uHl6CcjBQAObwRKAAZgBOEAC2SGQgOBBIlvK2bAjGIOlZOdT5SABMIQp2IGoACgAWWN6pGdmIRbWIAMyNJfZt2N0VvfU1BcOjYS0qaJlaalhQWkIUgkA
 		\begin{tikzcd}
-			{(A,B)} \arrow[d, "s"] \arrow[r, "\Phi"] & S^{k+1} \arrow[d, "\pm \id "] \\
-			{S\vee (B,C)} \arrow[r, "\Psi"]          & S^{k+1}                      
+			{(A,B)} \arrow[d, "s"] \arrow[r, "\Phi"] & \bigvee\limits_{j=1}^lS^{k+1}   \arrow[d, "\oplus_j \delta_j \id"] \\
+			{S\vee (B,C)} \arrow[r, "\Psi"]          & S^{k+1}                     
 		\end{tikzcd}
-	\end{center}
-	Now since  $K^{-p+1}(S^{p+1})\cong \Z$ we can define the following maps. Let $\beta_q$ be a generator of $K^{-p+1}(A,B)$ and $\beta_p$ of $K^{-p+1}(S\vee (B,C))$. Then define the koordinate maps 
+	\end{center} where $\delta_j\in \{-1,1\}$(with $+\id$ we denote the identity and with $-id$ we denote a homeomorphism of degree $-1$, i.e. not homotopic to the identity.) and $\Phi$ is a homotopie equivalence. 
+	Now since  $K^{-p+1}(\bigvee _{j=1}^lS^{p+1})\cong \Z^l$ we can define the following maps. Let $\beta_q$ be a generator of $K^{-p+1}(A,B)$ and $\beta_p$ of $K^{-p+1}(S\vee (B,C))$. Then define the koordinate maps 
 	\begin{align*}
-		q_q: K^{-p+1}(A,B) \to \Z; & (\Phi^*)^{-1}(\beta_q)\mapsto 1 \\
-		q_q: K^{-p+1}(S\vee(B,C)) \to \Z; & (\Psi^*)^{-1}(\beta_p)\mapsto 1 \, . 
+		q_q: K^{-p+1}(A,B) \to \Z;\quad & (\Phi^*)^{-1}(\beta_q)\mapsto 1 \\
+		q_p: K^{-p+1}(S\vee(B,C)) \to \Z^l;\quad & (\Psi^*)^{-1}(\beta_p)\mapsto \sum_j e_j \, . 
 	\end{align*}
 	With those we get the diagram: 
 	\begin{center}
 		% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAGkA9YAWjQGoAjAF8AFAEFSAIQCUIYaXSZc+QijKCqtRizZdeAkaLgAdEzRgwABKKmkAwjLkKl2PASKDyW+s1aIObj4hMQBlbgBrEOdFEAw3VU9STWpfXQD9YKNw4CiRGNcVDxQAJm9UnX8QMwAteVj4orVkMpTtPzZa+S0YKABzeCJQADMAJwgAWyQvEBwIJDJ29JA4TgAqepHxqcQy2fnERbSqswAFAAssdc2QMcmkAGZqOemKjoCz7GuXW+2kPZeiAALG9lgBHAD6YJudx2T32SAArKCqpC0DC-oh4YC9sdOiY0BMrFgoN9YrCkc8DiClicCUSSd1hEA
 		\begin{tikzcd}
-			{K^{-p+1}(A,B)}                          & K^{-p+1}(S^{k+1}) \arrow[l, "\Phi^*"] \arrow[r, "q_q"]                       & \Z                     \\
-			{K^{-p+1}(s\vee (B,C))} \arrow[u, "s^*"] & K^{-p+1}(S^{k+1}) \arrow[l, "\Psi^*"] \arrow[r, "q_p"] \arrow[u, "\pm id^*"] & \Z \arrow[u, "\pm id"]
+			{K^{-p+1}(A,B)}                          & K^{-p+1}(	S^{k+1}) \arrow[l, "\Phi^*"] \arrow[r, "q_q"]                       & \Z                  \\
+			{K^{-p+1}(S\vee (B,C))} \arrow[u, "s^*"] & K^{-p+1}(\bigvee\limits_{j=1}^lS^{k+1}) \arrow[l, "\Psi^*"] \arrow[r, "q_p"] \arrow[u,"g"] & \Z^l \arrow[u, "h"]
 		\end{tikzcd}
-	\end{center}
+	\end{center}The map $h$ is given by $h:\Z^l\to Z~;~ e_i\mapsto \delta_i$ where $\delta_i\in \{-1,1\}$
 	This all concludes in the final calculation: 
 	\begin{align*}
-		s^*(\beta_p) &= \Phi^*\circ \pm id ^*\circ (\phi^*)^{-1}(\beta_p)\\
-		&= \Phi^*\circ \pm q_q^{-1}\circ \pm id \circ q_p \circ (\phi^*)^{-1}(\beta_p)\\
-		&= \Phi^*\circ \pm q_q^{-1}\circ \pm id 1\\
-		&= \pm \Phi^*\circ  q_q^{-1}( 1)\\
-		&= \pm \Phi^*\circ  (\Phi^*)^{-1}(\beta_q) \\
-		&= \pm \beta_q
+		s^*(\beta_p) 
+		&= \Phi^*\circ  g\circ (\Psi^*)^{-1}(\beta_p)\\
+		&= \Phi^*\circ  q_q^{-1}\circ h \circ q_p \circ (\Psi^*)^{-1}(\beta_p)\\
+		&= \Phi^*\circ  q_q^{-1}\circ h (\sum_j e_j)\\
+		&= \Phi^*\circ  q_q^{-1} (\sum_j \delta_j )\\
+		&= \sum_j \delta_j \beta_q
 	\end{align*}
-	Now the hope is that $\pm$ is the sign that i would get from inspecting the morse boundary operator along a certain place.
+	Now the hope is that $\delta_j$ is the sign that I would get from inspecting the morse boundary operator along a certain flow line. 
 	The todo's are:
 	\begin{enumerate}
 		\item The map $t$.
 		\item The map $\Phi$.
 		\item The map $\Psi$.
 		\item Is the map $s^*$ induced?
-		\item The map $\pm id$
+		\item The map $h$ corresponds to a proceedure similar to the Morse boundary.
 	\end{enumerate}
+	Once we have done all the above we want to connect the considerations with the boundary operator. To do this we do the proveedure to all pairs $(q,p)\in \Crit(f)_{k+1}\times \Crit(f)_k$. For this we enrich the notaion and call the triple coresponding to such a pair $(A^{q,p},B^{q,p},C^{q,p})$. All the maps and spaces are enriched in that way, by adding the pair $(q,p)$ as a superscrit. For $T$ big enough we assume that all $A^{q,p}$ are pairwise disjoint. Then we want a homomorphism\todo{do wee needc continuity or rather something weaker?} (that is a homotopic eqiuvalence) 	
+	\begin{align*}
+		\Omega:\bigsqcup\limits_{(q,p)\in \Crit_{k+1}\times \Crit_k}(A^{q,p},B^{q,p},C^{q,p}) &\to (N_{p+1},N_p,N_{p-1}) \\
+		x& \mapsto t^{q,p}(x) \text{ for }x\in A^{q,p}
+	\end{align*}
+	Now, together with the isomorphism
+	\begin{align*}
+		\bigoplus_{\Crit_{k+1}}\Z \to K^p(N_{-p+1},N_p)~,~ q \mapsto \beta_q \text{ which is a generator of } K^{-p+1}(A^{q,p},B^{q,p})
+	\end{align*}
+	Fuck das funktioniert alles nicht! 
 \end{cor}
-	
