@@ -220,23 +220,23 @@ Now inspect $\psi(V_j)$. we can identify via a trivialitation of the normal bund
 	\begin{center}
 		% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAAoBBUgIQEoQAX1LpMufIRRkAjFVqMWbAMoAdFTRgwABOx6kAwgOGjseAkWnk59Zq0QglAPWABrANTTBQkSAymJFqSy1DaK9k6uHl6CcjBQAObwRKAAZgBOEAC2SGQgOBBIlvK2bAjGIOlZOdT5SABMIQp2IGoACgAWWN6pGdmIRbWIAMyNJfZt2N0VvfU1BcOjYS0qaJlaalhQWkIUgkA
 		\begin{tikzcd}
-			{(A,B)} \arrow[d, "s"] \arrow[r, "\Phi"] & \bigvee\limits_{j=1}^lS^{k+1}   \arrow[d, "\oplus_j \delta_j \id"] \\
-			{S\vee (B,C)} \arrow[r, "\Psi"]          & S^{k+1}                     
+			{(A,B)} \arrow[d, "s"] \arrow[r, "\Phi"] & \bigvee\limits_{j=1}^lS^{k+1}   \arrow[d, "\bigvee_j \delta_j \id"] \\
+			{S\wedge (B,C)} \arrow[r, "\Psi"]          & S^{k+1}                     
 		\end{tikzcd}
-	\end{center} where $\delta_j\in \{-1,1\}$(with $+\id$ we denote the identity and with $-id$ we denote a homeomorphism of degree $-1$, i.e. not homotopic to the identity.) and $\Phi$ is a homotopie equivalence. 
+	\end{center} where $\delta_j\in \{-1,1\}$(with $+\id$ we denote the identity and with $-id$ we denote a homeomorphism of degree $-1$, i.e. not homotopic to the identity.) and $\Psi$ is a homotopie equivalence. 
 	Now since  $K^{-p+1}(\bigvee _{j=1}^lS^{p+1})\cong \Z^l$ we can define the following maps. Let $\beta_q$ be a generator of $K^{-p+1}(A,B)$ and $\beta_p$ of $K^{-p+1}(S\vee (B,C))$. Then define the koordinate maps 
 	\begin{align*}
-		q_q: K^{-p+1}(A,B) \to \Z;\quad & (\Phi^*)^{-1}(\beta_q)\mapsto 1 \\
-		q_p: K^{-p+1}(S\vee(B,C)) \to \Z^l;\quad & (\Psi^*)^{-1}(\beta_p)\mapsto \sum_j e_j \, . 
+		q_q: K^{-p+1}(\bigvee_{j=1}^l S^{k+1}) \to \Z^l;\quad & (\Phi^*)^{-1}(\beta_q)\mapsto \sum_j e_j \\
+		q_p: K^{-p+1}(S^{k+1}) 				   \to \Z  ;\quad & (\Psi^*)^{-1}(\beta_p)\mapsto  1         \, . 
 	\end{align*}
 	With those we get the diagram: 
 	\begin{center}
-		% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAGkA9YAWjQGoAjAF8AFAEFSAIQCUIYaXSZc+QijKCqtRizZdeAkaLgAdEzRgwABKKmkAwjLkKl2PASKDyW+s1aIObj4hMQBlbgBrEOdFEAw3VU9STWpfXQD9YKNw4CiRGNcVDxQAJm9UnX8QMwAteVj4orVkMpTtPzZa+S0YKABzeCJQADMAJwgAWyQvEBwIJDJ29JA4TgAqepHxqcQy2fnERbSqswAFAAssdc2QMcmkAGZqOemKjoCz7GuXW+2kPZeiAALG9lgBHAD6YJudx2T32SAArKCqpC0DC-oh4YC9sdOiY0BMrFgoN9YrCkc8DiClicCUSSd1hEA
-		\begin{tikzcd}
-			{K^{-p+1}(A,B)}                          & K^{-p+1}(	S^{k+1}) \arrow[l, "\Phi^*"] \arrow[r, "q_q"]                       & \Z                  \\
-			{K^{-p+1}(S\vee (B,C))} \arrow[u, "s^*"] & K^{-p+1}(\bigvee\limits_{j=1}^lS^{k+1}) \arrow[l, "\Psi^*"] \arrow[r, "q_p"] \arrow[u,"g"] & \Z^l \arrow[u, "h"]
-		\end{tikzcd}
-	\end{center}The map $h$ is given by $h:\Z^l\to Z~;~ e_i\mapsto \delta_i$ where $\delta_i\in \{-1,1\}$
+% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAGkA9YAWjQGoAjAF8AFAEFSAIQCUIYaXSZc+QijKCqtRizZdeAkaLgAdEzRgwABKKmkAwjLkKl2PASKDyW+s1aIObj4hMTMAIywAcwsYAH1gACsAXhFOBisAZViE7gBrEOdFEAw3VU9STWpfXQD9YKMMvIL5IpKVDxQAJm8qnX8QMwAtNJbXdrVkbsrtPzYh+S0YKEj4IlAAMwAnCABbJC8QHAgkMhmakDhOACpRkC3dpG7D48RT6v6zAAUACyxr2-ue0QAGZqEd9r1ZgEvth-i47tsgU9wYgACyQ84AR1imIBiKQoOeSAArBj+ti0HiHiCwS8nu82JEqUDSUS0WS2N8FsIgA
+\begin{tikzcd}
+	{K^{-p+1}(A,B)}                          & K^{-p+1}(\bigvee_{j=1}^l S_j^{k+1}) \arrow[l, "\Phi^*"] \arrow[r, "q_q"] & \Z^l              \\
+	{K^{-p+1}(s\vee (B,C))} \arrow[u, "s^*"] & K^{-p+1}(S^{k+1}) \arrow[l, "\Psi^*"] \arrow[r, "q_p"] \arrow[u, "g"]    & \Z \arrow[u, "h"]
+\end{tikzcd}
+	\end{center}The map $h$ is given by $h:\Z \to Z^l~;~ e_i\mapsto \sum_{j=1}^{l} \delta_j$ with the $\delta_j$ from above.
 	This all concludes in the final calculation: 
 	\begin{align*}
 		s^*(\beta_p) 

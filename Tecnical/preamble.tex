@@ -16,12 +16,13 @@
 \usepackage{tabularx}
 \usepackage{mathtools}
 
+
 \usetikzlibrary{backgrounds}
 \usetikzlibrary{patterns}
 \pgfplotsset{compat=newest}
 \usepackage{epstopdf}
 \usepackage{svg}
-\usepackage{enumitem}
+\usepackage[shortlabels]{enumitem}
 \usepackage{mwe}
 % Drawing
 \usepackage{tikz}
@@ -53,7 +54,7 @@
 \ohead{\Large\textbar\enskip\thepage} % Rechter Kopfbereich: Nur Seitenzahl mit größerer Schrift und Trennstrich
 \cfoot{} % Keine Fußzeile
 \automark[section]{section} % Section für \leftmark
-\automark[subsection]{subsection} % Subsection für \rightmark
+%\automark[subsection]{subsection} % Subsection für \rightmark
 
 % Linie über der Kopfzeile aktivieren
 \KOMAoptions{headsepline=true}
@@ -73,6 +74,7 @@
 \newtheorem{example}[theorem]{Example}
 \newtheorem{cor}[theorem]{Corollary}
 \newtheorem{prop}[theorem]{Proposition}
+\newtheorem{fact}[theorem]{Fact}
 
 \numberwithin{theorem}{section}
 \usepackage{thmtools}
@@ -116,6 +118,33 @@
 \newcommand{\CW}{\mathrm{\tiny{CW}}}
 \newcommand{\Crit}{\mathrm{Crit}}
 \newcommand{\transcap}{\text{$\cap\kern-0.4em|\kern0.4em$}}
+\DeclareMathOperator{\supp}{\mathrm{supp}}
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Categories
+\DeclareMathOperator{\Set}{\mathbf{Set}}
+\DeclareMathOperator{\Ab}{\mathbf{Ab}}
+\DeclareMathOperator{\Ring}{\mathbf{Ring}}
+\DeclareMathOperator{\CDiff}{\mathbf{CDiff}}
+\DeclareMathOperator{\Top}{\mathbf{Top}}
+\DeclareMathOperator{\hTop}{\mathbf{hTop}}
+\DeclareMathOperator{\TopP}{\mathbf{TopP}}
+\DeclareMathOperator{\TopH}{\mathbf{TopH}}
+\DeclareMathOperator{\hTopH}{\mathbf{hTopH}}
+\DeclareMathOperator{\TopC}{\mathbf{TopC}}
+\DeclareMathOperator{\hTopC}{\mathbf{hTopC}}
+\DeclareMathOperator{\TopCPair}{\mathbf{TopC^2}}
+\DeclareMathOperator{\TopCPoint}{\mathbf{TopC^0}}
+\DeclareMathOperator{\hTopP}{\mathbf{hTopP}}
+\DeclareMathOperator{\absgrp}{\mathbf{AbSemGrp}}
+\DeclareMathOperator{\Cvec}{\mathbf{Vect}}
+\DeclareMathOperator{\Pmod}{\mathbf{Pmod}}
+\DeclareMathOperator{\Cmod}{\mathbf{Mod}}
+\DeclareMathOperator{\vect}{\mathrm{Vect}}
+
+\newcommand{\GL}{\mathrm{GL}}
+\newcommand{\G}{\mathrm{G}}
+
 
 \def\quotient#1#2{%
     \raise1ex\hbox{$#1$}\big/\lower1ex\hbox{$#2$}%
@@ -124,21 +153,28 @@
     \begin{pmatrix}\ifx\relax#1\relax\else#1\\\fi#2\\#3\end{pmatrix}
 }
 \newcommand\einsch[1]{\raisebox{-.5ex}{$\Big|$}_{#1}}
-\newcommand{\Top}{\textbf{Top}}
-\newcommand{\Set}{\textbf{Set}}
-\newcommand{\Ab}{\textbf{Ab}}
-\newcommand{\CDiff}{\textbf{CDiff}}
-\newcommand{\TopP}{\textbf{TopPair}}
-\newcommand{\Hess}{\text{Hess}}
+
+\newcommand{\iso}{\mathrm{iso}}
+
+\DeclareMathOperator{\Hess}{\text{Hess}}
 \newcommand{\stillOpen}{\color{red}{ [still open]}}
-\newcommand{\id}{\text{id}}
-\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\DeclareMathOperator{\id}{\text{id}}
 \newcommand{\Ob}{\text{Ob}}
 \newcommand{\ind}{\mathrm{ind}}
 \newcommand{\euler}{\mathrm{e}}
 \newcommand{\Whab}{W_{h^{\beta\alpha}}}
 \newcommand{\Lab}{\mathcal{F}(\mathfrak{A}^{\alpha},\mathfrak{A}^{\beta})}
-\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\coker}{\mathrm{coker}}
+\DeclareMathOperator{\rank}{\mathrm{rank}}
+\DeclareMathOperator{\herm}{\mathrm{herm}}
+\DeclareMathOperator{\fix}{\mathrm{aut}}
+\DeclareMathOperator{\End}{\mathrm{End}}
+\DeclareMathOperator{\aut}{\mathrm{fix}}
+\DeclareMathOperator{\K}{\mathrm{K}}
+\DeclareMathOperator{\iB}{\mathrm{iB}_{\epsilon}}
+
+
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
 \newcommand{\GLR}[1]{\GL(#1, \mathbb{R})}
 \DeclareMathOperator{\Exp}{\mathbb{Exp}}
 
@@ -148,7 +184,7 @@ backend=biber,
 style=alphabetic
 ]{biblatex}
 \addbibresource{sample.bib}
-\DeclareMathOperator{\iB}{\mathrm{iB}_{\epsilon}}
+
 %\usepackage{csquotes} 
 % \usepackage{animate}
 
