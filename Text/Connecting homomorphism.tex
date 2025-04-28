@@ -266,3 +266,64 @@ Now inspect $\psi(V_j)$. we can identify via a trivialitation of the normal bund
 	\end{align*}
 	Fuck das funktioniert alles nicht! 
 \end{cor}
+
+\begin{lemma}
+	Lets say that $p\in -\N $ is negative for the moment. 
+We have the three spaces 
+\begin{equation}
+	A\coloneq N_q \cup N_p \quad , \quad B\coloneq L_q \cup N_p \quad , \quad C\coloneq L_p \cup (L_q \setminus \mathring{N_p})   \, .
+\end{equation}
+By definition we get the triple connecting morphism as the composition of the inclusion with the connecting homomorphism of the pair:: 
+\begin{center}
+	\begin{adjustbox}{max width=\textwidth}
+	% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBoBmAXVJADcBDAGwFcYkQBpAPWDQFoAjAF8ABAB0xAIywBzZABkA+gEcJAY2ZoRAOUVbSIkUq3rNIgBRLl4sXBg4AtljDM4Nh-RwALAE7OZwLpoQgCUEtIylCBCpOiYuPiEKGQATNR0TKzs3LyCouGyyEYqplpBNhFRMXHYeAREAqRpNAwsbIicXCZShQDKigI2AO4wUDIwFlY2GmV6IRWyVbEgGLWJDRTprVkdOcELcv2DEiNjE1alOnoiBkfDo+OGxtNmlio2do7Oru6evv6BPShAqRaLLVYJeooFJNLaZdqdboRIq6ayXcqXADCAzeaLEMyuaDC+LM2JS5lR6LmByWNUhSWQMIEcLa2S6BxR7yp3QJ2IEuJesyJNLBdLqDJhxBZO0RHKueIJGJJSNkAHpJlzlYT5iDaSt4uKNlKWvC2Sq5PLuQYLlqlZVoukHvAiKAAGY+CAOJBkEA4CBIRoZVkdLBcABUopA7s9AZofqQMJAjGcCKgEGYkkYbBoXhg9Cg7EgYGzvvoWEYhYIbGqUY9XsQPvjiHINGTxfYaYzWZAObzBY6RZLODLFYHVcj0friabABYTcGQBImGgvPRwxO60g577-YgAKzzmVYRTAJeMFf0ITrmuTpAHndIABsh4R5gc4ZCPDyG5jiAA7HGu7PkmKYdummYlrm+aVu2cYjjB1bLLeiCBk2AFBjKEiwIww4nmgZY+EIP71i2D6IIm2wIsep5SPYl7XpQQhAA
+	\begin{tikzcd}
+		& {K^p \big[ N_q\cup N_p, L_q\cup N_p \big]} \arrow[r, no head, Rightarrow]                                               & {K^p \big[ N_q \cup N_p \cup \big/ (L_q \cup N_p) \big]}                                             \\
+		&                                                                                                                         & {K^p \big[ N_q \cup N_p \cup C_1(L_q \cup N_p) \big]} \arrow[u, "(m^*)^{-1}"]                        \\
+		{K^{p-1} \big[ L_q\cup N_p \big]} \arrow[r, no head, Rightarrow] \arrow[ruu, "\delta_{pair}"]                              & {K^p \big[S_1 \wedge (L_q \cup N_p) \big]} \arrow[r, "\alpha^*"]                                                        & {K^p \big[ N_q \cup N_p \cup C_1(L_q \cup N_p)\cup C_2(N_q\cup N_p) \big]} \arrow[u, "i_{\alpha}^*"] \\
+		{K^{p-1} \big[L_q\cup N_p ,  L_p \cup (L_q \setminus \mathring{N_p})\big]} \arrow[u, "i^*"] \arrow[r, no head, Rightarrow] & {K^{p} \big[S_1 \wedge L_q\cup N_p , S_1 \wedge  L_p \cup (L_q \setminus \mathring{N_p})\big]} \arrow[u, "i_{\beta}^*"] &                                                                                                     
+	\end{tikzcd}
+	\end{adjustbox}
+\end{center}
+The bottom left diagramm commutes by definition. All maps with names $i^*_{something}$ are induced from obvious inclusions. 
+The other maps are defined as follows, where $p$ denotes the choosen point of our pointed spaces: 
+\begin{align*}
+\alpha: N_q \cup N_p \cup C_1(L_q \cup N_p)\cup C_2(N_q\cup N_p)& \to S_1 \wedge (L_q \cup N_p)\\
+x& \mapsto 
+\left\{	\begin{array}{ll}
+		p & \text{if } x\in C_2(N_q\cup N_p) \\
+		x & \text{else}
+	\end{array} \right.
+\end{align*} This map is well defined and continouos, as every point in $S_1 \wedge (L_q \cup N_p)$ is of the form $[(t_1,x)]$ where $x\in L_q \cup N_p$. and those are the points in the domain of $\alpha$ that not get collapsed to $p$
+We have the map 
+\begin{align*}
+	\beta: \left[  \frac{C_1(L_q\cup N_p)}{\{ 0 \} \times (L_q \cup N_p)}  , \frac{C_1 (L_p \cup \overline{(L_q  \setminus N_p)})}{\{0\}\times (L_p \cup \overline{(L_q \setminus N_p)})}\right] & \to \left [ S_1 \wedge L_q\cup N_p , S_1 \wedge  L_p \cup (L_q \setminus \mathring{N_p})\right] \\
+	x & \mapsto \left\{ 
+	\begin{array}{ll}
+		p& \text{if } x\in \{1\}\times (L_q \cup N_p)   \\
+		x& \text{else }
+	\end{array}
+	\right.
+\end{align*} This map is again well defined and continouos. in fact both maps $\alpha$ and $\beta$ can be written as $x\mapsto \overline{x}$ and since the collapsed space is contractible, they induce isomorphism between the $K$-groups.
+
+
+
+
+Furthermore, we have the commutative diagramm: 
+\begin{center}
+	\begin{adjustbox}{max width=\textwidth}
+	% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZARgBoAGAXVJADcBDAGwFcYkQBpAPTQAIAdfgCMsAc2S8AcgH0AjgP4BjZnxl9ByvgGFpxABQAZOQs1TpaAJQaVvHQCY9M2ddXmLCkaMogAvqXSYuPiEKOQU1HRMrOzc6sJiyADKugoA7jBQojC8hsYuZpYeYt5+Adh4BERhxBEMLGyInFzAaD5F4snEaRlZvEbOSjZqvKS8nd2Z2X3mJja58oJwMDgAtlhgzHAKK-Q4ABYATuuiwGo+VvFevv4gGOXBRGQ1NHXRjbGCAEIJCgBmB-RFMAdPp+vk1BYfMBBMBeOQFG1BHgVvAcv1Zq5LG0Rn8AUCQWiZvlBBBaDADox1jBgPNeAolqt1psCpDIdD+MByIIfEisCitrk4qYSWSKVSaejFss1hsthDzoj+N8rj4Ij14ERQP8ICskHYaDgIEgyJF6uwsNJ2UJlvQfFwAFTXLUHHXGg1GxBhU1vECCJhoPb0B1OkDa3WIfUgQ1IADMLyiDV9whtwdKoZd4bjUY9XteiYt7NE9BWOztjtVPiAA
+	\begin{tikzcd}
+		{K^p \big[S_1 \wedge (L_q \cup N_p) \big]} \arrow[r, "\alpha^*"]                                                                             & {K^p \big[ N_q \cup N_p \cup C_1(L_q \cup N_p)\cup C_2(N_q\cup N_p) \big]}                                                                                                                                        \\
+		{K^{p} \big[S_1 \wedge L_q\cup N_p , S_1 \wedge  L_p \cup (L_q \setminus \mathring{N_p})\big]} \arrow[u, "i_{\beta}^*"] \arrow[r, "\beta^*"] & {K^p\Big[ \frac{C_1(L_q\cup N_p)}{\{ 0 \} \times (L_q \cup N_p)}  , \frac{C_1 (L_p \cup \overline{(L_q  \setminus N_p)})}{\{0\}\times (L_p \cup \overline{(L_q \setminus N_p)})} \Big]} \arrow[u, "i_{\gamma}^*"]
+	\end{tikzcd}
+	\end{adjustbox}
+\end{center} To see the commutativitie we have to show that 
+\begin{align*}
+	i_{\beta}\circ \alpha =\beta \circ i_{\gamma}: N_q \cup N_p \cup C_1(L_q \cup N_p)\cup C_2(N_q\cup N_p) \to S_1 \wedge L_q\cup N_p , S_1 \wedge  L_p \cup (L_q \setminus \mathring{N_p})
+\end{align*} since $\alpha$ and $\beta$ are both of the form $x \mapsto \overline{x}$ we have two cases for the composition: 
+Either $x\mapsto p$ or $x\mapsto x$ in the image and we need to compare the two maps $	i_{\beta}\circ \alpha $ and $\beta \circ i_{\gamma}$ concerning those cases:
+\begin{tabular}[pos]{cols}
+\end{tabular}
+\end{lemma}
+
