@@ -147,7 +147,11 @@
 
 
 \def\quotient#1#2{%
-    \raise1ex\hbox{$#1$}\big/\lower1ex\hbox{$#2$}%
+	\left.
+    	\raise1ex\hbox{$#1$}
+    \middle/ 
+    	\lower1ex\hbox{$#2$}%
+    \right.
     }
 \newcommand*\colvec[3][]{
     \begin{pmatrix}\ifx\relax#1\relax\else#1\\\fi#2\\#3\end{pmatrix}

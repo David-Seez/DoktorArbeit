@@ -295,19 +295,30 @@ x& \mapsto
 		x & \text{else}
 	\end{array} \right.
 \end{align*} This map is well defined and continouos, as every point in $S_1 \wedge (L_q \cup N_p)$ is of the form $[(t_1,x)]$ where $x\in L_q \cup N_p$. and those are the points in the domain of $\alpha$ that not get collapsed to $p$
-We have the map 
+We have the maps: 
         \[
         \resizebox{\textwidth}{!}{$
         	\begin{aligned}
-        		\beta: \left[ N_q \cup N_p \cup C_1(L_q \cup N_p)\cup C_2(N_q\cup N_p) \right] & \to \left[ \frac{N_q\cup N_p \cup C_1(L_q\cup N_p)\cup C_2(N_q \cup N_p)}{C_2(N_q \cup N_p)}  ,  \frac{ C_1 (L_p \cup \overline{(L_q  \setminus N_p)}) \cup  C_2(N_q \cup N_p)}{C_2(N_q\cup N_p)} \right] \\
+        		c_{\gamma}: \left[ N_q \cup N_p \cup C_1(L_q \cup N_p)\cup C_2(N_q\cup N_p) \right] & \to  \left[  \quotient{\frac{N_q\cup N_p \cup C_1(L_q\cup N_p)\cup C_2(N_q \cup N_p)}{C_2(N_q \cup N_p)} }{ \frac{ C_1 (L_p \cup \overline{(L_q  \setminus N_p)}) \cup  C_2(N_q \cup N_p)}{C_2(N_q\cup N_p)}}  \right] \\
         		x & \mapsto \left\{ 
         		\begin{array}{ll}
-        			p& \text{if } x\in C_2(N_q \cup N_p)   \\
+        			p& \text{if } x\in C_2(N_q \cup N_p) \quad \cup \quad    C_1 (L_p \cup \overline{(L_q  \setminus N_p)}) \\
         			x& \text{else }
         		\end{array}
         		\right.
         	\end{aligned}
         	$}
+        \] and 
+        \[
+        	\begin{aligned}
+        		c_{\beta}: \left[S_1 \wedge (L_q \cup N_p) \right] & \to  \left[ \quotient{S_1 \wedge L_q\cup N_p }{S_1 \wedge  L_p \cup (L_q \setminus \mathring{N_p})} \right] \\
+        		x & \mapsto \left\{ 
+        		\begin{array}{ll}
+        			p& \text{if } x\in S_1 \wedge  L_p \cup (L_q \setminus \mathring{N_p})\\
+        			x& \text{else }
+        		\end{array}
+        		\right.
+        	\end{aligned}
         \]
 	 This map is again well defined and continouos and is also a map of pairs. In fact, both maps $\alpha$ and $\beta$ can be written as $x\mapsto \overline{x}$ and since the collapsed space is contractible, they induce isomorphism between the $K$-groups. The map $\gamma$ is just the identity.
 
@@ -317,29 +328,82 @@ We have the map
 Furthermore, we have the commutative diagramm: 
 \begin{center}
 	\begin{adjustbox}{max width=\textwidth}
-% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZARgBoAGAXVJADcBDAGwFcYkQBpAPTQAIAdfoxgAzHMl4A5APoBHAfwDGzPjL6DlfAMLTiACgAychZqnS0ASg0reOgEx6Zs66vMWFAJywBzABY5KEABfUnRMXHxCFHIKajomVnZudX4AIx9kAGVdBQB3GChvGF5DYxczSwV070CQsOw8AiIY4jiGFjZETi5gNCCqjOziPIKi3iNnJRs1XlJeIZHC4vHzExtS+UE4GBwAWywwZjgFXfocXy8wb2A1IKs0n1rQkAwGyKIyVpp2xK7khWEYgkghEHnoihucnKM3KOn0E2hblh0gcTjWrksQWA9kcZSmGIs-VmvAUoPBwFsOVKKVMgggtBgHkYBxgwA2JK2O32h2OakJ7nKlNReNMfKxOKciMxnh8-lqcVG8CIoFBEF2SDsNBwECQZHiHXYWGkwEEqR29CCXAAVMFnqr1Yg9dqkDF9b8QIImGhfPRrbaVR41RqtTrEABmb4JToe-jeei7U5+uoge1ICMgZ2IV0-aOm81JyhBIA
+% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZARgBoAGAXVJADcBDAGwFcYkQBpAPTQAIAdfoxgAzHMl4A5APoBHAfwDGzPjL6DlfAMLTiACgAychZqnS0ASg0reOgEx6Zs66vMWFAJywBzABY5KEABfUnRMXHxCFHIKajomVnZudX4AIx9kAGVdBQB3GChvGF5DYxczSwV070CQsOw8AiIY4jiGFjZETi5gNCCqjMFZZgg8GDAcYGziPIKi3iNnJRs1XiCpnMF8wuKF8xMbUvlBOBgcAFssMGY4BXP6HF8vMG9gNSCLfsFq2tCQDAakSIZFaNHaiS6yQUwjEEgUw1GWHGk0EIg89EUbzk5VW5R0+kWOLceOkDicB1clnW9kcZWWlM+a2ACjRGOZ+JKRhSpkEEFoMA8jCuMGAR14ClOFyuNwqn3c5VspNpx3psupSqcRKp-U8Pn8tTic3gRFAaIg5yQdhoOAgSDI8Q67EU0mA3zO9CCXAAVME-maLYh7TakDEHRCQIImGhfPRvb7TR5zZbrbbEABmMEJToR-jeejne5xuogf1IDMgYOIUPg7PO125-P3T0+oKUIJAA
 \begin{tikzcd}
-	{K^p \big[S_1 \wedge (L_q \cup N_p) \big]} \arrow[r, "\alpha^*"]                                                                              & {K^p \left[ N_q \cup N_p \cup C_1(L_q \cup N_p)\cup C_2(N_q\cup N_p) \right]}                                                                                                                                                    \\
-	{K^{p} \big[S_1 \wedge L_q\cup N_p , S_1 \wedge  L_p \cup (L_q \setminus \mathring{N_p})\big]} \arrow[u, "i_{\beta}^*"] \arrow[r, "\gamma^*"] & {K^p \left[ \frac{N_q\cup N_p \cup C_1(L_q\cup N_p)\cup C_2(N_q \cup N_p)}{C_2(N_q \cup N_p)}  ,  \frac{ C_1 (L_p \cup \overline{(L_q  \setminus N_p)}) \cup  C_2(N_q \cup N_p)}{C_2(N_q\cup N_p)} \right]} \arrow[u, "\beta^*"]
+	{K^p \big[S_1 \wedge (L_q \cup N_p) \big]} \arrow[r, "\alpha^*"]                                                                                          & {K^p \left[ N_q \cup N_p \cup C_1(L_q \cup N_p)\cup C_2(N_q\cup N_p) \right]}                                                                                                                                                                     \\
+	{K^{p} \big[\quotient{S_1 \wedge L_q\cup N_p }{S_1 \wedge  L_p \cup (L_q \setminus \mathring{N_p})} \big]} \arrow[u, "c_{\beta}^*"] \arrow[r, "\gamma^*"] & {K^p \left[  \quotient{\frac{N_q\cup N_p \cup C_1(L_q\cup N_p)\cup C_2(N_q \cup N_p)}{C_2(N_q \cup N_p)} }{ \frac{ C_1 (L_p \cup \overline{(L_q  \setminus N_p)}) \cup  C_2(N_q \cup N_p)}{C_2(N_q\cup N_p)}}  \right]} \arrow[u, "c_{\gamma}^*"]
 \end{tikzcd}
 	\end{adjustbox}
 \end{center} To see the commutativitie we have to show that 
 \begin{align*}
-	i_{\beta}\circ \alpha =\beta \circ i_{\gamma}: N_q \cup N_p \cup C_1(L_q \cup N_p)\cup C_2(N_q\cup N_p) \to S_1 \wedge L_q\cup N_p , S_1 \wedge  L_p \cup (L_q \setminus \mathring{N_p})
-\end{align*} since $\alpha$ and $\beta$ are both of the form $x \mapsto \overline{x}$ with the same case distinction, the diagram commutes.
-Now we consider the diagram:
+	c_{\beta}\circ \alpha =\gamma \circ c_{\gamma}: N_q \cup N_p \cup C_1(L_q \cup N_p)\cup C_2(N_q\cup N_p) \to \left[ \quotient{S_1 \wedge L_q\cup N_p }{S_1 \wedge  L_p \cup (L_q \setminus \mathring{N_p})} \right]
+\end{align*} since $\alpha$ and $\beta$ are both of the form $x \mapsto \overline{x}=x $ or $p$  we compare the case distinctions:
+\begin{itemize}
+	\item $c_{\beta} \circ \alpha (x)=p \Leftrightarrow x \in C_1 \left( L_p \cup (L_q \setminus \mathring{N_p}) \right) \, \cup \, C_2(N_q \cup N_p)$
+	\item $\gamma \circ c_{\gamma}(x)=p \Leftrightarrow x\in C_2(N_q \cup N_p) \, \cup\,     C_1 (L_p \cup \overline{(L_q  \setminus N_p)}) \cup  C_2(N_q \cup N_p)$
+\end{itemize} Which are the same, since $L_q \setminus \mathring{N_p}=\overline{L_q \setminus N_p}$ due to $L_q$ being closed.
+Now we consider the maps:
+ \[
+\resizebox{\textwidth}{!}{$
+	\begin{aligned}
+		c: \left[ N_q \cup N_p \cup C_1(L_q \cup N_p) \right]  & \to \left[  
+		\frac{
+			N_q \cup N_p \cup C_1(L_q\cup N_p)
+			}{
+			\cl \left( N_q \cup N_p \cup C_1(L_q\cup N_p)\setminus \bigcup\limits_{j=1}^l C_1V_j \right)
+			} 
+		\right] \\
+	x&\mapsto 
+	\left\{ 
+	\begin{array}{ll}
+		p & \text{ if } x\in \cl (N_q \cup N_p \cup C_1(L_q\cup N_p)\setminus \bigcup\limits_{j=1}^l C_1V_j ) \\
+		x& \text{ else }
+	\end{array}   
+	\right.
+	\end{aligned}
+	$}
+\] and 
+
+ \[
+\resizebox{\textwidth}{!}{$
+	\begin{aligned}
+		c_{\iota}: \left[ N_q \cup N_p \cup C_1(L_q \cup N_p) \right] &\to \left[\quotient{\frac{N_q\cup N_p \cup C_1(L_q\cup N_p)\cup C_2(N_q \cup N_p)}{C_2(N_q \cup N_p)}}{ \frac{N_q\cup N_p \cup C_1 (L_p \cup \cl \left( L_q \setminus \bigcup\limits_{j=1}^l V_j \right)) \cup  C_2(N_q \cup N_p)}{C_2(N_q \cup N_p)}}\right] \\
+		x&\mapsto \left\{ \begin{array}{ll}
+			p & \text{ if } x\in N_q\cup N_p \cup C_1 (L_p \cup \cl \left( L_q \setminus \bigcup\limits_{j=1}^l V_j \right)) \cup  C_2(N_q \cup N_p) \\
+			x & \text{ else }
+		\end{array}    \right. \, .
+	\end{aligned}
+	$}
+\] We define $V_j$ to be the the finitly many components $N_p\cap S(q\to)$ and hence we can identify the sets $\overline{L_q\setminus N_p}=\cl(L_q\setminus (L_q\cap N_q))=\cl(L_q\setminus (\bigcup\limits_{j=1}^l))$ and with this the map $\eta$ in the diagramm below is just the identity:
+
+
 \begin{center}
 \begin{adjustbox}{max width=\textwidth}
-% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBoAmAXVJADcBDAGwFcYkQBpAPTQAIAdfgCMsAc2S8AcgH0AjgP4BjZnxl9ByvgGFpARgAUAGTkLNU6WgCUGlbx3l9M2TdUXLCkaMogAvqXSYuPiEKGS61HRMrOzc6sJiEk6mtmrJ2npGJi7mVh5i3n4B2HgERGTEEQwsbIicPHni5vLZqdmCngD0vJnNSiluDQX+IBjFwUS6pOE0VdG1sQqMMABmOBIKywBO9IrASS0WaXYZxs59rlY+wKaM3fvnOUc6BqcHVoJwMDgAtlhgzHAGppBIwsL8cHBgAArAC8uh8XFuzwAatIobx3D4FJsxAALHBDIpBUooSZUGZRGp1OJLVbrQRbHbXZ49N6WK43bos14PNTWfifH5-AFAlQgsG4SGw+GI466VHozHYvEE3zDUbEkLISYAZkqlPYvAWIJWa14G22uzlPXZ1w0t303Lk-MFv3+gPaYmB-FB4KlcIRSL0CoxvCxghxonxlHNaqJJS1kwALPrqjEeCa6RamU43k8TnI2dl7I4sry3FdBNdiApw-w8N94N1Tkc+VjeKRs7tc+W4mZns3Dm0lLdMzh9LwWx8vm6RZ7RN7fZLpNCA7KQxGVZZ3Nljg57mY28Aq8RBD5BA2m5k+7ZBBBaDBNqCwDBgD0FK7hYC2+zlVHVYUIyBAmZSkCmFJpvM9RjhIDKWnsha9vmLyIYebjFtI+5lmhlzACWB79Jc5qdl2zJ6ION5xPej7Pq+74fjOX45OyO4PHupa9Dhtr4ahhG-pu-4FBEMBQKI8BEKAWwQN8SBkCAOAQEgkyRJBIBYCughMGguL0AiABUcYgFJMmIMpClIOQEFzCA+jfFwemWFwwAALTwoZxlIDqNDmaZVlUoo9nuZs0lIAA7N5imIHJsxUupx78KI9DfN8umBYBHmIEmEWeX57DqYIsCMDg9BpcMGUAKzZZluW1HFghfKlBnpcFJkAGxVZVKnWXV-D4MV+lBSFiDtfJkXhV1VL1cVaWUD4QA
+% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBoAmAXVJADcBDAGwFcYkQBpAPTQAIAdfoxgAzHMl4A5APoBHAfwDGzPjL6DlfAMLSAjAAoAMnIWap0tAEoNK3jvL6Zsm6ouWFAJywBzABY5KEABfUnRMXHxCFDJdajomVnZudSFRcXN5F3MUsx0DY0ylWzV3QS8-AODQkAxsPAIiMmI4hhY2RE4eBQAjHwknU2KLQZTe7wB6XiMTLJKen0CQsLrIol1SWJpWxI7khWExCQURD3pFYAHZ4ay86eci1ysg4FNGfbTHGYfskbs9O6uVkEcBgOAAtlgwMw4PNvJpBIwsBCcHBpMAAFYAXl0QS4bzyADVpOjPD5-O4gqSKotqrUIg0UOsqFsEu1OikDuljqdzn98nJAZZnq93mJ9LcCoLgaCIVCYYIxvChEjcKiMdjcfi9ESSWUyTgKVT-DTlvSosh1gBmFqs9i8PYItJHQQnM4vCVyIUvDRvR1ij2yaz8EHgyHQ2FKxHItVYnF4vk6o0G3iUvXU3i8Kqm+rm9YAFhtbSSPD94kEsmYEDwMDAOGALp5FwF3zUvwDUu+9k+hTMJWeXcuLbcQWFDbdTkBbb0U2MOVsPtFOH0vAKChDsvDCp8kZVKLRsc1vETafJpW+fwcg97w+AA6+16eQRPlSWNXCOcapALLKLuy6pedfgKyrLAazrMdzgnIc520f5JWgoNcmkS97yGJ5b2Q7tfj7FNvX4V1eTyGdrm+QQIFoGAPERMAYGAO4M2lUM5WyIUzzMC8sMFftMKgh8hUpJNFjiGAoG8eAiFAE4IDBJAyBAHAICQdZ4l-EAsDRQQmDQXx6FxAAqLMQCkmTEGUhSkHIH8dhAfQwS4PTLC4YAAFocUM4ykEtGhzNMqy2UUez3I8aSkAAdm8xTEDk7Z-I0-hvHoMEwV0wLXw8xA8wizy-PYdTBFgRgcHoVLqnSgBWLKMpyjp1PrfhQRSgy0uCkyADZKoqlTrMUOL8CK-SgpCxB2vkyLwq6tlBAa1LKCCIA
 \begin{tikzcd}
-	{K^p \big[ N_q \cup N_p \cup \big/ (L_q \cup N_p) \big]}                                                                                                                                                                               &                                                                                                                                                                                                                                                                                                                                                     \\
-	{K^p \big[ N_q \cup N_p \cup C_1(L_q \cup N_p) \big]} \arrow[u, "(m^*)^{-1}"]                                                                                                                                                          & {K^p \left[  \frac{N_q \cup N_p \cup C_1(L_q\cup N_p)}{ \cl (N_q \cup N_p \cup C_1(L_q\cup N_p)\setminus \bigcup\limits{j=1}^l C_1V_j ) } \right]} \arrow[l, "c^*"]                                                                                                                                                                                 \\
-	{K^p \big[ N_q \cup N_p \cup C_1(L_q \cup N_p)\cup C_2(N_q\cup N_p) \big]} \arrow[u, "i_{\alpha}^*"]                                                                                                                                   & {K^p \left[  \frac{ C_1(L_q\cup N_p)}{ \cl (C_1(L_q\cup N_p)\setminus \bigcup\limits{j=1}^l C_1V_j ) } \right]} \arrow[u, "i_\delta^*"]                                                                                                                                                                                                             \\
-	& { K^p \left[  \frac{ C_1(L_q)}{ \cl (C_1(L_q)\setminus \bigcup\limits{j=1}^l C_1V_j ) } \right]  } \arrow[u, "i_{\eta}^*"]                                                                                                                                                                                                                          \\
-	{K^p \left[ \frac{N_q\cup N_p \cup C_1(L_q\cup N_p)\cup C_2(N_q \cup N_p)}{C_2(N_q \cup N_p)}  ,  \frac{ C_1 (L_p \cup \overline{(L_q  \setminus N_p)}) \cup  C_2(N_q \cup N_p)}{C_2(N_q\cup N_p)} \right]} \arrow[uu, "i_{\gamma}^*"] & {K^p\left[ \frac{N_q\cup N_p \cup C_1(L_q\cup N_p)\cup C_2(N_q \cup N_p)}{\{ 0 \} \times (L_q \cup N_p)}  , \frac{N_q\cup N_p \cup C_1 (L_p \cup \cl \left( L_q \setminus \bigcup\limits_{j=1}^l V_j \right)) \cup  C_2(N_q \cup N_p)}{\{0\}\times (L_p \cup \overline{(L_q \setminus N_p)})} \right]} \arrow[u, "i_{\iota}^*"] \arrow[l, "\eta^*"]
+	{K^p \big[ N_q \cup N_p \cup \big/ (L_q \cup N_p) \big]}                                                                                                                                                                                           &                                                                                                                                                                                                                                                                                                             \\
+	{K^p \left[ N_q \cup N_p \cup C_1(L_q \cup N_p) \right]} \arrow[u, "(m^*)^{-1}"]                                                                                                                                                                   & {K^p \left[  \frac{N_q \cup N_p \cup C_1(L_q\cup N_p)}{ \cl \left(N_q \cup N_p \cup C_1(L_q\cup N_p)\setminus \bigcup\limits_{j=1}^l C_1V_j \right) } \right]} \arrow[l, "c^*"]                                                                                                                             \\
+	{K^p \left[ N_q \cup N_p \cup C_1(L_q \cup N_p)\cup C_2(N_q\cup N_p) \right]} \arrow[u, "i_{\alpha}^*"]                                                                                                                                            & {K^p \left[  \frac{ C_1(L_q\cup N_p)}{ \cl \left(C_1(L_q\cup N_p)\setminus \bigcup\limits_{j=1}^l C_1V_j \right) } \right]} \arrow[u, "i_\delta^*"]                                                                                                                                                         \\
+	& { K^p \left[  \frac{ C_1(L_q)}{ \cl \left(C_1(L_q)\setminus \bigcup\limits_{j=1}^l C_1V_j \right) } \right]  } \arrow[u, "i_{\eta}^*"]                                                                                                                                                                      \\
+	{K^p \left[  \quotient{\frac{N_q\cup N_p \cup C_1(L_q\cup N_p)\cup C_2(N_q \cup N_p)}{C_2(N_q \cup N_p)} }{ \frac{ C_1 (L_p \cup \overline{(L_q  \setminus N_p)}) \cup  C_2(N_q \cup N_p)}{C_2(N_q\cup N_p)}}  \right]} \arrow[uu, "c_{\gamma}^*"] & {K^p\left[\quotient{\frac{N_q\cup N_p \cup C_1(L_q\cup N_p)\cup C_2(N_q \cup N_p)}{C_2(N_q \cup N_p)}}{ \frac{N_q\cup N_p \cup C_1 (L_p \cup \cl \left( L_q \setminus \bigcup\limits_{j=1}^l V_j \right)) \cup  C_2(N_q \cup N_p)}{C_2(N_q \cup N_p)}}\right]} \arrow[u, "c_{\iota}^*"] \arrow[l, "\eta^*"]
 \end{tikzcd}
 \end{adjustbox}
 \end{center}
+Now the mamoth task is to show that this beast commutes:
+For this we preoceed with the same strategy since again all maps are inclusions and collases and hence the maps look like $x\mapsto \overline{x}=x $ or $p$. For the consideration assume that $x\neq p$ in the domain. Then: 
+\begin{align*}
+	\eta \circ c_{\gamma} \circ i_{\alpha}(X)=p \Leftrightarrow x\in   C_1 (L_p \cup \overline{(L_q  \setminus N_p)}) \cup  C_2(N_q \cup N_p)
+\end{align*} On the other hand: 
+\begin{align*}
+&	i_{\iota}\circ i_{\eta} \circ i_{\delta}\circ c(x)=
+	p \Leftrightarrow \\
+	x\in &  \cl \left(N_q \cup N_p \cup C_1(L_q\cup N_p)\setminus \bigcup\limits_{j=1}^l C_1V_j \right) \cup  N_q\cup N_p \cup C_1 (L_p \cup \cl \left( L_q \setminus \bigcup\limits_{j=1}^l V_j \right)) \cup  C_2(N_q \cup N_p) \\
+	= &C_1 \cl \left( (L_q\cup N_p)\setminus \bigcup\limits_{j=1}^l C_1V_j \right) \cup  C_1 (L_p \cup \cl \left( L_q \setminus \bigcup\limits_{j=1}^l V_j \right)) \cup  C_2(N_q \cup N_p)\\
+	 =&
+\end{align*}
+
+
+
 \end{lemma}
 
 
