@@ -395,14 +395,31 @@ For this we preoceed with the same strategy since again all maps are inclusions 
 	\eta \circ c_{\gamma} \circ i_{\alpha}(X)=p \Leftrightarrow x\in   C_1 (L_p \cup \overline{(L_q  \setminus N_p)}) \cup  C_2(N_q \cup N_p)
 \end{align*} On the other hand: 
 \begin{align*}
-&	i_{\iota}\circ i_{\eta} \circ i_{\delta}\circ c(x)=
-	p \Leftrightarrow \\
+&	c_{\iota}\circ i_{\eta} \circ i_{\delta}\circ c(x)=
+	p \Leftrightarrow c(x)=p  \text{ or } c_{\iota}(x)=p \\
 	x\in &  \cl \left(N_q \cup N_p \cup C_1(L_q\cup N_p)\setminus \bigcup\limits_{j=1}^l C_1V_j \right) \cup  N_q\cup N_p \cup C_1 (L_p \cup \cl \left( L_q \setminus \bigcup\limits_{j=1}^l V_j \right)) \cup  C_2(N_q \cup N_p) \\
-	= &C_1 \cl \left( (L_q\cup N_p)\setminus \bigcup\limits_{j=1}^l C_1V_j \right) \cup  C_1 (L_p \cup \cl \left( L_q \setminus \bigcup\limits_{j=1}^l V_j \right)) \cup  C_2(N_q \cup N_p)\\
-	 =&
+	= &C_1 \cl \left( (L_q\cup N_p)\setminus \bigcup\limits_{j=1}^l V_j \right) \cup  C_1 (L_p \cup \cl \left( L_q \setminus \bigcup\limits_{j=1}^l V_j \right)) \cup  C_2(N_q \cup N_p)\\
+	= &C_1 \cl \left( (L_q)\setminus \bigcup\limits_{j=1}^l V_j \right) \cup  C_1 (L_p \cup \cl \left( L_q \setminus \bigcup\limits_{j=1}^l V_j \right)) \cup  C_2(N_q \cup N_p)\\
+	= & C_1 (L_p \cup \cl \left( L_q \setminus \bigcup\limits_{j=1}^l V_j \right)) \cup  C_2(N_q \cup N_p)\\
 \end{align*}
-
-
+And now the conditions agree and hence the big diagramm commutes.
+Now notice how we have the homeomorphism 
+\begin{align*}
+	\Lambda:  \left[  \frac{ C_1(L_q)}{ \cl \left(C_1(L_q)\setminus \bigcup\limits_{j=1}^l C_1V_j \right) } \right]
+	\to \bigvee_{j=1}^lC_1V_j \big/ \partial C_1 V_j
+\end{align*} that is the identity on all $\mathring{V_j}$. Furthermore we have the compression maps
+\begin{align*}
+	c_j: \bigvee_{j=1}^lC_1V_j \big/ \partial C_1 V_j \to C_1V_j \big/ \partial C_1 V_j 
+\end{align*}
+ Hence by the additivity of $K-$Theorie, the pair
+\begin{align*}
+	\left( K^p \left[  \frac{ C_1(L_q)}{ \cl \left(C_1(L_q)\setminus \bigcup\limits_{j=1}^l C_1V_j \right) } \right]  ,\left( c_j \circ \Lambda^*\right)_j\right)
+\end{align*} satisfies the coproduct universal property.
+For all $C_1V_j$ we get an homeomorphismto $S^{k+1}$:
+\begin{align*}
+	r:  C_1V_j \big/ \partial C_1 V_j &\to I\times D^k \big/ \partial (I\times D^k) \\
+	(t,x) & \mapsto (t,\psi(x))
+\end{align*}
 
 \end{lemma}
 
