@@ -1,0 +1,213 @@
+\documentclass{scrartcl}
+
+\usepackage{pdfpages}
+
+\usepackage[english]{babel}
+\usepackage{graphicx}
+\usepackage{wrapfig, framed,caption}
+\usepackage{amsmath, amsfonts, amsthm, graphicx}
+\usepackage[headheight=18pt]{geometry}
+\usepackage{float} %kann figuren an einen platz fixieren
+\usepackage[hidelinks]{hyperref}
+\usepackage{tikz-cd}
+\tikzcdset{scale cd/.style={every label/.append style={scale=#1},
+    cells={nodes={scale=#1}}}}
+\usepackage{pgfplots}
+\usepackage{tabularx}
+\usepackage{mathtools}
+
+
+\usetikzlibrary{backgrounds}
+\usetikzlibrary{patterns}
+\pgfplotsset{compat=newest}
+\usepackage{epstopdf}
+\usepackage{svg}
+\usepackage[shortlabels]{enumitem}
+\usepackage{mwe}
+% Drawing
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+
+% Styles
+\tikzset{>=latex}
+\usepackage{xcolor}
+\usepackage{pdflscape}
+\usepackage{pgfplots}
+\usepgfplotslibrary{colormaps}
+\usepackage[pdftex]{pict2e}
+\usepackage[utf8]{inputenc} %kann sonderzeichen aus dem Text lesen
+\usepackage{fancyvrb}
+\usepackage{MnSymbol}
+\usepackage{todonotes}
+
+
+\usepackage{scrlayer-scrpage} % Für kompatible Kopf- und Fußzeilen
+\usepackage{lastpage} % Für \pageref{LastPage}
+
+\pagestyle{scrheadings} % Aktiviert benutzerdefinierte Kopf-/Fußzeilen
+
+% Kopf- und Fußzeilen definieren
+\pagestyle{scrheadings}
+\clearpairofpagestyles
+\setkomafont{pagehead}{\bfseries} % Kopfzeile fett formatieren
+\ihead{\leftmark} % Linker Kopfbereich: Titel der aktuellen Section
+\ohead{\Large\textbar\enskip\thepage} % Rechter Kopfbereich: Nur Seitenzahl mit größerer Schrift und Trennstrich
+\cfoot{} % Keine Fußzeile
+\automark[section]{section} % Section für \leftmark
+%\automark[subsection]{subsection} % Subsection für \rightmark
+
+% Linie über der Kopfzeile aktivieren
+\KOMAoptions{headsepline=true}
+
+\usepackage[most]{tcolorbox}
+\usepackage[dvipsnames]{xcolor}
+
+
+\newtheorem{theorem}{Theorem}
+
+
+\newtheorem{lemma}[theorem]{Lemma}
+
+\theoremstyle{definition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{cor}[theorem]{Corollary}
+\newtheorem{prop}[theorem]{Proposition}
+\newtheorem{fact}[theorem]{Fact}
+
+\numberwithin{theorem}{section}
+\usepackage{thmtools}
+\usepackage{mathtools}
+\pgfplotsset{compat=newest}
+
+\usepackage{cleveref}
+
+
+
+
+
+\let\uglyepsilon\epsilon
+\let\epsilon\varepsilon %das schönere epsilon
+
+\let\uglyphi\phi
+\let\phi\varphi
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\T}{\mathbb{T}}
+\newcommand{\B}{\mathbb{B}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\CC}{\mathcal{C}}
+\newcommand{\Sp}{\mathcal{S}}
+\newcommand{\Chi}{\mathcal{X}}
+\newcommand{\spec}{\mathrm{spec}}
+\newcommand{\conj}{\mathrm{conj}}
+\newcommand{\sing}{\mathrm{sing}}
+\newcommand{\Morse}{\mathrm{Morse}}
+\newcommand{\im}{\mathrm{im}}
+\newcommand{\conv}{\mathrm{conv}}
+\newcommand{\grad}{\mathrm{grad}}
+\newcommand*\diff{\mathop{}\!\mathrm{d}}
+\newcommand{\Lip}{\mathrm{Lip}}
+\newcommand{\diag}{\mathrm{diag}}
+\newcommand{\sign}{\mathrm{sign}}
+\newcommand{\CW}{\mathrm{\tiny{CW}}}
+\newcommand{\Crit}{\mathrm{Crit}}
+\newcommand{\transcap}{\text{$\cap\kern-0.4em|\kern0.4em$}}
+\DeclareMathOperator{\supp}{\mathrm{supp}}
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}%
+\DeclareMathOperator{\cl}{\mathrm{cl}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Categories
+\DeclareMathOperator{\Set}{\mathbf{Set}}
+\DeclareMathOperator{\Ab}{\mathbf{Ab}}
+\DeclareMathOperator{\Ring}{\mathbf{Ring}}
+\DeclareMathOperator{\CDiff}{\mathbf{CDiff}}
+\DeclareMathOperator{\Top}{\mathbf{Top}}
+\DeclareMathOperator{\hTop}{\mathbf{hTop}}
+\DeclareMathOperator{\TopP}{\mathbf{TopP}}
+\DeclareMathOperator{\TopH}{\mathbf{TopH}}
+\DeclareMathOperator{\hTopH}{\mathbf{hTopH}}
+\DeclareMathOperator{\TopC}{\mathbf{TopC}}
+\DeclareMathOperator{\hTopC}{\mathbf{hTopC}}
+\DeclareMathOperator{\TopCPair}{\mathbf{TopC^2}}
+\DeclareMathOperator{\TopCPoint}{\mathbf{TopC^0}}
+\DeclareMathOperator{\hTopP}{\mathbf{hTopP}}
+\DeclareMathOperator{\absgrp}{\mathbf{AbSemGrp}}
+\DeclareMathOperator{\Cvec}{\mathbf{Vect}}
+\DeclareMathOperator{\Pmod}{\mathbf{Pmod}}
+\DeclareMathOperator{\Cmod}{\mathbf{Mod}}
+\DeclareMathOperator{\vect}{\mathrm{Vect}}
+
+\newcommand{\GL}{\mathrm{GL}}
+\newcommand{\G}{\mathrm{G}}
+
+
+\def\quotient#1#2{%
+	\left.
+    	\raise1ex\hbox{$#1$}
+    \middle/ 
+    	\lower1ex\hbox{$#2$}%
+    \right.
+    }
+\newcommand*\colvec[3][]{
+    \begin{pmatrix}\ifx\relax#1\relax\else#1\\\fi#2\\#3\end{pmatrix}
+}
+\newcommand\einsch[1]{\raisebox{-.5ex}{$\Big|$}_{#1}}
+
+\newcommand{\iso}{\mathrm{iso}}
+
+\DeclareMathOperator{\Hess}{\text{Hess}}
+\newcommand{\stillOpen}{\color{red}{ [still open]}}
+\DeclareMathOperator{\id}{\text{id}}
+\newcommand{\Ob}{\text{Ob}}
+\newcommand{\ind}{\mathrm{ind}}
+\newcommand{\euler}{\mathrm{e}}
+\newcommand{\Whab}{W_{h^{\beta\alpha}}}
+\newcommand{\Lab}{\mathcal{F}(\mathfrak{A}^{\alpha},\mathfrak{A}^{\beta})}
+\DeclareMathOperator{\coker}{\mathrm{coker}}
+\DeclareMathOperator{\rank}{\mathrm{rank}}
+\DeclareMathOperator{\herm}{\mathrm{herm}}
+\DeclareMathOperator{\fix}{\mathrm{aut}}
+\DeclareMathOperator{\End}{\mathrm{End}}
+\DeclareMathOperator{\aut}{\mathrm{fix}}
+\DeclareMathOperator{\K}{\mathrm{K}}
+\DeclareMathOperator{\iB}{\mathrm{iB}_{\epsilon}}
+
+
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\GLR}[1]{\GL(#1, \mathbb{R})}
+\DeclareMathOperator{\Exp}{\mathbb{Exp}}
+
+
+\usepackage[
+backend=biber,
+style=alphabetic
+]{biblatex}
+\addbibresource{sample.bib}
+
+%\usepackage{csquotes} 
+% \usepackage{animate}
+
+
+\newif\ifhanddraw
+\handdrawtrue
+
+\usepackage{etoolbox}
+\AtBeginEnvironment{pmatrix}{\renewcommand\arraystretch{1.5}}
+
+\tikzcdset{scale cd/.style={every label/.append style={scale=#1},
+    cells={nodes={scale=#1}}}}
+
+\usepackage{adjustbox}
+
+% Satz (Theorem): Wichtiges Ergebnis.
+% Lemma: Hilfssatz für den Beweis eines wichtigeren Ergebnisses.
+% Proposition: Weniger bedeutende, aber nützliche Aussagen.
+% Korollar: Direkte Folgerung aus einem Satz oder Lemma.
+% Definition: Einführung eines neuen Begriffs.
+% Bemerkung (Remark): Erläuterung oder Zusatzinformation.
+% Beispiel: Veranschaulichung eines Begriffs oder Satzes.

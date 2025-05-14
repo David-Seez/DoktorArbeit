@@ -1,0 +1,442 @@
+\begin{theorem}
+	Given the filtration $N_{-1}\subseteq N_0 \subseteq \cdots \subseteq N_{m-1} \subseteq N_m=M$   from \ref{eq: Filtration conley}.  The following diagram commutes:
+	\begin{center}
+	% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAGEA9YAawF8AFAFlSAHVEBbOjgAWAMwBOdHsACCfMaLwNYwANJ9uDQWhwBKMyA3pMufIRQBGclVqMWbLrwDUjwSPEpWUVlNQ1xbV0DIxNzS2sQDGw8AiIyR1d6ZlZEEHEAIywAcwg0ZjhxBiwJXDgAfWA0cSwwAAJxdgVcOp4BOTM+CKwdGH1DH2MBADk6tFIAGVn40htk+yJnDOosj1yC4tLyyurahoBHZraOrpwGnl9BfsGtYajx+4YH6bqzhZ-l1Z2VIoMgAJky7hyID03A+ghmPFIM14AFo-ADErYUg5kM5wdtIWwYY1vJ8-N8fH4kT14q4YFAivAiKBFBAJEgyCAcBAkM43Nk2OI0HQFHhGJw0FYViBWezEJzuUhQQlZbzqIrEABmFUKNlIAAs6p5iAArASBXtRLAGDg6A0cF0yjA+FKWbq5aCjQadXqtV7TT6Pf7NebdnlRAARGA2u0TF18Ch8IA
+	\begin{tikzcd}
+		{C^{k}(M,\mathfrak{A},\tilde{K}^{l}(pt))} \arrow[r, "\partial^p"] \arrow[d]                      & {C^{k+1}(M,\mathfrak{A},\tilde{K}^{l}(pt))} \arrow[d]                        \\
+		{\bigoplus\limits_{p\in \Crit_k(f)}\tilde{K}^{k+l}(N_p,L_p)} \arrow[d] \arrow[r, "\Delta_{k+l}"] & {\bigoplus\limits_{q\in \Crit_{k+1}(f)}\tilde{K}^{k+l+1}(N_q,L_q)} \arrow[d] \\
+		{K^{k+l}(N_k,N_{k-1})} \arrow[r, "\delta_{triple}"]                                              & {K^{p+l+1}(N_{k+1},N_k)}                                                    
+	\end{tikzcd}
+	\end{center}
+\end{theorem}
+\begin{proof}
+So we assume for the moment, that $q\in \Crit_{k+1}(f)$ and $p\in \Crit_k(f)$ are the only critical points in $f^{-1}([a,b])$, where $a\coloneq f^{-1}(p)$ and $b\coloneq f^{-1}(q)$.
+Now, we choose the index pairs wisely:
+First we define the notations:
+\begin{align*}
+	M^t\coloneq \{x\in M| f(x)\leq t\}~,~ M_t\coloneq \{x\in M| f(x)\geq t\}
+\end{align*}
+and the constants:
+\begin{align*}
+	c\in (a,b)~,~ \epsilon>0 \text{ small enough }~,~ T>0 \text{ large enough}
+\end{align*}
+Now we define the following sets:
+\begin{align*}
+	N_q  & \coloneq    \{ x\in M_c |f(\phi_{-T}(x))  \leq b+ \epsilon  \}    \\
+	L_q  & \coloneq    \{ x\in N_q |f(x)             =    c            \}    \\
+	N_p  & \coloneq    \{ x\in M^c |f(\phi_T(x))     \geq a-\epsilon   \}    \\
+	L_p  & \coloneq    \{ x\in N_p |f( \phi_T(x))    =    a-\epsilon   \}
+\end{align*}
+and with those the sets;
+\begin{align*}
+	C  & \coloneq  N_p \cup N_q                      \\
+	B  & \coloneq  N_p \cup L_q                      \\
+	A  & \coloneq  L_p \cup \mathring{(L_q-N_p)}
+\end{align*}
+With those we have the following list of facts:
+\begin{enumerate}
+	\item $(N_q,L_q)$ is a regular index pair for $q$.
+	\item $(C,B)$ is an index pair for $q$.
+	\item $(N_p,L_p)$ is a regular index pair for $p$.
+	\item $(B,A)$ is an index pair for $p$
+\end{enumerate}
+ Since $N_p$ is a tubular neighbourhood of the contractible $W(\to p)\cap M^c$ we get the diffeomorphism: 
+\begin{align*}
+	\psi_p:N_p\to \underbrace{ \overline{D^{m-k}} }_{\dim W(\to p)} \times \overline{D^k}\subseteq T^u_pM
+\end{align*} The image here is a subspace of the total space of the trivialized normal bundle. This map satisfies that
+\begin{enumerate}
+	\item $\psi(L_p)=\overline{D^{m-k}}\partial D^{k}$ ,
+	\item $\psi_p(N_p\cap W(\to p)=\{0\}\times \overline{D^{m-k}}$ ,
+	\item $\psi(V_j)=\{\theta_j\} \times \overline{D^{k}} $ where $\theta_j\in \partial D^{m-k}$.
+\end{enumerate}
+Using this map we get diffoemorphisms 
+\begin{align*}
+	\psi_j:   V_j &\to \overline{D^{k}}\\
+	x             &\mapsto \pi_1\circ \psi_p(x) \text{ where $\pi_1$ is the projection onto the first factor.}
+\end{align*} This map resticts to a diffeomorphism from $\partial V_j=V_j\cap L_p$\todo{das durchdenken, ob das klar ist} to $\partial D^{k-1}$ Hence, an orientation of the unstable tangend space of $p$ induces a map:
+$V_j\to \overline D^k$
+
+Now we want to figure out how the map between the spheres on the right looks if the diagramm commutes:
+\begin{center}
+% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAAIAKAdU4EcAOgJwR2ASiEBjOmnYA5APp8JAyU1kBhBQEZ2AZX5CRYkAF9S6TLnyEUZbVVqMWbIQCEsAc0+d27r748hsKiKtKyispS6uxaugaCISoenmExWgBMXLyJIuJSMvJKyV6p0bKxCgDMXHF+AhA0MABODFhgMMAJRhAqcDA4ALbtTHDsAGoKAFamJuaW2HgERNrkjvTMrIggegB6wADWANTapmYWIBiLNiukDtQbLtt7hydnpo4wUJ7wRKAAZs0IIMkGQQCIkKtwXQsAw2AALCAQA7nAFAkGIMEQxAZB7OLYgIQABXhWFRIEBwMh1GxVTxm1cAiJ2HJlIxuPBECQVQ+piAA
+\begin{tikzcd}
+	(W(q\to )\cap N_q)\cup C_1 S(q\to) \arrow[d, hook] \arrow[r, "\Phi"]                                                                                  & S^{k+1} \arrow[d] \\
+	\Bigg( \Big( (W(q\to )\cap N_q)\cup C_1 S(q\to)\Big)\cup C_2 (W(q\to )\cap N_q)\Bigg)\cup  C_3 (C_1 \overline{S(q\to)\setminus V_j}) \arrow[r, "\Psi"] & S^{k+1}          
+\end{tikzcd}
+\end{center}
+Hence we need to specify the horizontal (and vertical) maps. \todo{Why is the left an inclusion?}
+So we start with the top one(or rqther its inverse):
+From the proof of theorem \ref{thm: stable and unstable manifold theorem} we recycle a view maps. 
+Notice how the orientation of $T^u_qM$ gives us a way to identify $T^u_qM$ with $\R^{k+1}$ (the coordinate map) and hence we can restrict the chart $\chi^0 \eqcolon \chi:T^u_q M\supset U\to W(q\to)$ such that $U=\overline{D^{k+1}}$ is a closed Disc in $\R^n$.\todo{careful, the map $\chi$ is just a chart and hence not natural in any sence. But since $W(q\to)$ is orientable, and hence we can make $\chi$ and oriented chart. }. Now for each 
+$x\in  U\setminus q$ there is a number $t_{0,x}\geq 0$ such that $\phi_{t_{0,x}}(\chi(x))\in \chi(\partial U)$. Furthermore for each $x\in  U$, there is a number$t_{1,x}$ such that $\phi_{t_{1,x}}(\chi(x))\in f^{-1}(c)$ Those numbers all smoothly depend on $x$.
+
+Now define the map
+\begin{align*}
+	\tilde{\Phi}:	\overline {D^{k+1}}			&\to 		W(q\to)\cap M_c\\
+	x				&\mapsto	\phi_{(t_{1,x}-t_{0,x})}\chi((x)) \, .
+\end{align*}
+
+
+This map is a homeomorphism, since $\chi$ is one, and the flow as a map $\phi: \R \times M \to M$ is continouos. Furthermore there is an inverse given as follows: For each $x\in W(q\to)\cap M_c$ there is a real number $s_{0,x}$ such that $\phi_{s_{0,x}}(x)\in \chi(\partial U)$, and a real number $s_{1,x}$ such that $\phi_{s_{1,x}}(x)\in f^{-1}(c)$. Then the map 
+\begin{align*}
+	\Phi: W(q\to)\cap M_c 	&\to     \overline {D^{k+1}} \\
+	x						&\mapsto \chi^{-1}(\phi_{s_{0,x}-s_{1,x}})(x)
+\end{align*}
+is the inverse of $\tilde{\Phi}$: To see this notice that for $y=\chi(x)$ we have $t_{0,x}=s_{0,y}$, and $t_{1,x}=s_{1,y}$ by definition. 
+
+
+
+Now call $A\coloneq  \phi_{(t_{1,x}-t_{0,x})}\chi(x)=\phi_{(s_{1,\chi(x)}-s_{0,\chi(y)})}\chi(x)$, then we have:
+\begin{itemize}
+	\item $s_{1,A}=s_{0,\chi(x)}$ and,
+	\item $s_{0,A}=-s_{1,\chi(x)}+2s_{0,\chi(x)}$.
+\end{itemize}
+This is because:
+\begin{equation*}
+	\phi_{s_{0,\chi(x)}}\circ \phi_{(t_{1,x}-t_{0,x})}\chi(x)=\phi_{s_{0,\chi(x)}}\circ  \phi_{(s_{1,\chi(x)}-s_{0,\chi(y)})}\chi(x)= \phi_{(s_{1,\chi(x)})}\chi((x)) \in f^{-1}(c)\, ,
+\end{equation*} 
+and 
+\begin{equation*}
+	\phi_{-s_{1,\chi(x)}+2s_{0,\chi(x)}}\circ \phi_{(s_{1,\chi(x)}-s_{0,\chi(y)})}\chi(x)= \phi_{(s_{0,\chi(x)})}\chi((x)) \in f(\partial U)\, .
+\end{equation*} 
+Hence  
+\begin{align*}
+	\Phi \circ \tilde{\Phi}(x)
+	&= 	\Phi\Big( \phi_{(t_{1,x}-t_{0,x})}\chi((x)) \Big) \\
+	&= 	\Phi\Big( \underbrace{\phi_{(s_{1,\chi(x)}-s_{0,\chi(y)})}\chi(x)}_{=A} \Big) \\
+	&=  \chi^{-1}\circ \phi_{s_{0,A}-s_{1,A}}(\phi_{(s_{1,\chi(x)}-s_{0,\chi(y)})}\chi(x)) \\
+	&=  \chi^{-1}\circ \underbrace{\phi_{-s_{1,\chi(x)}+2s_{0,\chi(x)} -s_{0,\chi(x)} }(\phi_{(s_{1,\chi(x)}-s_{0,\chi(y)})}}_{=\id}\chi(x)) \\
+	&=  x
+\end{align*}
+
+And the other way round we have the relations for $B\coloneq \chi^{-1}(\phi_{s_{0,x}-s_{1,x}}(x))$:
+\begin{align*}
+	t_{0,B}&=	s_{1,x}\\
+	t_{1,B}&=	-s_{0,x}+2s_{1,x}\, , 
+\end{align*}
+since we can calculate:
+\begin{align*}
+	\phi_{s_{1,x}}(\chi(B))			  &= \phi_{s_{1,x}}(\phi_{s_{0,x}-s_{1,x}})=\phi_{s_{0,x}}(x)\in f(\partial U)\\
+	\phi_{-s_{0,x}+2s_{1,x}}(\chi(B)) &= \phi_{-s_{0,x}+2s_{1,x}}(\phi_{s_{0,x}-s_{1,x}})= \phi_{s_{1,x}}(x) \in f^{-1}(c)
+\end{align*}
+\begin{align*}
+	\tilde{\Phi}\circ \Phi(x)
+	&=	\tilde{\Phi} \big( \chi^{-1}(\phi_{s_{0,x}-s_{1,x}})(x) \big)  \\
+	&=	\phi_{t_{1,B}-t_{0,B}}\chi \circ \chi^{-1}(\phi_{s_{0,x}-s_{1,x}})(x) \\
+	&=  \phi_{	-s_{0,x}+2s_{1,x}-s_{1,x}}\phi_{s_{0,x}-s_{1,x}})(x) \\
+	&=  x
+\end{align*}
+
+So now we have a diffeomorpism $\Phi:W(q\to)\cap N_q\to \overline{D^{k+1}}$. We extend this to a continuous map 
+\begin{align*}
+	(W(q\to)\cap N_q)\cup C_1S(q\to) \to \overline{D^{k+1}}\slash \partial \overline{D^{k+1}}
+\end{align*} by first contracting $C_1S(q\to)$:
+So now we have a diffeomorpism $\Phi:W(q\to)\cap N_q\to \overline{D^{k+1}}$. We extend this to a continuous map
+\begin{align*}
+	(W(q\to)\cap N_q)\cup C_1S(q\to) \to \overline{D^{k+1}} \cup C_1 \partial \overline{D^{k+1}}
+\end{align*} 
+
+
+
+
+
+
+
+
+
+
+
+
+This is neither a homeopmorphism nor a homotopie equivalence. But it is continouos and since $C_1S(q\to)$ was contractible, it induces an isomorphims in the K-groups. Now since $\Phi$ maps $S(q\to)$ to $\partial D^{k+1}$ we can compose the contracting with $\Phi$ to get a continouos map that induces an isomorphism in the K-group, and which we will also call $\Phi$:
+\begin{align*}
+	\Phi: (W(q\to)\cap N_q)\cup C_1S(q\to) \to \overline{D^{k+1}}\slash \partial \overline{D^{k+1}} \,. 
+\end{align*}
+
+Now we want to construct the map 
+\begin{equation}
+	\Psi: \Bigg( \Big( (W(q\to )\cap N_q)\cup C_1 S(q\to)\Big)\cup C_2 (W(q\to )\cap N_q)\Bigg)\cup  C_3 (C_1 \overline{S(q\to)\setminus V_j}) \to S^{k+1}
+\end{equation}
+First we contract all unnecesarry parts: 
+\begin{align*}
+	\Bigg( \Big( (W(q\to )\cap N_q)\cup C_1 S(q\to)\Big)\cup C_2 (W(q\to )\cap N_q)\Bigg)\cup  C_3 (C_1 \overline{S(q\to)\setminus V_j}) \\
+	\to \Bigg( \Big( (W(q\to )\cap N_q)\cup C_1 S(q\to)\Big) \Big/ (W(q\to )\cap N_q)\Bigg) \Big/ (C_1 \overline{S(q\to)\setminus V_j}) \\
+	=   \Big( (W(q\to )\cap N_q)\cup C_1 S(q\to)\Big)         \Big/     
+	\Big( (W(q\to )\cap N_q) \cup (C_1 \overline{S(q\to)\setminus V_j}) \Big) \\
+	= \Big( C_1 S(q\to)  \Big)  \big/   \big( S(q\to ) \cup (C_1 \overline{S(q\to)\setminus V_j}) \big)\\
+	= \big( C_1 V_j \big)\big/ \big( V_j \cap C_1(\partial V_j)\big) 
+\end{align*}
+To summarize, we get a continouos map $\Theta$: 
+\begin{align*}
+	\Bigg( \Big( (W(q\to )\cap N_q)\cup C_1 S(q\to)\Big)\cup C_2 (W(q\to )\cap N_q)\Bigg)\cup  C_3 (C_1 \overline{S(q\to)\setminus V_j}) \\ 
+	\to \big( C_1 V_j \big)\big/ \big( V_j \cap C_1(\partial V_j)\big) 
+\end{align*}
+Again this is continouos but not even a homotopie equivalence. However, it induces an isomorphism in the K-groups.
+via $\psi$ we get a map $V_j\to \overline{D^k}$. 
+\begin{align*}
+	\tilde{\psi}: \big( C_1 V_j \big)\big/ \big( V_j \cap C_1(\partial V_j)\big)  &\to \overline{D^k}\times I \big/ \big(\partial \overline{D^k}\times I\cup \overline{D^k}\times \{0,1\} \big)\\
+	(x,t)					&\mapsto \psi(x,t)
+\end{align*}
+Now by rescaling the last factor:
+\begin{align*}
+	\tilde{r}: \overline{D^k}\times I \to \overline{D^{k+1}}
+\end{align*} 
+we get the homomorphism
+\begin{align*}
+	r:\overline{D^k}\times I \big/ \big(\partial \overline{D^k}\times I\cup \overline{D^k}\times \{0,1\} \big) 
+				&\to \overline{D^{k+1}} \big/ \partial \overline{D^{k+1}}\\
+	(x,t)		& \mapsto \overline{r(x,t)}\, .
+\end{align*} To see the well definition, notice how for closed sets we have the equality $\partial(A\times B)=(\partial A \times B) \cup (A\times \partial B)$. 
+In sum we get the map :
+\begin{align*}
+	\Psi: 	\Bigg( \Big( (W(q\to )\cap N_q)\cup C_1 S(q\to)\Big)\cup C_2 (W(q\to )\cap N_q)\Bigg)\cup  C_3 (C_1 \overline{S(q\to)\setminus V_j}) \\ 
+	\to \overline{D^{k+1}} \big/ \partial \overline{D^{k+1}}
+\end{align*} given by $\Psi: r \circ \tilde{\psi} \circ \Theta$
+Now we want to ask, how the map 
+\begin{align*}
+	\Psi \circ i\circ \Phi^{-1}:\overline{D^{k+1}} \big/ \partial \overline{D^{k+1}} \to \overline{D^{k+1}} \big/ \partial \overline{D^{k+1}}
+\end{align*} looks like. Our claim is, that this map is homotopic to the identity, if the orientation in $T_{x_j}V_j$ induced from the one in $T^u_qM$ and from $T^u_pM$ agree. 
+To do this we start with the inclusion. (But we need the "Coordinates from $\Phi$ maby we can look at $\Phi(x,t)$ and compare it to $\Psi\circ i (x,t)$. 
+\begin{align*}
+	i: 	(W(q\to)\cap N_q)\cup C_1S(q\to)  \\
+	\to 	\Bigg( \Big( (W(q\to )\cap N_q)\cup C_1 S(q\to)\Big)\cup C_2 (W(q\to )\cap N_q)\Bigg)\cup  C_3 (C_1 \overline{S(q\to)\setminus V_j})
+\end{align*}So assume $(t,x)$ lives in the domain. Then 
+$(\Theta\circ i )(t,x)=\overline{(t,x)}$ where the equivalence is given by the collaps of everything but the interior of $C_1V_j$. 	
+Now inspect $\psi(V_j)$. we can identify via a trivialitation of the normal bundle $\psi(V_j)$ with $T^u_pM$ and the orientation of the latter induces a map to $D^{k-1}$. 
+
+\end{proof}
+\begin{cor}[The Logic and To-Dos of my Proof]
+	We have the definitions above, of all sets. with those we first want to construct a map of triples
+	\begin{align*}
+		t:(A,B,C)\to (N_{p+1},N_p,N_{p-1})
+	\end{align*} By naturality and definition we then have the commutative diagram: 
+	\begin{center}
+		% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAGkA9YAWjQGoAjAF8AFADkA+sAEjSUtAEpFIYaXSZc+QijKCqtRizZdeaMVJlrLaHiJVqN2PASKDS+6vWatEHbnxiAEKkAMIO6iAYztpu5Abexn6mfEJiAIKkQRFOWq4oAEzxXka+-mZpopnZqpHReTrIRZ6GPiYBsmJwADrdNDAwAASiIeEOBjBQAObwRKAAZgBOEAC2SO4gOBBIZK1JIL2wDDh00jiLWGgMMMK1C8triBtbSEV7ZTicAFR3IEurO2oL0QAGYSm0-J8fo4-g9XkDtqDwftDjBjqdgOdLtdbjD-o8wZtEQAWagMLBgMpQCBMABG1xA1AAFjA6FA2JBKYzNnQsAwOQRWHi4Yg3sCAKxkilUmn01jM1nsvyc+U8vkCrnCgGISVEpCk95sODfVQUYRAA
+		\begin{tikzcd}
+			{K^{-p+1}(N_{p+1},N_p))} \arrow[r, "t^*"]                             & {K^{-p+1}(A,B)} \arrow[r, no head, Rightarrow]                            & {K^{-p+1}(A,B)}                          \\
+			{K^{-p}(N_{p},N_{p-1})} \arrow[u, "\delta_{triple}"] \arrow[r, "t^*"] & {K^{-p}(B,C)} \arrow[u, "\delta_{triple}"] \arrow[r, no head, Rightarrow] & {K^{-p+1}(s\vee (B,C))} \arrow[u, "s^*"]
+		\end{tikzcd}
+	\end{center} 
+	We now have to show that $s^*$ is induced from a continuous map. Then we want to use the maps $\Phi$ and $\Psi$ to induce a map $p\simeq \pm \id $ such that the diagram commutes up to homotopie:
+	\begin{center}
+		% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAAoBBUgIQEoQAX1LpMufIRRkAjFVqMWbAMoAdFTRgwABOx6kAwgOGjseAkWnk59Zq0QglAPWABrANTTBQkSAymJFqSy1DaK9k6uHl6CcjBQAObwRKAAZgBOEAC2SGQgOBBIlvK2bAjGIOlZOdT5SABMIQp2IGoACgAWWN6pGdmIRbWIAMyNJfZt2N0VvfU1BcOjYS0qaJlaalhQWkIUgkA
+		\begin{tikzcd}
+			{(A,B)} \arrow[d, "s"] \arrow[r, "\Phi"] & \bigvee\limits_{j=1}^lS^{k+1}   \arrow[d, "\bigvee_j \delta_j \id"] \\
+			{S\wedge (B,C)} \arrow[r, "\Psi"]          & S^{k+1}                     
+		\end{tikzcd}
+	\end{center} where $\delta_j\in \{-1,1\}$(with $+\id$ we denote the identity and with $-id$ we denote a homeomorphism of degree $-1$, i.e. not homotopic to the identity.) and $\Psi$ is a homotopie equivalence. 
+	Now since  $K^{-p+1}(\bigvee _{j=1}^lS^{p+1})\cong \Z^l$ we can define the following maps. Let $\beta_q$ be a generator of $K^{-p+1}(A,B)$ and $\beta_p$ of $K^{-p+1}(S\vee (B,C))$. Then define the koordinate maps 
+	\begin{align*}
+		q_q: K^{-p+1}(\bigvee_{j=1}^l S^{k+1}) \to \Z^l;\quad & (\Phi^*)^{-1}(\beta_q)\mapsto \sum_j e_j \\
+		q_p: K^{-p+1}(S^{k+1}) 				   \to \Z  ;\quad & (\Psi^*)^{-1}(\beta_p)\mapsto  1         \, . 
+	\end{align*}
+	With those we get the diagram: 
+	\begin{center}
+% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAGkA9YAWjQGoAjAF8AFAEFSAIQCUIYaXSZc+QijKCqtRizZdeAkaLgAdEzRgwABKKmkAwjLkKl2PASKDyW+s1aIObj4hMTMAIywAcwsYAH1gACsAXhFOBisAZViE7gBrEOdFEAw3VU9STWpfXQD9YKMMvIL5IpKVDxQAJm8qnX8QMwAtNJbXdrVkbsrtPzYh+S0YKEj4IlAAMwAnCABbJC8QHAgkMhmakDhOACpRkC3dpG7D48RT6v6zAAUACyxr2-ue0QAGZqEd9r1ZgEvth-i47tsgU9wYgACyQ84AR1imIBiKQoOeSAArBj+ti0HiHiCwS8nu82JEqUDSUS0WS2N8FsIgA
+\begin{tikzcd}
+	{K^{-p+1}(A,B)}                          & K^{-p+1}(\bigvee_{j=1}^l S_j^{k+1}) \arrow[l, "\Phi^*"] \arrow[r, "q_q"] & \Z^l              \\
+	{K^{-p+1}(s\vee (B,C))} \arrow[u, "s^*"] & K^{-p+1}(S^{k+1}) \arrow[l, "\Psi^*"] \arrow[r, "q_p"] \arrow[u, "g"]    & \Z \arrow[u, "h"]
+\end{tikzcd}
+	\end{center}The map $h$ is given by $h:\Z \to Z^l~;~ e_i\mapsto \sum_{j=1}^{l} \delta_j$ with the $\delta_j$ from above.
+	This all concludes in the final calculation: 
+	\begin{align*}
+		s^*(\beta_p) 
+		&= \Phi^*\circ  g\circ (\Psi^*)^{-1}(\beta_p)\\
+		&= \Phi^*\circ  q_q^{-1}\circ h \circ q_p \circ (\Psi^*)^{-1}(\beta_p)\\
+		&= \Phi^*\circ  q_q^{-1}\circ h (\sum_j e_j)\\
+		&= \Phi^*\circ  q_q^{-1} (\sum_j \delta_j )\\
+		&= \sum_j \delta_j \beta_q
+	\end{align*}
+	Now the hope is that $\delta_j$ is the sign that I would get from inspecting the morse boundary operator along a certain flow line. 
+	The todo's are:
+	\begin{enumerate}
+		\item The map $t$.
+		\item The map $\Phi$.
+		\item The map $\Psi$.
+		\item Is the map $s^*$ induced?
+		\item The map $h$ corresponds to a proceedure similar to the Morse boundary.
+	\end{enumerate}
+	Once we have done all the above we want to connect the considerations with the boundary operator. To do this we do the proveedure to all pairs $(q,p)\in \Crit(f)_{k+1}\times \Crit(f)_k$. For this we enrich the notaion and call the triple coresponding to such a pair $(A^{q,p},B^{q,p},C^{q,p})$. All the maps and spaces are enriched in that way, by adding the pair $(q,p)$ as a superscrit. For $T$ big enough we assume that all $A^{q,p}$ are pairwise disjoint. Then we want a homomorphism\todo{do wee needc continuity or rather something weaker?} (that is a homotopic eqiuvalence) 	
+	\begin{align*}
+		\Omega:\bigsqcup\limits_{(q,p)\in \Crit_{k+1}\times \Crit_k}(A^{q,p},B^{q,p},C^{q,p}) &\to (N_{p+1},N_p,N_{p-1}) \\
+		x& \mapsto t^{q,p}(x) \text{ for }x\in A^{q,p}
+	\end{align*}
+	Now, together with the isomorphism
+	\begin{align*}
+		\bigoplus_{\Crit_{k+1}}\Z \to K^p(N_{-p+1},N_p)~,~ q \mapsto \beta_q \text{ which is a generator of } K^{-p+1}(A^{q,p},B^{q,p})
+	\end{align*}
+	Fuck das funktioniert alles nicht! 
+\end{cor}
+
+\begin{lemma}
+	Lets say that $p\in -\N $ is negative for the moment. 
+We have the three spaces 
+\begin{equation}
+	A\coloneq N_q \cup N_p \quad , \quad B\coloneq L_q \cup N_p \quad , \quad C\coloneq L_p \cup (L_q \setminus \mathring{N_p})   \, .
+\end{equation}
+By definition we get the triple connecting morphism as the composition of the inclusion with the connecting homomorphism of the pair:: 
+\begin{center}
+	\begin{adjustbox}{max width=\textwidth}
+	% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBoBmAXVJADcBDAGwFcYkQBpAPWDQFoAjAF8ABAB0xAIywBzZABkA+gEcJAY2ZoRAOUVbSIkUq3rNIgBRLl4sXBg4AtljDM4Nh-RwALAE7OZwLpoQgCUEtIylCBCpOiYuPiEKGQATNR0TKzs3LyCouGyyEYqplpBNhFRMXHYeAREAqRpNAwsbIicXCZShQDKigI2AO4wUDIwFlY2GmV6IRWyVbEgGLWJDRTprVkdOcELcv2DEiNjE1alOnoiBkfDo+OGxtNmlio2do7Oru6evv6BPShAqRaLLVYJeooFJNLaZdqdboRIq6ayXcqXADCAzeaLEMyuaDC+LM2JS5lR6LmByWNUhSWQMIEcLa2S6BxR7yp3QJ2IEuJesyJNLBdLqDJhxBZO0RHKueIJGJJSNkAHpJlzlYT5iDaSt4uKNlKWvC2Sq5PLuQYLlqlZVoukHvAiKAAGY+CAOJBkEA4CBIRoZVkdLBcABUopA7s9AZofqQMJAjGcCKgEGYkkYbBoXhg9Cg7EgYGzvvoWEYhYIbGqUY9XsQPvjiHINGTxfYaYzWZAObzBY6RZLODLFYHVcj0friabABYTcGQBImGgvPRwxO60g577-YgAKzzmVYRTAJeMFf0ITrmuTpAHndIABsh4R5gc4ZCPDyG5jiAA7HGu7PkmKYdummYlrm+aVu2cYjjB1bLLeiCBk2AFBjKEiwIww4nmgZY+EIP71i2D6IIm2wIsep5SPYl7XpQQhAA
+	\begin{tikzcd}
+		& {K^p \big[ N_q\cup N_p, L_q\cup N_p \big]} \arrow[r, no head, Rightarrow]                                               & {K^p \big[ N_q \cup N_p \cup \big/ (L_q \cup N_p) \big]}                                             \\
+		&                                                                                                                         & {K^p \big[ N_q \cup N_p \cup C_1(L_q \cup N_p) \big]} \arrow[u, "(m^*)^{-1}"]                        \\
+		{K^{p-1} \big[ L_q\cup N_p \big]} \arrow[r, no head, Rightarrow] \arrow[ruu, "\delta_{pair}"]                              & {K^p \big[S_1 \wedge (L_q \cup N_p) \big]} \arrow[r, "\alpha^*"]                                                        & {K^p \big[ N_q \cup N_p \cup C_1(L_q \cup N_p)\cup C_2(N_q\cup N_p) \big]} \arrow[u, "i_{\alpha}^*"] \\
+		{K^{p-1} \big[L_q\cup N_p ,  L_p \cup (L_q \setminus \mathring{N_p})\big]} \arrow[u, "i^*"] \arrow[r, no head, Rightarrow] & {K^{p} \big[S_1 \wedge L_q\cup N_p , S_1 \wedge  L_p \cup (L_q \setminus \mathring{N_p})\big]} \arrow[u, "i_{\beta}^*"] &                                                                                                     
+	\end{tikzcd}
+	\end{adjustbox}
+\end{center}
+The bottom left diagramm commutes by definition. All maps with names $i^*_{something}$ are induced from obvious inclusions. 
+The other maps are defined as follows, where $p$ denotes the choosen point of our pointed spaces: 
+\begin{align*}
+\alpha: N_q \cup N_p \cup C_1(L_q \cup N_p)\cup C_2(N_q\cup N_p)& \to S_1 \wedge (L_q \cup N_p)\\
+x& \mapsto 
+\left\{	\begin{array}{ll}
+		p & \text{if } x\in C_2(N_q\cup N_p) \\
+		x & \text{else}
+	\end{array} \right.
+\end{align*} This map is well defined and continouos, as every point in $S_1 \wedge (L_q \cup N_p)$ is of the form $[(t_1,x)]$ where $x\in L_q \cup N_p$. and those are the points in the domain of $\alpha$ that not get collapsed to $p$
+We have the maps: 
+        \[
+        \resizebox{\textwidth}{!}{$
+        	\begin{aligned}
+        		c_{\gamma}: \left[ N_q \cup N_p \cup C_1(L_q \cup N_p)\cup C_2(N_q\cup N_p) \right] & \to  \left[  \quotient{\frac{N_q\cup N_p \cup C_1(L_q\cup N_p)\cup C_2(N_q \cup N_p)}{C_2(N_q \cup N_p)} }{ \frac{ C_1 (L_p \cup \overline{(L_q  \setminus N_p)}) \cup  C_2(N_q \cup N_p)}{C_2(N_q\cup N_p)}}  \right] \\
+        		x & \mapsto \left\{ 
+        		\begin{array}{ll}
+        			p& \text{if } x\in C_2(N_q \cup N_p) \quad \cup \quad    C_1 (L_p \cup \overline{(L_q  \setminus N_p)}) \\
+        			x& \text{else }
+        		\end{array}
+        		\right.
+        	\end{aligned}
+        	$}
+        \] and 
+        \[
+        	\begin{aligned}
+        		c_{\beta}: \left[S_1 \wedge (L_q \cup N_p) \right] & \to  \left[ \quotient{S_1 \wedge L_q\cup N_p }{S_1 \wedge  L_p \cup (L_q \setminus \mathring{N_p})} \right] \\
+        		x & \mapsto \left\{ 
+        		\begin{array}{ll}
+        			p& \text{if } x\in S_1 \wedge  L_p \cup (L_q \setminus \mathring{N_p})\\
+        			x& \text{else }
+        		\end{array}
+        		\right.
+        	\end{aligned}
+        \]
+	 This map is again well defined and continouos and is also a map of pairs. In fact, both maps $\alpha$ and $\beta$ can be written as $x\mapsto \overline{x}$ and since the collapsed space is contractible, they induce isomorphism between the $K$-groups. The map $\gamma$ is just the identity.
+
+
+
+
+Furthermore, we have the commutative diagramm: 
+\begin{center}
+	\begin{adjustbox}{max width=\textwidth}
+% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZARgBoAGAXVJADcBDAGwFcYkQBpAPTQAIAdfoxgAzHMl4A5APoBHAfwDGzPjL6DlfAMLTiACgAychZqnS0ASg0reOgEx6Zs66vMWFAJywBzABY5KEABfUnRMXHxCFHIKajomVnZudX4AIx9kAGVdBQB3GChvGF5DYxczSwV070CQsOw8AiIY4jiGFjZETi5gNCCqjMFZZgg8GDAcYGziPIKi3iNnJRs1XiCpnMF8wuKF8xMbUvlBOBgcAFssMGY4BXP6HF8vMG9gNSCLfsFq2tCQDAakSIZFaNHaiS6yQUwjEEgUw1GWHGk0EIg89EUbzk5VW5R0+kWOLceOkDicB1clnW9kcZWWlM+a2ACjRGOZ+JKRhSpkEEFoMA8jCuMGAR14ClOFyuNwqn3c5VspNpx3psupSqcRKp-U8Pn8tTic3gRFAaIg5yQdhoOAgSDI8Q67EU0mA3zO9CCXAAVME-maLYh7TakDEHRCQIImGhfPRvb7TR5zZbrbbEABmMEJToR-jeejne5xuogf1IDMgYOIUPg7PO125-P3T0+oKUIJAA
+\begin{tikzcd}
+	{K^p \big[S_1 \wedge (L_q \cup N_p) \big]} \arrow[r, "\alpha^*"]                                                                                          & {K^p \left[ N_q \cup N_p \cup C_1(L_q \cup N_p)\cup C_2(N_q\cup N_p) \right]}                                                                                                                                                                     \\
+	{K^{p} \big[\quotient{S_1 \wedge L_q\cup N_p }{S_1 \wedge  L_p \cup (L_q \setminus \mathring{N_p})} \big]} \arrow[u, "c_{\beta}^*"] \arrow[r, "\gamma^*"] & {K^p \left[  \quotient{\frac{N_q\cup N_p \cup C_1(L_q\cup N_p)\cup C_2(N_q \cup N_p)}{C_2(N_q \cup N_p)} }{ \frac{ C_1 (L_p \cup \overline{(L_q  \setminus N_p)}) \cup  C_2(N_q \cup N_p)}{C_2(N_q\cup N_p)}}  \right]} \arrow[u, "c_{\gamma}^*"]
+\end{tikzcd}
+	\end{adjustbox}
+\end{center} To see the commutativitie we have to show that 
+\begin{align*}
+	c_{\beta}\circ \alpha =\gamma \circ c_{\gamma}: N_q \cup N_p \cup C_1(L_q \cup N_p)\cup C_2(N_q\cup N_p) \to \left[ \quotient{S_1 \wedge L_q\cup N_p }{S_1 \wedge  L_p \cup (L_q \setminus \mathring{N_p})} \right]
+\end{align*} since $\alpha$ and $\beta$ are both of the form $x \mapsto \overline{x}=x $ or $p$  we compare the case distinctions:
+\begin{itemize}
+	\item $c_{\beta} \circ \alpha (x)=p \Leftrightarrow x \in C_1 \left( L_p \cup (L_q \setminus \mathring{N_p}) \right) \, \cup \, C_2(N_q \cup N_p)$
+	\item $\gamma \circ c_{\gamma}(x)=p \Leftrightarrow x\in C_2(N_q \cup N_p) \, \cup\,     C_1 (L_p \cup \overline{(L_q  \setminus N_p)}) \cup  C_2(N_q \cup N_p)$
+\end{itemize} Which are the same, since $L_q \setminus \mathring{N_p}=\overline{L_q \setminus N_p}$ due to $L_q$ being closed.
+Now we consider the maps:
+ \[
+\resizebox{\textwidth}{!}{$
+	\begin{aligned}
+		c: \left[ N_q \cup N_p \cup C_1(L_q \cup N_p) \right]  & \to \left[  
+		\frac{
+			N_q \cup N_p \cup C_1(L_q\cup N_p)
+			}{
+			\cl \left( N_q \cup N_p \cup C_1(L_q\cup N_p)\setminus \bigcup\limits_{j=1}^l C_1V_j \right)
+			} 
+		\right] \\
+	x&\mapsto 
+	\left\{ 
+	\begin{array}{ll}
+		p & \text{ if } x\in \cl (N_q \cup N_p \cup C_1(L_q\cup N_p)\setminus \bigcup\limits_{j=1}^l C_1V_j ) \\
+		x& \text{ else }
+	\end{array}   
+	\right.
+	\end{aligned}
+	$}
+\] and 
+
+ \[
+\resizebox{\textwidth}{!}{$
+	\begin{aligned}
+		c_{\iota}: \left[ N_q \cup N_p \cup C_1(L_q \cup N_p) \right] &\to \left[\quotient{\frac{N_q\cup N_p \cup C_1(L_q\cup N_p)\cup C_2(N_q \cup N_p)}{C_2(N_q \cup N_p)}}{ \frac{N_q\cup N_p \cup C_1 (L_p \cup \cl \left( L_q \setminus \bigcup\limits_{j=1}^l V_j \right)) \cup  C_2(N_q \cup N_p)}{C_2(N_q \cup N_p)}}\right] \\
+		x&\mapsto \left\{ \begin{array}{ll}
+			p & \text{ if } x\in N_q\cup N_p \cup C_1 (L_p \cup \cl \left( L_q \setminus \bigcup\limits_{j=1}^l V_j \right)) \cup  C_2(N_q \cup N_p) \\
+			x & \text{ else }
+		\end{array}    \right. \, .
+	\end{aligned}
+	$}
+\] We define $V_j$ to be the the finitly many components $N_p\cap S(q\to)$ and hence we can identify the sets $\overline{L_q\setminus N_p}=\cl(L_q\setminus (L_q\cap N_q))=\cl(L_q\setminus (\bigcup\limits_{j=1}^l))$ and with this the map $\eta$ in the diagramm below is just the identity:
+
+
+\begin{center}
+\begin{adjustbox}{max width=\textwidth}
+% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBoAmAXVJADcBDAGwFcYkQBpAPTQAIAdfoxgAzHMl4A5APoBHAfwDGzPjL6DlfAMLSAjAAoAMnIWap0tAEoNK3jvL6Zsm6ouWFAJywBzABY5KEABfUnRMXHxCFDJdajomVnZudSFRcXN5F3MUsx0DY0ylWzV3QS8-AODQkAxsPAIiMmI4hhY2RE4eBQAjHwknU2KLQZTe7wB6XiMTLJKen0CQsLrIol1SWJpWxI7khWExCQURD3pFYAHZ4ay86eci1ysg4FNGfbTHGYfskbs9O6uVkEcBgOAAtlgwMw4PNvJpBIwsBCcHBpMAAFYAXl0QS4bzyADVpOjPD5-O4gqSKotqrUIg0UOsqFsEu1OikDuljqdzn98nJAZZnq93mJ9LcCoLgaCIVCYYIxvChEjcKiMdjcfi9ESSWUyTgKVT-DTlvSosh1gBmFqs9i8PYItJHQQnM4vCVyIUvDRvR1ij2yaz8EHgyHQ2FKxHItVYnF4vk6o0G3iUvXU3i8Kqm+rm9YAFhtbSSPD94kEsmYEDwMDAOGALp5FwF3zUvwDUu+9k+hTMJWeXcuLbcQWFDbdTkBbb0U2MOVsPtFOH0vAKChDsvDCp8kZVKLRsc1vETafJpW+fwcg97w+AA6+16eQRPlSWNXCOcapALLKLuy6pedfgKyrLAazrMdzgnIc520f5JWgoNcmkS97yGJ5b2Q7tfj7FNvX4V1eTyGdrm+QQIFoGAPERMAYGAO4M2lUM5WyIUzzMC8sMFftMKgh8hUpJNFjiGAoG8eAiFAE4IDBJAyBAHAICQdZ4l-EAsDRQQmDQXx6FxAAqLMQCkmTEGUhSkHIH8dhAfQwS4PTLC4YAAFocUM4ykEtGhzNMqy2UUez3I8aSkAAdm8xTEDk7Z-I0-hvHoMEwV0wLXw8xA8wizy-PYdTBFgRgcHoVLqnSgBWLKMpyjp1PrfhQRSgy0uCkyADZKoqlTrMUOL8CK-SgpCxB2vkyLwq6tlBAa1LKCCIA
+\begin{tikzcd}
+	{K^p \big[ N_q \cup N_p \cup \big/ (L_q \cup N_p) \big]}                                                                                                                                                                                           &                                                                                                                                                                                                                                                                                                             \\
+	{K^p \left[ N_q \cup N_p \cup C_1(L_q \cup N_p) \right]} \arrow[u, "(m^*)^{-1}"]                                                                                                                                                                   & {K^p \left[  \frac{N_q \cup N_p \cup C_1(L_q\cup N_p)}{ \cl \left(N_q \cup N_p \cup C_1(L_q\cup N_p)\setminus \bigcup\limits_{j=1}^l C_1V_j \right) } \right]} \arrow[l, "c^*"]                                                                                                                             \\
+	{K^p \left[ N_q \cup N_p \cup C_1(L_q \cup N_p)\cup C_2(N_q\cup N_p) \right]} \arrow[u, "i_{\alpha}^*"]                                                                                                                                            & {K^p \left[  \frac{ C_1(L_q\cup N_p)}{ \cl \left(C_1(L_q\cup N_p)\setminus \bigcup\limits_{j=1}^l C_1V_j \right) } \right]} \arrow[u, "i_\delta^*"]                                                                                                                                                         \\
+	& { K^p \left[  \frac{ C_1(L_q)}{ \cl \left(C_1(L_q)\setminus \bigcup\limits_{j=1}^l C_1V_j \right) } \right]  } \arrow[u, "i_{\eta}^*"]                                                                                                                                                                      \\
+	{K^p \left[  \quotient{\frac{N_q\cup N_p \cup C_1(L_q\cup N_p)\cup C_2(N_q \cup N_p)}{C_2(N_q \cup N_p)} }{ \frac{ C_1 (L_p \cup \overline{(L_q  \setminus N_p)}) \cup  C_2(N_q \cup N_p)}{C_2(N_q\cup N_p)}}  \right]} \arrow[uu, "c_{\gamma}^*"] & {K^p\left[\quotient{\frac{N_q\cup N_p \cup C_1(L_q\cup N_p)\cup C_2(N_q \cup N_p)}{C_2(N_q \cup N_p)}}{ \frac{N_q\cup N_p \cup C_1 (L_p \cup \cl \left( L_q \setminus \bigcup\limits_{j=1}^l V_j \right)) \cup  C_2(N_q \cup N_p)}{C_2(N_q \cup N_p)}}\right]} \arrow[u, "c_{\iota}^*"] \arrow[l, "\eta^*"]
+\end{tikzcd}
+\end{adjustbox}
+\end{center}
+Now the mamoth task is to show that this beast commutes:
+For this we preoceed with the same strategy since again all maps are inclusions and collases and hence the maps look like $x\mapsto \overline{x}=x $ or $p$. For the consideration assume that $x\neq p$ in the domain. Then: 
+\begin{align*}
+	\eta \circ c_{\gamma} \circ i_{\alpha}(X)=p \Leftrightarrow x\in   C_1 (L_p \cup \overline{(L_q  \setminus N_p)}) \cup  C_2(N_q \cup N_p)
+\end{align*} On the other hand: 
+\begin{align*}
+&	c_{\iota}\circ i_{\eta} \circ i_{\delta}\circ c(x)=
+	p \Leftrightarrow c(x)=p  \text{ or } c_{\iota}(x)=p \\
+	x\in &  \cl \left(N_q \cup N_p \cup C_1(L_q\cup N_p)\setminus \bigcup\limits_{j=1}^l C_1V_j \right) \cup  N_q\cup N_p \cup C_1 (L_p \cup \cl \left( L_q \setminus \bigcup\limits_{j=1}^l V_j \right)) \cup  C_2(N_q \cup N_p) \\
+	= &C_1 \cl \left( (L_q\cup N_p)\setminus \bigcup\limits_{j=1}^l V_j \right) \cup  C_1 (L_p \cup \cl \left( L_q \setminus \bigcup\limits_{j=1}^l V_j \right)) \cup  C_2(N_q \cup N_p)\\
+	= &C_1 \cl \left( (L_q)\setminus \bigcup\limits_{j=1}^l V_j \right) \cup  C_1 (L_p \cup \cl \left( L_q \setminus \bigcup\limits_{j=1}^l V_j \right)) \cup  C_2(N_q \cup N_p)\\
+	= & C_1 (L_p \cup \cl \left( L_q \setminus \bigcup\limits_{j=1}^l V_j \right)) \cup  C_2(N_q \cup N_p)\\
+\end{align*}
+And now the conditions agree and hence the big diagramm commutes.
+Now notice how we have the homeomorphism 
+\begin{align*}
+	\Lambda:  \left[  \frac{ C_1(L_q)}{ \cl \left(C_1(L_q)\setminus \bigcup\limits_{j=1}^l C_1V_j \right) } \right]
+	\to \bigvee_{j=1}^lC_1V_j \big/ \partial C_1 V_j
+\end{align*} that is the identity on all $C_1\mathring{V_j}$. Furthermore we have the compression maps
+\begin{align*}
+	c_j: \bigvee_{j=1}^lC_1V_j \big/ \partial C_1 V_j \to C_1V_j \big/ \partial C_1 V_j 
+\end{align*}
+ Hence by the additivity of $K-$Theorie, the pair
+\begin{align*}
+	\left( K^p \left[  \frac{ C_1(L_q)}{ \cl \left(C_1(L_q)\setminus \bigcup\limits_{j=1}^l C_1V_j \right) } \right]  ,\left( \left( c_j \circ \Lambda \right)^*\right)_j \right)
+\end{align*} satisfies the coproduct universal property.
+
+So consider the maps 
+\begin{align*}
+c^*\circ i_{\delta}^*\circ i_{\eta}^*	\circ (c_j\circ \Lambda)^*: C_1 V_j\big/ \partial C_1V_j \to K^p\left[N_q\cup N_p\cup C_1(L_q\cup N_p)\right]
+\end{align*}
+This map is induced from
+\begin{align*}
+	N_q\cup N_p\cup C_1(L_q\cup N_p)\to C_1 V_j\big/ \partial C_1V_j\\
+	x\mapsto 
+	\left\{ 
+	\begin{array}{ll}
+		x &\text{ if }x\in \mathring{C_1(V_j)}\, ,\\
+		p			& \text{ else }.
+	\end{array}
+	\right.
+\end{align*}
+For all $C_1V_j$ we get an homeomorphism to $S^{k+1}$: \todo{More on $\psi$}
+\begin{align*}
+	r:  C_1V_j \big/ \partial C_1 V_j &\to I\times D^k \big/ \partial (I\times D^k) \\
+	(t,x) & \mapsto (t,\psi(x))
+\end{align*}
+\end{lemma}
+
+
+

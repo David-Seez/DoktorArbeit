@@ -1,0 +1,107 @@
+\section{Differentiable structures on topological manifolds}
+\begin{definition}[Topological Manifold]
+    A second countable Hausdorffspace $M$ is called \textbf{topological manifold} of dimension $m\in \N$, if it is locally homeomorphic to $\R^m$. To be precise, if for all $p\in M$ there exists an open neighborhood $U\subseteq M$ of $p$, an open set $V\subseteq \R^m$  and a map $\phi:W\to V$ that is a homeomorphism. We call the map $\phi:U\to V$ a \textbf{chart around $p$ on $M$} and $\phi^{-1}$ a \textbf{local coordinate system around $p$ on $M$}.
+\end{definition}
+\begin{definition}[Differentiable Manifold]
+Let $M$ be a topological manifold of dimension $M$. 
+\begin{enumerate}
+    \item A \textbf{differentiable atlas of class } $r\in \N\cup\{\infty\}$ is a family of charts $\mathfrak{A}=\left( \phi_i:U_i \to V_i\right)_{i\in I}$ such that
+    \begin{enumerate}
+        \item $\bigcup_{i\in I}U_i=M$, meaning that $\left( U_i\right)$ is an open covering of $M$.
+        \item For every pair $(i,j)\in I^2$ the \textbf{transition function}:
+        \begin{align*}
+             \phi_{ij}:\phi_j(U_i \cap U_j)&\to \phi_i(U_i \cap U_j)\\
+             x                             &\mapsto \left(\phi_i \circ \phi_j^{-1}\right)(x)
+             \end{align*}
+             is differentiable of class $r$.
+    \end{enumerate}
+    We call such an atlas a $C^r$-atlas.
+    \item Two $C^r$-atlases $\mathfrak{A}$ and $\mathfrak{B}$ are called \textbf{equivalent} if the family $\mathfrak{A}+\mathfrak{B}=\left(\phi_i,\phi_j\right)_{ij}$ is a $C^r$-atlas.
+\end{enumerate}
+A \textbf{differentiable structure of class $r$} on $M$ is an equivalence class $c$ of $C^r$-atlases. 
+For $r=\infty$ we call the pair $(M,c)$ a smooth manifold.
+\end{definition}
+\begin{corollary}
+    Every transition functions $\phi_{ij}$ $i,j\in I^2$ of a differentiable atlas $\mathfrak{A}=(\phi_i)_{i\in I}$ is not just a homeomorphism but also a diffeomorphism due to $\phi_{ji}=\phi_{ij}^{-1}$ 
+\end{corollary}
+\begin{definition}
+    Let $(M,c)$ be a differentiable manifold of class $r$ and $U\subseteq M$ open. We call a continuos function 
+    \begin{align*}
+        f:U \to \R
+    \end{align*} \textbf{differentiable of class $r$}, if for any one (and hence for all) $(\phi_i)_{i\in I}=\mathfrak{A}\in c$ the compositions $f\circ \phi_i^{-1}$ are differentiable of class $r$. For $r=\infty$ we define:
+    \begin{align*}
+        \mathcal{E}(U)=\{f\in U \to \R \text{ continouos}~|~ f \text{ is differentiable of class }\infty \} \, . 
+    \end{align*}
+\end{definition}
+\begin{corollary}
+    Let $(M,c)$ be a smooth manifold of dimension $m$ and $U\subseteq M$ be a open subset. With pointwise defined operations, the set $(\mathcal{E}(U),+,\cdot,\circ)$ becomes an $\R-$algebra. Furthermore, $\mathcal{E}$ becomes a sheaf of $\R$-algebras.
+\end{corollary}
+\begin{proof}
+    There is not really a need for a proof.However, it might help to work through the definition of a sheaf as a reminder. First, $\mathcal{E}$ is a presheaf, where the restriction in the domain of a function gives the needed restriction homomorphism:
+    \begin{align*}
+        \text{res}^U_V: \mathcal{E}(U) &\to \mathcal{E}(V) \\
+                                     f &\mapsto \restr{f}{V} \, .
+    \end{align*} The required properties of a presheaf are trivial. Furthermore, this gives a sheaf as the requirement of locality is trivial for functions and the property of gluing is also trivial for functions, since differentiability is a local property.
+\end{proof}
+\begin{definition}
+    If $p\in M$ is fix, $f\in \mathcal{E}(U)$ and $g\in \mathcal{E}(U')$ such that $p\in U\cap U'$ we say that $f$ and $g$ have the same \textbf{germ in $p$}, if there is another open neighborhood $W\subseteq U\cap U'$ of $p$ such that $\restr{f}{w}=\restr{g}{W}$. This defines an equivalence relation $\sim_p$. An equivalence class $s$ of local functions around $p$ is called a \textbf{germ in $p$}. We write $s=f_p$, if $s=[f]$ with $f\in \mathcal{E}(U)$. 
+    We write 
+    \begin{align*}
+        \mathcal{E}_p(M)=\left. \left( \sum_{U \text{open},p\in U }\mathcal{E}(U)\right)\middle/ \sim_p \right. \, .
+    \end{align*} For the set of germs and call it the \textbf{stalk in $p$}. Here $\sum$ denotes the co-product (also called sum)  in $\top$ and hence the disjoint union.
+\end{definition}
+\begin{corollary}
+    For a smooth manifold $(M,c)$ the set $\mathcal{E}_p(M)$ inherits an $\R-$algebra structure from the $\mathcal{E}(U)$. Furthermore, it carries a natural (evaluation-)homomorphism:
+    \begin{align*}
+       \mathrm{eval}_p: \mathcal{E}_p(M) & \to \R \\
+                    f_p  & \mapsto f(p)\eqcolon f_p(p)
+    \end{align*}
+    The stalks are also local rings with maximal ideal $\mathfrak{m}_p=\ker(\mathrm{eval}_p)$. Hence, the pair $(M,\mathcal{E})$ gives us a locally ringed space.
+\end{corollary}
+\begin{proof}
+    Here, we only need to prove the statement about the locality of the stalks. This follows from $f_p\in \mathcal{E}_p(M)$ being invertible if and only if $f(p)\neq 0$ which is the same as $f_p\notin \ker(\mathrm{eval}_p)$.
+\end{proof}
+\begin{definition}
+    Let $(M,c)$ be a smooth manifold of dimension $m$ and $p\in M$. We call an $\R$-linear map $\delta:\mathcal{E}_p(M)\to \R$ a \textbf{derivation}, if it satisfies the Leibnitz-rule:
+    \begin{align*}
+        \delta(f_p\cdot g_p)=\delta(f_p)g_p(p)+f_p(p)\delta(g_p) \quad \text{for all }f,g\in \mathcal{E}_p(M) \, .
+    \end{align*}
+    We call $\mathrm{Der}_{\R}(\mathcal{E}_p(M),\R)$ the set of derivations and give it a $\R$ vector space structure by pointwise operations. We define the \textbf{tangent space of $M$ at $p$} to be the vector space
+    \begin{align*}
+        TM_p \coloneq \mathrm{Der}_{\R}(\mathcal{E}_p(M),\R) \, .
+    \end{align*}
+\end{definition}
+\begin{corollary}
+    Let $(M,c)$ be a smooth manifold and $\phi:U\to V$ be a chart around $p$ with $x_0=\phi(p)$ ($\phi \in \mathfrak{A}\in c$). Then 
+    \begin{align*}
+        \xi=\frac{\partial}{\partial x^j}\Big|_p : \mathcal{E}_p(M) &\to \R \\
+        f_p & \mapsto \xi(f_p)=\frac{\partial}{\partial x^j}\Big|_{x_0}(f\circ \psi^{-1} )
+    \end{align*} is well-defined and a tangent vector. In fact, the family
+    \begin{align*}
+        \left(\frac{\partial}{\partial x^1}\Big|_p,...,\frac{\partial}{\partial x^m}\Big|_p\right)
+    \end{align*} defines a basis of $TM_p$. Hence, the dimension of $TM_p$ is $m$.
+\end{corollary}
+\begin{definition}
+    For a smooth manifold $(M,c)$ the sum $\sum_pTM_p$ comes with a natural projection 
+    \begin{align*}
+        \pi: TM &\to M \\
+        \xi &\mapsto p \text{ where }\xi \in TM_p 
+    \end{align*} Furthermore, the \textbf{local vector fields}
+    \begin{align*}
+        \frac{\partial}{\partial x^j}: U & \to \pi^{-1}(U) \\
+        p &\mapsto \frac{\partial}{\partial x^j}\Big|_p
+    \end{align*} induce a local trivialization:
+    \begin{align*}
+        \pi^{-1}(U)\cong U \times \R^m\, .
+    \end{align*} We can induce a topology on $TM$ such that all those trivializations are continuos. This then gives an atlas for $TM$ such that we have a $2m$-dimensional manifold. To be precise, the atlas is given by the map $\pi^{-1}(U_i)\to R^m\times R^m; x\mapsto (\pi(x),q_{\pi(x)}(x))$ where $q_p$ denotes the coordinate map corresponding to the basis $(\frac{\partial}{\partial x^1}\big|_p,...,\frac{\partial}{\partial x^m}\big|_p)$. In fact, this yields a smooth manifold and a (smooth) vector bundle of dimension $m$. We call $TM$ the \textbf{tangent bundle}.
+\end{definition}
+\begin{definition}[The Derivative]
+    Let $(M,c)$ and $(M',c')$ be smooth manifolds (from now on we suppress the differentiable structure in our notation). We call a continuous function $f:M \to M'$ \textbf{smooth}, if for all $\phi\in \mathfrak{A}\in c$ and $\phi'\in \mathfrak{A}'\in c'$ the maps
+    \begin{align*}
+        \phi'\circ f\circ  \phi^{-1}:V\to V'
+    \end{align*} are smooth. A given smooth function induces a smooth function between the Tangent bundles:
+    \begin{align*}
+        Df: TM &\to TM' \\
+             TM_p\ni x&\mapsto f_*(x): \mathcal{E}_{f(p)}N\to \R;  g_{f(p)}\mapsto x(g\circ f)
+    \end{align*}
+\end{definition}
