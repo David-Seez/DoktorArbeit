@@ -119,7 +119,60 @@ corresponding to the new chart $\psi\circ L: U\to V\subseteq \R^m$ reads for any
 
 Now this is somewhat troublesome:
 We could now choose a basis, such that $\frac{\partial}{\partial x}\grad(f)$ is diagonal and hence the exponential is easy to calculate. But then we dont know how $f$ looks like. But with a Morse chart (where we controle $f$) we have trouble calculating the exponential of $\frac{\partial}{\partial x}\grad(f)$. The hope ist that there is a change of basis that keeps the splitting.
+\begin{corollary}
+	In a Morse chart the function $f\circ \psi^{-1}-f(p)$ is the two form given by the matrix
+	\begin{align*}
+		H\coloneq \begin{pmatrix}
+			-1_{l\times l}&0 \\
+			0&1_{(m-l)\times [m-l]} 
+		\end{pmatrix}
+	\end{align*}
+	Now we have the positive definite matrix $(g^{ij})_{ij}$ given by $g(p)$ with respect to the chart induced basis. The hope is to diagonalize those two matricies simultanious, which is possible since they commute! To see this first we split $R^m$ into the eigenspaces $E_{-1}\oplus E_1$ where 
+	\begin{align*}
+		E_{-1}\coloneq \{v\in R^m| Hv=-v\} \quad \text{and}\quad 	E_{1}\coloneq \{v\in R^m| Hv=v\}
+	\end{align*}
+	Now assume $v\in E_\lambda$ with $\lambda\pm1$. Then $H\circ (g^{ij})_{ij} (v)=(g^{ij})_{ij} (Hv)=\lambda (g^{ij})_{ij} (v)$ and hence, $(g^{ij})_{ij} (v)\in E_{\lambda}$ now we need to diagonalize $(g^{ij})_{ij}$ restricted to the two eigenspaces of $H$ which is possible!. \todo{warum und welchen einfluss hat das auf die 2 form durch H?}
+\end{corollary}
+\begin{lemma}
+	Law of inertia Sylvester
+\end{lemma}
 
+\begin{corollary}
+	Let $p$ be a critical point of a Morse function $f$ on a manifold $M$ and let $g(p)$ be the Riemannian metric on $T_pM$. Then there exists a Morse chart $\psi$ arround $p$ such that the representation of $g(p)$ in the basis induced by the Morse chart is given by a a diagonal matrix $diag(\mu_1,\dots \mu_m)$ with $\mu_i>0$ for all $i$ .
+\end{corollary}
+\begin{proof}
+	The quadratic form of $f \circ \psi^{-1} - f(p)$ in the coordinates of the Morse chart is $q_H(v) = v^T H v$. The quadratic form induced by the Riemannian metric $g(p)$ is $q_G(v) = v^T G v$, where $v \in \mathbb{R}^m$ are the coordinate vectors. Since $g(p)$ is positive definite, $G$ is also positive definite, and $H$ is symmetric.
+	
+	Consider the generalized eigenvalue problem $Hv = \lambda G v$. Since $H$ and $G$ are real symmetric matrices and $G$ is positive definite, this problem has $m$ real eigenvalues $\lambda_1, \dots, \lambda_m$ and corresponding eigenvectors $v_1, \dots, v_m$, which can be chosen to be orthogonal with respect to the bilinear form defined by $G$, such that $v_i^T G v_j = \delta_{ij}$, since if $v_i$ and $v_j$ are different eigenvectors with respect to different eigenvalues, we can calculate:
+	 \begin{align*}
+	 	v_j^THv_i=(Hv_j)^Tv_i=\lambda _j(Gv_j)^Tv_i=\lambda _j v_j^T G(v_i)  \quad \text{and}\quad 	v_j^THv_i= v_j^T \lambda_i G(v_i)=\lambda_i v_j^TG(v_i) \, .
+	 \end{align*} Hence we have the equality
+	 \begin{align*}
+	 	\lambda _j(Gv_j)^Tv_i=\lambda_i v_j^TG(v_i) \Leftrightarrow \underbrace{(\lambda_j-\lambda_i)}_{\neq 0}v_j^T G(v_i)=0
+	 \end{align*} Hence all eigenspaces are orthogonal and we can use Gram Schmitt to make the bases of the eigenspaces orthogonal and by rescaling orthonormal.
+	
+	Let $L = [v_1 | \dots | v_m]$ be the matrix whose columns are these $G$-orthonormal eigenvectors. The linear change of coordinates \todo{ab hier selber rechnen!} 
+	 $y = Lz$ leads to new coordinates $z$. In these new coordinates, the quadratic forms transform as follows:
+	\begin{align*}
+		q_G(y) &= y^T G y = (Lz)^T G (Lz) = z^T L^T G L z = z^T I z = \sum_{i=1}^m z_i^2 \\
+		q_H(y) &= y^T H y = (Lz)^T H (Lz) = z^T L^T H L z
+	\end{align*}
+	Since $H v_i = \lambda_i G v_i$, we have $L^T H L = \text{diag}(\lambda_1, \dots, \lambda_m)$. The eigenvalues $\lambda_i$ are real and have the same signature as the eigenvalues of $H$ ($l$ negative, $m-l$ positive).\todo{hier ein beweis einfügen}.  By a further scaling of the coordinates $z$, the matrix $L^T H L$ can be brought into the form $\text{diag}(-1, \dots, -1, 1, \dots, 1)$. (by doing this however, the matrix $G$ becomes $G=\diag(\mu_1,\dots \mu_m)$ with $\mu_j>0~\forall j$)
+\end{proof}
+
+
+
+
+\begin{corollary}
+Let $q: R^l\oplus R^{m-l}$, $i_1: R^l\to R^m$ and $i_2 R^{m-l}\to R^m$ be the inclusions and let $q:R^l\oplus R^{m-l}\to \R$ a smooth map such that $q\circ i_1$ is strictly increasing and $q\circ i_2$ strictly decreasing. Let furthermore $g: R^m \times R^m\to R$ be a metric on $R^m$. Then there is a orthonormal basis 
+
+\end{corollary}
+\begin{corollary}
+	Assume that $\psi$ is a Morse chart and$(l_{ij})\in \mathrm{GS}(l,m)$. Then $f\circ \psi^{-1}\circ L^{-1}$ reads: 
+	\begin{align*}
+		f\circ \psi^{-1} \circ L \circ L^{-1} (x^1,\dots x^m)=
+	\end{align*}
+\end{corollary}
 \begin{lemma}
   If $(x_1,\dots ,x_m)$ is a local coordinate system arround a critical point $p\in M$ such that $\left( \frac{\partial}{\partial x_1},\dots ,\frac{\partial}{\partial x_m}\right)$ is a orthonormal basis for the tangent space at $p$ (with respect to $g_p$, then for any $t\in \R$ the matrix for the differential of $\phi_t$ at $p$ is the exponential of the negative matrix for the Hessian at $p$, i.e.:
   \begin{equation*}
