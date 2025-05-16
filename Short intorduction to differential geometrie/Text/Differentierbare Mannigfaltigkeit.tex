@@ -86,14 +86,14 @@ For $r=\infty$ we call the pair $(M,c)$ a smooth manifold.
     \begin{align*}
         \pi: TM &\to M \\
         \xi &\mapsto p \text{ where }\xi \in TM_p 
-    \end{align*} Furthermore, the \textbf{local vector fields}
+    \end{align*} Furthermore, the \textbf{local vector fields} with respect to a chart $\phi:U\to V$
     \begin{align*}
         \frac{\partial}{\partial x^j}: U & \to \pi^{-1}(U) \\
         p &\mapsto \frac{\partial}{\partial x^j}\Big|_p
     \end{align*} induce a local trivialization:
     \begin{align*}
         \pi^{-1}(U)\cong U \times \R^m\, .
-    \end{align*} We can induce a topology on $TM$ such that all those trivializations are continuos. This then gives an atlas for $TM$ such that we have a $2m$-dimensional manifold. To be precise, the atlas is given by the map $\pi^{-1}(U_i)\to R^m\times R^m; x\mapsto (\pi(x),q_{\pi(x)}(x))$ where $q_p$ denotes the coordinate map corresponding to the basis $(\frac{\partial}{\partial x^1}\big|_p,...,\frac{\partial}{\partial x^m}\big|_p)$. In fact, this yields a smooth manifold and a (smooth) vector bundle of dimension $m$. We call $TM$ the \textbf{tangent bundle}.
+    \end{align*} We can induce a topology on $TM$ such that all those trivializations are continuos. This then gives an atlas for $TM$ such that we have a $2m$-dimensional manifold. To be precise, the atlas is given by the maps $\pi^{-1}(U_i)\to R^m\times R^m; x\mapsto (\pi(x),q_{\phi\circ \pi(x)}(x))$ where $q_p$ denotes the coordinate map corresponding to the basis $(\frac{\partial}{\partial x^1}\big|_p,...,\frac{\partial}{\partial x^m}\big|_p)$ that depends on the chart $\phi_i$.  In fact, this yields a smooth manifold and a (smooth) vector bundle of dimension $m$. We call $TM$ the \textbf{tangent bundle}.
 \end{definition}
 \begin{definition}[The Derivative]
     Let $(M,c)$ and $(M',c')$ be smooth manifolds (from now on we suppress the differentiable structure in our notation). We call a continuous function $f:M \to M'$ \textbf{smooth}, if for all $\phi\in \mathfrak{A}\in c$ and $\phi'\in \mathfrak{A}'\in c'$ the maps

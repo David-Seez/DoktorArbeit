@@ -33,10 +33,25 @@ We assume that $q$ is a critical point of index $k+1$ and $p$ is a critical poin
     \item $N_p$ is a tubular neighbourhood of $W(\to p)\cap M^c$\, .\label{lem: enum: 5}
 \end{enumerate}
 \end{lemma}
-The gradient is a section into the tangent bundle. Hence it is of the form:
-\begin{align*}
-    \grad(f):M\to TM
-\end{align*}
+
+\begin{definition}[Jacobian of the Gradient]
+	The gradient is a section into the tangent bundle, $\grad(f):M\to TM$.
+	Let $\psi: M\supseteq U\to V \subseteq \mathbb{R}^m$ be a chart. The coordinate map $q_{\psi}$ on $TU$ assigns to a vector $v \in T_pM$ (where $p \in U$ with $\psi(p) = x$) its components with respect to the basis $\left(\frac{\partial}{\partial x^i}\big|_p\right)$, i.e., $q_{\psi}(v) = (v^1, \ldots, v^m)$ if $v = \sum_{i=1}^m v^i \frac{\partial}{\partial x^i}\big|_p$.
+	We define the Jacobian of the gradient with respect to the chart $\psi$ as the Jacobian matrix of the coordinate representation of the gradient in this chart:
+	\[
+	J(\grad(f))_\psi(x) \coloneq J\left(q_{\psi}\circ \grad(f)\circ \psi^{-1}\right)(x) = \left(\frac{\partial (q_{\psi}\circ \grad(f)\circ \psi^{-1})_i}{\partial x_j}(x)\right)_{ij}
+	\]
+\end{definition}
+
+
+\begin{lemma}
+	Let $t\in \mathbb{R}$ be small enough and $\phi_t: M\to M$ be the flow map corresponding to the negative gradient. Assume that $U$ is the domain of a chart $\psi$ and $p\in U$ such that $\phi_t(p)\in U$. Then the linear map $\mathrm{d} \phi_t \big|_p: T_pM\to T_{\phi_t(p)}M$ has a local representation in the coordinates induced by $\psi$ given by:
+	\[
+	q_{\psi(\phi_t(p))} \circ \mathrm{d} \phi_t \big|_p \circ q_{\psi(p)}^{-1} = \exp\left(-J(\grad(f))_\psi(\psi(p)) \cdot t\right)
+	\]
+	where $J(\grad(f))_\psi(\psi(p))$ is the Jacobian matrix of the gradient evaluated at the coordinates of $p$.
+\end{lemma}
+
 \begin{lemma}
     If $(x_1,...,x_m)$ is a local coordinate system arround a critical point $p\in M$ and let $\left( \frac{\partial}{\partial x_1},\dots ,\frac{\partial}{\partial x_m}\right)$ be the induced basis of $T_pM$.  Then the Matrix of the differential of the gradient $\grad(f): U \to \R^m$ inj $p$ is of the form:
     \begin{align*}
