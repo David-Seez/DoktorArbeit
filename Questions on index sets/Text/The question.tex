@@ -51,108 +51,78 @@ We assume that $q$ is a critical point of index $k+1$ and $p$ is a critical poin
 	\]
 	where $J(\grad(f))_\psi(\psi(p))$ is the Jacobian matrix of the gradient evaluated at the coordinates of $p$.
 \end{lemma}
-
 \begin{lemma}
-    If $(x_1,...,x_m)$ is a local coordinate system arround a critical point $p\in M$ and let $\left( \frac{\partial}{\partial x_1},\dots ,\frac{\partial}{\partial x_m}\right)$ be the induced basis of $T_pM$.  Then the Matrix of the differential of the gradient $\grad(f): U \to \R^m$ inj $p$ is of the form:
-    \begin{align*}
-        \frac{\partial}{\partial x}\grad(f)\Big|_p=\left(\sum_{k} g^{ki}\frac{\partial ^2 f }{\partial x_j \partial x_k} \right)_{ij}
-    \end{align*}
-\end{lemma}\begin{proof}
-    Compare lemma 4.4 in \cite{banyaga2004lectures}: 
-    First we notice, that in the coordinates $x_1,...,x_n$ respectifly $(\frac{\partial}{\partial x_1},\dots \frac{\partial}{\partial x_m})$(given by the chart $\psi: U\to V$ )the $\grad(f)\circ \psi^{-1}$ reads:
-    \begin{align*}
-        Q\circ \grad(f)\circ \psi^{-1}= \left(\sum_k g^{k1}\frac{\partial f \circ \psi}{\partial x_k},\sum_k g^{k2}\frac{\partial f \circ \psi}{\partial x_k},\dots, \sum_k g^{km}\frac{\partial f \circ \psi}{\partial x_k} \right)
-    \end{align*} Where $Q:TU\to \R^m$ denotes the koordinate map with respect to the chart on $\psi$. 
-    Hence, we can differentiate: 
-    \begin{align*}
-        \frac{\partial}{\partial x}  Q\circ \grad(f)\circ \psi^{-1}
-        &= \left(\frac{\partial}{\partial x_j} \sum_k g^{ki}\frac{\partial f \circ \psi}{\partial x_k}\right)_{ij} \\
-        &= \left(\sum_k \left[ 
-        \frac{\partial g^{ki}}{\partial x_j}\frac{\partial f \circ \psi}{\partial x_k} +  g^{ki}\frac{\partial^2 f \circ \psi}{\partial x_j ~\partial x_k}
-        \right]\right)_{ij} \, .
-    \end{align*} Hence, in a critical point $p=\psi^{-1}(x_0)$ we have that:
-    \begin{align*}
-         \frac{\partial}{\partial x}  Q\circ \grad(f)\circ \psi^{-1} \Big|_{x_0}=\left(\sum_k \left[ 
-         g^{ki}\frac{\partial^2 f \circ \psi}{\partial x_j ~\partial x_k}
-        \right]\right)_{ij} \, .
-    \end{align*} The last line is the precice notion of the lemma.
-\end{proof}
-Now assume that $(x_1,...,x_m)$ is a morse chart, hence $f(x_1,...,x_m)=\sum_{i=1}^lx_i^2-\sum_{i=l+1}^mx_i^2$ and thereby in this chart:
-\begin{align}
-    \frac{\partial ^2 f }{\partial x_j \partial x_k}= \begin{cases}
-        \phantom{-} \delta_{ik}2& \text{ if } i\leq l \, , \\
-        -\delta_{ik}2& \text{ else} \, .
-    \end{cases}
-\end{align} This lets us calculate: 
-\begin{align*}
-    \frac{\partial}{\partial x}\grad(f)\Big|_p=\begin{pmatrix}
-        2 g^{11}  &  2g^{12}&   \dots   &  2g^{1m}\\
-        \vdots    & \vdots  & \vdots    & \vdots \\
-        2 g^{l1}  &  2g^{l2}&   \dots   &  2g^{lm}\\
-        - 2 g^{l+11} &  -2g^{l+12}&   \dots   &  -2g^{l+1m}\\
-                \vdots    & \vdots  & \vdots    & \vdots \\
-      - 2 g^{m1} &  -2g^{m2}&   \dots   &  -2g^{mm}\\
-    \end{pmatrix}
-\end{align*}
-
-
-Now we want to calculate $\frac{\partial}{\partial x} \phi_t \Big| _p$ in such a Morse chart:
-For this we start by differentiating in $t-direction$:
-\begin{align*}
-    \frac{\diff}{\diff t}\phi_t(x)=-\grad(f)(\phi_t(x))
-\end{align*} If we first differentiate this in $x-$direction and then in $t$ dircetion we have:
-\begin{align*}
-         \frac{\diff }{\diff t} \frac{\partial}{\partial x}\phi_t(x)
-    & =  \frac{\partial }{\partial x} \left( \frac{\partial}{\partial t}\phi_t(x) \right)\\
-    & =  \frac{\partial }{\partial x} \left( -\grad(f)(\phi_t(x)) \right)         \\
-    & = -\frac{\partial }{\partial x} \grad(f)(\frac{\partial }{\partial x}\phi_t(x)) \, .
-\end{align*}    In other words: $\Psi(t,x)\coloneq \frac{\partial}{\partial x}\phi_t(x)$ is a solution of the system of linear ordinary differential equations
-\begin{align*}
-    \frac{\diff}{\diff t}\Psi(t,x)=-\frac{\partial }{\partial x} \grad(f)(\Psi(t,x)) \, , \\
-    \Psi(0,x)= 1_{m\times m} \, .
-\end{align*} By the uniqueness of such systems we have that 
-\begin{align*}
-    \Psi(t,x)=\exp\left(-\frac{\partial}{\partial x}\grad(f)\cdot t\right) \,.
-\end{align*} Now choose an orthonormal basis $B=(b_1,\dots b_m)$ of $T_pM$ with resprect to the bilinear form $g(p)(\psi^{-1}\oplus \psi^{-1}=:\R^m\oplus \R^m \to \R$. Since for a chart that is centered in $p$ the family 
-\begin{align*}
-    \left(\frac{\partial}{\partial x^i}\right)_i
-\end{align*} forms a basis, there is a unique base change between the two bases, that can be realized as a linear change of coordinates in the following way:
-Define $\lambda^i_k\in \R$ such that $b_i=\sum_k\lambda^k_i (\frac{\partial}{\partial x^k})$. With this we define the linear map $L:\R^m\to \R^m$ by $x\mapsto \left((\lambda ^i_k)_{ik}\right)^{-1}x$. If we define $(L^{-1})_i$ to be the ith component of the inverse map, we have
-\begin{align*}
-    \frac{\partial (L^{-1})_i}{\partial x^j}= \frac{\partial (\sum_k \lambda^i_k\cdot x^k)}{\partial x^j}= \lambda^i_j \, .
-\end{align*}Hence, the basis 
-$$\left(\frac{\partial}{\partial \tilde{x} ^i}\right)_i$$
-corresponding to the new chart $\psi\circ L: U\to V\subseteq \R^m$ reads for any $f_p\in \mathcal{E}_p(M)$:
-\begin{align*}
-    \frac{\partial}{\partial \tilde{x} ^j}(f_p)
-    & =\frac{\partial}{\partial x^j} \Big|_{0}(f\circ\psi^{-1}\circ L^{-1}) \\
-    &= \sum _k \frac{\partial f\circ \psi^{-1}}{\partial x^k}(L^{-1}(0))\frac{\partial (L^{-1})_k}{\partial x^j}(0)\\
-    &= \sum _k \underbrace{\frac{\partial f\circ \psi^{-1}}{\partial x^k}(0)}_{=\frac{\partial}{\partial x^k}(f_p)}  \underbrace{\frac{\partial (L^{-1})_k}{\partial x^j}(0)}_{=\lambda^k_j}\\
-     & =\left(\sum_k \lambda^k_j(\frac{\partial}{\partial x^k})\right)(f_p)=b_j(f_p) \, .
-\end{align*} Hence, a linear change of koordinates lets us manipulate any chart such that the basis of the tangendspaces in the origin of the given chart is orthongonal (or even orthonormal) with resprect to a given metric.
-
-
-Now this is somewhat troublesome:
-We could now choose a basis, such that $\frac{\partial}{\partial x}\grad(f)$ is diagonal and hence the exponential is easy to calculate. But then we dont know how $f$ looks like. But with a Morse chart (where we controle $f$) we have trouble calculating the exponential of $\frac{\partial}{\partial x}\grad(f)$. The hope ist that there is a change of basis that keeps the splitting.
-\begin{corollary}
-	In a Morse chart the function $f\circ \psi^{-1}-f(p)$ is the two form given by the matrix
-	\begin{align*}
-		H\coloneq \begin{pmatrix}
-			-1_{l\times l}&0 \\
-			0&1_{(m-l)\times [m-l]} 
-		\end{pmatrix}
-	\end{align*}
-	Now we have the positive definite matrix $(g^{ij})_{ij}$ given by $g(p)$ with respect to the chart induced basis. The hope is to diagonalize those two matricies simultanious, which is possible since they commute! To see this first we split $R^m$ into the eigenspaces $E_{-1}\oplus E_1$ where 
-	\begin{align*}
-		E_{-1}\coloneq \{v\in R^m| Hv=-v\} \quad \text{and}\quad 	E_{1}\coloneq \{v\in R^m| Hv=v\}
-	\end{align*}
-	Now assume $v\in E_\lambda$ with $\lambda\pm1$. Then $H\circ (g^{ij})_{ij} (v)=(g^{ij})_{ij} (Hv)=\lambda (g^{ij})_{ij} (v)$ and hence, $(g^{ij})_{ij} (v)\in E_{\lambda}$ now we need to diagonalize $(g^{ij})_{ij}$ restricted to the two eigenspaces of $H$ which is possible!. \todo{warum und welchen einfluss hat das auf die 2 form durch H?}
-\end{corollary}
-\begin{lemma}
-	Law of inertia Sylvester
+	Let $\psi$ be a coordinate system arround a critical point $p$. I.e. $\psi: p\in U\to V$ with $\psi(p)=0$ and let $\left( \frac{\partial}{\partial x_1}\big|_x,\dots ,\frac{\partial}{\partial x_m}\big|_x\right)$ be the induced basis of $T_xM$ Then the jacobean of the gradient 
+	\begin{equation}
+			J(\grad(f))_\psi(0)= \sum_{k}g^{ki}(0)\frac{\partial ^2 f\circ \psi^{-1} }{\partial x_j \partial x_k}
+	\end{equation} where $(g^{ki}(x))$ denotes the matrix corresponding to the gradient in $T_xM$ with respect to the basis $\left( \frac{\partial}{\partial x_1}\big|_x,\dots ,\frac{\partial}{\partial x_m}\big|_x\right)$.
 \end{lemma}
+\begin{proof}
+	Let $q_{\psi}$ denote the koordinate funktion $TU\to R^m$ induced from the basis $\left( \frac{\partial}{\partial x_1}\big|_x,\dots ,\frac{\partial}{\partial x_m}\big|_x\right)$. then the gradient in $\psi$ reads:
+	\begin{align*}
+		q_{\psi}\circ \grad(f)\circ \psi^{-1}=\left(\sum_kg^{k1  }\frac{\partial f\circ \psi^{-1}	}{\partial x_k},\dots, \sum_kg^{k m }\frac{\partial f\circ \psi^{-1}	}{\partial x_k}\right)
+	\end{align*} Hence, we can calculate 
+	Hence, we can differentiate: 
+	\begin{align*}
+		\frac{\partial}{\partial x}  Q\circ \grad(f)\circ \psi^{-1}
+		&= \left(\frac{\partial}{\partial x_j} \sum_k g^{ki}\frac{\partial f \circ \psi^{-1}}{\partial x_k}\right)_{ij} \\
+		&= \left(\sum_k \left[ 
+		\frac{\partial g^{ki}}{\partial x_j}\frac{\partial f \circ \psi^{-1}}{\partial x_k} +  g^{ki}\frac{\partial^2 f \circ \psi}{\partial x_j ~\partial x_k}
+		\right]\right)_{ij} \, .
+	\end{align*}
+	and now in $p=\psi{-1}(0)$ we have
+	\begin{align*}
+		\frac{\partial}{\partial x}  Q\circ \grad(f)\circ \psi^{-1} \Big|_{0}=\left(\sum_k \left[ 
+		g^{ki}(0)\frac{\partial^2 f \circ \psi^{-1}}{\partial x_j ~\partial x_k}
+		\right]\right)_{ij} \, .
+	\end{align*}
+\end{proof}
 
-\begin{corollary}
+
+
+
+
+
+
+
+\begin{theorem}[Sylvesters Law of Inertia]
+Let $A\in \Mat(n,\R)$ be symmetric and let $T,T'\in \GL(n,\R)$ and $k,k',l,l'\in \N$ such that \\
+\begin{align*}
+T^t\circ A\circ T=	\begin{pmatrix}
+		1_k& 0 &0\\
+		0& -1_l&0\\
+		0&0&0_{n-k-l}
+	\end{pmatrix}\text{ and } 
+	T'^T\circ A \circ T'=
+	\begin{pmatrix}
+		1_{k'}& 0 &0\\
+		0& -1_{l'}&0\\
+		0&0&0_{n-k'-l'}
+	\end{pmatrix}
+\end{align*}
+then $k=k'$, $l=l'$ and $\rank(A)=k+l.$
+\end{theorem}
+\begin{proof}
+	Since $T,T'$ are invertible we have that
+	\begin{align}
+		k+l=\rank(T^t\circ A\circ T)=\rank(A)=\rank(T'^T\circ A\circ T')=k'+l' \, .
+	\end{align} Hence it suffices to show that $k=k'$. Which we will do by proofing the claim:
+	\begin{equation*}
+		k=\max \left\{ \dim(U)|U\subseteq \R^n \text{subspace such that } x^tAx>0 ~\forall x\in U\setminus \{0\}  \right\}
+	\end{equation*}
+	So we start by showing \glqq $\leq $\grqq:
+	Denote the first $k$ colomus of $T$ with $x_1,...,x_k$. They form a basis of $\R^n$ and with $ 0 \neq x=\sum_{i=1}^k\lambda ix^i$ we have that by bilinearity
+	\begin{equation}
+		x^TAx=\sum_{i=1}^{k}\lambda_i x_i^T A x=\sum_{i,j=1}^{k}\lambda_i \lambda_j x_i^T A x_j=\sum_{i=1}^{k}(\lambda_i)^2\geq 0 \,. 
+	\end{equation} This conculdes the first inequality. 
+	
+	Now let $U$ be any $k-$dimensional subspace such that for all non zero $x\in U$ $x^TAx>0$. By a calculation analog to the one above we have that for any $x\in W:= \gen (x_{k+1},\dots x_n)$ the number $x^tAx$ is less or equal to zero. Hence, $W\cap U= \{0\}$ and with this we conclude:
+	\begin{equation}
+		\dim(U)=\dim(U+W)-\dim(W)+\dim(U\cap W)\leq (k+(n-k))-(n-k)+0=k\, .
+	\end{equation} This is the last inequality proving the statement.
+	\end{proof}
+
+\begin{corollary}[Simultaneous Diagonalisation of Quadratic Forms]
 	Let $p$ be a critical point of a Morse function $f$ on a manifold $M$ and let $g(p)$ be the Riemannian metric on $T_pM$. Then there exists a Morse chart $\psi$ arround $p$ such that the representation of $g(p)$ in the basis induced by the Morse chart is given by a a diagonal matrix $diag(\mu_1,\dots \mu_m)$ with $\mu_i>0$ for all $i$ .
 \end{corollary}
 \begin{proof}
@@ -166,22 +136,24 @@ We could now choose a basis, such that $\frac{\partial}{\partial x}\grad(f)$ is 
 	 	\lambda _j(Gv_j)^Tv_i=\lambda_i v_j^TG(v_i) \Leftrightarrow \underbrace{(\lambda_j-\lambda_i)}_{\neq 0}v_j^T G(v_i)=0
 	 \end{align*} Hence all eigenspaces are orthogonal and we can use Gram Schmitt to make the bases of the eigenspaces orthogonal and by rescaling orthonormal.
 	
-	Let $L = [v_1 | \dots | v_m]$ be the matrix whose columns are these $G$-orthonormal eigenvectors. The linear change of coordinates \todo{ab hier selber rechnen!} 
+	Let $L = [v_1 | \dots | v_m]$ be the matrix whose columns are these $G$-orthonormal eigenvectors. The linear change of coordinates 
 	 $y = Lz$ leads to new coordinates $z$. In these new coordinates, the quadratic forms transform as follows:
 	\begin{align*}
 		q_G(y) &= y^T G y = (Lz)^T G (Lz) = z^T L^T G L z = z^T I z = \sum_{i=1}^m z_i^2 \\
 		q_H(y) &= y^T H y = (Lz)^T H (Lz) = z^T L^T H L z
 	\end{align*}
-	Since $H v_i = \lambda_i G v_i$, we have $L^T H L = \text{diag}(\lambda_1, \dots, \lambda_m)$. The eigenvalues $\lambda_i$ are real and have the same signature as the eigenvalues of $H$ ($l$ negative, $m-l$ positive).\todo{hier ein beweis einfügen}.  By a further scaling of the coordinates $z$, the matrix $L^T H L$ can be brought into the form $\text{diag}(-1, \dots, -1, 1, \dots, 1)$. (by doing this however, the matrix $G$ becomes $G=\diag(\mu_1,\dots \mu_m)$ with $\mu_j>0~\forall j$)
+	Since $H v_i = \lambda_i G v_i$, we have $L^T H L = \text{diag}(\lambda_1, \dots, \lambda_m)$. The eigenvalues $\lambda_i$ are real and have the same signature as the eigenvalues of $H$ ($l$ negative, $m-l$ positive).This is true to sysvesters law of inertia.  By a further scaling of the coordinates $z$ and reordering, the matrix $L^T H L$ can be brought into the form $\text{diag}(-1, \dots, -1, 1, \dots, 1)$. (by doing this however, the matrix $G$ becomes $G=\diag(\mu_1,\dots \mu_m)$ with $\mu_j>0~\forall j$). If $\psi$ is the Morse chart we started with, then $L^{-1} \circ \psi$ is the new morse chart. Here we have: 
+	\begin{equation*}
+		f\circ (\psi^{-1}\circ L)(y)=f\circ \psi^{-1}(L(y))=q_H(L(y)=\sum_{i=1}^l-y_i^2+\sum_{i=l+1}^my_i^1
+	\end{equation*}
+	Furthermore, we want to inspect the metric $g\big|_p:T_pM^2\to \R$ with respect to the chart $\psi\circ L^{-1}$-induced basis $\left( \frac{\partial}{\partial x_1}\big|_p,\dots ,\frac{\partial}{\partial x_m}\big|_p\right)$
+	We calculate $ g(p)\left( \frac{\partial}{\partial x_i}\big|_p, \frac{\partial}{\partial x_j}\big|_p\right)$. With the coordinate map we have that $g(p)\left(q_{\psi\circ L^{-1}}^{-1},q_{\psi\circ L^{-1}}^{-1}\right)$ is a quadratic form on $R^n$ and given by a matrix $\tilde{G}$. \todo{Check how $\tilde{G}$ and $G$ are connected, by analysing how $q_{\psi\circ L^{-1}}$ and $q_{\psi}$ are connected}
 \end{proof}
 
 
 
 
-\begin{corollary}
-Let $q: R^l\oplus R^{m-l}$, $i_1: R^l\to R^m$ and $i_2 R^{m-l}\to R^m$ be the inclusions and let $q:R^l\oplus R^{m-l}\to \R$ a smooth map such that $q\circ i_1$ is strictly increasing and $q\circ i_2$ strictly decreasing. Let furthermore $g: R^m \times R^m\to R$ be a metric on $R^m$. Then there is a orthonormal basis 
 
-\end{corollary}
 \begin{corollary}
 	Assume that $\psi$ is a Morse chart and$(l_{ij})\in \mathrm{GS}(l,m)$. Then $f\circ \psi^{-1}\circ L^{-1}$ reads: 
 	\begin{align*}
@@ -401,3 +373,143 @@ This however reads:
         \sum_{i,k} g^{ik}\frac{\partial f \circ \psi^{-1}}{\partial x^k} \frac{\partial}{\partial x^i}=\sum_{k=1}^l2g^{kk}\frac{\partial}{x^k}-\sum_{k=l+1}^m2g^{kk}\frac{\partial}{x^k}
 \end{align*} where $g^{ik}\in C^{\infty}(M,\R)$. Hence we can tayler all the $g^{ik}$ in $p$ to get them to be of the form $\diff g^{ik}(p)+r^{ik}(x)$ 
 \end{proof}
+\begin{lemma}
+	Assume that $\psi:U\to V$ is a chart and $L:R^m\to R^m$ a linear function.
+	Then the diagramm \begin{center}
+		% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRABUB9NAWRAF9S6TLnyEUARnJVajFmwA6CgEoA9ALYChIDNjwEiUiTPrNWiEErWb+MmFADm8IqABmAJwibEZEDghIUrJmbACOnMBKaNj8Wm6e3r7+SABM1KbyFuGRCtFYSgDGWO4FAAQAMrGC8V6B1MmIacGZIOUCFPxAA
+		\begin{tikzcd}
+			T_pM \arrow[r, "q_{\psi}"] \arrow[rd, "q_{\psi\circ L}"] & \R^m \arrow[d, "L"] \\
+			& \R^m               
+		\end{tikzcd}
+	\end{center}  
+	commutes for all $p\in U$.
+\end{lemma}
+\begin{proof}
+	We show this by showing the inverse: For any $v\in \R^m$ we have the two $(q_{\psi} \big|_p)^{-1} L^{-1}(v)$ and $(q_{\psi \circ L}\big|p)^{-1}$ and claim that they are the same. So let $f_p\in \mathcal{E}_pM$. Assume that $L^{-1}=(\lambda_{ij})_{ij}$, $\psi(p)=x_0$ and $L(x_0)=\tilde{x_0}$. We now calculate 
+		\begin{align*}
+		\left[	(q_{\psi} \big|_p)^{-1} L^{-1}(v)\right](f_p)=	\left[(q_{\psi} \big|_p)^{-1} \sum_{i,j} e_i \lambda_{ij} v_j \right](f_p)=\left[ \sum_{i,j} \lambda_{ij} v_j  	(q_{\psi} \big|_p)^{-1} (e_i) \right](f_p)
+		\end{align*} and
+		\begin{align*}
+		\left[(q_{\psi \circ L}\big|_p)^{-1}(v)\right](f_p)
+		&= \sum_i v_i \frac{\partial}{\partial x_i}\big|_p (f_p)  \\
+		&=\sum_i v_i \frac{\partial}{\partial x_i}\big|_{x_1} (f\circ \psi^{-1}\circ L^{-1}) \\
+		&=\sum_{i,j} v_i \frac{\partial}{\partial x_i}\big|_{x_0}(f\circ \psi^{-1}) \lambda_{ji}
+		\end{align*}
+	
+\end{proof}
+\begin{comment}[Müll]
+	\begin{lemma}
+		If $(x_1,...,x_m)$ is a local coordinate system arround a critical point $p\in M$ and let $\left( \frac{\partial}{\partial x_1},\dots ,\frac{\partial}{\partial x_m}\right)$ be the induced basis of $T_pM$.  Then the Matrix of the differential of the gradient $\grad(f): U \to \R^m$ inj $p$ is of the form:
+		\begin{align*}
+			\frac{\partial}{\partial x}\grad(f)\Big|_p=\left(\sum_{k} g^{ki}\frac{\partial ^2 f }{\partial x_j \partial x_k} \right)_{ij}
+		\end{align*}
+	\end{lemma}
+	
+	\begin{proof}
+		Compare lemma 4.4 in \cite{banyaga2004lectures}: 
+		First we notice, that in the coordinates $x_1,...,x_n$ respectifly $(\frac{\partial}{\partial x_1},\dots \frac{\partial}{\partial x_m})$(given by the chart $\psi: U\to V$ )the $\grad(f)\circ \psi^{-1}$ reads:
+		\begin{align*}
+			Q\circ \grad(f)\circ \psi^{-1}= \left(\sum_k g^{k1}\frac{\partial f \circ \psi}{\partial x_k},\sum_k g^{k2}\frac{\partial f \circ \psi}{\partial x_k},\dots, \sum_k g^{km}\frac{\partial f \circ \psi}{\partial x_k} \right)
+		\end{align*} Where $Q:TU\to \R^m$ denotes the koordinate map with respect to the chart on $\psi$. 
+		Hence, we can differentiate: 
+		\begin{align*}
+			\frac{\partial}{\partial x}  Q\circ \grad(f)\circ \psi^{-1}
+			&= \left(\frac{\partial}{\partial x_j} \sum_k g^{ki}\frac{\partial f \circ \psi}{\partial x_k}\right)_{ij} \\
+			&= \left(\sum_k \left[ 
+			\frac{\partial g^{ki}}{\partial x_j}\frac{\partial f \circ \psi}{\partial x_k} +  g^{ki}\frac{\partial^2 f \circ \psi}{\partial x_j ~\partial x_k}
+			\right]\right)_{ij} \, .
+		\end{align*} Hence, in a critical point $p=\psi^{-1}(x_0)$ we have that:
+		\begin{align*}
+			\frac{\partial}{\partial x}  Q\circ \grad(f)\circ \psi^{-1} \Big|_{x_0}=\left(\sum_k \left[ 
+			g^{ki}(0)\frac{\partial^2 f \circ \psi}{\partial x_j ~\partial x_k}
+			\right]\right)_{ij} \, .
+		\end{align*} The last line is the precice notion of the lemma.
+	\end{proof}
+	.
+	
+	
+	Now assume that $(x_1,...,x_m)$ is a morse chart, hence $f(x_1,...,x_m)=\sum_{i=1}^lx_i^2-\sum_{i=l+1}^mx_i^2$ and thereby in this chart:
+	\begin{align}
+		\frac{\partial ^2 f }{\partial x_j \partial x_k}= \begin{cases}
+			\phantom{-} \delta_{ik}2& \text{ if } i\leq l \, , \\
+			-\delta_{ik}2& \text{ else} \, .
+		\end{cases}
+	\end{align} This lets us calculate: 
+	\begin{align*}
+		\frac{\partial}{\partial x}\grad(f)\Big|_p=\begin{pmatrix}
+			2 g^{11}  &  2g^{12}&   \dots   &  2g^{1m}\\
+			\vdots    & \vdots  & \vdots    & \vdots \\
+			2 g^{l1}  &  2g^{l2}&   \dots   &  2g^{lm}\\
+			- 2 g^{l+11} &  -2g^{l+12}&   \dots   &  -2g^{l+1m}\\
+			\vdots    & \vdots  & \vdots    & \vdots \\
+			- 2 g^{m1} &  -2g^{m2}&   \dots   &  -2g^{mm}\\
+		\end{pmatrix}
+	\end{align*}
+	
+	
+	
+	
+	
+	
+	\begin{corollary}
+		Let $p$ be a critical point of a Morse function $f$ on a manifold $M$ and let $g(p)$ be the Riemannian metric on $T_pM$. Then there exists a Morse chart $\psi$ arround $p$ such that the representation of $g(p)$ in the basis induced by the Morse chart is given by a a diagonal matrix $diag(\mu_1,\dots \mu_m)$ with $\mu_i>0$ for all $i$ .
+	\end{corollary}
+	\begin{proof}
+		The quadratic form of $f \circ \psi^{-1} - f(p)$ in the coordinates of the Morse chart is $q_H(v) = v^T H v$. The quadratic form induced by the Riemannian metric $g(p)$ is $q_G(v) = v^T G v$, where $v \in \mathbb{R}^m$ are the coordinate vectors. Since $g(p)$ is positive definite, $G$ is also positive definite, and $H$ is symmetric.
+		
+		Consider the generalized eigenvalue problem $Hv = \lambda G v$. Since $H$ and $G$ are real symmetric matrices and $G$ is positive definite, this problem has $m$ real eigenvalues $\lambda_1, \dots, \lambda_m$ and corresponding eigenvectors $v_1, \dots, v_m$, which can be chosen to be orthogonal with respect to the bilinear form defined by $G$, such that $v_i^T G v_j = \delta_{ij}$, since if $v_i$ and $v_j$ are different eigenvectors with respect to different eigenvalues, we can calculate:
+		\begin{align*}
+			v_j^THv_i=(Hv_j)^Tv_i=\lambda _j(Gv_j)^Tv_i=\lambda _j v_j^T G(v_i)  \quad \text{and}\quad 	v_j^THv_i= v_j^T \lambda_i G(v_i)=\lambda_i v_j^TG(v_i) \, .
+		\end{align*} Hence we have the equality
+		\begin{align*}
+			\lambda _j(Gv_j)^Tv_i=\lambda_i v_j^TG(v_i) \Leftrightarrow \underbrace{(\lambda_j-\lambda_i)}_{\neq 0}v_j^T G(v_i)=0
+		\end{align*} Hence all eigenspaces are orthogonal and we can use Gram Schmitt to make the bases of the eigenspaces orthogonal and by rescaling orthonormal.
+		
+		Let $L = [v_1 | \dots | v_m]$ be the matrix whose columns are these $G$-orthnormal eigenvectors. The linear change of coordinates	$y = Lz$ leads to new coordinates $z$. In these new coordinates, the quadratic forms transform as follows:
+		\begin{align*}
+			q_G(y) &= y^T G y = (Lz)^T G (Lz) = z^T L^T G L z = z^T I z = \sum_{i=1}^m z_i^2 \\
+			q_H(y) &= y^T H y = (Lz)^T H (Lz) = z^T L^T H L z
+		\end{align*}
+		Since $H v_i = \lambda_i G v_i$, we have $L^T H L = \text{diag}(\lambda_1, \dots, \lambda_m)$. The eigenvalues $\lambda_i$ are real and have the same signature as the eigenvalues of $H$ ($l$ negative, $m-l$ positive), which is due to Sylvesters law of innertia.  By a further scaling of the coordinates $z$, the matrix $L^T H L$ can be brought into the form $\text{diag}(-1, \dots, -1, 1, \dots, 1)$. (by doing this however, the matrix $G$ becomes $G=\diag(\mu_1,\dots \mu_m)$ with $\mu_j>0~\forall j$) Hence, we have a morse chart.
+	\end{proof}
+	
+	Now we want to calculate $\frac{\partial}{\partial x} \phi_t \Big| _p$ in such a Morse chart:
+	For this we start by differentiating in $t-direction$:
+	\begin{align*}
+		\frac{\diff}{\diff t}\phi_t(x)=-\grad(f)(\phi_t(x))
+	\end{align*} If we first differentiate this in $x-$direction and then in $t$ dircetion we have:
+	\begin{align*}
+		\frac{\diff }{\diff t} \frac{\partial}{\partial x}\phi_t(x)
+		& =  \frac{\partial }{\partial x} \left( \frac{\partial}{\partial t}\phi_t(x) \right)\\
+		& =  \frac{\partial }{\partial x} \left( -\grad(f)(\phi_t(x)) \right)         \\
+		& = -\frac{\partial }{\partial x} \grad(f)(\frac{\partial }{\partial x}\phi_t(x)) \, .
+	\end{align*}    In other words: $\Psi(t,x)\coloneq \frac{\partial}{\partial x}\phi_t(x)$ is a solution of the system of linear ordinary differential equations
+	\begin{align*}
+		\frac{\diff}{\diff t}\Psi(t,x)=-\frac{\partial }{\partial x} \grad(f)(\Psi(t,x)) \, , \\
+		\Psi(0,x)= 1_{m\times m} \, .
+	\end{align*} By the uniqueness of such systems we have that 
+	\begin{align*}
+		\Psi(t,x)=\exp\left(-\frac{\partial}{\partial x}\grad(f)\cdot t\right) \,.
+	\end{align*} Now choose an orthonormal basis $B=(b_1,\dots b_m)$ of $T_pM$ with resprect to the bilinear form $g(p)(\psi^{-1}\oplus \psi^{-1}=:\R^m\oplus \R^m \to \R$. Since for a chart that is centered in $p$ the family 
+	\begin{align*}
+		\left(\frac{\partial}{\partial x^i}\right)_i
+	\end{align*} forms a basis, there is a unique base change between the two bases, that can be realized as a linear change of coordinates in the following way:
+	Define $\lambda^i_k\in \R$ such that $b_i=\sum_k\lambda^k_i (\frac{\partial}{\partial x^k})$. With this we define the linear map $L:\R^m\to \R^m$ by $x\mapsto \left((\lambda ^i_k)_{ik}\right)^{-1}x$. If we define $(L^{-1})_i$ to be the ith component of the inverse map, we have
+	\begin{align*}
+		\frac{\partial (L^{-1})_i}{\partial x^j}= \frac{\partial (\sum_k \lambda^i_k\cdot x^k)}{\partial x^j}= \lambda^i_j \, .
+	\end{align*}Hence, the basis 
+	$$\left(\frac{\partial}{\partial \tilde{x} ^i}\right)_i$$
+	corresponding to the new chart $\psi\circ L: U\to V\subseteq \R^m$ reads for any $f_p\in \mathcal{E}_p(M)$:
+	\begin{align*}
+		\frac{\partial}{\partial \tilde{x} ^j}(f_p)
+		& =\frac{\partial}{\partial x^j} \Big|_{0}(f\circ\psi^{-1}\circ L^{-1}) \\
+		&= \sum _k \frac{\partial f\circ \psi^{-1}}{\partial x^k}(L^{-1}(0))\frac{\partial (L^{-1})_k}{\partial x^j}(0)\\
+		&= \sum _k \underbrace{\frac{\partial f\circ \psi^{-1}}{\partial x^k}(0)}_{=\frac{\partial}{\partial x^k}(f_p)}  \underbrace{\frac{\partial (L^{-1})_k}{\partial x^j}(0)}_{=\lambda^k_j}\\
+		& =\left(\sum_k \lambda^k_j(\frac{\partial}{\partial x^k})\right)(f_p)=b_j(f_p) \, .
+	\end{align*} Hence, a linear change of koordinates lets us manipulate any chart such that the basis of the tangendspaces in the origin of the given chart is orthongonal (or even orthonormal) with resprect to a given metric.
+	
+	
+	Now this is somewhat troublesome:
+	We could now choose a basis, such that $\frac{\partial}{\partial x}\grad(f)$ is diagonal and hence the exponential is easy to calculate. But then we dont know how $f$ looks like. But with a Morse chart (where we controle $f$) we have trouble calculating the exponential of $\frac{\partial}{\partial x}\grad(f)$. The hope ist that there is a change of basis that keeps the splitting.
+	
+\end{comment}
