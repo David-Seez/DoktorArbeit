@@ -51,6 +51,30 @@ We assume that $q$ is a critical point of index $k+1$ and $p$ is a critical poin
 	\]
 	where $J(\grad(f))_\psi(\psi(p))$ is the Jacobian matrix of the gradient evaluated at the coordinates of $p$.
 \end{lemma}
+\begin{proof}
+We will inspect what differebtial equation the map $	q_{\psi(\phi_t(p))} \circ \mathrm{d} \phi_t \big|_p \circ q_{\psi(p)}^{-1}$ solves and hence we differentiate:
+\begin{align*}
+	\frac{\partial}{\partial t}	\left( q_{\psi(\phi_t(p))} \circ \mathrm{d} \phi_t \big|_p \circ q_{\psi(p)}^{-1} \right) 
+	&= 	\frac{\partial}{\partial t} J(\psi \circ \phi_t (\psi^{-1}(x)))\\
+	&= 	\frac{\partial}{\partial t} \left(\frac{\partial \left(\psi \circ \phi_t (\psi^{-1}(x))\right)_i}{\partial x^j}\right)_{ij}\\
+    &=	 \left(\frac{\partial}{\partial t} \frac{\partial \left(\psi \circ \phi_t (\psi^{-1}(x))\right)_i}{\partial x^j}\right)_{ij}\\
+    &=	 \left(\frac{\partial}{\partial x^j}\frac{\partial}{\partial t}  \left(\psi \circ \phi_t (\psi^{-1}(x))\right)_i\right)_{ij}\\
+    
+\end{align*}
+\end{proof}
+
+
+
+
+
+
+
+
+
+
+
+
+
 \begin{lemma}
 	Let $\psi$ be a coordinate system arround a critical point $p$. I.e. $\psi: p\in U\to V$ with $\psi(p)=0$ and let $\left( \frac{\partial}{\partial x_1}\big|_x,\dots ,\frac{\partial}{\partial x_m}\big|_x\right)$ be the induced basis of $T_xM$ Then the jacobean of the gradient 
 	\begin{equation}
@@ -374,7 +398,15 @@ This however reads:
 \end{align*}And hence we have that:
 \begin{equation*}
     \psi(N_p\cap V)=\left\{(x^s,x^u)\in U ~\middle|~\norm{x^u}\leq R(x^s)\right\}
-\end{equation*} where $R(x^s)$ is a smooth function. Now let $g$ be a general metric, and $\psi$ a Morse chart such that $g(p)$ is a diagonal quadratic form wit respect to that morse chart. 
+\end{equation*} where $R(x^s)$ is a smooth function. Now let $g$ be a general metric, and $\psi$ a Morse chart such that $g(p)$ is a diagonal quadratic form wit respect to that morse chart. We now want to interlinear approximate  $\psi\circ \phi_t \circ \psi^{-1}:U\to U$ which leads to the need of its jacobean:
+For this we consider the function $ (t,x)\mapsto \psi \phi_t(\psi^{-1}(x)):\R \times U \to U$ For fixed $x$ we can calculate
+\begin{align*}
+	q_{\psi}\frac{\diff}{\diff t} \phi_t(\psi^{-1}(x))=-q_{\psi} \grad(f)(\phi_t(\psi^{-1}(x)))
+\end{align*} and by changing the order of integration we have:
+\begin{align*}
+	\frac{\partial}{\partial t}  \frac{\partial}{\partial x}  \psi \phi_t(\psi^{-1}(x))
+\end{align*}
+
 \end{proof}
 
 
