@@ -33,6 +33,19 @@ We assume that $q$ is a critical point of index $k+1$ and $p$ is a critical poin
     \item $N_p$ is a tubular neighbourhood of $W(\to p)\cap M^c$\, .\label{lem: enum: 5}
 \end{enumerate}
 \end{lemma}
+\begin{lemma}
+	Let $\psi:U\to V$ be a chart. Then the gradient has the local form:
+	\begin{align*}
+		\grad(f)\circ \psi{-1} =\sum_{i,j}g^{ij} \frac{\partial f \circ \psi^{-1}}{\partial x^i} \frac{\partial }{\partial x^j}
+	\end{align*}
+	Here, $g^{ij}$ denotes the smooth functions given by the coordinates of the function $x\mapsto (g_{ij}(x))$ that defines the coordinate representation of the gradient in $x$. 
+\end{lemma}
+\begin{proof}
+Suppose that $\grad(f)=\sum_j V_j \frac{\partial}{\partial x^i}$ and $q$ is the coordinate map $T\R\to \R$ in each tangend space. Then by definition of the gradient we have:
+\begin{align*}
+	q \circ \diff f (\frac{\partial }{\partial x^j})=q\circ \frac{\partial f}{\partial x^j}= g(\grad(f),)
+\end{align*}
+\end{proof}
 
 \begin{definition}[Jacobian of the Gradient]
 	The gradient is a section into the tangent bundle, $\grad(f):M\to TM$.
@@ -42,7 +55,15 @@ We assume that $q$ is a critical point of index $k+1$ and $p$ is a critical poin
 	J(\grad(f))_\psi(x) \coloneq J\left(q_{\psi}\circ \grad(f)\circ \psi^{-1}\right)(x) = \left(\frac{\partial (q_{\psi}\circ \grad(f)\circ \psi^{-1})_i}{\partial x_j}(x)\right)_{ij}
 	\]
 \end{definition}
-
+\begin{lemma}
+	Let $g$ be a metric and $\phi_t(x)$ be the flow associated to $-\grad(f)$ meaning
+	\begin{align*}
+		\frac{\diff}{\diff t}\big|_{t_0}\phi_t(x)=-\grad(f)(\phi_{t_0}(x))
+	\end{align*} Let furthermore, $\psi:U\to V$ be a chart. If $t_0$ is small enough and $x\in U$ such that $\phi_t(x)\in U$, then 
+	\begin{align*}
+		\frac{\partial}{\partial t} \psi \circ \phi_{t_0}(\psi^{-1})(x)=	
+	\end{align*}
+\end{lemma}
 
 \begin{lemma}
 	Let $t\in \mathbb{R}$ be small enough and $\phi_t: M\to M$ be the flow map corresponding to the negative gradient. Assume that $U$ is the domain of a chart $\psi$ and $p\in U$ such that $\phi_t(p)\in U$. Then the linear map $\mathrm{d} \phi_t \big|_p: T_pM\to T_{\phi_t(p)}M$ has a local representation in the coordinates induced by $\psi$ given by:
@@ -59,7 +80,7 @@ We will inspect what differebtial equation the map $	q_{\psi(\phi_t(p))} \circ \
 	&= 	\frac{\partial}{\partial t} \left(\frac{\partial \left(\psi \circ \phi_t (\psi^{-1}(x))\right)_i}{\partial x^j}\right)_{ij}\\
     &=	 \left(\frac{\partial}{\partial t} \frac{\partial \left(\psi \circ \phi_t (\psi^{-1}(x))\right)_i}{\partial x^j}\right)_{ij}\\
     &=	 \left(\frac{\partial}{\partial x^j}\frac{\partial}{\partial t}  \left(\psi \circ \phi_t (\psi^{-1}(x))\right)_i\right)_{ij}\\
-    
+    &=	 \left(\frac{\partial}{\partial t}\frac{\partial}{\partial  x^j}  \left(\psi \circ \phi_t (\psi^{-1}(x))\right)_i\right)_{ij}\\
 \end{align*}
 \end{proof}
 

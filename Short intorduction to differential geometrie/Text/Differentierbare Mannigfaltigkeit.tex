@@ -99,9 +99,21 @@ For $r=\infty$ we call the pair $(M,c)$ a smooth manifold.
     Let $(M,c)$ and $(M',c')$ be smooth manifolds (from now on we suppress the differentiable structure in our notation). We call a continuous function $f:M \to M'$ \textbf{smooth}, if for all $\phi\in \mathfrak{A}\in c$ and $\phi'\in \mathfrak{A}'\in c'$ the maps
     \begin{align*}
         \phi'\circ f\circ  \phi^{-1}:V\to V'
-    \end{align*} are smooth. A given smooth function induces a smooth function between the Tangent bundles:
+    \end{align*} are smooth. A given smooth function induces a smooth function between the Tangent bundles as follows:
     \begin{align*}
-        Df: TM &\to TM' \\
-             TM_p\ni x&\mapsto f_*(x): \mathcal{E}_{f(p)}N\to \R;  g_{f(p)}\mapsto x(g\circ f)
-    \end{align*}
+        Df: TM &\to TM' ~,Df_p(\xi)(g_p)=\xi((g\circ f)_p)
+    \end{align*}Here, $\xi\in T_pM$, $g_p\in E_p(M')$.
 \end{definition}
+\begin{corollary}
+	Let $f:M\to \R$ be smooth and $\psi: U\to V$ be a chart. Then we can interprete $\diff f$ as a one-form. To be prezice asume $q$ to be the coordinate funktion $T\R\to \R$ from the basis induced by the identity as a chart. $v\in \Gamma TM$ we have
+	\begin{align*}
+		 q\circ \diff f(v)=v\cdot f
+	\end{align*}
+\end{corollary}
+\begin{proof}
+	We proof this by showing it for the section $\frac{\partial}{\partial x^i}$ and thereby for any, since those sections form a basis of the space of sections as a $C^{\infty}(M,\R)$ vectorspace. Now let $g_p\in \mathcal{E}_p(\R)$ and $\psi(p)=c_0$. Then
+	\begin{align*}
+		\diff f_p(\frac{\partial }{\partial x^i}\big|_p)(g_p)= \frac{\partial }{\partial x^i}\big|_p (g\circ f)_p=\frac{\partial }{\partial x^i}\big|_{x_0}(g\circ f\circ \psi^{-1})=\frac{\partial }{\partial x}\big|_{p}(g_p) \cdot \frac{\partial }{\partial x^i}\big|_p(f)
+	\end{align*}
+	Hence, $\diff f (v)=v(f)\frac{\partial }{\partial x}$ letting us conclude the statement.
+\end{proof}
