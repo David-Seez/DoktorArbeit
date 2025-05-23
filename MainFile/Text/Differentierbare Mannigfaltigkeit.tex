@@ -167,3 +167,36 @@ p&\mapsto g^{ij}(p)= \left( (g_{kl}(p))_{kl}^{-1} \right)_{ij}
 	\end{align*}  But then we can conclude that $G^j=\sum_i g^{ij}\frac{\partial }{\partial x^i} (f)$.
 	
 \end{proof}
+\begin{definition}[A Dynamical System]
+	Let $M$ be a smooth manifold. A \textbf{dynamical system on $M$} is given by a smooth map $\phi:\Omega \to M$ such that:
+	\begin{enumerate}
+		\item $\{0\}\times M \subseteq \Omega \subseteq \R \times M$ open, and for any $p\in M$ the set $I(p)\coloneq \pi_1(\Omega\cup \R\times \{p\})$ is connected. ($\pi_1$ is the projection onto the first factor)
+		\item For all $p\in M$ and $t\in I(p)$ we have that $s\in I(\phi(t,p))$ if and only if $s+t\in I(p)$. Then we have:
+		\begin{align*}
+			\phi(s,(\phi(t,p)))=\phi(s+t,p)
+		\end{align*} 
+		\item For all $p$ we require $\phi(0,p)=p$. 
+	\end{enumerate}
+	We will write $\phi:t(p)\coloneq \phi(t,p)$ to keep the notation bearable. 
+	If for all $p$ $I(p)=\R$ we call the system \textbf{global}. 
+\end{definition}
+
+\begin{corollary}
+	For a global dynamical system $\phi$ on a smooth manifold $M$ the map
+	\begin{align*}
+		\rho: \R \to \Diff,~t\mapsto \phi_t
+	\end{align*}is a homomorphism. To see the well definition notice how for all $t\in \R$ $\phi_{-t}$ is an inverse of $\phi_t$.
+\end{corollary}
+\begin{definition}[Vector Field of a Dynamical System]
+Let $\phi$ be a dynamical system on a smooth manifold $M$. Then we call the mapping
+
+\begin{align*}
+	p\mapsto X(p)\coloneq \frac{\diff }{\diff t}\einsch{t=0}\phi_t(p)\in T_pM
+\end{align*} the \textbf{associated vecor field}.
+\end{definition}
+\begin{cor}
+	The associated vector field of a dynamical system is smooth. 
+\end{cor}
+\begin{proof}
+	To proof this we inspect the system locally. So assume 
+\end{proof}
