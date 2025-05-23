@@ -192,11 +192,19 @@ Let $\phi$ be a dynamical system on a smooth manifold $M$. Then we call the mapp
 
 \begin{align*}
 	p\mapsto X(p)\coloneq \frac{\diff }{\diff t}\einsch{t=0}\phi_t(p)\in T_pM
-\end{align*} the \textbf{associated vecor field}.
+\end{align*} the \textbf{associated vecor field}. This is in fact a smooth vector field. 
 \end{definition}
-\begin{cor}
-	The associated vector field of a dynamical system is smooth. 
-\end{cor}
-\begin{proof}
-	To proof this we inspect the system locally. So assume 
-\end{proof}
+Whilst differentiating leads to a smooth vector field, we can also go the other direktion by locally integrating a vector field to get a flow. To be precise:
+\begin{definition}
+	Inhalt...
+\end{definition}
+Those concepts are inverse to one another or in other words
+\begin{theorem}
+	Let $M$ be a smooth manifold. Then there is a one to one correspondence between global maximal flows and vector fields.
+\end{theorem}
+\begin{definition}
+For Morse theory (or rather Morse homology) the most importend flow is the one associeated to the negative gradient, i.e. for any fixed $p\in M$ we want
+\begin{align*}
+	\frac{\diff }{\diff t}\phi_t(x)=-\grad(f)(\phi_t(x))
+\end{align*}
+\end{definition}
