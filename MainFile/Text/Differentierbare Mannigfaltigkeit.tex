@@ -40,11 +40,11 @@ For $r=\infty$ we call the pair $(M,c)$ a smooth manifold.
     There is not really a need for a proof.However, it might help to work through the definition of a sheaf as a reminder. First, $\mathcal{E}$ is a presheaf, where the restriction in the domain of a function gives the needed restriction homomorphism:
     \begin{align*}
         \text{res}^U_V: \mathcal{E}(U) &\to \mathcal{E}(V) \\
-                                     f &\mapsto \restr{f}{V} \, .
+                                     f &\mapsto {f}\einsch{V} \, .
     \end{align*} The required properties of a presheaf are trivial. Furthermore, this gives a sheaf as the requirement of locality is trivial for functions and the property of gluing is also trivial for functions, since differentiability is a local property.
 \end{proof}
 \begin{definition}
-    If $p\in M$ is fix, $f\in \mathcal{E}(U)$ and $g\in \mathcal{E}(U')$ such that $p\in U\cap U'$ we say that $f$ and $g$ have the same \textbf{germ in $p$}, if there is another open neighborhood $W\subseteq U\cap U'$ of $p$ such that $\restr{f}{w}=\restr{g}{W}$. This defines an equivalence relation $\sim_p$. An equivalence class $s$ of local functions around $p$ is called a \textbf{germ in $p$}. We write $s=f_p$, if $s=[f]$ with $f\in \mathcal{E}(U)$. 
+    If $p\in M$ is fix, $f\in \mathcal{E}(U)$ and $g\in \mathcal{E}(U')$ such that $p\in U\cap U'$ we say that $f$ and $g$ have the same \textbf{germ in $p$}, if there is another open neighborhood $W\subseteq U\cap U'$ of $p$ such that ${f}\einsch{w}={g}\einsch{W}$. This defines an equivalence relation $\sim_p$. An equivalence class $s$ of local functions around $p$ is called a \textbf{germ in $p$}. We write $s=f_p$, if $s=[f]$ with $f\in \mathcal{E}(U)$. 
     We write 
     \begin{align*}
         \mathcal{E}_p(M)=\left. \left( \sum_{U \text{open},p\in U }\mathcal{E}(U)\right)\middle/ \sim_p \right. \, .
@@ -141,7 +141,7 @@ q\circ \diff f (V) = g(\grad(f),V) \, .
 	Then if two vectorfields $v,w$ over $U$ are given with $v=\sum v^i \frac{\partial}{\partial x^i}$ and $w=\sum _i w^i \frac{\partial}{\partial x^i}$ we can calculate the metric locally:
 	\begin{align*}
 		g(v,w)=\sum_{ij}g_{ij} v^iw^j\, :U\to \R
-	\end{align*} Furthermore, we can invert the matricies $(g_{ij}(p))_{ij}$ for all $p$ (which is a smooth procedure by the theorem of cayley hamilton) to get smooth functinos 
+	\end{align*} Furthermore, we can invert the matricies $(g_{ij}(p))_{ij}$ for all $p$ (which is a smooth procedure which can be seen by the construction via cramers rule) to get smooth functinos 
 \begin{align*}
 	g^{ij}: U&\to \R\\
 p&\mapsto g^{ij}(p)= \left( (g_{kl}(p))_{kl}^{-1} \right)_{ij}
@@ -154,9 +154,10 @@ p&\mapsto g^{ij}(p)= \left( (g_{kl}(p))_{kl}^{-1} \right)_{ij}
 	\begin{align*}
 		\grad(f) =\sum_{i,j}g^{ij}  \left( \frac{\partial }{\partial x^i} (f) \right) \frac{\partial }{\partial x^j} \eqcolon \sum_{i,j}g^{ij} \frac{\partial f}{\partial x^i}  \frac{\partial }{\partial x^j} \, .
 	\end{align*}
+	Here, $g^{ij}$ denotes the smooth functions given by the coordinates of the function $x\mapsto (g_{ij}(x))$ that defines the coordinate representation of the gradient in $x$. 
 \end{lemma}
 \begin{proof} Assume that $v,w\in \Gamma( TM)$ such that $v=\sum_i v^i\frac{\partial	}{\partial x^i}$ and $w=\sum_i w^i\frac{\partial	}{\partial x^i}$. Then  $g(v,w)=\sum_{i,j} g_{ij} v^i w^i$.
-	Suppose that $\grad(f)=\sum_j G^j \frac{\partial}{\partial x^j}$ and $q$ is the coordinate map $T\R\to \R$ in each tangend space with the canonical chart (the identity) on $\R$. Then by definition of the gradient we have:
+	Suppose that $\grad(f)=\sum_j G^j \frac{\partial}{\partial x^j}$ and $q$ is the coordinate map $T\R\to \R$ in each tangend space. Then by definition of the gradient we have:
 	\begin{align*}
 		\frac{\partial }{\partial x^j}(f)=	q \circ \diff f (\frac{\partial }{\partial x^j})=q\circ \frac{\partial f}{\partial x^j}= g(\grad(f),\frac{\partial }{\partial x^j})= \sum_{ij}g_{ij} G^i
 	\end{align*} Hence, 

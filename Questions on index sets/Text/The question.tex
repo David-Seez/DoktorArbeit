@@ -40,11 +40,11 @@ We assume that $q$ is a critical point of index $k+1$ and $p$ is a critical poin
 	\end{align*}
 	Here, $g^{ij}$ denotes the smooth functions given by the coordinates of the function $x\mapsto (g_{ij}(x))$ that defines the coordinate representation of the gradient in $x$. 
 \end{lemma}
-\begin{proof}
-Suppose that $\grad(f)=\sum_j V_j \frac{\partial}{\partial x^i}$ and $q$ is the coordinate map $T\R\to \R$ in each tangend space. Then by definition of the gradient we have:
+\begin{proof} Assume that $v,w\in \Gamma( TM)$ such that $v=\sum_i v^i\frac{\partial	}{\partial x^i}$ and $w=\sum_i w^i\frac{\partial	}{\partial x^i}$. Then  $g(v,w)=\sum_{i,j} g_{ij} v^i w^i$.
+Suppose that $\grad(f)=\sum_j G^j \frac{\partial}{\partial x^i}$ and $q$ is the coordinate map $T\R\to \R$ in each tangend space. Then by definition of the gradient we have:
 \begin{align*}
-	q \circ \diff f (\frac{\partial }{\partial x^j})=q\circ \frac{\partial f}{\partial x^j}= g(\grad(f),)
-\end{align*}
+\frac{\partial }{\partial x^j}(f)=	q \circ \diff f (\frac{\partial }{\partial x^j})=q\circ \frac{\partial f}{\partial x^j}= g(\grad(f),\frac{\partial }{\partial x^j})= \sum_{ij}g_{ij} G^j
+\end{align*}Hence, 
 \end{proof}
 
 \begin{definition}[Jacobian of the Gradient]
