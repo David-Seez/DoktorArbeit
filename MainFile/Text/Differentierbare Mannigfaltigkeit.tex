@@ -126,7 +126,12 @@ For $r=\infty$ we call the pair $(M,c)$ a smooth manifold.
 		\item $g$ is \textbf{positiv definite}, meaning that $g_p(v_p,v_p)\geq 0 \forall v_p$ and vanishes only for $v_p=0$.
 	\end{enumerate} We cal a touple $(M,g)$ a \textbf{riemannian manifold}.
 \end{definition}
-	
+	\begin{definition}
+		Let $M,N,L$ be smooth manifolds and $f:M\times N \to M'\times N'$. Let $X\in \gamma(TM)$ and $Y\in \Gamma(TN)$. We define $\tilde{X}\in \Gamma(T(M\times N))$ as follows. Let $f_p\in \mathcal{E}_p(M,N)$
+		\begin{align*}
+			\tilde{X}(f_p)=X((f\circ i_M)_{p_M}) \quad \text{ where }p_M=\pi_1(p) \, .
+		\end{align*}
+	\end{definition}
 \begin{definition}[The Gradient]
 Assume that $(M,g)$ is a smooth manifold together with a riemannian metric. Let $f:M\to \R$ be a smooth function. We define its \textbf{gradient} to be a vector field $\grad(f)\in \Gamma(TM)$ such that for any vecor field $V$:
 \begin{align*}
@@ -208,3 +213,4 @@ For Morse theory (or rather Morse homology) the most importend flow is the one a
 	\frac{\diff }{\diff t}\phi_t(x)=-\grad(f)(\phi_t(x))
 \end{align*}
 \end{definition}
+

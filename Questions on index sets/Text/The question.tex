@@ -68,19 +68,28 @@ Suppose that $\grad(f)=\sum_j G^j \frac{\partial}{\partial x^i}$ and $q$ is the 
 \begin{lemma}
 	Let $t\in \mathbb{R}$ be small enough and $\phi_t: M\to M$ be the flow map corresponding to the negative gradient. Assume that $U$ is the domain of a chart $\psi$ and $p\in U$ such that $\phi_t(p)\in U$. Then the linear map $\mathrm{d} \phi_t \big|_p: T_pM\to T_{\phi_t(p)}M$ has a local representation in the coordinates induced by $\psi$ given by:
 	\[
-	q_{\psi(\phi_t(p))} \circ \mathrm{d} \phi_t \big|_p \circ q_{\psi(p)}^{-1} = \exp\left(-J(\grad(f))_\psi(\psi(p)) \cdot t\right)
+q_{\psi}	\frac{\partial}{\partial x} \phi_t(\psi^{-1}(x))=\exp\left( q_{\psi} \circ \grad(f)\psi^{-1} \right) \, .
 	\]
-	where $J(\grad(f))_\psi(\psi(p))$ is the Jacobian matrix of the gradient evaluated at the coordinates of $p$.
 \end{lemma}
 \begin{proof}
-We will inspect what differebtial equation the map $	q_{\psi(\phi_t(p))} \circ \mathrm{d} \phi_t \big|_p \circ q_{\psi(p)}^{-1}$ solves and hence we differentiate:
+For this we consider the function $ (t,x)\mapsto \psi \circ  \phi_t(\psi^{-1}(x)):\R \times U \to U$ For fixed $x$ we can calculate
 \begin{align*}
-	\frac{\partial}{\partial t}	\left( q_{\psi(\phi_t(p))} \circ \mathrm{d} \phi_t \big|_p \circ q_{\psi(p)}^{-1} \right) 
-	&= 	\frac{\partial}{\partial t} J(\psi \circ \phi_t (\psi^{-1}(x)))\\
-	&= 	\frac{\partial}{\partial t} \left(\frac{\partial \left(\psi \circ \phi_t (\psi^{-1}(x))\right)_i}{\partial x^j}\right)_{ij}\\
-    &=	 \left(\frac{\partial}{\partial t} \frac{\partial \left(\psi \circ \phi_t (\psi^{-1}(x))\right)_i}{\partial x^j}\right)_{ij}\\
-    &=	 \left(\frac{\partial}{\partial x^j}\frac{\partial}{\partial t}  \left(\psi \circ \phi_t (\psi^{-1}(x))\right)_i\right)_{ij}\\
-    &=	 \left(\frac{\partial}{\partial t}\frac{\partial}{\partial  x^j}  \left(\psi \circ \phi_t (\psi^{-1}(x))\right)_i\right)_{ij}\\
+	q_{\psi}\frac{\diff}{\diff t} \phi_t(\psi^{-1}(x))=-q_{\psi} \circ \grad(f)(\phi_t(\psi^{-1}(x)))
+\end{align*} and by changing the order of integration we have:
+\begin{align*}
+	\frac{\partial}{\partial t}   \frac{\partial}{\partial x} \psi \circ \phi_t(\psi^{-1}(x))
+	&= \frac{\partial}{\partial x}   \frac{\partial}{\partial t} \psi \circ \phi_t(\psi^{-1}(x))\\
+	&= \frac{\partial}{\partial x} q_\psi \frac{\diff }{\diff t}  \phi_t(\psi^{-1}(x))  \\
+	&= -\frac{\partial}{\partial x} q_{\psi} \circ \grad(f)(\phi_t(\psi^{-1}(x)))	\\
+	&= -\frac{\partial}{\partial x} q_{\psi} \circ \grad(f)\left(\psi^{-1}\circ \psi\circ \phi_t(\psi^{-1}(x))\right)\\
+	&=-\frac{\partial}{\partial x} \left( q_{\psi} \circ \grad(f)\psi^{-1} \right)\frac{\partial }{\partial x}  \left(\psi\circ \phi_t(\psi^{-1}(x))\right)
+\end{align*}
+Hence by the theory of linear differential equation with $\frac{\partial}{\partial x} \psi \circ \phi_0(\psi^{-1}(x))=1_m$ we have:
+\begin{align*}
+	\frac{\partial}{\partial x} \psi \circ \phi_t(\psi^{-1}(x))=\exp\left( q_{\psi} \circ \grad(f)\psi^{-1} \right) \, .
+\end{align*} Or written differently:
+\begin{align*}
+	q_{\psi}	\frac{\partial}{\partial x} \phi_t(\psi^{-1}(x))=\exp\left( q_{\psi} \circ \grad(f)\psi^{-1} \right) \, .
 \end{align*}
 \end{proof}
 
@@ -105,8 +114,8 @@ We will inspect what differebtial equation the map $	q_{\psi(\phi_t(p))} \circ \
 \begin{proof}
 	Let $q_{\psi}$ denote the koordinate funktion $TU\to R^m$ induced from the basis $\left( \frac{\partial}{\partial x_1}\big|_x,\dots ,\frac{\partial}{\partial x_m}\big|_x\right)$. then the gradient in $\psi$ reads:
 	\begin{align*}
-		q_{\psi}\circ \grad(f)\circ \psi^{-1}=\left(\sum_kg^{k1  }\frac{\partial f\circ \psi^{-1}	}{\partial x_k},\dots, \sum_kg^{k m }\frac{\partial f\circ \psi^{-1}	}{\partial x_k}\right)
-	\end{align*} Hence, we can calculate 
+		q_{\psi}\circ \grad(f)=\left(\sum_kg^{k1  }\frac{\partial f\circ	}{\partial x_k},\dots, \sum_kg^{k m }\frac{\partial f\circ	}{\partial x_k}\right)
+	\end{align*}
 	Hence, we can differentiate: 
 	\begin{align*}
 		\frac{\partial}{\partial x}  Q\circ \grad(f)\circ \psi^{-1}
@@ -115,7 +124,7 @@ We will inspect what differebtial equation the map $	q_{\psi(\phi_t(p))} \circ \
 		\frac{\partial g^{ki}}{\partial x_j}\frac{\partial f \circ \psi^{-1}}{\partial x_k} +  g^{ki}\frac{\partial^2 f \circ \psi}{\partial x_j ~\partial x_k}
 		\right]\right)_{ij} \, .
 	\end{align*}
-	and now in $p=\psi{-1}(0)$ we have
+	and now in $p=\psi^{-1}(0)$ we have
 	\begin{align*}
 		\frac{\partial}{\partial x}  Q\circ \grad(f)\circ \psi^{-1} \Big|_{0}=\left(\sum_k \left[ 
 		g^{ki}(0)\frac{\partial^2 f \circ \psi^{-1}}{\partial x_j ~\partial x_k}
@@ -419,15 +428,14 @@ This however reads:
 \end{align*}And hence we have that:
 \begin{equation*}
     \psi(N_p\cap V)=\left\{(x^s,x^u)\in U ~\middle|~\norm{x^u}\leq R(x^s)\right\}
-\end{equation*} where $R(x^s)$ is a smooth function. Now let $g$ be a general metric, and $\psi$ a Morse chart such that $g(p)$ is a diagonal quadratic form wit respect to that morse chart. We now want to interlinear approximate  $\psi\circ \phi_t \circ \psi^{-1}:U\to U$ which leads to the need of its jacobean:
-For this we consider the function $ (t,x)\mapsto \psi \phi_t(\psi^{-1}(x)):\R \times U \to U$ For fixed $x$ we can calculate
+\end{equation*} where $R(x^s)$ is a smooth function. Now let $g$ be a general metric, and $\psi$ a Morse chart centered in $p$ such that $g(p)$ is a diagonal quadratic form with respect to that morse chart. We now want to interlinear approximate  $\psi\circ \phi_t \circ \psi^{-1}:U\to U$ which leads to the need of its jacobean. By lemma \ref{} together with the local form of the gradient we have the form:
 \begin{align*}
-	q_{\psi}\frac{\diff}{\diff t} \phi_t(\psi^{-1}(x))=-q_{\psi} \grad(f)(\phi_t(\psi^{-1}(x)))
-\end{align*} and by changing the order of integration we have:
+	q_{\psi}	\frac{\partial}{\partial x}\big|_0 \phi_t(\psi^{-1}(x)	)
+	&=\exp\left( \sum_k \left(g^{ki}(0) \frac{\partial ^2 (f\circ \psi^{-1})}{\partial x^j\partial x^k}\right)_{ij} \right) \, .
+\end{align*} Now $g^{ki}(0)=\delta_{ik}\mu_k$ with $\mu_i>0$ for all $i$ and $\frac{\partial ^2 (f\circ \psi^{-1})}{\partial x^j\partial x^k}=s_{k} 2\delta_{jk}$ where $s_{k}=-1$ if $k\leq l$ and $s_k=1$ else. Hence: 
 \begin{align*}
-	\frac{\partial}{\partial t}  \frac{\partial}{\partial x}  \psi \phi_t(\psi^{-1}(x))
+		q_{\psi}	\frac{\partial}{\partial x}\big|_0 \phi_t(\psi^{-1}(x)	)=\exp\left(\diag(-2\mu_1,\dots, -2\mu_l,2\mu_{l+1},\dots,2\mu_m)\right)
 \end{align*}
-
 \end{proof}
 
 
