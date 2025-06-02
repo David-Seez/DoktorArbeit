@@ -462,13 +462,16 @@ We give the following definitions:
 Now the property of being in $\psi(N_p\cap U)$ reads:
 \begin{align*}
 	\begin{array}{lll}
-		x\in V \text{ such that } & f(\phi_T (\psi^{-1}(x))) & \leq a-\epsilon \\
-		&\Leftrightarrow (f\circ \psi^{-1})(\psi\circ \phi_T (\psi{-1}(x)))& \leq a-\epsilon \\
-		&\Leftrightarrow  (f\circ \psi^{-1})\left(\euler^{2\mu_uT}x^u+\mathcal{R}^u(x),\euler^{-2\mu_sT}x^s+\mathcal{R}^s(x)\right)&\leq a-\epsilon \\
-		&\Leftrightarrow -\left(-\euler^{2\mu_uT}x^u+\mathcal{R}^u(x)\right)^2    
-		+\left(\euler^{-2\mu_sT}x^s+\mathcal{R}^s(x)\right)^2+\epsilon &\leq 0
+		x\in V \text{ such that } & f(\phi_T (\psi^{-1}(x))) & \geq a-\epsilon \\
+		&\Leftrightarrow (f\circ \psi^{-1})(\psi\circ \phi_T (\psi{-1}(x)))& \geq a-\epsilon \\
+		&\Leftrightarrow  (f\circ \psi^{-1})\left(\euler^{2\mu_uT}x^u+\mathcal{R}^u(x),\euler^{-2\mu_sT}x^s+\mathcal{R}^s(x)\right)&\geq a-\epsilon \\
+		&\Leftrightarrow -\left(\euler^{2\mu_uT}x^u+\mathcal{R}^u(x)\right)^2    
+		+\left(\euler^{-2\mu_sT}x^s+\mathcal{R}^s(x)\right)^2+\epsilon &\geq 0
 	\end{array}
 \end{align*} 
+For fixed $x^s=a^s$ we inspect the slices and realise they are star-shaped: Assume that $(a^u,a^s)$ satisfies the property, then for any $0\leq \lambda \leq 1$, the point $(\lambda a^u,a^s)$ also satisfies the property:
+
+
 We now inspect the funktion $F:\R^m\to \R^l$ given by:
 \begin{equation*}
 \left(\begin{array}{l}
@@ -481,7 +484,10 @@ We now inspect the funktion $F:\R^m\to \R^l$ given by:
 \end{equation*} For this funktion we have that 
 \begin{align*}
 \frac{\partial}{\partial x^s}F
-\end{align*} is non-degenerat. 
+\end{align*} is non-degenerat. To see this we calculate the partial differentials:
+\begin{enumerate}
+	\item $\frac{\partial}{\partial x^j} -\left(\euler^{2\mu_{i}T}x^{i}\right)^2
+\end{enumerate}
 \end{proof}
 
 
