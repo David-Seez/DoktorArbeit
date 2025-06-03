@@ -463,13 +463,20 @@ Now the property of being in $\psi(N_p\cap U)$ reads:
 \begin{align*}
 	\begin{array}{lll}
 		x\in V \text{ such that } & f(\phi_T (\psi^{-1}(x))) & \geq a-\epsilon \\
-		&\Leftrightarrow (f\circ \psi^{-1})(\psi\circ \phi_T (\psi{-1}(x)))& \geq a-\epsilon \\
-		&\Leftrightarrow  (f\circ \psi^{-1})\left(\euler^{2\mu_uT}x^u+\mathcal{R}^u(x),\euler^{-2\mu_sT}x^s+\mathcal{R}^s(x)\right)&\geq a-\epsilon \\
+		&\Leftrightarrow \phantom{-} (f\circ \psi^{-1})(\psi\circ \phi_T (\psi{-1}(x)))& \geq a-\epsilon \\
+		&\Leftrightarrow  \phantom{-}(f\circ \psi^{-1})\left(\euler^{2\mu_uT}x^u+\mathcal{R}^u(x),\euler^{-2\mu_sT}x^s+\mathcal{R}^s(x)\right)&\geq a-\epsilon \\
 		&\Leftrightarrow -\left(\euler^{2\mu_uT}x^u+\mathcal{R}^u(x)\right)^2    
 		+\left(\euler^{-2\mu_sT}x^s+\mathcal{R}^s(x)\right)^2+\epsilon &\geq 0
 	\end{array}
 \end{align*} 
-For fixed $x^s=a^s$ we inspect the slices and realise they are star-shaped: Assume that $(a^u,a^s)$ satisfies the property, then for any $0\leq \lambda \leq 1$, the point $(\lambda a^u,a^s)$ also satisfies the property:
+For fixed $x^s=a^s$ we inspect the slices and realise they are star-shaped: Assume that $(a^u,a^s)$ satisfies the property:
+
+\begin{align*}
+	-\euler^{4\mu_uT}a^u	-2\euler^{2\mu_uT}a^u	\mathcal{R}^u(a^u,a^s)	-\mathcal{R}^u(a^u,a^s)^2
+	+\euler^{4\mu_sT}a^s	+2\euler^{2\mu_sT}a^s	\mathcal{R}^s(a^u,a^s)	+\mathcal{R}^s(a^u,a^s)^2 \\
+	\geq -\epsilon
+\end{align*}
+, then for any $0\leq \lambda \leq 1$, the point $(\lambda a^u,a^s)$ also satisfies the property:
 
 
 We now inspect the funktion $F:\R^m\to \R^l$ given by:
@@ -486,7 +493,7 @@ We now inspect the funktion $F:\R^m\to \R^l$ given by:
 \frac{\partial}{\partial x^s}F
 \end{align*} is non-degenerat. To see this we calculate the partial differentials:
 \begin{enumerate}
-	\item $\frac{\partial}{\partial x^j} -\left(\euler^{2\mu_{i}T}x^{i}\right)^2
+	\item $\frac{\partial}{\partial x^j} -\left(\euler^{2\mu_{i}T}x^{i}\right)^2$
 \end{enumerate}
 \end{proof}
 
@@ -612,3 +619,11 @@ We now inspect the funktion $F:\R^m\to \R^l$ given by:
 	
 	
 \end{comment}
+\begin{lemma}
+	We dont really need $N_p$ to be a tubular neighbourhood. We need it to be give rise to a map $\psi$ such that 
+	\begin{enumerate}
+		\item $\psi(L_p)=\overline{D^{m-k}}otimes \partial D^k$
+		\item $\psi(N_p\cap W(\to p))=\{0\}\times \overline{D^{m-k}}$
+		\item $\psi(V_j)=\{\theta_j\}\times \overline{D^k}$ 
+	\end{enumerate} I thinkt in reality we only need the last property.
+\end{lemma}

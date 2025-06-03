@@ -431,11 +431,32 @@ This map is induced from
 	\end{array}
 	\right.
 \end{align*}
-For all $C_1V_j$ we get an homeomorphism to $S^{k+1}$: \todo{More on $\psi$}
+For all $C_1V_j$ we need an homeomorphism to $S^{k+1}$:
 \begin{align*}
 	r:  C_1V_j \big/ \partial C_1 V_j &\to I\times D^k \big/ \partial (I\times D^k) \\
 	(t,x) & \mapsto (t,\psi(x))
-\end{align*}
+\end{align*} For this we use the following lemma:
+\begin{lemma}
+	ALternatifly, we dont need a homeomorphism $V_j\to T_p^uM$, rater from a subset of $V_j$ (maby a ball contained in $V_j$). then anything outside of $V_j$ can be disregarded. or rather define $V_j$ for a $T$ big enough to be a "ball arround $x_j$ that lifes in our currently defined $V_j$.
+\end{lemma}
+\begin{lemma}[The map $V_j\to D^{k-1}$]
+	We construct such a map by constructing a map $\psi: V_j \to T_p^uM$ with certain properties \todo{die eigenschaften hier nennen}.
+	We first notice, that the normal bundle of $W(\to p)$ is trivializable. Hence there is a family of sections $\left(s^1,\dots, s^{\ind{p}}\right)$ that are pointwise linearly independent (even orthonormal).We can now contract $W(\to p)$ to $p$ via $c_{x_j}$ since the stable sets are open discs: To be spesific we have the map
+	\begin{align*}
+		c_{x_j}: W(\to p)\times I \to W(\to p)
+	\end{align*} that satisfies $c_{x_j}(\cdot, 0)=\id$ and $c_{x_j}(\cdot, 1)=\mathbf{const_{x_j}}$. Using this we collaps the normal bundle by definig the map fibrewise on the basis:
+	\begin{align*}
+	C_{x_j}:	NW(\to p)\times I &\to NW(\to p) \\
+		(s_l(p),p) &\mapsto (s_l(c_{x_j}(p)),c_{x_j}(p))
+	\end{align*} 
+\end{lemma} Now we make use of the Tubular neighbourhood theorem to get a immersion 
+\begin{align*}
+	\Theta: 	NW(\to p) \to M \, ,
+\end{align*} and define $\mathrm{Tub}_p^s\coloneq \im \Theta$. Assume $T$ to be big enough such that $V_j\subseteq \mathrm{Tub}_p^s$. With this we transprot the contraction to $x_j$:
+\begin{align*}
+	\Theta\circ C_{x_j}\circ \Theta^{-1}:\mathrm{Tub}_p^s \times I\to \mathrm{Tub}_p^s.
+\end{align*} Since transversal intersection (or in a chart non vanisching partial derivative) is a property that is locally stable we can assume, that the map $\Theta\circ C_{x_j}\circ \Theta^{-1}\einsch{V_j}$ is injective by using the implicit function theorem in a chart that contains $V_j$. With this we get a map from $V_j$ to a open subspace of the normal space in $x_j$. Now we need to show that we can define a homeomorphism from $V_j$ to the normal space. This can be shown by showing that $V_j$ is open and starshaped. Assum that for all $T$ the $V_j$ is not star shaped. Hence, for fixed $\epsilon$ there will always be a $T$ and a $x\in V_j$ such that there exists a $0<\lambda<1$ with $\phi_T(\lambda x)<a-\epsilon$.
+ From this we will construct a contradiction to the compactnes. First we take a secuence of $T_i$ that approaches infinity. Since for the limit of $T_i$ the set $N_p$ approaches $W(\to p)\cap M^c$ we can assume that there is a series $\delta_i$ approaching zero, such that $N_p\subseteq W(\to p)\times B_{\delta_i}$. The last set denotes the immersed normal bundle restricted to the discs of radius $\delta_i$ in each fibre. Now since the contraction was defined via a orthonormal frame, the set $V_j$ gets mapped to the normal space in $x_j$ and is contanied in a ball of radius $\delta_i$. By assumption for each $T_i$ there is a $\tilde{x}_i\in V_j$ and a $\lambda_i$ such that $\lambda_i \tilde{x}_i \nin V_j$. Define $x_i\coloneq \lambda_i\tilde{x}_i$. Then if $i$ approaches infinity, $\delta_i$ approaches $0$ and hence $x_i$ approaches $x_j$, whilst never reaching it. Said differently: there are infinitly many different $x_i$. All those come with different flow lines $\gamma_i$ between different critical points. 
 \end{lemma}
 
 
