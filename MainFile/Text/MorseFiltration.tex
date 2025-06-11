@@ -1,0 +1,39 @@
+\section{Morse Filtration}
+We follow the paper of Dietmar Salamon.
+\begin{definition}[Invariant Sets]
+	A subset $S$ of $M$ is saif to be invariant, if 
+	\begin{align}
+		S=\{\phi_t(x)|x\in S, t\in \R \} \, .
+	\end{align}
+	The \textbf{maximal invariant subset} of a subset $N\subseteq M$ is given by 
+	\begin{align}
+		I(N)=\{ x \in M| \phi _t(\gamma)\in N \forall t\in \R \}
+	\end{align} From now on we define the set 
+	\begin{align}
+		\{\phi_t(x)| x \in A\subseteq M,t\in B\subseteq \R \}\eqcolon \phi_B(A)\, .
+	\end{align}The $\omega$-limit sets of a subset $Y\subseteq M$ are given by
+\[
+\begin{array}{lll}
+	\omega(Y) &= I\left(\cl(\phi_{\R_{\geq 0}}(Y))\right) & = \bigcap\limits_{t>0} \phi_{\R_{\geq t}}(Y) \\
+	\omega^*(Y) &= I\left(\cl(\phi_{\R_{\leq 0}}(Y))\right) & = \bigcap\limits_{t>0} \phi_{\R_{\leq -t}}(Y)
+\end{array}
+\]
+\end{definition}
+\begin{definition}
+Let $S$ be a compact flow invarient subset of $M$. Then a finite collection $\{M(\pi)|\pi\in P\}$ of compact invariant sets in $S$ is said to be a Morse decompositino of $S$ if there exists an ordering $\pi_1,\dots,\pi_n$ of $P$ such that for every $ x \in S \setminus \bigcup_{\pi\in P}M(\pi)$ there exist indices $i,j\in \{1,\dots,n\}$ such that $i<j$ and 
+\begin{align}
+	\omega(\gamma) \subseteq M(\pi_i),\quad \text{ and } \quad\omega*(\gamma\subseteq) M(\pi_j) \, .
+	\end{align} An orderin pf $P$ that satisfies this property is calles \textbf{admissable} The sets $M(\pi)$ are called \textbf{Morse sets}.
+\end{definition}
+\begin{cor}
+	If $S$ is a compact, invariant set in $M$ and $\{M(\pi)|\pi\in P\}$ a mMorse decompostion of $S$, then for $\pi,\pi*\in P$ we define $\pi <\pi*$ if $\pi \neq \pi*$ and $\pi$ comes before $\pi*$ in every admissable ordering of $P$. This defines a partial order on $P$ and every total order on $P$ is admissable if and only if it preserfs said partial order. 
+\end{cor}
+\begin{definition}
+	A subset $I\subseteq P$ is said to be an \textbf{interval}, if 
+	\begin{align*}
+		\pi',\pi''\in I,\quad \pi \in P,\quad \pi'<\pi<\pi''  \rightarrow \pi\in I \, .
+	\end{align*} For any intervall we define the set 
+	\begin{align*}
+		M(I)=\{ x \in S | \omega (x)\cup \omega*(x)\subseteq \bigcup\limits_{\pi \in I}M(\pi)\}\, .
+	\end{align*}
+\end{definition}
