@@ -199,7 +199,21 @@
 If $N_p$ is defined as in the proof of theorem \ref{thm commuting connecting homomorphism}. Then $N_p$ is a tubular neighbourhood of $W(\to p)\cap M^c$
 \end{lemma}
 \begin{proof}
-	First we inspect the boundary conditions of $N_p$ and make use of the lemma above. $f{-1}(c)$ is a submanifold in $M$ that intersects $W(\to p)$ transversal since the gradient is orthogonal to level sets. Furthermore, we only care for 
+	First we inspect the boundary conditions of $N_p$ and make use of the lemma above. $f^{-1}(c)$ is a submanifold in $M$ that intersects $W(\to p)$ transversal since the gradient is orthogonal to level sets. This means, that 
+	\begin{align*}
+		T_xM=T_xf^{-1}(c)+T_xW(\to p)\quad \forall x\in W(\to p)\cap f^{-1}(c)
+	\end{align*} and hence we have the inclusions
+	\begin{align*}
+		TN_xW(\to p)\hookrightarrow T_xf^{-1}(c)\hookrightarrow f^{-1}(c)\, .
+	\end{align*} The last inclusion is induced from a chart. By doing this for all $x\in W(p\to)\cap f^{-1}(c)$ we have the normal over the intersection indluded into $f^{-1}(c)$. For each $x$ the normal bundle is of dimension $\lambda_p$ and hence for each $x$ we have a $\lambda_p$-dimensional disc $D^{\lambda_p}$. 
+	Now let $y\in W(\to p)\cap M^c$. Then since $f(\phi_{-T}(y))$ increases for increasing $T$ and gets bigger then $c$, we know that $y=\phi_R(x)$ for sime $x\in W(\to p)\cap f^{-1}(c)$. Now we can map the embedded normal space of $x$ to $y$ via $\phi_R$. Or with the naming above: $\phi_R(D^{\lambda_p})$. \todo{das passt nicht: I now want to rescale this embedded disc. So for $v\in \partial B_{\epsilon'}(y)\subseteq\phi_R(D^{lambda_p})$ we can assume that $f(\phi_T(v))\leq a-\epsilon$. And by making $T$ big enough we can assume, that there is a smallest scaler $\lambda_v$ such that $f(\phi_T(\lambda_v\cdot v))=a-\epsilon$. By continuoty of the flow and $f$ we can assume, that $\lambda_v$ smoothly depends on $v$??? Mist nein dohc nicht}
+	Now intersect $(f\circ\phi_T)^{-1}(a-\epsilon)\cap\phi_R(D^{\lambda_p})$ and pull it back to the normal. by first pulling it back via $\phi_R$. 
+			 
+	
+	Furthermore, we inspect $f^{-1}(a-\epsilon)$ which is again a codimension one manifold that transversally intersects $W(p\to)$ and again in the intersection we can map the normal bundle of $W(p\to)$ into $f^{-1}(a-\epsilon)$. So now assume that the subset 
+	\begin{align*}
+	\{	x\in \phi_R(D^{\lambda_p})| f\circ \phi_T(x)\leq a-\epsilon\}
+	\end{align*} is \textbf{not} starshaped. since its boundary is given by the smooth manifold $(f\circ\phi_T)^{-1}(a-\epsilon)\cap\phi_R(D^{\lambda_p})$ this means that 
 \end{proof}
 \begin{figure}
 	\centering
