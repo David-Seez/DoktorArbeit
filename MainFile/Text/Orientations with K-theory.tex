@@ -67,6 +67,9 @@ K^n(S^n) \arrow[r, "(\pi_S^{-1})^*"] & K^n(\overline{\R^m}) \arrow[r, "B_v^*"] &
    \end{center}
      This induces a generator in $K^m(\overline{V})$ that depends on the ordered basis. 
 \end{definition}
+\begin{definition}[Local K-theoretic Orientation]
+	We start again in the vector space $\R^n$ and define a \textbf{local K-theoretic orientation in }$x\in \R^n$ to be a generator of the group $K^{-n}(\R^n,\R^n\setminus \{x\})\cong \Z$. The isomorphism here is from the long exact sequence.  
+\end{definition}
 \begin{remark} \label{rem: K-orientaion only depends on the orientation}
 \todo{replace $B_v^*$ mit $B_v^-1$, 
       extension und so wohl unterscheiden. 
@@ -164,7 +167,7 @@ For a  vector bundle $\pi:E\to B$, an orientation is a family $\{ \omega_x \}_{x
 if $\phi \einsch{U}\to U\times \R^n$ is in $\Phi$, then 
 \begin{align*}
 	\phi_x : (E_x,\omega_x) \to (\R^n,\omega^n)
-\end{align*} is orientation preserving. $\omega^n$ denotes the standars orientation of $\R^n$. If such an orientation exists, we call the bundle \textbf{orientable}.
+\end{align*} is orientation preserving. $\omega^n$ denotes the standars orientation of $\R^n$. If such an orientation exists, we call the bundle \textbf{orientable}. Notice how we can either use the classical or the K-theoretic notion of the standart orientation of $R^n$. 
 \end{definition}
 \begin{definition}[Orientable Manifold]
 	We call a manifold orientable, if its tangent bundle $TM$ is orientable. 
