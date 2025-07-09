@@ -1,0 +1,219 @@
+\documentclass{scrartcl}
+\usepackage{comment}
+\usepackage[english]{babel}
+\usepackage{graphicx}
+\usepackage{wrapfig, framed,caption}
+\usepackage{amsmath, amsfonts, amsthm, graphicx, geometry}
+\usepackage{float} %kann figuren an einen platz fixieren
+\usepackage[hidelinks]{hyperref}
+\usepackage{tikz-cd}
+\tikzcdset{scale cd/.style={every label/.append style={scale=#1},
+    cells={nodes={scale=#1}}}}
+\usepackage{pgfplots}
+\usepackage{tabularx}
+
+
+\usetikzlibrary{backgrounds}
+\usetikzlibrary{patterns}
+\pgfplotsset{compat=newest}
+\usepackage{epstopdf}
+\usepackage{svg}
+\usepackage[shortlabels]{enumitem}
+\usepackage{mwe}
+% Drawing
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+
+
+\usepackage{xparse}
+% Styles
+\tikzset{>=latex}
+\usepackage{xcolor}
+\usepackage{pdflscape}
+\usepackage{pgfplots}
+\usepgfplotslibrary{colormaps}
+\usepackage[pdftex]{pict2e}
+\usepackage[utf8]{inputenc} %kann sonderzeichen aus dem Text lesen
+\usepackage{fancyvrb}
+\usepackage{MnSymbol}
+\usepackage{todonotes}
+\usepackage{commath}
+
+\usepackage[ntheorem]{empheq}
+\usepackage{mdframed}	% für Rahmen
+
+\mdfsetup{%
+	ntheorem 		= false,
+	leftmargin 		= 10pt,
+	everyline 		= true,
+	splittopskip 	= 15pt,
+	splitbottomskip = 10pt
+}
+
+\theoremstyle{plain}
+\newmdtheoremenv{theorem}{Theorem}[subsection]
+\newmdtheoremenv{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newmdtheoremenv{fact}[theorem]{Fact}
+
+\theoremstyle{definition}
+\newtheorem{example}[theorem]{Example} 
+\newtheorem{examples}[theorem]{Examples}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{defn}[theorem]{Definition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{remark}[theorem]{Remark}
+
+\usepackage{thmtools}
+\usepackage{mathtools}
+\pgfplotsset{compat=newest}
+
+\usepackage{cleveref}
+
+
+
+
+
+\let\uglyepsilon\epsilon
+\let\epsilon\varepsilon %das schönere epsilon
+
+\let\uglyphi\phi
+\let\phi\varphi
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\T}{\mathbb{T}}
+\newcommand{\B}{\mathbb{B}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\CC}{\mathcal{C}}
+\newcommand{\Sp}{\mathcal{S}}
+\newcommand{\Chi}{\mathcal{X}}
+\newcommand{\spec}{\mathrm{spec}}
+\newcommand{\conj}{\mathrm{conj}}
+\newcommand{\sing}{\mathrm{sing}}
+\newcommand{\Morse}{\mathrm{Morse}}
+\newcommand{\im}{\mathrm{im}}
+\newcommand{\conv}{\mathrm{conv}}
+\newcommand{\grad}{\mathrm{grad}}
+\newcommand*\diff{\mathop{}\!\mathrm{d}}
+\newcommand{\Lip}{\mathrm{Lip}}
+\newcommand{\diag}{\mathrm{diag}}
+\newcommand{\sign}{\mathrm{sign}}
+\newcommand{\CW}{\mathrm{\tiny{CW}}}
+\newcommand{\Crit}{\mathrm{Crit}}
+\newcommand{\transcap}{\text{$\cap\kern-0.4em|\kern0.4em$}}
+\newcommand{\supp}{\mathrm{supp}}
+\newcommand{\GL}{\mathrm{GL}}
+\newcommand{\G}{\mathrm{G}}
+\def\quotient#1#2{%
+    \raise1ex\hbox{$#1$}\big/\lower1ex\hbox{$#2$}%
+    }
+\newcommand*\colvec[3][]{
+    \begin{pmatrix}\ifx\relax#1\relax\else#1\\\fi#2\\#3\end{pmatrix}
+}
+\newcommand{\vect}{\mathrm{Vect}}
+
+\newcommand\restr[2]{{% we make the whole thing an ordinary symbol
+  \left.\kern-\nulldelimiterspace % automatically resize the bar with \right
+  #1 % the function
+  \littletaller % pretend it's a little taller at normal size
+  \right|_{#2} % this is the delimiter
+  }}
+  
+\newcommand{\littletaller}{\mathchoice{\vphantom{\big|}}{}{}{}}
+
+\newcommand{\iso}{\mathrm{iso}}
+
+\DeclareMathOperator{\Hess}{\mathrm{Hess}}
+\newcommand{\stillOpen}{\color{red}{ [still open]}}
+\DeclareMathOperator{\id}{\text{id}}
+\newcommand{\Ob}{\text{Ob}}
+\newcommand{\ind}{\mathrm{ind}}
+\newcommand{\euler}{\mathrm{e}}
+\newcommand{\Whab}{W_{h^{\beta\alpha}}}
+\newcommand{\Lab}{\mathcal{F}(\mathfrak{A}^{\alpha},\mathfrak{A}^{\beta})}
+\DeclareMathOperator{\coker}{\mathrm{coker}}
+\DeclareMathOperator{\rank}{\mathrm{rank}}
+\DeclareMathOperator{\herm}{\mathrm{herm}}
+\DeclareMathOperator{\fix}{\mathrm{aut}}
+\DeclareMathOperator{\End}{\mathrm{End}}
+\DeclareMathOperator{\aut}{\mathrm{fix}}
+\DeclareMathOperator{\K}{\mathrm{K}}
+\DeclareMathOperator{\iB}{\mathrm{iB}_{\epsilon}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Categories
+\DeclareMathOperator{\Set}{\mathbf{Set}}
+\DeclareMathOperator{\Ab}{\mathbf{Ab}}
+\DeclareMathOperator{\Ring}{\mathbf{Ring}}
+\DeclareMathOperator{\CDiff}{\mathbf{CDiff}}
+\DeclareMathOperator{\Top}{\mathbf{Top}}
+\DeclareMathOperator{\hTop}{\mathbf{hTop}}
+\DeclareMathOperator{\TopP}{\mathbf{TopP}}
+\DeclareMathOperator{\TopH}{\mathbf{TopH}}
+\DeclareMathOperator{\hTopH}{\mathbf{hTopH}}
+\DeclareMathOperator{\TopC}{\mathbf{TopC}}
+\DeclareMathOperator{\hTopC}{\mathbf{hTopC}}
+\DeclareMathOperator{\TopCPair}{\mathbf{TopC^2}}
+\DeclareMathOperator{\TopCPoint}{\mathbf{TopC^0}}
+\DeclareMathOperator{\hTopP}{\mathbf{hTopP}}
+\DeclareMathOperator{\absgrp}{\mathbf{AbSemGrp}}
+\DeclareMathOperator{\Cvec}{\mathbf{Vect}}
+\DeclareMathOperator{\Pmod}{\mathbf{Pmod}}
+\DeclareMathOperator{\Cmod}{\mathbf{Mod}}
+\usepackage[
+backend=biber,
+style=alphabetic
+]{biblatex}
+\addbibresource{sample.bib}
+
+\usepackage{csquotes} 
+\usepackage{animate}
+
+
+\newif\ifhanddraw
+\handdrawtrue
+
+\usepackage{etoolbox}
+\AtBeginEnvironment{pmatrix}{\renewcommand\arraystretch{1.5}}
+
+\tikzcdset{scale cd/.style={every label/.append style={scale=#1},
+    cells={nodes={scale=#1}}}}
+
+
+% Satz (Theorem): Wichtiges Ergebnis.
+% Lemma: Hilfssatz für den Beweis eines wichtigeren Ergebnisses.
+% Proposition: Weniger bedeutende, aber nützliche Aussagen.
+% Korollar: Direkte Folgerung aus einem Satz oder Lemma.
+% Definition: Einführung eines neuen Begriffs.
+% Bemerkung (Remark): Erläuterung oder Zusatzinformation.
+% Beispiel: Veranschaulichung eines Begriffs oder Satzes.
+
+
+\usepackage[automark]{scrlayer-scrpage} % scrlayer-scrpage für Kopf-/Fußzeilen mit automatischen Markierungen
+\usepackage{lastpage} % lastpage für Referenz zur letzten Seite
+
+\pagestyle{scrheadings} % Standardseitenstil von KOMA-Script verwenden
+
+
+% Fußzeile konfigurieren
+\ifoot{} % Leere Fußzeile innen
+\cfoot{Seite \thepage\ von \pageref{LastPage}} % Zentrierte Fußzeile: Seite X von Y
+\ofoot{} % Leere Fußzeile außen
+
+\begin{comment}
+    \begin{align*}
+    FUNKTORNAME  \left\{ \begin{array}{ll}
+         Ob &\to Ob  &~:INPUTOB       &\mapsto OUTPUTOBJ\\
+         Mor&\to Mor &~:\left( \begin{array}{ll}
+             DEFBEREICH &\to BILDBEREICH  \\
+             INPUT  & \mapsto OUTUT
+         \end{array}\right)&\mapsto \left( \begin{array}{ll}
+             DEFBEREICH &\to BILDBEREICH  \\
+             INPUT  & \mapsto OUTUT
+         \end{array}\right)
+    \end{array}\right.
+    \end{align*}
+\end{comment}
