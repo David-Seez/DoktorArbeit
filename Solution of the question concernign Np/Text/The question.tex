@@ -194,5 +194,20 @@ We assume that $q$ is a critical point of index $k+1$ and $p$ is a critical poin
 
 }
     \end{center}
-
+So to proof this, we first formulate two lemmas. First we restate/ refine the $\lambda$-lemma:
+\begin{lemma}($\lambda-$lemma )
+	Let $ M$ be ansmooth manifold and let $p$ be a hyperbolic fixpoint of a diffeomorphism $\phi$ on $M$ with $\dim W(p \to)=r$ for ${0<r<m=\dim M}$. Let $N$ be an injective immersed submanifold of $M$ that is invariant under $\phi$ and has a point of transverse intersection $q$ with $W(\to p)$. Then for any $r-$cell neighbourhood $D$ of $q$ in $N$ that also intersects $W(\to p)$ transversal and any $r-cell$ neighbourhood $B$ of $p$ in $W(p\to))$ there is a smaller cell $\tilde{D}\subset D$ and an $n\in \N$ such that $B$ is $\epsilon~C^1$-close to $\phi^m(D)$ for all $m>n$
+\end{lemma}
+\begin{proof}
+	In \ref{thm: lambda Lemma} we proofed the same with the only difference, that we defined the $r-$cell $D$ arbitrary. We now want to show that this $r-$cell can be defined to be the image of a moved smaller cell of a given $r-cell$. So lets inspect the already given proof:
+	
+	We started by moving the point of transverse intersection $q$ closer to the fixpoint by applying the diffeomorphism to it. Then we defined an neighbourhood $D_0$ of that moved point in the stable manifold (compare \ref{eq: proof lambda lemma small neighbourhood}). Here we were able to get a hold of the inclination. Then we moved $D_0$ via applying the isomorphism closer to the fixed point and restricted it to the dimension of the unstable manifold. This restriction we can refine as follows: First we define $D_{n^2}$ to be the moved $D_0$. Lets say we moved $q$ $n-$times. In other words $q\in \phi^{-n}(D_{n^2})$ Then there exist a small $r-$cell neighbourhood of $q$ that lives in $D \cap \phi^{-n}(D_{n^2})$. That is because $ \phi^{-n}(D_{n^2})$ is an in $N$ open neighbourhood of $y$, hence $\phi^{-n}(D_{n^2}) \cap D$ is open in $D$. Hence we can find a ball around $y$ in $D$ that is contained in the intersection. We call that $r-$cell $\tilde{D}$. Then $\phi^n(\tilde{D})$ is an $r-$dimensional subset of $D_{n^2}$ and the rest of the proof can be done with that subset. All arguments work, as that subset is transverse to $W(\to p)$. 
+\end{proof}
+Next we want to see, that locally the flow is monoton in the normal direction:
+\begin{lemma}
+	Let $U$ be a normal neighbourhood of $W(\to p)$. For $x\in W(\to p)$ we define $U_x$ to be the image of the normal fibre above $x$. Then for any $T>0$ big enough and $\epsilon >0$ small enough, the function $f\circ \phi_T:U_x\to R$ is monoton decreasing in a small ball of radius $\epsilon$ meaning that if $\lambda>1,v\in U_x$ with $\norm{v}<\norm{\lambda v}<\epsilon$ then $f\circ \phi_T(v)<f\circ \phi_T(\lambda v)$.
+\end{lemma}
+\begin{proof}
+	This is an application of the $\lambda$-lemma. Because, we can define $N=M$ and $U_x$ is our $r$-cell. Then for a smaller $r$-cell we know that $\phi_n(U_x)$ is $\epsilon$ $C^1$-close to $W(\to p)$.\todo{here we need to look closer!!} 
+\end{proof}
 \end{proof}
