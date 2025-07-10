@@ -216,7 +216,7 @@ So to proof this, we first formulate two lemmas. First we restate/ refine the $\
 		\[
 		T_p M = T^s_p M \oplus T^u_p M,
 		\]
-		and this splitting is preserved by \( d\phi_p \). As discussed earlier\todo{reference einfügen}, there exists a chart in which \( d\phi_p \) is represented by a real diagonal matrix (in suitable coordinates). Hence, we may choose an orthonormal basis of coordinates \( (x_s, x_u) \in \mathbb{R}^s \times \mathbb{R}^u \), adapted to the stable and unstable subspaces, such that
+		and this splitting is preserved by \( d\phi_p \). As discussed earlier\todo{reference einfügen}, there exists a chart in which \( d\phi_p \) is represented by a real diagonal matrix (in suitable coordinates)\todo{in fact we can choose a Morse chart that satisfies this!}. Hence, we may choose an orthonormal basis of coordinates \( (x_s, x_u) \in \mathbb{R}^s \times \mathbb{R}^u \), adapted to the stable and unstable subspaces, such that
 		\[
 		d\phi_0 =
 		\begin{pmatrix}
@@ -383,11 +383,16 @@ Next we want to see, that locally the flow is monoton in the normal direction:
 	Let $U$ be a normal neighbourhood of $W(\to p)$. For $x\in W(\to p)$ we define $U_x$ to be the image of the normal fibre above $x$. Then for any $T>0$ big enough and $\epsilon >0$ small enough, the function $f\circ \phi_T:U_x\to R$ is monoton decreasing for some chart in a small ball of radius $\epsilon$ meaning that if $\lambda>1,v\in U_x$ with $\norm{v}<\norm{\lambda v}<\epsilon$ then $f\circ \phi_T(v)<f\circ \phi_T(\lambda v)$.
 \end{lemma}
 	\begin{proof}
-	This is an application of the technical $\lambda$-lemma. Because, we can define $N=M$ and $U_x$ is our $r$-cell. Then for a smaller $r$-cell we know that $\phi_n(U_x)$ is arbitrary close with the derivative being arbitrary close. Now Assume that no such chart of $U_x$ exists, meaning there is a fibre where the map is \textbf{not} monotonly increasing. This means that there is a $x\in W(\to p)$ and a $v\in U_x$ such that the map 
+	This is an application of the technical $\lambda$-lemma.
+ Because, we can define $N=M$ and $U_x$ is our $r$-cell. Then for a smaller $r$-cell we know that $\phi_n(U_x)$ is arbitrary close with the derivative being arbitrary close.
+ Now Assume that no such chart of $U_x$ exists, meaning there is a fibre where the map is \textbf{not} monotonly increasing. This means that for any chart there is a $x\in W(\to p)$ and a $v\in U_x$ such that the map 
 	\begin{align*}
 		g: (0,\epsilon)    &\to \R\\
 		\lambda 		   &\mapsto f\circ \phi_T(\lambda\cdot v)
-	\end{align*} is increasing in some $\mu$ and hence $g'(\mu)\geq 0$. On the other hand, we can assume that $T$ is big enough, such that the projection (in a good chart)$h: phi_T(U_x)\to W(p\to)$ is one to one and even smooth. This induces a chart to $ phi_T(U_x)$ from $W(p \to )$, which again induces a chart to $U_x=\phi_{-T}( phi_T(U_x))$. This chart is give by: ...
-	
-	\todo{instabile manigfaltigkeiten theorem, die abbildung $\lambda \mapsto f(\chi(\lambda (v)))$ is monotonly decreasing} 
+	\end{align*} is increasing in some $\mu$ and hence $g'(\mu)\geq 0$. 
+	On the other hand, we can assume that $T$ is big enough, such that the projection in a Morse chart $h: \phi_T(U_x)\to W(p\to)$ is one to one and even smooth. This induces a chart to $ phi_T(U_x)$ from $W(p \to )$, which again induces a chart to $U_x=\phi_{-T}( phi_T(U_x))$. Now we can take the chart from the (un-)stable manifold theorem which is locally around $p$ a Morse chart $\psi: U\to T_pM=T_p^uM\oplus T_p^sM$. Hence it satisfies that if $\lambda>1$ and $v\in T^u_pM$ we have that $f((v,0))>f(\lambda (v,0))$, or said differently, the map 
+	\begin{align*}
+		l_v: (1-\epsilon',1+\epsilon') &\to \R \quad \text{for some $\epsilon'>0$} \\
+		\lambda \mapsto f\circ (\psi(\lambda v))
+	\end{align*} has a negative differential for $v\neq 0$. Lets Assume that its differential is smaller then $\nu$ for all $\lambda \in (1-\epsilon',1+\epsilon')$. 
 	\end{proof}
