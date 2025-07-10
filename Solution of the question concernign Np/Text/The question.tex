@@ -34,7 +34,6 @@ We assume that $q$ is a critical point of index $k+1$ and $p$ is a critical poin
 \end{enumerate}
 \end{lemma}
 
-\begin{proof}
     The statements \ref{lem: enum: 1}-\ref{lem: enum: 4} are easy to proof by the definitions. The regularity can be derived from a general fact for pairs $(X,Y)$ in metric spaces: If $Y$ is closed in $X$ and there is a neighbourhood of $Y$ that is open in $X$ such that $Y$ is a strong deformation retract of $U$. So the only thing left to show is, that $N_p$ is a tubular neighbourhood. in \cite{MorseTheorySalmbon} in the proof of lemma 3.2 Salamon claims this to be true without a proof (page 119 in the attached source). Similar, in \cite{banyaga2004lectures} Banyaga claims this (also without any argument).
   I find this difficult to proof, since we cannot use the flow for the map from the normal bundle, as points leave $N_p$ along the flow: The Set $N_p$ is sketched in the figure below. 
     \begin{center}
@@ -129,7 +128,7 @@ We assume that $q$ is a critical point of index $k+1$ and $p$ is a critical poin
 %Curve Lines [id:da21494064860512774] 
 \draw    (399.45,736.36) .. controls (412.45,644.36) and (508.45,487.36) .. (569.45,463.36) ;
 \draw [shift={(463.47,579.22)}, rotate = 120.96] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (8.93,-4.29) -- (0,0) -- (8.93,4.29) -- cycle    ;
-%Curve Lines [id:da5065198292397652] 
+%Curve Lines [id:da506519829239\end{proo7652] 
 \draw    (412.45,736.36) .. controls (444.45,646.36) and (515.45,516.36) .. (566.45,488.36) ;
 \draw [shift={(477.29,597.7)}, rotate = 119.85] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (8.93,-4.29) -- (0,0) -- (8.93,4.29) -- cycle    ;
 
@@ -194,16 +193,22 @@ We assume that $q$ is a critical point of index $k+1$ and $p$ is a critical poin
 
 }
     \end{center}
-So to proof this, we first formulate two lemmas. First we restate/ refine the $\lambda$-lemma:
-\begin{lemma}($\lambda-$lemma )
-	Let $ M$ be a smooth manifold and let $p$ be a hyperbolic fixpoint of a diffeomorphism $\phi$ on $M$ with $\dim W(p \to)=r$ for ${0<r<m=\dim M}$. Let $N$ be an injective immersed submanifold of $M$ that is invariant under $\phi$ and has a point of transverse intersection $q$ with $W(\to p)$. Then for any $r-$cell neighbourhood $D$ of $q$ in $N$ that also intersects $W(\to p)$ transversal and any $r-cell$ neighbourhood $B$ of $p$ in $W(p\to))$ there is a smaller cell $\tilde{D}\subset D$ and an $n\in \N$ such that $B$ is $\epsilon~C^1$-close to $\phi^m(D)$ for all $m>n$
-\end{lemma}
-\begin{proof}
-	By replacing $D$ with $\phi_n(D)$ we may assume that the transverse intersection $q$ and $D$ live in a chart that is centred at $p$. We can now choose an open neighbourhood $U$ of $0$ such that $U\cong W(\to p)\cap B_\mu(0)\times W(p\to)\cap B_\mu(0)$ for some $\mu>0$. In said neighbourhood we have that 
-	\begin{align*}
-		\phi(x_s,x_u)=(Ax_s+f_s(x_s,x_u),Bx_u+f_u(x_s,x_u))
-	\end{align*}
+So to proof this, we first formulate two lemmas. First we restate/ refine the $\lambda$-lemma: 
+\begin{lemma}[The Technical $\lambda-$Lemma]
+	Let $ M$ be a smooth manifold and let $p$ be a hyperbolic fixpoint of a diffeomorphism $\phi$ on $M$ with $\dim W(p \to)=r$ for ${0<r<m=\dim M}$. Let $N$ be an injective immersed submanifold of $M$ that is invariant under $\phi$ and has a point of transverse intersection $q$ with $W(\to p)$. Then for any $\epsilon>0$, any $r-$cell neighbourhood $D$ of $q$ in $N$ that also intersects $W(\to p)$ transversal and any $r-cell$ neighbourhood $B$ of $p$ in $W(p\to))$ there is a smaller cell $\tilde{D}\subset D$, an $n\in \N$ such that the following is true:
 	
+	We can assume that $B$ and $\phi^n(\tilde{D})$ lives in a chart centered at $p$ with a product structure $U\cong W(\to p)\cap B_\mu(0)\times W(p\to)\cap B_\mu(0)$. Here,the invers of the projection into $B\subseteq W(\to p)$:
+	\begin{equation*}
+		h: B\to \phi^n(\tilde{D})\, 
+	\end{equation*}satisfies:
+	\begin{enumerate}
+		\item $\sup_{x \in B}\norm{x-h(x)}<\epsilon$ and
+		\item For the inclusions  $i_1:B\to M$ and $i_2:\phi^n(\tilde{D})\to M$ we have that 
+		\begin{equation*}
+			\sup_{x \in B}\norm{\diff(i_1)_x-\diff(i_2\circ h)_x}<\epsilon\, .
+		\end{equation*}
+	\end{enumerate}
+\end{lemma}
 	\begin{proof}
 		Let \( q \) be a point of transversal intersection of \( W(\to p) \) with \( N \). Since both \( N \) and \( W(\to p) \) are invariant under \( \phi \), it follows that \( \phi^n(q) \in N \cap W(\to p) \) for all \( n \in \N \). Moreover, the intersection remains transversal: the direct sum decomposition \( T_q M = T_q W(\to p) \oplus T_q N \) is preserved under \( d\phi_q \), which implies transversality at \( \phi^n(q) \) as well.
 		
@@ -211,7 +216,7 @@ So to proof this, we first formulate two lemmas. First we restate/ refine the $\
 		\[
 		T_p M = T^s_p M \oplus T^u_p M,
 		\]
-		and this splitting is preserved by \( d\phi_p \). As discussed earlier, there exists a chart in which \( d\phi_p \) is represented by a real diagonal matrix (in suitable coordinates). Hence, we may choose an orthonormal basis of coordinates \( (x_s, x_u) \in \mathbb{R}^s \times \mathbb{R}^u \), adapted to the stable and unstable subspaces, such that
+		and this splitting is preserved by \( d\phi_p \). As discussed earlier\todo{reference einfügen}, there exists a chart in which \( d\phi_p \) is represented by a real diagonal matrix (in suitable coordinates). Hence, we may choose an orthonormal basis of coordinates \( (x_s, x_u) \in \mathbb{R}^s \times \mathbb{R}^u \), adapted to the stable and unstable subspaces, such that
 		\[
 		d\phi_0 =
 		\begin{pmatrix}
@@ -256,7 +261,7 @@ So to proof this, we first formulate two lemmas. First we restate/ refine the $\
 		\begin{align*}
 			\lambda(v^0)=\frac{\norm{v^0_s}}{\norm{v^0_u}}.
 		\end{align*}
-		In other words: The smaller the inclination, the more parallel we are to $W(p\to)$. 
+		In other words: The smaller the inclination, the more parallel we are to $W(p\to)$. Notive how we can only define the inclination if $v^0_u\neq 0$. 
 		Furthermore define:
 		\begin{align*} x^n:=\phi^n(x), ~v^n:= \diff \phi_{x^{n-1}}(v^{n-1}) \text{ and } \phi(x)=(\phi_s(x),\phi_u(x))\in W(\to 0)\times W(0\to).
 		\end{align*}
@@ -282,7 +287,7 @@ So to proof this, we first formulate two lemmas. First we restate/ refine the $\
 		\begin{align*}
 			\underbrace{\sup_{U_2}\norm{\frac{\partial f_s}{\partial x_u}}}_{:=k_1}< \min\{\epsilon, k \}.
 		\end{align*} 
- Again, we assume $q\in U_2$. Now we want to get a hold of the inclination:  Let $x\in N$ such that $x^j\in U_2 $ for all $j\leq n$ and let $v^0\in T_xN$. Denote $v^n=(v^n_s,v^n_u)\in T_0W(\to 0)\times T_0W(0 \to)$. 
+ Again, we assume $q\in D\subseteq  U_2$. Now we want to get a hold of the inclination:  Let $x\in N$ such that $x^j\in U_2 $ for all $j\leq n$ and let $v^0\in T_xN$. Denote $v^n=(v^n_s,v^n_u)\in T_0W(\to 0)\times T_0W(0 \to)$. 
 		\begin{align}
 			\lambda(v^n)&= \frac{\norm{\diff \phi_s|_{x^{n-1}}(v^{n-1})}}{\norm{\diff \phi_u|_{x^{n-1}}(v^{n-1})}} \nonumber \\
 			&=\frac{\norm{Av_s^{n-1} +\ \frac{\partial f_s}{\partial x_s}|_{x^{n-1}}v_s^{n-1} \ \, + \, \frac{\partial f_s}{\partial x_u}|_{x^{n-1}}(v_u^{n-1})}}{\norm{\color{blue} \frac{\partial f_u}{\partial x_s}|_{x^{n-1}}(v_s^{n-1}) \color{black}+   Bv_u^{n-1}+\frac{\partial f_u}{\partial x_u}|_{x^{n-1}}(v_u^{n-1})}} \nonumber \\
@@ -323,10 +328,10 @@ So to proof this, we first formulate two lemmas. First we restate/ refine the $\
 		If we take an arbitrary local section $f:M \to TM$
 		that denotes the choice of $v^0\in T_xN$ we know that $\lambda \circ f$ is continuous, 
 		as it is the composition of continuous functions. In other words, the inclination smoothly depends on $v^0$ and $x$. 
-		This tells us that for a small enough cellular neighbourhood $D_0 \subseteq N \cap U_2$ such that for any $x\in D_0$ and $v_0\in T_xN$ of length $1$ we have
+		This tells us that for a small enough cellular neighbourhood $D_0 \subseteq D\subseteq N \cap U_2$ such that for any $x\in D_0$ and $v_0\in T_xN$ of length $1$ we have
 		\begin{equation}
 			\lambda(v^0)\leq \frac{1}{2} (\beta_1-1).
-		\end{equation}
+		\end{equation} (This is true as long as the invlination is well defined )
 		Now we claim that if $\phi^j(v^0)\in U_2$ for all $j=0,...,n$ then $\lambda(v^n)\leq \frac{1}{2}(\beta_1-1).$ We prove this by induction: The case $n=0$ is already done. For the induction step we use the estimate (\ref{eq: estimate lambda(v^n)}), $k_1 <k<1$ and $k< \frac{1}{4}(\beta_1-1)^2$:
 		\begin{align*}
 			\lambda(v^{n+1})\leq \frac{\lambda(v^{n})+k_1}{ \beta_1  - k_1 \lambda(v^{n})}\leq \frac{ \frac{1}{2}(\beta_1-1)+\frac{1}{4}(\beta_1-1)^2}{ \beta_1  - \frac{1}{2}(\beta_1-1))} = \frac{1}{2}(\beta_1-1).
@@ -342,8 +347,7 @@ So to proof this, we first formulate two lemmas. First we restate/ refine the $\
 		\begin{align*}
 			\lambda(v^b)\leq \epsilon(1+\frac{1}{\beta_2-1}).
 		\end{align*}
-		Let $\pi_u:U \to W(0\to)$ be the projection. Since $\phi$ is expanding on $W(0 \to)$ we know that a $n_2\geq n_1$ exists such that $B\subseteq \pi_u(D_{n_2})$, where $D_{n_2}$ denotes the connected component of $\phi^{n_2}(D_0)\cap U$ that contains $q^{n_2}$. If $\dim N > \dim W(0 \to)$ we can choose a subset of $\dim W(0\to)$ and then the projection restricted to $D_{n_2}$:  $\pi_u|{D{n_2}}$ can be modified to be one to one. Now we need to reduce $D_{n_2}$ such that it is one to one. This turns out to be harder than expected since we need to consider problems like the set $\{(t,r\cdot \sin(\frac{1}{t}),r\cdot \cos(\frac{1}{t})|0<r\leq 1, 0<t\})$. 
-		However, to get rid of such problems we use the fact that we are an embedded manifold. By this we know that we are given by an implicit function where the derivatives in $W(\to p)-$direction are invertible as a matrix. By the implicit function theorem we can take any point $x$ from $D_{n_2}$ and conclude that there is a neighbourhood $U(x)\subset W(p\to)$ around $\pi_u(x)$ in $D_{n_2}$ and a smooth function $G: W(p\to)\to W(\to p)$, such that around $x$ $D_{n_2}$ looks like $(y,G(y))$ telling us that the projection onto the domain of $G$ is one to one after restricting $D_{n_2}$ to $U(x)\times \im(G)$. Now we can define $h$ to be the inverse of that projection (that is $G\times \id$) and get the closeness of $B$ to $D_{n_2}$. To see that we first check the distances and the difference after differentiating. For this we need the maps: $i_1:B\to M, x \mapsto (0,x)$, and $i_2: ~D_{n^2} \to M,~ x\mapsto x$ and $h: B \to D_{n^2},~ x \mapsto \pi_u^{-1}(x)=(h_s(x),x)=(h_s(x),h_u(x)$:
+		Let $\pi_u:U \to W(0\to)$ be the projection. Since $\phi$ is expanding on $W(0 \to)$ we know that a $n_2\geq n_1$ exists such that $B\subseteq \pi_u(D_{n_2})$, where $D_{n_2}$ denotes the connected component of $\phi^{n_2}(D_0)\cap U$ that contains $q^{n_2}$. If $\dim N > \dim W(0 \to)$ we can choose a subset of $\dim W(0\to)$ and then the projection restricted to $D_{n_2}$:  $\pi_u|{D{n_2}}$ can be modified to be one to one. For this we use the fact that we are an embedded manifold.Hence, we are given by an implicit function where the derivatives in $W(\to p)-$direction are invertible as a matrix. By the implicit function theorem we can take any point $x$ from $D_{n_2}$ and conclude that there is a neighbourhood $U(x)\subset W(p\to)$ around $\pi_u(x)$ in $D_{n_2}$ and a smooth function $G: W(p\to)\to W(\to p)$, such that around $x$ $D_{n_2}$ looks like $(y,G(y))$ telling us that the projection onto the domain of $G$ is one to one after restricting $D_{n_2}$ to $U(x)\times \im(G)$. Now we can define $h$ to be the inverse of that projection (that is $G\times \id$) and get the closeness of $B$ to $D_{n_2}$. To see that we first check the distances and the difference after differentiating. For this we need the maps: $i_1:B\to M, x \mapsto (0,x)$, and $i_2: ~D_{n^2} \to M,~ x\mapsto x$ and $h: B \to D_{n^2},~ x \mapsto \pi_u^{-1}(x)=(h_s(x),x)=(h_s(x),h_u(x)$:
 		
 		\begin{align*}
 			\sup_{x\in B} \norm{ \diff( i_{1} )_x-\diff (i_2 \circ h )_x} &= \sup_{x\in B} \norm{ \begin{psmallmatrix}
@@ -360,8 +364,15 @@ So to proof this, we first formulate two lemmas. First we restate/ refine the $\
 			&=\sup_{x \in B} \sup_{\norm{v}\leq 1} \frac{\norm{(\diff(h)_x)_s(v)}}{\norm{(\diff(h)_x)_u(v)}}\norm{v}\\
 			&= \sup_{x \in B} \sup_{\norm{v} = 1} \lambda(\diff h_x(v)) & \text{since $\diff h_x$ is linear} \\
 			& \leq \epsilon(1+\frac{1}{\beta_2-1}).
-		\end{align*} The last inequality follows from $\diff h_x(v))$ being an element in $T_xN$ and the existence of a $\tilde{v} \in D_0:\tilde{v}^n=v$. Finally since $\beta_2$ is independent of $\epsilon$ we can make this construction for any $\epsilon$. Therefore, by definition we have that for any $\mathcal{N}^r(f,(\phi,U),(\psi,V),\epsilon)$ that contains $i_2$ there is a $r-$cell $D_{n^2}$ and a $h$ such that $i_2 \circ h \in \mathcal{N}^r(f,(\phi,U),(\psi,V),\epsilon)$. This tells us that every neighbourhood of $i_1$ contains such an $h$ and therefore, in the $C^r-$generating metric $d_1$, an $r-$cell and a $h$ exists such that $d_1(i_1.i_2\circ h)<\epsilon.$ This concludes the proof of the lambda lemma.  
-	
+		\end{align*} The last inequality follows from $\diff h_x(v))$ being an element in $T_xN$ and the existence of a $\tilde{v} \in D_0:\tilde{v}^n=v$. Finally since $\beta_2$ is independent of $\epsilon$ we can make this construction for any $\epsilon$.
+		Furthermore since we can increase $n$ (and decrease the sice of $\tilde{D}$) such that $D_{n^2}$ is arbitrary close to the origin, the statement that 
+		\begin{equation*}
+			\sup_{x\in B}\norm{x-h(x)}<\epsilon 
+		\end{equation*} is clear.
+
+		%here stats the proof of the strukturel inclination lemma
+		
+		 Therefore, by definition we have that for any $\mathcal{N}^r(f,(\phi,U),(\psi,V),\epsilon)$ that contains $i_2$ there is a $r-$cell $D_{n^2}$ and a $h$ such that $i_2 \circ h \in \mathcal{N}^r(f,(\phi,U),(\psi,V),\epsilon)$. This tells us that every neighbourhood of $i_1$ contains such an $h$ and therefore, in the $C^r-$generating metric $d_1$, an $r-$cell and a $h$ exists such that $d_1(i_1.i_2\circ h)<\epsilon.$ This concludes the proof of the lambda lemma.  	
 	
  we proofed the same with the only difference, that we defined the $r-$cell $D$ arbitrary. We now want to show that this $r-$cell can be defined to be the image of a moved smaller cell of a given $r-cell$. So lets inspect the already given proof:
 	
@@ -369,11 +380,14 @@ So to proof this, we first formulate two lemmas. First we restate/ refine the $\
 \end{proof}
 Next we want to see, that locally the flow is monoton in the normal direction:
 \begin{lemma}
-	Let $U$ be a normal neighbourhood of $W(\to p)$. For $x\in W(\to p)$ we define $U_x$ to be the image of the normal fibre above $x$. Then for any $T>0$ big enough and $\epsilon >0$ small enough, the function $f\circ \phi_T:U_x\to R$ is monoton decreasing in a small ball of radius $\epsilon$ meaning that if $\lambda>1,v\in U_x$ with $\norm{v}<\norm{\lambda v}<\epsilon$ then $f\circ \phi_T(v)<f\circ \phi_T(\lambda v)$.
+	Let $U$ be a normal neighbourhood of $W(\to p)$. For $x\in W(\to p)$ we define $U_x$ to be the image of the normal fibre above $x$. Then for any $T>0$ big enough and $\epsilon >0$ small enough, the function $f\circ \phi_T:U_x\to R$ is monoton decreasing for some chart in a small ball of radius $\epsilon$ meaning that if $\lambda>1,v\in U_x$ with $\norm{v}<\norm{\lambda v}<\epsilon$ then $f\circ \phi_T(v)<f\circ \phi_T(\lambda v)$.
 \end{lemma}
 	\begin{proof}
-	This is an application of the $\lambda$-lemma. Because, we can define $N=M$ and $U_x$ is our $r$-cell. Then for a smaller $r$-cell we know that $\phi_n(U_x)$ is $\epsilon$ $C^1$-close to $W(\to p)$.\todo{here we need to look closer!!} 
+	This is an application of the technical $\lambda$-lemma. Because, we can define $N=M$ and $U_x$ is our $r$-cell. Then for a smaller $r$-cell we know that $\phi_n(U_x)$ is arbitrary close with the derivative being arbitrary close. Now Assume that no such chart of $U_x$ exists, meaning there is a fibre where the map is \textbf{not} monotonly increasing. This means that there is a $x\in W(\to p)$ and a $v\in U_x$ such that the map 
+	\begin{align*}
+		g: (0,\epsilon)    &\to \R\\
+		\lambda 		   &\mapsto f\circ \phi_T(\lambda\cdot v)
+	\end{align*} is increasing in some $\mu$ and hence $g'(\mu)\geq 0$. On the other hand, we can assume that $T$ is big enough, such that the projection (in a good chart)$h: phi_T(U_x)\to W(p\to)$ is one to one and even smooth. This induces a chart to $ phi_T(U_x)$ from $W(p \to )$, which again induces a chart to $U_x=\phi_{-T}( phi_T(U_x))$. This chart is give by: ...
+	
+	 
 	\end{proof}
-
-\end{proof}
-\end{proof}
