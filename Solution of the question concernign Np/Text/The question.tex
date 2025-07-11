@@ -409,9 +409,22 @@ For this we introduce the following notation
 		g: (0,\epsilon)    &\to \R\\
 		\lambda 		   &\mapsto f\circ \phi_T(\lambda\cdot v)
 	\end{align*} is increasing in some $\mu$ and hence $g'(\mu)\geq 0$. 
-	On the other hand, we can assume that $T$ is big enough, such that the projection in a Morse chart $h: \phi_T(U_x)\to W(p\to)$ is one to one and even smooth. This induces a chart to $ phi_T(U_x)$ from $W(p \to )$, which again induces a chart to $U_x=\phi_{-T}( phi_T(U_x))$. Now we can take the chart from the (un-)stable manifold theorem which is locally around $p$ a Morse chart $\psi: U\to T_pM=T_p^uM\oplus T_p^sM$. Hence it satisfies that if $\lambda>1$ and $v\in T^u_pM$ we have that $f((v,0))>f(\lambda (v,0))$, or said differently, the map 
+	On the other hand, we can assume that $T$ is big enough, such that the projection in a Morse chart $h: \phi_T(U_x)\to W(p\to)$ is one to one and even smooth. This induces a chart to $ phi_T(U_x)$ from $W(p \to )$, which again induces a chart to $U_x=\phi_{-T}( \phi_T(U_x))$. Now we can take the chart from the (un-)stable manifold theorem which is locally around $p$ a Morse chart $\psi: U\to T_pM=T_p^uM\oplus T_p^sM$.
+	Here the map $f\circ \psi^{-1}$ has the differential 
+	\begin{align}
+		\diff(f\circ \psi^{-1})=(2x^1,\dots 2x^{\lambda_p},-2x^{\lambda_p+1},\dots -2x^m)
+	\end{align}
+	And hence  
 	\begin{align*}
-		l_v: (1-\epsilon',1+\epsilon') &\to \R \quad \text{for some $\epsilon'>0$} \\
-		\lambda \mapsto f\circ (\psi(\lambda v))
-	\end{align*} has a negative differential for $v\neq 0$. Lets Assume that its differential is smaller then $\nu$ for all $\lambda \in (1-\epsilon',1+\epsilon')$. 
+		\diff(f\circ \psi)(0,\lambda v)(0,v)=(0,-2\lambda (v^{\lambda_p})^2,-2\lambda (v^{m})^2)
+	\end{align*}
+	Now assume that there is a $x$ and $v\in R^{\lambda_p}$ such that the map 
+	\begin{align*}
+		l_v \R\to\R^m;\lambda \mapsto f\circ \phi_T\circ J(\Phi^{-1})(x,v)
+	\end{align*} is monotonically increasing and hence has a positive differential in $\mu$:
+	\begin{align*}
+		0<\diff(l_v)(\mu)
+		&=\diff f\circ h_x(\psi^{-1}(v))\\
+		&=\restr{\diff f\circ \psi^{-1}}{\psi\circ h_x \circ \psi^{-1}(v)}\circ \restr{\diff h_x \circ \psi^{-1}}{arg2}
+	\end{align*}
 	\end{proof}
