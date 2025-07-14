@@ -383,48 +383,118 @@ For this we introduce the following notation
 \begin{definition}
 	We denote the \textbf{normal bundle} of the stable manifold $W(\to p)$ by $N^{s,p}$ and of the unstable manifold by $N^{u,p}$. We denote its fibre over $x$ by $N^{s,p}_x$. 
 \end{definition}
-\begin{lemma}
-	Let $U$ be a tubular neighbourhood of $W(\to p)\cap M^c$. with $J: NW(\to p)\to W(\to p) $being the embedding. For $x\in W(\to p)$ we define $U_x$ to be the image of the normal fibre above $x$, i.e. $U_x=J(N_xW(\to p))$. Then for any $T>0$ big enough and $\epsilon >0$ small enough, there exists an global trivialisation of the normal bundle such that the function $f\circ \phi_T:U_x\to R$ is monoton decreasing in a small tube of radius $\epsilon$ meaning that if $\lambda>1,v\in U_x$ with $\norm{v}<\norm{\lambda v}<\epsilon$ then $f\circ \phi_T(v)<f\circ \phi_T(\lambda v)$.
-\end{lemma}
+
+	\begin{lemma}
+		Let $U$ be a tubular neighbourhood of $W(\to p)\cap M^c$, with $J:NW(\to p)\cap M^c\to M$ beeing the corresponding embedding. For $x\in W(\to p)\cap M^c$ we denote $U_x$ the embedded fiber over $x$. Then there exists a $T>0$ big enough and a global trivialization $\Phi: NW(\to p)\cap M^c\to  \left(W(\to p)\cap M^c\right)\times \R^{\lambda_p}$ such that the the composition $f\circ \phi_T \circ J\circ \Phi^{-1}$ is fibrewise monotonically decreasing meaning that for any  $0\neq v\in U_x$  and $\nu >0 $ small the function
+		\begin{align*}
+			l_v: (1-\nu,1+\nu) &\to \R\\
+			\lambda &\mapsto f\circ \phi_T \circ J\circ \Phi^{-1}(x,\lambda \cdot v)
+		\end{align*} has negative derivative.
+	\end{lemma}
 	\begin{proof}
-	This is an application of the technical $\lambda$-lemma. We will now define smooth automorphisms in the embedded fibres $U_x\to U_x$ such that the monotony is satisfied. The aotomorphisms will smoothly depend on the basepoint. Let $x\in W(\to p)$. By the technical $\lambda$-lemma we have a $T>0$, an $r$-cell $B\subseteq W(p\to)$ and a Morse chart $\psi$ that gives us a the inverse projection $h_x:B\to \phi_t(U_x)$ with arbitrary small distance and such that the derivative is one in $W(p\to)$-direktion and arbitrary small in $W(\to p)$-direktion. 
-	With the map $h_x=\pi^{-1}$ we can now define the global trivialization of our normal bundle:
-	Let $T$ be big enough, such that the technical lambda lemma can be applied to all $U_x$ where $x$ is in the compact $W(\to p)\cap M^c$. Now the trivialisation is defined via:
-	\begin{align*}
-	\Phi:	NW(\to p)\cap M^c &\to W(\to p)\cap M^c\times \R^{\lambda_p}\\
-		\xi &\mapsto (\pi(\xi),\psi\circ h_{\pi(\xi)}^{-1}\circ \phi_T\circ J(\xi))
-	\end{align*}
-	With this we have our global trivialisation. Lets entangle: 
-	\begin{align*}
-		\phi_T\circ J\circ \Phi^{-1}:\R^{\lambda_p}\times W(\to p)\cap M^c(x,v)
-		&=\phi_T\circ J\circ\left(J^{-1}\circ \phi_{-T} (h_x( \psi^{-1}(v)) )\right)\\
-		&=h_x( \psi^{-1}(v))
-	\end{align*}
-	
-	In our Morse chart with image $\R^{m-\lambda_p}\times \R^{\lambda_p$ we are monotonically decreasing in the second factor, meaning that $f\circ \psi^{-1}(0,\lambda v)$ is monotonlically decreasing. Hence the differential is negative for non-zero $\lambda$ and $v$. 
-		Now assume that for some $x$ the map $f\circ \phi_t(\psi^{-1})(\lambda\cdot v)$ would be monotonically increasing somewhere and hance has a positive differential. 
- 
- Now Assume that no such chart of $U_x$ exists, meaning there is a fibre where the map is \textbf{not} monotonly increasing. This means that for any chart there is a $x\in W(\to p)$ and a $v\in U_x$ such that the map 
-	\begin{align*}
-		g: (0,\epsilon)    &\to \R\\
-		\lambda 		   &\mapsto f\circ \phi_T(\lambda\cdot v)
-	\end{align*} is increasing in some $\mu$ and hence $g'(\mu)\geq 0$. 
-	On the other hand, we can assume that $T$ is big enough, such that the projection in a Morse chart $h: \phi_T(U_x)\to W(p\to)$ is one to one and even smooth. This induces a chart to $ phi_T(U_x)$ from $W(p \to )$, which again induces a chart to $U_x=\phi_{-T}( \phi_T(U_x))$. Now we can take the chart from the (un-)stable manifold theorem which is locally around $p$ a Morse chart $\psi: U\to T_pM=T_p^uM\oplus T_p^sM$.
-	Here the map $f\circ \psi^{-1}$ has the differential 
-	\begin{align}
-		\diff(f\circ \psi^{-1})=(2x^1,\dots 2x^{\lambda_p},-2x^{\lambda_p+1},\dots -2x^m)
-	\end{align}
-	And hence  
-	\begin{align*}
-		\diff(f\circ \psi)(0,\lambda v)(0,v)=(0,-2\lambda (v^{\lambda_p})^2,-2\lambda (v^{m})^2)
-	\end{align*}
-	Now assume that there is a $x$ and $v\in R^{\lambda_p}$ such that the map 
-	\begin{align*}
-		l_v \R\to\R^m;\lambda \mapsto f\circ \phi_T\circ J(\Phi^{-1})(x,v)
-	\end{align*} is monotonically increasing and hence has a positive differential in $\mu$:
-	\begin{align*}
-		0<\diff(l_v)(\mu)
-		&=\diff f\circ h_x(\psi^{-1}(v))\\
-		&=\restr{\diff f\circ \psi^{-1}}{\psi\circ h_x \circ \psi^{-1}(v)}\circ \restr{\diff h_x \circ \psi^{-1}}{arg2}
-	\end{align*}
+		We will apply the technichal $\lambda$-lemma. For this we reuse the notation as follows. The lemma tells us, that for any $\mu_T>0$ we can find a $T$ big enough, such that $\phi_T(J(U_x))$ is close in the following sence: There is a neighbourhood $L$ of $p$ and a Morse chart 
+		\begin{align*}
+			\Psi: L\to \R^{\lambda_p}\times \R^{m-\lambda_p}
+		\end{align*} such that $\restr{\Psi}{\R^{\lambda_p}}\supseteq W(p\to)$. In this chart the set $\phi_T(J(U_x))$ is the graph of a funktion $h^s_x:\R^{\lambda_p}\to \R^{m-\lambda_p}$ that satisfies:
+		\begin{align*}
+			\norm{\diff h^s_v}<\mu_T\\ 
+			\norm{ h^s_v}<\mu_T
+		\end{align*}
+		We define the map $h_x=h^s_x\oplus \id_{\lambda_p}: \R^{\lambda_p}\to \R^m$. Now $\phi_T(J(U_x))=\Gamma(h^s_x)=\im (h_x)$. Using this we define our global trivialisation:
+		\begin{align*}
+			\Phi: NW(\to p)\cap M^c &\to  \left(W(\to p)\cap M^c\right)\times \R^{\lambda_p}\\
+			\xi &\mapsto \left(\pi(\xi), h^{-1}_{\pi(\xi)}\circ \Psi \circ \phi_T \circ J(\xi)\right)
+		\end{align*}
+		In this trivialization the funktion $l_v$ looks like:
+		\begin{align*}
+			l_v(\lambda)
+			&=f \circ \phi_T\circ J \circ \Phi^{-1} (x,\lambda v)\\
+			&=f \circ \phi_T\circ J\circ J^{-1}\circ \phi_{-T}\circ \Psi^{-1} \circ h_x\\
+			&=f \circ \Psi^{-1} \circ h_x\, .\\
+		\end{align*} Now we can calculate its derivative to conclude the statement: 
+		\begin{align*}
+				\diff (l_v)(\lambda)
+			&=\restr{\diff (f\circ \psi^{-1})}{h_x(\lambda v)}\circ \restr{\diff h_x}{\lambda v} (v)\\
+			&=\restr{\diff (f\circ \psi^{-1})}{h_x(\lambda v)} (v,\diff h_x^s(v))\\
+			&=-2\lambda \sum_{i_1}^{\lambda_p}(v^i)^2+\left(h^s_x(\lambda v)\right)^T\cdot (\diff h_x^s)^i(\lambda v)\\
+			&\leq-2\lambda \norm{v}^2 +\lambda^2 (\mu^T )^2\norm{v}^2\\
+			&= \left( -2+(\mu^T)^2\lambda \right) \lambda \norm{v}^2<0 \text{ for all $v\neq 0$, $\lambda \in I$ and for all $T$ big enough.}
+		\end{align*}
 	\end{proof}
+	\begin{comment}
+		\begin{lemma}
+			Let $U$ be a tubular neighbourhood of $W(\to p)\cap M^c$. with $J: NW(\to p)\to W(\to p) $being the embedding. For $x\in W(\to p)$ we define $U_x$ to be the image of the normal fibre above $x$, i.e. $U_x=J(N_xW(\to p))$. Then for any $T>0$ big enough and $\epsilon >0$ small enough, there exists an global trivialisation of the normal bundle such that the function $f\circ \phi_T:U_x\to R$ is monoton decreasing in a small tube of radius $\epsilon$ meaning that if $\lambda>1,v\in U_x$ with $\norm{v}<\norm{\lambda v}<\epsilon$ then $f\circ \phi_T(v)<f\circ \phi_T(\lambda v)$.
+		\end{lemma}
+		\begin{proof}
+			This is an application of the technical $\lambda$-lemma. We will now define smooth automorphisms in the embedded fibres $U_x\to U_x$ such that the monotony is satisfied. The aotomorphisms will smoothly depend on the basepoint. Let $x\in W(\to p)$. By the technical $\lambda$-lemma we have a $T>0$, an $r$-cell $B\subseteq W(p\to)$ and a Morse chart $\psi$ that gives us a the inverse projection $h_x:B\to \phi_t(U_x)$ with arbitrary small distance and such that the derivative is one in $W(p\to)$-direktion and arbitrary small in $W(\to p)$-direktion. 
+			With the map $h_x=\pi^{-1}$ we can now define the global trivialization of our normal bundle:
+			Let $T$ be big enough, such that the technical lambda lemma can be applied to all $U_x$ where $x$ is in the compact $W(\to p)\cap M^c$. Now the trivialisation is defined via:
+			\begin{align*}
+				\Phi:	NW(\to p)\cap M^c &\to W(\to p)\cap M^c\times \R^{\lambda_p}\\
+				\xi &\mapsto (\pi(\xi),\psi\circ h_{\pi(\xi)}^{-1}\circ \phi_T\circ J(\xi))
+			\end{align*}
+			With this we have our global trivialisation. Lets entangle: 
+			\begin{align*}
+				\phi_T\circ J\circ \Phi^{-1}:\R^{\lambda_p}\times W(\to p)\cap M^c(x,v)
+				&=\phi_T\circ J\circ\left(J^{-1}\circ \phi_{-T} (h_x( \psi^{-1}(v)) )\right)\\
+				&=h_x( \psi^{-1}(v))
+			\end{align*}
+			
+			In our Morse chart with image $\R^{m-\lambda_p}\times \R^{\lambda_p}$ we are monotonically decreasing in the second factor, meaning that $f\circ \psi^{-1}(0,\lambda v)$ is monotonlically decreasing. Hence the differential is negative for non-zero $\lambda$ and $v$. 
+			Now assume that for some $x$ the map $f\circ \phi_t(\psi^{-1})(\lambda\cdot v)$ would be monotonically increasing somewhere and hance has a positive differential. 
+			
+			Now Assume that no such chart of $U_x$ exists, meaning there is a fibre where the map is \textbf{not} monotonly increasing. This means that for any chart there is a $x\in W(\to p)$ and a $v\in U_x$ such that the map 
+			\begin{align*}
+				g: (0,\epsilon)    &\to \R\\
+				\lambda 		   &\mapsto f\circ \phi_T(\lambda\cdot v)
+			\end{align*} is increasing in some $\mu$ and hence $g'(\mu)\geq 0$. 
+			On the other hand, we can assume that $T$ is big enough, such that the projection in a Morse chart $h: \phi_T(U_x)\to W(p\to)$ is one to one and even smooth. This induces a chart to $ phi_T(U_x)$ from $W(p \to )$, which again induces a chart to $U_x=\phi_{-T}( \phi_T(U_x))$. Now we can take the chart from the (un-)stable manifold theorem which is locally around $p$ a Morse chart $\psi: U\to T_pM=T_p^uM\oplus T_p^sM$.
+			Here the map $f\circ \psi^{-1}$ has the differential 
+			\begin{align}
+				\diff(f\circ \psi^{-1})=(2x^1,\dots 2x^{\lambda_p},-2x^{\lambda_p+1},\dots -2x^m)
+			\end{align}
+			And hence  
+			\begin{align*}
+				\diff(f\circ \psi)(0,\lambda v)(0,v)=(0,-2\lambda (v^{\lambda_p})^2,-2\lambda (v^{m})^2)
+			\end{align*}
+			Now assume that there is a $x$ and $v\in R^{\lambda_p}$ such that the map 
+			\begin{align*}
+				l_v \R\to\R^m;\lambda \mapsto f\circ \phi_T\circ J(\Phi^{-1})(x,v)
+			\end{align*} is monotonically increasing and hence has a positive differential in $\mu$:
+			\begin{align*}
+				0<\diff(l_v)(\mu)
+				&=\diff f\circ h_x(\psi^{-1}(v))\\
+				&=\restr{\diff f\circ \psi^{-1}}{\psi\circ h_x \circ \psi^{-1}(v)}\circ \restr{\diff h_x \circ \psi^{-1}}{arg2}
+			\end{align*}
+			
+			Lets setup all the needed notation. First we have the Morse chart:
+			\begin{align*}
+				\psi: M\supseteq L \to \R^{m-\lambda_p}\times \R^{\lambda_p} \quad \text{ where $L$ is a neighbhourhood of $p$}
+			\end{align*}Now let $v\in \R^{\lambda_p},x\in W(\to p)$, $T$ a real number big enough and $I=(1-\mu,1+\mu)$ a small intervall around $1$.
+			\begin{equation*}
+				\begin{array}{lll}
+					k_v: & I&\to \R\\
+					& \lambda &\mapsto f\circ \psi{-1} (\lambda \cdot v,0)\\
+					l_v: & I&\to \R\ \\
+					& \lambda &\mapsto f \circ \psi^{-1}\circ h_x(\lambda \cdot v) 
+				\end{array}
+			\end{equation*} Furthermore, reuse the notation $h_x(v)=(h_x^s(v),v)$ from the proof of the technical $\lambda$-lemma and by said lemma, there is a small  $\mu^T>0$ depending on $T$ such that:
+			\begin{align*}
+				\norm{h_x(v)-v}<\mu^T \\
+				\diff h_x=\begin{pmatrix}
+					1_{\lambda_p\times \lambda_p}\\
+					\diff h_x^s
+				\end{pmatrix}
+			\end{align*} where $\norm{\diff h_x^s}< \mu^t$. Now we can calculate the derivative $\diff (l_v)(\lambda)$:
+			\begin{align*}
+				\diff (l_v)(\lambda)
+				&=\restr{\diff (f\circ \psi^{-1})}{h_x(\lambda v)}\circ \restr{\diff h_x}{\lambda v} (v)\\
+				&=\restr{\diff (f\circ \psi^{-1})}{h_x(\lambda v)} (v,\diff h_x^s(v))\\
+				&=-2\lambda \sum_{i_1}^{\lambda_p}(v^i)^2+\left(h^s_x(\lambda v)\right)^T\cdot (\diff h_x^s)^i(\lambda v)\\
+				&\leq-2\lambda \norm{v}^2 +\lambda^2 (\mu^T )^2\norm{v}^2\\
+				&= \left( -2+(\mu^T)^2\lambda \right) \lambda \norm{v}^2<0 \text{ for all $v\neq 0$, $\lambda \in I$ and for all $T$ big enough.}
+			\end{align*}
+			Hence the function $l_v$ is monotonically decreasing.
+			
+		\end{proof}
+	\end{comment}
