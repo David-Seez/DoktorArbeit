@@ -23,7 +23,7 @@ We assume that $q$ is a critical point of index $k+1$ and $p$ is a critical poin
 	B  & \coloneq  N_p \cup L_q   \, ,                   \\
 	A  & \coloneq  L_p \cup \mathring{(L_q-N_p)} \, .
 \end{align}
-\begin{lemma}
+\begin{lemma}\label{lem: The Main Lemma Np is tubular}
     We claim that 
     \begin{enumerate}
 	\item $(N_q,L_q)$ is a regular index pair for $q$\, . \label{lem: enum: 1}
@@ -392,7 +392,7 @@ For this we introduce the following notation
 		\end{align*} has negative derivative.
 	\end{lemma}
 	\begin{proof}
-		We will apply the technichal $\lambda$-lemma. For this we reuse the notation as follows. The lemma tells us, that for any $\mu_T>0$ we can find a $T$ big enough, such that $\phi_T(J(U_x))$ is close in the following sence: There is a neighbourhood $L$ of $p$ and a Morse chart 
+		We will apply the technichal $\lambda$-lemma. For this we reuse the notation as follows. The lemma tells us, that for any $\mu_T>0$ we can find a $T$ big enough, such that $\phi_T(J(U_x))$ is close in the following sense: There is a neighbourhood $L$ of $p$ and a Morse chart 
 		\begin{align*}
 			\Psi: L\to \R^{\lambda_p}\times \R^{m-\lambda_p}
 		\end{align*} such that $\restr{\Psi}{\R^{\lambda_p}}\supseteq W(p\to)$. In this chart the set $\phi_T(J(U_x))$ is the graph of a funktion $h^s_x:\R^{\lambda_p}\to \R^{m-\lambda_p}$ that satisfies:
@@ -420,6 +420,9 @@ For this we introduce the following notation
 			&\leq-2\lambda \norm{v}^2 +\lambda^2 (\mu^T )^2\norm{v}^2\\
 			&= \left( -2+(\mu^T)^2\lambda \right) \lambda \norm{v}^2<0 \text{ for all $v\neq 0$, $\lambda \in I$ and for all $T$ big enough.}
 		\end{align*}
+	\end{proof}
+	\begin{proof}[Proof That $N_p$ is Tubular]
+	Let $U$ be a tubular neighbourhood of $W(\to p)çap M^c$ and let $\epsilon$ be big enough, such that $U$ contains $N_p$. Assume that the normal neighbourhood is trivialized via $\Phi$ such that $f\circ  \phi_T$ is fiberwise monotonically decreasing. For each $x$ the intersection $U_x\cap N_p$ is now starshaped, since if $v\in N_p\cap U_x$, then the whole line $\lambda \mapsto \lambda \cdot v$, $\lambda \in [0,1]$ is contained in said intersection. With this we have that $N_p$ is \textbf{homotopic to a tubular neighbourhood} and that should do the trick already...
 	\end{proof}
 	\begin{comment}
 		\begin{lemma}
