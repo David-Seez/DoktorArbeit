@@ -30,7 +30,7 @@ We assume that $q$ is a critical point of index $k+1$ and $p$ is a critical poin
 	\item $(C,B)$ is an index pair for $q$\, .\label{lem: enum: 2}
 	\item $(N_p,L_p)$ is a regular index pair for $p$\, .\label{lem: enum: 3}
 	\item $(B,A)$ is an index pair for $p$\, .\label{lem: enum: 4}
-    \item $N_p$ is a tubular neighbourhood of $W(\to p)\cap M^c$\, .\label{lem: enum: 5}
+    \item $N_p$ is homotopically equivalent to a tubular neighbourhood of $W(\to p)\cap M^c$\, .\label{lem: enum: 5}
 \end{enumerate}
 \end{lemma}
 
@@ -400,7 +400,13 @@ For this we introduce the following notation
 			\norm{\diff h^s_v}<\mu_T\\ 
 			\norm{ h^s_v}<\mu_T
 		\end{align*}
-		We define the map $h_x=h^s_x\oplus \id_{\lambda_p}: \R^{\lambda_p}\to \R^m$. Now $\phi_T(J(U_x))=\Gamma(h^s_x)=\im (h_x)$. Using this we define our global trivialisation:
+		We define the map $h_x=h^s_x\oplus \id_{\lambda_p}: \R^{\lambda_p}\to \R^m$.
+		
+		
+		
+		
+		
+		 Now $\phi_T(J(U_x))=\Gamma(h^s_x)=\im (h_x)$. Using this we define our global trivialisation:
 		\begin{align*}
 			\Phi: NW(\to p)\cap M^c &\to  \left(W(\to p)\cap M^c\right)\times \R^{\lambda_p}\\
 			\xi &\mapsto \left(\pi(\xi), h^{-1}_{\pi(\xi)}\circ \Psi \circ \phi_T \circ J(\xi)\right)
@@ -410,8 +416,13 @@ For this we introduce the following notation
 			l_v(\lambda)
 			&=f \circ \phi_T\circ J \circ \Phi^{-1} (x,\lambda v)\\
 			&=f \circ \phi_T\circ J\circ J^{-1}\circ \phi_{-T}\circ \Psi^{-1} \circ h_x\\
-			&=f \circ \Psi^{-1} \circ h_x\, .\\
-		\end{align*} Now we can calculate its derivative to conclude the statement: 
+			&=f \circ \Psi^{-1} \circ h_x\, .
+		\end{align*} 
+		In coordinates this reads:
+	
+		
+		
+		Now we can calculate its derivative to conclude the statement: 
 		\begin{align*}
 				\diff (l_v)(\lambda)
 			&=\restr{\diff (f\circ \psi^{-1})}{h_x(\lambda v)}\circ \restr{\diff h_x}{\lambda v} (v)\\
@@ -420,10 +431,83 @@ For this we introduce the following notation
 			&\leq-2\lambda \norm{v}^2 +\lambda^2 (\mu^T )^2\norm{v}^2\\
 			&= \left( -2+(\mu^T)^2\lambda \right) \lambda \norm{v}^2<0 \text{ for all $v\neq 0$, $\lambda \in I$ and for all $T$ big enough.}
 		\end{align*}
+		Hence, we are starshaped. But we can proof even more: 
+		Assume that for $x$ the ball $h_x(B_{\rho}(0))\subseteq \phi_T(U_x)$.Now define the following funktion 
+		\begin{align*}
+			r_x: h_x\left( \partial B_{\rho}(0) \right)&\to \R_{\geq 1}\\
+			v &\mapsto \lambda_v \text{ such that }f\circ \psi^{-1}(\lambda^x_v v)=a-\epsilon
+		\end{align*} By the argument above, this map is well defined. But it is also continouos. For this we will use cylinder coordinates and the implicit funktion theorem. in Cylinder coordinates (polar koordinates in the first $\lambda_p$ entries and standart coordinates else) the funktion $f$ looks like
+		\begin{align*}
+			f(r,\theta_1,\dots \theta_{\lambda_p-1},x_{\lambda_{p}+1},\dots x_{m})=-2r^2+2\sum_{i=\lambda_p+1}^mx_i^2
+		\end{align*}
+		Now we look at the composition $f\circ h_x$ and want to use again cylindrical coordinates. Here the funktion $f\circ h_x$ is of the form \begin{align*}
+			(r,\theta_1,\dots \theta_{\lambda_p-1},x_{\lambda_{p}+1})\mapsto -2r^2+2\sum_{i=\lambda_p+1}^m (h_c\circ \Lambda)^i
+		\end{align*} And the differential in $(r)$-direktion is invertible, since 
+		\begin{align*}
+			(-4r,
+		\end{align*}
+		
 	\end{proof}
+
+Now we want to \textbf{smoothly} rescale to the starshaped neighbourhood. This is in general not possible and homeomorphisms from starshaped neighbourhoods to $R^n$ are hard to describe, even if they are not reqiored to be a resacling. The main problem in the general case is, that the following: for each $v\in \phi_T(J(U_x))$ by the star shaped property there is a unique $\lambda_v$ , such that $\lambda_v v$ such that $f\circ (\lambda_v v)=a-\epsilon$. But the map $v\mapsto \lambda_v$ needs not to be continouos in the general starshaped setting. annoying
+
+
+
+
+
+
+
 	\begin{proof}[Proof That $N_p$ is Tubular]
-	Let $U$ be a tubular neighbourhood of $W(\to p)çap M^c$ and let $\epsilon$ be big enough, such that $U$ contains $N_p$. Assume that the normal neighbourhood is trivialized via $\Phi$ such that $f\circ  \phi_T$ is fiberwise monotonically decreasing. For each $x$ the intersection $U_x\cap N_p$ is now starshaped, since if $v\in N_p\cap U_x$, then the whole line $\lambda \mapsto \lambda \cdot v$, $\lambda \in [0,1]$ is contained in said intersection. With this we have that $N_p$ is \textbf{homotopic to a tubular neighbourhood} and that should do the trick already...
-	\end{proof}
+		
+			We will apply the technichal $\lambda$-lemma. For this we reuse the notation as follows. The lemma tells us, that for any $\mu_T>0$ we can find a $T$ big enough, such that $\phi_T(J(U_x))$ is close in the following sense: There is a neighbourhood $L$ of $p$ and a Morse chart 
+			\begin{align*}
+				\Psi: L\to \R^{\lambda_p}\times \R^{m-\lambda_p}
+			\end{align*} such that $\restr{\Psi}{\R^{\lambda_p}}\supseteq W(p\to)$. In this chart the set $\phi_T(J(U_x))$ is the graph of a funktion $h^s_x:\R^{\lambda_p}\to \R^{m-\lambda_p}$ that satisfies:
+			\begin{align*}
+				\norm{\diff h^s_v}<\mu_T\\ 
+				\norm{ h^s_v}<\mu_T
+			\end{align*}
+			We define the map $h_x=h^s_x\oplus \id_{\lambda_p}: \R^{\lambda_p}\to \R^m$.
+			
+			
+			
+			
+			
+			Now $\phi_T(J(U_x))=\Gamma(h^s_x)=\im (h_x)$. Using this we define our global trivialisation:
+			\begin{align*}
+				\Phi: NW(\to p)\cap M^c &\to  \left(W(\to p)\cap M^c\right)\times \R^{\lambda_p}\\
+				\xi &\mapsto \left(\pi(\xi), h^{-1}_{\pi(\xi)}\circ \Psi \circ \phi_T \circ J(\xi)\right)
+			\end{align*}
+			In this trivialization the funktion $l_v$ looks like:
+			\begin{align*}
+				l_v(\lambda)
+				&=f \circ \phi_T\circ J \circ \Phi^{-1} (x,\lambda v)\\
+				&=f \circ \phi_T\circ J\circ J^{-1}\circ \phi_{-T}\circ \Psi^{-1} \circ h_x\\
+				&=f \circ \Psi^{-1} \circ h_x\, .\\
+			\end{align*} 
+			We now claim, that the set 
+			\begin{align*}
+				\{x\in \phi_T(U_x)|f(x)\geq a-\epsilon \} 
+			\end{align*} is convex.
+			
+			
+			
+			
+			
+			
+			Now we can calculate its derivative to conclude the statement: 
+			\begin{align*}
+				\diff (l_v)(\lambda)
+				&=\restr{\diff (f\circ \psi^{-1})}{h_x(\lambda v)}\circ \restr{\diff h_x}{\lambda v} (v)\\
+				&=\restr{\diff (f\circ \psi^{-1})}{h_x(\lambda v)} (v,\diff h_x^s(v))\\
+				&=-2\lambda \sum_{i_1}^{\lambda_p}(v^i)^2+\left(h^s_x(\lambda v)\right)^T\cdot (\diff h_x^s)^i(\lambda v)\\
+				&\leq-2\lambda \norm{v}^2 +\lambda^2 (\mu^T )^2\norm{v}^2\\
+				&= \left( -2+(\mu^T)^2\lambda \right) \lambda \norm{v}^2<0 \text{ for all $v\neq 0$, $\lambda \in I$ and for all $T$ big enough.}
+			\end{align*}
+		\end{proof}
+	
+	
+
 	\begin{comment}
 		\begin{lemma}
 			Let $U$ be a tubular neighbourhood of $W(\to p)\cap M^c$. with $J: NW(\to p)\to W(\to p) $being the embedding. For $x\in W(\to p)$ we define $U_x$ to be the image of the normal fibre above $x$, i.e. $U_x=J(N_xW(\to p))$. Then for any $T>0$ big enough and $\epsilon >0$ small enough, there exists an global trivialisation of the normal bundle such that the function $f\circ \phi_T:U_x\to R$ is monoton decreasing in a small tube of radius $\epsilon$ meaning that if $\lambda>1,v\in U_x$ with $\norm{v}<\norm{\lambda v}<\epsilon$ then $f\circ \phi_T(v)<f\circ \phi_T(\lambda v)$.
