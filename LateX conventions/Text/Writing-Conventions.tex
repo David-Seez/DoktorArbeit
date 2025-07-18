@@ -29,6 +29,35 @@ Free Text is the main narrative of the thesis. It includes explanations, motivat
 \begin{theorem}[An Example]
 	Used for major, central mathematical statements that are either original contributions or critical results from the literature. Theorems typically capture the most important claims and are often proved in detail.
 \end{theorem}
+
+\begin{Iprove} Here I give the geometric idea of the proof and explain the needed steps. \newline
+	\begin{minipage}{\dimexpr \textwidth-2\fboxsep-2\fboxrule}
+			\abovecaptionskip=0pt
+			 \sbox0{\includegraphics[scale=0.45]{example-image}}% get height and width
+			\hangafter \numexpr -\ht0/\baselineskip -1\relax% adds one blank lines at bottom
+			\hangindent \dimexpr \wd0 + 1.2em\relax% adds 1em margin on right
+			\vbox{\raisebox{-\height}[0pt][0pt]{\hspace{0.2em}\box0}}\vspace{-1ex}% overlap image
+				Also some helpful images are included here. If done correctly we can wrap text arround it.
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur
+	\end{minipage}
+\end{Iprove}
+
+
+The included image is implemented as follows: 
+	\begin{verbatim}
+		\begin{minipage}{\dimexpr \textwidth-2\fboxsep-2\fboxrule}
+			\abovecaptionskip=0pt
+			\sbox0{\includegraphics[scale=0.45]{beispiel-bild}}
+			\hangafter \numexpr -\ht0/\baselineskip -1\relax
+			\hangindent \dimexpr \wd0 + 1.2em\relax
+			\vbox{\raisebox{-\height}[0pt][0pt]{\hspace{0.2em}\box0}}\vspace{-1ex}
+			
+			Hier steht der Text, der um das Bild fließen soll...
+		\end{minipage}
+	\end{verbatim}
+
+
+
 \begin{lemma}[An Example]
 	Used for technical results that support the proof of theorems or other key statements. Lemmas are usually not of independent interest but are essential building blocks within a logical argument.
 \end{lemma}
@@ -42,4 +71,35 @@ Free Text is the main narrative of the thesis. It includes explanations, motivat
 	This container is pretty obvious
 \end{proof}
 \subsection{Mathemtical Conventions}
-Elements in a vector bundle will have greek letters. For example $\xi\in TM$	
+Elements in a vector bundle will have greek letters. For example $\xi\in TM$. For restrictions I will use the notation $\restr{f}{A}$ that is written as :
+\begin{verbatim*}\restr{f}{A}.\end{verbatim*}
+\subsection{Notation}
+
+
+\begin{longtable}{>{\centering\arraybackslash}p{3cm} p{6cm} p{5cm}}
+	\toprule
+	\textbf{Symbol} & \textbf{Description} & \textbf{Context} \\
+	\midrule
+	\endfirsthead
+	
+	\multicolumn{3}{c}{\textit{Continued from previous page}} \\
+	\toprule
+	\textbf{Symbol} & \textbf{Description} & \textbf{Context} \\
+	\midrule
+	\endhead
+	
+	\bottomrule
+	\multicolumn{3}{r}{\textit{Continued on next page}} \\
+	\endfoot
+	
+	\bottomrule
+	\endlastfoot
+	
+	% Hier fügen Sie Ihre Notationen ein
+	$M$ & Smooth manifold & Differential geometry \\
+	$\dim M$ & Dimension of manifold $M$ & Differential geometry \\
+	$TM$ & Tangent bundle of $M$ & Differential geometry \\
+	$T_pM$ & Tangent space at point $p$ & Differential geometry \\
+	$\xi, \eta, \zeta$ & Elements of vector bundles & Bundle theory \\
+	$g$ & Riemannian metric & Riemannian geometry \\
+\end{longtable}

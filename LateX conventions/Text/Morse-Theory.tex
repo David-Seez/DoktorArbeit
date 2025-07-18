@@ -1,0 +1,22 @@
+\section{Morse Theory}
+For everything concerning Morse theory our main reference will be the wonderful book \cite{banyaga2004lectures}. 
+In Morse Theory, we will always deal with asmooth funkition $f:M\to \R$ from a smooth Riemannian manifold $(M,g)$ that is also compact. We will denote its dimension by $m=\dim (M)$.
+\begin{definition}[Kritical Points]
+	We call a point $p\in M$ \textbf{critical}, if $\restr{\diff f}{p}$ vanishes meaning that 
+	\begin{equation*}
+		\restr{\diff f}{p} :T_pM\to T_{f(p)}\R
+	\end{equation*} is trivial. By $\Crit (f)$ we denote the \textbf{set of critical points}.
+\end{definition}
+\begin{definition}[The Hessian]
+Let $f:M\to \R$ be a smooth funktion. The \textbf{Hessian} of $f$ at $p\in \Crit(f)$ is a symmetric bilinear funktion
+\begin{equation*}
+	\Hess_p(f):T_pM\times T_pM \to \R
+\end{equation*}  that is defined as follows. Let $\xi_p, \zeta_p\in T_pM$ be two tangend vectors. Now choos two vectorfields $\Xi$ and $Z$ in a neighbourhoof of $p$ such that $\Xi(p)=\xi_p$ and $Z(p)=\zeta_p$. With this define the Hessian to be: 
+\begin{equation*}
+	\Hess_p(f)(\xi_p,\zeta_p)=\left(\Xi\cdot (Z\cdot f)\right)(p)
+\end{equation*} Compare \ref{cor: Vectorfields hav funktions as inputs} for the notation. 
+\end{definition}
+
+\begin{corollary}
+	Inhalt... local form of the Hessian
+\end{corollary}

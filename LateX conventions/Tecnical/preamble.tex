@@ -63,42 +63,59 @@
 \usepackage[dvipsnames]{xcolor}
 \usepackage{thmtools}
 
-\declaretheoremstyle[
-spaceabove=10pt, spacebelow=10pt,
-headfont=\bfseries,
-notefont=\normalfont\bfseries,
-notebraces={(}{)},
-bodyfont=\itshape,
-postheadspace=1em,
-headpunct={},
-shaded={
-	rulecolor=black,
-	rulewidth=1pt,
-	bgcolor=gray!5,
-	margin=5pt,
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{booktabs}
+
+
+
+\usepackage[ntheorem]{empheq}
+\usepackage{mdframed}	% für Rahmen
+
+\mdfsetup{%
+	ntheorem 		= false,
+	leftmargin 		= 10pt,
+	everyline 		= true,
+	splittopskip 	= 15pt,
+	splitbottomskip = 10pt,
+	linewidth		= 1pt
 }
-]{boxedstyle}
 
-\declaretheorem[
-style=boxedstyle,
-name=Theorem,
-numberwithin=section
-]{theorem}
-
-\declaretheorem[
-style=boxedstyle,
-name=Lemma,
-sibling=theorem
-]{lemma}
-
-
-% --- Normale (nicht-gebokste) Umgebungen ---
-\theoremstyle{definition}
-\newtheorem{definition}[theorem]{Definition}
-\newtheorem{remark}[theorem]{Remark}
-\newtheorem{example}[theorem]{Example}
-\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{plain}
+\newmdtheoremenv{theorem}{Theorem}[subsection]
+\newmdtheoremenv{lemma}[theorem]{Lemma}
 \newtheorem{proposition}[theorem]{Proposition}
+\newmdtheoremenv{fact}[theorem]{Fact}
+
+\theoremstyle{definition}
+\newtheorem{example}[theorem]{Example} 
+\newtheorem{examples}[theorem]{Examples}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{defn}[theorem]{Definition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{remark}[theorem]{Remark}
+
+\mdfdefinestyle{definitionstyle}{
+    leftline=true,
+rightline=false,
+topline=false,
+bottomline=false,
+linecolor=gray,
+linewidth=3pt,
+innerleftmargin=10pt,
+innerrightmargin=0pt,
+innertopmargin=0pt,
+innerbottommargin=5pt,
+skipabove=0pt,
+skipbelow=0pt,
+outerlinewidth=0pt,
+align=center,
+nobreak=true,
+frametitle={Proof Strategy:},        % Ihre gewünschte Überschrift
+frametitlefont=\bfseries,       % Fett formatiert
+frametitlerule=false,           % Keine Linie unter der Überschrift
+}
+\newmdenv[style=definitionstyle]{Iprove}
 
 \usepackage{mathtools}
 \pgfplotsset{compat=newest}
@@ -178,12 +195,7 @@ sibling=theorem
 }
 \newcommand\einsch[1]{\raisebox{-.5ex}{$\Big|$}_{#1}}
 
-\newcommand\restr[2]{{% we make the whole thing an ordinary symbol
-		\left.\kern-\nulldelimiterspace % automatically resize the bar with \right
-		#1 % the function
-		\littletaller % pretend it's a little taller at normal size
-		\right|_{#2} % this is the delimiter
-}}
+\newcommand\restr[2]{\left.#1\right|_{#2}}
 
 
 \newcommand{\iso}{\mathrm{iso}}
@@ -232,10 +244,13 @@ style=alphabetic
 
 \usepackage{adjustbox}
 
-% Satz (Theorem): Wichtiges Ergebnis.
-% Lemma: Hilfssatz für den Beweis eines wichtigeren Ergebnisses.
-% Proposition: Weniger bedeutende, aber nützliche Aussagen.
-% Korollar: Direkte Folgerung aus einem Satz oder Lemma.
-% Definition: Einführung eines neuen Begriffs.
-% Bemerkung (Remark): Erläuterung oder Zusatzinformation.
-% Beispiel: Veranschaulichung eines Begriffs oder Satzes.
+
+
+
+
+
+
+%%%%%%%%%%nur hier benötigt
+\usepackage{wrapfig}
+\usepackage{mwe}       % Für \dummyimage
+

@@ -1,0 +1,207 @@
+\section{Differentiable structures on topological manifolds}
+This section aims to set the playing field for the thesis. Due to the theory being of intrest for mathematicians and physisists alike there are many (equivalent) definitions used to introduce the objects. The main goal of this section is to avoid confusion, by giving the definitions instead relying on the reader to guess what a certain symbol stands for.
+\begin{definition}[Topological Manifold]
+	A second countable Hausdorffspace $M$ is called \textbf{topological manifold} of dimension $m\in \N$, if it is locally homeomorphic to $\R^m$. To be precise, if for all $p\in M$ there exists an open neighborhood $U\subseteq M$ of $p$, an open set $V\subseteq \R^m$  and a map $\phi:W\to V$ that is a homeomorphism. We call the map $\phi:U\to V$ a \textbf{chart around $p$ on $M$} and $\phi^{-1}$ a \textbf{local coordinate system around $p$ on $M$}.
+\end{definition}
+\begin{definition}[Differentiable Manifold]
+	Let $M$ be a topological manifold of dimension $M$. 
+	\begin{enumerate}
+		\item A \textbf{differentiable atlas of class } $r\in \N\cup\{\infty\}$ is a family of charts $\mathfrak{A}=\left( \phi_i:U_i \to V_i\right)_{i\in I}$ such that
+		\begin{enumerate}
+			\item $\bigcup_{i\in I}U_i=M$, meaning that $\left( U_i\right)$ is an open covering of $M$.
+			\item For every pair $(i,j)\in I^2$ the \textbf{transition function}:
+			\begin{align*}
+				\phi_{ij}:\phi_j(U_i \cap U_j)&\to \phi_i(U_i \cap U_j)\\
+				x                             &\mapsto \left(\phi_i \circ \phi_j^{-1}\right)(x)
+			\end{align*}
+			is differentiable of class $r$.
+		\end{enumerate}
+		We call such an atlas a $C^r$-atlas.
+		\item Two $C^r$-atlases $\mathfrak{A}$ and $\mathfrak{B}$ are called \textbf{equivalent} if the family $\mathfrak{A}+\mathfrak{B}=\left(\phi_i,\phi_j\right)_{ij}$ is a $C^r$-atlas.
+	\end{enumerate}
+	A \textbf{differentiable structure of class $r$} on $M$ is an equivalence class $c$ of $C^r$-atlases. 
+	For $r=\infty$ we call the pair $(M,c)$ a smooth manifold.
+\end{definition}
+\begin{corollary}
+	Every transition functions $\phi_{ij}$ $i,j\in I^2$ of a differentiable atlas $\mathfrak{A}=(\phi_i)_{i\in I}$ is not just a homeomorphism but also a diffeomorphism due to $\phi_{ji}=\phi_{ij}^{-1}$ 
+\end{corollary}
+\begin{definition}
+	Let $(M,c)$ be a differentiable manifold of class $r$ and $U\subseteq M$ open. We call a continuos function 
+	\begin{align*}
+		f:U \to \R
+	\end{align*} \textbf{differentiable of class $r$}, if for any one (and hence for all) $(\phi_i)_{i\in I}=\mathfrak{A}\in c$ the compositions $f\circ \phi_i^{-1}$ are differentiable of class $r$. For $r=\infty$ we define:
+	\begin{align*}
+		\mathcal{E}(U)=\{f\in U \to \R \text{ continouos}~|~ f \text{ is differentiable of class }\infty \} \, . 
+	\end{align*}
+\end{definition}
+\begin{corollary}
+	Let $(M,c)$ be a smooth manifold of dimension $m$ and $U\subseteq M$ be a open subset. With pointwise defined operations, the set $(\mathcal{E}(U),+,\cdot,\circ)$ becomes an $\R-$algebra. Furthermore, $\mathcal{E}$ becomes a sheaf of $\R$-algebras.
+\end{corollary}
+\begin{proof}
+	There is not really a need for a proof. However, it might help to work through the definition of a sheaf as a reminder. First, $\mathcal{E}$ is a presheaf, where the restriction in the domain of a function gives the needed restriction homomorphism:
+	\begin{align*}
+		\text{res}^U_V: \mathcal{E}(U) &\to \mathcal{E}(V) \\
+		f &\mapsto {f}\einsch{V} \, .
+	\end{align*} The required properties of a presheaf are trivial. Furthermore, this gives a sheaf as the requirement of locality is trivial for functions and the property of gluing is also trivial for functions, since differentiability is a local property.
+\end{proof}
+\begin{definition}
+	If $p\in M$ is fix, $f\in \mathcal{E}(U)$ and $g\in \mathcal{E}(U')$ such that $p\in U\cap U'$ we say that $f$ and $g$ have the same \textbf{germ in $p$}, if there is another open neighborhood $W\subseteq U\cap U'$ of $p$ such that ${f}\einsch{w}={g}\einsch{W}$. This defines an equivalence relation $\sim_p$. An equivalence class $s$ of local functions around $p$ is called a \textbf{germ in $p$}. We write $s=f_p$, if $s=[f]$ with $f\in \mathcal{E}(U)$. 
+	We write 
+	\begin{align*}
+		\mathcal{E}_p(M)=\left. \left( \sum_{U \text{open},p\in U }\mathcal{E}(U)\right)\middle/ \sim_p \right. \, .
+	\end{align*} For the set of germs and call it the \textbf{stalk in $p$}. Here $\sum$ denotes the co-product (also called sum)  in $\Top$ and hence the disjoint union.
+\end{definition}
+\begin{corollary}
+	For a smooth manifold $(M,c)$ the set $\mathcal{E}_p(M)$ inherits an $\R-$algebra structure from the $\mathcal{E}(U)$. Furthermore, it carries a natural (evaluation-)homomorphism:
+	\begin{align*}
+		\mathrm{eval}_p: \mathcal{E}_p(M) & \to \R \\
+		f_p  & \mapsto f(p)\eqcolon f_p(p)
+	\end{align*}
+	The stalks are also local rings with maximal ideal $\mathfrak{m}_p=\ker(\mathrm{eval}_p)$. Hence, the pair $(M,\mathcal{E})$ gives us a locally ringed space.
+\end{corollary}
+\begin{proof}
+	Here, we only need to prove the statement about the locality of the stalks. This follows from $f_p\in \mathcal{E}_p(M)$ being invertible if and only if $f(p)\neq 0$ which is the same as $f_p\notin \ker(\mathrm{eval}_p)$.
+\end{proof}
+\begin{definition}
+	Let $(M,c)$ be a smooth manifold of dimension $m$ and $p\in M$. We call an $\R$-linear map $\delta:\mathcal{E}_p(M)\to \R$ a \textbf{derivation}, if it satisfies the Leibnitz-rule:
+	\begin{align*}
+		\delta(f_p\cdot g_p)=\delta(f_p)g_p(p)+f_p(p)\delta(g_p) \quad \text{for all }f,g\in \mathcal{E}_p(M) \, .
+	\end{align*}
+	We call $\mathrm{Der}_{\R}(\mathcal{E}_p(M),\R)$ the set of derivations and give it a $\R$ vector space structure by pointwise operations. We define the \textbf{tangent space of $M$ at $p$} to be the vector space
+	\begin{align*}
+		TM_p \coloneq \mathrm{Der}_{\R}(\mathcal{E}_p(M),\R) \, .
+	\end{align*}
+\end{definition}
+\begin{corollary}
+	Let $(M,c)$ be a smooth manifold and $\phi:U\to V$ be a chart around $p$ with $x_0=\phi(p)$ ($\phi \in \mathfrak{A}\in c$). Then 
+	\begin{align*}
+		\xi=\frac{\partial}{\partial x^j}\Big|_p : \mathcal{E}_p(M) &\to \R \\
+		f_p & \mapsto \xi(f_p)=\frac{\partial}{\partial x^j}\Big|_{x_0}(f\circ \phi^{-1} )
+	\end{align*} is well-defined and a tangent vector. In fact, the family
+	\begin{align*}
+		\left(\frac{\partial}{\partial x^1}\Big|_p,...,\frac{\partial}{\partial x^m}\Big|_p\right)
+	\end{align*} defines a basis of $TM_p$. Hence, the dimension of $TM_p$ is $m$.
+\end{corollary}
+\begin{definition}
+	For a smooth manifold $(M,c)$ the sum $\sum_pTM_p$ comes with a natural projection 
+	\begin{align*}
+		\pi: TM &\to M \\
+		\xi &\mapsto p \text{ where }\xi \in TM_p 
+	\end{align*} Furthermore, the \textbf{local vector fields} with respect to a chart $\phi:U\to V$
+	\begin{align*}
+		\frac{\partial}{\partial x^j}: U & \to \pi^{-1}(U) \\
+		p &\mapsto \frac{\partial}{\partial x^j}\Big|_p
+	\end{align*} induce a local trivialization:
+	\begin{align*}
+		\pi^{-1}(U)\cong U \times \R^m\, .
+	\end{align*} We can induce a topology on $TM$ such that all those trivializations are continuos. This then gives an atlas for $TM$ such that we have a $2m$-dimensional manifold. To be precise, the atlas is given by the maps $\pi^{-1}(U_i)\to R^m\times R^m; x\mapsto (\pi(x),q_{\phi\circ \pi(x)}(x))$ where $q_p$ denotes the coordinate map corresponding to the basis $(\frac{\partial}{\partial x^1}\big|_p,...,\frac{\partial}{\partial x^m}\big|_p)$ that depends on the chart $\phi_i$.  In fact, this yields a smooth manifold and a (smooth) vector bundle of dimension $m$. We call $TM$ the \textbf{tangent bundle}.
+\end{definition}
+\begin{definition}[The Derivative]
+	Let $(M,c)$ and $(M',c')$ be smooth manifolds (from now on we suppress the differentiable structure in our notation). We call a continuous function $f:M \to M'$ \textbf{smooth}, if for all $\phi\in \mathfrak{A}\in c$ and $\phi'\in \mathfrak{A}'\in c'$ the maps
+	\begin{align*}
+		\phi'\circ f\circ  \phi^{-1}:V\to V'
+	\end{align*} are smooth. A given smooth function induces a smooth function between the Tangent bundles as follows:
+	\begin{align*}
+		Df: TM &\to TM' ~,Df_p(\xi)(g_p)=\xi((g\circ f)_p)
+	\end{align*}Here, $\xi\in T_pM$, $g_p\in E_p(M')$.
+\end{definition}
+\begin{corollary}\label{cor: Vectorfields hav funktions as inputs}
+	Let $f:M\to \R$ be smooth and $\phi: U\to V$ be a chart. Then we can interprete $\diff f$ as a one-form. To be prezice asume $q$ to be the coordinate funktion $T\R\to \R$ from the basis induced by the identity as a chart. $v\in \Gamma TM$ we have
+	\begin{align*}
+		q\circ \diff f(v)=v\cdot f
+	\end{align*} Here on the righd side, $f$ denotes a map $p\mapsto f_p$ such that $v(f)(p)\coloneq v_p(f_p)$ is well defined. We keep this notations so vector fields can take funktions as an input.
+\end{corollary}
+\begin{proof}
+	We proof this by showing it for the section $\frac{\partial}{\partial x^i}$ and thereby for any, since those sections form a basis of the space of sections as a $C^{\infty}(M,\R)$ vectorspace. Now let $g_p\in \mathcal{E}_p(\R)$ and $\phi(p)=x_0$. Then
+	\begin{align*}
+		\diff f(\frac{\partial }{\partial x^i}\big|_p)(g_p)= \frac{\partial }{\partial x^i}\big|_p (g\circ f)_p=\frac{\partial }{\partial x^i}\big|_{x_0}(g\circ f\circ \phi^{-1})=\frac{\partial }{\partial x}\big|_{p}(g_p) \cdot \frac{\partial }{\partial x^i}\big|_p(f_p)
+	\end{align*}
+	Hence, $\diff f (v)=v(f)\frac{\partial }{\partial x}$ letting us conclude the statement.
+\end{proof}
+\begin{definition}[A Metric]
+	Let $M$ be a smooth manifold.
+	A section $g\in \Gamma(TM^*\otimes TM^*)$ into the tensor product of the dual Tangend bundle with itself is a\textbf{ riemannian metric} if the following are satisfied for all $p\in M$:
+	\begin{enumerate}
+		\item $g$ is \textbf{non degenerate}, meaning for a $v_p\in T_pM$ $g_p(v_p,w_p)=0 ~\forall w_p\in T_pM$ then $v_p=0$.
+		\item $g$ is \textbf{symmetric}, meaning $g_p(v_p,w_p)=g_p(w_p,v_p)~\forall v_p,w_p\in T_pM$ .
+		\item $g$ is \textbf{positiv definite}, meaning that $g_p(v_p,v_p)\geq 0 \forall v_p$ and vanishes only for $v_p=0$.
+	\end{enumerate} We cal a touple $(M,g)$ a \textbf{riemannian manifold}.
+\end{definition}
+\begin{definition}
+	Let $M,N,L$ be smooth manifolds and $f:M\times N \to M'\times N'$. Let $X\in \gamma(TM)$ and $Y\in \Gamma(TN)$. We define $\tilde{X}\in \Gamma(T(M\times N))$ as follows. Let $f_p\in \mathcal{E}_p(M,N)$
+	\begin{align*}
+		\tilde{X}(f_p)=X((f\circ i_M)_{p_M}) \quad \text{ where }p_M=\pi_1(p) \, .
+	\end{align*}
+\end{definition}
+\begin{definition}[The Gradient]
+	Assume that $(M,g)$ is a smooth manifold together with a riemannian metric. Let $f:M\to \R$ be a smooth function. We define its \textbf{gradient} to be a vector field $\grad(f)\in \Gamma(TM)$ such that for any vecor field $V$:
+	\begin{align*}
+		q\circ \diff f (V) = g(\grad(f),V) \, .
+	\end{align*} Here $q$ denotes the canonical coordinate funtion $T\R \to \R$.
+\end{definition}
+\begin{definition}
+	Let $(M,g)$ be a riemannian manifold and $\phi:U\to V$ be a chart. We define the smooth functions $g_{ij}:U\to \R$ to be :
+	\begin{align*}
+		g_{ij}=g(\frac{\partial}{\partial x^i},\frac{\partial}{\partial x^j}) \, .
+	\end{align*}
+	Then if two vectorfields $v,w$ over $U$ are given with $v=\sum v^i \frac{\partial}{\partial x^i}$ and $w=\sum _i w^i \frac{\partial}{\partial x^i}$ we can calculate the metric locally:
+	\begin{align*}
+		g(v,w)=\sum_{ij}g_{ij} v^iw^j\, :U\to \R
+	\end{align*} Furthermore, we can invert the matricies $(g_{ij}(p))_{ij}$ for all $p$ (which is a smooth procedure which can be seen by the construction via cramers rule) to get smooth functinos 
+	\begin{align*}
+		g^{ij}: U&\to \R\\
+		p&\mapsto g^{ij}(p)= \left( (g_{kl}(p))_{kl}^{-1} \right)_{ij}
+	\end{align*}
+\end{definition}
+
+
+\begin{lemma}
+	Let $\phi:U\to V$ be a chart. Then the gradient has the local form:
+	\begin{align*}
+		\grad(f) =\sum_{i,j}g^{ij}  \left( \frac{\partial }{\partial x^i} (f) \right) \frac{\partial }{\partial x^j} \eqcolon \sum_{i,j}g^{ij} \frac{\partial f}{\partial x^i}  \frac{\partial }{\partial x^j} \, .
+	\end{align*}
+	Here, $g^{ij}$ denotes the smooth functions given by the coordinates of the function $x\mapsto (g_{ij}(x))$ that defines the coordinate representation of the gradient in $x$. 
+\end{lemma}
+\begin{proof} Assume that $v,w\in \Gamma( TM)$ such that $v=\sum_i v^i\frac{\partial	}{\partial x^i}$ and $w=\sum_i w^i\frac{\partial	}{\partial x^i}$. Then  $g(v,w)=\sum_{i,j} g_{ij} v^i w^i$.
+	Suppose that $\grad(f)=\sum_j G^j \frac{\partial}{\partial x^j}$ and $q$ is the coordinate map $T\R\to \R$ in each tangend space. Then by definition of the gradient we have:
+	\begin{align*}
+		\frac{\partial }{\partial x^j}(f)=	q \circ \diff f (\frac{\partial }{\partial x^j})=q\circ \frac{\partial f}{\partial x^j}= g(\grad(f),\frac{\partial }{\partial x^j})= \sum_{ij}g_{ij} G^i
+	\end{align*} Hence, 
+	\begin{align*}
+		&(G^1,\cdots G^m)(g_{ij})=\left(\frac{\partial }{\partial x^1} (f),\cdots,\frac{\partial }{\partial x^m} (f)  \right) \\
+		\Leftrightarrow &(G^1,\cdots G^m)=\left(\frac{\partial }{\partial x^1} (f),\cdots,\frac{\partial }{\partial x^m} (f)  \right) (g^{ij})\, .
+	\end{align*}  But then we can conclude that $G^j=\sum_i g^{ij}\frac{\partial }{\partial x^i} (f)$.
+	
+\end{proof}
+\begin{definition}[A Dynamical System]
+	Let $M$ be a smooth manifold. A \textbf{dynamical system on $M$} is given by a smooth map $\phi:\Omega \to M$ such that:
+	\begin{enumerate}
+		\item $\{0\}\times M \subseteq \Omega \subseteq \R \times M$ open, and for any $p\in M$ the set $I(p)\coloneq \pi_1(\Omega\cup \R\times \{p\})$ is connected. ($\pi_1$ is the projection onto the first factor)
+		\item For all $p\in M$ and $t\in I(p)$ we have that $s\in I(\phi(t,p))$ if and only if $s+t\in I(p)$. Then we have:
+		\begin{align*}
+			\phi(s,(\phi(t,p)))=\phi(s+t,p)
+		\end{align*} 
+		\item For all $p$ we require $\phi(0,p)=p$. 
+	\end{enumerate}
+	We will write $\phi:t(p)\coloneq \phi(t,p)$ to keep the notation bearable. 
+	If for all $p$ $I(p)=\R$ we call the system \textbf{global}. 
+\end{definition}
+
+\begin{corollary}
+	For a global dynamical system $\phi$ on a smooth manifold $M$ the map
+	\begin{align*}
+		\rho: \R \to \Diff,~t\mapsto \phi_t
+	\end{align*}is a homomorphism. To see the well definition notice how for all $t\in \R$ $\phi_{-t}$ is an inverse of $\phi_t$.
+\end{corollary}
+\begin{definition}[Vector Field of a Dynamical System]
+	Let $\phi$ be a dynamical system on a smooth manifold $M$. Then we call the mapping
+	
+	\begin{align*}
+		p\mapsto X(p)\coloneq \frac{\diff }{\diff t}\einsch{t=0}\phi_t(p)\in T_pM
+	\end{align*} the \textbf{associated vecor field}. This is in fact a smooth vector field. 
+\end{definition}
+Whilst differentiating leads to a smooth vector field, we can also go the other direktion by locally integrating a vector field to get a flow. To be precise:
+Those concepts are inverse to one another or in other words \todo{hier genauer werden}
+\begin{theorem}
+	Let $M$ be a smooth manifold. Then there is a one to one correspondence between global maximal flows and vector fields. 
+\end{theorem}
