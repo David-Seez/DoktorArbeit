@@ -16,7 +16,43 @@ Let $f:M\to \R$ be a smooth funktion. The \textbf{Hessian} of $f$ at $p\in \Crit
 	\Hess_p(f)(\xi_p,\zeta_p)=\left(\Xi\cdot (Z\cdot f)\right)(p)
 \end{equation*} Compare \ref{cor: Vectorfields hav funktions as inputs} for the notation. 
 \end{definition}
-
-\begin{corollary}
-	Inhalt... local form of the Hessian
-\end{corollary}
+\begin{definition}
+	A smooth function $f: M\to \R$ is called \textbf{Morse}, if for any critical point.
+\end{definition}
+The Hessian is a Symmetric bilinear and non-degnereate Map. For such a map there exists the following theorem: 
+\begin{theorem}[Sylvesters Law of Inertia]
+	Let $A\in \Mat(n,\R)$ be symmetric and let $T,T'\in \GL(n,\R)$ and $k,k',l,l'\in \N$ such that \\
+	\begin{align*}
+		T^t\circ A\circ T=	\begin{pmatrix}
+			1_k& 0 &0\\
+			0& -1_l&0\\
+			0&0&0_{n-k-l}
+		\end{pmatrix}\text{ and } 
+		T'^T\circ A \circ T'=
+		\begin{pmatrix}
+			1_{k'}& 0 &0\\
+			0& -1_{l'}&0\\
+			0&0&0_{n-k'-l'}
+		\end{pmatrix}
+	\end{align*}
+	then $k=k'$, $l=l'$ and $\rank(A)=k+l.$
+\end{theorem}
+\begin{proof}
+	Since $T,T'$ are invertible we have that
+	\begin{align}
+		k+l=\rank(T^t\circ A\circ T)=\rank(A)=\rank(T'^T\circ A\circ T')=k'+l' \, .
+	\end{align} Hence it suffices to show that $k=k'$. Which we will do by proofing the claim:
+	\begin{equation*}
+		k=\max \left\{ \dim(U)|U\subseteq \R^n \text{subspace such that } x^tAx>0 ~\forall x\in U\setminus \{0\}  \right\}
+	\end{equation*}
+	So we start by showing \glqq $\leq $\grqq:
+	Denote the first $k$ colomus of $T$ with $x_1,...,x_k$. They form a basis of $\R^n$ and with $ 0 \neq x=\sum_{i=1}^k\lambda ix^i$ we have that by bilinearity
+	\begin{equation}
+		x^TAx=\sum_{i=1}^{k}\lambda_i x_i^T A x=\sum_{i,j=1}^{k}\lambda_i \lambda_j x_i^T A x_j=\sum_{i=1}^{k}(\lambda_i)^2\geq 0 \,. 
+	\end{equation} This conculdes the first inequality. 
+	
+	Now let $U$ be any $k-$dimensional subspace such that for all non zero $x\in U$ $x^TAx>0$. By a calculation analog to the one above we have that for any $x\in W:= \gen (x_{k+1},\dots x_n)$ the number $x^tAx$ is less or equal to zero. Hence, $W\cap U= \{0\}$ and with this we conclude:
+	\begin{equation}
+		\dim(U)=\dim(U+W)-\dim(W)+\dim(U\cap W)\leq (k+(n-k))-(n-k)+0=k\, .
+	\end{equation} This is the last inequality proving the statement.
+\end{proof}
