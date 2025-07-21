@@ -24,14 +24,14 @@ The Hessian is a Symmetric bilinear and non-degnereate Map. For such a map there
 	Let $A\in \Mat(n,\R)$ be symmetric and let $T,T'\in \GL(n,\R)$ and $k,k',l,l'\in \N$ such that \\
 	\begin{align*}
 		T^t\circ A\circ T=	\begin{pmatrix}
-			1_k& 0 &0\\
-			0& -1_l&0\\
+			\Idm_k& 0 &0\\
+			0& -\Idm_l&0\\
 			0&0&0_{n-k-l}
 		\end{pmatrix}\text{ and } 
-		T'^T\circ A \circ T'=
+		T'^t\circ A \circ T'=
 		\begin{pmatrix}
-			1_{k'}& 0 &0\\
-			0& -1_{l'}&0\\
+			\Idm_{k'}& 0 &0\\
+			0& -\Idm_{l'}&0\\
 			0&0&0_{n-k'-l'}
 		\end{pmatrix}
 	\end{align*}
@@ -40,22 +40,214 @@ The Hessian is a Symmetric bilinear and non-degnereate Map. For such a map there
 \begin{proof}
 	Since $T,T'$ are invertible we have that
 	\begin{align}
-		k+l=\rank(T^t\circ A\circ T)=\rank(A)=\rank(T'^T\circ A\circ T')=k'+l' \, .
+		k+l=\rank(T^t\circ A\circ T)=\rank(A)=\rank(T'^t\circ A\circ T')=k'+l' \, .
 	\end{align} Hence it suffices to show that $k=k'$. Which we will do by proofing the claim:
 	\begin{equation*}
 		k=\max \left\{ \dim(U)|U\subseteq \R^n \text{subspace such that } x^tAx>0 ~\forall x\in U\setminus \{0\}  \right\}
 	\end{equation*}
 	So we start by showing \glqq $\leq $\grqq:
-	Denote the first $k$ colomus of $T$ with $x_1,...,x_k$. They form a basis of $\R^n$ and with $ 0 \neq x=\sum_{i=1}^k\lambda ix^i$ we have that by bilinearity
+	Denote the first $k$ colomus of $T$ with $x_1,...,x_k$. They form a basis of $\R^n$ and with $ 0 \neq x=\sum_{i=1}^k\lambda ix_i$ we have that by bilinearity
 	\begin{equation}
-		x^TAx=\sum_{i=1}^{k}\lambda_i x_i^T A x=\sum_{i,j=1}^{k}\lambda_i \lambda_j x_i^T A x_j=\sum_{i=1}^{k}(\lambda_i)^2\geq 0 \,. 
+		x^tAx=\sum_{i=1}^{k}\lambda_i x_i^t A x=\sum_{i,j=1}^{k}\lambda_i \lambda_j x_i^t A x_j=\sum_{i=1}^{k}(\lambda_i)^2\geq 0 \,. 
 	\end{equation} This conculdes the first inequality. 
 	
-	Now let $U$ be any $k-$dimensional subspace such that for all non zero $x\in U$ $x^TAx>0$. By a calculation analog to the one above we have that for any $x\in W:= \gen (x_{k+1},\dots x_n)$ the number $x^tAx$ is less or equal to zero. Hence, $W\cap U= \{0\}$ and with this we conclude:
+	Now let $U$ be any $k-$dimensional subspace such that for all non zero $x\in U$ $x^tAx>0$. By a calculation analog to the one above we have that for any $x\in W:= \gen (x_{k+1},\dots x_n)$ the number $x^tAx$ is less or equal to zero. Hence, $W\cap U= \{0\}$ and with this we conclude:
 	\begin{equation}
 		\dim(U)=\dim(U+W)-\dim(W)+\dim(U\cap W)\leq (k+(n-k))-(n-k)+0=k\, .
 	\end{equation} This is the last inequality proving the statement.
 \end{proof}
+
+
+
+\begin{corollary}
+	Let $\phi:U\to V$ be a  chart around a critical point $p\in M$. Then in said chart the matrix corrsponding to the Hessian has the form:
+	\begin{equation*}
+		M_p(f)=\left(\frac{\partial^2 (f\circ \phi^{-1})}{\partial x_i\partial x_j}\right)_{i,j}
+	\end{equation*}
+\end{corollary}
+\begin{proof}
+	This is just an easy calculation, since $\Hess_p(f)\left(\restr{\frac{\partial }{\partial x_i}}{p},\restr{\frac{\partial }{\partial x_j}}{p}\right)$ is given by
+	\begin{equation*}
+		\left(\restr{\frac{\partial }{\partial x_i}}{p}\left(\frac{\partial}{\partial x_j}(f)\right)_p\right)=\left(\frac{\partial^2 (f\circ \phi^{-1})}{\partial x_i\partial x_j}\right)
+	\end{equation*}
+\end{proof}
+
+
+The Hessian matrix $M_p(f)^i$ in two different charts $\phi_i:U_i\to V_i$ for $i=1,2$ transforms via a congruence transformation by the Jacobian of the transition function 
+If we have two different charts. Then the Matrix $M_p(f)$ of the Hessian transformes from one base to the other via conjugation of the differential of the transition function $\phi_{12}\coloneq \phi_1 \circ \phi_2^{-1}$:
+\begin{equation*}
+	M_p^1(f)=\diff \phi_{12}^t  \cdot   M_p^2(f)   \cdot   \diff \phi_{12}
+\end{equation*} Hence we can define the following:
+
 \begin{definition}
-	For a Morse funktion $f:M\to \R$ and a critical point$\lambda_p$ the 
+	By Sylvesters Law of interta, the number $l$ that denotes the dimension of the maximal subspace on which a matrix is negative definite, is a invariant under conjugation. We call that number the index of said matrix. Now in the setting of Morse theory we assign to each kritical point $p$ the index of $M_p(f)$ and call that the {\textbf{(Morse-)index }} of $p$, denoted with $\lambda_p$. If we cannot suppres the function without loss of clearity we will write $\lambda^f_p$. We denote the set of all critical points of index $k$ by $\Crit_k(f)$.
 \end{definition}
+\begin{theorem}[Morse Lemma]
+	Let $p$ be a critical point of index $k$ of the Morse funktion $f:M\to \R$. There exists a centered chart $\phi:U\to \R^m$ arround $p$ such that 
+	\begin{equation*}
+		(f\circ \phi^{-1})(x_1,\dots, x_m)=f(p)+\sum_{i=1}^{k}-x_i^2+\sum_{i=k+1}^{m}x_i^2
+	\end{equation*}
+\end{theorem}
+\begin{proof}
+	Compar for example Lemma3.11 in \cite{banyaga2004lectures}. \todo{hier noch mehr Quellen!}
+\end{proof}
+
+\begin{definition}
+Let $\phi_t:M\to M$ be the local one-parameter group of diffeomorphisms generated by $-\grad(f)$, i.e. if $e:\R\to T\R$ denotes the canonical unit vector field that comes from the identity as the global chart on $\R$, we have that 
+\begin{align*}
+\frac{\diff}{\diff t} \phi_t(x)\circ e
+	&= -\grad(f)(\phi_t(x))\, , \quad \text{and}\\
+	\phi_0(x)&=x\, .
+\end{align*} We call that group the \textbf{gradient vevtor field} of $f$ with respect to the gradient $g$. 
+The integral curve $\gamma_x:(a,b)\to M$ given by
+\begin{equation*}
+	\gamma_x(t)=\phi_t(x)
+\end{equation*} is called a gradient \textbf{flow line}.
+\end{definition}
+Next we will deepen our \textbf{local} understanding of said vector fiel. Notice how the Morse Lemma is a statement about smooth manifolds-no metric needed nor mentioned. In fact there are many Morse charts and we can finde one, where the riemannian metric in $p$ is diagonal with non-zero. To proof such a statement we first need a somewhat obvious lemma:
+
+\begin{lemma} \label{lem: linear chart change and tangend basis change}
+Assume that $\psi:U\to V$ is a chart and $L:R^m\to R^m$ a linear function. Denote the local coordinate maps of the Tangend bundle in a point $p$ that comes from a basis in said point induced from a chart $\chi$ by $q_{\chi}$.
+Then the diagramm \begin{center}
+	% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRABUB9NAWRAF9S6TLnyEUARnJVajFmwA6CgEoA9ALYChIDNjwEiUiTPrNWiEErWb+MmFADm8IqABmAJwibEZEDghIUrJmbACOnMBKaNj8AD7cWm6e3r7+SABM1KbyFuHAADJKAMZY7kUABFEx8Wgg1Ax0AEYwDAAKIvriIO5YDgAWOIkgHl6B1GmImcE5IPkCFPxAA
+	\begin{tikzcd}
+		T_pM \arrow[r, "q_{\psi}|_p"] \arrow[rd, "q_{L\circ \psi}|_p"'] & \R^m \arrow[d, "L"] \\
+		& \R^m               
+	\end{tikzcd}
+\end{center}  
+commutes for all $p\in U$.
+\end{lemma}
+\begin{proof}
+We show this by showing the inverse: For any $v\in \R^m$ we have the two $(q_{\psi} \big|_p)^{-1} \circ  L^{-1}(v)$ and $(q_{\psi \circ L}\big|p)^{-1}$ and claim that they are the same. Assume that $L^{-1}=(\lambda_{ij})_{ij}$, $\psi(p)=x_0$, $L(x_0)=\tilde{x_0}$, $(v_1,\dots v_m)=v\in \R^m$ and denote the basis of $T_pM$ coming from the chart $\psi$ by $\left(\frac{\partial}{\partial x_i}\big|_p \right)_i$ and the one coming from $L^{-1}\circ \psi$ by $\left(\frac{\partial}{\partial \tilde{x}_i}\big|_p \right)_i$. We now calculate for $f_p\in \mathcal{E}_pM$:
+\begin{align*}
+	\left[(q_{\psi \circ L}\big|_p)^{-1}(v)\right](f_p)
+	&= \sum_i v_i \frac{\partial}{\partial \tilde{x}_i}\big|_p (f_p)  \\
+	&=\sum_i v_i \frac{\partial}{\partial x_i}\big|_{\tilde{x}_0} (f\circ \psi^{-1}\circ L^{-1}) \\
+	&=\sum_{i}v_i \sum_{j} \frac{\partial f\circ \psi^{-1}	}{\partial x_j}\big|_{x_0} \cdot \frac{\partial L^{-1}_j}{\partial x_i}\big|_{\tilde{x_0}}\\
+	&= \sum_{i,j}v_i \frac{\partial }{\partial x_j}\big|_{p}(f_p) \cdot \lambda_{ji}\\
+	&= \sum_{i,j}v_i q_{\psi}\big|_p^{-1}(e_j)(f_p) \cdot \lambda_{ji}\\
+	&= \left[q_{\psi}\big|_p^{-1}(\sum_{i,j} v_i \lambda_{ji} e^j)\right](f_p)\\
+	&= \left[q_{\psi}\big|_p^{-1}(L^{-1}(v))\right](f_p)
+\end{align*}
+This concludes the proof.
+\end{proof}
+Now we can proof that a Morse chart exists where the gradient is of particular easy form: 
+
+
+\begin{theorem}[Simultaneous Diagonalisation of Quadratic Forms]\label{thm: Simultaneous Diagonalisation of Quadratic Forms}
+	Let $p$ be a critical point of a Morse function $f$ on a manifold $M$ and let $g(p)$ be the Riemannian metric on $T_pM$. Then there exists a Morse chart $\psi$ arround $p$ such that the representation of $g(p)$ in the basis induced by the Morse chart is given by a a diagonal matrix $diag(\mu_1,\dots \mu_m)$ with $\mu_i>0$ for all $i$ .
+\end{theorem}
+\begin{proof}
+	The quadratic form of $f \circ \psi^{-1} - f(p)$ in the coordinates of any Morse chart $\psi$ is $q_H(v) = v^T H v$. The quadratic form induced by the Riemannian metric $g(p)$ is $q_G(v) = v^T G v$, where $v \in \mathbb{R}^m$ are the coordinate vectors with respect to the Morse chart. 
+	To be precice this means for $v,w\in \R^m$:
+	\begin{align*}
+		g\circ ( q_{\psi}\big|_p\oplus q_{\psi}\big|_p ) (v,w)=v^TG w \text{ and } f\circ \psi^{-1} (v)=f(p)+v^T H v \, .
+	\end{align*} We now aim to manipulate $\psi$ such that $G$ becomes diagonal:
+	Since $g(p)$ is positive definite, $G$ is also positive definite, and $H$ is symmetric.
+	
+	Consider the generalized eigenvalue problem $Hv = \lambda G v$. Since $H$ and $G$ are real symmetric matrices and $G$ is positive definite, this problem has $m$ real eigenvalues $\lambda_1, \dots, \lambda_m$ and corresponding eigenvectors $v_1, \dots, v_m$, which can be chosen to be orthogonal with respect to the bilinear form defined by $G$, such that $v_i^T G v_j = \delta_{ij}$, since if $v_i$ and $v_j$ are different eigenvectors with respect to different eigenvalues, we can calculate:
+	\begin{align*}
+		v_j^THv_i=(Hv_j)^Tv_i=\lambda _j(Gv_j)^Tv_i=\lambda _j v_j^T G(v_i)  \quad \text{and}\quad 	v_j^THv_i= v_j^T \lambda_i G(v_i)=\lambda_i v_j^TG(v_i) \, .
+	\end{align*} Hence we have the equality
+	\begin{align*}
+		\lambda _j(Gv_j)^Tv_i=\lambda_i v_j^TG(v_i) \Leftrightarrow \underbrace{(\lambda_j-\lambda_i)}_{\neq 0}v_j^T G(v_i)=0
+	\end{align*} Hence all eigenspaces are orthogonal and we can use Gram Schmitt to make the bases of the eigenspaces orthogonal and by rescaling orthonormal.
+	
+	Let $L = [v_1 | \dots | v_m]$ be the matrix whose columns are these $G$-orthonormal eigenvectors. The linear change of coordinates 
+	$y = Lz$ leads to new coordinates $z$. In these new coordinates, the quadratic forms transform as follows:
+	\begin{align*}
+		q_G(y) &= y^T G y = (Lz)^T G (Lz) = z^T L^T G L z = z^T I z = \sum_{i=1}^m z_i^2 \\
+		q_H(y) &= y^T H y = (Lz)^T H (Lz) = z^T L^T H L z
+	\end{align*}
+	Since $H v_i = \lambda_i G v_i$, we have $L^T H L = \text{diag}(\lambda_1, \dots, \lambda_m)$. The eigenvalues $\lambda_i$ are real and have the same signature as the eigenvalues of $H$ ($l$ negative, $m-l$ positive).This is true to sysvesters law of inertia.  By a further scaling of the $v_i$ and a reordering the matrix $L^T H L$ can be brought into the form $\text{diag}(-1, \dots, -1, 1, \dots, 1)$. (by doing this however, the matrix $L^TGL$ becomes $L^TGL=\diag(\mu_1,\dots \mu_m)$ with $\mu_j>0~\forall j$). If $\psi$ is the Morse chart we started with, then $L^{-1} \circ \psi$ is the new Morse chart: 
+	\begin{equation*}
+		f\circ (\psi^{-1}\circ L)(y)=f\circ \psi^{-1}(L(y))=q_H(L(y)=\sum_{i=1}^l-y_i^2+\sum_{i=l+1}^my_i^1
+	\end{equation*}
+	Furthermore, we want to inspect the metric $g\big|_p:T_pM^2\to \R$ with respect to the chart $ L^{-1}\circ \psi $-induced basis $\left( \frac{\partial}{\partial x_1}\big|_p,\dots ,\frac{\partial}{\partial x_m}\big|_p\right)$. By the lemma \ref{lem: linear chart change and tangend basis change}
+	\begin{align*}
+		g(q_{L^{-1}\circ \psi}\big|_p^{-1},q_{L^{-1}\circ \psi}\big|_p^{-1})(v,w)=	g(q_{\psi}\big|_p^{-1},q_{\psi }\big|_p^{-1})(Lv,Lw)=(Lv)^T G LW=v^T L^TGLw	
+	\end{align*}
+\end{proof}
+\begin{definition}
+	We call a Morse chart where the Matrix corresponding to the gradient in the critical point is of diagonal form a \textbf{refined Morse chart}.
+\end{definition} 
+Using such a chart, we can start looking at the flow itself and try to find easy local formulars around critical points. For this we start by looking at the Jacobian of the gradient in a critical point: 
+\begin{definition}[Jacobian of the Gradient]
+	The gradient is a section into the tangent bundle, $\grad(f):M\to TM$.
+	Let $\psi: M\supseteq U\to V \subseteq \mathbb{R}^m$ be a chart. The coordinate map $q_{\psi}$ on $TU$ assigns to a vector $v \in T_pM$ (where $p \in U$ with $\psi(p) = x$) its components with respect to the basis $\left(\frac{\partial}{\partial x_i}\big|_p\right)$, i.e., $q_{\psi}(v) = (v_1, \ldots, v_m)$ if $v = \sum_{i=1}^m v_i \frac{\partial}{\partial x_i}\big|_p$.
+	We define the Jacobian of the gradient with respect to the chart $\psi$ as the Jacobian matrix of the coordinate representation of the gradient in this chart:
+	\[
+	J(\grad(f))_\psi(x) \coloneq J\left(q_{\psi}\circ \grad(f)\circ \psi^{-1}\right)(x) = \left(\frac{\partial (q_{\psi}\circ \grad(f)\circ \psi^{-1})_i}{\partial x_j}(x)\right)_{ij}
+	\]
+\end{definition}
+
+
+
+
+\begin{lemma}
+	Let $\psi$ be a coordinate system arround a critical point $p$. I.e. $\psi: p\in U\to V$ with $\psi(p)=0$ and let $\left( \frac{\partial}{\partial x_1}\big|_x,\dots ,\frac{\partial}{\partial x_m}\big|_x\right)$ be the induced basis of $T_xM$ Then the Jacobian of the gradient reads
+	\begin{equation}
+		J(\grad(f))_\psi(0)= \left(\sum_{k}g^{ki}(0)\frac{\partial ^2 f\circ \psi^{-1} }{\partial x_j \partial x_k} \right)_{ij}\, .
+	\end{equation}
+\end{lemma}
+\begin{proof}
+	Let $q_{\psi}$ denote the coordinate funktion $TU\to R^m$ induced from the basis $\left( \frac{\partial}{\partial x_1}\big|_x,\dots ,\frac{\partial}{\partial x_m}\big|_x\right)$. then the gradient in $\psi$ reads:
+	\begin{align*}
+		q_{\psi}\circ \grad(f)=\left(\sum_kg^{k1  }\frac{\partial f	}{\partial x_k},\dots, \sum_kg^{k m }\frac{\partial f	}{\partial x_k}\right)
+	\end{align*}
+	Hence, we can differentiate: 
+	\begin{align*}
+		\frac{\partial}{\partial x}  q_{\psi}\circ \grad(f)\circ \psi^{-1}
+		&= \left(\frac{\partial}{\partial x_j} \sum_k g^{ki}\frac{\partial f \circ \psi^{-1}}{\partial x_k}\right)_{ij} \\
+		&= \left(\sum_k \left[ 
+		\frac{\partial g^{ki}}{\partial x_j}\frac{\partial f \circ \psi^{-1}}{\partial x_k} +  g^{ki}\frac{\partial^2 f \circ \psi}{\partial x_j ~\partial x_k}
+		\right]\right)_{ij} \, .
+	\end{align*}
+	and now in $p=\psi^{-1}(0)$ we have
+	\begin{align*}
+		\frac{\partial}{\partial x}  q_{\psi}\circ \grad(f)\circ \psi^{-1} \Big|_{0}=\left(\sum_k \left[ 
+		g^{ki}(0)\frac{\partial^2 f \circ \psi^{-1}}{\partial x_j ~\partial x_k}
+		\right]\right)_{ij} \, .
+	\end{align*}
+\end{proof} Now that we now how the gradient locally looks like ist reasonable to assume, that the flow locally looks like its exponential:
+
+ 
+\begin{lemma}
+Let $t\in \mathbb{R}$ be small enough and $\phi_t: M\to M$ be the flow map corresponding to the negative gradient. Assume that $U$ is the domain of a chart $\psi$ and $p\in U$ such that $\phi_t(p)\in U$. Then the linear map $\mathrm{d} \phi_t \big|_p: T_pM\to T_{\phi_t(p)}M$ has a local representation in the coordinates induced by $\psi$ given by:
+\[
+\frac{\partial}{\partial x} \psi \circ \phi_t(\psi^{-1}(x))=\exp\left(-\left(\sum_{k}g^{ki}(0)\frac{\partial ^2 f\circ \psi^{-1} }{\partial x_j \partial x_k} \right)_{ij} \cdot t \right) \, .
+\]
+\end{lemma}
+\begin{proof}
+For this we consider the function $ (t,x)\mapsto \psi \circ  \phi_t(\psi^{-1}(x)):\R \times U \to U$ For fixed $x$ we can calculate
+\begin{align*}
+	q_{\psi}\frac{\diff}{\diff t} \phi_t(\psi^{-1}(x))=-q_{\psi} \circ \grad(f)(\phi_t(\psi^{-1}(x)))
+\end{align*} and by changing the order of integration we have:
+\begin{align*}
+	\frac{\partial}{\partial t}   \frac{\partial}{\partial x} \psi \circ \phi_t(\psi^{-1}(x))
+	&= \frac{\partial}{\partial x}   \frac{\partial}{\partial t} \psi \circ \phi_t(\psi^{-1}(x))\\
+	&= \frac{\partial}{\partial x} q_\psi \frac{\diff }{\diff t}  \phi_t(\psi^{-1}(x))  \\
+	&= -\frac{\partial}{\partial x} q_{\psi} \circ \grad(f)(\phi_t(\psi^{-1}(x)))	\\
+	&= -\frac{\partial}{\partial x} q_{\psi} \circ \grad(f)\left(\psi^{-1}\circ \psi\circ \phi_t(\psi^{-1}(x))\right)\\
+	&=-\frac{\partial}{\partial x} \left( q_{\psi} \circ \grad(f)\circ \psi^{-1} \right)\frac{\partial }{\partial x}  \left(\psi\circ \phi_t(\psi^{-1}(x))\right)
+\end{align*}
+Hence by the theory of linear differential equation with $\frac{\partial}{\partial x} \psi \circ \phi_0(\psi^{-1}(x))=\Idm_m$ we have:
+\begin{align*}
+	\frac{\partial}{\partial x} \psi \circ \phi_t(\psi^{-1}(x))=\exp\left(-\frac{\partial}{\partial x} \left( q_{\psi} \circ \grad(f)\circ \psi^{-1} \right)\cdot t \right) \, .
+\end{align*} The preceeding lemma now finishes the proof.
+
+\end{proof}
+Hence in a refind Morse chart we have: 
+\begin{remark}
+	Let $\psi$ be a refined Morse chart, and hence:
+	\begin{enumerate}[(a)]
+		\item $g^{ik}(0)=\delta_{ik}\mu_k$ with $\mu_k>0$ for any $k$.
+		\item $\frac{\partial ^2 f\circ \psi^{-1}}{\partial x_j\partial x_k}=s_k2\delta_{jk}$ where $s_k=-1$ for $k\leq \lambda_p$ and $s_k=1$ else.
+	\end{enumerate}  Then the Jacobian of the flow in the critical point $p$ reads:
+	\begin{align*}
+	\frac{\partial}{\partial x} \psi \circ \phi_t(\psi^{-1}(x))
+	&=\exp(-J(\grad(f))(p)\cdot t)\\
+	&=\exp \left(-\sum_k \underbrace{g^{ki}}_{=\delta_{ik}\mu_k}(0) \underbrace{\frac{\partial ^2 f\circ \psi^{-1}}{\partial x_j\partial x_k}}_{=s_k2\delta_{jk}}\cdot t\right) \\
+	&=\diag\left(e^{2\mu_1 t},\dots,e^{2\mu_{\lambda_p} t},-e^{2\mu_{\lambda_p+1} t},\dots ,-e^{2\mu_m t} \right)
+	\end{align*}
+\end{remark}

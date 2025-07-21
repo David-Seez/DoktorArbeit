@@ -73,10 +73,11 @@ The included image is implemented as follows:
 \subsection{Mathemtical Conventions}
 Elements in a vector bundle will have greek letters. For example $\xi\in TM$. For restrictions I will use the notation $\restr{f}{A}$ that is written as :
 \begin{verbatim*}\restr{f}{A}.\end{verbatim*}
+In the realm of differential geometrie i will \textbf{always} use lower indices to denote components. I will \textbf{not} use the einstein summation, since it realy appears and I never reallly deal with cumbersome computations (in this context). 
 \subsection{Notation}
 
 
-\begin{longtable}{>{\centering\arraybackslash}p{3cm} p{6cm} p{5cm}}
+\begin{longtable}{>{\centering\arraybackslash}p{3cm} p{7cm} p{4cm}}
 	\toprule
 	\textbf{Symbol} & \textbf{Description} & \textbf{Context} \\
 	\midrule
@@ -96,10 +97,14 @@ Elements in a vector bundle will have greek letters. For example $\xi\in TM$. Fo
 	\endlastfoot
 	
 	% Hier fügen Sie Ihre Notationen ein
+	$A^t$& The transpose of the Matrix $A$& Linear algebra\\
 	$M$ & Smooth manifold & Differential geometry \\
 	$\dim M$ & Dimension of manifold $M$ & Differential geometry \\
 	$TM$ & Tangent bundle of $M$ & Differential geometry \\
 	$T_pM$ & Tangent space at point $p$ & Differential geometry \\
-	$\xi, \eta, \zeta$ & Elements of vector bundles & Bundle theory \\
 	$g$ & Riemannian metric & Riemannian geometry \\
+	$\Hess_p(f)$ & Hessian of $f$ in $p$ & Morse theory\\
+	$M_p(f)$    & The matrix correspoding to the Hessian. The used chart is suppressed& Morse theory\\
+	$\Crit_k(f)$ &Set of critical points of index $k$ & Morse theory \\
+	$\lambda_p$ or $\lambda_p^f$ & Index of the critical point $p$& Morse theory\\
 \end{longtable}
