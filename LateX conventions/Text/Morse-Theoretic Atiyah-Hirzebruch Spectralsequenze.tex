@@ -167,7 +167,7 @@ The Main statement now is that the connecting homomorphism of K-Theory and of th
 	
 	So consider the map
 	\begin{equation}\label{eq: connecting hom the core mapping}
-		c^*\circ i_{\delta}^*\circ i_{\eta}^*	\circ (c_j\circ \Lambda)^*: C_1 V_j\big/ \partial C_1V_j \to K^p\left[N_q\cup N_p\cup C_1(L_q\cup N_p)\right]
+	\kappa:	c^*\circ i_{\delta}^*\circ i_{\eta}^*	\circ (c_j\circ \Lambda)^*: K^p\left[ C_1 V_j\big/ \partial C_1V_j \right] \to K^p\left[N_q\cup N_p\cup C_1(L_q\cup N_p)\right]
 	\end{equation}
 	This map is induced from
 	\begin{align*}
@@ -189,14 +189,24 @@ The Main statement now is that the connecting homomorphism of K-Theory and of th
 		r: C_1V_j\big/ \partial(C_1V_j)  \to C_1 B^{\lambda_p} \big/ \partial (C_1B^{\lambda_p})
 	\end{equation*} Hence, an orientation on $TW(p\to)$,  induces a generator $\alpha$ of $K^p\left[C_1V_j\big/ \partial(C_1V_j) \right]$. \color{red}{Here the orientation is introduced by choosing the refined Morse chart.} \color{black}
 	
-	On the other hand, we have a generator on $N_p\cup N_p \cup C_1(L_p\cup N_p)$ induced from an orientation on $TW(q\to)$ as follows: First we get a generator of the $K$ group of the Regular index pair $(N_q\big/ L_q)\simeq \left(N_q \cup N_p \middle/ L_q \cup N_p \right)$ by choosing a small index pair and the homotopy. This generator induces now a generator $\beta$ of $K^p \left[ N_q \cup N_p \cup C_1(L_q \cup N_p) \right]$. 
+	On the other hand, we have a generator on $N_p\cup N_p \cup C_1(L_p\cup N_p)$ induced from an orientation on $TW(q\to)$ as follows: First we get a generator of the $K$ group of the Regular index pair $(N_q\big/ L_q)\simeq \left(N_q \cup N_p \middle/ L_q \cup N_p \right)$ by choosing a small index pair and the homotopy. This generator induces a generator $\beta$ of $K^p \left[ N_q \cup N_p \cup C_1(L_q \cup N_p) \right]$ by pulling it back vie the contratcion of the cone $C_1$. 
 	
 	Now we need to study, how the image of $\alpha$ under the map (\ref{eq: connecting hom the core mapping})  relates to $\beta$:
 	
 	
 	
-	Here I need to formulate the write mapping. If the Orientations are 
-	
-	
-	
+	Here I need to formulate the write mapping. Notice how the sphere $(C_jV_j\Big/ \partial C_jV_j)$ can be given a generator (hence an orientation) from the Tangend space $T_{x_j}W(q\to)$ as follows:We have the splitting 
+	\begin{equation*}
+		T_{x_j}W(q\to) \cong  T_{x_j}W(V_j)\oplus T_{x_j}\gamma_j
+	\end{equation*} Where $\gamma_j$ denotes the gradient flow line that containes $x_j$. Using this splitting we have a map 
+	\begin{equation*}
+		 T_{x_j}W(V_j)\oplus T_{x_j}\gamma_j \to \int(V_j)\times I
+	\end{equation*} that we can extend to the compactifications 
+	\begin{equation*}
+		\overline{T_{x_j}W(V_j)\oplus T_{x_j}\gamma_j } \to (C_jV_j\Big/ \partial C_jV_j)
+	\end{equation*} On $T_{x_j}W(V_j)\oplus T_{x_j}\gamma_j$ we have two ways to introduce orientations:
+	\begin{enumerate}[(a)]
+		\item From an orientation from $T^u_qM$ since $W(q\to)$ is contractible and hence we can define a global frame. Denote the resulting generater by $\alpha$.
+		\item From an orientation from $T^u_pM$ together with $-\grad(f)$.Denote the resulting generater by $\beta$.
+	\end{enumerate} From an orientation on $T^u_qM$ we can also defeine a generator of $K^p\left[N_q\cup N_p\cup C_1(L_q\cup N_p)\right]$, since it is homotopic to a small index pair. Lets call that generator $\alpha'$. The next question to consider is if $\kappa (\alpha)=\alpha'$.	
 \end{corollary}
