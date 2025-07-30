@@ -190,17 +190,36 @@ The Main statement now is that the connecting homomorphism of K-Theory and of th
 	\end{equation*} Hence, an orientation on $TW(p\to)$,  induces a generator $\alpha$ of $K^p\left[C_1V_j\big/ \partial(C_1V_j) \right]$. \color{red}{Here the orientation is introduced by choosing the refined Morse chart.} \color{black}
 	
 	On the other hand, we have a generator on $N_p\cup N_p \cup C_1(L_p\cup N_p)$ induced from an orientation on $TW(q\to)$ as follows: First we get a generator of the $K$ group of the Regular index pair $(N_q\big/ L_q)\simeq \left(N_q \cup N_p \middle/ L_q \cup N_p \right)$ by choosing a small index pair and the homotopy. This generator induces a generator $\beta$ of $K^p \left[ N_q \cup N_p \cup C_1(L_q \cup N_p) \right]$ by pulling it back vie the contratcion of the cone $C_1$. 
-	
 	Now we need to study, how the image of $\alpha$ under the map (\ref{eq: connecting hom the core mapping})  relates to $\beta$:
 	
-	
-	
-	Here I need to formulate the write mapping. Notice how the sphere $(C_jV_j\Big/ \partial C_jV_j)$ can be given a generator (hence an orientation) from the Tangend space $T_{x_j}W(q\to)$ as follows:We have the splitting 
+	\begin{minipage}{\dimexpr \textwidth-2\fboxsep-2\fboxrule}
+		\abovecaptionskip=0pt
+		\sbox0{\includegraphics[width=4cm]{Text/Pictures/V_jTimesI}}% get height and width
+		\hangafter \numexpr -\ht0/\baselineskip -1\relax% adds one blank lines at bottom
+		\hangindent \dimexpr \wd0 + 1.2em\relax% adds 1em margin on right
+		\vbox{\raisebox{-\height}[0pt][0pt]{\hspace{0.2em}\box0}}\vspace{-1ex}% overlap image
+For this we make use of an collar neighbourhood of $W(q\to )\cap M_c$ defined as follows:	Again using the implicit funktion theorem and spherical coordinates (compare \color{red}referenz \color{black}) we have that the preimage of $W(q\to )\cap M_c$ under the embeddign $E^u_q: T^u_qM\to W(q\to)$ is (after rescaling the funktion) a Disk, So withour restrictions assume that $E^u_p(B_1(0))=W(q\to )\cap M_c$. Then $\mathfrak{C}\coloneq E^u_p(B_2(0))$ is a collar neighbourhood and $V_j\times I\hookrightarrow L_i\subseteq \mathfrak{C}$ embedds in the obvious way. This is done by mapping $V_j\times I$ fisrst into $B_2(0)$ via $(v,t)\mapsto (E^u_p)^{-1}v\cdot (1+t)$ and then applying $E^u_p$. 
+	\end{minipage}
+		\begin{minipage}{\dimexpr \textwidth-2\fboxsep-2\fboxrule}
+		\abovecaptionskip=0pt
+		\sbox0{\includegraphics[width=4cm]{Text/Pictures/the rescaling with rays}}% get height and width
+		\hangafter \numexpr -\ht0/\baselineskip -1\relax% adds one blank lines at bottom
+		\hangindent \dimexpr \wd0 + 1.2em\relax% adds 1em margin on right
+		\vbox{\raisebox{-\height}[0pt][0pt]{\hspace{0.2em}\box0}}\vspace{-1ex}% overlap image
+	 Furthermore, $V_j\times I$ is homeomorphic to $\mathfrak{C}$ by streching it. The streching can be done along rays starting in $y_j=(x_j,1)$. This is homotopic to the identity, if viewed as a endomorphism in $W(q\to)\cap M_c$. We can now define the collapsing map $W(q\to)\cap M_c$ in a continouos way by defining it to be the identity inside of $L_j$ and outside we map each point to the intersection of the ray containing said point with the bundary of $L_p$.
+	\end{minipage}
+\vspace{1cm}
+\begin{Iprove}
+	The idea of the proof is the following: an orientation in $N_{x_j}\gamma_j$ induces a generator of the $k$-th K group $C_1V_j\big/ \partial (C_1v_j)$. This generator can be pulled back to be a generator of the $k$-th K group of $W(q\to )\cap M_c\big/ \partial (W(q\to )\cap M_c)$ via the collapsing map. This pulling back coincides with the map from (\ref{eq: connecting hom the core mapping}). Now assume that the basis $(b_j,-\grad(f))$ of $N_{x_j}\gamma_j\oplus T_{x_j}\gamma_j$ is positifly oriented with respect to the orientation of $T^u_qM$. And assume furthermore, that the inverse of the embedding $E^u_q$ is an oriented chart. Then the pulled back generator agrees with the generator of $W(q\to )\cap M_c\big/ \partial (W(q\to )\cap M_c)$ that is induced by directly using $E^u_q$. 
+\end{Iprove}
+\end{corollary}
+\begin{comment}
+		Here I need to formulate the write mapping. Notice how the sphere $(C_jV_j\Big/ \partial C_jV_j)$ can be given a generator (hence an orientation) from the Tangend space $T_{x_j}W(q\to)$ as follows:We have the splitting 
 	\begin{equation*}
 		T_{x_j}W(q\to) \cong  T_{x_j}W(V_j)\oplus T_{x_j}\gamma_j
 	\end{equation*} Where $\gamma_j$ denotes the gradient flow line that containes $x_j$. Using this splitting we have a map 
 	\begin{equation*}
-		 T_{x_j}W(V_j)\oplus T_{x_j}\gamma_j \to \int(V_j)\times I
+		T_{x_j}W(V_j)\oplus T_{x_j}\gamma_j \to \int(V_j)\times I
 	\end{equation*} that we can extend to the compactifications 
 	\begin{equation*}
 		\overline{T_{x_j}W(V_j)\oplus T_{x_j}\gamma_j } \to (C_jV_j\Big/ \partial C_jV_j)
@@ -209,4 +228,4 @@ The Main statement now is that the connecting homomorphism of K-Theory and of th
 		\item From an orientation from $T^u_qM$ since $W(q\to)$ is contractible and hence we can define a global frame. Denote the resulting generater by $\alpha$.
 		\item From an orientation from $T^u_pM$ together with $-\grad(f)$.Denote the resulting generater by $\beta$.
 	\end{enumerate} From an orientation on $T^u_qM$ we can also defeine a generator of $K^p\left[N_q\cup N_p\cup C_1(L_q\cup N_p)\right]$, since it is homotopic to a small index pair. Lets call that generator $\alpha'$. The next question to consider is if $\kappa (\alpha)=\alpha'$.	
-\end{corollary}
+\end{comment}
