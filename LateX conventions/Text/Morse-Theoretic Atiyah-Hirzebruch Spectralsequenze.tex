@@ -28,11 +28,11 @@ This is just a short summary. Prooves are omitted and the goal is to remaind our
 
 
 \begin{remark}[Critical points as isolated compact invariant subsets] \label{ex: Critical points as isolated compact invariant subsets}
-	Let ${f:M\to \R}$ be a Morse function on a smooth Riemannian manifold $(M,g)$. Let $q\in \Crit_k(f)$. Around $q$ we have coordinate charts $\phi:U \to T_qM$ (after identifying $q_i$ and $\partial q_i$) where  ${\phi(W(q\to)\cap U)\subseteq T_q^{u}M}$ and ${\phi(W(\to q)\cap U)\subseteq T_q^{s}M}$. With this we can define the balls:
+	Let ${f:M\to \R}$ be a Morse function on a smooth Riemannian manifold $(M,g)$. Let $q\in \Crit_k(f)$. Around $q$ we have Morse charts $\phi:U \to T_qM$ (after identifying $q_i$ and $\partial q_i$) where  ${\phi(W(q\to)\cap U)\subseteq T_q^{u}M}$ and ${\phi(W(\to q)\cap U)\subseteq T_q^{s}M}$. With this we can define the balls:
 	\begin{align*}
 		D^{s}_\epsilon &~=~\{v\in T_q^{s}M | \norm{v}\leq \epsilon \}, \\
 		D^{u}_\epsilon &~=~\{v\in T_q^{u }M | \norm{v}\leq \epsilon \}. 
-	\end{align*} They give rise to the index pair $N_q\coloneq\phi^{-1}( D^{s }\times  D^{u })$ and $L_q=\phi^{-1}( D^{ s}\times \partial D^{u})$. This index pair is in fact regular, since $(N_q,L_q)\cong  (D^{ s}\times  D^{u }, D^{s}\times \partial D^{u}) \cong (D^{u}_{\epsilon},\partial D^{u}_{\epsilon} )$. Now we now the Kgroup of such a pair:
+	\end{align*} They give rise to the index pair $N_q\coloneq\phi^{-1}( D^{s }\times  D^{u })$ and $L_q=\phi^{-1}( D^{ s}\times \partial D^{u})$. This index pair is in fact regular, since $(N_q,L_q)\cong  (D^{ s}\times  D^{u }, D^{s}\times \partial D^{u}) \cong (D^{u}_{\epsilon},\partial D^{u}_{\epsilon} )$. Now we know the K-group of such a pair:
 	\begin{align} \label{eq: homology of indexx pair of critical point}
 		K^i(N_q,L_q)=K^i(D^{k},\partial D^{k})=\begin{cases}
 			\Z & \text{if } i-k\in 2\N,\\
@@ -47,7 +47,7 @@ This is just a short summary. Prooves are omitted and the goal is to remaind our
 
 \begin{example}[A map of homology groups]
 	Let $f:M\to \R$ be a Morse Smale function on a smooth compact Riemannian manifold $(M,g)$. Let $q\in \Crit_k(f)$ and $p\in \Crit_{k-1}(f)$. Assume for a moment we already have an isolated regular compact index pair $(N_2,N_0)$ of $S=W(p\to q)\cup\{p,q\}$. 
-	For a $c\in (f(p),f(q))$ we set $N_1=N_0\cup (N_2 \cap M^c)$ depicted in figure \ref{fig: Gradient flow lines as isolated compact invariant sets}, where $M^c$ is the sublevel set. Clearly now $(N_2,N_1)$ is an index pair for $q$ and $(N_1,N_0)$ is a pair for $p$. Assuming we have regular index pairs $(N_q.L_q)$ and $(N_p,L_p)$ for $p,q$ we can now define a map:
+	For a $c\in (f(p),f(q))$ we set $N_1=N_0\cup (N_2 \cap M^c)$, where $M^c$ is the sublevel set. Clearly now $(N_2,N_1)$ is an index pair for $q$ and $(N_1,N_0)$ is a pair for $p$. Assuming we have regular index pairs $(N_q.L_q)$ and $(N_p,L_p)$ for $p,q$ we can now define a map:
 	\begin{align*}
 		\Delta^k(q \to p):K^{k-1}(N_p,L_p) \to  K^k(N_q,L_q) 
 	\end{align*} as the composition:
@@ -146,7 +146,7 @@ This is just a short summary. Prooves are omitted and the goal is to remaind our
 \end{corollary}
 
 
-The Main statement now is that the connecting homomorphism of K-Theory and of the long exact sequence given by a special Filtration in Morse Theory are comparable: 
+The Main statement now is that the connecting homomorphism of K-Theory and of the long exact sequence given by the special Filtration in Morse Theory are comparable: 
 	\begin{theorem} \label{thm commuting connecting homomorphism}
 		Given the filtration $N_{-1}\subseteq N_0 \subseteq \cdots \subseteq N_{m-1} \subseteq N_m=M$   from (\ref{eq: Filtration conley}).  The following diagram commutes:
 		\begin{center}
