@@ -238,7 +238,7 @@ Hence by the theory of linear differential equation with $\frac{\partial}{\parti
 
 \end{proof}
 Hence in a refind Morse chart we have: 
-\begin{remark}
+\begin{remark}\label{rem: jacobian of the flow in refined Morse chart}
 	Let $\psi$ be a refined Morse chart, and hence:
 	\begin{enumerate}[(a)]
 		\item $g^{ik}(0)=\delta_{ik}\mu_k$ with $\mu_k>0$ for any $k$.
@@ -252,6 +252,43 @@ Hence in a refind Morse chart we have:
 	\end{align*}
 \end{remark}
 we now skip a lot of theory that essentally uses the (un-)stable manifold theorem and the $\lambda$-lemma, to give the definition of the Morse chain complex for a Morse datum.
-\begin{definition}[Morse Homology]
-	Let $f:M\to \R$ be a Morse-Smale function on a Riemannian manifold $(M,g)$ \todo{fertig schreiben}
+\begin{definition}[Morse Homology]\label{def: Morse homology}
+	Let $f:M\to \R$ be a Morse-Smale function on a Riemannian manifold $(M,g)$. Furthermore let $\mathfrak{o}$ be an choice of orientations for all unstable Tangendspaces ($T_q^uM$ for all $q\in \Crit(f)$). The tuple $\mathfrak{A}\coloneq (g,f,\mathfrak{o})$ is a \textbf{Morse datum}. With this we define now the \textbf{Morse chain groups} for a given commutative ring with one ($\Lambda$): 
+	\begin{equation*}
+		C_k(M,\mathfrak{A},\Lambda)\coloneq \bigoplus_{\Crit(f)}\Lambda
+	\end{equation*} 
+	To define a boundary operator between the chain groups on the generators we count flow lines between them.
+	Lets say that $p$ is a critical point of index $k$ and $q$ one of index $k+1$. Then we have the set of flow lines from $q$ to $p$ denoted by $\mathcal{M}(q\to p)$. For each $\gamma\in \mathcal{M}(q\to p)$ we assign a sign $n_\gamma\in \{\pm 1\}$. Let $x\in \gamma$. Then the tangent space in $x$ splits $T_xW(q\to)=N_x(\gamma)\oplus \langle -\grad(f)(x)\rangle$. Furthermore, we can parallel transport $N_x(\gamma)$ to $T^u_pM$. Hence, the orientation in $T_q^uM$ can be compared to the one in $T^u_pM$ and the sign $n_\gamma$ can be chosen accordingly.The \textbf{boundary operator} on a generator is defined as:
+	\begin{equation*}
+		\partial_{k+1}(q)\coloneq \sum_{p\in \Crit_k(f)} \sum_{\gamma\in \mathcal{M}(q\to p)} n_\gamma
+	\end{equation*}
+	This gives rise to a chain complex and hence gives rise to a homology theory, and a cohomology theory by applying the hom functor to the chain complex.
 \end{definition}
+Here i write a little bit about the Morse cohomology in german 
+\begin{theorem}[Morse Cohomology]
+	Um die Morse Kohomologie zu erhalten, dualizieren wir den Kettenkomplex für einen Ring $G$ mit 1. Sei $\Crit_k={p_1,...p_l}$ eine Basis der $k-$ten Kettengruppe. Für 
+	\begin{align*}
+		\eta_i: C_k&\to G \\
+		p_j&\mapsto \begin{cases}
+			0 & \text{if }j=i \\
+			1 & \text{ else}
+		\end{cases}
+	\end{align*} 
+	bekommen wir eine Basis $(\eta_1,...,\eta_l)$ der Cocetten Gruppe. Die Randabbilsung ist nun der spannende Teil. Seien $(q_1,...,q_r)$ kritische Punkte von Index $k+1$ und $(\xi_j)_{j=1,...,r}$ die resultierende Basis von$C^{k+1}$. Dann
+	\begin{align*}
+		\diff{}_k:C^k &\to C^{k+1}\\
+		\eta_i&\mapsto \diff \eta_i=\eta_i\circ \partial_{k+1}=\sum_j n_f(q_j,p_i)\xi_j.
+	\end{align*}
+	Hier beschreibt $n_f (q,p)$ das zählen von Flusslionien von $q$ nach $p$ mittels  $f$.Indem wir kritische Punkte und die formen identifizieren erhalten wird das folgende: 
+	\begin{align*}
+		&C^k =\bigoplus_{q\in \Crit_k}\Z =C_k.\\
+		& \begin{aligned}\diff:~ C^k & \to C^{k+1} \\
+			q &\mapsto \sum_{p\in \Crit_{k+1}}n_f(q,p)=\sum_{p\in \Crit_{k+1} }n_{-f}(p,q)=\partial_{-f}.
+		\end{aligned}
+	\end{align*} Hier bezeichnet $\partial_{-f}$ den Randoperator $C(M,-f,g)$. 
+\end{theorem}
+\begin{theorem}[Poincaré Dualität] Schnell sehen wir, dass $$C^k(M,f)=C_{m-k}(M,-f)$$ damit erhalten wir: 
+	\begin{equation*}
+		H^k(M)\cong H^k(M,f)= \ker(\partial_{-f})\big/ \im\partial_{-f}=H_{m-k}(M,-f)\cong H_k(M)
+	\end{equation*}
+\end{theorem}

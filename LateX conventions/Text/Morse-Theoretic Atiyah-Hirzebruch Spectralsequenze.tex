@@ -91,9 +91,9 @@ This is just a short summary. Prooves are omitted and the goal is to remaind our
 		\emptyset=:N_{-1}\subset N_0\subset N_1\subset \cdots \subset N_{m-1}\subset N_m=M,
 	\end{equation} such that $(N_k,N_{j-1})$ is a regular index pair for $W(k,j)$ for all $0\leq j \leq k\leq m$.
 \end{definition}
+\subsection{The Spectral sequence}
 
-
-\begin{definition} Let $M$ be a smooth manifold with morse data and \begin{equation*}
+\begin{definition} Let $M$ be a smooth manifold with Morse data and \begin{equation*}
 		\emptyset=:N_{-1}\subset N_0\subset N_1\subset \cdots \subset N_{m-1}\subset N_m=M,
 	\end{equation*} be a filtrations constructed in \ref{def: Regular index pairs and a filtration on M}. Then we define the Groups
 	\begin{equation*}
@@ -203,7 +203,7 @@ We work in a compact, riemanian, orientable, smooth Manifold $(M,g)$ of dimensio
 \begin{align}
 	f: M\to \R
 \end{align}
-We assume that $q$ is a critical point of index $k+1$ and $p$ is a critical point of index $k$. we define $f(q)=b$ and $f(p)=a$ and assume that there is no kritical point in $f^{-1}(a,b)\subseteq M$. We define the sub and superlevelsets 
+We assume that $q$ is a critical point of index $k+1$ and $p$ is a critical point of index $k$. we define $f(q)=b$ and $f(p)=a$ and assume that there is no critical point in $f^{-1}(a,b)\subseteq M$. We define the sub and superlevelsets 
 \begin{align}
 	M^t:=\{ x\in M | f(x)\leq t \} \quad \text{and}\quad M_t:=\{ x\in M | f(x)\geq t \} \, ,
 \end{align} and the constants 
@@ -630,7 +630,7 @@ I find this difficult to proof, since we cannot use the flow for the map from th
 	\end{proof}
 	Hence, the sets $N_p\cap U_x$ are starshaped with respect to the embedding of the normal space.
 	
-	Now we want to \textbf{smoothly} rescale to the starshaped neighbourhood. This is in general not possible and homeomorphisms from starshaped neighbourhoods to $R^n$ are hard to describe, even if they are not required to be a resacling. The main problem in the general case is, that the following: for each $v\in \phi_T(J(U_x))$ by the star shaped property there is a unique $\lambda_v$ , such that $\lambda_v v$ such that $f\circ (\lambda_v v)=a-\epsilon$. But the map $v\mapsto \lambda_v$ needs not to be continouos in the general starshaped setting however here it is and it even continouosly depends on $x$.
+	Now we want to \textbf{smoothly} rescale to the starshaped neighbourhood. This is in general not possible and homeomorphisms from starshaped neighbourhoods to $R^n$ are hard to describe, even if they are not required to be a resacling. The main problem in the general case is, that the following: for each $v\in \phi_T(J(U_x))$ by the star shaped property there is a unique $\lambda_v$ ,  such that $f\circ (\lambda_v v)=a-\epsilon$. But the map $v\mapsto \lambda_v$ needs not to be continouos in the general starshaped setting however here it is and it even continouosly depends on $x$:
 	\begin{definition}[Hyperspherical coordinates]
 		For our next proof we need to introduces spherical coordinates on $R^{\lambda_{p}}$. Define $s_k\coloneq \sin(\theta_k)$ and $c_k\coloneq \cos(\theta_k)$:
 		\begin{align*}
@@ -667,7 +667,7 @@ I find this difficult to proof, since we cannot use the flow for the map from th
 		The parameterdependent funktions $r_x$ are continouos and depend continouos on $x$
 	\end{lemma}
 	\begin{proof}
-		We redefine the funktion $r_x$ as follows: Implizitly for each $x$ we have the Mapping: 
+		We redefine the funktion $r_x$  by using spherical coordinates as follows: Implizitly for each $x$ we have the Mapping: 
 		\begin{align*}
 			F_x:\R_{\geq 0}\times [0,\pi]^{\lambda_{p}-2}\times [0,2\pi) &\to \R\\
 			(r,\theta_1,\dots, \theta_{\lambda_p-1})&\mapsto f\circ h_x\circ \Lambda(r,\theta_1,\dots, \theta_{\lambda_p-1})
@@ -885,6 +885,9 @@ I find this difficult to proof, since we cannot use the flow for the map from th
 	
 	On the other hand, we have a generator on $N_p\cup N_p \cup C_1(L_p\cup N_p)$ induced from an orientation on $TW(q\to)$ as follows: First we get a generator of the $K$ group of the Regular index pair $(N_q\big/ L_q)\simeq \left(N_q \cup N_p \middle/ L_q \cup N_p \right)$ by choosing a small index pair and the homotopy. This generator induces a generator $\beta$ of $K^p \left[ N_q \cup N_p \cup C_1(L_q \cup N_p) \right]$ by pulling it back vie the contratcion of the cone $C_1$. 
 	Now we need to study, how the image of $\alpha$ under the map (\ref{eq: connecting hom the core mapping})  relates to $\beta$: \todo{Hier ist noch einiges zu tun!}
+	\begin{Iprove}
+		The idea of the next proof is the following: an orientation in $N_{x_j}\gamma_j$ induces a generator of the $k$-th K group $C_1V_j\big/ \partial (C_1v_j)$. This generator can be pulled back to be a generator of the $k$-th K group of $W(q\to )\cap M_c\big/ \partial (W(q\to )\cap M_c)$ via the collapsing map. This pulling back coincides with the map from (\ref{eq: connecting hom the core mapping}). Now assume that the basis $(b_j,-\grad(f))$ of $N_{x_j}\gamma_j\oplus T_{x_j}\gamma_j$ is positifly oriented with respect to the orientation of $T^u_qM$. And assume furthermore, that the inverse of the embedding $E^u_q$ is an oriented chart. Then the pulled back generator agrees with the generator of $W(q\to )\cap M_c\big/ \partial (W(q\to )\cap M_c)$ that is induced by directly using $E^u_q$. 
+	\end{Iprove}
 	
 	\begin{minipage}{\dimexpr \textwidth-2\fboxsep-2\fboxrule}
 		\abovecaptionskip=0pt
@@ -901,11 +904,8 @@ For this we make use of an collar neighbourhood of $W(q\to )\cap M_c$ defined as
 		\hangindent \dimexpr \wd0 + 1.2em\relax% adds 1em margin on right
 		\vbox{\raisebox{-\height}[0pt][0pt]{\hspace{0.2em}\box0}}\vspace{-1ex}% overlap image
 	 Furthermore, $V_j\times I$ is homeomorphic to $\mathfrak{C}$ by streching it. The streching can be done along rays starting in $y_j=(x_j,1)$. This is homotopic to the identity, if viewed as a endomorphism in $W(q\to)\cap M_c$. We can now define the collapsing map $W(q\to)\cap M_c$ in a continouos way by defining it to be the identity inside of $L_j$ and outside we map each point to the intersection of the ray containing said point with the bundary of $L_p$.
+	 Das sollte die letzte Lücke sein!
 	\end{minipage}
-
-\begin{Iprove}
-	The idea of the next proof is the following: an orientation in $N_{x_j}\gamma_j$ induces a generator of the $k$-th K group $C_1V_j\big/ \partial (C_1v_j)$. This generator can be pulled back to be a generator of the $k$-th K group of $W(q\to )\cap M_c\big/ \partial (W(q\to )\cap M_c)$ via the collapsing map. This pulling back coincides with the map from (\ref{eq: connecting hom the core mapping}). Now assume that the basis $(b_j,-\grad(f))$ of $N_{x_j}\gamma_j\oplus T_{x_j}\gamma_j$ is positifly oriented with respect to the orientation of $T^u_qM$. And assume furthermore, that the inverse of the embedding $E^u_q$ is an oriented chart. Then the pulled back generator agrees with the generator of $W(q\to )\cap M_c\big/ \partial (W(q\to )\cap M_c)$ that is induced by directly using $E^u_q$. 
-\end{Iprove}
 \end{proof}
 \begin{comment}
 		Here I need to formulate the write mapping. Notice how the sphere $(C_jV_j\Big/ \partial C_jV_j)$ can be given a generator (hence an orientation) from the Tangend space $T_{x_j}W(q\to)$ as follows:We have the splitting 
