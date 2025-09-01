@@ -884,7 +884,16 @@ I find this difficult to proof, since we cannot use the flow for the map from th
 	\end{equation*} Hence, an orientation on $TW(p\to)$,  induces a generator $\alpha$ of $K^p\left[C_1V_j\big/ \partial(C_1V_j) \right]$. \color{red}{Here the orientation is introduced by choosing the refined Morse chart.} \color{black}
 	
 	On the other hand, we have a generator on $N_p\cup N_p \cup C_1(L_p\cup N_p)$ induced from an orientation on $TW(q\to)$ as follows: First we get a generator of the $K$ group of the Regular index pair $(N_q\big/ L_q)\simeq \left(N_q \cup N_p \middle/ L_q \cup N_p \right)$ by choosing a small index pair and the homotopy. This generator induces a generator $\beta$ of $K^p \left[ N_q \cup N_p \cup C_1(L_q \cup N_p) \right]$ by pulling it back vie the contratcion of the cone $C_1$. 
-	Now we need to study, how the image of $\alpha$ under the map (\ref{eq: connecting hom the core mapping})  relates to $\beta$: \todo{Hier ist noch einiges zu tun!}
+	Now we need to study, how the image of $\alpha$ under the map (\ref{eq: connecting hom the core mapping})  relates to $\beta$ as seen in the diagram.
+\begin{center}
+% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBoBGAXVJADcBDAGwFcYkQBpAPTQAIAdfoxgAzHMl4D+IgE70AxsF4BhAPrkAFABlVARwCUAXyWD5jKcLEa1mnQcFwYOALZYwzOFIBGWAObzmNEFGLFccOFVgACsAXnJDLnMbADVVKKkZPwALHEoQQ1J0TFx8QhRyCmo6JlZ2FLTvPwB6KTR6GTwmFXVeVKj8wpAMbDwCIjJiKoYWNkROHmDRcQA5PVNA3lWg-gC+G201nY2t-UFM3xy8wyqYKF94IlBZCGckMhAcCCQAJgKnmReSAqHy+iG+NGmtTmggA1vQ0G0Bv9AYhgZ83tdDEA
+\begin{tikzcd}
+	{K^p\left[N_q\cup N_p\cup C_1(L_q\cup N_p)\right]}                                                          &                                                              \\
+K^p \left[  \frac{ C_1(L_q)}{ \cl \left(C_1(L_q)\setminus \bigcup\limits_{j=1}^l C_1V_j \right) } \right]  \arrow[u] & C_1V_j \big/ \partial C_1 V_j \arrow[lu, "\kappa"] \arrow[l]
+	\end{tikzcd}
+\end{center}
+	
+		 \todo{Hier ist noch einiges zu tun!}
 	\begin{Iprove}
 		The idea of the next proof is the following: an orientation in $N_{x_j}\gamma_j$ induces a generator of the $k$-th K group $C_1V_j\big/ \partial (C_1v_j)$. This generator can be pulled back to be a generator of the $k$-th K group of $W(q\to )\cap M_c\big/ \partial (W(q\to )\cap M_c)$ via the collapsing map. This pulling back coincides with the map from (\ref{eq: connecting hom the core mapping}). Now assume that the basis $(b_j,-\grad(f))$ of $N_{x_j}\gamma_j\oplus T_{x_j}\gamma_j$ is positifly oriented with respect to the orientation of $T^u_qM$. And assume furthermore, that the inverse of the embedding $E^u_q$ is an oriented chart. Then the pulled back generator agrees with the generator of $W(q\to )\cap M_c\big/ \partial (W(q\to )\cap M_c)$ that is induced by directly using $E^u_q$. 
 	\end{Iprove}
