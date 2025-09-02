@@ -279,7 +279,7 @@ We need the following fact:
 	This follows form $X\times I \simeq X$
 \end{proof}
 \begin{definition}[Trivialisation of a Vector Bundle]\label{def: Trivialisation of a Vector Bundle}
-	Ix $Y$ is a closed subspace of $X$, $E$ is a vector bundle over $X$ and $\alpha:{E}\einsch{Y}\to Y\times V$ is an isomorphism. Then $\alpha$ is a \textbf{trivialisation of $E$ over $Y$}. Furthermore, let $\pi: Y \times V \to V$ denote the projection and define an equivalence relation on ${E}\einsch{Y}$ by 
+	If $Y$ is a closed subspace of $X$, $E$ is a vector bundle over $X$ and $\alpha:{E}\einsch{Y}\to Y\times V$ is an isomorphism. Then $\alpha$ is a \textbf{trivialisation of $E$ over $Y$}. Furthermore, let $\pi: Y \times V \to V$ denote the projection and define an equivalence relation on ${E}\einsch{Y}$ by 
 	\begin{equation*}
 		e\sim e' ~ \Leftrightarrow \pi \alpha (e) =\pi \alpha (e') \, .
 	\end{equation*}  We extend this relation by the identity on ${E}\einsch{X\setminus Y}$ and we define $E\slash \alpha$ denote the quotient space of $E$ defined by that relation. This then is a bundle. For the local triviality we need to check only at the base point $Y\slash Y$ of $X\slash Y$. But this is clear since we can extend $\alpha$ to an isomorphism $\Tilde{\alpha}:{E}\einsch{U}\to U \times V$ via lemma \ref{lem: Extension of Isomorphisms of Homomorphisms}. But then $\Tilde{\alpha}$ induces an isomorphism
@@ -304,7 +304,7 @@ We need the following fact:
 	\end{equation*}
 \end{lemma}
 \begin{proof}
-	We will construct an inverse of $f^*$ as follows. Let $E$ be a bundle on $X$. By lemma \ref{lem: contractible bundles are tivial} we have that ${E}\einsch{Y}$ is trivial and thereby a trivialization $\alpha: {E}\einsch{Y}\to Y\times V$ exists and two such trivializations differ by an automorphism of $Y\times V$ that can be identified with a map $Y\to \mathrm{GL}(V)=\mathrm{GL}_n(\C)$. But since $V$ and $\mathrm{GL}(V)$ are contractible, $\alpha$ is unique up to homotopy and thereby the isomorphism class of ${E}\einsch{Y}$ is determined by $E$. Thereby, the map 
+	We will construct an inverse of $f^*$ as follows. Let $E$ be a bundle on $X$. By lemma \ref{lem: contractible bundles are tivial} we have that ${E}\einsch{Y}$ is trivial and thereby a trivialization $\alpha: {E}\einsch{Y}\to Y\times V$ exists and two such trivializations differ by an automorphism of $Y\times V$ that can be identified with a map $Y\to \mathrm{GL}(V)=\mathrm{GL}_n(\C)$. But since $Y$ is contractible, $\alpha$ is unique up to homotopy and thereby the isomorphism class of ${E}\einsch{Y}$ is determined by $E$. Thereby, the map 
 	\begin{align*}
 		\vect(X)&\to \vect(X\slash Y) \\
 		E&\mapsto {E}\einsch{\alpha}

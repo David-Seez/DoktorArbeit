@@ -886,12 +886,19 @@ I find this difficult to proof, since we cannot use the flow for the map from th
 	On the other hand, we have a generator on $N_p\cup N_p \cup C_1(L_p\cup N_p)$ induced from an orientation on $TW(q\to)$ as follows: First we get a generator of the $K$ group of the Regular index pair $(N_q\big/ L_q)\simeq \left(N_q \cup N_p \middle/ L_q \cup N_p \right)$ by choosing a small index pair and the homotopy. This generator induces a generator $\beta$ of $K^p \left[ N_q \cup N_p \cup C_1(L_q \cup N_p) \right]$ by pulling it back vie the contratcion of the cone $C_1$. 
 	Now we need to study, how the image of $\alpha$ under the map (\ref{eq: connecting hom the core mapping})  relates to $\beta$ as seen in the diagram.
 \begin{center}
-% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBoBGAXVJADcBDAGwFcYkQBpAPTQAIAdfoxgAzHMl4D+IgE70AxsF4BhAPrkAFABlVARwCUAXyWD5jKcLEa1mnQcFwYOALZYwzOFIBGWAObzmNEFGLFccOFVgACsAXnJDLnMbADVVKKkZPwALHEoQQ1J0TFx8QhRyCmo6JlZ2FLTvPwB6KTR6GTwmFXVeVKj8wpAMbDwCIjJiKoYWNkROHmDRcQA5PVNA3lWg-gC+G201nY2t-UFM3xy8wyqYKF94IlBZCGckMhAcCCQAJgKnmReSAqHy+iG+NGmtTmggA1vQ0G0Bv9AYhgZ83tdDEA
+% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBoBGAXVJADcBDAGwFcYkQBpAPTQAIAdHIP79GMAGY5kvGcKFD+4gE70AxsF4BhAPrkAFABltARwCUAXwHy5vDSNWNZ1+VZFjJe186879RsyJwMDgAtlhgzHAC-ABGWADmqsxoblhhOHDawABWALzk5lyOvgBq2tlOcoKu-EoJABY4ppXellW1DTiUIOak6Ji4+IQo5BTUdEys7NwpohJSpeXRcfEA9NFo9Ep4TFq6vGXZInXxjd29-dh4BERkxOMMLGyInDxu88gAcib2ybzfsySfF8hh+-CB-20aFMx0653GMCg8XgRFAyggISQZBAOAgSAATBcQOjMYhRji8Yh8TRHlMXiIANb0NCbHp9YlKDFIcm4rHmSjmIA
 \begin{tikzcd}
-	{K^p\left[N_q\cup N_p\cup C_1(L_q\cup N_p)\right]}                                                          &                                                              \\
-K^p \left[  \frac{ C_1(L_q)}{ \cl \left(C_1(L_q)\setminus \bigcup\limits_{j=1}^l C_1V_j \right) } \right]  \arrow[u] & C_1V_j \big/ \partial C_1 V_j \arrow[lu, "\kappa"] \arrow[l]
-	\end{tikzcd}
+	{K^p\left[N_q\cup N_p\cup C_1(L_q\cup N_p)\right]}                                                                                                              &                                                                                \\
+	{K^p 		\left[   			\frac{ C_1(L_q)} 				 { \cl  				 	\left( 				 		C_1(L_q)\setminus \bigcup\limits_{j=1}^l C_1V_j  				 	\right)  				 } 		\right]} \arrow[u] & {K^p\left[C_1V_j \big/ \partial C_1 V_j\right]} \arrow[lu, "\kappa"] \arrow[l]
+\end{tikzcd}
+\quad % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBoAmAXVJADcBDAGwFcYkQBpAPTQAIAdHIP79GMAGY5kvGcKFD+4gE70AxsF4BhAPoBGABQAZbQEcAlAF8B8ubw0jVjWTfnWRYyfrcvvOg8fMROBgcAFssMGY4AX4AIywAc1VmNHcscJw4bWAAKwBeXQsuJz8ANW0c5zlBN34lRIALHDMqnytqusacShALUnRMXHxCFF0KajomVnZuVNEJKTKKmPiEgHoYtHolPCYtPV5ynJF6hKaevoHsPAIiMl0JhhY2RE4edwXkADlTBxTeH5zZJ8PxGX78YEA7RoMwnLoXfogDDXYZEcikB40J7TV6zD6SZB+AAqXGY0IAsitEhsRFsdlg9n5eCSyWhKXCzt1eojkUNbigyMRHlMXm85h4pD8TFT1mDAp1OQirnyRsgxkKsSKZjxkAARUnZEQwNDYRgECwiVZrWnbXZOfVk4BGk1YM1gKxKpGDG6q9EaybPbVoZAAZS4TtE9FCsSg9GhAGpChcJjAoAl4ERQMoIKEkGQQDgIEhyJcQNnc4gxgWi4h0QGcSARABrehoLYgGiMeixGCMAAK3tRr1OTW5WaUOaQVcLedL5aQAGYaDPK3OJxW6yuACxryeILfLmsAVl3FaPh6QADZT8WL4gT4j54hL3eFxZKBYgA
+\begin{tikzcd}
+	{K^p\left[N_q \big/(L_q)\right]} \arrow[r]                                                                                                                      & {K^p[D^u_{\epsilon}\big/\partial D^u_{\epsilon} ]} \arrow[r]                    & {K^p[S^{\lambda_p+1}]} \arrow[d]                                  \\
+	{K^p\left[N_q\cup N_p\cup C_1(L_q\cup N_p)\right]} \arrow[u] \arrow[ru]                                                                                         &                                                                                 & {K^p\left[C_1T^u_pM \big/ \partial C_1 T^u_pM \right]} \arrow[ld] \\
+	{K^p 		\left[   			\frac{ C_1(L_q)} 				 { \cl  				 	\left( 				 		C_1(L_q)\setminus \bigcup\limits_{j=1}^l C_1V_j  				 	\right)  				 } 		\right]} \arrow[u] & {K^p\left[C_1V_j \big/ \partial C_1 V_j\right]} \arrow[lu, "\kappa"'] \arrow[l] &                                                                  
+\end{tikzcd}
 \end{center}
+
 	
 		 \todo{Hier ist noch einiges zu tun!}
 	\begin{Iprove}
