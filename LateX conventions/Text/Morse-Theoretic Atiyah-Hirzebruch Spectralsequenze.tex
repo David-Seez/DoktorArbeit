@@ -905,17 +905,27 @@ I find this difficult to proof, since we cannot use the flow for the map from th
 		The idea of the next proof is the following: an orientation in $N_{x_j}\gamma_j$ induces a generator of the $k$-th K group $C_1V_j\big/ \partial (C_1v_j)$. This generator can be pulled back to be a generator of the $k$-th K group of $W(q\to )\cap M_c\big/ \partial (W(q\to )\cap M_c)$ via the collapsing map. This pulling back coincides with the map from (\ref{eq: connecting hom the core mapping}). Now assume that the basis $(b_j,-\grad(f))$ of $N_{x_j}\gamma_j\oplus T_{x_j}\gamma_j$ is positifly oriented with respect to the orientation of $T^u_qM$. And assume furthermore, that the inverse of the embedding $E^u_q$ is an oriented chart. Then the pulled back generator agrees with the generator of $W(q\to )\cap M_c\big/ \partial (W(q\to )\cap M_c)$ that is induced by directly using $E^u_q$. 
 	\end{Iprove}
 	
-	\begin{minipage}{\dimexpr \textwidth-2\fboxsep-2\fboxrule}
+	\begin{minipage}{\dimexpr \textwidth-3.5\fboxsep-2\fboxrule}
 		\abovecaptionskip=0pt
 		\sbox0{\includegraphics[width=3.8cm]{Text/Pictures/V_jTimesI}}% get height and width
 		\hangafter \numexpr -\ht0/\baselineskip -1\relax% adds one blank lines at bottom
 		\hangindent \dimexpr \wd0 + 1.2em\relax% adds 1em margin on right
-		\vbox{\raisebox{-\height}[0pt][0pt]{\hspace{0.2em}\box0}}\vspace{-1ex}% overlap image
+		\vbox{\raisebox{-\height}[0pt][0pt]{\hspace{0.2em}\box0}}\vspace{-1.2ex}% overlap image
 For this we make use of an collar neighbourhood of $W(q\to )\cap M_c$ defined as follows:	Again using the implicit funktion theorem and spherical coordinates (compare \color{red}referenz \color{black}) we have that the preimage of $W(q\to )\cap M_c$ under the embeddign $E^u_q: T^u_qM\to W(q\to)$ is (after rescaling the funktion) a Disk, So withour restrictions assume that $E^u_p(B_1(0))=W(q\to )\cap M_c$. Then $\mathfrak{C}\coloneq E^u_p(B_2(0))$ is a collar neighbourhood and $V_j\times I\hookrightarrow L_i\subseteq \mathfrak{C}$ embedds in the obvious way. This is done by mapping $V_j\times I$ fisrst into $B_2(0)$ via $(v,t)\mapsto (E^u_p)^{-1}v\cdot (1+t)$ and then applying $E^u_p$. 
 	\end{minipage}
+	
+We then apply this to the diagramm above to push all the spaces into $\R^n$ or rather into a Disk modulo its boundary.
+
+% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBoAmAXVJADcBDAGwFcYkQBpAPTQAIAdHIP79GMAGY5kvGcKFD+4gE70AxsF4BhAPoBGABQAZbQEcAlAF8B8ubw0jVjWTfnWRYyfrcvvOg8fMROBgcAFssMGY4AX4AIywAc1VmNHcscJw4bWAAKwBeXQsuJz8ANW0c5zlBN34lRIALHDMqnytqusacShALUnRMXHxCFF0KajomVnZuVNEJKTKKmPiEgHoYtHolPCYtPV5ynJF6hKaevoHsPAIiMl0JhhY2RE4edwXkADlTBxTeH5zZJ8PxGX78YEA7RoMwnLoXfogDDXYZEcikB40J7TV6zD6SZB+AAqXGY0IAsitEhsRFsdlg9n5eCSyWhKXCzt1eojkUNbigyMRHlMXm85h4pD8TFT1mDAp1OQirnyRsgxkKsSKZjxkAARUnZEQwNDYRgECwiVZrWnbXZOfVk4BGk1YM1gKxKpGDG6q9EaybPbVoZAAZS4TtE9FCsSg9GhAGpCp7eT6iGNMQGcWLkAAhbTkfTEMwXCYwKAJeBEUDKCChJBkEA4CBIciXEA1uuIMaN5uIdGZ0UiADW9DQWxANEY9FiMEYAAVvajXqcmtzq0pa0hu03622O0gAMw0Hddvcbzv9k8AFjPm8QV+PvYArLfO0-H0gAGyvlsfxAvxF90QT8-wPH9EAAdlA8D3x7JAIIsSgLCAA
+\begin{tikzcd}
+	{K^p\left[N_q \big/(L_q)\right]} \arrow[r]                                                                                                                      & {K^p[D^u_{\epsilon}\big/\partial D^u_{\epsilon} ]} \arrow[r] \arrow[d]          & {K^p[S^{\lambda_p+1}]} \arrow[d]                                  \\
+	{K^p\left[N_q\cup N_p\cup C_1(L_q\cup N_p)\right]} \arrow[u] \arrow[ru]                                                                                         & {K^p[B_2(0)]} \arrow[r]                                                         & {K^p\left[C_1T^u_pM \big/ \partial C_1 T^u_pM \right]} \arrow[ld] \\
+	{K^p 		\left[   			\frac{ C_1(L_q)} 				 { \cl  				 	\left( 				 		C_1(L_q)\setminus \bigcup\limits_{j=1}^l C_1V_j  				 	\right)  				 } 		\right]} \arrow[u] & {K^p\left[C_1V_j \big/ \partial C_1 V_j\right]} \arrow[lu, "\kappa"'] \arrow[l] &                                                                  
+\end{tikzcd}
+	
 		\begin{minipage}{\dimexpr \textwidth-2\fboxsep-2\fboxrule}
 		\abovecaptionskip=0pt
-		\sbox0{\includegraphics[width=4cm]{Text/Pictures/the rescaling with rays}}% get height and width
+		\sbox0{\includegraphics[width=3.8cm]{Text/Pictures/the rescaling with rays}}% get height and width
 		\hangafter \numexpr -\ht0/\baselineskip -1\relax% adds one blank lines at bottom
 		\hangindent \dimexpr \wd0 + 1.2em\relax% adds 1em margin on right
 		\vbox{\raisebox{-\height}[0pt][0pt]{\hspace{0.2em}\box0}}\vspace{-1ex}% overlap image
