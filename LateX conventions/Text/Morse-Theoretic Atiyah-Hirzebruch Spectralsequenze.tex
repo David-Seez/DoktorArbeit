@@ -228,7 +228,7 @@ We assume that $q$ is a critical point of index $k+1$ and $p$ is a critical poin
 		\item $(C,B)$ is an index pair for $q$\, .\label{lem: enum: 2}
 		\item $(N_p,L_p)$ is a regular index pair for $p$\, .\label{lem: enum: 3}
 		\item $(B,A)$ is an index pair for $p$\, .\label{lem: enum: 4}
-		\item $N_p$ is homotopically equivalent to a tubular neighbourhood of $W(\to p)\cap M^c$\, .\label{lem: enum: 5}
+		\item $N_p$ is a tubular neighbourhood of $W(\to p)\cap M^c$.\label{lem: enum: 5}
 	\end{enumerate}
 \end{lemma}
 
@@ -713,7 +713,7 @@ I find this difficult to proof, since we cannot use the flow for the map from th
 			v &\mapsto \phi_{-T}\circ \Psi^{-1} \circ r_x \left(\rho \cdot \frac{h_x^{-1}\circ \Psi \circ\phi_T(v)}{\norm{h_x^{-1}\circ \Psi \circ\phi_T(v)}} \right)
 		\end{align*} This rescaling is smooth, smoothly depends on $x$, and it maps surjectifly onto $N_p\cap U_x$. 
 	\end{proof}
-
+The same arguments work to show that $N_q$ is a tubular neighbourhood of $W(q\to)\cap M_c$, by replacing $f$ with $-f$. Furthermore, we can assume, that the $V_j$ from below are fibers in the normal neighbourhood. This can be realized, since $V_j$ intersect transversal and by trivialization we have a global fram of the bundel and hence can smoothly rescale the embedding along the frame to get that $V_j$ is the image of the fibre above $x_j$. 	
 \begin{proof}[Proof of Theorem \ref{thm commuting connecting homomorphism}]
 	Lets say that $p\in -\N $ is negative for the moment. 
 	By definition we get the triple connecting morphism as the composition of the inclusion with the connecting homomorphism of the pair:
@@ -911,18 +911,120 @@ I find this difficult to proof, since we cannot use the flow for the map from th
 		\hangafter \numexpr -\ht0/\baselineskip -1\relax% adds one blank lines at bottom
 		\hangindent \dimexpr \wd0 + 1.2em\relax% adds 1em margin on right
 		\vbox{\raisebox{-\height}[0pt][0pt]{\hspace{0.2em}\box0}}\vspace{-1.2ex}% overlap image
-For this we make use of an collar neighbourhood of $W(q\to )\cap M_c$ defined as follows:	Again using the implicit funktion theorem and spherical coordinates (compare \color{red}referenz \color{black}) we have that the preimage of $W(q\to )\cap M_c$ under the embeddign $E^u_q: T^u_qM\to W(q\to)$ is (after rescaling the funktion) a Disk, So withour restrictions assume that $E^u_p(B_1(0))=W(q\to )\cap M_c$. Then $\mathfrak{C}\coloneq E^u_p(B_2(0))$ is a collar neighbourhood and $V_j\times I\hookrightarrow L_i\subseteq \mathfrak{C}$ embedds in the obvious way. This is done by mapping $V_j\times I$ fisrst into $B_2(0)$ via $(v,t)\mapsto (E^u_p)^{-1}v\cdot (1+t)$ and then applying $E^u_p$. 
+For this we make use of an collar neighbourhood of $W(q\to )\cap M_c$ defined as follows:	Again using the implicit funktion theorem and spherical coordinates (compare \color{red}referenz \color{black}) we have that the preimage of $W(q\to )\cap M_c$ under the embeddign $E^u_q: T^u_qM\to W(q\to)$ is (after rescaling the funktion) a Disk, So withour restrictions assume that $E^u_q(B_1(0))=W(q\to )\cap M_c$. Then $\mathfrak{C}\coloneq E^u_p(B_2(0))$ is a collar neighbourhood and $V_j\times I\hookrightarrow L_i\subseteq \mathfrak{C}$ embedds in the obvious way. This is done by mapping $V_j\times I$ fisrst into $B_2(0)$ via $(v,t)\mapsto (E^u_q)^{-1}v\cdot (1+t)$ and then applying $E^u_p$. 
 	\end{minipage}
 	
-We then apply this to the diagramm above to push all the spaces into $\R^n$ or rather into a Disk modulo its boundary.
-
-% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBoAmAXVJADcBDAGwFcYkQBpAPTQAIAdHIP79GMAGY5kvGcKFD+4gE70AxsF4BhAPoBGABQAZbQEcAlAF8B8ubw0jVjWTfnWRYyfrcvvOg8fMROBgcAFssMGY4AX4AIywAc1VmNHcscJw4bWAAKwBeXQsuJz8ANW0c5zlBN34lRIALHDMqnytqusacShALUnRMXHxCFF0KajomVnZuVNEJKTKKmPiEgHoYtHolPCYtPV5ynJF6hKaevoHsPAIiMl0JhhY2RE4edwXkADlTBxTeH5zZJ8PxGX78YEA7RoMwnLoXfogDDXYZEcikB40J7TV6zD6SZB+AAqXGY0IAsitEhsRFsdlg9n5eCSyWhKXCzt1eojkUNbigyMRHlMXm85h4pD8TFT1mDAp1OQirnyRsgxkKsSKZjxkAARUnZEQwNDYRgECwiVZrWnbXZOfVk4BGk1YM1gKxKpGDG6q9EaybPbVoZAAZS4TtE9FCsSg9GhAGpCp7eT6iGNMQGcWLkAAhbTkfTEMwXCYwKAJeBEUDKCChJBkEA4CBIciXEA1uuIMaN5uIdGZ0UiADW9DQWxANEY9FiMEYAAVvajXqcmtzq0pa0hu03622O0gAMw0Hddvcbzv9k8AFjPm8QV+PvYArLfO0-H0gAGyvlsfxAvxF90QT8-wPH9EAAdlA8D3x7JAIIsSgLCAA
+This mapping $E^u_q$ gives also rise to an oriented chart of $V_j$: For this we deform $B_2(0)$ to be a cylinder along $\gamma_j$ by changing the base such that $(E^u_q)^{-1}x_j$ is the first base vector whilst keeping the orientation ($\det$ of base change is one). Then just strech the disc:
+ \begin{equation*}
+ 	(x_1,\dots x_{\lambda_{p}+1})\mapsto (\frac{x_1}{|x_1|},\dots x_{\lambda_{p}+1})\, .
+ \end{equation*}. By transversality of $V_j$ and $\gamma_j$ we can assume that the orthogonal projection $\Pi_j$ along the first basis vector restricted to the preimage of $V_j$ is a homeomorphism. Now we get the chart as a composition:
+ \begin{align*}
+ 	E^u_{q,j}\coloneq  \Pi_j\circ (E^u_{q})^{-1}: V_j \to \R^{\lambda_{p}} 
+ \end{align*}
+  Here is where the definition of the Morse boundary operator comes because now we have two different orientations in $V_j$. One induced from $T^u_pM$ (lets call the oriented basis $b^u_p$) and one induced from above. Hence in $Tx_j\gamma_j\oplus Tx_jV_j$ we have two different oriented basis induced from this chart and from the chart given by the tubular neighbourhood embedding of $W(\to p)\cap M^c$ restricted to the normal fiber above $x_j$.
+  \begin{center}
+% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB12AlAPWE4Z0AtgCModAPpoAviGml0mXPkIoAjOSq1GLNgBUeTKQFk5CkBmx4CRMmq31mrRCABqEgFZytMKAHN4IlAAMwAnCCEkMhAcCCQNEEERGAYABSVrVRAsMGxYEGpHXRcRQykzEPDIxATYpAAmQp1nEAApThEsPwAfCWAAVT6AD09pWXlKiKjqOsRG7Sc2AAoAUTLgAEcPaQBKPgBaNVlqJJT0qxU2UK6ACxxvaSA
 \begin{tikzcd}
-	{K^p\left[N_q \big/(L_q)\right]} \arrow[r]                                                                                                                      & {K^p[D^u_{\epsilon}\big/\partial D^u_{\epsilon} ]} \arrow[r] \arrow[d]          & {K^p[S^{\lambda_p+1}]} \arrow[d]                                  \\
-	{K^p\left[N_q\cup N_p\cup C_1(L_q\cup N_p)\right]} \arrow[u] \arrow[ru]                                                                                         & {K^p[B_2(0)]} \arrow[r]                                                         & {K^p\left[C_1T^u_pM \big/ \partial C_1 T^u_pM \right]} \arrow[ld] \\
-	{K^p 		\left[   			\frac{ C_1(L_q)} 				 { \cl  				 	\left( 				 		C_1(L_q)\setminus \bigcup\limits_{j=1}^l C_1V_j  				 	\right)  				 } 		\right]} \arrow[u] & {K^p\left[C_1V_j \big/ \partial C_1 V_j\right]} \arrow[lu, "\kappa"'] \arrow[l] &                                                                  
+	\R^{\lambda_p} \arrow[r, "b^u_p" description] \arrow[d, "(E^u_{qj})^{-1}"'] & T^u_pM \arrow[ld, "J\big|_{U_{x_j}}"] \\
+	V_j                                                                         &                                      
 \end{tikzcd}
+  \end{center}
+  If we now swich to the Alexandrof kompakitifikations we have that this diagramm kommutes up to homotopy, if and only if the orientaions agree. \todo{hier beweis nachholen. Sollte eine einfache übuingsaufgabe sein mittels abbildungsgrad zwischen sphären ist homotopieinvariante}. Else we have a change of sign. Hence we have the diagramm that commutes up to sign: 
+  
+  \begin{center}	
+  % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAGUAdTmmGAAnYA9YNwZ0AtgCModAPpoAviEWl0mXPkIoAjOSq1GLNtwBmAJzoBjYAGE5O-gBUhTBQFlFozmjrm8jPz2ji5uaJ4qaiAY2HgERGQ6BvTMrIggZpY2wfwAanIAVl7cvv5YgTn5RSoGMFAA5vBEoBYQEkhkIDgQSHog4lIwDAAKGnHaIFhg2LAg1CnG6dxYUPzcvAJSrgqRLeZtvdTdSABM80ZpGZwra5wQaMxw-ABS3FJY9QA+csAAqj8AD0KimUqj2B0QnWOiDOhlSJmuq3WfH4AAoAKLbYAARyKAEoRABaHTKagDIajWJaNjmD4ACxwNUUQA
+  \begin{tikzcd}
+  	S\vee S^{\lambda_p} \arrow[r, "\id \vee b^u_p" description] \arrow[d, "\id \vee (E^u_{qj})^{-1}"'] & \frac{C_1 T^u_pM}{\partial C_1 T^u_pM} \arrow[ld, "\id \oplus J\big|_{U_{x_j}}"] \\
+  	\frac{C_1 V_j}{\partial C_1 V_j}                                                                   &                                                                                 
+  \end{tikzcd}
+  \end{center}
+  
+Here the right path coincides with the path $f_2\circ f_1$. Now we introduce a left part that will later factor over the collaps that induces $\kappa$:
+\begin{center}
+	% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZARgBoAGAXVJADcBDAGwFcYkQBlAHS9phgAEHAHrAejegFsARlHoB9NAF8QS0uky58hFACYK1Ok1bseAMwBO9AMbAAwvOICAKsOaKAskrFc09C3hMAg5Oru5oXqrqIBjYeAREZMSGDCxsiCDmVrYhAgBq8gBW3jx+AVhBuQXFURpx2kTkBjSpJhkAcvIAjiEAFAAy3QCUqoYwUADm8ESglhCSSE0gOBBIZCAS0jCMAAqa8TogWGDYsCAtxumZXFhQAjx8gtJuirUgcwuI6ytI+kZpphudx4EDQLDgAgAUjxpFgJgAfeTAACqSIAHkUlCo1LMLPNFjQfog-q0rjxbvdePwBL0AKIvYBdYpDUQAWmIKhom22e3qCQyFjhAAscG8PgTlqtEABmC4AjJmeQAVnOG3oW12+waAuFopx7zxn1lkt+NC2YCgSFZ0qWpPY1ggjAkaAQXPVPK1-JAgomItGSiAA
+	\begin{tikzcd}
+		N_qC_1(L_q) \arrow[rd, "collaps"', bend right] & S\vee S^{\lambda_p} \arrow[r, "\id \vee b^u_p" description] \arrow[d, "\id \vee (E^u_{qj})^{-1}"'] \arrow[l, "f_5"'] & \frac{C_1 T^u_pM}{\partial C_1 T^u_pM} \arrow[ld, "\id \oplus J\big|_{U_{x_j}}"] \\
+		& \frac{C_1 V_j}{\partial C_1 V_j}                                                                                     &                                                                                 
+	\end{tikzcd}
+\end{center}
+We define $f_5$ as follows:
+\begin{align*}
+	f_5: S\vee S^{\lambda_p}= \frac{B_2(0)}{\partial B_2(0)} &\to N_qC_1(L_q)\\
+	x&\mapsto \begin{cases}
+		E^u_q(x)& \text{if } \norm{x}\leq 1\\
+		(\lambda,x_j)& \text{if } x=(\lambda+1)\cdot x_j\text{, where }\lambda>0 \text{ and }x_j\in 	(E^u_q)^{-1}(V_j)\\
+		p& \text{ else}.
+	\end{cases}
+\end{align*}
+Now the left side commutes and also factos over the collaps that induces $\kappa$. hence $\kappa$ is up to homotopie the plus or minus the identity which is determined by the sign of the Morse boundary operator at $\gamma_j$. 
+
+% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBoAmAXVJADcBDAGwFcYkQBpAPTQAIAdHIP79GMAGY5kvGcKFD+4gE70AxsF4BhAPoBGABQAZbQEcAlAF8B8ubw0jVjWTfnWRYyfrcvvOg8fMROBgcAFssMGY4AX4AIywAc1VmNHcscJw4bWAAKwBeXQsuJz8ANW0c5zlBN34lRIALHDMqnytqusacShALUnRMXHxCFF0KajomVnZuVNEJKTKKmPiEgHoYtHolPCYtPV5ynJF6hKaevoHsPAIiMl0JhhY2RE4edwXkADlTBxTeH5zZJ8PxGX78YEA7RoMwnLoXfogDDXYZEcikB40J7TV6zD6SZB+AAqXGY0IAsitEhsRFsdlg9n5eCSyWhKXCzt1eojkUNbigyMRHlMXm85h4pD8TFT1mDAp1OQirnyRsgxkKsSKZjxkAARUnZEQwNDYRgECwiVZrWnbXZOfVk4BGk1YM1gKxKpGDG6q9EaybPbVoZAAZS4TtE9FCsSg9GhAGpCp7eT6iGNMQGcWLkCJlGpgAAhbTkfTESwRul23hFktliwXCYwKAJeBEUDKCChJBkEA4CBIciXEAdruIMa9-uIdGZ0UiADW9DQWxANEY9FiMEYAAVvajXqcmtz20pO0hx33u0OR0gAMw0C9jzWB17iYtH4cn0fTh8AFivn6QH970nABWf9T0QEDgKQAA2J8s1fH932vKdoMg+DRVfG9kIAxA4InW8MPYV9dBwiCAHY0LvGd2FiPQyNHSiCPQmjXjo8gVxAOAGiwSRL0RFCmIfcdsVneZPH0ABRA1zHDABaQoHCwJRVF4LAOSaMwuAAKk4tcN23Xd+RACJsFgXpKAsIA
+\begin{tikzcd}
+	{K^p\left[N_q \big/(L_q)\right]} \arrow[r]                                                                                                                      & {K^p[D^u_{\epsilon}\big/\partial D^u_{\epsilon} ]} \arrow[r, "f_4"]                                                                 & {K^p[S^{\lambda_p+1}]} \arrow[d, "f_1"]                                  \\
+	{K^p\left[N_q\cup N_p\cup C_1(L_q\cup N_p)\right]} \arrow[u] \arrow[ru, "f_3"]                                                                                  & {K^p[\frac{B_2(0)}{\partial B_2(0)}]} \arrow[r, "b_1"] \arrow[u, "b_2"] \arrow[d, "\left((E^u_q)^{-1}\circ i\right)^*" description] & {K^p\left[C_1T^u_pM \big/ \partial C_1 T^u_pM \right]} \arrow[ld, "f_2"] \\
+	{K^p 		\left[   			\frac{ C_1(L_q)} 				 { \cl  				 	\left( 				 		C_1(L_q)\setminus \bigcup\limits_{j=1}^l C_1V_j  				 	\right)  				 } 		\right]} \arrow[u] & {K^p\left[C_1V_j \big/ \partial C_1 V_j\right]} \arrow[lu, "\kappa"'] \arrow[l]                                                     &                                                                         
+\end{tikzcd}
+Now we start going arround that diagramm wich is commutative up to hopotopie and start at the bottom. $b_1$ is the same map as $f_1$ and hence makes use of the orientation of $T^u_pM$. $f_2\circ b_1$ is homotopic to the inculsion induced mapping $\left((E^u_q)^{-1}\circ i\right)^*$. This can be seen as follows: First notice how $f_2\circ b_1$ is homotopic to map induced from $(\id\oplus E^u_{q,j})^{-1})$
+\begin{equation*}
+	(x_1,\dots x_{\lambda_{p}+1})\mapsto (\frac{x_1}{|x_1|},\dots x_{\lambda_{p}+1})\, .
+\end{equation*}
+now the half cylinder ($x_1\geq 0$) is again homotopic to the whole with the inclusion and collapsing being the homotopic invers maps. Those considerations also work modulo the boundary. Now $f_2\circ b_1$ is homotopic to $\left((E^u_q)^{-1}\circ i\right)^*$ if and only if the chart $(E^u_q)^{-1}$  by applying the streching map $s:\frac{B_2(0)}{\partial B_2(0)}\to \frac{B_2(0)}{\partial B_2(0)}$: (which is homotopic to the identity.)
+\begin{center}
 	
+	
+	\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+	
+	\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+		%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+		
+		%Shape: Block Arc [id:dp2516942430671658] 
+		\draw  [fill={rgb, 255:red, 245; green, 166; blue, 35 }  ,fill opacity=1 ] (284,83.96) .. controls (298.88,68.69) and (319.24,58.69) .. (342.17,57.27) .. controls (351.83,56.67) and (361.22,57.63) .. (370.11,59.95) -- (362.53,89.26) .. controls (356.65,87.73) and (350.44,87.08) .. (344.05,87.48) .. controls (328.89,88.42) and (315.43,95.05) .. (305.6,105.17) -- cycle ;
+		%Shape: Ellipse [id:dp31830895843634066] 
+		\draw  [line width=2.25]  (258.59,146.8) .. controls (258.59,97.56) and (298.5,57.65) .. (347.74,57.65) .. controls (396.97,57.65) and (436.89,97.56) .. (436.89,146.8) .. controls (436.89,196.04) and (396.97,235.95) .. (347.74,235.95) .. controls (298.5,235.95) and (258.59,196.04) .. (258.59,146.8) -- cycle ;
+		%Shape: Ellipse [id:dp9709870130157104] 
+		\draw   (288.6,146.8) .. controls (288.6,114.14) and (315.08,87.66) .. (347.74,87.66) .. controls (380.4,87.66) and (406.87,114.14) .. (406.87,146.8) .. controls (406.87,179.46) and (380.4,205.93) .. (347.74,205.93) .. controls (315.08,205.93) and (288.6,179.46) .. (288.6,146.8) -- cycle ;
+		%Shape: Circle [id:dp482439832706389] 
+		\draw  [draw opacity=0][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ] (348.7,143.89) .. controls (349.7,143.43) and (350.88,143.87) .. (351.33,144.87) .. controls (351.79,145.87) and (351.35,147.04) .. (350.35,147.5) .. controls (349.35,147.95) and (348.17,147.51) .. (347.72,146.51) .. controls (347.27,145.52) and (347.71,144.34) .. (348.7,143.89) -- cycle ;
+		%Shape: Arc [id:dp1835190035098445] 
+		\draw  [draw opacity=0][line width=2.25]  (305.17,104.91) .. controls (315.42,94.49) and (329.49,87.79) .. (345.25,87.13) .. controls (351.39,86.87) and (357.36,87.55) .. (363.01,89.04) -- (347.74,146.8) -- cycle ; \draw  [color={rgb, 255:red, 80; green, 227; blue, 194 }  ,draw opacity=1 ][line width=2.25]  (305.17,104.91) .. controls (315.42,94.49) and (329.49,87.79) .. (345.25,87.13) .. controls (351.39,86.87) and (357.36,87.55) .. (363.01,89.04) ;  
+		%Shape: Ellipse [id:dp3336819844491399] 
+		\draw  [draw opacity=0][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ] (331.4,87.95) .. controls (332.4,87.49) and (333.57,87.93) .. (334.03,88.93) .. controls (334.48,89.93) and (334.04,91.11) .. (333.04,91.56) .. controls (332.05,92.02) and (330.87,91.58) .. (330.41,90.58) .. controls (329.96,89.58) and (330.4,88.4) .. (331.4,87.95) -- cycle ;
+		%Straight Lines [id:da2883617960271355] 
+		\draw    (320.32,61.14) -- (375.42,231.86) ;
+		%Straight Lines [id:da6580977928561076] 
+		\draw    (320.32,61.14) -- (399.42,218.86) ;
+		%Straight Lines [id:da549347805026984] 
+		\draw    (320.32,61.14) -- (420.42,196.86) ;
+		%Straight Lines [id:da3542746287685834] 
+		\draw    (320.32,61.14) -- (435.42,164.86) ;
+		%Straight Lines [id:da38915223346361993] 
+		\draw    (320.32,61.14) -- (435.42,130.86) ;
+		%Straight Lines [id:da011207389658813405] 
+		\draw    (320.32,61.14) -- (423.42,97.86) ;
+		%Straight Lines [id:da15646287377542745] 
+		\draw    (320.32,61.14) -- (397.42,70.86) ;
+		
+		%Straight Lines [id:da5095357448746147] 
+		\draw    (323.57,61.6) -- (351.75,235.79) ;
+		%Straight Lines [id:da6233786094876668] 
+		\draw    (323.57,61.6) -- (321.84,230.24) ;
+		%Straight Lines [id:da23916661666457828] 
+		\draw    (322.57,62.6) -- (289.95,214.07) ;
+		%Straight Lines [id:da33960840190709396] 
+		\draw    (322.57,62.6) -- (270.05,186.5) ;
+		%Straight Lines [id:da11039605607469682] 
+		\draw    (322.57,62.6) -- (260.47,152.72) ;
+		%Straight Lines [id:da5150377253833407] 
+		\draw    (322.57,62.6) -- (265.75,115.61) ;
+		
+		% Text Node
+		\draw (311.67,43.4) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize]  {$y_{j}$};
+		
+		
+	\end{tikzpicture}
+	
+\end{center}
+Using this streching we have that 
 		\begin{minipage}{\dimexpr \textwidth-2\fboxsep-2\fboxrule}
 		\abovecaptionskip=0pt
 		\sbox0{\includegraphics[width=3.8cm]{Text/Pictures/the rescaling with rays}}% get height and width
