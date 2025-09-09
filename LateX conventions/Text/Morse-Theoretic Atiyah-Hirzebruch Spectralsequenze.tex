@@ -716,15 +716,15 @@ I find this difficult to proof, since we cannot use the flow for the map from th
 The same arguments work to show that $N_q$ is a tubular neighbourhood of $W(q\to)\cap M_c$, by replacing $f$ with $-f$. Furthermore, we can assume, that the $V_j$ from below are fibers in the normal neighbourhood. This can be realized, since $V_j$ intersect transversal and by trivialization we have a global fram of the bundel and hence can smoothly rescale the embedding along the frame to get that $V_j$ is the image of the fibre above $x_j$. 	
 \begin{proof}[Proof of Theorem \ref{thm commuting connecting homomorphism}]
 	Lets say that $p\in -\N $ is negative for the moment. 
-	By definition we get the triple connecting morphism as the composition of the inclusion with the connecting homomorphism of the pair:
+	By definition we get the triple connecting morphism as the composition of the inclusion with the connecting homomorphism of the pair:\todo{check if $\big[S_1 \wedge L_q\cup N_p , S_1 \wedge  L_p \cup \inti(L_q \setminus{N_p})\big]$ or $\big[S_1 \wedge L_q\cup N_p , S_1 \wedge  L_p \cup (L_q \setminus\mathring{N_p})\big]$ is correct!}
 	\begin{center}
 		\begin{adjustbox}{max width=\textwidth}
-			% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBoBmAXVJADcBDAGwFcYkQBpAPWDQFoAjAF8ABAB0xAIywBzZABkA+gEcJAY2ZoRAOUVbSIkUq3rNIgBRLl4sXBg4AtljDM4Nh-RwALAE7OZwLpoQgCUEtIylCBCpOiYuPiEKGQATNR0TKzs3LyCouGyyEYqplpBNhFRMXHYeAREAqRpNAwsbIicXCZShQDKigI2AO4wUDIwFlY2GmV6IRWyVbEgGLWJDRTprVkdOcELcv2DEiNjE1alOnoiBkfDo+OGxtNmlio2do7Oru6evv6BPShAqRaLLVYJeooFJNLaZdqdboRIq6ayXcqXADCAzeaLEMyuaDC+LM2JS5lR6LmByWNUhSWQMIEcLa2S6BxR7yp3QJ2IEuJesyJNLBdLqDJhxBZO0RHKueIJGJJSNkAHpJlzlYT5iDaSt4uKNlKWvC2Sq5PLuQYLlqlZVoukHvAiKAAGY+CAOJBkEA4CBIRoZVkdLBcABUopA7s9AZofqQMJAjGcCKgEGYkkYbBoXhg9Cg7EgYGzvvoWEYhYIbGqUY9XsQPvjiHINGTxfYaYzWZAObzBY6RZLODLFYHVcj0friabABYTcGQBImGgvPRwxO60g577-YgAKzzmVYRTAJeMFf0ITrmuTpAHndIABsh4R5gc4ZCPDyG5jiAA7HGu7PkmKYdummYlrm+aVu2cYjjB1bLLeiCBk2AFBjKEiwIww4nmgZY+EIP71i2D6IIm2wIsep5SPYl7XpQQhAA
+			% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBoBmAXVJADcBDAGwFcYkQBpAPWDQFoAjAF8ABAB0xAIywBzZABkA+gEcJAY2ZoRAOUVbSIkUq3rN4sWsYAKJcvNwYOALZYwzOMF1ohASgnSZShAhUnRMXHxCFDIAJmo6JlZ2bl5BUX9ZZCMVUy0vcwCgkLDsPAIiAVI4mgYWNkROLhMpTIBlRQFzAHcYKBkYERsVcw08vR8C2SLQkAxSyIqKeNqkhpTvSbl2zokevoHbXJ09EQNt7t7+w2MRs3VGQdt7Rxc3Dy9fDMDgmbmI8pQMSqy0S9UazQCWV0diO+SOAGEOkMYRYzF4-KitIiYlZobDxptpiV-lFkECBCC6skmpsocN8c1RiJEQJkbcxmgJl8ibNwmVSUDiJTVuDaccUUy4ZjNgB6R706Xowk-Yn8xZCmqg6kQzLihkGQ6Kk7c4LxS7wIigABmACcIE4kGQQDgIEhKgkqQ0sFwAFQqkC2+1umgupBAkCMVxgqAQZiSRhsGgACxg9Cg7EgYETzvoWEYGYIbGKAbtDsQTtDiHINEjWfYMbjCZAydT6YamezOFz+fbhf9gbL4crABZNZ6QBImGgk-Rff3S0hR87XYgAKxjkVYRTASeMaf0IRz4sDpDr5dIABsG7BVicvp8PDS86DiAA7CGV1eI1H67H49mUzTAs6xDbtgKLGYT0Qd1K3fD0RQkWBGC7bc0FzG0hGfMtq3PRBwxWMEtx3KRHAPI9KCEIA
 			\begin{tikzcd}
-				& {K^p \big[ N_q\cup N_p, L_q\cup N_p \big]} \arrow[r, no head, Rightarrow]                                               & {K^p \big[ N_q \cup N_p \cup \big/ (L_q \cup N_p) \big]}                                             \\
-				&                                                                                                                         & {K^p \big[ N_q \cup N_p \cup C_1(L_q \cup N_p) \big]} \arrow[u, "(m^*)^{-1}"]                        \\
-				{K^{p-1} \big[ L_q\cup N_p \big]} \arrow[r, no head, Rightarrow] \arrow[ruu, "\delta_{pair}"]                              & {K^p \big[S_1 \wedge (L_q \cup N_p) \big]} \arrow[r, "\alpha^*"]                                                        & {K^p \big[ N_q \cup N_p \cup C_1(L_q \cup N_p)\cup C_2(N_q\cup N_p) \big]} \arrow[u, "i_{\alpha}^*"] \\
-				{K^{p-1} \big[L_q\cup N_p ,  L_p \cup (L_q \setminus \mathring{N_p})\big]} \arrow[u, "i^*"] \arrow[r, no head, Rightarrow] & {K^{p} \big[S_1 \wedge L_q\cup N_p , S_1 \wedge  L_p \cup (L_q \setminus \mathring{N_p})\big]} \arrow[u, "i_{\beta}^*"] &                                                                                                     
+				& {K^p \big[ N_q\cup N_p, L_q\cup N_p \big]} \arrow[r, no head, Rightarrow]                                         & {K^p \big[ N_q \cup N_p \cup \big/ (L_q \cup N_p) \big]}                                             \\
+				&                                                                                                                   & {K^p \big[ N_q \cup N_p \cup C_1(L_q \cup N_p) \big]} \arrow[u, "(m^*)^{-1}"]                        \\
+				{K^{p-1} \big[ L_q\cup N_p \big]} \arrow[r, no head, Rightarrow] \arrow[ruu, "\delta_{pair}"]                       & {K^p \big[S_1 \wedge (L_q \cup N_p) \big]} \arrow[r, "\alpha^*"]                                                  & {K^p \big[ N_q \cup N_p \cup C_1(L_q \cup N_p)\cup C_2(N_q\cup N_p) \big]} \arrow[u, "i_{\alpha}^*"] \\
+				{K^{p-1} \big[L_q\cup N_p ,  L_p \cup \cl(L_q \setminus{N_p})\big]} \arrow[u, "i^*"] \arrow[r, no head, Rightarrow] & {K^{p} \big[S_1 \wedge L_q\cup N_p , S_1 \wedge  L_p \cup \cl (L_q \setminus{N_p})\big]} \arrow[u, "i_{\beta}^*"] &                                                                                                     
 			\end{tikzcd}
 		\end{adjustbox}
 	\end{center}
@@ -771,10 +771,10 @@ The same arguments work to show that $N_q$ is a tubular neighbourhood of $W(q\to
 	Furthermore, we have the commutative diagramm: 
 	\begin{center}
 		\begin{adjustbox}{max width=\textwidth}
-			% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZARgBoAGAXVJADcBDAGwFcYkQBpAPTQAIAdfoxgAzHMl4A5APoBHAfwDGzPjL6DlfAMLTiACgAychZqnS0ASg0reOgEx6Zs66vMWFAJywBzABY5KEABfUnRMXHxCFHIKajomVnZudX4AIx9kAGVdBQB3GChvGF5DYxczSwV070CQsOw8AiIY4jiGFjZETi5gNCCqjMFZZgg8GDAcYGziPIKi3iNnJRs1XiCpnMF8wuKF8xMbUvlBOBgcAFssMGY4BXP6HF8vMG9gNSCLfsFq2tCQDAakSIZFaNHaiS6yQUwjEEgUw1GWHGk0EIg89EUbzk5VW5R0+kWOLceOkDicB1clnW9kcZWWlM+a2ACjRGOZ+JKRhSpkEEFoMA8jCuMGAR14ClOFyuNwqn3c5VspNpx3psupSqcRKp-U8Pn8tTic3gRFAaIg5yQdhoOAgSDI8Q67EU0mA3zO9CCXAAVME-maLYh7TakDEHRCQIImGhfPRvb7TR5zZbrbbEABmMEJToR-jeejne5xuogf1IDMgYOIUPg7PO125-P3T0+oKUIJAA
+			% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZARgBoAGAXVJADcBDAGwFcYkQBpAPTQAIAdfoxgAzHMl4A5APoBHAfwDGzPjL6DlfAMLTiACgAychZqnS0ASg0reOgEx6Zs66vMWFAJywBzABY5KEABfUnRMXHxCFHIKajomVnZudX4AIx9kAGVdBQB3GChvGF5DYxczSwV070CQsOw8AiIY4jiGFjZETi5gNCCqjMFZZgg8GDAcYGziPIKi3iNnJRs1XiCpnMF8wuKF8xMbDUYSxYU4GBwAWywwZjhgNSCLfsFq2tCQDAbIojJWmnaiS6yQUwjEEgUw1GWHGk0EIg89EUDzk5VW5R0+kWaLcGOkDicB1clnW9kcZWWxOea2ACgRSNpmJO+3KgggtBgHkYNxgwFK8jOF2utzgFWe7nKtnx5PkOJJwDJTjlz36nh8-lqcTm8CIoAREEuSDsNBwECQZHiHXYimkwFeF3oQS4ACpgh99YbEBbTUgYpagSBBEw0L56C63XqPAajSazYgAMwAhKdQP8bz0S6XMOuuogD1IRMgH2IP2AlM2u1pjNZp05yhBIA
 			\begin{tikzcd}
-				{K^p \big[S_1 \wedge (L_q \cup N_p) \big]} \arrow[r, "\alpha^*"]                                                                                          & {K^p \left[ N_q \cup N_p \cup C_1(L_q \cup N_p)\cup C_2(N_q\cup N_p) \right]}                                                                                                                                                                     \\
-				{K^{p} \big[\quotient{S_1 \wedge L_q\cup N_p }{S_1 \wedge  L_p \cup (L_q \setminus \mathring{N_p})} \big]} \arrow[u, "c_{\beta}^*"] \arrow[r, "\gamma^*"] & {K^p \left[  \quotient{\frac{N_q\cup N_p \cup C_1(L_q\cup N_p)\cup C_2(N_q \cup N_p)}{C_2(N_q \cup N_p)} }{ \frac{ C_1 (L_p \cup \overline{(L_q  \setminus N_p)}) \cup  C_2(N_q \cup N_p)}{C_2(N_q\cup N_p)}}  \right]} \arrow[u, "c_{\gamma}^*"]
+				{K^p \big[S_1 \wedge (L_q \cup N_p) \big]} \arrow[r, "\alpha^*"]                                                                                    & {K^p \left[ N_q \cup N_p \cup C_1(L_q \cup N_p)\cup C_2(N_q\cup N_p) \right]}                                                                                                                                                                     \\
+				{K^{p} \big[\quotient{S_1 \wedge L_q\cup N_p }{S_1 \wedge  L_p \cup \cl (L_q \setminus{N_p})} \big]} \arrow[u, "c_{\beta}^*"] \arrow[r, "\gamma^*"] & {K^p \left[  \quotient{\frac{N_q\cup N_p \cup C_1(L_q\cup N_p)\cup C_2(N_q \cup N_p)}{C_2(N_q \cup N_p)} }{ \frac{ C_1 (L_p \cup \overline{(L_q  \setminus N_p)}) \cup  C_2(N_q \cup N_p)}{C_2(N_q\cup N_p)}}  \right]} \arrow[u, "c_{\gamma}^*"]
 			\end{tikzcd}
 		\end{adjustbox}
 	\end{center} To see the commutativitie we have to show that 
@@ -782,10 +782,9 @@ The same arguments work to show that $N_q$ is a tubular neighbourhood of $W(q\to
 		c_{\beta}\circ \alpha =\gamma \circ c_{\gamma}: N_q \cup N_p \cup C_1(L_q \cup N_p)\cup C_2(N_q\cup N_p) \to \left[ \quotient{S_1 \wedge L_q\cup N_p }{S_1 \wedge  L_p \cup (L_q \setminus \mathring{N_p})} \right]
 	\end{align*} since $\alpha$ and $\beta$ are both of the form $x \mapsto \overline{x}=x $ or $p$  we compare the case distinctions:
 	\begin{itemize}
-		\item $c_{\beta} \circ \alpha (x)=p \Leftrightarrow x \in C_1 \left( L_p \cup (L_q \setminus \mathring{N_p}) \right) \, \cup \, C_2(N_q \cup N_p)$
-		\item $\gamma \circ c_{\gamma}(x)=p \Leftrightarrow x\in C_2(N_q \cup N_p) \, \cup\,     C_1 (L_p \cup \overline{(L_q  \setminus N_p)}) \cup  C_2(N_q \cup N_p)$
-	\end{itemize} Which are the same, since $L_q \setminus \mathring{N_p}=\overline{L_q \setminus N_p}$ due to $L_q$ being closed.
-	Now we consider the maps:
+		\item $c_{\beta} \circ \alpha (x)=p \Leftrightarrow x \in C_1 \left( L_p \cup \cl (L_q \setminus {N_p}) \right) \, \cup \, C_2(N_q \cup N_p)$
+		\item $\gamma \circ c_{\gamma}(x)=p \Leftrightarrow x\in C_2(N_q \cup N_p) \, \cup\,     C_1 (L_p \cup \cl(L_q  \setminus N_p)) \cup  C_2(N_q \cup N_p)$
+	\end{itemize} Which are the same. Now we consider the maps:
 	\[
 	\resizebox{\textwidth}{!}{$
 		\begin{aligned}
@@ -857,11 +856,11 @@ The same arguments work to show that $N_q$ is a tubular neighbourhood of $W(q\to
 	Hence by the additivity of $K-$Theorie, the pair
 	\begin{align*}
 		\left( K^p \left[  \frac{ C_1(L_q)}{ \cl \left(C_1(L_q)\setminus \bigcup\limits_{j=1}^l C_1V_j \right) } \right]  ,\left( \left( c_j \circ \Lambda \right)^*\right)_j \right)
-	\end{align*} satisfies the coproduct universal property.
+	\end{align*} satisfies the coproduct universal property. For this coproduct we denote the left inverse of the inclusion $\left( \left( c_j \circ \Lambda \right)^*\right)_j$ by $\pi_j$.
 	
 	So consider the map
 	\begin{equation}\label{eq: connecting hom the core mapping}
-	\kappa:	c^*\circ i_{\delta}^*\circ i_{\eta}^*	\circ (c_j\circ \Lambda)^*: K^p\left[ C_1 V_j\big/ \partial C_1V_j \right] \to K^p\left[N_q\cup N_p\cup C_1(L_q\cup N_p)\right]
+	\kappa_j:	c^*\circ i_{\delta}^*\circ i_{\eta}^*	\circ (c_j\circ \Lambda)^*: K^p\left[ C_1 V_j\big/ \partial C_1V_j \right] \to K^p\left[N_q\cup N_p\cup C_1(L_q\cup N_p)\right]
 	\end{equation}
 	This map is induced from
 	\begin{align*}
@@ -889,13 +888,13 @@ The same arguments work to show that $N_q$ is a tubular neighbourhood of $W(q\to
 % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBoBGAXVJADcBDAGwFcYkQBpAPTQAIAdHIP79GMAGY5kvGcKFD+4gE70AxsF4BhAPrkAFABltARwCUAXwHy5vDSNWNZ1+VZFjJe186879RsyJwMDgAtlhgzHAC-ABGWADmqsxoblhhOHDawABWALzk5lyOvgBq2tlOcoKu-EoJABY4ppXellW1DTiUIOak6Ji4+IQo5BTUdEys7NwpohJSpeXRcfEA9NFo9Ep4TFq6vGXZInXxjd29-dh4BERkxOMMLGyInDxu88gAcib2ybzfsySfF8hh+-CB-20aFMx0653GMCg8XgRFAyggISQZBAOAgSAATBcQOjMYhRji8Yh8TRHlMXiIANb0NCbHp9YlKDFIcm4rHmSjmIA
 \begin{tikzcd}
 	{K^p\left[N_q\cup N_p\cup C_1(L_q\cup N_p)\right]}                                                                                                              &                                                                                \\
-	{K^p 		\left[   			\frac{ C_1(L_q)} 				 { \cl  				 	\left( 				 		C_1(L_q)\setminus \bigcup\limits_{j=1}^l C_1V_j  				 	\right)  				 } 		\right]} \arrow[u] & {K^p\left[C_1V_j \big/ \partial C_1 V_j\right]} \arrow[lu, "\kappa"] \arrow[l]
+	{K^p 		\left[   			\frac{ C_1(L_q)} 				 { \cl  				 	\left( 				 		C_1(L_q)\setminus \bigcup\limits_{j=1}^l C_1V_j  				 	\right)  				 } 		\right]} \arrow[u] & {K^p\left[C_1V_j \big/ \partial C_1 V_j\right]} \arrow[lu, "\kappa_j"] \arrow[l]
 \end{tikzcd}
 \quad % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBoAmAXVJADcBDAGwFcYkQBpAPTQAIAdHIP79GMAGY5kvGcKFD+4gE70AxsF4BhAPoBGABQAZbQEcAlAF8B8ubw0jVjWTfnWRYyfrcvvOg8fMROBgcAFssMGY4AX4AIywAc1VmNHcscJw4bWAAKwBeXQsuJz8ANW0c5zlBN34lRIALHDMqnytqusacShALUnRMXHxCFF0KajomVnZuVNEJKTKKmPiEgHoYtHolPCYtPV5ynJF6hKaevoHsPAIiMl0JhhY2RE4edwXkADlTBxTeH5zZJ8PxGX78YEA7RoMwnLoXfogDDXYZEcikB40J7TV6zD6SZB+AAqXGY0IAsitEhsRFsdlg9n5eCSyWhKXCzt1eojkUNbigyMRHlMXm85h4pD8TFT1mDAp1OQirnyRsgxkKsSKZjxkAARUnZEQwNDYRgECwiVZrWnbXZOfVk4BGk1YM1gKxKpGDG6q9EaybPbVoZAAZS4TtE9FCsSg9GhAGpChcJjAoAl4ERQMoIKEkGQQDgIEhyJcQNnc4gxgWi4h0QGcSARABrehoLYgGiMeixGCMAAK3tRr1OTW5WaUOaQVcLedL5aQAGYaDPK3OJxW6yuACxryeILfLmsAVl3FaPh6QADZT8WL4gT4j54hL3eFxZKBYgA
 \begin{tikzcd}
 	{K^p\left[N_q \big/(L_q)\right]} \arrow[r]                                                                                                                      & {K^p[D^u_{\epsilon}\big/\partial D^u_{\epsilon} ]} \arrow[r]                    & {K^p[S^{\lambda_p+1}]} \arrow[d]                                  \\
 	{K^p\left[N_q\cup N_p\cup C_1(L_q\cup N_p)\right]} \arrow[u] \arrow[ru]                                                                                         &                                                                                 & {K^p\left[C_1T^u_pM \big/ \partial C_1 T^u_pM \right]} \arrow[ld] \\
-	{K^p 		\left[   			\frac{ C_1(L_q)} 				 { \cl  				 	\left( 				 		C_1(L_q)\setminus \bigcup\limits_{j=1}^l C_1V_j  				 	\right)  				 } 		\right]} \arrow[u] & {K^p\left[C_1V_j \big/ \partial C_1 V_j\right]} \arrow[lu, "\kappa"'] \arrow[l] &                                                                  
+	{K^p 		\left[   			\frac{ C_1(L_q)} 				 { \cl  				 	\left( 				 		C_1(L_q)\setminus \bigcup\limits_{j=1}^l C_1V_j  				 	\right)  				 } 		\right]} \arrow[u] & {K^p\left[C_1V_j \big/ \partial C_1 V_j\right]} \arrow[lu, "\kappa_j"'] \arrow[l] &                                                                  
 \end{tikzcd}
 \end{center}
 
@@ -923,23 +922,23 @@ This mapping $E^u_q$ gives also rise to an oriented chart of $V_j$: For this we 
  \end{align*}
   Here is where the definition of the Morse boundary operator comes because now we have two different orientations in $V_j$. One induced from $T^u_pM$ (lets call the oriented basis $b^u_p$) and one induced from above. Hence in $Tx_j\gamma_j\oplus Tx_jV_j$ we have two different oriented basis induced from this chart and from the chart given by the tubular neighbourhood embedding of $W(\to p)\cap M^c$ restricted to the normal fiber above $x_j$.
   \begin{center}
-% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB12AlAPWE4Z0AtgCModAPpoAviGml0mXPkIoAjOSq1GLNgBUeTKQFk5CkBmx4CRMmq31mrRCABqEgFZytMKAHN4IlAAMwAnCCEkMhAcCCQNEEERGAYABSVrVRAsMGxYEGpHXRcRQykzEPDIxATYpAAmQp1nEAApThEsPwAfCWAAVT6AD09pWXlKiKjqOsRG7Sc2AAoAUTLgAEcPaQBKPgBaNVlqJJT0qxU2UK6ACxxvaSA
+% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB12AlAPWE4Z0AtgCModAPpoAviGml0mXPkIoAjOSq1GLNgBUeTKQFk5CkBmx4CRMmq31mrRCABqEgFZytMKAHN4IlAAMwAnCCEkDRAcCCQyEEERGAYABSVrVRAsMGxYEGpHXRcARwlgEUMpWXkQ8MjEACZqWKjCnWcQAClOESw-AB9ygFVygA9PaWk+AFo1WWoklPSrFTZQ-oALHDM6iKRmmLjEBKLOgAoAUSrgEo9pAEoCxLpktIy1lwYYYJ3pCmkQA
 \begin{tikzcd}
-	\R^{\lambda_p} \arrow[r, "b^u_p" description] \arrow[d, "(E^u_{qj})^{-1}"'] & T^u_pM \arrow[ld, "J\big|_{U_{x_j}}"] \\
-	V_j                                                                         &                                      
+	\R^{\lambda_p}                                                   & T^u_pM \arrow[l, "q_{b^u_p}" description] \\
+	V_j \arrow[ru, "J\big|_{U_{x_j}}^{-1}"'] \arrow[u, "(E^u_{qj})"] &                                          
 \end{tikzcd}
   \end{center}
   If we now swich to the Alexandrof kompakitifikations we have that this diagramm kommutes up to homotopy, if and only if the orientaions agree. \todo{hier beweis nachholen. Sollte eine einfache übuingsaufgabe sein mittels abbildungsgrad zwischen sphären ist homotopieinvariante}. Else we have a change of sign. Hence we have the diagramm that commutes up to sign: 
   
   \begin{center}	
-  % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAGUAdTmmGAAnYA9YNwZ0AtgCModAPpoAviEWl0mXPkIoAjOSq1GLNtwBmAJzoBjYAGE5O-gBUhTBQFlFozmjrm8jPz2ji5uaJ4qaiAY2HgERGQ6BvTMrIggZpY2wfwAanIAVl7cvv5YgTn5RSoGMFAA5vBEoBYQEkhkIDgQSHog4lIwDAAKGnHaIFhg2LAg1CnG6dxYUPzcvAJSrgqRLeZtvdTdSABM80ZpGZwra5wQaMxw-ABS3FJY9QA+csAAqj8AD0KimUqj2B0QnWOiDOhlSJmuq3WfH4AAoAKLbYAARyKAEoRABaHTKagDIajWJaNjmD4ACxwNUUQA
-  \begin{tikzcd}
-  	S\vee S^{\lambda_p} \arrow[r, "\id \vee b^u_p" description] \arrow[d, "\id \vee (E^u_{qj})^{-1}"'] & \frac{C_1 T^u_pM}{\partial C_1 T^u_pM} \arrow[ld, "\id \oplus J\big|_{U_{x_j}}"] \\
-  	\frac{C_1 V_j}{\partial C_1 V_j}                                                                   &                                                                                 
-  \end{tikzcd}
+ % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAGUAdTmmGAAnYA9YNwZ0AtgCModAPpoAviEWl0mXPkIoAjOSq1GLNtwBmAJzoBjYAGE5O-gBUhTBQFlFozmjrm8jPz2ji5uaJ4qaiAY2HgERGQ6BvTMrIggZpY2wfwAanIAVl7cvv5YgTn5RSoGMFAA5vBEoBYQEkh6IDgQSGQg4lIwDAAKGnHaIOZY9QAWOCDUKcbp3FhQ-Ny8AgCOcsBSrgrKqi3mbUgATNTdHYtGaRmcaxucEGjMcPwAUtxS0wA+ewAqnsAB6FRSKEQAWh0ymoAyGo1iWjYU1m8xOIFa7UQVy6PUQfSWD1W602fH4AAoAKKHYDbIoASgW-TogxGY1R6QYMFMmIoiiAA
+ \begin{tikzcd}
+ 	S\vee S^{\lambda_p}                                                                                               & \frac{C_1 T^u_pM}{\partial C_1 T^u_pM} \arrow[l, "\id \vee q_{b^u_p}"'] \\
+ 	\frac{C_1 V_j}{\partial C_1 V_j} \arrow[ru, "\id \oplus J\big|_{U_{x_j}}^{-1}"'] \arrow[u, "\id \vee (E^u_{qj})"] &                                                                        
+ \end{tikzcd}
   \end{center}
   
-Here the right path coincides with the path $f_2\circ f_1$. Now we introduce a left part that will later factor over the collaps that induces $\kappa$:
+Here the right path coincides with the path $f_2\circ f_1$. Now we introduce a left part that will later factor over the collaps that induces $\kappa_j$:
 \begin{center}
 	% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZARgBoAGAXVJADcBDAGwFcYkQBlAHS9phgAEHAHrAejegFsARlHoB9NAF8QS0uky58hFACYK1Ok1bseAMwBO9AMbAAwvOICAKsOaKAskrFc09C3hMAg5Oru5oXqrqIBjYeAREZMSGDCxsiCDmVrYhAgBq8gBW3jx+AVhBuQXFURpx2kTkBjSpJhkAcvIAjiEAFAAy3QCUqoYwUADm8ESglhCSSE0gOBBIZCAS0jCMAAqa8TogWGDYsCAtxumZXFhQAjx8gtJuirUgcwuI6ytI+kZpphudx4EDQLDgAgAUjxpFgJgAfeTAACqSIAHkUlCo1LMLPNFjQfog-q0rjxbvdePwBL0AKIvYBdYpDUQAWmIKhom22e3qCQyFjhAAscG8PgTlqtEABmC4AjJmeQAVnOG3oW12+waAuFopx7zxn1lkt+NC2YCgSFZ0qWpPY1ggjAkaAQXPVPK1-JAgomItGSiAA
 	\begin{tikzcd}
@@ -956,7 +955,7 @@ We define $f_5$ as follows:
 		p& \text{ else}.
 	\end{cases}
 \end{align*}
-Now the left side commutes and also factos over the collaps that induces $\kappa$. hence $\kappa$ is up to homotopie the plus or minus the identity which is determined by the sign of the Morse boundary operator at $\gamma_j$. Now lets collect all:
+Now the left side commutes and also factos over the collaps that induces $\kappa_j$.\textit{ hence $\kappa_j$ is up to homotopie the plus or minus the identity which is determined by the sign of the Morse boundary operator at $\gamma_j$}. Now lets collect all:
 
 The (trivialized) tubular neighbourhood embedding 
 \begin{align*}
@@ -964,23 +963,66 @@ The (trivialized) tubular neighbourhood embedding
 \end{align*}
 together with collapsing $W(\to p)\cap M^c$ (which is realiced by the projection $\pi: W(p\to)\cap M^c\times T^u_pM\to T^u_pM$) and a koordinate map $q$ induced by a basis of $T^u_pM$ gives rise to a map:
 \begin{align*}
-	T\coloneq q\circ \pi\circ J^{-1}: N_p\to \R^{\lambda_{p}}
+	T\coloneq q_{b^u_p}\circ \pi\circ J^{-1}: N_p\to \R^{\lambda_{p}}
 \end{align*}
 This gives rise to a well defined map 
 \begin{equation*}
 	\tilde{T}: \frac{N_p}{L_p}\to \overline{\R^{\lambda_{p}}}\cong S^{\lambda_p}; \tilde{T}(x)=\overline{T(x)}
-\end{equation*}which again can be extended to a map which we will call $T$ by abuse of notation
+\end{equation*}which again can be extended to a map which we will call $T$ by abuse of notation: 
 \begin{align*}
-T: L_q\cup N_p ,  L_p \cup (L_q \setminus \mathring{N_p}) \to S^{\lambda_p+1}
+T\coloneq \id\vee \tilde{T}: S_1\vee \left(L_q\cup N_p \middle/  L_p \cup \cl (L_q \setminus {N_p})\right) \to S^{\lambda_p+1}
+\end{align*} 
+
+ Hence, the Morse datum together with $T$ gives rise to a natural generaor of $K^{\lambda_p-1}\left[L_q\cup N_p ,  L_p \cup \cl (L_q \setminus {N_p})\right]$. Furthermore the map  $\left((c_j\circ \Lambda)^*\right)_j^{-1}\circ c_{\iota}^*\circ (\eta^*)^{-1}\circ \gamma^*\circ T$ commutes with the map $\id \vee b^u_p\circ (\id \oplus J\big|_{U_{x_j}})$. To see this notice how $\eta$ and $\gamma$ are just the identity. Furthermore $c_\iota$ is, and $\left((c_j\circ \Lambda)^*\right)_j^{-1}$ is induced by the inclusion of $C_1V_j\big/ \partial C_1V_j$ into the space $C_1L_q\big/ \cl\left(C_1(L_q)\setminus \bigcup\limits_{j=1}^lC_1V_j \right)$. Hence the composition reads
+ \begin{align*}
+\left((c_j\circ \Lambda)^*\right)_j^{-1}\circ c_{\iota}^*\circ (\eta^*)^{-1}\circ \gamma^*
+=\left(\gamma \circ \eta^{-1}\circ c_{\iota}\circ i\right)^*\\
+=\left[x\mapsto \begin{cases}
+	p & \text{ if }x\in N_q\cup N_p\cup C_1\left(L_q\cup \cl\left(L_q\setminus \bigcup\limits_{j=1}^lV_j\right) \right)\\
+	x & \text{ else .}
+\end{cases}\right]^*
+ \end{align*}  Now the collapsing reqirement is much easyer in reality, is $x$ comes from $C_1V_j$ because: 
+ \begin{align*}
+ 	C_1V_j \bigcup N_q\cup N_p\cup C_1\left(L_q\cup \cl\left(L_q\setminus \bigcup\limits_{j=1}^lV_j\right) \right)= \partial C_1V_j 
+ \end{align*} With this in mind, the whole composition equals:
+ \begin{align*}
+ 	q_{b^u_p}\circ \pi \circ J^{-1}\circ \gamma \circ \eta^{-1}\circ c_{\iota}\circ i=(\id \vee q_{b^u_p})\circ (\id \oplus J^{-1}) \, .
+ \end{align*}
+ Hence this composition equals $(id\vee J\big|_{U_{x_j}}\circ B_{b^u_p})^{-1}$. Now lets stich everything together and let $p$ be a generator of $K^{\lambda_p-1}\left[L_q\cup N_p ,  L_p \cup \cl (L_q \setminus {N_p})\right]$ induced by $T$ and the orientation of $T^u_pM$. (This means that $p=T^*(\beta)$, where $\beta$ is the Bott generator of $K^{\lambda_p-1}[S^{\lambda_p-1}]$). Then:
+\begin{align*}
+	\delta_{triple}(p)
+	&=(m^*)^{-1}\circ \underbrace{c^*\circ i_{\delta}^*\circ i_{\eta}^*}_{=\sum\limits_{j=1}^l\kappa _j\circ \pi_j}\circ c_{\iota}^*\circ (i_{\eta}^{-1})^*\circ \gamma^*(p)\\
+	&=(m^*)^{-1} \circ \sum_{j=1}^{l}\left(\kappa_j\circ \pi_j\circ c_{\iota}^*\circ (i_{\eta}^{-1})^*\circ \gamma^*\right)(T^*(\beta))\\
+	&=(m^*)^{-1} \circ \sum_{j=1}^{l}\left(\kappa_j\circ (\underbrace{q_{b^u_p}\circ \pi\circ J^{-1}\circ \gamma \circ i_{\eta}^{-1}\circ c_{\iota}\circ i_j}_{=(\id \vee q_{b^u_p})\circ (\id \oplus J^{-1})})^*(\beta)\right)\\
+	&=(m^*)^{-1} \circ \sum_{j=1}^{l}\left(\kappa_j((\pm)_{\gamma_j}(\id\vee E^u_{qj})^*(\beta)) \right)
 \end{align*}
-
- Hence, the Morse datum gives rise to a natural generaor of $K^{\lambda_p-1}\left[L_q\cup N_p ,  L_p \cup (L_q \setminus \mathring{N_p})\right]$. Furthermore the map  $\left((c_j\circ \Lambda)^*\right)_j^{-1}\circ c_{\iota}^*\circ (\eta^*)^{-1}\circ \gamma^*\circ T$ commutes with the map $(\id \oplus J\big|_{U_{x_j}})\circ \id \vee b^u_p$
-
+ Now we give its image a canonical generator induced by a basis of $T^u_qM$. For this we need a map $S^{\lambda_p+1}\to N_q\big/ L_q$ that commutes with $(m^*)^{-1} \circ f_5$. Once we have this we are finally done!!!
+ 	This however can be done easily. For this we make use of the unstable manifold theorem and rescale the immersion such that $W(q\to )\cap M_c$ is the image of the Ball $B_0(1)$. Furthermore,  $N_q\slash L_q\simeq W(q\to )\cap M_c$ since it is a tubular neighbourhood. Hence we get a map 
+ 	\begin{align*}
+ 		(E^u_q):  S^{\lambda_p+1}\to N_q\slash L_q
+ 	\end{align*} Now $(E^u_q)\simeq (m\circ f_5)\simeq \id$ since  $(E^u_q)^{-1}\circ (m\circ f_5)\simeq \id$. The latter is clear due to the first being just a streching $B_0(1)\to B_0(2)$ and then collaps of the outer ring. This composition however obvieously is homotopic to the identity. 
+ 	Hence $(E^u_q)^*\circ (m^*)^{-1}=f_5^*$ .
+ 	
+ 	Now we apply $(E^u_q)^*$ to the calculation above to figure out the map:
+ 	
+ 	\begin{align*}
+ 	(E^u_q)^*\circ 	\delta_{triple}(p)
+ 	&= (E^u_q)^*\circ (m^*)^{-1} \circ \sum_{j=1}^{l}\left(collaps^* \circ (\pm)_{\gamma_j} (\id\vee E^u_{qj})^*(\beta) \right)\\
+ 	&= \sum_{j=1}^l (\pm)_{\gamma_j} f_5^* collaps^* \circ (\id\vee E^u_{qj})^*(\beta)\\
+ 	&=\sum_{j=1}^l (\pm)_{\gamma_j} \beta=n(p,q)\beta
+ 		 	\end{align*}
+Or said differently by defining $q$ to be the generator of $N_q\big/L_q$ given by the orientation of $T^u_qM$ as $q=(E^u_q)^{-1}^*(\beta)$ then:
+\begin{equation*}
+	\delta_{triple}(p)=n(p,q)q\,.
+\end{equation*} 	
+ \todo{Uns interresiert wie viele q da rauskommen. Also eher eine Koordinatenmap nach dem tripple operator. Wenn ich die einfüre,dann könnte es passen? }
+ 
+ 
 % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBoAmAXVJADcBDAGwFcYkQBpAPTQAIAdHIP79GMAGY5kvGcKFD+4gE70AxsF4BhAPoBGABQAZbQEcAlAF8B8ubw0jVjWTfnWRYyfrcvvOg8fMROBgcAFssMGY4AX4AIywAc1VmNHcscJw4bWAAKwBeXQsuJz8ANW0c5zlBN34lRIALHDMqnytqusacShALUnRMXHxCFF0KajomVnZuVNEJKTKKmPiEgHoYtHolPCYtPV5ynJF6hKaevoHsPAIiMl0JhhY2RE4edwXkADlTBxTeH5zZJ8PxGX78YEA7RoMwnLoXfogDDXYZEcikB40J7TV6zD6SZB+AAqXGY0IAsitEhsRFsdlg9n5eCSyWhKXCzt1eojkUNbigyMRHlMXm85h4pD8TFT1mDAp1OQirnyRsgxkKsSKZjxkAARUnZEQwNDYRgECwiVZrWnbXZOfVk4BGk1YM1gKxKpGDG6q9EaybPbVoZAAZS4TtE9FCsSg9GhAGpCp7eT6iGNMQGcWLkCJlGpgAAhbTkfTESwRul23hFktliwXCYwKAJeBEUDKCChJBkEA4CBIciXEAdruIMa9-uIdGZ0UiADW9DQWxANEY9FiMEYAAVvajXqcmtz20pO0hx33u0OR0gAMw0C9jzWB17iYtH4cn0fTh8AFivn6QH970nABWf9T0QEDgKQAA2J8s1fH932vKdoMg+DRVfG9kIAxA4InW8MPYV9dBwiCAHY0LvGd2FiPQyNHSiCPQmjXjo8gVxAOAGiwSRL0RFCmIfcdsVneZPH0ABRA1zHDABaQoHCwJRVF4LAOSaMwuAAKk4tcN23Xd+RACJsFgXpKAsIA
 \begin{tikzcd}
 	{K^p\left[N_q \big/(L_q)\right]} \arrow[r]                                                                                                                      & {K^p[D^u_{\epsilon}\big/\partial D^u_{\epsilon} ]} \arrow[r, "f_4"]                                                                 & {K^p[S^{\lambda_p+1}]} \arrow[d, "f_1"]                                  \\
 	{K^p\left[N_q\cup N_p\cup C_1(L_q\cup N_p)\right]} \arrow[u] \arrow[ru, "f_3"]                                                                                  & {K^p[\frac{B_2(0)}{\partial B_2(0)}]} \arrow[r, "b_1"] \arrow[u, "b_2"] \arrow[d, "\left((E^u_q)^{-1}\circ i\right)^*" description] & {K^p\left[C_1T^u_pM \big/ \partial C_1 T^u_pM \right]} \arrow[ld, "f_2"] \\
-	{K^p 		\left[   			\frac{ C_1(L_q)} 				 { \cl  				 	\left( 				 		C_1(L_q)\setminus \bigcup\limits_{j=1}^l C_1V_j  				 	\right)  				 } 		\right]} \arrow[u] & {K^p\left[C_1V_j \big/ \partial C_1 V_j\right]} \arrow[lu, "\kappa"'] \arrow[l]                                                     &                                                                         
+	{K^p 		\left[   			\frac{ C_1(L_q)} 				 { \cl  				 	\left( 				 		C_1(L_q)\setminus \bigcup\limits_{j=1}^l C_1V_j  				 	\right)  				 } 		\right]} \arrow[u] & {K^p\left[C_1V_j \big/ \partial C_1 V_j\right]} \arrow[lu, "\kappa_j"'] \arrow[l]                                                     &                                                                         
 \end{tikzcd}
 Now we start going arround that diagramm wich is commutative up to hopotopie and start at the bottom. $b_1$ is the same map as $f_1$ and hence makes use of the orientation of $T^u_pM$. $f_2\circ b_1$ is homotopic to the inculsion induced mapping $\left((E^u_q)^{-1}\circ i\right)^*$. This can be seen as follows: First notice how $f_2\circ b_1$ is homotopic to map induced from $(\id\oplus E^u_{q,j})^{-1})$
 \begin{equation*}
