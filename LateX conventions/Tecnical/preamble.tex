@@ -26,7 +26,7 @@
 \usepackage{mwe}
 % Drawing
 \usepackage{tikz}
-\usepackage{tikz-3dplot}
+
 
 % Styles
 \tikzset{>=latex}
@@ -248,8 +248,23 @@ style=alphabetic
 
 \usepackage{adjustbox}
 
-
-
+\newenvironment{fdiagram}{%
+	\refstepcounter{equation}%
+	\begin{tcolorbox}[
+		enhanced,
+		sharp corners,
+		boxrule=1pt,
+		colback=white,
+		colframe=black,
+		fonttitle=\bfseries,
+		coltitle=black,
+		attach boxed title to bottom right={yshift=3mm,xshift=-2mm},
+		boxed title style={colback=gray!20, colframe=black, sharp corners, boxrule=0.5pt},
+		title=Diagram~\theequation
+		]%
+	}{%
+	\end{tcolorbox}%
+}
 
 
 

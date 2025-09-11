@@ -150,12 +150,12 @@ The Main statement now is that the connecting homomorphism of K-Theory and of th
 	\begin{theorem} \label{thm commuting connecting homomorphism}
 		Given the filtration $N_{-1}\subseteq N_0 \subseteq \cdots \subseteq N_{m-1} \subseteq N_m=M$   from (\ref{eq: Filtration conley}).  The following diagram commutes:
 		\begin{center}
-	% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAGEA9YAawF8AFAFlSAHVEBbOjgAWAMwBOdHsACCfMaLwNYwANJ9uDQWhwBKMyA3pMufIRQBGclVqMWbLrwDUjwSPEpWUVlNQ1xbV0DIxNzS2sQDGw8AiIyR1d6ZlZEEHEAIywAcwg0ZjhxBiwJXDgAfWA0cSwwAAJxdgVcOp4BOTM+fUMfYwEAOTq0UgAZSfjSG2T7ImcM6iyPXILi0vLK6tqGgEdmto6unAaeX0F+weiRm-G6o5mX+cW7VJQyACZM9w5EB6bjXUYTHikCa8AC0fg+iVsKQcyGc-3WgLYIMa3gYT2h1z8UJ68VcMCgRXgRFAiggEiQZBAOAgSGcbmybHEaDoCjwjE4aCsCxAtPpiEZzKQvwSotZ1EliAAzDKFHSkAAWeUsxAAVgxHK2olgDBwdAaOC6ZRgfCFNNVYt+Wo1KrVSqdupdDvdiv1mzyogAIjATWaRja+BQ+EA
-	\begin{tikzcd}
-		{C^{k}(M,\mathfrak{A},\tilde{K}^{l}(pt))} \arrow[r, "\partial^p"] \arrow[d]                & {C^{k+1}(M,\mathfrak{A},\tilde{K}^{l}(pt))} \arrow[d]                  \\
-		{\bigoplus\limits_{p\in \Crit_k(f)}{K}^{k+l}(N_p,L_p)} \arrow[d] \arrow[r, "\Delta_{k+l}"] & {\bigoplus\limits_{q\in \Crit_{k+1}(f)}{K}^{k+l+1}(N_q,L_q)} \arrow[d] \\
-		{K^{k+l}(N_k,N_{k-1})} \arrow[r, "\delta_{triple}"]                                        & {K^{p+l+1}(N_{k+1},N_k)}                                              
-	\end{tikzcd}
+			% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAGEA9YAawF8AFAFlSAHVEBbOjgAWAMwBOdHsACCfMaLwNYwANJ9uDQWhwBKMyA3pMufIRQBGclVqMWbLrwDUjwSPEpWUVlNQ1xbV0DIxNzS2sQDGw8AiIyR1d6ZlZEEHEAIywAcwg0ZjhxBiwJXDgAfWA0cSwwAAJxdgVcOp4BOTM+CKwdGH1DH2MBADk6tFIAGVn40htk+yJnDOosj1yC4tLyyurahoBHZraOrpwGnl9BfsGtYajx+4YH6bqzhZ-l1Z2VIoMgAJky7hyID03A+ghmPFIM14AFo-ADErYUg5kM5wdtIWwYY1vJ8-N8fH4kT14q4YFAivAiKBFBAJEgyCAcBAkM43Nk2OI0HQFHhGJw0FYViBWezEJzuUhQQlZbzqIrEABmFUKNlIAAs6p5iAArASBXtRLAGDg6A0cF0yjA+FKWbq5aCjQadXqtV7TT6Pf7NebdnlRAARGA2u0TF18Ch8IA
+			\begin{tikzcd}
+				{C^{k}(M,\mathfrak{A},\tilde{K}^{l}(pt))} \arrow[r, "\partial^p"] \arrow[d]                      & {C^{k+1}(M,\mathfrak{A},\tilde{K}^{l}(pt))} \arrow[d]                        \\
+				{\bigoplus\limits_{p\in \Crit_k(f)}\tilde{K}^{k+l}(N_p,L_p)} \arrow[d] \arrow[r, "\Delta_{k+l}"] & {\bigoplus\limits_{q\in \Crit_{k+1}(f)}\tilde{K}^{k+l+1}(N_q,L_q)} \arrow[d] \\
+				{K^{k+l}(N_k,N_{k-1})} \arrow[r, "\delta_{triple}"]                                              & {K^{p+l+1}(N_{k+1},N_k)}                                                    
+			\end{tikzcd}
 		\end{center}
 	\end{theorem}
 \begin{Iprove}
@@ -164,23 +164,7 @@ The Main statement now is that the connecting homomorphism of K-Theory and of th
 	Then the K-groups of the pointed spaces $X\big/ X$ and $X\cup CY$, where the latter denotes a cone above $Y$ agree. From the latter we can quotien out $X$, and $X\cup CY\big/ X\cong SY$. Hence we have the triple connecting homomophism as the composition:
 	\begin{equation*}
 K^{-1}(Y,Z)\to	K^{-1}(Y)=K(SY)\cong K(X\cup CY\big/ X)\to K(X\cup CY)\cong K(X\big/ Y) 
-	\end{equation*}The triple connecting homomorphism for lower K-Groups is defined exactly the same via the identification $K^{-n}(X,Y)=K(S^n\vee (X,Y))$. For higher K-Groups we apply the natural Bott isomorphism and make use of the identity. By doing this we get the tripple homomorphism 
-	\begin{center}
-% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAGkA9MACgE1SALQCUIAL6l0mXPkIoyARiq1GLNl2ABaMGP5DREqdjwEiC0kur1mrRB05adetAckgMx2UQBMF5dbU7DW0AagVdAA1SPlcjGVMUAGY-K1Vbe0dNcJ4omPE3D3i5ZGTKVJt1BzAwyOiDZRgoAHN4IlAAMwAnCABbJDIQHAgkcxAGLDB0qAgmACMGVmoACxg6KDZISZBqHDosBg2CVkMQLt6RneHEXxUKuyxOACp8ju6+68ukZNvAkAAdP6wBi7AD6wGmcwWYhepzeX0+iAALOVfrMIDgcDCzu8AKwI5FjCZTGbzRYgFZrQ5bHZ7A52TbHNzY-oIvE-dIAoGg4A4TpYNBQ8QUMRAA
-\begin{tikzcd}
-	{K^n(Y,Z)} \arrow[d, no head, Rightarrow] \arrow[rrr, "\delta_{triple}"] &                                            &                                   & {K^{n+1}(X,Y)} \arrow[d, no head, Rightarrow] \\
-	{K^{-n}(Y,Z)} \arrow[r, "i^*"]                                           & {K^{-n}(Y,p)} \arrow[r, "\delta_{double}"] & {K^{-n+1}(X,Y)} \arrow[r, "bott"] & {K^{-n-1}(X,Y)}                              
-\end{tikzcd}
-	\end{center} For the proof of the upper square, we actually proof that the following commutes:
-	\begin{fdiagram}\label{diag: that we really want to show}
-	% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAGEA9YAawF8AFAFlSAHVEBbOjgAWAMwBOdHsACCfMaLwNYwANJ9uDQWhwBKMyA3pMufIRQBGclVqMWbLrwDUjwSPEpWUVlNQ1xbV0DIxNzS2sQDGw8AiIyR1d6ZlZEEHEAIywAcwg0ZjhxBiwJXDgAfWA0cSwwAAJxdgVcOp4BOTM+fUNgAFp+AQA5OrRSABlp+NIbZPsiZwzqLI9cguLS8srq2oaAR2a2jq6cBp5fQX7B6NGBW8cBybqTuc-41xgoIrwIigRQQCRIMggHAQJDONzZNjiNB0BR4RicNBWJYgUHgxCQ6FIABMCVxsOohMQAGZSQowcSKTDqZt3Dk8qIACIwBg4Og3bzGKwUPhAA
-	\centering
-	\begin{tikzcd}
-		{C^{k}(M,\mathfrak{A},\tilde{K}^{l}(pt))} \arrow[r, "\partial^p"] \arrow[d]     & {C^{k+1}(M,\mathfrak{A},\tilde{K}^{l}(pt))} \arrow[d]         \\
-		{\bigoplus\limits_{p\in \Crit_k(f)}{K}^{-k}(N_p,L_p)} \arrow[r, "\Delta_{k+l}"] & {\bigoplus\limits_{q\in \Crit_{k+1}(f)}{K}^{-(k+1)}(N_q,L_q)}
-	\end{tikzcd}
-	\end{fdiagram}
-	 Furthermore we assumed that $l=0$. This doesnt change the gegularity since if $l$ was even, we can apply the Bott isomorphism and else the groups are $0$. 
+	\end{equation*}The triple connecting homomorphism for lower K-Groups is defined exactly the same via the identification $K^{-n}(X,Y)=K(S^n\vee (X,Y))$. For higher K-Groups we apply the natural Bott homomorphism. We first proof it here for the lower groups and assume $k,l$ to be negative. Furthermore we assume for now that $l=0$. If $l$ is even, we can apply the Bott isomorphism and else the groups are $0$. 
 	Now we choose a triple $(A,B,C)$ in $M$ such that: 
 	\begin{enumerate}[(a)]
 		\item $(A,B)$ is a regular index pair for a critical point $q\in \Crit_{k+1}\,$.
@@ -729,96 +713,32 @@ I find this difficult to proof, since we cannot use the flow for the map from th
 			v &\mapsto \phi_{-T}\circ \Psi^{-1} \circ r_x \left(\rho \cdot \frac{h_x^{-1}\circ \Psi \circ\phi_T(v)}{\norm{h_x^{-1}\circ \Psi \circ\phi_T(v)}} \right)
 		\end{align*} This rescaling is smooth, smoothly depends on $x$, and it maps surjectifly onto $N_p\cap U_x$. 
 	\end{proof}
-The same arguments work to show that $N_q$ is a tubular neighbourhood of $W(q\to)\cap M_c$, by replacing $f$ with $-f$. Furthermore, we can assume, that the $V_j$ from below are fibers in the normal neighbourhood. This can be realized, since $V_j$ intersect transversal and by trivialization we have a global fram of the bundel and hence can smoothly rescale the embedding along the frame to get that $V_j$ is the image of the fibre above $x_j$. 
-
-
-
-
-
-
-
-
-
-
-	
+The same arguments work to show that $N_q$ is a tubular neighbourhood of $W(q\to)\cap M_c$, by replacing $f$ with $-f$. Furthermore, we can assume, that the $V_j$ from below are fibers in the normal neighbourhood. This can be realized, since $V_j$ intersect transversal and by trivialization we have a global fram of the bundel and hence can smoothly rescale the embedding along the frame to get that $V_j$ is the image of the fibre above $x_j$. 	
 \begin{proof}[Proof of Theorem \ref{thm commuting connecting homomorphism}]
-Lets star proving the commutativity of the diagramm (\ref{diag: that we really want to show}).
-	For the proof we use the following naming conventions:
-	\begin{enumerate}
-		\item $i_{something}$ is always the inclusion and hence not explained in the text.
-		\item$c_{something}$ will be the collapsing map and will be described in more details, if not trivialy obvious.
-		\item For a object in $\TopCPoint$, $b$ will always denote the destinguished base point.
-	\end{enumerate}
-	
-	
-	But lets start this:
-	By definition we get the triple connecting morphism as the composition of the inclusion with the connecting homomorphism of the pair, and the connecting homomorphism is defined as a compostion such that the diagramm below commutes: remember that by definition in diagram (\ref{diag: that we really want to show}) the superskript $k$ denotes also the index of $p$ which from now on will be denoted by $\lambda_{p}$:
-\begin{fdiagram}\label{diag: Definition Boundary operator proof connecting hom}
-	\begin{adjustbox}{max width=\textwidth}
-% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBoBmAXVJADcBDAGwFcYkQBpAPWGAFoAOgMb0AtgCMo9APpoAvnwCMcgARDxWAObIAMtICOQgMbM0KgHKyVpFSr1njptQKOMAFHv3O4MHKKxgzHDAlvIAlOpalCBypOiYuPiEKGQATNR0TKzs3LyCwmKSMvJKqpHadgaOZqHOGprRsfHYeAREiqTpNAwsbIicPPkiElKyZQL1yADK0orOAO4wUJowKh4GziY1smF1UTFxIBgtSe0UGT3Z-blDhaPye9ozc0KLy6ue1RZWNs8LSytbPZNk5jIw1p5vL5-IFgqE5BEJvsmkcEq1kshUp0Llk+gN+EJhkUxo9kN8vF9al8AMKzdYUlxOUKIrYqWmpNyWQyM7ZoXblRqHY6JNooLGKHG9HKDQl3YrjSbkkG85VsumQyk7R6C5oijFY4iSq7424jeWkpWahw8x4AeghGyt-KRDQOuvRZ0N3Vx0oJBTNJPKZK5VpsnxtVJdjQyAPgRFAADMAE4QURIMggHAQJAdTJS-pYLgAKjdIGTqZzNCzSCxIEYATxUAgzHEjDYNAAFjB6FB2JAwO3M-QsIw+wQ2Cjy2nEBnq4hyDR6wP2E2W22QJ3u73+v3Bzhh6Od+PS1Oa1Xs4gACze-MgIzSIRMNAd+jFk8p6fXzMXgCsN+NWDSMAj6MM+9ByG+k4fkgf7fkgABs-54m4ojFmEgzKO+FaIAA7OeCGLg2K7Nq2g5dj2Y7LlWB6UROhynoguZznhebGkIsCMPuQFoMOSZyFh04LnBiC1pceKAcBEy+OBkGUHIQA
-\begin{tikzcd}
-	& {K^{-\lambda_p} \big[ N_q\cup N_p, L_q\cup N_p \big]} \arrow[r, no head, Rightarrow]                                       & {K^{-\lambda_p} \big[ N_q \cup N_p \cup \big/ (L_q \cup N_p) \big]}                                             \\
-	&                                                                                                                            & {K^{-\lambda_p} \big[ N_q \cup N_p \cup C_1(L_q \cup N_p) \big]} \arrow[u, "(m^*)^{-1}"]                        \\
-	{K^{{-\lambda_p}-1} \big[ L_q\cup N_p \big]} \arrow[r, no head, Rightarrow] \arrow[ruu, "\delta_{pair}"]                       & {K^{-\lambda_p} \big[S_1 \wedge (L_q \cup N_p) \big]} \arrow[r, "c_\alpha^*"]                                              & {K^{-\lambda_p} \big[ N_q \cup N_p \cup C_1(L_q \cup N_p)\cup C_2(N_q\cup N_p) \big]} \arrow[u, "i_{\alpha}^*"] \\
-	{K^{{-\lambda_p}-1} \big[L_q\cup N_p ,  L_p \cup \cl(L_q \setminus{N_p})\big]} \arrow[u, "i^*"] \arrow[r, no head, Rightarrow] & {K^{-\lambda_p} \big[S_1 \wedge L_q\cup N_p , S_1 \wedge  L_p \cup \cl (L_q \setminus{N_p})\big]} \arrow[u, "i_{\beta}^*"] &                                                                                                                
-\end{tikzcd}
-	\end{adjustbox}
-\end{fdiagram} 
-The map alpha here is given by:
+	Lets say that $p\in -\N $ is negative for the moment. 
+	By definition we get the triple connecting morphism as the composition of the inclusion with the connecting homomorphism of the pair:\todo{check if $\big[S_1 \wedge L_q\cup N_p , S_1 \wedge  L_p \cup \inti(L_q \setminus{N_p})\big]$ or $\big[S_1 \wedge L_q\cup N_p , S_1 \wedge  L_p \cup (L_q \setminus\mathring{N_p})\big]$ is correct!}
+	\begin{center}
+		\begin{adjustbox}{max width=\textwidth}
+			% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBoBmAXVJADcBDAGwFcYkQBpAPWDQFoAjAF8ABAB0xAIywBzZABkA+gEcJAY2ZoRAOUVbSIkUq3rN4sWsYAKJcvNwYOALZYwzOMF1ohASgnSZShAhUnRMXHxCFDIAJmo6JlZ2bl5BUX9ZZCMVUy0vcwCgkLDsPAIiAVI4mgYWNkROLhMpTIBlRQFzAHcYKBkYERsVcw08vR8C2SLQkAxSyIqKeNqkhpTvSbl2zokevoHbXJ09EQNt7t7+w2MRs3VGQdt7Rxc3Dy9fDMDgmbmI8pQMSqy0S9UazQCWV0diO+SOAGEOkMYRYzF4-KitIiYlZobDxptpiV-lFkECBCC6skmpsocN8c1RiJEQJkbcxmgJl8ibNwmVSUDiJTVuDaccUUy4ZjNgB6R706Xowk-Yn8xZCmqg6kQzLihkGQ6Kk7c4LxS7wIigABmACcIE4kGQQDgIEhKgkqQ0sFwAFQqkC2+1umgupBAkCMVxgqAQZiSRhsGgACxg9Cg7EgYETzvoWEYGYIbGKAbtDsQTtDiHINEjWfYMbjCZAydT6YamezOFz+fbhf9gbL4crABZNZ6QBImGgk-Rff3S0hR87XYgAKxjkVYRTASeMaf0IRz4sDpDr5dIABsG7BVicvp8PDS86DiAA7CGV1eI1H67H49mUzTAs6xDbtgKLGYT0Qd1K3fD0RQkWBGC7bc0FzG0hGfMtq3PRBwxWMEtx3KRHAPI9KCEIA
+			\begin{tikzcd}
+				& {K^p \big[ N_q\cup N_p, L_q\cup N_p \big]} \arrow[r, no head, Rightarrow]                                         & {K^p \big[ N_q \cup N_p \cup \big/ (L_q \cup N_p) \big]}                                             \\
+				&                                                                                                                   & {K^p \big[ N_q \cup N_p \cup C_1(L_q \cup N_p) \big]} \arrow[u, "(m^*)^{-1}"]                        \\
+				{K^{p-1} \big[ L_q\cup N_p \big]} \arrow[r, no head, Rightarrow] \arrow[ruu, "\delta_{pair}"]                       & {K^p \big[S_1 \wedge (L_q \cup N_p) \big]} \arrow[r, "\alpha^*"]                                                  & {K^p \big[ N_q \cup N_p \cup C_1(L_q \cup N_p)\cup C_2(N_q\cup N_p) \big]} \arrow[u, "i_{\alpha}^*"] \\
+				{K^{p-1} \big[L_q\cup N_p ,  L_p \cup \cl(L_q \setminus{N_p})\big]} \arrow[u, "i^*"] \arrow[r, no head, Rightarrow] & {K^{p} \big[S_1 \wedge L_q\cup N_p , S_1 \wedge  L_p \cup \cl (L_q \setminus{N_p})\big]} \arrow[u, "i_{\beta}^*"] &                                                                                                     
+			\end{tikzcd}
+		\end{adjustbox}
+	\end{center}
+	The bottom left diagramm commutes by definition. All maps with names $i^*_{something}$ are induced from obvious inclusions. 
+	The other maps are defined as follows, where $p$ denotes the choosen point of our pointed spaces: 
 	\begin{align*}
-		c_\alpha: N_q \cup N_p \cup C_1(L_q \cup N_p)\cup C_2(N_q\cup N_p)& \to S_1 \wedge (L_q \cup N_p)\\
+		\alpha: N_q \cup N_p \cup C_1(L_q \cup N_p)\cup C_2(N_q\cup N_p)& \to S_1 \wedge (L_q \cup N_p)\\
 		x& \mapsto 
 		\left\{	\begin{array}{ll}
 			p & \text{if } x\in C_2(N_q\cup N_p) \\
 			x & \text{else}
 		\end{array} \right.
-	\end{align*} This map is well defined and continouos, as every point in $S_1 \wedge (L_q \cup N_p)$ is of the form $[(t_1,x)]$ where $x\in L_q \cup N_p$. and those are the points in the domain of $\alpha$ that not get collapsed to $p$. Now is the time where we want to show that the triple connecting homomorphism factors over a space that acts like a coproduct. This means that it satisfys the universal property of a coproduct and hence any morphism from this space is determined by the morphisms from all its summands. For this we need the unstable sphere $S^u(q)\coloneq W(q\to)\cap F^{-1}(c)$. We call connected components of $S^u(q)\cap N_p$ $V_j$. Remember that those $V_j$ can be realiced as normal fibers of $W(\to p)\cap M^c$ via the normal neighbourhood embedding that has been established before.  With this we have the space
-	\begin{equation*}
-		K^{-\lambda_p} \left[  \frac{ C_1(L_q)}{ \cl \left(C_1(L_q)\setminus \bigcup\limits_{j=1}^l C_1V_j \right) } \right]
-	\end{equation*} which is a coproduct together with the homomorphisms: 
-	\begin{equation*}
-	c_j^*:	K^{-\lambda_p}\left[\frac{C_1 V_j}{\partial C_1 V_j}\right] \to 	K^p \left[  \frac{ C_1(L_q)}{ \cl \left(C_1(L_q)\setminus \bigcup\limits_{j=1}^l C_1V_j \right) } \right]
-	\end{equation*} That is induced from $c_j$, which is the collaps of everything but the interior of $C_1 V_j$. These $c_j^*$ have right inverses $i_j^*$ that are induced by the inclusion. Now this date gives the touble that satisfys the coproduct property with finitly many summands:
-	
-	\begin{equation} 
-		\left(	K^{-\lambda_p} \left[  \frac{ C_1(L_q)}{ \cl \left(C_1(L_q)\setminus \bigcup\limits_{j=1}^l C_1V_j \right) } \right], \left(c_j\right)_j \right)
-	\end{equation}
-	
-	This is easy to see since we have the equality (in $\TopCPoint$):
-	\begin{align*}
-		\frac{ C_1(L_q)}{ \cl \left(C_1(L_q)\setminus \bigcup\limits_{j=1}^l C_1V_j \right) }= \bigvee_{j=1}^lC_1V_j \big/ \partial C_1 V_j \,.
-	\end{align*} and hence this follows from the additivity of K-theory. (This equality is given setwise and topology wise, since they carry the same induced topologys as they can be realiced as quotiends of the same superset)
-	As mentiond before, we want the triple connecting homomorphism to factor over this coproduct. This is a little bit tedious due to the cumbersome definitions of the sets in question. But lets start by giving the definitions of the maps that supposedly commute:	
-	
-	\begin{fdiagram}\label{diag: factor over a coproduct}
-	\begin{adjustbox}{max width=\textwidth}%I changed the "bend right" to 10 : bend right=10 in the last expression!!
-	% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBoBGAXVJADcBDAGwFcYkQBpAPWAFoAdfo3oBbAEZR6AfTQBfAASCxWAObIAylPKL+AdxhQVMeQBkpAR0EBjZmnkA5GfNLzN2wfsPHTT67Z1WjPIAFGbmOnAwOCJYYMxwwI5yAJRKqpQgsqTomLj4hChkxNR0TKzs3HyCwuKSMgppag4WAf5JrXYAwlqhLX52Sck6yioZWTnYeARE5BQlDCxsiCD8OJUCQqIS0nI6jDAAZjjI8joHAE70VsDy3eS95smyN9ZB1Yc4wXcPqfyR0bF4sNVDY0NUsDEcHApMAAFYAXnIsi4QTuADUpLCdOdVAALHBDBr8HEqfFjbIgDCTfJEABMcxoC3Ky3W1S2dTk7yOyEEFyuwDu8gxsOegjQ9HOeCYty0QsxskEJLJmRKBiMCBQoAuEBESDIIBwECQs1Ki3YWCkgiYaFx9C4ACprFhzlZ5FZLfxrbaHU6XfILUoonb7ZkKdrdYh9YakPTTcyQO7BLBGDhg6GtecdTGaNHECamUsVvwANb0NDi9MgcNIADMOaNiFjBfY7thDsr1cQdYNDfzZULglL5eksJANGEYhgjAACrkpgUQEqcGOQJOwFAkLwa8RZJRZEA
-	\begin{tikzcd}
-		{K^{-\lambda_p} \big[ N_q \cup N_p \cup C_1(L_q \cup N_p) \big]}                                                                                                                 &                                                                                                                                              &                                                                                                                       \\
-		{K^{-\lambda_p} \big[S_1 \wedge L_q\cup N_p , S_1 \wedge  L_p \cup \cl (L_q \setminus{N_p})\big]} \arrow[u, "i_\alpha^*\circ c_\alpha^*\circ i_\beta^*"] \arrow[r, "c_\delta^*"] & {	K^{-\lambda_p} \left[  \frac{ C_1(L_q)}{ \cl \left(C_1(L_q)\setminus \bigcup\limits_{j=1}^l C_1V_j \right) } \right]} \arrow[lu, "\kappa"] & {K^{-\lambda_p}\left[\frac{C_1 V_j}{\partial C_1 V_j}\right]} \arrow[l, "c_j^*"] \arrow[llu, "\kappa_j"', bend right=10]
-	\end{tikzcd}
-	\end{adjustbox}
-	\end{fdiagram}
-	We define 
-	\begin{enumerate}
-		\item $\kappa$
-		\item $c_\delta^*$
-	\end{enumerate}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	Furtermore, have the maps: 
+	\end{align*} This map is well defined and continouos, as every point in $S_1 \wedge (L_q \cup N_p)$ is of the form $[(t_1,x)]$ where $x\in L_q \cup N_p$. and those are the points in the domain of $\alpha$ that not get collapsed to $p$
+	We have the maps: 
 	\[
 	\resizebox{\textwidth}{!}{$
 		\begin{aligned}
