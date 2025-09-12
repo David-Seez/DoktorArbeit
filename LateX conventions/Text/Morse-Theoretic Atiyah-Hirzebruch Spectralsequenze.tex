@@ -755,16 +755,16 @@ Lets star proving the commutativity of the diagramm (\ref{diag: that we really w
 	By definition we get the triple connecting morphism as the composition of the inclusion with the connecting homomorphism of the pair, and the connecting homomorphism is defined as a compostion such that the diagramm below commutes: remember that by definition in diagram (\ref{diag: that we really want to show}) the superskript $k$ denotes also the index of $p$ which from now on will be denoted by $\lambda_{p}$:
 \begin{fdiagram}\label{diag: Definition Boundary operator proof connecting hom}
 	\begin{adjustbox}{max width=\textwidth}
-% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBoBmAXVJADcBDAGwFcYkQBpAPWGAFoAOgMb0AtgCMo9APpoAvnwCMcgARDxWAObIAMtICOQgMbM0KgHKyVpFSr1njptQKOMAFHv3O4MHKKxgzHDAlvIAlOpalCBypOiYuPiEKGQATNR0TKzs3LyCwmKSMvJKqpHadgaOZqHOGprRsfHYeAREiqTpNAwsbIicPPkiElKyZQL1yADK0orOAO4wUJowKh4GziY1smF1UTFxIBgtSe0UGT3Z-blDhaPye9ozc0KLy6ue1RZWNs8LSytbPZNk5jIw1p5vL5-IFgqE5BEJvsmkcEq1kshUp0Llk+gN+EJhkUxo9kN8vF9al8AMKzdYUlxOUKIrYqWmpNyWQyM7ZoXblRqHY6JNooLGKHG9HKDQl3YrjSbkkG85VsumQyk7R6C5oijFY4iSq7424jeWkpWahw8x4AeghGyt-KRDQOuvRZ0N3Vx0oJBTNJPKZK5VpsnxtVJdjQyAPgRFAADMAE4QURIMggHAQJAdTJS-pYLgAKjdIGTqZzNCzSCxIEYATxUAgzHEjDYNAAFjB6FB2JAwO3M-QsIw+wQ2Cjy2nEBnq4hyDR6wP2E2W22QJ3u73+v3Bzhh6Od+PS1Oa1Xs4gACze-MgIzSIRMNAd+jFk8p6fXzMXgCsN+NWDSMAj6MM+9ByG+k4fkgf7fkgABs-54m4ojFmEgzKO+FaIAA7OeCGLg2K7Nq2g5dj2Y7LlWB6UROhynoguZznhebGkIsCMPuQFoMOSZyFh04LnBiC1pceKAcBEy+OBkGUHIQA
+% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBoBmAXVJADcBDAGwFcYkQBpAPWGAFoAOgMb0AtgCMo9APpoAvnwCMcgARDxWAObIAMtICOQgMbM0KgHKyVpFSr1njptQKOMAFHv3O4MHKKxgzHDAlvIAlOpalCBypOiYuPiEKGQATNR0TKzs3LyCwmKSMvJKqpHadgaOZqHOGprRsfHYeAREiqTpNAwsbIicPPkiElKyZQL1yADK0orOAO4wUJowKh4GziY1smF1UTFxIBgtSe0UGT3Z-blDhaPye9ozc0KLy6vrhi5Oobs2zwslis1pUHN8wa41p5vL5-IFgqE5GEIhN9k0jglWslkKlOhcsn0BvwhMMimNHsgLBtqlSIU4AMKzT6bH47GmM1JuSxfLa03blRqHY6JNooXGKfG9HKDEl3YrjSZUrw02rspnQlU7R6C5oi7G44iSq5E24jeUUpUs7Z0sH1AD0UOp4L52oOuqxZ0N3QJ0uJBTN5PKlO5mrQNk8oddcgyQPgRFAADMAE4QURIMggHAQJAdTJS-pYLgAKjdIGTqZzNCzSFxIEYAUJUAgzHEjDYNAAFjB6FB2JAwO3M-QsIw+wQ2Ojy2nEBnq4hyDR6wP2E2W22QJ3u73+v3Bzhh6Od+PS1Oa1Xs4gACze-MgIzSIRMNAd+jFk8p6fXzMXgCsN+NWDSMAj6MM+9ByG+k4fkgf7fkgABs-6Em4ojFmEgzKO+FaIAA7OeCGLg2K7Nq2g5dj2Y7LlWB6UROhynoguZznhebGkIsCMPuQFoMOSZyFh04LnBiC1pchL3sBEy+OBkGUHIQA
 \begin{tikzcd}
-	& {K^{-\lambda_p} \big[ N_q\cup N_p, L_q\cup N_p \big]} \arrow[r, no head, Rightarrow]                                       & {K^{-\lambda_p} \big[ N_q \cup N_p \cup \big/ (L_q \cup N_p) \big]}                                             \\
-	&                                                                                                                            & {K^{-\lambda_p} \big[ N_q \cup N_p \cup C_1(L_q \cup N_p) \big]} \arrow[u, "(m^*)^{-1}"]                        \\
-	{K^{{-\lambda_p}-1} \big[ L_q\cup N_p \big]} \arrow[r, no head, Rightarrow] \arrow[ruu, "\delta_{pair}"]                       & {K^{-\lambda_p} \big[S_1 \wedge (L_q \cup N_p) \big]} \arrow[r, "c_\alpha^*"]                                              & {K^{-\lambda_p} \big[ N_q \cup N_p \cup C_1(L_q \cup N_p)\cup C_2(N_q\cup N_p) \big]} \arrow[u, "i_{\alpha}^*"] \\
-	{K^{{-\lambda_p}-1} \big[L_q\cup N_p ,  L_p \cup \cl(L_q \setminus{N_p})\big]} \arrow[u, "i^*"] \arrow[r, no head, Rightarrow] & {K^{-\lambda_p} \big[S_1 \wedge L_q\cup N_p , S_1 \wedge  L_p \cup \cl (L_q \setminus{N_p})\big]} \arrow[u, "i_{\beta}^*"] &                                                                                                                
+	& {K^{-\lambda_p} \big[ N_q\cup N_p, L_q\cup N_p \big]} \arrow[r, no head, Rightarrow]                                           & {K^{-\lambda_p} \big[ N_q \cup N_p \cup \big/ (L_q \cup N_p) \big]}                                             \\
+	&                                                                                                                                & {K^{-\lambda_p} \big[ N_q \cup N_p \cup C_1(L_q \cup N_p) \big]} \arrow[u, "(m^*)^{-1}"]                        \\
+	{K^{{-\lambda_p}-1} \big[ L_q\cup N_p \big]} \arrow[r, no head, Rightarrow] \arrow[ruu, "\delta_{pair}"]                       & {K^{-\lambda_p} \big[S_1 \wedge (L_q \cup N_p) \big]} \arrow[r, "c_\alpha^*"]                                                  & {K^{-\lambda_p} \big[ N_q \cup N_p \cup C_1(L_q \cup N_p)\cup C_2(N_q\cup N_p) \big]} \arrow[u, "i_{\alpha}^*"] \\
+	{K^{{-\lambda_p}-1} \big[L_q\cup N_p ,  L_p \cup \cl(L_q \setminus{N_p})\big]} \arrow[u, "i^*"] \arrow[r, no head, Rightarrow] & {K^{-\lambda_p} \big[S_1 \wedge (L_q\cup N_p) , S_1 \wedge ( L_p \cup \cl (L_q \setminus{N_p}))\big]} \arrow[u, "c_{\beta}^*"] &                                                                                                                
 \end{tikzcd}
 	\end{adjustbox}
 \end{fdiagram} 
-The map alpha here is given by:
+The map $\alpha$ here is given by:
 	\begin{align*}
 		c_\alpha: N_q \cup N_p \cup C_1(L_q \cup N_p)\cup C_2(N_q\cup N_p)& \to S_1 \wedge (L_q \cup N_p)\\
 		x& \mapsto 
@@ -792,18 +792,48 @@ The map alpha here is given by:
 	
 	\begin{fdiagram}\label{diag: factor over a coproduct}
 	\begin{adjustbox}{max width=\textwidth}%I changed the "bend right" to 10 : bend right=10 in the last expression!!
-	% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBoBGAXVJADcBDAGwFcYkQBpAPWAFoAdfo3oBbAEZR6AfTQBfAASCxWAObIAylPKL+AdxhQVMeQBkpAR0EBjZmnkA5GfNLzN2wfsPHTT67Z1WjPIAFGbmOnAwOCJYYMxwwI5yAJRKqpQgsqTomLj4hChkxNR0TKzs3HyCwuKSMgppag4WAf5JrXYAwlqhLX52Sck6yioZWTnYeARE5BQlDCxsiCD8OJUCQqIS0nI6jDAAZjjI8joHAE70VsDy3eS95smyN9ZB1Yc4wXcPqfyR0bF4sNVDY0NUsDEcHApMAAFYAXnIsi4QTuADUpLCdOdVAALHBDBr8HEqfFjbIgDCTfJEABMcxoC3Ky3W1S2dTk7yOyEEFyuwDu8gxsOegjQ9HOeCYty0QsxskEJLJmRKBiMCBQoAuEBESDIIBwECQs1Ki3YWCkgiYaFx9C4ACprFhzlZ5FZLfxrbaHU6XfILUoonb7ZkKdrdYh9YakPTTcyQO7BLBGDhg6GtecdTGaNHECamUsVvwANb0NDi9MgcNIADMOaNiFjBfY7thDsr1cQdYNDfzZULglL5eksJANGEYhgjAACrkpgUQEqcGOQJOwFAkLwa8RZJRZEA
-	\begin{tikzcd}
-		{K^{-\lambda_p} \big[ N_q \cup N_p \cup C_1(L_q \cup N_p) \big]}                                                                                                                 &                                                                                                                                              &                                                                                                                       \\
-		{K^{-\lambda_p} \big[S_1 \wedge L_q\cup N_p , S_1 \wedge  L_p \cup \cl (L_q \setminus{N_p})\big]} \arrow[u, "i_\alpha^*\circ c_\alpha^*\circ i_\beta^*"] \arrow[r, "c_\delta^*"] & {	K^{-\lambda_p} \left[  \frac{ C_1(L_q)}{ \cl \left(C_1(L_q)\setminus \bigcup\limits_{j=1}^l C_1V_j \right) } \right]} \arrow[lu, "\kappa"] & {K^{-\lambda_p}\left[\frac{C_1 V_j}{\partial C_1 V_j}\right]} \arrow[l, "c_j^*"] \arrow[llu, "\kappa_j"', bend right=10]
-	\end{tikzcd}
+% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBoAmAXVJADcBDAGwFcYkQBpAPWAFoAdfo3oBbAEZR6AfTQBfAASCxWAObIAylICM8gBSCA7jCgqY8gDJSAjoIDGzNPIByMgJTzS8zTsPHTeixlFfntHO0Y9SytguBgcESwwZjhgFzlXVyVVShBZUnRMXHxCFDItajomVnZuPkFhcUkZBSy1Z2tg0PawkId5AGFtXSjOvrT3Vpy8guw8AiItCgqGFjZEEH4cWoEhUQlpOWDGGAAzHGR5YJOAJ3pbYAGhqNdZB-Cj05xdQa1h60z+LF4olksFlCpQvUsAkcHApMAAFYAXi0si4ER+ADUpAjgtdVAALHDuFr8fEqIlTfIgDCzYpEchLGgrarrbb1PZNOT1T7IQQ3O7AH7ybEI16CND0a54JiPHSi2SCcmU3LU2lFealUjEZZVNacHg7Br7Zpg1QXFzROxjGSkEbWxxpM0qKYVPzwIigG4QERIMggHAQJCLSqrdhYKSCJhoAn0LgAKjsWGutnktkj-GjsYTSZTaYzYjicfjqq91x9fpogaQjNDrI2mcYMeLpZA3t9iFr1cQIZZ+sEAGt6GhJQnW+2kABmKtBzvMvXsdMIsfTNvljvTgOz3sL9aD4ej+M4kA0YSFxgABUKcxKIGVOBPIELYCgSF4ABYAJyric9mdId95zDdZdBEBNXENVFckoWQgA
+\begin{tikzcd}
+	{K^{-\lambda_p} \big[ N_q \cup N_p,L_q \cup N_p \big]}                                                                                                                             &                                                                                                                                                &                                                                                                                            \\
+	{K^{-\lambda_p} \big[ N_q \cup N_p \cup C_1(L_q \cup N_p) \big]} \arrow[u, "(m^*)^{-1}"]                                                                                           &                                                                                                                                                &                                                                                                                            \\
+	{K^{-\lambda_p} \big[S_1 (\wedge L_q\cup N_p) , S_1 \wedge ( L_p \cup \cl (L_q \setminus{N_p}))\big]} \arrow[u, "i_\alpha^*\circ c_\alpha^*\circ c_\beta^*"] \arrow[r, "\alpha^*"] & {	K^{-\lambda_p} \left[  \frac{ C_1(L_q)}{ \cl \left(C_1(L_q)\setminus \bigcup\limits_{j=1}^l C_1V_j \right) } \right]} \arrow[lu, "\kappa^*"] & {K^{-\lambda_p}\left[\frac{C_1 V_j}{\partial C_1 V_j}\right]} \arrow[l, "c_j^*"] \arrow[llu, "\kappa^*_j"', bend right=10]
+\end{tikzcd}
 	\end{adjustbox}
 	\end{fdiagram}
-	We define 
-	\begin{enumerate}
-		\item $\kappa$
-		\item $c_\delta^*$
-	\end{enumerate}
+	We define the maps $\alpha^*$, $\kappa^*$ and then inspect the map $i_\alpha^*\circ c_\alpha^*\circ c_\beta^*$ and $\kappa_j$:
+	\begin{align*}
+	\alpha:\frac{ C_1(L_q)}{ \cl \left(C_1(L_q)\setminus \bigcup\limits_{j=1}^l C_1V_j \right) } &\to \frac{ S_1 \wedge L_q\cup N_p }{ S_1 \wedge  L_p \cup \cl (L_q \setminus{N_p})}\\
+		x&\mapsto \begin{cases}
+			p & \text{ if   } x \in S_1\wedge(L_p\cup \cl(L_q\setminus N_p))\\
+			x & \text{ else }
+		\end{cases}
+	\end{align*} This map is well defined and continouos, since it is the composition of a collaps with the inclusion:
+\begin{center}
+	% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB12AzAJzoGNgAAgDCAfQCMACgAyYgI4BKAL7DO-BkM4MYXHFPHS5SznBg4AtljBM4W9gCMsAc35M02rFZxwxwAFYAvBLKAHqahgBqYv72PC4AFjiKQspCIMqk6Ji4+IQoEuRUtIwsbJy8AsCGsgoqwgDKkvYA7jBQzjBCQnJo9m596pq18vZmlta2wAByYmjKKhlZIBjYeAREAExF1PTMrIgc3HyCQk0Sre2dPQrq7kKzfapnzZxtHV03g+wD-cPGY3MVhscBmcwWygyxSu8CIoF4EAsSDIIBwECQhRK+zY-AgDAYdDQCEy8J4iIx1DRSG2WLKh2sGlseShyiAA
+	\begin{tikzcd}
+		\frac{ C_1(L_q)}{ \cl \left(C_1(L_q)\setminus \bigcup\limits_{j=1}^l C_1V_j \right) }  \arrow[r, "collaps"] & \frac{C_1(L_q)}{ S_1 \wedge  L_p \cup \cl (L_q \setminus{N_p})} \arrow[r, "inclusion"] & \frac{ S_1 \wedge L_q\cup N_p }{ S_1 \wedge  L_p \cup \cl (L_q \setminus{N_p})}
+	\end{tikzcd}
+\end{center}
+The map $\kappa^*$ is given by 
+\begin{align*}
+	\kappa: N_q\cup N_p\cup C_1(L_q\cup N_p)&\to \frac{ C_1(L_q)}{ \cl \left(C_1(L_q)\setminus \bigcup\limits_{j=1}^l C_1V_j \right) }\\
+	x &\mapsto \begin{cases}
+		p & \text{ if  } x\in  \cl \left(C_1(L_q\cup N_p)\setminus \bigcup\limits_{j=1}^l C_1V_j \right) \cup N_q \cup N_p\\
+		x & \text{ else},
+	\end{cases}
+\end{align*} and hence is just a collapsing map with refomulation of the image. (By inspecting the set that gets collapsed one sees that maps image is contained in the stated image and hence is well defined). Now we want to compare $\kappa^*\circ \alpha^*$ with $i_\alpha^*\circ c_\alpha^*\circ c_\beta^*$. Sadly the two maps are not induced by commuting topological maps. We will show that the reqired maps $(m^*)^{-1}\circ \kappa^*\circ \alpha^*$ and $(m^*)^{-1}\circ i_\alpha^*\circ c_\alpha^*\circ c_\beta^*$ commute and whilst the latter is a isomorphism, it is not necesserily induced by a homeomorphism. Hence we cannot see this commutation purly in $\TopCPoint$.
+\begin{multline*}
+	c_{\beta}\circ c_{\alpha}\circ i_{\alpha}:  N_q\cup N_p\cup C_1(L_q\cup N_p) \to \frac{ S_1 \wedge L_q\cup N_p }{ S_1 \wedge  L_p \cup \cl (L_q \setminus{N_p})}\\
+	x\mapsto\begin{cases}
+		x & \text{ if } x\in \underbrace{N_p\cup N_q \cup \{0\}\times (L_q\cup N_p)}_{ \text{due to $c_\alpha\circ i_\alpha$}}\cup \underbrace{S\wedge(L_p\cup \cl(L_q\setminus N_p))}_{\text{ due to }c_\beta} \\
+		p & \text{ else }.
+	\end{cases}
+\end{multline*}
+Now we just need to compare the subsets that get collapsed via $\alpha \circ \kappa$ and via $c_{\beta}\circ c_{\alpha}\circ i_{\alpha}$. The latter is already given in the formulation above, and the first is the union
+\begin{align*}
+	&\underbrace{\cl \left(C_1(L_q\cup N_p)\setminus \bigcup\limits_{j=1}^l C_1V_j \right) \cup N_q \cup N_p}_{\text{ due to } \kappa} \cup \underbrace{S_1\wedge(L_p\cup \cl(L_q\setminus N_p))}_{ \text{ due to } \alpha}\\
+	=& 
+\end{align*}
 	
 	
 	
