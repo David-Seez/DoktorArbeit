@@ -1121,7 +1121,7 @@ T\coloneq \id\vee \tilde{T}: S_1\vee \left(L_q\cup N_p \middle/  L_p \cup \cl (L
  	&= \sum_{j=1}^l (\pm)_{\gamma_j} f_5^* collaps^* \circ (\id\vee E^u_{qj})^*(\beta)\\
  	&=\sum_{j=1}^l (\pm)_{\gamma_j} \beta=n(p,q)\beta
  		 	\end{align*}
-Or said differently by defining $q$ to be the generator of $N_q\big/L_q$ given by the orientation of $T^u_qM$ as $q=(E^u_q)^{-1}^*(\beta)$ then:
+Or said differently by defining $q$ to be the generator of $N_q\big/L_q$ given by the orientation of $T^u_qM$ as $q=((E^u_q)^{-1})^*(\beta)$ then:
 \begin{equation*}
 	\delta_{triple}(p)=n(p,q)q\,.
 \end{equation*} 	
@@ -1204,6 +1204,29 @@ Using this streching we have that
 	 Furthermore, $V_j\times I$ is homeomorphic to $\mathfrak{C}$ by streching it. The streching can be done along rays starting in $y_j=(x_j,1)$. This is homotopic to the identity, if viewed as a endomorphism in $W(q\to)\cap M_c$. We can now define the collapsing map $W(q\to)\cap M_c$ in a continouos way by defining it to be the identity inside of $L_j$ and outside we map each point to the intersection of the ray containing said point with the bundary of $L_p$.
 	 Das sollte die letzte Lücke sein!
 	\end{minipage}
+\end{proof}
+\begin{proof}[Commuting triple connecting homomophisms]
+	We first notice, that we have the map of triples given by the inclusion:
+	\begin{align*}
+		\left( ~W(\to) \cup N_q~,~S(q\to)~,~S(q\to ) \setminus \bigcup\limits_jV_j ~\right) \to (C,B,A)
+	\end{align*} and hence by naturalitiy we have the commuting diagram:
+	\begin{center}
+	% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBoBGAXVJADcBDAGwFcYkQBpAPWAB1fG9ALYAjKPQD6aALTkAvv0YwAZjmQACAEKkAguv4AnLAHMAFjkog5pdJlz5CKMsWp0mrdtz4DhYyTPlFFTUAZQAKAEd+HAgASlJwqN4Y9Vj9XjgYHCEsMGY4dJETAGNmNEUsHJw4CQArADU69KMzCysbEAxsPAIiclIXGgYWNkROHkVfcSkFAWDkROiIVPTM7Nz8wpKyiqqahqbDE3NLa1tuhz6KV2GPMa9J0Wm0WaVVDQBhUk1m47a5VwwKDGeBEUDKAwQIRIfogGJIABMQ3coxA-FgjBwkmAOCMaCUcna4Mh0MQZDhECQAGZkSN2OiYJjsbisPiYISziAIVCkOT4YhYbdUVguAAqIlcknUmj8pFuOljEXigFyIA
+	\begin{tikzcd}
+		{K^{\lambda_p-1}\left[S(q\to),S(q\to ) \setminus \bigcup\limits_jV_j \right]} \arrow[r, "\delta_{triple}"] & {K^{\lambda_p}\left[S(q\to ) \setminus \bigcup\limits_jV_j \right]} \\
+		{K^{\lambda_p-1}\left[ B,A \right]} \arrow[r, "\delta_{triple}"] \arrow[u, "i^*"]                          & {K^{\lambda_p}\left[ C,B \right]} \arrow[u, "i^*"]                 
+	\end{tikzcd}
+	\end{center}
+	We now dive into te top connecting homomorphism from above and inspect the diagram
+	\begin{fdiagram}
+		\begin{adjustbox}{max width=\textwidth}
+% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZAZgBoAGAXVJADcBDAGwFcYkQBpAPWAB1fG9ALYAjKPQD6aAL79GMAGY5kAAgDCEgIxzFOABQqAynoCO-HBACU-AE5YA5gAscllfwDGzNCoDqp81Ye9N4AchImbrx2TjiUINKk6Ji4+IQo5KSa1HRMrOzcfALCYpJoALSasgK6yMZmvBaWpHUBKq78cDA4QlhgzHCRIg6eaHJYPThwEgBWAGozkdHOcQlJ2HgERBlUNAwsbIggKgVyxeJSVfJKtVr8AO4wUPYwKpFX+kb+DVakke6Mb10Bha3zakU63V6-UGwy8YwmUzmM1sDmcrkWqJcGJiK0SIAw61SRE0FGyezyhxORVE5xkOmuhluvAeTxegKUwK+jRRMXaUUxuLWKU2KAATKTdrkDpweKcaaVLjV1Ez3pz6tz+by-l5laL2fo-OrArx3MEVGEIjy0VbYvE8QThWkSJkyVL8rLqSULvTlL4ucbTaFwr9Pka+UtbdJso9nggUKAFDYIEIkCSQBYkOKQIxetKoBBmCJ5CAaI4YPQoOxIGA2DQcPQsIwqwQ2KsQInk0gyOmIEgACxtjspxBZjOIbvk6XuLgAKjtCaTw+7Y77kv27HcElFs-n7cX-brvcQGRy68OWB3g-3iAArIekCfJxutJe8UPU-fb2uKSB+LBGPWEjADgdhoPI0jxJQ0hAA
+\begin{tikzcd}
+	{ K^{\lambda_p}\left[S_1\wedge  \left( S(q\to), \cl \left( S(q\to ) \setminus \bigcup\limits_jV_j\right)  \right) \right]} \arrow[r, "c^*"] & {K^{\lambda_p}\left[S_1\wedge  \left( S(q\to)\right) \right]} \arrow[r] \arrow[r, "c_2^*"] & {K^{\lambda_p}\left[ C_1\left( S(q\to)\right) \cup C_2 \left(W(q\to)\cap N_q \right)\right]} \arrow[r, "i^*"] & {K^{\lambda_p}\left[ C_1\left( S(q\to)\right) \cup W(q\to)\cap N_q \right]} \\
+	{K^{\lambda_p-1}\left[S(q\to),S(q\to ) \setminus \bigcup\limits_jV_j \right]} \arrow[u, no head, Rightarrow] \arrow[rrr, "\delta_{triple}"] &                                                                                            &                                                                                                               & {K^{\lambda_p}\left[ W(q\to)\cap N_q,  S(q\to) \right]} \arrow[u, "c_1^*"] 
+\end{tikzcd}
+		\end{adjustbox}
+	\end{fdiagram}
 \end{proof}
 \begin{comment}
 		Here I need to formulate the write mapping. Notice how the sphere $(C_jV_j\Big/ \partial C_jV_j)$ can be given a generator (hence an orientation) from the Tangend space $T_{x_j}W(q\to)$ as follows:We have the splitting 
