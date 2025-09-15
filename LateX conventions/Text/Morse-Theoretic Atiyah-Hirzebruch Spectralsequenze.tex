@@ -1217,7 +1217,7 @@ Using this streching we have that
 		{K^{\lambda_p-1}\left[ B,A \right]} \arrow[r, "\delta_{triple}"] \arrow[u, "i^*"]                          & {K^{\lambda_p}\left[ C,B \right]} \arrow[u, "i^*"]                 
 	\end{tikzcd}
 	\end{center}
-	We now dive into te top connecting homomorphism from above and inspect the diagram
+	We now dive into te top connecting homomorphism from above and inspect the diagram:\todo{wedge produkt als funktop in TopPoint oder TopPair Kommutiert wedge produkt und keil produkt??... und triple connecting homom. und GENAU wegen punktiert und nicht punktiert schauen!! $S_1$ is a 1-Sphere! }
 	\begin{fdiagram}
 		\begin{adjustbox}{max width=\textwidth}
 % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZAZgBoAGAXVJADcBDAGwFcYkQBpAPWAB1fG9ALYAjKPQD6aAL79GMAGY5kAAgDCEgIxzFOABQqAynoCO-HBACU-AE5YA5gAscllfwDGzNCoDqp81Ye9N4AchImbrx2TjiUINKk6Ji4+IQo5KSa1HRMrOzcfALCYpJoALSasgK6yMZmvBaWpHUBKq78cDA4QlhgzHCRIg6eaHJYPThwEgBWAGozkdHOcQlJ2HgERBlUNAwsbIggKgVyxeJSVfJKtVr8AO4wUPYwKpFX+kb+DVakke6Mb10Bha3zakU63V6-UGwy8YwmUzmM1sDmcrkWqJcGJiK0SIAw61SRE0FGyezyhxORVE5xkOmuhluvAeTxegKUwK+jRRMXaUUxuLWKU2KAATKTdrkDpweKcaaVLjV1Ez3pz6tz+by-l5laL2fo-OrArx3MEVGEIjy0VbYvE8QThWkSJkyVL8rLqSULvTlL4ucbTaFwr9Pka+UtbdJso9nggUKAFDYIEIkCSQBYkOKQIxetKoBBmCJ5CAaI4YPQoOxIGA2DQcPQsIwqwQ2KsQInk0gyOmIEgACxtjspxBZjOIbvk6XuLgAKjtCaTw+7Y77kv27HcElFs-n7cX-brvcQGRy68OWB3g-3iAArIekCfJxutJe8UPU-fb2uKSB+LBGPWEjADgdhoPI0jxJQ0hAA
@@ -1227,8 +1227,55 @@ Using this streching we have that
 \end{tikzcd}
 		\end{adjustbox}
 	\end{fdiagram}
+\noindent	We inspect the mapping befor applying the K funktor:
+	\begin{fdiagram}
+		\begin{adjustbox}{max width=\textwidth}
+			% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBoBGAXVJADcBDAGwFcYkQAdDxmAMxwAUAdQEBHLjggBKLgGN6aAAQA5APqjSAZTETpXAE5YA5gAscUkAF9S6TLnyEUZYtTpNW7Lj34CAwqvIvPkFtcQ5JGQ5DU3M5ZiURUUVdSPklNTDoswtrW2w8AiJyUhcaBhY2RE5uYL8AoJ9QlINjbLilfwAmBsFE5PC9DjSVdRaYyKzzKxsQDHyHIk6S13KPKs16jgB3GCgjGH7vEJ0BqX7JnJm5+0KUAGZlsvdKkA3A7d39w9quXn16WTAJqnSzAOSMb6NE4RLhwGA4AC2WDAzDg-QARsZZPEvFgkTg4KoAFaKABqxPOrXMlkp4ysrk+8CIoD+EARSGKIEkSDIbgq7FkAWmLP0bI5NG5iCWfLWICwwpArPZUolECQDxlL0FnQVSvVqqQABYnvyqrJ6ZYgA
+			\begin{tikzcd}
+				\left(C_1\left(S(q\to)\right)\cup W(q \to)\cap N_q\right) \arrow[d, "c_1"] \arrow[r, "i"] & \left(C_1\left(S(q\to)\right)\cup C_2\left(W(q \to)\cap N_q\right)\right) \arrow[r, "c_2"] & S_1\wedge \left(S(q\to) \right) \arrow[r, "c"] & S_1\wedge \left(\frac{S(q\to)}{\cl \left(S(q\to)\setminus \bigcup\limits_j V_j \right)} \right) \\
+				{\left(W(q\to)\cap N_q,S(q\to)\right)}                                                    &                                                                                            &                                                &                                                                                                
+			\end{tikzcd}
+		\end{adjustbox}
+	\end{fdiagram}
+\noindent	The maps are the following:
+	\begin{itemize}
+		\item $c_1$ collapses the cone $C_1$.
+		\item $i$ is the obvious inclusion.
+		\item $c_2$ collapses the cone $C_2$.
+		\item $c$ collapses $\cl \left(S(q\to)\setminus \bigcup\limits_j V_j \right)$.
+	\end{itemize}
+	We now collaps everything but the interior  of $V_j$:
+	\begin{equation*}
+	c_j : S_1\wedge \left(\frac{S(q\to)}{\cl \left(S(q\to)\setminus \bigcup\limits_j V_j \right) }\right)\to S_1\wedge\left(\frac{V_j}{ \partial V_j }\right)
+	\end{equation*} Now we can compose $c_j\circ c$ to get a map between spheres that is also the identity on $S_1$ smashed with a collaps of a contractible space. Therefore this is homotopic an homeomorphism. Furtermore we have an orientation on $S_1\wedge \left(S(q\to) \right)$ coming from an orientatio of $T^u_qM$ via a rescaling of the unstable map $E^u_q:B_1(0)\to W(q\to )\cap M_c$:
+	\begin{align*}
+		b^u_q: S_1\wedge \left(S(q\to) \right)&\to S^{\lambda_{p}+1}=S_1\wedge S^{\lambda_p}\\
+		x=(t,y)&\mapsto\left(x,(E^u_q)^{-1}(y)\right)
+	\end{align*} On the other hand we have an orientation on $S_1\wedge\left(\frac{V_j}{ \partial V_j }\right)$ coming from an orientation of $T^u_pM$
+	 (That induces an isomorphis map from $B_{\mathfrak{b}}:\R^{\lambda_{p}}\to T^u_pM$, where $\mathfrak{b}$ dentotes an oriented basis) via the tubular neighbourhood embedding $J:NW(\to p)\cap M^c= W(\to p)\cap M^c \times T^u_pM \to N_p$. 
+	 	Let $\tilde{x_j}$ be the intersection of $\gamma_j\cap V_j$ and hence the basepoint of the normal bundle, whose fiber gets mapped to $V_j$. Then the homeomorphism is given as:
+	\begin{align*}
+		b^u_p:  S_1\wedge\left(\frac{V_j}{ \partial V_j }\right)& \to S^{\lambda_{p}+1} =S^1\wedge S^{\lambda_p}\\
+		x=(t,y)&\mapsto \left(t,q_{\mathfrak{b}}\circ (\restr{J}{J^{-1}(V_j)})^{-1}(y)\right)
+	\end{align*}
+	Now we have the diagram whose commutation is the interesting part:: 
+	\begin{center}
+	% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBoBGAXVJADcBDAGwFcYkQBlAfXIB1eA7jCgBzGAAJ+jGADMcACg7yAjvxwQAlJN4AnLCIAWODSAC+pdJlz5CKchWp0mrdtz6DhY7dLnz+MnXoAY2AlVV51DVNgfiDGb1kFMLVNfjgYHABbLDBmOG0AI30g5jQpLGycOC4AK3EANVrtPUNjU2b9IxNzS2w8AiJ7YkcGFjZETh5+IVEJKUS-XgDg4Eaa6P40eh08Jgba034WrvEzCxAMPpsiMmGaUZcJjgA9GN5GekyCqHouNABqcimMyOTzwIigAIQTJIMggdRIexOMbsIJnSE6aGImgIxAAJnuznGICCtXRIChMPxOIgSAAzISURMCs9mH9yZTYTT6YzHiAWWzlCDTEA
+	\begin{tikzcd}
+		S^{\lambda_p+1}                                                   & S_1\wedge \left(\frac{V_j}{\partial V_j}\right)  \arrow[l, "b^u_p"]                                              \\
+		S_1\wedge \left(S(q\to) \right) \arrow[r, "c"] \arrow[u, "b^u_q"] & S_1\wedge \left(\frac{S(q\to)}{\cl \left(S(q\to)\setminus \bigcup\limits_j V_j \right)} \right) \arrow[u, "c_j"]
+	\end{tikzcd}
+	\end{center} Bevore we come to this we notice a view basic facts about spheres. Firstly, if we take a sphere $S^k=\{x\in S^{k+1}|\norm{x}=1\}$ and a closed disc $D^{k}\subseteq S^k$ then, by nature of being a disc, there is a map $\tilde{f}: B^k\to D^k$ that reduces to a map $f: S^k\to \frac{D^k}{\partial D^k}$. Now the first question we need to answer is, when in the diagramm
+	\begin{center}
+		% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAGUA9AaxAF9S6TLnyEUARnJVajFmwA68gGYAnOgGNgAER59gitHRV5GAAh3c+-aTCgBzeEVCqIAWyRkQOCEkkgARjBgUEgAtADMnvTMrIgg6iDUDHSBDAAKwngEbCpYdgAWOPyCIC7uiH7eHtSBwWGR1NFycUqJIMmpGdhZYiC5BUV8FHxAA
+		\begin{tikzcd}
+			S^k \arrow[r, "c"', bend right] & \frac{D^k}{\partial D^k} \arrow[l, "f"', bend right]
+		\end{tikzcd}
+	\end{center} $f\circ c$ is homotopic to the identity. Or rather induced $\pm\id$ in $K^k(S^k)$. Let $\beta$ be the natural generator of $K^k[S^k]$. Now $(D^k)^c$ (complement of $D^k$) is a contractible subset of $S^k$ and hence $\beta=c^*(\tilde{\beta})$ for a generator $\tilde{\beta}$ of $K^k[S^k\big/ (D^k)^c)] $
 \end{proof}
 \begin{comment}
+	This is the case if and only if the orientation in $D^k$ induced by $f$ (as a manifold with boundary) agrees with the orientation as a submanifold of $S^k$: Let $(f^{-1})^* (B^k\times R^k )=TD^k$ be the oriented Tangend bundle with orientation induced via $f$. On the other hand we have the Tandend bundle that is the pullback of the inclusion of $D^k$ ind $S^k$. Those two bundles carry the same orientation if $\det(\diff f_x)>0$ for any $x\in B^k$. The composition $f\circ c$ is homotopic to a homeomorphism (Thic can be seen by using excischen to realice that $(f\circ c)_*$ is an isomorphism in homology, and by hurewicz it is an isomophism between the two homotopy groups, and hence sends a generator $[g]$ of $\pi_k(S^k)$ to a generator $(f\circ c)_*([g])=\pm [g]$. Hence it homotomic to $\pm \id$.) 
+	$\frac{S(q\to)}{\cl \left(S(q\to)\setminus \bigcup\limits_j V_j \right)}\cong S_1\wedge\left( \bigvee_{j=1}^l V_j \right)
 		Here I need to formulate the write mapping. Notice how the sphere $(C_jV_j\Big/ \partial C_jV_j)$ can be given a generator (hence an orientation) from the Tangend space $T_{x_j}W(q\to)$ as follows:We have the splitting 
 	\begin{equation*}
 		T_{x_j}W(q\to) \cong  T_{x_j}W(V_j)\oplus T_{x_j}\gamma_j
