@@ -1259,19 +1259,53 @@ Using this streching we have that
 		x=(t,y)&\mapsto \left(t,q_{\mathfrak{b}}\circ (\restr{J}{J^{-1}(V_j)})^{-1}(y)\right)
 	\end{align*}
 	Now we have the diagram whose commutation is the interesting part:: 
-	\begin{center}
-	% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBoBGAXVJADcBDAGwFcYkQBlAfXIB1eA7jCgBzGAAJ+jGADMcACg7yAjvxwQAlJN4AnLCIAWODSAC+pdJlz5CKchWp0mrdtz6DhY7dLnz+MnXoAY2AlVV51DVNgfiDGb1kFMLVNfjgYHABbLDBmOG0AI30g5jQpLGycOC4AK3EANVrtPUNjU2b9IxNzS2w8AiJ7YkcGFjZETh5+IVEJKUS-XgDg4Eaa6P40eh08Jgba034WrvEzCxAMPpsiMmGaUZcJjgA9GN5GekyCqHouNABqcimMyOTzwIigAIQTJIMggdRIexOMbsIJnSE6aGImgIxAAJnuznGICCtXRIChMPxOIgSAAzISURMCs9mH9yZTYTT6YzHiAWWzlCDTEA
-	\begin{tikzcd}
-		S^{\lambda_p+1}                                                   & S_1\wedge \left(\frac{V_j}{\partial V_j}\right)  \arrow[l, "b^u_p"]                                              \\
-		S_1\wedge \left(S(q\to) \right) \arrow[r, "c"] \arrow[u, "b^u_q"] & S_1\wedge \left(\frac{S(q\to)}{\cl \left(S(q\to)\setminus \bigcup\limits_j V_j \right)} \right) \arrow[u, "c_j"]
-	\end{tikzcd}
-	\end{center} Bevore we come to this we notice a view basic facts about spheres. Firstly, if we take a sphere $S^k=\{x\in S^{k+1}|\norm{x}=1\}$ and a closed disc $D^{k}\subseteq S^k$ then, by nature of being a disc, there is a map $\tilde{f}: B^k\to D^k$ that reduces to a map $f: S^k\to \frac{D^k}{\partial D^k}$. Now the first question we need to answer is, when in the diagramm
+	\begin{fdiagram}\label{diag: commutation intresting part}
+		\begin{center}
+			% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBoBGAXVJADcBDAGwFcYkQBlAfXIB1eA7jCgBzGAAJ+jGADMcACg7yAjvxwQAlJN4AnLCIAWODSAC+pdJlz5CKchWp0mrdtz6DhY7dLnz+MnXoAY2AlVV51DVNgfiDGb1kFMLVNfjgYHABbLDBmOG0AI30g5jQpLGycOC4AK3EANVrtPUNjU2b9IxNzS2w8AiJ7YkcGFjZETh5+IVEJKUS-XgDg4Eaa6P40eh08Jgba034WrvEzCxAMPpsiMmGaUZcJjgA9GN5GekyCqHouNABqcimMyOTzwIigAIQTJIMggdRIexOMbsIJnSE6aGImgIxAAJnuznGICCtXRIChMPxOIgSAAzISURMCs9mH9yZTYTT6YzHiAWWzlCDTEA
+			\begin{tikzcd}
+				S^{\lambda_p+1}                                                   & S_1\wedge \left(\frac{V_j}{\partial V_j}\right)  \arrow[l, "b^u_p"]                                              \\
+				S_1\wedge \left(S(q\to) \right) \arrow[r, "c"] \arrow[u, "b^u_q"] & S_1\wedge \left(\frac{S(q\to)}{\cl \left(S(q\to)\setminus \bigcup\limits_j V_j \right)} \right) \arrow[u, "c_j"]
+			\end{tikzcd}
+		\end{center}
+	\end{fdiagram}
+	Bevore we come to this we notice a view basic facts about spheres. Firstly, if we take a sphere $S^k=B^k\big/\partial B^k$ and a closed (smoothly embedded)  disc $D^{k}\subseteq S^k$ then, by nature of being a disc, there is a diffeomorphism $\tilde{f}: B^k\to D^k$ that reduces to a map $f: S^k \to \frac{D^k}{\partial D^k}$. Now the first question we need to answer is, when in the diagramm
 	\begin{center}
 		% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAGUA9AaxAF9S6TLnyEUARnJVajFmwA68gGYAnOgGNgAER59gitHRV5GAAh3c+-aTCgBzeEVCqIAWyRkQOCEkkgARjBgUEgAtADMnvTMrIgg6iDUDHSBDAAKwngEbCpYdgAWOPyCIC7uiH7eHtSBwWGR1NFycUqJIMmpGdhZYiC5BUV8FHxAA
 		\begin{tikzcd}
 			S^k \arrow[r, "c"', bend right] & \frac{D^k}{\partial D^k} \arrow[l, "f"', bend right]
 		\end{tikzcd}
-	\end{center} $f\circ c$ is homotopic to the identity. Or rather induced $\pm\id$ in $K^k(S^k)$. Let $\beta$ be the natural generator of $K^k[S^k]$. Now $(D^k)^c$ (complement of $D^k$) is a contractible subset of $S^k$ and hence $\beta=c^*(\tilde{\beta})$ for a generator $\tilde{\beta}$ of $K^k[S^k\big/ (D^k)^c)] $
+	\end{center} $f\circ c$ is homotopic to the identity. Or rather induced $\pm\id$ in $K^k(S^k)$. 
+	
+	
+	Assume that $S^k=B^k\big/ \partial B^k$ and without restrictions $D^k\subseteq \inti(B^k)$.  Then we have two different charts of $D^k$. One given by the inclusion and one given by $\tilde{f}^{-1}$. Since $D^k$ is compact and the image of the charts are Hausdorf those two maps define a extension to the Alexandroff-compactifications. Hence the transition function between those two charts extends to a homeomorphism of spheres:
+	\begin{align*}
+	 i\circ \tilde{f}:S^k\to S^k \,.
+	\end{align*}This map is now homotopically equivalent to either plus or minus the identity. Let $U\subseteq S^k$ be a open subset, and $\psi:U\to V\supseteq \R^k$ be a oriented chart. Then for any $x\in V$, such that $	 i\circ \tilde{f}(\psi(x))\in U$ we have that  $\det(\diff(\psi\circ i\circ \tilde{f}\circ \psi^{-1})\big|_x)$ is positive, if the map is homotopic to the identity, and otherwise negative. (The sign of the determinant here is chart and homotopy invariant, since for a change of sign there would need to be a point or time in which said determinant is zero which contradicts being a diffeomorphism.) Hence, $f\circ c$ is homotopic th the identity, if the orientations given by $f$ agrees with the standart orientation given by the inclusion and hence $(f\circ c)^*=\id$ and else $(f\circ c)^*=-\id$.
+	We define 
+	
+	\begin{align*}
+		\tilde{b^u_q}:S_1\wedge \left(\frac{V_j}{\partial V_j}\right)&\to S^{\lambda_p+1}\\
+		x&\mapsto 
+		\begin{cases}
+			b^u_q(x) & \text{ if }x\in S_1\wedge \inti(V_j) \\
+			p & \text{ else .}
+		\end{cases} 
+	\end{align*}	
+	Then the diagramm: 
+	\begin{center}
+		% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAGUA9YAHR4boBbAEZQ6AfTQBqAIwBfEHNLpMufIRQzyVWoxZs+AMwBOdAMbAAIpwDWc3jzR1jeRgAJrdxcpAZseAiIAJm1qemZWRA5xGT4AdxgoAHMYNz4GGEMcAAojUwsANXEAK3s+JxcsdyLSvmMsJIALHABKRR1ElIQUUBMIQSQyEBwIJC1dCLYzEGphGDAoQaVe436kEOHRxHHw-Si+PAZYYGFOJnEARwVqATmGAAVVAI0QeqacbxW1xCGR9bC9JEQGY+GYsMYzG4zCVQeDIdlTucLi1uABaeQzEBzBZIVEAFgAnDc6HdHv51Gw3s1PiA+gNEBs-j9ZvNFoh8USJnssWdJJjbjAHk8KVEqR85BQ5EA
+		\begin{tikzcd}
+			S^{\lambda_p+1} \arrow[r, "c"] \arrow[rr, "c\circ c_j\circ (b^u_q)^{-1}"', bend right=49] & \frac{D^k}{\partial D^k} & S_1\wedge \left(\frac{V_j}{\partial V_j}\right) \arrow[l, "\tilde{b^u_q}"'] \arrow[ll, "b^u_p"', bend right=49]
+		\end{tikzcd}
+	\end{center}
+	 satisfies the conditions of the statement becore, and hence 
+	 \begin{align*}
+	 {b^u_p}\circ \tilde{b^u_q}^{-1}\circ \tilde{b^u_q}\circ c\circ c_j\circ (b^u_q)^{-1}=	 	{b^u_p}\circ c\circ c_j\circ (b^u_q)^{-1} \simeq \pm \id
+	 \end{align*} where the sign is determined by the comparison of the standart orientation and the orientation induced from $b^u_p\circ \tilde{b^u_q}^{-1}:D^k\to B^k\subseteq S^k$. Let $x=(b^u_q)x_j\in D^k$ we can check if the induced orientation agrees with the standart orientation, by checking 
+	 \begin{equation*}
+	 	\det(\diff b^u_p\circ \tilde{b^u_q}^{-1} \big|_x)
+	 \end{equation*}
+	 Now in $T_{x_j}W(q\to)\cong -\grad_{x_j}(f)\oplus T^u_pM$ we have two orientations. One is induced from $E^u_q\circ q_{\mathfrak{b}_q}:\R^{\lambda_p+1}\to W(q\to)$  and one comes from $J_{x_j}\circ q_{\mathfrak{b}_p}:\R^{\lambda_p+1}\to -\grad_{x_j}(f)^\perp$. Notice how the comparison of those is the Morse boundary operator and simultaniously the condition for the commutation of diagram (\ref{diag: commutation intresting part}).
 \end{proof}
 \begin{comment}
 	This is the case if and only if the orientation in $D^k$ induced by $f$ (as a manifold with boundary) agrees with the orientation as a submanifold of $S^k$: Let $(f^{-1})^* (B^k\times R^k )=TD^k$ be the oriented Tangend bundle with orientation induced via $f$. On the other hand we have the Tandend bundle that is the pullback of the inclusion of $D^k$ ind $S^k$. Those two bundles carry the same orientation if $\det(\diff f_x)>0$ for any $x\in B^k$. The composition $f\circ c$ is homotopic to a homeomorphism (Thic can be seen by using excischen to realice that $(f\circ c)_*$ is an isomorphism in homology, and by hurewicz it is an isomophism between the two homotopy groups, and hence sends a generator $[g]$ of $\pi_k(S^k)$ to a generator $(f\circ c)_*([g])=\pm [g]$. Hence it homotomic to $\pm \id$.) 
