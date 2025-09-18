@@ -264,6 +264,25 @@ we now skip a lot of theory that essentally uses the (un-)stable manifold theore
 	\end{equation*}
 	This gives rise to a chain complex and hence gives rise to a homology theory, and a cohomology theory by applying the hom functor to the chain complex.
 \end{definition}
+\begin{remark}[The Counting of Flow Lines]
+There are several ways to formulate the counting of flow lines that happens in the boundary operator.Let $\gamma_j\in \mathcal{M}(q\to p)$ and $x_j\in \gamma_j$ Instead of using the parallel transport, we can introduce two different ordered bases in $T_{x_j}W(q\to)$. We use the following notation: 
+Let $\gamma_j\in \mathcal{M}(q\to p)$ and $x_j\in \gamma_j$. For this we define $N_{x_j}^{W(q\to)}{\gamma_j}$ be the normal bundle of $\gamma_j$ as a submanifold of $W(q\to)$. Since $\gamma_j$ is contractible we can trivialize said normal bundle to get an bundle isomorphism: 
+\begin{equation*}
+	\nu_j:N^{W(q\to)}{\gamma_j} \to \gamma_j \times T^u_pM \, .
+\end{equation*} Let $\nu_j\big|_{x_j}$ denote the isomorphism $N_{x_j}^{W(q\to)}{\gamma_j}\to  T^u_pM $. An orientation of $T^u_pM$ induces then one on $N_{x_j}^{W(q\to)}{\gamma_j}$ and we define the bases $(-\grad_{x_j}(f))$ to be positive. Hence we get the exact sequence
+\begin{center}
+	% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRGJAF9T1Nd9CKAIzkqtRizYAdKQzpgA5gxgACALQyFAJzpQA+sAAeegFacAFADMAlDJ2LlXHiAzY8BIgCZR1es1aIIAAqBsZmAOrmAI4yOBDWTrxuAkQAzD7i-mwAcgB6wJExUnHWnKGmnJp0ALbVdKaJLnzugsgALBl+koEc3En8HijpQmJdAcG5THpoALJcYjBQCvBEoJZaENVIZCBxSEJ9IOub+9R7iJ6Hx1sXZxBIqVcbN+m794htTyeIAKx3D74JONzDRTDIAEZYBQAH3KZms+TUBxA1Dk4JgDAACs0UoEtFCABY4eacIA
+	\begin{tikzcd}
+		0 \arrow[r] & \langle -\grad_{x_j}(f)\rangle \arrow[r] & T_{x_j}W(q\to) \arrow[r] & N^{W(q\to)}_{x_j}\gamma_j \arrow[r]        & 0 \\
+		&                                          &                          & T^u_pM \arrow[u, "(v_j\big|_{x_j})^{-1}"'] &  
+	\end{tikzcd}
+\end{center} That introduces an orientation in the middle. 
+Another way to get an orientation there is to trivialize the bundle via the bundle isomorphism:
+\begin{equation*}
+	\mu: TW(q\to)\to W(q\to)\times T^u_pM\, .
+\end{equation*} This trivialization together with an orientation on $T^u_qM$ orients the middle in the above exact sequence. Now the deciding factor that gives $\gamma_j$ its sign is weather they agree.
+
+\end{remark}
 Here i write a little bit about the Morse cohomology in german 
 \begin{theorem}[Morse Cohomology]
 	Um die Morse Kohomologie zu erhalten, dualizieren wir den Kettenkomplex für einen Ring $G$ mit 1. Sei $\Crit_k={p_1,...p_l}$ eine Basis der $k-$ten Kettengruppe. Für 
