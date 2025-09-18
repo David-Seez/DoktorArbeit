@@ -1320,6 +1320,12 @@ Using this streching we have that
 	 	(t,x) & \mapsto (t,q_{\mathfrak{b}_p}\circ J_{x_j}^{-1}(x))
 	 \end{align*} compare the bases induced from the two charts!
 \end{proof}
+\begin{lemma}
+	Let $S^k=B^k\big/ \partial B^k$, where $B^k$ is the ball in $\R^k$. Let furthermore $S^k$ be oriented as a manifold, such that the atlass containes the chart $\id:\inti(B^k) \to \R^k$. Then $f^*:K^k\left[S^k\right]\to K^k\left[S^k\right]=\id$ if for any $x\in B\coloneq \inti(B^k)\setminus f{-1}(\partial B^k)$ the funktion $\tilde{f}\coloneq \restr{f}{B}$ has a Jacobian in $x$ with positive determinant. Else, $f^*=-\id$. 
+\end{lemma}
+\begin{proof}
+	$f$ is either homotopic to the identity, or to the reflection on a subspace. Now assume that $f\simeq \id$. Then for $x\in B$ we have that $\det(\diff \tilde{f}\big|x)>0$ because the identity has a diffenential with positive jacobean and the sign of the determinant is carried through the homotopie (a change of sign would imply a place where the determinant vanishes resulting in a time where the differential of the homotopie is no isomorphism and hence the homotopie itself is no diffeomorphism). With the same argument we get the a negative determinant implies the function being homotopic to $-\id$ 
+\end{proof}
 \begin{comment}
 	This is the case if and only if the orientation in $D^k$ induced by $f$ (as a manifold with boundary) agrees with the orientation as a submanifold of $S^k$: Let $(f^{-1})^* (B^k\times R^k )=TD^k$ be the oriented Tangend bundle with orientation induced via $f$. On the other hand we have the Tandend bundle that is the pullback of the inclusion of $D^k$ ind $S^k$. Those two bundles carry the same orientation if $\det(\diff f_x)>0$ for any $x\in B^k$. The composition $f\circ c$ is homotopic to a homeomorphism (Thic can be seen by using excischen to realice that $(f\circ c)_*$ is an isomorphism in homology, and by hurewicz it is an isomophism between the two homotopy groups, and hence sends a generator $[g]$ of $\pi_k(S^k)$ to a generator $(f\circ c)_*([g])=\pm [g]$. Hence it homotomic to $\pm \id$.) 
 	$\frac{S(q\to)}{\cl \left(S(q\to)\setminus \bigcup\limits_j V_j \right)}\cong S_1\wedge\left( \bigvee_{j=1}^l V_j \right)
