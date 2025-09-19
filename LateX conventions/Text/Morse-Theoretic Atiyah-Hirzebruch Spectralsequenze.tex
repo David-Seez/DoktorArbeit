@@ -1321,29 +1321,49 @@ Using this streching we have that
 	 \end{align*} compare the bases induced from the two charts!
 \end{proof}
 \begin{lemma}
-	Let $S^k=B^k\big/ \partial B^k$, where $B^k$ is the ball in $\R^k$. Let furthermore $S^k$ be oriented as a manifold, such that the atlass containes the chart $\id:\inti(B^k) \to \R^k$. Then $f^*:K^k\left[S^k\right]\to K^k\left[S^k\right]=\id$ if for any $x\in B\coloneq \inti(B^k)\setminus f{-1}(\partial B^k)$ the funktion $\tilde{f}\coloneq \restr{f}{B}$ has a Jacobian in $x$ with positive determinant. Else, $f^*=-\id$. 
+	Let $S^k=B^k\big/ \partial B^k$, where $B^k$ is the ball in $\R^k$. Let furthermore $S^k$ be oriented as a manifold, such that the atlass containes the chart $\id:\inti(B^k) \to \R^k$. Then $f^*:K^k\left[S^k\right]\to K^k\left[S^k\right]=\id$ if and only if for any $x\in B\coloneq \inti(B^k)\setminus f{-1}(\partial B^k)$ the funktion $\tilde{f}\coloneq \restr{f}{B}$ has a Jacobian in $x$ with positive determinant. Else, $f^*=-\id$. 
 \end{lemma}
 \begin{proof}
-	$f$ is either homotopic to the identity, or to the reflection on a subspace. Now assume that $f\simeq \id$. Then for $x\in B$ we have that $\det(\diff \tilde{f}\big|x)>0$ because the identity has a diffenential with positive jacobean and the sign of the determinant is carried through the homotopie (a change of sign would imply a place where the determinant vanishes resulting in a time where the differential of the homotopie is no isomorphism and hence the homotopie itself is no diffeomorphism). With the same argument we get the a negative determinant implies the function being homotopic to $-\id$ 
+	$f$ is either homotopic to the identity, or to the reflection on a subspace. Now assume that $f\simeq \id$. Then for $x\in B$ we have that $\det(\diff \tilde{f}\big|x)>0$ because the identity has a diffenential with positive jacobean and the sign of the determinant is carried through the homotopie: First we can assume the homoropie to be smooth by some approximation theorem \todo{referenz 1. John M. Lee – Introduction to Smooth Manifolds
+		
+		Dies ist eine der Standardquellen in der Differentialtopologie.
+		
+		Theorem 8.9 (Smooth approximation of continuous maps):
+		
+		Every continuous map 
+		f:M→N
+		f:M→N between smooth manifolds (with 
+		M
+		M compact) can be approximated arbitrarily closely by a smooth map.
+		
+		In Kombination mit:
+		
+		Theorem 8.10: Glättung einer Homotopie zwischen glatten Abbildungen.
+		
+		 Dort heißt es sinngemäß:
+		
+		If 
+		f,g:M→N
+		f,g:M→N are smooth and homotopic as continuous maps, and 
+		M
+		M is compact, then there exists a smooth homotopy between them.}. A change of sign would imply a place where the determinant vanishes resulting in a time where the differential of the homotopie is no isomorphism and hence the homotopie itself is no diffeomorphism. With the same argument we get the a negative determinant implies the function being homotopic to $-\id$ 
 \end{proof}
 \begin{lemma}
 	Let $S^k=B^k\big/\partial B^k$. Let furthermore $D^k\subseteq B^k$ be a closed disk in $B^k$. Let $f: B^k\to D^k$ be the smooth diffeomorphism (that makes $D^k$ a Disk). Let furthermore $A\coloneq \inti(B^k)\setminus f^{-1}(\partial D^k)$. Then $\restr{f}{A}$ is a smooth map between open sets of $\R^k$ and hence we have a well defined jaccobean. We define $\bar{f}:B^k\big/\partial B^k\to D^k\big/ \partial D^k$ to be the quotient map of $f$, and let $g:B^k\big/\partial B^k\to D^k\big/ \partial D^k$ be the collapsing of the komplement of $D^k$. Then 
 	\begin{align*}
-		(f^{-1}\circ g)^*: K^k[S^k]\to K^k[S^k]
+		(\overline{f}^{-1}\circ g)^*: K^k[S^k]\to K^k[S^k]
 	\end{align*} is a group isomorphism and hence $\pm \id$. We have the equivalence of $(f^{-1}\circ g)^*=\id$ if and only if for any $x\in A$:
 \begin{equation*}
-		\det(\diff \restr{f}{A}\big|_x)>0\, .
+		\det(\diff \restr{\overline{f}}{A}\big|_x)>0\, .
 \end{equation*}
 \end{lemma}
-\begin{proof}
- Let $x\in D^k$ and $U$ be a neighbourhood of $x$ contained in $\inti(D^k)$. then $\restr{f^{-1}\circ g}{D^k}=\restr{f^{-1}}{D^k}$. Let $y=(f^{-1}\circ g )(x)$ and $V=(f^{-1}\circ g )(U)$. Then the diagramm commutes:
- \begin{center}
- % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAGkA9Aa2QGUeFEAF9S6TLnyEUARnJVajFmy68B3IaPHY8BImRkL6zVog49kANVIAdG2joAnPIwAElzWJAYdUonMNqY2UzVWQAVVt7JxcGV3DNBRgoAHN4IlAAM0cIAFskMhAcCCQ5RRM2AApMzmAAWhlhOwBjLEdm1xTXAEpOACoRL2y8gupipAAmIKVTECxBrJz8xDLxxABmaYqzea0QYeWpopKNrZCQatqG4V6B4QphIA
- \begin{tikzcd}
- 	{K^k[S^k]} \arrow[r, "(f^{-1}\circ g )^*"] \arrow[d, "i"] & {K^k[S^k]} \arrow[d, "i"] \\
- 	{K^k[V,\partial V]} \arrow[r, "(f^{-1})^*"]               & {K^k[U,\partial U]}      
- \end{tikzcd}
- \end{center} Now since the image of $f$ is in $D^k$
+\begin{proof} Both $\overline{f}^*$ and $g^*$ are isomorphisms
+	\begin{equation*}
+		\overline{f}^*,g^*:K^k[D^k\big/\partial D^k]\to K^k[B^k\big/\partial B^k]
+	\end{equation*} Let $\beta_D$ be a generator of $K^k[D^k\big/\partial D^k]$ (obviously this is isomorphic to $\Z$). Then there are two cases: Either $g^*(\beta_D)=\overline{f}^*(\beta_D)$, or $g^*(\beta_D)=-\overline{f}^*(\beta_D)$. 
+	In the first case we have that the induced maps equal, and hence for $\beta$ being the bott generator of $B^k\big/\partial B^k$ we have that $(\overline{f}^{-1}\circ g)^*=g^*\circ (\overline{f}^{-1})^*=id$ and hence by the lemma bevore, the statement follows. the other case is the same. 
+	
+
 \end{proof}
 \begin{comment}
 	This is the case if and only if the orientation in $D^k$ induced by $f$ (as a manifold with boundary) agrees with the orientation as a submanifold of $S^k$: Let $(f^{-1})^* (B^k\times R^k )=TD^k$ be the oriented Tangend bundle with orientation induced via $f$. On the other hand we have the Tandend bundle that is the pullback of the inclusion of $D^k$ ind $S^k$. Those two bundles carry the same orientation if $\det(\diff f_x)>0$ for any $x\in B^k$. The composition $f\circ c$ is homotopic to a homeomorphism (Thic can be seen by using excischen to realice that $(f\circ c)_*$ is an isomorphism in homology, and by hurewicz it is an isomophism between the two homotopy groups, and hence sends a generator $[g]$ of $\pi_k(S^k)$ to a generator $(f\circ c)_*([g])=\pm [g]$. Hence it homotomic to $\pm \id$.) 
