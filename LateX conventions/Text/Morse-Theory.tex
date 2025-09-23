@@ -264,6 +264,16 @@ we now skip a lot of theory that essentally uses the (un-)stable manifold theore
 	\end{equation*}
 	This gives rise to a chain complex and hence gives rise to a homology theory, and a cohomology theory by applying the hom functor to the chain complex.
 \end{definition}
+\begin{lemma}[Orientation and Exact Sequences]
+	As stated before, an orientation of a Vector space $V$ of dimension $m$ is given by an ordered basis $\mathfrak{b}=(b_1,\dots b_m)$ of $V$ and hence the produkt $b_1\wedge \dots \wedge b_m$ is an element of the maximal exterior product $\det(V)=\Lambda^mV$. Two ordered bases define different elements in $\det(V)$ where there difference is given by the determinant of the base change matrix. (This is just a calculation using multilinearity and the alternating property). Hence an orientation is a choice of one connected component of $\det(V)\setminus \{0\}$. Now a short exact sequence of vector spaces 
+	\begin{center}
+
+	\end{center} induces a canonical isomorphism 
+	\begin{align*}
+		 \det(A)\otimes \det(C)& \to \det(B)\\
+		 (a_1\wedge \dots\wedge a_l) \otimes (c_1\wedge \dots \wedge c_k) &\mapsto (f(a_1)\wedge \dots f(a_l)\wedge \tilde{c_1}\wedge \dots \wedge \tilde{c_k})\, ,
+	\end{align*} where $\tilde{c_j}\in g^{-1}(c_j)$ . The well definition of this map (invariance under choosen lift of $c$) can be calculated, since two different choices differ in an element in the kernal of $g$ which equals the image of $f$ and hence the different choices vanisch in the wedge produkt. By this isomorphism we get a orientation induced in the middle from the outside.
+\end{lemma}
 \begin{remark}[The Counting of Flow Lines]
 There are several ways to formulate the counting of flow lines that happens in the boundary operator.Let $\gamma_j\in \mathcal{M}(q\to p)$ and $x_j\in \gamma_j$ Instead of using the parallel transport, we can introduce two different ordered bases in $T_{x_j}W(q\to)$. We use the following notation: 
 Let $\gamma_j\in \mathcal{M}(q\to p)$ and $x_j\in \gamma_j$. For this we define $N_{x_j}^{W(q\to)}{\gamma_j}$ be the normal bundle of $\gamma_j$ as a submanifold of $W(q\to)$. Since $\gamma_j$ is contractible we can trivialize said normal bundle to get an bundle isomorphism: 

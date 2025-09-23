@@ -1288,14 +1288,42 @@ Using this streching we have that
  		\end{tikzcd}
  	\end{center} That is in the fiber above $(0,x_j)$ given by the comutative diagram:
  	\begin{center}
-% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZARgBpiBdUkANwEMAbAVxiRAB12G6wBzBmAAIAtJ14AnOlAD6wAB7SAVgF8AFADMAlIM6S+AkMtLpMufIRQAmUgAYqtRizacASpzwBbeIIAqshSoAakqGxiAY2HgERNaU1PTMrIggfvJKygDqqgCO7hCaoSaR5kQAzOT2CU7JqQHKwYqF4aZRFiSklpWOSRxcPPxCouwSUv7pGtq6-QZGRWbRVh1dic59+oNikjJpKhM67HoD7lhecPvc64IARgB6TNLZ+4czYRHzbeWd8d2rFwPXd2kaCe0xgAF4fIC0ABZJpvVpEGxLb4rZI2OEtEooAAsyIcqJA6OU9hgUF48CIoHU4ggHiQSJAOAgSDI+OqjM4HjoaDgTMEqhwpACBVmIGptJZ1CZSEsovFdMQDOliFlYXlksZzMQ5TZPU4aCwTXVKqlWtKcppCtxmqQAFYLRLELbTUgAGwo9n6w0Oq0uxU+u1+6y61ZQLDqdSCACigNy7CuWF4AB8xipOABjLDidOCACKRstbr9OqqPQAUqnlAXHQB2P3YgOId02xAADmJyiAA
+% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZARgBpiBdUkANwEMAbAVxiRAB12G6wBzBmAAIAtJ14AnOlAD6wAB7SAVgF8AFADMAlIM6S+AkMtLpMufIRQAmUgAYqtRizacASpzwBbeIIAqshSoAakqGxiAY2HgERNaU1PTMrIggfvJKygDqqgCO7hCaoSaR5kQAzOT2CU7JqQHKwYqF4aZRFiSklpWOSRxcPPxCouwSUv7pGtq6-QZGRWbRVh1dic59+oNikjJpKhM67HoD7lhecPsuAHrAnNweAEZQdNJoyk0R823lnfHdq5fXfXuj2er1mzWKC2QNiWPxWyRsbxaJRQABYYQ44SAEcp7DAoLx4ERQOpxBAPEhoSAcBAkGQMdUqZwPHQ0HBqYJVDhSAECmCSWTadRqUhLHzSeTEJThYhRWF+RK6dLyvSepw0FgmvKRUKaYhSmKBYg0VTdQBWA0S006pAANlhDLVGotSGN0pszsQVpN2pVbAAFiBqNw7jAGAAFJELEACdQ4TXi23WvVBugh8ORiwgcRYXh+uP2noMeOGgDsSZRHrt3sQAA4ccogA
 \begin{tikzcd}
-	&                                                                            & \R\times T_{x_j}V_j \arrow[d] \arrow[rd, "\pi"]                                                                         &                                                             &   \\
-	& \langle -\grad_{x_j}(f) \rangle \arrow[ru, "{t\mapsto (t,x_j)}"] \arrow[r] & T_{x_j}W(q\to) \arrow[r]                                                                                                & T_{x_j}V_j                                                  &   \\
-	0 \arrow[r] & \langle -\grad_{x_j}(f) \rangle \arrow[r] \arrow[u]                        & \langle -\grad_{x_j}(f) \rangle\times \langle b^u_q \rangle \arrow[r, "\pi"] \arrow[u, "\diff E^u_q\big|_{x_j}\circ Q"] & \langle b^u_p \rangle=T^u_pM \arrow[u, "J_{x_j}"] \arrow[r] & 0
+	&                                                                            & \R\times T_{x_j}V_j \arrow[d] \arrow[rd, "\pi"]                                      &                                          &   \\
+	& \langle -\grad_{x_j}(f) \rangle \arrow[ru, "{t\mapsto (t,x_j)}"] \arrow[r] & T_{x_j}W(q\to) \arrow[r]                                                             & T_{x_j}V_j                               &   \\
+	0 \arrow[r] & \langle -\grad_{x_j}(f) \rangle \arrow[r] \arrow[u]                        & \langle -\grad_{x_j}(f) \rangle\times \R^{\lambda_p} \arrow[r, "\pi"] \arrow[u, "h"] & \R^{\lambda_p} \arrow[u, "l"'] \arrow[r] & 0
 \end{tikzcd}
- 	\end{center} The map $Q$ identifies $Q: T^u_qM \to T(T^u_qM)$. 
- 	The map $\R\times T_{x_j}V_j\to T_{x_j}W(q\to)$ is giben by $t,x\mapsto -t\cdot \grad_{x_j}(f)+x$ where $T_{x_j}V_j$ is viewed as a subset of $T_{x_j}W(q\to)$.  The vertical maps in the bottom are also inclusions. Now the horizontal maps in the bottom row are exact and as maps of oriented vector spaces the are orientation preserving if and only if the counting in the Morse boundary operator counts $\gamma_j$ as positiv. If this is orientation preserving, this means that .. 
+\end{center} Here $Q$ denotes the identification of a vector space with its tangend space $Q: T^u_qM \to T(T^u_qM)$, respectifly $N_{x_j}^{W(q\to)}\gamma_j\to TN_{x_j}^{W(q\to)}\gamma_j$ and with this we define the maps:
+\begin{equation*}
+	\begin{array}{ll}
+		h= &\diff E^u_q\big|_{x_j}\circ \left(\id \times (Q \circ B_{\mathfrak{b}_q})\right) \\
+		l= &\diff J\big|_{x_j} \circ Q\circ (\nu_j)\big|_{x_j}^{-1}\circ B_{\mathfrak{b}_p} \, ,
+	\end{array}
+\end{equation*}
+ 	The map $\R\times T_{x_j}V_j\to T_{x_j}W(q\to)$ is giben by $t,x\mapsto -t\cdot \grad_{x_j}(f)+x$ where $T_{x_j}V_j$ is viewed as a subset of $T_{x_j}W(q\to)$.  The vertical maps in the bottom are also inclusions. Now the horizontal maps in the bottom row are exact and as maps of oriented vector spaces the are orientation preserving if and only if the counting in the Morse boundary operator counts $\gamma_j$ as positiv. If this is orientation preserving, this means that the base change has positiv determinand. However the base change here corresponds to the map 
+ 	\begin{equation}
+ 		 q_\mathfrak{b_p}\circ \nu_j^{-1} \circ  \diff E^u_q\big|_{x_j}\circ \left(\id \times (Q \circ B_{\mathfrak{b}_q})\right)
+ 	\end{equation}
+
+ 	New idea: \begin{center}
+ 		% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZARgBpiBdUkANwEMAbAVxiRAB12G6wBzBmAAIAtJ14AnOlAD6wAB7SAVgF8AFADMAlIM6S+AkMtLpMufIRQAmUgAYqtRizacASpzwBbeIIAqshSoAakqGxiAY2HgERNaU1PTMrIggfvJKygDqqgCO7hCaoSaR5kQAzOT2CU7JqQHKwYqF4aZRFiSklpWOSRxcPPxCouwSUv7pGtq6-QZGRWbRVh1dic7sLgB6wJzcHgBGUHTSaADUxMpNEfNt5Z3x3asbW317B0fns83FC8g2S3cryRsFxaJRQABY-g4ASAgcp7DAoLx4ERQOpxBAPEhfiAcBAkGQodUcZwPHQ0HBcYJVDhSAECh80Rj8dRcUhLAz0ZjENjWYh2WFGVyCbzyoSepw0FgmoK2Sy8YhShymYgITj5QBWJVc9VypAANn+RIlUq1SFVvJspsQOrVsrFbAAFiBqNxdjAGAAFEELEACdQ4aWc-W6hUuuhuz3eiwgcRYXgOgOGnoMQPKgDsIbBVoNtsQAA44cogA
+ 		\begin{tikzcd}
+ 			&                                                                            & \R\times T_{x_j}V_j \arrow[d] \arrow[rd, "\pi"]  &                                          &   \\
+ 			& \langle -\grad_{x_j}(f) \rangle \arrow[ru, "{t\mapsto (t,x_j)}"] \arrow[r] & T_{x_j}W(q\to) \arrow[r]                         & T_{x_j}V_j                               &   \\
+ 			0 \arrow[r] & \langle -\grad_{x_j}(f) \rangle \arrow[r] \arrow[u]                        & \R^{\lambda_p+1} \arrow[r, "\pi"] \arrow[u, "h"] & \R^{\lambda_p} \arrow[u, "l"'] \arrow[r] & 0
+ 		\end{tikzcd}
+ 	\end{center}
+ 	 Here $Q$ denotes the identification of a vector space with its tangend space $Q: T^u_qM \to T(T^u_qM)$, respectifly $N_{x_j}^{W(q\to)}\gamma_j\to TN_{x_j}^{W(q\to)}\gamma_j$ and with this we define the maps:
+ 	\begin{equation*}
+ 		\begin{array}{ll}
+ 			h= & \mu_{x_j}^{-1} \circ B_{\mathfrak{b}_q} \\
+ 			l= &\diff J\big|_{x_j} \circ Q\circ (\nu_j)\big|_{x_j}^{-1}\circ B_{\mathfrak{b}_p} \, ,
+ 		\end{array}
+ 	\end{equation*} In the above diagramm we define the Maps $b^u_q$ and $b^u_p$ as follows:
+ 	\begin{align*}
+ 		b^u_q(x))=E^u_q\circ B_{\mathfrak{b}_q}
+ 	\end{align*}
  \end{Iprove}
 	
 	\begin{align*}
