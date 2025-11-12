@@ -1239,7 +1239,36 @@ Using this streching we have that
 	\delta^2_ {triple}=\sum_j\delta^j_{triple}\circ i_j^*
 \end{equation*}
 	
-	
+	The map $\delta^2_{triple}$ is defined as the composition:
+	\begin{fdiagram}
+			\begin{adjustbox}{max width=\textwidth}
+			% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBoBGAXVJADcBDAGwFcYkQBpAPWAFoAdfo3oBbAEZR6AfTQBfQYxgAzHMgAEAZQAUAR0E4IASlLa9-A4cFwYOEVjDM4awWKwBzAMbM0CrHZxwUgBWzvz2eFoAasGGoQBO7gAWOJQgsqTomLj4hChkAEzUdEys7Nx8CqIS0nIKyqqauvpG8UkpaRkgGNh4BETkpIU0DCxsiJw8AkJVkjIA1OTyQvXIGlLkgrQwMI1mFq1uyanpmT05RPmDRSOl4+VTwuKzaAtLiirIAOpN5kaCHvQ0GoAHIyf7eNQAYXWdRUWl2zUs-AShxwxm+ez+-ABQNBQMEKKOHVO2T6KAAzFdhiUxhMKtMnjVXrDVBjEf9ASCwdiIdCNss4QjfkjCWiCW1jp1uqTcshKVRqaMypNKoypDo3is2cKObiZCYfvtxajJSTerKyMRrjTlfTHtUZJqPmpokFSII0PQ4ngmC7ggcibIijAoG54ERQEo4hAREgyCADEgBsUleMsOsuAAqYkgKMxpM0ROIS4p24gRJZ9Y5vOx4uFiBISml2mJKT5LPV6O1ptFgAsirL6fb2ZOua7SH7CYbiAArAPaS4bPR-lg4h41B4MyPOjW4-WkHPm+xBLBGDh6Fx8lJgDgEmhFLJO-nEAA2feIeM3WmboIdoOyIA
+			\begin{tikzcd}
+				{K^{-\lambda_p}\left[ V_j,\partial V_j \right]} \arrow[d, "c_j^*"]                                                                      &                                                                    &                                                                                                                 &                                                                                                           \\
+				{K^{-\lambda_p}\left[ S(q\to),S(q\to)\setminus \bigcup\limits_j \inti(V_j) \right]} \arrow[d, "i_1^*"] \arrow[rrr, "\delta^2_{triple}"] &                                                                    &                                                                                                                 & {K^{-\lambda_q}\left[W(q\to)\cap N_p,S(q\to) \right]}                                                     \\
+				{K^{-\lambda_p}\left[ S(q\to) \right]} \arrow[r, "h^*_1"]                                                                               & {K^{-\lambda_p+1}\left[S_1\vee S(q\to) \right]} \arrow[r, "h_2^*"] & {K^{-\lambda_p+1}\left[W(q\to)\cap N_p\cup C_1\left( S(q\to)\right),W(q\to)\cap N_p \right]} \arrow[r, "i_2^*"] & {K^{-\lambda_p+1}\left[W(q\to)\cap N_p\cup C_1\left( S(q\to)\right)\right]} \arrow[u, "\beta\circ c_1^*"]
+			\end{tikzcd}
+			\end{adjustbox}
+	\end{fdiagram}
+	Now the composition \begin{equation*}
+		h_1*i_1*\circ c_j*: K^{-\lambda_p}\left[ V_j,\partial V_j \right] \to K^{-\lambda_p+1}\left[S_1\vee S(q\to) \right]
+	\end{equation*} can be simplified by the map
+	\begin{equation*}
+	l*:	K^{-\lambda_p}\left[ V_j,\partial V_j \right]=K^{-\lambda_p+1}\left[S_1\vee\left( V_j,\partial V_j\right) \right] \to K^{-\lambda_p+1}\left[S_1\vee S(q\to) \right]
+	\end{equation*} where l is the collapsing map.
+	\begin{align*}
+		l:S_1\vee S(q\to)  \to S_1\vee\left( V_j,\partial V_j\right)\\
+		(t,x)\mapsto (t,\overline{x})
+	\end{align*} Hence we get the diagram
+	\begin{center}
+		\begin{adjustbox}{max width=\textwidth}
+		% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBoBGAXVJADcBDAGwFcYkQBpAPWAFoAdfo3oBbAEZR6AfTQBqcgF9BjGADMcyAMpTyg2jBgACTQAoAjoJwQAlIcEAnLAHMAFjkogFpdJlz5CKOQU1HRMrOzcfMqiEtJyispqGgDq5pY2ggDG9GiGAHIyWcy5AMI6ieomxmn8VtYOzm7WpKkWtRn82bkFuQ2u7p7eIBjYeAREAEzBNAwsbIicPAJCMZIy8kpCScit6fWdOfmFncWGZbpbldVtdX1NdwNePqP+k6TEIbPhC5HLwuJrMybFTqHY1W4HboyUimG42Oz8Rz9DxPYa+MYBEjvT5heaLKIrAFxYHbQwANSkACtSII0PR7HgmOSqQikW4USEYFAnPAiKBVPYICIkGQQFYkEFQnN2C4pBMuAAqQb8wXCxCS8WIKZS74gLByxXKkACoVIbWagDMM1x7EEYhgOHoWSw9kyhkyOkNqJNaoALDRNaKvnjGF6hj6kP6xRAkFadXjBLBGI6uJSpMAcI40CoFJ5KAogA
+		\begin{tikzcd}
+			{K^{-\lambda_p}\left[ V_j,\partial V_j \right]} \arrow[d, "l^*"] \arrow[rr, "\delta^j_{triple}"] &                                                                                                                 & {K^{-\lambda_q}\left[W(q\to)\cap N_p,S(q\to) \right]}                                                     \\
+			{K^{-\lambda_p+1}\left[S_1\vee S(q\to) \right]} \arrow[r, "h_2^*"]                               & {K^{-\lambda_p+1}\left[W(q\to)\cap N_p\cup C_1\left( S(q\to)\right),W(q\to)\cap N_p \right]} \arrow[r, "i_2^*"] & {K^{-\lambda_p+1}\left[W(q\to)\cap N_p\cup C_1\left( S(q\to)\right)\right]} \arrow[u, "\beta\circ c_1^*"]
+		\end{tikzcd}
+	\end{adjustbox}
+	\end{center}
 \begin{comment}	\begin{center}
 		
 % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBoBGAXVJADcBDAGwFcYkQBpAPWAB1fG9ALYAjKPQD6aALTkAvv0YwAZjmQACAEKkAguv4AnLAHMAFjkog5pdJlz5CKMsWp0mrdtz4DhYyTPlFFTUAZQAKAEd+HAgASlJwqN4Y9Vj9XjgYHCEsMGY4dJETAGNmNEUsHJw4CQArADU69KMzCysbEAxsPAIiclIXGgYWNkROHkVfcSkFAWDkAHVI6Lj+Yvo0dQA5CQiE5eSIVOaTc0trW26HPopXYY8xr0nRabRZpVUNAGFSTRPW86uGBQYzwIigZQGCBCJD9EAxJAAJiG7lGIH4sEYOEkwBwRjQSjk7QhUJhiDI8IgSAAzCiRuwMTAsTi8VgCTAiRcQJDoUgKQjEHD7misFwAFTE7mkmk0AXItz0saiiVyShyIA
@@ -1250,6 +1279,10 @@ Using this streching we have that
 	\end{center}
 	\end{comment}
 	We now dive into te top connecting homomorphism from above and inspect the diagram:\todo{wedge produkt als funktop in TopPoint oder TopPair Kommutiert wedge produkt und keil produkt??... und triple connecting homom. und GENAU wegen punktiert und nicht punktiert schauen!! $S_1$ is a 1-Sphere! }
+	
+	
+	
+	
 	\begin{fdiagram}
 		\begin{adjustbox}{max width=\textwidth}
 % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZAZgBoAGAXVJADcBDAGwFcYkQBpAPWAB1fG9ALYAjKPQD6aAL79GMAGY5kAAgDCEgIxzFOABQqAynoCO-HBACU-AE5YA5gAscllfwDGzNCoDqp81Ye9N4AchImbrx2TjiUINKk6Ji4+IQo5KSa1HRMrOzcfALCYpJoALSasgK6yMZmvBaWpHUBKq78cDA4QlhgzHCRIg6eaHJYPThwEgBWAGozkdHOcQlJ2HgERBlUNAwsbIggKgVyxeJSVfJKtVr8AO4wUPYwKpFX+kb+DVakke6Mb10Bha3zakU63V6-UGwy8YwmUzmM1sDmcrkWqJcGJiK0SIAw61SRE0FGyezyhxORVE5xkOmuhluvAeTxegKUwK+jRRMXaUUxuLWKU2KAATKTdrkDpweKcaaVLjV1Ez3pz6tz+by-l5laL2fo-OrArx3MEVGEIjy0VbYvE8QThWkSJkyVL8rLqSULvTlL4ucbTaFwr9Pka+UtbdJso9nggUKAFDYIEIkCSQBYkOKQIxetKoBBmCJ5CAaI4YPQoOxIGA2DQcPQsIwqwQ2KsQInk0gyOmIEgACxtjspxBZjOIbvk6XuLgAKjtCaTw+7Y77kv27HcElFs-n7cX-brvcQGRy68OWB3g-3iAArIekCfJxutJe8UPU-fb2uKSB+LBGPWEjADgdhoPI0jxJQ0hAA
