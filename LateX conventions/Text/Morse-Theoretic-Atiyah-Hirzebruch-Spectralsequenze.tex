@@ -1250,16 +1250,37 @@ Using this streching we have that
 			\end{tikzcd}
 			\end{adjustbox}
 	\end{fdiagram}
+	
+The downwards maps in the Theorem are the induction of the canonical generators. This is done by the following assignement
+	
+	
+	
 	Now the composition \begin{equation*}
 		h_1*i_1*\circ c_j*: K^{-\lambda_p}\left[ V_j,\partial V_j \right] \to K^{-\lambda_p+1}\left[S_1\vee S(q\to) \right]
 	\end{equation*} can be simplified by the map
 	\begin{equation*}
-	l*:	K^{-\lambda_p}\left[ V_j,\partial V_j \right]=K^{-\lambda_p+1}\left[S_1\vee\left( V_j,\partial V_j\right) \right] \to K^{-\lambda_p+1}\left[S_1\vee S(q\to) \right]
+	l^*:	K^{-\lambda_p}\left[ V_j,\partial V_j \right]=K^{-\lambda_p+1}\left[S_1\vee\left( V_j,\partial V_j\right) \right] \to K^{-\lambda_p+1}\left[S_1\vee S(q\to) \right]
 	\end{equation*} where l is the collapsing map.
 	\begin{align*}
 		l:S_1\vee S(q\to)  \to S_1\vee\left( V_j,\partial V_j\right)\\
 		(t,x)\mapsto (t,\overline{x})
-	\end{align*} Hence we get the diagram
+	\end{align*} So now we are in the following situation: 
+	\begin{fdiagram}
+		\begin{adjustbox}{max width=\textwidth}
+% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAGkA9YAWgB0+DOgFsARlDoB9NAF8BDGADMcyAGqSAVqQFo6AJzyMABOo1GBerAHMAFjgogZpdJlz5CKAEzkqtRizYuXnkRcSkARzlBJRUAdQAKARwII3CASgEAYzo0IwA5aVIAZXjwpIgMvktbe0dnEAxsPAIib09femZWRA5ufkFQiWkAagBGKIVlZAFhOhwbUVFgIpluELEhtDGZcyrrOwcnFyb3IjJ26k6AnqD+oQ2pLfH5GOm+WfnF5dXgdbCR8a7aoHOrHNwtFCjUijDr+bq9YIDB4AiavIxFSSjAQ0GAwdGlcqVYG1GS+GBQKzwIigRR6CDCJAAZmoySQZD8XTYimknAAVKCQLT6UhvCBWYgoRzroLJOE+QKhQzEOzxZKrvCBLAGDg6JwNJJgDhLGgFDIFXSlcyxRARUdBRamSybYgACx2xVIF1O231D3K72uy5wtgMeXuh2B61IcYUGRAA
+\begin{tikzcd}
+	{K^{-\lambda_p}\left[V_j,\partial V_j \right]} \arrow[rr, "\delta^j_{triple}"] \arrow[rd, "l^*"]   &                                                                       & {K^{-\lambda_q}\left[W(\to q)\cap N_p,S(q\to)\right]}                        \\
+	& {K^{-\lambda_p+1}\left[ S_1\vee S(q\to)\right]} \arrow[rd] \arrow[ru] &                                                                              \\
+	{K^{-\lambda_p+1}\left[\mathbb{S}^{\lambda_p+1} \right]} \arrow[uu, "f_p^*"] \arrow[rr] \arrow[ru] &                                                                       & {K^{-\lambda_p+1}\left[\mathbb{S}^{\lambda_p+1} \right]} \arrow[uu, "f_q^*"]
+\end{tikzcd}
+		\end{adjustbox}
+	\end{fdiagram}
+	Here $f_q$ is supposed to induce $\alpha_p$ and $f_q$ induces $\alpha_q$. which in turn are the canonical generators induced by the orientation of the respective unstable tangend spaces. We alredy established, that 
+	$f_p$ is given by $\left(\id\times \left(J\circ \nu_{x_j}^{-1}\circ B_{\mathfrak{b}_p}\right)^{-1}\right)$ and $f_q$ is given by 
+		
+	
+	
+	Hence we get the diagram
 	\begin{center}
 		\begin{adjustbox}{max width=\textwidth}
 		% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBoBGAXVJADcBDAGwFcYkQBpAPWAFoAdfo3oBbAEZR6AfTQBqcgF9BjGADMcyAMpTyg2jBgACTQAoAjoJwQAlIcEAnLAHMAFjkogFpdJlz5CKOQU1HRMrOzcfMqiEtJyispqGgDq5pY2ggDG9GiGAHIyWcy5AMI6ieomxmn8VtYOzm7WpKkWtRn82bkFuQ2u7p7eIBjYeAREAEzBNAwsbIicPAJCMZIy8kpCScit6fWdOfmFncWGZbpbldVtdX1NdwNePqP+k6TEIbPhC5HLwuJrMybFTqHY1W4HboyUimG42Oz8Rz9DxPYa+MYBEjvT5heaLKIrAFxYHbQwANSkACtSII0PR7HgmOSqQikW4USEYFAnPAiKBVPYICIkGQQFYkEFQnN2C4pBMuAAqQb8wXCxCS8WIKZS74gLByxXKkACoVIbWagDMM1x7EEYhgOHoWSw9kyhkyOkNqJNaoALDRNaKvnjGF6hj6kP6xRAkFadXjBLBGI6uJSpMAcI40CoFJ5KAogA
