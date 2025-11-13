@@ -42,10 +42,25 @@ This is just a short summary. Prooves are omitted and the goal is to remaind our
 	Notice that for $k=0$ we need to consider $\partial D^k=\emptyset$, to get an index pair. That's why we let $\partial$ denote the manifold boundary insted of the topological boundary. However, now we can identify for all $k$: \begin{equation} \label{ kritical points as direct sum of homology groups}
 		C^{k}(M,\mathfrak{A},\tilde{K}^{l}(pt)=\bigoplus_{ \Crit_k(f)} \Z \cong \bigoplus_{q\in \Crit_k(f)} K^k(N_q,L_q;\Z).
 	\end{equation}
-	Furthermore, this isomorphism can be made canonically, by using orientations: because we get canonically induced generators by orientations of the unstable manifolds.
 \end{remark}
+\begin{remark}
+		Furthermore, this isomorphism 
+		\begin{equation} \label{ kritical points as direct sum of homology groups}
+			C^{k}(M,\mathfrak{A},\tilde{K}^{l}(pt)=\bigoplus_{ \Crit_k(f)} \Z \cong \bigoplus_{q\in \Crit_k(f)} K^k(N_q,L_q;\Z).
+		\end{equation}
+		can be made canonically, using orientations: Let $q$ be a critical point in index $\lambda_q$. Let $\mathfrak{b}$ be a ordered basis of $T^u_qM$. Let $\psi$ be a refined Morse chart arround $q$, such that the induced basis in $T_qM=T^u_qM\oplus T^u_qM$ projects onto a a basis of the first factor $T^u_qM$ that is compatible with $\mathfrak{b}$. Using this Morse chart do define the generator of the regular index pair of $q$ gives a unique generator.
+\end{remark}
+\begin{proof}
+	Let $\psi_1$ and $\psi_2$ be two such Morse charts. Notice that they only differ by order of the directions and their signs, meaning that for all $i$ there is a $j$ such that $\psi_1^{-1}(e_i)=\pm \psi_2{-1}(e_j)$.Hence, viewed as maps into the tangent space we have that $\psi_1(N_p,L_q)=\psi_1(N_p,L_q)\subseteq T_qM$. We define $B^{\lambda_{q}}_{\epsilon}(0)\subseteq \R^{\lambda_q}$ to be the sphere. The generator of $\psi_1(N_p,L_q)$ comes as the pullback of the canonical bott generator of $K^i(B^{\lambda_{q}}_{\epsilon}(0),\partial B^{\lambda_{q}}_{\epsilon}(0))$ via the basis map after the collapse map $c:(D^{ s}\times  D^{u }, D^{s}\times \partial D^{u}) \cong (D^{u}_{\epsilon},\partial D^{u}_{\epsilon} )$. Let $\alpha$ be a generator of $\psi_1(N_p,L_q)$ induced from the basis $\mathfrak{b_1}$ that comes from $\psi_1$. I.e. 
+	\begin{equation*}
+		\alpha=\left( B_{\mathfrak{b}_1}\circ c\right)^*(\beta)
+	\end{equation*} By assumption, the map $ B_{\mathfrak{b}_1}\circ  B_{\mathfrak{b}}^{-1}$ has determinant one. Hence it is homotopic to the identity, and this homotopy can be reduced to a well defined homotopy on the quotient space $\left(D^{u}_{\epsilon}\middle/ \partial D^{u}_{\epsilon} \right)$. Hence
+	\begin{equation*}
+		\alpha=\left( B_{\mathfrak{b}}\circ c\right)^*(\beta)
+	\end{equation*} And thereby, the generacd tor only depends on $\mathfrak{b}$ concluding the proof.
+\end{proof}
 
-\begin{example}[A map of homology groups]
+\begin{example}[A Map of Homology Groups]
 	Let $f:M\to \R$ be a Morse Smale function on a smooth compact Riemannian manifold $(M,g)$. Let $q\in \Crit_k(f)$ and $p\in \Crit_{k-1}(f)$. Assume for a moment we already have an isolated regular compact index pair $(N_2,N_0)$ of $S=W(p\to q)\cup\{p,q\}$. 
 	For a $c\in (f(p),f(q))$ we set $N_1=N_0\cup (N_2 \cap M^c)$, where $M^c$ is the sublevel set. Clearly now $(N_2,N_1)$ is an index pair for $q$ and $(N_1,N_0)$ is a pair for $p$. Assuming we have regular index pairs $(N_q.L_q)$ and $(N_p,L_p)$ for $p,q$ we can now define a map:
 	\begin{align*}
@@ -740,7 +755,7 @@ The same arguments work to show that $N_q$ is a tubular neighbourhood of $W(q\to
 
 
 
-	
+	\begin{comment}
 \begin{proof}[Proof of Theorem \ref{thm commuting connecting homomorphism}]
 Lets star proving the commutativity of the diagramm (\ref{diag: that we really want to show}).
 	For the proof we use the following naming conventions:
@@ -1205,19 +1220,69 @@ Using this streching we have that
 	 Das solworklte die letzte Lücke sein!
 	\end{minipage}
 \end{proof}
+\end{comment}
 \begin{proof}[Commuting triple connecting homomophisms]
 	We first notice, that we have the map of triples given by the inclusion:
 	\begin{align*}
-		\left( ~W(\to) \cup N_q~,~S(q\to)~,~S(q\to ) \setminus \bigcup\limits_jV_j ~\right) \to (C,B,A)
-	\end{align*} and hence by naturalitiy we have the commuting diagram:
+		\left( ~W(q\to)\cap N_q ~,~S(q\to)~,~S(q\to ) \setminus \bigcup\limits_jV_j ~\right) \to (C,B,A)
+	\end{align*} and hence by naturalitiy we have the diagram, where the top square commutes:
+	\begin{fdiagram}
+% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAGkA9YAWgB0+DOgFsARlDoB9NAF8BDGADMcyAAQAhUgEFVAgE5YA5gAscFEDNLpMufIRQBGclVqMWbLr3kjxUgI5ygkoqAMKkGrp8BiZmFlYgGNh4BERkDi70zKyIHNz8gj4S0oEKymoAygAUfgI4EACUpFU1fHX1AnAwOMJYYExwkaJGAMZMaPJYPThwkgBWkb14lQBqc-WR0abmltZJdkRO6dSZ7jme+UJiRQHywcgA6tW1DQLDdGiqAHLSTU+tDRsjFs4rtbCkUGQAEwZNzZXJeApXKSyW5lVSrWakARoOh6PCMdFzQExbYuGBQQzwIigRR6CDCJBkEB1JBOEBCUQwBgABRsyXs7OCIGOsLYAlgDBwUmAOAMaAUMk4DhBIFp9MZ1BZiEhIqybCwkmAmi0ioAVCq1QzEGytQBmXWnEAG4BhdRmi10q065kQJD21x6nLirlSw2yrDymCKyEe9XazW+xAAFgdcINs045uoHK5vL24JAmxwwpAcGMWGUSEhO1VnqQKZ9ftTYr4EqlnFmYblCpLOZ5fP2OSLsatDa13pOcOGc0zvbonP7+YFw5kFBkQA
+\begin{tikzcd}
+	{K^{-\lambda_p}\left[ B,A \right]} \arrow[r, "\delta_{triple}^1"] \arrow[d, "{i_{B,A}^*}"]                                                            & {K^{-\lambda_q}\left[C, B \right]} \arrow[d, "{i_{C,B}^*}"] \\
+	{K^{-\lambda_p}\left[ S(q\to),S(q\to)\setminus \bigcup\limits_j \inti(V_j) \right]} \arrow[r, "\delta_{triple}^2"] \arrow[d, "i_j^*"', shift right=2] & {K^{-\lambda_q}\left[W(q\to)\cap N_p,S(q\to) \right]}       \\
+	{K^{-\lambda_p}\left[ V_j,\partial V_j \right]} \arrow[ru, "\delta^j_{triple}"'] \arrow[u, "c_j^*"']                                                  &                                                            
+\end{tikzcd} 
+	\end{fdiagram}
+\noindent	Furthermore, in this diagram the tuple $\left(K^{-\lambda_p}\left[ S(q\to),S(q\to)\setminus \bigcup\limits_j \inti(V_j) \right],\left(c_j^*\right)_j\right)$ is a coproduct, and we define  $\delta^j_{triple}\coloneq \delta^2_{triple}\circ c_j^*$. Then we have that 
+\begin{equation*}
+	\delta^2_ {triple}=\sum_j\delta^j_{triple}\circ i_j^*
+\end{equation*}
+	
+	The map $\delta^2_{triple}$ is defined as the composition:
+	\begin{fdiagram}
+			\begin{adjustbox}{max width=\textwidth}
+			% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBoBGAXVJADcBDAGwFcYkQBpAPWAFoAdfo3oBbAEZR6AfTQBfQYxgAzHMgAEAZQAUAR0E4IASlLa9-A4cFwYOEVjDM4awWKwBzAMbM0CrHZxwUgBWzvz2eFoAasGGoQBO7gAWOJQgsqTomLj4hChkAEzUdEys7Nx8CqIS0nIKyqqauvpG8UkpaRkgGNh4BETkpIU0DCxsiJw8AkJVkjIA1OTyQvXIGlLkgrQwMI1mFq1uyanpmT05RPmDRSOl4+VTwuKzaAtLiirIAOpN5kaCHvQ0GoAHIyf7eNQAYXWdRUWl2zUs-AShxwxm+ez+-ABQNBQMEKKOHVO2T6KAAzFdhiUxhMKtMnjVXrDVBjEf9ASCwdiIdCNss4QjfkjCWiCW1jp1uqTcshKVRqaMypNKoypDo3is2cKObiZCYfvtxajJSTerKyMRrjTlfTHtUZJqPmpokFSII0PQ4ngmC7ggcibIijAoG54ERQEo4hAREgyCADEgBsUleMsOsuAAqYkgKMxpM0ROIS4p24gRJZ9Y5vOx4uFiBISml2mJKT5LPV6O1ptFgAsirL6fb2ZOua7SH7CYbiAArAPaS4bPR-lg4h41B4MyPOjW4-WkHPm+xBLBGDh6Fx8lJgDgEmhFLJO-nEAA2feIeM3WmboIdoOyIA
+			\begin{tikzcd}
+				{K^{-\lambda_p}\left[ V_j,\partial V_j \right]} \arrow[d, "c_j^*"]                                                                      &                                                                    &                                                                                                                 &                                                                                                           \\
+				{K^{-\lambda_p}\left[ S(q\to),S(q\to)\setminus \bigcup\limits_j \inti(V_j) \right]} \arrow[d, "i_1^*"] \arrow[rrr, "\delta^2_{triple}"] &                                                                    &                                                                                                                 & {K^{-\lambda_q}\left[W(q\to)\cap N_p,S(q\to) \right]}                                                     \\
+				{K^{-\lambda_p}\left[ S(q\to) \right]} \arrow[r, "h^*_1"]                                                                               & {K^{-\lambda_p+1}\left[S_1\vee S(q\to) \right]} \arrow[r, "h_2^*"] & {K^{-\lambda_p+1}\left[W(q\to)\cap N_p\cup C_1\left( S(q\to)\right),W(q\to)\cap N_p \right]} \arrow[r, "i_2^*"] & {K^{-\lambda_p+1}\left[W(q\to)\cap N_p\cup C_1\left( S(q\to)\right)\right]} \arrow[u, "\beta\circ c_1^*"]
+			\end{tikzcd}
+			\end{adjustbox}
+	\end{fdiagram}
+	Now the composition \begin{equation*}
+		h_1*i_1*\circ c_j*: K^{-\lambda_p}\left[ V_j,\partial V_j \right] \to K^{-\lambda_p+1}\left[S_1\vee S(q\to) \right]
+	\end{equation*} can be simplified by the map
+	\begin{equation*}
+	l*:	K^{-\lambda_p}\left[ V_j,\partial V_j \right]=K^{-\lambda_p+1}\left[S_1\vee\left( V_j,\partial V_j\right) \right] \to K^{-\lambda_p+1}\left[S_1\vee S(q\to) \right]
+	\end{equation*} where l is the collapsing map.
+	\begin{align*}
+		l:S_1\vee S(q\to)  \to S_1\vee\left( V_j,\partial V_j\right)\\
+		(t,x)\mapsto (t,\overline{x})
+	\end{align*} Hence we get the diagram
 	\begin{center}
-	% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBoBGAXVJADcBDAGwFcYkQBpAPWAB1fG9ALYAjKPQD6aALTkAvv0YwAZjmQACAEKkAguv4AnLAHMAFjkog5pdJlz5CKMsWp0mrdtz4DhYyTPlFFTUAZQAKAEd+HAgASlJwqN4Y9Vj9XjgYHCEsMGY4dJETAGNmNEUsHJw4CQArADU69KMzCysbEAxsPAIiclIXGgYWNkROHkVfcSkFAWDkROiIVPTM7Nz8wpKyiqqahqbDE3NLa1tuhz6KV2GPMa9J0Wm0WaVVDQBhUk1m47a5VwwKDGeBEUDKAwQIRIfogGJIABMQ3coxA-FgjBwkmAOCMaCUcna4Mh0MQZDhECQAGZkSN2OiYJjsbisPiYISziAIVCkOT4YhYbdUVguAAqIlcknUmj8pFuOljEXigFyIA
-	\begin{tikzcd}
-		{K^{\lambda_p-1}\left[S(q\to),S(q\to ) \setminus \bigcup\limits_jV_j \right]} \arrow[r, "\delta_{triple}"] & {K^{\lambda_p}\left[S(q\to ) \setminus \bigcup\limits_jV_j \right]} \\
-		{K^{\lambda_p-1}\left[ B,A \right]} \arrow[r, "\delta_{triple}"] \arrow[u, "i^*"]                          & {K^{\lambda_p}\left[ C,B \right]} \arrow[u, "i^*"]                 
-	\end{tikzcd}
+		\begin{adjustbox}{max width=\textwidth}
+		% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBoBGAXVJADcBDAGwFcYkQBpAPWAFoAdfo3oBbAEZR6AfTQBqcgF9BjGADMcyAMpTyg2jBgACTQAoAjoJwQAlIcEAnLAHMAFjkogFpdJlz5CKOQU1HRMrOzcfMqiEtJyispqGgDq5pY2ggDG9GiGAHIyWcy5AMI6ieomxmn8VtYOzm7WpKkWtRn82bkFuQ2u7p7eIBjYeAREAEzBNAwsbIicPAJCMZIy8kpCScit6fWdOfmFncWGZbpbldVtdX1NdwNePqP+k6TEIbPhC5HLwuJrMybFTqHY1W4HboyUimG42Oz8Rz9DxPYa+MYBEjvT5heaLKIrAFxYHbQwANSkACtSII0PR7HgmOSqQikW4USEYFAnPAiKBVPYICIkGQQFYkEFQnN2C4pBMuAAqQb8wXCxCS8WIKZS74gLByxXKkACoVIbWagDMM1x7EEYhgOHoWSw9kyhkyOkNqJNaoALDRNaKvnjGF6hj6kP6xRAkFadXjBLBGI6uJSpMAcI40CoFJ5KAogA
+		\begin{tikzcd}
+			{K^{-\lambda_p}\left[ V_j,\partial V_j \right]} \arrow[d, "l^*"] \arrow[rr, "\delta^j_{triple}"] &                                                                                                                 & {K^{-\lambda_q}\left[W(q\to)\cap N_p,S(q\to) \right]}                                                     \\
+			{K^{-\lambda_p+1}\left[S_1\vee S(q\to) \right]} \arrow[r, "h_2^*"]                               & {K^{-\lambda_p+1}\left[W(q\to)\cap N_p\cup C_1\left( S(q\to)\right),W(q\to)\cap N_p \right]} \arrow[r, "i_2^*"] & {K^{-\lambda_p+1}\left[W(q\to)\cap N_p\cup C_1\left( S(q\to)\right)\right]} \arrow[u, "\beta\circ c_1^*"]
+		\end{tikzcd}
+	\end{adjustbox}
 	\end{center}
+\begin{comment}	\begin{center}
+		
+% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBoBGAXVJADcBDAGwFcYkQBpAPWAB1fG9ALYAjKPQD6aALTkAvv0YwAZjmQACAEKkAguv4AnLAHMAFjkog5pdJlz5CKMsWp0mrdtz4DhYyTPlFFTUAZQAKAEd+HAgASlJwqN4Y9Vj9XjgYHCEsMGY4dJETAGNmNEUsHJw4CQArADU69KMzCysbEAxsPAIiclIXGgYWNkROHkVfcSkFAWDkAHVI6Lj+Yvo0dQA5CQiE5eSIVOaTc0trW26HPopXYY8xr0nRabRZpVUNAGFSTRPW86uGBQYzwIigZQGCBCJD9EAxJAAJiG7lGIH4sEYOEkwBwRjQSjk7QhUJhiDI8IgSAAzCiRuwMTAsTi8VgCTAiRcQJDoUgKQjEHD7misFwAFTE7mkmk0AXItz0saiiVyShyIA
+\begin{tikzcd}
+	{K^{\lambda_p-1}\left[S(q\to),S(q\to ) \setminus \bigcup\limits_jV_j \right]} \arrow[r, "\delta_{triple}"] & {K^{\lambda_p}\left[W(q\to)\cap N_q,S(q\to ) \right]} \\
+	{K^{\lambda_p-1}\left[ B,A \right]} \arrow[r, "\delta_{triple}"] \arrow[u, "i^*"]                          & {K^{\lambda_p}\left[ C,B \right]} \arrow[u, "i^*"]   
+\end{tikzcd}
+	\end{center}
+	\end{comment}
 	We now dive into te top connecting homomorphism from above and inspect the diagram:\todo{wedge produkt als funktop in TopPoint oder TopPair Kommutiert wedge produkt und keil produkt??... und triple connecting homom. und GENAU wegen punktiert und nicht punktiert schauen!! $S_1$ is a 1-Sphere! }
+	
+	
+	
+	
 	\begin{fdiagram}
 		\begin{adjustbox}{max width=\textwidth}
 % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZAZgBoAGAXVJADcBDAGwFcYkQBpAPWAB1fG9ALYAjKPQD6aAL79GMAGY5kAAgDCEgIxzFOABQqAynoCO-HBACU-AE5YA5gAscllfwDGzNCoDqp81Ye9N4AchImbrx2TjiUINKk6Ji4+IQo5KSa1HRMrOzcfALCYpJoALSasgK6yMZmvBaWpHUBKq78cDA4QlhgzHCRIg6eaHJYPThwEgBWAGozkdHOcQlJ2HgERBlUNAwsbIggKgVyxeJSVfJKtVr8AO4wUPYwKpFX+kb+DVakke6Mb10Bha3zakU63V6-UGwy8YwmUzmM1sDmcrkWqJcGJiK0SIAw61SRE0FGyezyhxORVE5xkOmuhluvAeTxegKUwK+jRRMXaUUxuLWKU2KAATKTdrkDpweKcaaVLjV1Ez3pz6tz+by-l5laL2fo-OrArx3MEVGEIjy0VbYvE8QThWkSJkyVL8rLqSULvTlL4ucbTaFwr9Pka+UtbdJso9nggUKAFDYIEIkCSQBYkOKQIxetKoBBmCJ5CAaI4YPQoOxIGA2DQcPQsIwqwQ2KsQInk0gyOmIEgACxtjspxBZjOIbvk6XuLgAKjtCaTw+7Y77kv27HcElFs-n7cX-brvcQGRy68OWB3g-3iAArIekCfJxutJe8UPU-fb2uKSB+LBGPWEjADgdhoPI0jxJQ0hAA
@@ -1247,7 +1312,38 @@ Using this streching we have that
 	We now collaps everything but the interior  of $V_j$:
 	\begin{equation*}
 	c_j : S_1\wedge \left(\frac{S(q\to)}{\cl \left(S(q\to)\setminus \bigcup\limits_j V_j \right) }\right)\to S_1\wedge\left(\frac{V_j}{ \partial V_j }\right)
-	\end{equation*} Now we can compose $c_j\circ c$ to get a map between spheres that is also the identity on $S_1$ smashed with a collaps of a contractible space. Therefore this is homotopic an homeomorphism. Furtermore we have an orientation on $S_1\wedge \left(S(q\to) \right)$ coming from an orientation of $T^u_qM$ (let $\mathfrak{b}_q$ denote a ordered basis )via a rescaling of the unstable map $E^u_q:B_1(0)\to W(q\to )\cap M_c$:
+	\end{equation*} Now we can compose $c_j\circ c$ to get a map between spheres that is also the identity on $S_1$ smashed with a collaps of a contractible space. Therefore this is homotopic an homeomorphism. Now the basis $\mathfrak{b}_q$ of $T^u_qM$ induces a generator $\alpha_q$ of the K-group $K^{\lambda_{p}}[C,B]$. This generator is given by the map $E^u_q\circ B_{\mathfrak{b}_q}$. To see this notice how the generator was defined: First use a Morse chart that fits to $\mathfrak{b}_q$. Then use the equivalence of index pairs after the inclusion of $W(q\to \cap N_p)$ into $C$. This gives rise to a continuous map $L:   W(q\to)\cap N_q\to B^{\lambda_q}_\epsilon(0)$. Then the canonical induced generator is given by the pullback of $L$.  This definition agrees with the pullback of $B_{\mathfrak{b}_q}{-1}\circ E^u_q{-1}$ since around the origin and reduced to the unstable direction $E^u_q{-1}$ is such a adapted Morse chart. Hence, the determinant of the change $L\circ E^u_q\circ B_{\mathfrak{b}_q}$ is positive and hence the map is homotopic to the identity. \todo{referenz für das argument einfügen}. 
+	
+	The generator of $K^{\lambda_p}[B,A]$ is given by an Morse chart adapted to an ordered basis $\mathfrak{b}_p$ of $T^u_pM$ and then this generator can be bulled back via the inclusion of
+	\begin{equation*}
+		[S(q\to),S(q\to)\setminus \bigcup_j \supseteq \inti( V_j)][B,A]\, .
+	\end{equation*} And furthermore, we can include 
+	\begin{equation*}
+		[\inti(V_j),\partial V_j]\supseteq [S(q\to),S(q\to)\setminus \bigcup_j\,.
+	\end{equation*} Pulling back the generator from $K^{\lambda_p}[B,A]$ to an element of $	K^{\lambda_p}[\inti(V_j),\partial V_j]$ via the composition of the inclusions yields again a generator. And since the collapse $(B/A)\to (\inti(V_j)/\partial V_j])$ is a right inverse of the inclusion (rather the map on the quotients induced by the inclusion. ) we know that the collapse induces a left inverse after applying the K functor and since the two K-groups are isomorphic generated by one element, it is also a right inverse. We call that generator of $K^{\lambda_p}[	[\inti(V_j),\partial V_j]$ $\alpha_p$. 
+	 
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	Furtermore we have an orientation on $S_1\wedge \left(S(q\to) \right)$ coming from an orientation of $T^u_qM$ (let $\mathfrak{b}_q$ denote a ordered basis )via a rescaling of the unstable map $E^u_q:B_1(0)\to W(q\to )\cap M_c$:
 	\begin{align*}
 		b^u_q: S_1\wedge \left(S(q\to) \right)&\to S^{\lambda_{p}+1}=S_1\wedge S^{\lambda_p}\\
 		x=(t,y)&\mapsto\left(t\cdot q_{\mathfrak{b}_q}(E^u_q)^{-1}(y)\right)
