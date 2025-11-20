@@ -1337,22 +1337,53 @@ The downwards maps in the Theorem are the induction of the canonical generators.
 			r\circ f_q\circ c_1=col\,, 
 		\end{equation*}then the requirement on the induced maps would be satisfied. We first however need to formulate a little lemma:
 		\begin{lemma}
-			Let $S^k\coloneq \{x\in \R^{k+1}|\norm{x}=1\}$, $H_+\coloneq\{x\in S^k|x_0\geq 0\}$ denote the upper hemissphere, $H_-$ the lower hemissphere,  $\pi:S^k \to D^k$ with $\pi(x_0,\dots,x_{k})=(x_1,\dots x_k)$ be the projection and $\Phi$ be the homeopmorphism from $D^k\big/\partial D^k \to S^k$. Let furthermore $c_{Eq}:S^k\to \overline{H_+}\vee \overline{H_-}$ be the collaps of the equator, where $\overline{H_+}$ denotes the upper hemisphere modulo the equator and $\overline{H_-}$ is defined analog. Let finally $c_2: \overline{H_+}\vee \overline{H_-} \to \overline{H_+}$ be the collaps of the second summand and analogusly $c_1:  \overline{H_+}\vee \overline{H_-} \to \overline{H_-}$. Then we have that $\Phi\circ \pi\circ c_2\circ c_{Eq}=-\Phi\circ \pi\circ c_1\circ c_{Eq}$. 
+			Let $S^k\coloneq \{x\in \R^{k+1}|\norm{x}=1\}$, $H_+\coloneq\{x\in S^k|x_0\geq 0\}$ denote the upper hemissphere, $H_-$ the lower hemissphere,  $\pi:S^k \to D^k$ with $\pi(x_0,\dots,x_{k})=(x_1,\dots x_k)$ be the projection and $\Lambda$ be the homeopmorphism from $D^k\big/\partial D^k \to S^k$. Let furthermore $c_{Eq}:S^k\to \overline{H_+}\vee \overline{H_-}$ be the collaps of the equator, where $\overline{H_+}$ denotes the upper hemisphere modulo the equator and $\overline{H_-}$ is defined analog. Let finally $c_2: \overline{H_+}\vee \overline{H_-} \to \overline{H_+}$ be the collaps of the second summand and analogusly $c_1:  \overline{H_+}\vee \overline{H_-} \to \overline{H_-}$. Then we have that $\Lambda\circ \pi\circ c_2\circ c_{Eq}\simeq -\Lambda\circ \pi\circ c_1\circ c_{Eq}$, where de minus denotes any map homeomorphism of negative degree. 
 		\end{lemma}
 		\begin{proof}
 			This lemma is the concrete version of a standart lemma that is often formulated along the lines: Let $q:S^k\to S^k\vee S^k$ be the collaps of the equator and $p_i$ be the projection to the $i$-th summand, then $p_1\circ q=-p_2\circ q$.  
 		\end{proof}
-		Now we need to transoprt our situation to fit the lemma. For this we will use the maps defined in the lemma above, and need a bunch of maps again: 
+		Now we need to transport our situation to fit the lemma. For this we will use the maps defined in the lemma above, and need a bunch of maps again: 
 		\begin{itemize}
-			\item First we define the map $\rho':H_+\to H_+\cap H_-$ This map is given by 
-			\item $\Phi:S^{\lambda_q}\to W)q\to \cap N_p\cup C_1S(q\to)$ is defined with a case distingtion. We define 
-			\begin{equation}
-				\restr{\Phi}{H_+}(x)=E^u_q\circ B_{\mathfrak{b}^q}^{-1}\circ \pi(x) \quad \text{and}\quad \restr{\Phi}{H_-}(x_0,\dots x_\lambda_q)=(x_0,f_q\circ \rho')
-			\end{equation}
-			\item $\Psi$
-			\item $p_i$ für $i=1,2$
-			\item $C_{S(q\to)}$
+			\item First we define the map $\rho':H_-\to H_+\cap H_-$ to be $B_{\mathfrak{b}^q}^{-1}\circ {E^u_q}^{-1}\circ \rho \circ E^u_q\circ B_{\mathfrak{b}^q}\circ (\cdot 2)\circ \pi$ for all $x$ such that $x_0\neq 1$. Here, the map $\rho$ is given by 
+			\begin{align*}
+				\rho: W(q\to)\setminus \{q\}&\to W(q\to)\cap f^{-1}(c)\setminus W(q\to)\setminus \{q\}\\
+				x\mapsto \phi_{\tau(x)}(x)\,,
+			\end{align*} and 
+			\begin{align*}
+				 \tau: W(q\to)\setminus \{q\} &\to \R\\
+				x                  &\mapsto \tau(x) \text{ such that }f\circ \phi_{\tau(x)}(x) =c \, .
+			\end{align*}Furthermore  $(\cdot 2)$ denotes the stretching of $D^k$ (i.e. the image of $\pi$) to be the ball of diameter two. The north pole gets mapped to any element of the equator. (This choice will not matter later)
+			\item $\Phi:S^{\lambda_q}\to W(q\to) \cap N_p\cup C_1S(q\to)$ is defined with a case distingtion. We define 
+			\begin{equation*}
+				\restr{\Phi}{{H}_+}(x)=E^u_q\circ B_{\mathfrak{b}^q}^{-1}\circ \pi(x) \quad \text{and}\quad \restr{\Phi}{{H}_-}(x_0,\dots x_{\lambda_q})=(x_0,f_q\circ \rho')\,.
+			\end{equation*}Notice, how this function is continuous and does not depend on the choice taken in the definition of $\rho'$. 
+			\item $\Psi: S^{\lambda_q}\vee S^{\lambda_q}\to \left(W(q\to)\cap N_p \middle/ S(q\to)\right)\vee \mathbb{S}\wedge S(q\to)$ is given by mapping $x\mapsto \overline{\Phi(x)}$. The well definition is easy to see. 
+			\item $p_i$ for $i=1,2$ denotes the projection onto the first or second summand in a pointed sum. 
+			\item $C_{S(q\to)}:W(q\to)\cap N_q\cup C_1S(q\to) \to \left(W(q\to)\cap N_p \middle/ S(q\to)\right)\vee \mathbb{S}\wedge S(q\to)$ is the collaps of $S(q\to)$. 
+			\item $R:\mathbb{S}^{\lambda_q}\to \mathbb{S} \wedge S(q\to)$ is defined to be $col\circ \Phi$ 
 		\end{itemize}
+		This gives the commutative diagram,
+		\begin{fdiagram}
+		\begin{adjustbox}{max width=\textwidth}
+	% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZAJgBpiBdUkANwEMAbAVxiRAB12IaYAnBrGBjAAEgH0A1AF9OPGAAJO3PgKGixAWikgppdJlz5CKMgEYqtRizacAtnRwALAEbPgAZSkA9YJwZ1bZyg6MQBHbV19bDwCIjIAZgt6ZlZEDnZ7J1cPb192f0DgsIi9EAxooyIABnIkq1T0zJc3Tx8-AKCQ8J1S8sNYlFNSc2pk6zT5AHUAClDOHAgASkV2AGM6NHkAOTE0TlWmTYBhMVN3Wfmlnqj+42R40iq6lJt8mAAzHGmZufYFxf2G22uxWtiwUCgDBgAHp5Odfv9OLwsABzRw4RbXMoGGJ3B6UUb1NighzNHKcADuMCgKIU8MumMi2IqA3uw2e43SUM+3wufyWgM2O02dnBkJhcL5iPYyLRGNkMAUdlJ2U8lOptMlCKuUgsGvgRFA714EFsSBqIAWSCGlheaU4ABkOsF9lheKsVmgsCtVm6PasxMQQNR-M4YAwAAo4yppQTYWBY42m83UK2IMi2zmO510V3uz3evP+07BkCh8NRlnGEBx8GsJlJs2IB6WiApzMNAPAACi3RDdDDkejAxrYHj9dKjaQLbTABZCXb0hHHFhEyamza0wBWBvrpAZtMANl3ycQ89bSAA7AvOScPFKliUjXvENeL4gtzeGpwvSX+4PK1uNhawTE8mzfI8v1eX8g3-Cth2rECJ2fU8LTTN8xm-dgI2wUtyyHKtgLHOsdAoKQgA
+	\begin{tikzcd}
+		&                                                            &                                                                                                                                                                          & \left(W(q\to)\cap N_p \middle/ S(q\to)\right)                                                                                            \\
+		&  W(q\to) \cap N_p\cup C_1S(q\to) \arrow[rr, "C_{S(q\to)}"] & \mathbb{S}^{\lambda_q} \arrow[ru]                                                                                                                                        & \left(W(q\to)\cap N_p \middle/ S(q\to)\right)\vee \mathbb{S}\wedge S(q\to) \arrow[u, "\pi_1" description] \arrow[d, "\pi_2" description] \\
+		\mathbb{S}^{\lambda_q} \arrow[rr, "c_{Eq}" description] \arrow[ru, "\Phi"] &                                                            & \overline{H_+}\vee \overline{H_-} \arrow[u, "\Lambda\circ \pi \circ c_2" description] \arrow[d, "\Lambda\circ \pi \circ c_1" description] \arrow[ru, "\Psi" description] &  \mathbb{S}\wedge S(q\to)                                                                                                                \\
+		&                                                            & \mathbb{S}^{\lambda_q} \arrow[ru]                                                                                                                                        &                                                                                                                                         
+	\end{tikzcd}
+		\end{adjustbox}
+		\end{fdiagram}
+		 Now define $r\coloneq -R$. Then by the lemma above and commutativity we have:
+		  \begin{align*}
+		  	r\circ f_q\circ c_1 
+		  	&=  	-R\circ f_q\circ c_1 \circ \Phi \circ \phi{-1}\\
+		  	&=  	-R\circ \Lambda \circ c_2\circ C_{Eq} \circ \phi{-1}\\
+		  	&=  	R\circ \Lambda \circ c_1\circ C_{Eq} \circ \phi{-1}\\
+		  	&=		col\, .
+		  \end{align*}
+		  With $r$ we finally have all the maps. Now we want to find out what degree the composition
+		  $s\circ r$ has. For this we calculate the local degree in some point by checking the siogn of the determinant of the Jacobean.
 	\end{itemize} 
 	
 We alredy established, that 
