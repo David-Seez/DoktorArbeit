@@ -1267,15 +1267,15 @@ The downwards maps in the Theorem are the induction of the canonical generators.
 	\end{align*} So now we are in the following situation: 
 	\begin{fdiagram}
 		\begin{adjustbox}{max width=\textwidth}
-% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAGkA9YAWgB0+DOgFsARlDoB9NAF8BDGADMcyAGqSAVqQFo6AJzyMABOo1GBerAHMAFjgogZpdJlz5CKAEzkqtRizYuXnkRcSkARzlBJRUAdQAKcPM+HAgjAEoBAGM6NCMAOWlSAGVEgVTMvktbe0dnEAxsPAIib09femZWRA5ufkFQiWkAagBGKIVlZAFhOhwbUVFgYpluELEhtDGZZOq7BycXJvciMnbqToCeoP6hDakt8fkY6b5Z+cXl1eB1sJHx3bWfZ1I5uFooUakUYdfzdXrBAb3f4TF5GYqSUYCGgwGBosopCCVPa1GS+GBQKzwIigRR6CDCJAAZmoqSQZD8XTYimknAAVCCQLT6UhvCBWYhIRyroLJOE+QKhQzEOzxZLLnCBLAGDg6JwNJJgDhLGgFDIFXSlcyxRARYdBRamSybYgACwXWFsODyu2KpBu60i92cnp6b31X3Kp1+oPShgYsM0h2uqMSmNwuOeRwUGRAA
+% % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAGkA9YAWgB0+DOgFsARlDoB9NAF8BDGADMcyAGqSAVqQFo6AJzyMABOo1GBerAHMAFjgogZpdJlz5CKAEzkqtRizYuXnkRcSkARzlBJRUAdQAKcPM+HAgjAEoBAGM6NCMAOWlSAGVEgVTMvktbe0dnEAxsPAIib09femZWRA5ufkFQiWkeAEYohWVkAWE6HBtRUWBimW4QsSG0AGox5Oq7BycXJvciMnbqToCeoP6hdak0UfGYqb4ZuYWlleA1sOltmS7az7OpHNwtFAjUgjDr+bq9YIDe7-MbyF5GYqSEYCGgwGAYsopCCVPa1GS+GBQKzwIigRR6CDCJAAZmoqSQZD8XTYimknAAVKCQPTGUhvCB2YgoVyrsLJOEBUKRUzEJzJdLLvCBLAGDg6JwNJJgDhLGgFDIlQyVayJRAxYdhVaWWy7YgACwXOFsOCKh3KpAe21iz3cnp6X31f2ql0BkOyhhYiN0p3umNSuPwhOeRwUGRAA
 \begin{tikzcd}
 	{K^{-\lambda_p}\left[V_j,\partial V_j \right]} \arrow[rr, "\delta^j_{triple}"] \arrow[rd, "l_1^*"]        &                                                                                     & {K^{-\lambda_q}\left[W(q \to )\cap N_p,S(q\to)\right]}                       \\
 	& {K^{-\lambda_p+1}\left[ S_1\vee S(q\to)\right]} \arrow[rd, "r^*"] \arrow[ru, "l_2"] &                                                                              \\
-	{K^{-\lambda_p+1}\left[\mathbb{S}^{\lambda_p+1} \right]} \arrow[uu, "f_p^*"] \arrow[rr] \arrow[ru, "s^*"] &                                                                                     & {K^{-\lambda_p+1}\left[\mathbb{S}^{\lambda_p+1} \right]} \arrow[uu, "f_q^*"]
+	{K^{-\lambda_p-1}\left[\mathbb{S}^{\lambda_p+1} \right]} \arrow[uu, "f_p^*"] \arrow[rr] \arrow[ru, "s^*"] &                                                                                     & {K^{-\lambda_p-1}\left[\mathbb{S}^{\lambda_p+1} \right]} \arrow[uu, "f_q^*"]
 \end{tikzcd}
 		\end{adjustbox}
 	\end{fdiagram}
-		Now we have a list of the Functions from the diagramm above: \todo{Achtung hier stimmt was nicht... ich muss $f_p$ noch mit \beta composen oder im diagramm etwas ändern.}
+		Now we have a list of the Functions from the diagramm above:\todo{Achtung hier stimmt was nicht... ich muss $f_p$ noch mit $\beta$ composen oder im diagramm etwas ändern.}
 	\begin{itemize}
 		\item The map $f_p$ induces $\alpha_p$. Remember, that $\alpha_p$ comes from the canonical generator $\alpha_p'$ of the index pair $[B,A]$ and $\alpha_p'$ is defined as
 		\begin{align*}
@@ -1301,32 +1301,62 @@ The downwards maps in the Theorem are the induction of the canonical generators.
 			f_p: I\times V_j \Big/ \partial(I\times V_j) &\to S \wedge S^{\lambda_p}\simeq  S^{\lambda_p+1}\\
 			(t,x)&\mapsto \left(t,	\left(B_{\mathfrak{b}^p}\circ \nu_{x_j}\circ J^{-1}\right)(x)\right) \, .
 		\end{align*}
-		We abuse the notation a bit and identify the map $\left(B_{\mathfrak{b}^p}\circ \nu_{x_j}\circ J^{-1}\right)$ with the one defined by quotiening out the boundary. We will leave out the quotiening in the notatino from now on to make the prove easyer to read. The invested reader should check, if the quotiend maps are always well defined!
+		We abuse the notation a bit and identify the map $\left(B_{\mathfrak{b}^p}\circ \nu_{x_j}\circ J^{-1}\right)$ with the one defined by quotiening out the boundary. We will leave out the quotiening in the notatino from now on to make the prove easyer to read. The invested reader should check, if the quotiend maps are always well defined! Now finally we have a little definition issue: In the diagramm we have that 
+		\begin{equation*}
+			f_p^*: K^{\lambda_p-1}[\mathbb{S}^{\lambda_p+1}]\to K^{-\lambda_p}[V_j,\partial V_j]\, ,
+		\end{equation*}whilst at the moment, $f_p$ maps to $K^{-\lambda_p+1}(I\times V_j,\partial(I\times  V_j))$. Hence we need to compose this $f_p^*$ with the isomorphism that comes from the suspension axiom: 
+		\begin{equation*}
+			K^{-\lambda_p}( X)\cong K^{-\lambda_p+1}(SX)\,.
+		\end{equation*}By abuse of notation we dont write that idetification and rather think of the top left corner as $K^{-\lambda_p+1}(I\times V_j,\partial(I\times  V_j))$.
 		\item Again, we want $f_q$ to be the map that induces the generator of $K^{-\lambda_q}[W(q\to)\cap N_q,S(q\to)]$ which comes from the canonical generator of $[C,B]$ together with the inclusion. Again instead of first introducing the generator on the prototype index pair, we can use ${E^u_q}^{-1}$ instead of the Morse chart. Again we can argue here, that the local degree of changing between the two is one, since ${E^u_q}^{-1}$ is a refined morse chart which can be choosen to be adapted to the ordered basis $\mathfrak{b}^q$ of $T^u_qM$. Hence we can define $f_q$ to be the quotient map:
 		\begin{align*}
 			W(q\to)\cap N_q\Big/ S(q\to)& \to S^{\lambda_p+1}\\
 			x& \mapsto B_{\mathfrak{b}^q}^{-1}\circ {E^u_q}^{-1}\,.
 		\end{align*} 
-		Hence $f_q=\left(B_{\mathfrak{b}^q}^{-1} \circ {E^u_q}^{-1}\right)^*:K^{-\lambda_p}$
+		Hence $f_q=\left(B_{\mathfrak{b}^q}^{-1} \circ {E^u_q}^{-1}\right)^*:K^{}$
 		\item The map $l_1$ is the collapsing map 
 		\begin{equation*}
 			S_1\wedge S(q\to)\to S_1 \wedge (V_j\big/ \partial V_j)
 		\end{equation*}
 		\item The map $l_2$ is not topologically induced. 
-		\item The map $s$ is given by $f_p\circ l_1$.
-		\item To find the map $r$ that fits the diagram (to make it commute) is the next goal. First we need to dig into $l_2$: From diagram \ref{diag: Definitino of delta j} we know that $l_2=\beta\circ \text{triv}_{C_1S(q\to)}\circ i_2^*\circ h_2^*$. Hence if the function $r^*§$ makes the diagram commutative we need to ensure, that $f_q^* \circ r^*=l_2$ If we define the function 
+		\item The map $s$ is given by $f_p\circ l_1$. Again we abuse the notation and leave out the suspension isomorphism when 
+		\begin{equation*}
+			s^*: K^{-\lambda_p+1}[S_1\wedge S(q\to)]\to K^{-\lambda_p-1}[\mathbb{S}^{\lambda_p+1}]\,.
+		\end{equation*}
+		\item To find the map $r$ that fits the diagram (to make it commute) is the next goal. First we need to dig into $l_2$: From diagram \ref{diag: Definitino of delta j} we know that $l_2=\Sigma \circ \text{triv}_{C_1S(q\to)}\circ i_2^*\circ h_2^*$, Where $\Sigma$ denotes the suspension isomorphism. Hence, if the function $r^*$ makes the diagram commutative we need to ensure, that $f_q^* \circ r^*=l_2$ If we define the function 
 		\begin{align*}
 			col: W(q\to) \cap N_p \cup C_1  S(q\to) \to S_1 \wedge S(q\to) \,
 		\end{align*} 
 		to be the collision, of $W(q\to) \cap N_p $ to a point, then
-		$i_2^*h_2^*=col^*$. Now while the function  $\text{triv}_{C_1S(q\to)}$ is not topologically induced, its inverse is. lets call the collaps of $C_1S(q\to)$ $c_1$. Then 
+		$i_2^*h_2^*=col^*$. Now while the function  $\text{triv}_{C_1S(q\to)}$ is not topologically induced, its inverse is. Lets call the collaps of $C_1S(q\to)$ $c_1$. Then since $\Sigma$ is a natural transformation we have 
 		\begin{equation*}
-			 \beta \circ f_q^*\circ r^*=l_2\leftrightarrow c_1^*\circ f_q^*\circ r^*=col^*
+		 f_q^*\circ r^*=l_2\Leftrightarrow c_1^*\circ f_q^*\circ r^*=\Sigma \circ col^*
 		\end{equation*}
+		Now all maps are topologically induced except $\Sigma$ and the latter is just used to geht the index in the $K$ group right. Hence, if $r$ would be such that
+		\begin{equation*}
+			r\circ f_q\circ c_1=col\,, 
+		\end{equation*}then the requirement on the induced maps would be satisfied. We first however need to formulate a little lemma:
+		\begin{lemma}
+			Let $S^k\coloneq \{x\in \R^{k+1}|\norm{x}=1\}$, $H_+\coloneq\{x\in S^k|x_0\geq 0\}$ denote the upper hemissphere, $H_-$ the lower hemissphere,  $\pi:S^k \to D^k$ with $\pi(x_0,\dots,x_{k})=(x_1,\dots x_k)$ be the projection and $\Phi$ be the homeopmorphism from $D^k\big/\partial D^k \to S^k$. Let furthermore $c_{Eq}:S^k\to \overline{H_+}\vee \overline{H_-}$ be the collaps of the equator, where $\overline{H_+}$ denotes the upper hemisphere modulo the equator and $\overline{H_-}$ is defined analog. Let finally $c_2: \overline{H_+}\vee \overline{H_-} \to \overline{H_+}$ be the collaps of the second summand and analogusly $c_1:  \overline{H_+}\vee \overline{H_-} \to \overline{H_-}$. Then we have that $\Phi\circ \pi\circ c_2\circ c_{Eq}=-\Phi\circ \pi\circ c_1\circ c_{Eq}$. 
+		\end{lemma}
+		\begin{proof}
+			This lemma is the concrete version of a standart lemma that is often formulated along the lines: Let $q:S^k\to S^k\vee S^k$ be the collaps of the equator and $p_i$ be the projection to the $i$-th summand, then $p_1\circ q=-p_2\circ q$.  
+		\end{proof}
+		Now we need to transoprt our situation to fit the lemma. For this we will use the maps defined in the lemma above, and need a bunch of maps again: 
+		\begin{itemize}
+			\item First we define the map $\rho':H_+\to H_+\cap H_-$ This map is given by 
+			\item $\Phi:S^{\lambda_q}\to W)q\to \cap N_p\cup C_1S(q\to)$ is defined with a case distingtion. We define 
+			\begin{equation}
+				\restr{\Phi}{H_+}(x)=E^u_q\circ B_{\mathfrak{b}^q}^{-1}\circ \pi(x) \quad \text{and}\quad \restr{\Phi}{H_-}(x_0,\dots x_\lambda_q)=(x_0,f_q\circ \rho')
+			\end{equation}
+			\item $\Psi$
+			\item $p_i$ für $i=1,2$
+			\item $C_{S(q\to)}$
+		\end{itemize}
 	\end{itemize} 
 	
 We alredy established, that 
-	$f_p$ is given by $\left(\id\times \left(J\circ \nu_{x_j}^{-1}\circ B_{\mathfrak{b}_p}\right)^{-1}\right)$ and $f_q$ is given by 
+	$f_p$ is given by $\left(\id\times \left(J\circ \nu_{x_j}^{-1}\circ B_{\mathfrak{b}^p}\right)^{-1}\right)$ and $f_q$ is given by 
 		
 	
 	
@@ -1383,9 +1413,9 @@ We alredy established, that
 	We now collaps everything but the interior  of $V_j$:
 	\begin{equation*}
 	c_j : S_1\wedge \left(\frac{S(q\to)}{\cl \left(S(q\to)\setminus \bigcup\limits_j V_j \right) }\right)\to S_1\wedge\left(\frac{V_j}{ \partial V_j }\right)
-	\end{equation*} Now we can compose $c_j\circ c$ to get a map between spheres that is also the identity on $S_1$ smashed with a collaps of a contractible space. Therefore this is homotopic an homeomorphism. Now the basis $\mathfrak{b}_q$ of $T^u_qM$ induces a generator $\alpha_q$ of the K-group $K^{\lambda_{p}}[C,B]$. This generator is given by the map $E^u_q\circ B_{\mathfrak{b}_q}$. To see this notice how the generator was defined: First use a Morse chart that fits to $\mathfrak{b}_q$. Then use the equivalence of index pairs after the inclusion of $W(q\to \cap N_p)$ into $C$. This gives rise to a continuous map $L:   W(q\to)\cap N_q\to B^{\lambda_q}_\epsilon(0)$. Then the canonical induced generator is given by the pullback of $L$.  This definition agrees with the pullback of $B_{\mathfrak{b}_q}{-1}\circ E^u_q{-1}$ since around the origin and reduced to the unstable direction $E^u_q{-1}$ is such a adapted Morse chart. Hence, the determinant of the change $L\circ E^u_q\circ B_{\mathfrak{b}_q}$ is positive and hence the map is homotopic to the identity. \todo{referenz für das argument einfügen}. 
+	\end{equation*} Now we can compose $c_j\circ c$ to get a map between spheres that is also the identity on $S_1$ smashed with a collaps of a contractible space. Therefore this is homotopic an homeomorphism. Now the basis $\mathfrak{b}^q$ of $T^u_qM$ induces a generator $\alpha_q$ of the K-group $K^{\lambda_{p}}[C,B]$. This generator is given by the map $E^u_q\circ B_{\mathfrak{b}^q}$. To see this notice how the generator was defined: First use a Morse chart that fits to $\mathfrak{b}^q$. Then use the equivalence of index pairs after the inclusion of $W(q\to \cap N_p)$ into $C$. This gives rise to a continuous map $L:   W(q\to)\cap N_q\to B^{\lambda_q}_\epsilon(0)$. Then the canonical induced generator is given by the pullback of $L$.  This definition agrees with the pullback of $B_{\mathfrak{b}^q}{-1}\circ E^u_q{-1}$ since around the origin and reduced to the unstable direction $E^u_q{-1}$ is such a adapted Morse chart. Hence, the determinant of the change $L\circ E^u_q\circ B_{\mathfrak{b}^q}$ is positive and hence the map is homotopic to the identity. \todo{referenz für das argument einfügen}. 
 	
-	The generator of $K^{\lambda_p}[B,A]$ is given by an Morse chart adapted to an ordered basis $\mathfrak{b}_p$ of $T^u_pM$ and then this generator can be bulled back via the inclusion of
+	The generator of $K^{\lambda_p}[B,A]$ is given by an Morse chart adapted to an ordered basis $\mathfrak{b}^p$ of $T^u_pM$ and then this generator can be bulled back via the inclusion of
 	\begin{equation*}
 		[S(q\to),S(q\to)\setminus \bigcup_j \supseteq \inti( V_j)][B,A]\, .
 	\end{equation*} And furthermore, we can include 
