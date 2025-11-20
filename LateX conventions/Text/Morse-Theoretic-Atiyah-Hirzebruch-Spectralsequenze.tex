@@ -1240,17 +1240,17 @@ Using this streching we have that
 \end{equation*}
 	
 	The map $\delta^2_{triple}$ is defined as the composition:
-	\begin{fdiagram}
+	\begin{fdiagram} \label{diag: Definitino of delta j}
 			\begin{adjustbox}{max width=\textwidth}
-		% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBoBGAXVJADcBDAGwFcYkQBpAPWAFoAdfo3oBbAEZR6AfTQBfQYxgAzHMgAEAZQAUAR0E4IASlLa9-A4cFwYOEVjDM4awWKwBzAMbM0CrHZxwUgBWzvz2eFoAasGGoQBO7gAWOJQgsqTomLj4hChkAEzUdEys7Nx8CqIS0nIKyqqauvpG8UkpaRkgGNh4BETkpIU0DCxsiJw8AkJVkjIA1OTyQvXIGlLkgrQwMI1mFq1uyanpmT05RPmDRSOl4+VTwuKzaAtLiirIAOpN5kaCHvQ0GoAHIyf7eNQAYXWdRUWl2zUs-AShxwxm+ez+-ABQNBQMEKKOHVO2T6KAAzFdhiUxhMKtMnjVXrDVBjEf9ASCwdiIdCNss4QjfkjCWiCW1jp1uqTcshKVRqaMypNKoypDo3is2cKObiZCYfvtxajJSTerKyMRrjTlfTHtUZJqPmpokFSII0PQ4ngmC7ggcibIijAoG54ERQEo4hAREgyCADEgBsUleMsOsuAAqYkgKMxpM0ROIS4p24gRJZ9Y5vOx4uFiBISml2mJKT5LPV6O1ptFgAsirL6fb2ZOua7SH7CYbiAArAPaS4bPR-lg4h41FoPBm+ItDB3RzW4-WkHPm+xBLBGDh6Fx8lJgDgEmhFLJO-nEAA2Y+IeM3WlboJ90oWQgA
-		\begin{tikzcd}
-			{K^{-\lambda_p}\left[ V_j,\partial V_j \right]} \arrow[d, "c_j^*"]                                                                      &                                                                    &                                                                                                                 &                                                                                                                  \\
-			{K^{-\lambda_p}\left[ S(q\to),S(q\to)\setminus \bigcup\limits_j \inti(V_j) \right]} \arrow[d, "i_1^*"] \arrow[rrr, "\delta^2_{triple}"] &                                                                    &                                                                                                                 & {K^{-\lambda_q}\left[W(q\to)\cap N_p,S(q\to) \right]}                                                            \\
-			{K^{-\lambda_p}\left[ S(q\to) \right]} \arrow[r, "h^*_1"]                                                                               & {K^{-\lambda_p+1}\left[S_1\vee S(q\to) \right]} \arrow[r, "h_2^*"] & {K^{-\lambda_p+1}\left[W(q\to)\cap N_p\cup C_1\left( S(q\to)\right),W(q\to)\cap N_p \right]} \arrow[r, "i_2^*"] & {K^{-\lambda_p+1}\left[W(q\to)\cap N_p\cup C_1\left( S(q\to)\right)\right]} \arrow[u, "\beta\circ (c_1^{-1})^*"]
-%		\end{tikzcd}
+	% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBoBGAXVJADcBDAGwFcYkQBpAPWAFoAdfo3oBbAEZR6AfTQBfQYxgAzHMgAEAZQAUAR0E4IASlLa9-A4cFwYOEVjDM4awWKwBzAMbM0CrHZxwUgBWzvz2eFoAasGGoQBO7gAWOJQgsqTomLj4hChkAEzUdEys7Nx8CqIS0nIKyqqauvpG8UkpaRkgGNh4BETkpIU0DCxsiJw8AkJVkjIA1OTyQvXIGlLkgrQwMI1mFq1uyanpmT05RPmDRSOl4+VTwuKzaAtLiirIAOpN5kaCHvQ0GoAHIyf7eNQAYXWdRUWl2zUs-AShxwxm+ez+-ABQNBQMEKKOHVO2T6KAAzFdhiUxhMKtMnjVXrDVBjEf9ASCwdiIdCNss4QjfkjCWiCW1jp1uqTcshKVRqaMypNKoypDo3is2cKObiZCYfvtxajJSTerKyMRrjTlfTHtUZJqPmpokFSII0PQ4ngmC7ggcibIijAoG54ERQEo4hAREgyCADEgBsUleMsOsuAAqYkgKMxpM0ROIS4p24gRJZ9Y5vOx4uFiBISml2mJKT5LPV6O1ptFgAsirL6fb2ZOua7SH7CYbiAArAPaS4bPR-lg4h5QjgYAAPHDAHAJWiyKTAPmmRGyTv5xDxotz5vsQSwRg4ehcfLH-dYNCKC+jmtIAA2es43ndgPGCDsg1kIA
+	\begin{tikzcd}
+		{K^{-\lambda_p}\left[ V_j,\partial V_j \right]} \arrow[d, "c_j^*"]                                                                      &                                                                    &                                                                                                                 &                                                                                                                              \\
+		{K^{-\lambda_p}\left[ S(q\to),S(q\to)\setminus \bigcup\limits_j \inti(V_j) \right]} \arrow[d, "i_1^*"] \arrow[rrr, "\delta^2_{triple}"] &                                                                    &                                                                                                                 & {K^{-\lambda_q}\left[W(q\to)\cap N_p,S(q\to) \right]}                                                                        \\
+		{K^{-\lambda_p}\left[ S(q\to) \right]} \arrow[r, "h^*_1"]                                                                               & {K^{-\lambda_p+1}\left[S_1\vee S(q\to) \right]} \arrow[r, "h_2^*"] & {K^{-\lambda_p+1}\left[W(q\to)\cap N_p\cup C_1\left( S(q\to)\right),W(q\to)\cap N_p \right]} \arrow[r, "i_2^*"] & {K^{-\lambda_p+1}\left[W(q\to)\cap N_p\cup C_1\left( S(q\to)\right)\right]} \arrow[u, "\beta\circ \text{triv}_{C_1S(q\to)}"]
+	\end{tikzcd}
 			\end{adjustbox}
 	\end{fdiagram}
-	
+
 The downwards maps in the Theorem are the induction of the canonical generators. This is done by the following assignement
 	
 	
@@ -1267,15 +1267,65 @@ The downwards maps in the Theorem are the induction of the canonical generators.
 	\end{align*} So now we are in the following situation: 
 	\begin{fdiagram}
 		\begin{adjustbox}{max width=\textwidth}
-% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAGkA9YAWgB0+DOgFsARlDoB9NAF8BDGADMcyAGqSAVqQFo6AJzyMABOo1GBerAHMAFjgogZpdJlz5CKAEzkqtRizYuXnkRcSkARzlBJRUAdQAKcPM+HAgjAEoBAGM6NCMAOWlSAGVEgVTMvktbe0dnEAxsPAIib09femZWRA5ufkFQiWkAagBGKIVlZAFhOhwbUVFgYpluELEhtDGZZOq7BycXJvciMnbqToCeoP6hDakt8fkY6b5Z+cXl1eB1sJHx3bWfZ1I5uFooUakUYdfzdXrBAb3f4TF5GYqSUYCGgwGBosopCCVPa1GS+GBQKzwIigRR6CDCJAAZmoqSQZD8XTYimknAAVCCQLT6UhvCBWYhIRyroLJOE+QKhQzEOzxZLLnCBLAGDg6JwNJJgDhLGgFDIFXSlcyxRARYdBRamSybYgACx2xVIF1O231D3K72ui6wtgMeXuh2B61IcYUGRAA
+% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAGkA9YAWgB0+DOgFsARlDoB9NAF8BDGADMcyAGqSAVqQFo6AJzyMABOo1GBerAHMAFjgogZpdJlz5CKAEzkqtRizYuXnkRcSkARzlBJRUAdQAKcPM+HAgjAEoBAGM6NCMAOWlSAGVEgVTMvktbe0dnEAxsPAIib09femZWRA5ufkFQiWkAagBGKIVlZAFhOhwbUVFgYpluELEhtDGZZOq7BycXJvciMnbqToCeoP6hDakt8fkY6b5Z+cXl1eB1sJHx3bWfZ1I5uFooUakUYdfzdXrBAb3f4TF5GYqSUYCGgwGBosopCCVPa1GS+GBQKzwIigRR6CDCJAAZmoqSQZD8XTYimknAAVCCQLT6UhvCBWYhIRyroLJOE+QKhQzEOzxZLLnCBLAGDg6JwNJJgDhLGgFDIFXSlcyxRARYdBRamSybYgACwXWFsODyu2KpBu60i92cnp6b31X3Kp1+oPShgYsM0h2uqMSmNwuOeRwUGRAA
 \begin{tikzcd}
-	{K^{-\lambda_p}\left[V_j,\partial V_j \right]} \arrow[rr, "\delta^j_{triple}"] \arrow[rd, "l^*"]   &                                                                       & {K^{-\lambda_q}\left[W(q \to )\cap N_p,S(q\to)\right]}                       \\
-	& {K^{-\lambda_p+1}\left[ S_1\vee S(q\to)\right]} \arrow[rd] \arrow[ru] &                                                                              \\
-	{K^{-\lambda_p+1}\left[\mathbb{S}^{\lambda_p+1} \right]} \arrow[uu, "f_p^*"] \arrow[rr] \arrow[ru] &                                                                       & {K^{-\lambda_p+1}\left[\mathbb{S}^{\lambda_p+1} \right]} \arrow[uu, "f_q^*"]
+	{K^{-\lambda_p}\left[V_j,\partial V_j \right]} \arrow[rr, "\delta^j_{triple}"] \arrow[rd, "l_1^*"]        &                                                                                     & {K^{-\lambda_q}\left[W(q \to )\cap N_p,S(q\to)\right]}                       \\
+	& {K^{-\lambda_p+1}\left[ S_1\vee S(q\to)\right]} \arrow[rd, "r^*"] \arrow[ru, "l_2"] &                                                                              \\
+	{K^{-\lambda_p+1}\left[\mathbb{S}^{\lambda_p+1} \right]} \arrow[uu, "f_p^*"] \arrow[rr] \arrow[ru, "s^*"] &                                                                                     & {K^{-\lambda_p+1}\left[\mathbb{S}^{\lambda_p+1} \right]} \arrow[uu, "f_q^*"]
 \end{tikzcd}
 		\end{adjustbox}
 	\end{fdiagram}
-	Here $f_q$ is supposed to induce $\alpha_p$ and $f_q$ induces $\alpha_q$. which in turn are the canonical generators induced by the orientation of the respective unstable tangend spaces. We alredy established, that 
+		Now we have a list of the Functions from the diagramm above: \todo{Achtung hier stimmt was nicht... ich muss $f_p$ noch mit \beta composen oder im diagramm etwas ändern.}
+	\begin{itemize}
+		\item The map $f_p$ induces $\alpha_p$. Remember, that $\alpha_p$ comes from the canonical generator $\alpha_p'$ of the index pair $[B,A]$ and $\alpha_p'$ is defined as
+		\begin{align*}
+			(\phi\circ{ \tilde{\psi}}^{-1})^*(\beta)~\text{where }& \phi \text{ is the homotopie equivalence of index pairs}\\
+				& \tilde{\psi} \text{ is a Morse chart adapted to the basis of } T^u_pM,\\
+				\text{and }& \beta \text{ is the bott generator of the sphere } [D^u_\epsilon\times D^s_\epsilon\Big/ \partial D^u_\epsilon\times D^s_\epsilon
+\,				.
+		\end{align*} Instead of using $\phi$ we can rescale $\tilde{\psi}$ to be a mapping to $[B,A]$ instead of first mapping to the prototype index pair $[D^u_\epsilon\times D^s_\epsilon,\partial D^u_\epsilon\times D^s_\epsilon]$. 
+		We call this rescaled Morse chart $\psi$. 
+		Then $\psi^{-1}(\beta)= (\phi\circ{ \tilde{\psi}}^{-1})^*(\beta)$ since the map $\tilde{\psi}\circ \phi^{-1}\circ \psi^{-1}$ has the local and hence global degree one. (this can be checkt by differentiataion at the origin). Hence $\alpha_p'=(\psi^{-1})^*(\beta)$. The inclusion 
+		\begin{equation*}
+			i_p: (V_j,\partial V_j)\to (B,A)
+		\end{equation*} induces an isomorphism in the K-groups since $N_p$ is a tubular neighbourhood of the contractible $W(\to p)\cap M^c$ and the contraction to the fiber $V_j$ contracts $L_p$ to $\partial V_j$ (the contraction is well defined on the quotients, and for K-THeory, we only care for the qutoient spaces). Now $\alpha_p''=i_p^*(\alpha_p')$. Define the two funktions
+		\begin{align*}
+			J: \mathcal{N}^{W(q\to)} W(\to p)\cap M^c \to N_p \text{ the normal neighbourhood embedding,  }\\
+			\nu: \mathcal{N}^{W(q\to)} W(\to p)\cap M^c \to  W(\to p)  \times T^u_pM \text{ The trivialization of the normal bundle.}  
+		\end{align*}
+		Define $\mathfrak{b}^p$ to be an ordered basis of $T^u_pM $ that is compatible to the orientation of said tanged space. Then assume that $J$ is defined, such that 
+		\begin{align*}
+			\left(B_{\mathfrak{b}^p}\circ \nu_{x_j}\circ J^{-1}\right)^*(\beta)=\alpha_p'' \,.
+		\end{align*} If this is not the case just compose $J$ with a basechage of degree one. Now $\alpha_p''$ generates $K^{-\lambda_p}(V_j,\partial V_j)$. The latter is isomoprhic to $K^{-\lambda_p+1}(I\times V_j,\partial(I\times  V_j))$ by definition. Now we denote the suspensision is the wedge produkt with a sphere. Hence for $K^{-\lambda_p+1}(I\times V_j,\partial(I\times  V_j))$ we can induce the generator by the function
+		\begin{align*}
+			f_p: I\times V_j \Big/ \partial(I\times V_j) &\to S \wedge S^{\lambda_p}\simeq  S^{\lambda_p+1}\\
+			(t,x)&\mapsto \left(t,	\left(B_{\mathfrak{b}^p}\circ \nu_{x_j}\circ J^{-1}\right)(x)\right) \, .
+		\end{align*}
+		We abuse the notation a bit and identify the map $\left(B_{\mathfrak{b}^p}\circ \nu_{x_j}\circ J^{-1}\right)$ with the one defined by quotiening out the boundary. We will leave out the quotiening in the notatino from now on to make the prove easyer to read. The invested reader should check, if the quotiend maps are always well defined!
+		\item Again, we want $f_q$ to be the map that induces the generator of $K^{-\lambda_q}[W(q\to)\cap N_q,S(q\to)]$ which comes from the canonical generator of $[C,B]$ together with the inclusion. Again instead of first introducing the generator on the prototype index pair, we can use ${E^u_q}^{-1}$ instead of the Morse chart. Again we can argue here, that the local degree of changing between the two is one, since ${E^u_q}^{-1}$ is a refined morse chart which can be choosen to be adapted to the ordered basis $\mathfrak{b}^q$ of $T^u_qM$. Hence we can define $f_q$ to be the quotient map:
+		\begin{align*}
+			W(q\to)\cap N_q\Big/ S(q\to)& \to S^{\lambda_p+1}\\
+			x& \mapsto B_{\mathfrak{b}^q}^{-1}\circ {E^u_q}^{-1}\,.
+		\end{align*} 
+		Hence $f_q=\left(B_{\mathfrak{b}^q}^{-1} \circ {E^u_q}^{-1}\right)^*:K^{-\lambda_p}$
+		\item The map $l_1$ is the collapsing map 
+		\begin{equation*}
+			S_1\wedge S(q\to)\to S_1 \wedge (V_j\big/ \partial V_j)
+		\end{equation*}
+		\item The map $l_2$ is not topologically induced. 
+		\item The map $s$ is given by $f_p\circ l_1$.
+		\item To find the map $r$ that fits the diagram (to make it commute) is the next goal. First we need to dig into $l_2$: From diagram \ref{diag: Definitino of delta j} we know that $l_2=\beta\circ \text{triv}_{C_1S(q\to)}\circ i_2^*\circ h_2^*$. Hence if the function $r^*§$ makes the diagram commutative we need to ensure, that $f_q^* \circ r^*=l_2$ If we define the function 
+		\begin{align*}
+			col: W(q\to) \cap N_p \cup C_1  S(q\to) \to S_1 \wedge S(q\to) \,
+		\end{align*} 
+		to be the collision, of $W(q\to) \cap N_p $ to a point, then
+		$i_2^*h_2^*=col^*$. Now while the function  $\text{triv}_{C_1S(q\to)}$ is not topologically induced, its inverse is. lets call the collaps of $C_1S(q\to)$ $c_1$. Then 
+		\begin{equation*}
+			 \beta \circ f_q^*\circ r^*=l_2\leftrightarrow c_1^*\circ f_q^*\circ r^*=col^*
+		\end{equation*}
+	\end{itemize} 
+	
+We alredy established, that 
 	$f_p$ is given by $\left(\id\times \left(J\circ \nu_{x_j}^{-1}\circ B_{\mathfrak{b}_p}\right)^{-1}\right)$ and $f_q$ is given by 
 		
 	
