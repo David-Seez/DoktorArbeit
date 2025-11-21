@@ -1295,13 +1295,13 @@ The downwards maps in the Theorem are the induction of the canonical generators.
 		\end{align*}
 		Define $\mathfrak{b}^p$ to be an ordered basis of $T^u_pM $ that is compatible to the orientation of said tanged space. Then assume that $J$ is defined, such that 
 		\begin{align*}
-			\left(B_{\mathfrak{b}^p}\circ \nu_{x_j}\circ J^{-1}\right)^*(\beta)=\alpha_p'' \,.
+			\left(B_{\mathfrak{b}^p}^{-1}\circ \nu_{x_j}\circ J^{-1}\right)^*(\beta)=\alpha_p'' \,.
 		\end{align*} If this is not the case just compose $J$ with a basechage of degree one. Now $\alpha_p''$ generates $K^{-\lambda_p}(V_j,\partial V_j)$. The latter is isomoprhic to $K^{-\lambda_p+1}(I\times V_j,\partial(I\times  V_j))$ by definition. Now we denote the suspensision is the wedge produkt with a sphere. Hence for $K^{-\lambda_p+1}(I\times V_j,\partial(I\times  V_j))$ we can induce the generator by the function
 		\begin{align*}
 			f_p: I\times V_j \Big/ \partial(I\times V_j) &\to S \wedge S^{\lambda_p}\simeq  S^{\lambda_p+1}\\
-			(t,x)&\mapsto \left(t,	\left(B_{\mathfrak{b}^p}\circ \nu_{x_j}\circ J^{-1}\right)(x)\right) \, .
-		\end{align*}
-		We abuse the notation a bit and identify the map $\left(B_{\mathfrak{b}^p}\circ \nu_{x_j}\circ J^{-1}\right)$ with the one defined by quotiening out the boundary. We will leave out the quotiening in the notatino from now on to make the prove easyer to read. The invested reader should check, if the quotiend maps are always well defined! Now finally we have a little definition issue: In the diagramm we have that 
+			(t,x)&\mapsto \left(t,	\left(B_{\mathfrak{b}^p}^{-1}\circ \nu_{x_j}\circ J^{-1}\right)(x)\right) \, .
+		\end{align*} \todo{specify the isomorphism !}
+		We abuse the notation a bit and identify the map $\left(B_{\mathfrak{b}^p}^{-1}\circ \nu_{x_j}\circ J^{-1}\right)$ with the one defined by quotiening out the boundary. We will leave out the quotiening in the notatino from now on to make the prove easyer to read. The invested reader should check, if the quotiend maps are always well defined! Now finally we have a little definition issue: In the diagramm we have that 
 		\begin{equation*}
 			f_p^*: K^{\lambda_p-1}[\mathbb{S}^{\lambda_p+1}]\to K^{-\lambda_p}[V_j,\partial V_j]\, ,
 		\end{equation*}whilst at the moment, $f_p$ maps to $K^{-\lambda_p+1}(I\times V_j,\partial(I\times  V_j))$. Hence we need to compose this $f_p^*$ with the isomorphism that comes from the suspension axiom: 
@@ -1355,7 +1355,7 @@ The downwards maps in the Theorem are the induction of the canonical generators.
 			\end{align*}Furthermore  $(\cdot 2)$ denotes the stretching of $D^k$ (i.e. the image of $\pi$) to be the ball of diameter two. The north pole gets mapped to any element of the equator. (This choice will not matter later)
 			\item $\Phi:S^{\lambda_q}\to W(q\to) \cap N_p\cup C_1S(q\to)$ is defined with a case distingtion. We define 
 			\begin{equation*}
-				\restr{\Phi}{{H}_+}(x)=E^u_q\circ B_{\mathfrak{b}^q}^{-1}\circ \pi(x) \quad \text{and}\quad \restr{\Phi}{{H}_-}(x_0,\dots x_{\lambda_q})=(x_0,f_q\circ \rho')\,.
+				\restr{\Phi}{{H}_+}(x)=E^u_q\circ B_{\mathfrak{b}^q}^{-1}\circ \pi(x) \quad \text{and}\quad \restr{\Phi}{{H}_-}(-x_0,\dots x_{\lambda_q})=(x_0,f_q^{-1}\circ \rho')\,.
 			\end{equation*}Notice, how this function is continuous and does not depend on the choice taken in the definition of $\rho'$. 
 			\item $\Psi: S^{\lambda_q}\vee S^{\lambda_q}\to \left(W(q\to)\cap N_p \middle/ S(q\to)\right)\vee \mathbb{S}\wedge S(q\to)$ is given by mapping $x\mapsto \overline{\Phi(x)}$. The well definition is easy to see. 
 			\item $p_i$ for $i=1,2$ denotes the projection onto the first or second summand in a pointed sum. 
@@ -1374,7 +1374,7 @@ The downwards maps in the Theorem are the induction of the canonical generators.
 	\end{tikzcd}
 		\end{adjustbox}
 		\end{fdiagram}
-		 Now define $r\coloneq -R$. Then by the lemma above and commutativity we have:
+		 Now define $r\coloneq -R$. For example compose $R$ with the reflection $(x_0,\dots x_{\lambda_q})\mapsto (-x_0,\dots,x_{\lambda_q})$. Then $r$ collapses the lower hemissphere. Then by the lemma above and commutativity we have up to homotopy:
 		  \begin{align*}
 		  	r\circ f_q\circ c_1 
 		  	&=  	-R\circ f_q\circ c_1 \circ \Phi \circ \phi{-1}\\
@@ -1383,8 +1383,36 @@ The downwards maps in the Theorem are the induction of the canonical generators.
 		  	&=		col\, .
 		  \end{align*}
 		  With $r$ we finally have all the maps. Now we want to find out what degree the composition
-		  $s\circ r$ has. For this we calculate the local degree in some point by checking the siogn of the determinant of the Jacobean.
+		  $s\circ r$ has. For this we calculate the local degree in some point by checking the sign of the determinant of the Jacobean.
 	\end{itemize} 
+	Now let $\tilde{y}=(f_q\circ \rho')^{-1}(x_j)$, and $y\coloneq(-\tilde{y}_0,\dots,\tilde{y}_{\lambda_q})\in \inti(H^+)$. The multiplication by two in the definition made sure that  $y$ is in the interior. Now $\pi_+: H_+\to D^{\lambda_q}$ is a chart for the upper hemisphere that is the same orientation as $-\pi_-:H_-\to D^{\lambda_q}.$ Arround $y$ the funktion is a diffeomorphism, hence we can check for local degree by checking the sign of the determinant of the Jacobean of $s\circ r$ in $y$ with respect to charts around $y$ and around its image that are induced from the same orientation in $S^k$. Since $y$ gets mapped to the lower hemisphere we check the sign of the jacobean of
+	\begin{equation*}
+		-\pi_-\circ s\circ r \circ \pi_+^{-1}\quad  \text{in $x$, where } x\coloneq \pi_+(y) 
+	\end{equation*}
+So lets expand this definition:
+	\begin{align*}
+			-\pi_-\circ s\circ r \circ \pi_+^{-1}(x)
+			&=	-\pi_-\circ s\circ col\circ \Phi\left(-\underbrace{\left(\pi_+^{-1}(x)\right)_0}_{\coloneq t},\left(\pi_+^{-1}(x)\right)_{i=1,\dots,\lambda_{q}}\right)\\
+			&=-\pi_-\circ s\circ col \left(-t,f_q\circ \rho'\left(\left(\pi_+^{-1}(x)\right)_{i=1,\dots,\lambda_{q}}\right)\right)\\
+			&=-\pi_-\circ f_p\underbrace{\circ l_1 \circ col}_ {= \id \text{arround y}} \left(-t,f_q\circ \rho'\left(\left(\pi_+^{-1}(x)\right)_{i=1,\dots,\lambda_{q}}\right)\right)\\
+			&=-\pi_-\circ f_p \left(-t,f_q\circ \rho'\left(\left(\pi_+^{-1}(x)\right)_{i=1,\dots,\lambda_{q}}\right)\right)\\
+			&=-\pi_-\left(-t,{B_{\mathfrak{b}^p}^{-1}\circ \nu_{x_j}\circ J^{-1}}\circ f_q^{-1}\circ \underbrace{B_{\mathfrak{b}^q}^{-1}\circ {E^u_q}^{-1}\circ \rho \circ E^u_q\circ B_{\mathfrak{b}^q}(2\cdot x)}_{=\rho\circ \pi_+^{-1}(x)}\right)\\
+			&=-\pi_-\left(-t,{B_{\mathfrak{b}^p}^{-1}\circ \nu_{x_j}\circ J^{-1}}\circ \rho \circ E^u_q\circ B_{\mathfrak{b}^q}(2\cdot x) \right) \\
+			&=-{B_{\mathfrak{b}^p}^{-1}\circ \nu_{x_j}\circ J^{-1}}\circ \rho \circ E^u_q\circ B_{\mathfrak{b}^q}(2\cdot x) 
+	\end{align*}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 We alredy established, that 
 	$f_p$ is given by $\left(\id\times \left(J\circ \nu_{x_j}^{-1}\circ B_{\mathfrak{b}^p}\right)^{-1}\right)$ and $f_q$ is given by 
