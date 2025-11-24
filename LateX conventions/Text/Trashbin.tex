@@ -1,0 +1,292 @@
+We alredy established, that 
+$f_p$ is given by $\left(\id\times \left(J\circ \nu_{x_j}^{-1}\circ B_{\mathfrak{b}^p}\right)^{-1}\right)$ and $f_q$ is given by 
+
+
+
+Hence we get the diagram
+\begin{center}
+	\begin{adjustbox}{max width=\textwidth}
+		% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBoBGAXVJADcBDAGwFcYkQBpAPWAFoAdfo3oBbAEZR6AfTQBqcgF9BjGADMcyAMpTyg2jBgACTQAoAjoJwQAlIcEAnLAHMAFjkogFpdJlz5CKOQU1HRMrOzcfMqiEtJyispqGgDq5pY2ggDG9GiGAHIyWcy5AMI6ieomxmn8VtYOzm7WpKkWtRn82bkFuQ2u7p7eIBjYeAREAEzBNAwsbIicPAJCMZIy8kpCScit6fWdOfmFncWGZbpbldVtdX1NdwNePqP+k6TEIbPhC5HLwuJrMybFTqHY1W4HboyUimG42Oz8Rz9DxPYa+MYBEjvT5heaLKIrAFxYHbQwANSkACtSII0PR7HgmOSqQikW4USEYFAnPAiKBVPYICIkGQQFYkEFQnN2C4pBMuAAqQb8wXCxCS8WIKZS74gLByxXKkACoVIbWagDMM1x7EEYhgOHoWSw9kyhkyOkNqJNaoALDRNaKvnjGF6hj6kP6xRAkFadXjBLBGI6uJSpMAcI40CoFJ5KAogA
+		\begin{tikzcd}
+			{K^{-\lambda_p}\left[ V_j,\partial V_j \right]} \arrow[d, "l^*"] \arrow[rr, "\delta^j_{triple}"] &                                                                                                                 & {K^{-\lambda_q}\left[W(q\to)\cap N_p,S(q\to) \right]}                                                     \\
+			{K^{-\lambda_p+1}\left[S_1\vee S(q\to) \right]} \arrow[r, "h_2^*"]                               & {K^{-\lambda_p+1}\left[W(q\to)\cap N_p\cup C_1\left( S(q\to)\right),W(q\to)\cap N_p \right]} \arrow[r, "i_2^*"] & {K^{-\lambda_p+1}\left[W(q\to)\cap N_p\cup C_1\left( S(q\to)\right)\right]} \arrow[u, "\beta\circ c_1^*"]
+		\end{tikzcd}
+	\end{adjustbox}
+\end{center}
+\begin{comment}	\begin{center}
+		
+		% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBoBGAXVJADcBDAGwFcYkQBpAPWAB1fG9ALYAjKPQD6aALTkAvv0YwAZjmQACAEKkAguv4AnLAHMAFjkog5pdJlz5CKMsWp0mrdtz4DhYyTPlFFTUAZQAKAEd+HAgASlJwqN4Y9Vj9XjgYHCEsMGY4dJETAGNmNEUsHJw4CQArADU69KMzCysbEAxsPAIiclIXGgYWNkROHkVfcSkFAWDkAHVI6Lj+Yvo0dQA5CQiE5eSIVOaTc0trW26HPopXYY8xr0nRabRZpVUNAGFSTRPW86uGBQYzwIigZQGCBCJD9EAxJAAJiG7lGIH4sEYOEkwBwRjQSjk7QhUJhiDI8IgSAAzCiRuwMTAsTi8VgCTAiRcQJDoUgKQjEHD7misFwAFTE7mkmk0AXItz0saiiVyShyIA
+		\begin{tikzcd}
+			{K^{\lambda_p-1}\left[S(q\to),S(q\to ) \setminus \bigcup\limits_jV_j \right]} \arrow[r, "\delta_{triple}"] & {K^{\lambda_p}\left[W(q\to)\cap N_q,S(q\to ) \right]} \\
+			{K^{\lambda_p-1}\left[ B,A \right]} \arrow[r, "\delta_{triple}"] \arrow[u, "i^*"]                          & {K^{\lambda_p}\left[ C,B \right]} \arrow[u, "i^*"]   
+		\end{tikzcd}
+	\end{center}
+\end{comment}
+We now dive into te top connecting homomorphism from above and inspect the diagram:\todo{wedge produkt als funktop in TopPoint oder TopPair Kommutiert wedge produkt und keil produkt??... und triple connecting homom. und GENAU wegen punktiert und nicht punktiert schauen!! $S_1$ is a 1-Sphere! }
+
+
+
+
+\begin{fdiagram}
+	\begin{adjustbox}{max width=\textwidth}
+		% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZAZgBoAGAXVJADcBDAGwFcYkQBpAPWAB1fG9ALYAjKPQD6aAL79GMAGY5kAAgDCEgIxzFOABQqAynoCO-HBACU-AE5YA5gAscllfwDGzNCoDqp81Ye9N4AchImbrx2TjiUINKk6Ji4+IQo5KSa1HRMrOzcfALCYpJoALSasgK6yMZmvBaWpHUBKq78cDA4QlhgzHCRIg6eaHJYPThwEgBWAGozkdHOcQlJ2HgERBlUNAwsbIggKgVyxeJSVfJKtVr8AO4wUPYwKpFX+kb+DVakke6Mb10Bha3zakU63V6-UGwy8YwmUzmM1sDmcrkWqJcGJiK0SIAw61SRE0FGyezyhxORVE5xkOmuhluvAeTxegKUwK+jRRMXaUUxuLWKU2KAATKTdrkDpweKcaaVLjV1Ez3pz6tz+by-l5laL2fo-OrArx3MEVGEIjy0VbYvE8QThWkSJkyVL8rLqSULvTlL4ucbTaFwr9Pka+UtbdJso9nggUKAFDYIEIkCSQBYkOKQIxetKoBBmCJ5CAaI4YPQoOxIGA2DQcPQsIwqwQ2KsQInk0gyOmIEgACxtjspxBZjOIbvk6XuLgAKjtCaTw+7Y77kv27HcElFs-n7cX-brvcQGRy68OWB3g-3iAArIekCfJxutJe8UPU-fb2uKSB+LBGPWEjADgdhoPI0jxJQ0hAA
+		\begin{tikzcd}
+			{ K^{\lambda_p}\left[S_1\wedge  \left( S(q\to), \cl \left( S(q\to ) \setminus \bigcup\limits_jV_j\right)  \right) \right]} \arrow[r, "c^*"] & {K^{\lambda_p}\left[S_1\wedge  \left( S(q\to)\right) \right]} \arrow[r] \arrow[r, "c_2^*"] & {K^{\lambda_p}\left[ C_1\left( S(q\to)\right) \cup C_2 \left(W(q\to)\cap N_q \right)\right]} \arrow[r, "i^*"] & {K^{\lambda_p}\left[ C_1\left( S(q\to)\right) \cup W(q\to)\cap N_q \right]} \\
+			{K^{\lambda_p-1}\left[S(q\to),S(q\to ) \setminus \bigcup\limits_jV_j \right]} \arrow[u, no head, Rightarrow] \arrow[rrr, "\delta_{triple}"] &                                                                                            &                                                                                                               & {K^{\lambda_p}\left[ W(q\to)\cap N_q,  S(q\to) \right]} \arrow[u, "c_1^*"] 
+		\end{tikzcd}
+	\end{adjustbox}
+\end{fdiagram}
+\noindent	We inspect the mapping befor applying the K funktor:
+\begin{fdiagram}
+	\begin{adjustbox}{max width=\textwidth}
+		% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBoBGAXVJADcBDAGwFcYkQAdDxmAMxwAUAdQEBHLjggBKLgGN6aAAQA5APqjSAZTETpXAE5YA5gAscUkAF9S6TLnyEUZYtTpNW7Lj34CAwqvIvPkFtcQ5JGQ5DU3M5ZiURUUVdSPklNTDoswtrW2w8AiJyUhcaBhY2RE5uYL8AoJ9QlINjbLilfwAmBsFE5PC9DjSVdRaYyKzzKxsQDHyHIk6S13KPKs16jgB3GCgjGH7vEJ0BqX7JnJm5+0KUAGZlsvdKkA3A7d39w9quXn16WTAJqnSzAOSMb6NE4RLhwGA4AC2WDAzDg-QARsZZPEvFgkTg4KoAFaKABqxPOrXMlkp4ysrk+8CIoD+EARSGKIEkSDIbgq7FkAWmLP0bI5NG5iCWfLWICwwpArPZUolECQDxlL0FnQVSvVqqQABYnvyqrJ6ZYgA
+		\begin{tikzcd}
+			\left(C_1\left(S(q\to)\right)\cup W(q \to)\cap N_q\right) \arrow[d, "c_1"] \arrow[r, "i"] & \left(C_1\left(S(q\to)\right)\cup C_2\left(W(q \to)\cap N_q\right)\right) \arrow[r, "c_2"] & S_1\wedge \left(S(q\to) \right) \arrow[r, "c"] & S_1\wedge \left(\frac{S(q\to)}{\cl \left(S(q\to)\setminus \bigcup\limits_j V_j \right)} \right) \\
+			{\left(W(q\to)\cap N_q,S(q\to)\right)}                                                    &                                                                                            &                                                &                                                                                                
+		\end{tikzcd}
+	\end{adjustbox}
+\end{fdiagram}
+\noindent	The maps are the following:
+\begin{itemize}
+	\item $c_1$ collapses the cone $C_1$.
+	\item $i$ is the obvious inclusion.
+	\item $c_2$ collapses the cone $C_2$.
+	\item $c$ collapses $\cl \left(S(q\to)\setminus \bigcup\limits_j V_j \right)$.
+\end{itemize}
+We now collaps everything but the interior  of $V_j$:
+\begin{equation*}
+	c_j : S_1\wedge \left(\frac{S(q\to)}{\cl \left(S(q\to)\setminus \bigcup\limits_j V_j \right) }\right)\to S_1\wedge\left(\frac{V_j}{ \partial V_j }\right)
+\end{equation*} Now we can compose $c_j\circ c$ to get a map between spheres that is also the identity on $S_1$ smashed with a collaps of a contractible space. Therefore this is homotopic an homeomorphism. Now the basis $\mathfrak{b}^q$ of $T^u_qM$ induces a generator $\alpha_q$ of the K-group $K^{\lambda_{p}}[C,B]$. This generator is given by the map $E^u_q\circ B_{\mathfrak{b}^q}$. To see this notice how the generator was defined: First use a Morse chart that fits to $\mathfrak{b}^q$. Then use the equivalence of index pairs after the inclusion of $W(q\to \cap N_p)$ into $C$. This gives rise to a continuous map $L:   W(q\to)\cap N_q\to B^{\lambda_q}_\epsilon(0)$. Then the canonical induced generator is given by the pullback of $L$.  This definition agrees with the pullback of $B_{\mathfrak{b}^q}{-1}\circ E^u_q{-1}$ since around the origin and reduced to the unstable direction $E^u_q{-1}$ is such a adapted Morse chart. Hence, the determinant of the change $L\circ E^u_q\circ B_{\mathfrak{b}^q}$ is positive and hence the map is homotopic to the identity. \todo{referenz für das argument einfügen}. 
+
+The generator of $K^{\lambda_p}[B,A]$ is given by an Morse chart adapted to an ordered basis $\mathfrak{b}^p$ of $T^u_pM$ and then this generator can be bulled back via the inclusion of
+\begin{equation*}
+	[S(q\to),S(q\to)\setminus \bigcup_j \supseteq \inti( V_j)][B,A]\, .
+\end{equation*} And furthermore, we can include 
+\begin{equation*}
+	[\inti(V_j),\partial V_j]\supseteq [S(q\to),S(q\to)\setminus \bigcup_j\,.
+\end{equation*} Pulling back the generator from $K^{\lambda_p}[B,A]$ to an element of $	K^{\lambda_p}[\inti(V_j),\partial V_j]$ via the composition of the inclusions yields again a generator. And since the collapse $(B/A)\to (\inti(V_j)/\partial V_j])$ is a right inverse of the inclusion (rather the map on the quotients induced by the inclusion. ) we know that the collapse induces a left inverse after applying the K functor and since the two K-groups are isomorphic generated by one element, it is also a right inverse. We call that generator of $K^{\lambda_p}[	[\inti(V_j),\partial V_j]$ $\alpha_p$. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Furtermore we have an orientation on $S_1\wedge \left(S(q\to) \right)$ coming from an orientation of $T^u_qM$ (let $\mathfrak{b}_q$ denote a ordered basis )via a rescaling of the unstable map $E^u_q:B_1(0)\to W(q\to )\cap M_c$:
+\begin{align*}
+	b^u_q: S_1\wedge \left(S(q\to) \right)&\to S^{\lambda_{p}+1}=S_1\wedge S^{\lambda_p}\\
+	x=(t,y)&\mapsto\left(t\cdot q_{\mathfrak{b}_q}(E^u_q)^{-1}(y)\right)
+\end{align*} On the other hand we have an orientation on $S_1\wedge\left(\frac{V_j}{ \partial V_j }\right)$ coming from an orientation of $T^u_pM$
+(That induces an isomorphis map from $B_{\mathfrak{b}}:\R^{\lambda_{p}}\to T^u_pM$, where $\mathfrak{b}_p$ dentotes an oriented basis) via the tubular neighbourhood embedding $J:NW(\to p)\cap M^c= W(\to p)\cap M^c \times T^u_pM \to N_p$. 
+Let $\tilde{x_j}$ be the intersection of $\gamma_j\cap V_j$ and hence the basepoint of the normal bundle, whose fiber gets mapped to $V_j$. Then the homeomorphism is given as:
+\begin{align*}
+	b^u_p:  S_1\wedge\left(\frac{V_j}{ \partial V_j }\right)& \to S^{\lambda_{p}+1} =S^1\wedge S^{\lambda_p}\\
+	x=(t,y)&\mapsto \left(t,q_{\mathfrak{b}_p}\circ (\restr{J}{J^{-1}(V_j)})^{-1}(y)\right)
+\end{align*}
+Now we have the diagram whose commutation is the interesting part:: 
+\begin{fdiagram}\label{diag: commutation intresting part}
+	\begin{center}
+		% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBoBGAXVJADcBDAGwFcYkQBlAfXIB1eA7jCgBzGAAJ+jGADMcACg7yAjvxwQAlJN4AnLCIAWODSAC+pdJlz5CKchWp0mrdtz6DhY7dLnz+MnXoAY2AlVV51DVNgfiDGb1kFMLVNfjgYHABbLDBmOG0AI30g5jQpLGycOC4AK3EANVrtPUNjU2b9IxNzS2w8AiJ7YkcGFjZETh5+IVEJKUS-XgDg4Eaa6P40eh08Jgba034WrvEzCxAMPpsiMmGaUZcJjgA9GN5GekyCqHouNABqcimMyOTzwIigAIQTJIMggdRIexOMbsIJnSE6aGImgIxAAJnuznGICCtXRIChMPxOIgSAAzISURMCs9mH9yZTYTT6YzHiAWWzlCDTEA
+		\begin{tikzcd}
+			S^{\lambda_p+1}                                                   & S_1\wedge \left(\frac{V_j}{\partial V_j}\right)  \arrow[l, "b^u_p"]                                              \\
+			S_1\wedge \left(S(q\to) \right) \arrow[r, "c"] \arrow[u, "b^u_q"] & S_1\wedge \left(\frac{S(q\to)}{\cl \left(S(q\to)\setminus \bigcup\limits_j V_j \right)} \right) \arrow[u, "c_j"]
+		\end{tikzcd}
+	\end{center}
+\end{fdiagram}
+Let $C= S_1\wedge (S(q\to))\setminus S_1\wedge \inti(V_j)$	
+Now the composition $b^u_p\circ c_j\circ c\circ (b^u_q)^{-1}$ is the same as the composiotion of first the collaps $g:S^{\lambda_{p}+1}\to (b^u_q)^{-1}(C)\big/ \partial (b^u_q)^{-1}(C)$ and then $(b^u_p\circ (b^u_q)^{-1}$). Hence by lemma \ref{lem: determined of javobean and collapsing map} this map is homotopic to $\pm \id$ where the sign is the same as the sign of 
+\begin{equation*}
+	\det(\diff (b^u_p\circ (b^u_q)^{-1}\big|_x)\, ,
+\end{equation*} where $x\in \inti C$. 
+Now inside of $\inti(D)$  the composition is given as: 
+\begin{align*}
+	x\mapsto (\norm{x},E^u_q(\frac{x}{\norm{x}})
+\end{align*}
+To make use of lemma \ref{lem: determined of javobean and collapsing map} we make the following definitins.  
+\begin{Iprove}
+	The idea here is to get a sequence of bundle maps:
+	\begin{center}
+		% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBoBGAXVJADcBDAGwFcYkQAdDtACywH1gACgC0xAHQBWUhMkBKAL5CAHvwBWckAtLpMufIRTkK1Ok1bsA6kICOXHBAAEm7bux4CRY8VMMWbRBAASXssAFt4RwA1dS0dEAx3AyIAJhMaPwtAmLUtUxgoAHN4IlAAMwAnCDCkMhAHJGN6+ixGdh4ICABrOPKqmsQ6hsQ0s392HC4w+jQ4B0chHABqLkr6AGNgcgVgFO1VDRd4yuqkUeGmzIDObj5+HBV1I77TkZphgGYM82uuNCxeiATgMmp8FJQFEA
+		\begin{tikzcd}
+			& I\times V_j \arrow[d, "\phi_t(x_j)"] \arrow[rd, "\pi"] &     \\
+			{\phi_{(-0.5,0.5)}(x_j)} \arrow[r, hook] \arrow[ru, "{t\mapsto (t+\frac{1}{2},x_j))}"] & W(q\to ) \arrow[r]                                     & V_j
+		\end{tikzcd}
+	\end{center} That is in the fiber above $(0,x_j)$ given by the comutative diagram:
+	\begin{center}
+		% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZARgBpiBdUkANwEMAbAVxiRAB12G6wBzBmAAIAtJ14AnOlAD6wAB7SAVgF8AFADMAlIM6S+AkMtLpMufIRQAmUgAYqtRizacASpzwBbeIIAqshSoAakqGxiAY2HgERNaU1PTMrIggfvJKygDqqgCO7hCaoSaR5kQAzOT2CU7JqQHKwYqF4aZRFiSklpWOSRxcPPxCouwSUv7pGtq6-QZGRWbRVh1dic59+oNikjJpKhM67HoD7lhecPsuAHrAnNweAEZQdNJoyk0R823lnfHdq5fXfXuj2er1mzWKC2QNiWPxWyRsbxaJRQABYYQ44SAEcp7DAoLx4ERQOpxBAPEhoSAcBAkGQMdUqZwPHQ0HBqYJVDhSAECmCSWTadRqUhLHzSeTEJThYhRWF+RK6dLyvSepw0FgmvKRUKaYhSmKBYg0VTdQBWA0S006pAANlhDLVGotSGN0pszsQVpN2pVbAAFiBqNw7jAGAAFJELEACdQ4TXi23WvVBugh8ORiwgcRYXh+uP2noMeOGgDsSZRHrt3sQAA4ccogA
+		\begin{tikzcd}
+			&                                                                            & \R\times T_{x_j}V_j \arrow[d] \arrow[rd, "\pi"]                                      &                                          &   \\
+			& \langle -\grad_{x_j}(f) \rangle \arrow[ru, "{t\mapsto (t,x_j)}"] \arrow[r] & T_{x_j}W(q\to) \arrow[r]                                                             & T_{x_j}V_j                               &   \\
+			0 \arrow[r] & \langle -\grad_{x_j}(f) \rangle \arrow[r] \arrow[u]                        & \langle -\grad_{x_j}(f) \rangle\times \R^{\lambda_p} \arrow[r, "\pi"] \arrow[u, "h"] & \R^{\lambda_p} \arrow[u, "l"'] \arrow[r] & 0
+		\end{tikzcd}
+	\end{center} Here $Q$ denotes the identification of a vector space with its tangend space $Q: T^u_qM \to T(T^u_qM)$, respectifly $N_{x_j}^{W(q\to)}\gamma_j\to TN_{x_j}^{W(q\to)}\gamma_j$ and with this we define the maps:
+	\begin{equation*}
+		\begin{array}{ll}
+			h= &\diff E^u_q\big|_{x_j}\circ \left(\id \times (Q \circ B_{\mathfrak{b}_q})\right) \\
+			l= &\diff J\big|_{x_j} \circ Q\circ (\nu_j)\big|_{x_j}^{-1}\circ B_{\mathfrak{b}_p} \, ,
+		\end{array}
+	\end{equation*}
+	The map $\R\times T_{x_j}V_j\to T_{x_j}W(q\to)$ is giben by $t,x\mapsto -t\cdot \grad_{x_j}(f)+x$ where $T_{x_j}V_j$ is viewed as a subset of $T_{x_j}W(q\to)$.  The vertical maps in the bottom are also inclusions. Now the horizontal maps in the bottom row are exact and as maps of oriented vector spaces the are orientation preserving if and only if the counting in the Morse boundary operator counts $\gamma_j$ as positiv. If this is orientation preserving, this means that the base change has positiv determinand. However the base change here corresponds to the map 
+	\begin{equation}
+		q_\mathfrak{b_p}\circ \nu_j^{-1} \circ  \diff E^u_q\big|_{x_j}\circ \left(\id \times (Q \circ B_{\mathfrak{b}_q})\right)
+	\end{equation}
+	
+	New idea: \begin{center}
+		% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZARgBpiBdUkANwEMAbAVxiRAB12G6wBzBmAAIAtJ14AnOlAD6wAB7SAVgF8AFADMAlIM6S+AkMtLpMufIRQAmUgAYqtRizacASpzwBbeIIAqshSoAakqGxiAY2HgERNaU1PTMrIggfvJKygDqqgCO7hCaoSaR5kQAzOT2CU7JqQHKwYqF4aZRFiSklpWOSRxcPPxCouwSUv7pGtq6-QZGRWbRVh1dic7sLgB6wJzcHgBGUHTSaADUxMpNEfNt5Z3x3asbW317B0fns83FC8g2S3cryRsFxaJRQABY-g4ASAgcp7DAoLx4ERQOpxBAPEhfiAcBAkGQodUcZwPHQ0HBcYJVDhSAECh80Rj8dRcUhLAz0ZjENjWYh2WFGVyCbzyoSepw0FgmoK2Sy8YhShymYgITj5QBWJVc9VypAANn+RIlUq1SFVvJspsQOrVsrFbAAFiBqNxdjAGAAFEELEACdQ4aWc-W6hUuuhuz3eiwgcRYXgOgOGnoMQPKgDsIbBVoNtsQAA44cogA
+		\begin{tikzcd}
+			&                                                                            & \R\times T_{x_j}V_j \arrow[d] \arrow[rd, "\pi"]  &                                          &   \\
+			& \langle -\grad_{x_j}(f) \rangle \arrow[ru, "{t\mapsto (t,x_j)}"] \arrow[r] & T_{x_j}W(q\to) \arrow[r]                         & T_{x_j}V_j                               &   \\
+			0 \arrow[r] & \langle -\grad_{x_j}(f) \rangle \arrow[r] \arrow[u]                        & \R^{\lambda_p+1} \arrow[r, "\pi"] \arrow[u, "h"] & \R^{\lambda_p} \arrow[u, "l"'] \arrow[r] & 0
+		\end{tikzcd}
+	\end{center}
+	Here $Q$ denotes the identification of a vector space with its tangend space $Q: T^u_qM \to T(T^u_qM)$, respectifly $N_{x_j}^{W(q\to)}\gamma_j\to TN_{x_j}^{W(q\to)}\gamma_j$ and with this we define the maps:
+	\begin{equation*}
+		\begin{array}{ll}
+			h= & \mu_{x_j}^{-1} \circ B_{\mathfrak{b}_q} \\
+			l= &\diff J\big|_{x_j} \circ Q\circ (\nu_j)\big|_{x_j}^{-1}\circ B_{\mathfrak{b}_p} \, ,
+		\end{array}
+	\end{equation*} In the above diagramm we define the Maps $b^u_q$ and $b^u_p$ as follows:
+	\begin{align*}
+		b^u_q(x))=E^u_q\circ B_{\mathfrak{b}_q}
+	\end{align*}
+	We now need to define the two maps 
+	\begin{enumerate}
+		\item $B^u_q: S^{\lambda_p+1}\to S_1\wedge S(q\to)$, and
+		\item $B^u_p: S_1\wedge \left(	\frac{V_j}{\partial V_j } \right) \to S^{\lambda_p+1}\to S_1\wedge S(q\to)$ 
+	\end{enumerate}
+	We start by defining two bases: Let $\mu: TW(q\to)\to W(q\to)\times T^u_qM$ be a trivialization of the tangend bundle and for $y\in W(q\to)$ define $\mu_y: T_yW(q\to)\to T^u_q$ to be the linear mapping in the fibers. Now define the bases $\tilde{b}^u_{q,j}=\left(\mu_{x_j} \left(-\grad_{x_j}(f)\right),b^u_q\right)$ to be a basis of $T^u_qM$ that is oriented accoding to the choosen orientation of $T^u_qM$. 
+	
+	Fuck this. Maby view the two maps as charts arround a point in the interior of $I\times V_j$. Then the checking for orientation is the same as the determinant of the jacobean of the transition function.
+\end{Iprove}
+
+\begin{align*}
+	\tilde{b^u_q}:S_1\wedge \left(\frac{V_j}{\partial V_j}\right)&\to S^{\lambda_p+1}\\
+	x&\mapsto 
+	\begin{cases}
+		b^u_q(x) & \text{ if }x\in S_1\wedge \inti(V_j) \\
+		p & \text{ else .}
+	\end{cases} 
+\end{align*}	
+Then the diagramm: 
+\begin{center}
+	% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAGUA9YAHR4boBbAEZQ6AfTQBqAIwBfEHNLpMufIRQzyVWoxZs+AMwBOdAMbAAIpwDWc3jzR1jeRgAJrdxcpAZseAiIAJm1qemZWRA5xGT4AdxgoAHMYNz4GGEMcAAojUwsANXEAK3s+JxcsdyLSvmMsJIALHABKRR1ElIQUUBMIQSQyEBwIJC1dCLYzEGphGDAoQaVe436kEOHRxHHw-Si+PAZYYGFOJnEARwVqATmGAAVVAI0QeqacbxW1xCGR9bC9JEQGY+GYsMYzG4zCVQeDIdlTucLi1uABaeQzEBzBZIVEAFgAnDc6HdHv51Gw3s1PiA+gNEBs-j9ZvNFoh8USJnssWdJJjbjAHk8KVEqR85BQ5EA
+	\begin{tikzcd}
+		S^{\lambda_p+1} \arrow[r, "c"] \arrow[rr, "c\circ c_j\circ (b^u_q)^{-1}"', bend right=49] & \frac{D^k}{\partial D^k} & S_1\wedge \left(\frac{V_j}{\partial V_j}\right) \arrow[l, "\tilde{b^u_q}"'] \arrow[ll, "b^u_p"', bend right=49]
+	\end{tikzcd}
+\end{center}
+satisfies the conditions of the lemma \ref{lem: determined of javobean and collapsing map} , and hence 
+\begin{align*}
+	{b^u_p}\circ \tilde{b^u_q}^{-1}\circ \tilde{b^u_q}\circ c\circ c_j\circ (b^u_q)^{-1}=	 	{b^u_p}\circ c\circ c_j\circ (b^u_q)^{-1} \simeq \pm \id
+\end{align*} where the sign is determined by 
+\begin{equation*}
+	\det(\diff b^u_p\circ \tilde{b^u_q}^{-1} \big|_x)
+\end{equation*} (the identity is used as a chart here)
+Now in $T_{x_j}W(q\to)\cong -\grad_{x_j}(f)\oplus T^u_pM$ we have two orientations. One is induced from $E^u_q\circ q_{\mathfrak{b}_q}:\R^{\lambda_p+1}\to W(q\to)$  and one comes from $J_{x_j}\circ q_{\mathfrak{b}_p}:\R^{\lambda_p+1}\to -\grad_{x_j}(f)^\perp$. Notice how the comparison of those is the Morse boundary operator and simultaniously the condition for the commutation of diagram (\ref{diag: commutation intresting part}).
+
+\textbf{new idea:} we can include $\inti(I\times V_j)$ into $W(q\to)$ via the map 
+\begin{align*}
+	incl: \inti(I\times V_j) & \to W(q\to)\\
+	(t,x)&\mapsto \phi_{\frac{1}{t-1}}(x)
+\end{align*} The image of said inclusion is a submanifold of $W(q\to)$ and hence inherits a oriented atlas. We get another atlas ( rather global chart) via the map 
+\begin{align*}
+	b^u_p: \inti(I\times V_j)&\to \R^{\lambda_p+1} \\
+	(t,x) & \mapsto (t,q_{\mathfrak{b}_p}\circ J_{x_j}^{-1}(x))
+\end{align*} compare the bases induced from the two charts!
+\end{proof}
+\begin{lemma} \label{lem: determined of javobean and collapsing map}
+Let $S^k=B^k\big/\partial B^k$. Let furthermore $D^k\subseteq B^k$ be a closed disk in $B^k$. Let $f: B^k\to D^k$ be the smooth diffeomorphism (that makes $D^k$ a Disk). Let furthermore $A\coloneq \inti(B^k)\setminus f^{-1}(\partial D^k)$. Then $\restr{f}{A}$ is a smooth map between open sets of $\R^k$ and hence we have a well defined jaccobean. We define $\bar{f}:B^k\big/\partial B^k\to D^k\big/ \partial D^k$ to be the quotient map of $f$, and let $g:B^k\big/\partial B^k\to D^k\big/ \partial D^k$ be the collapsing of the komplement of $D^k$. Then 
+\begin{align*}
+	(\overline{f}^{-1}\circ g)^*: K^k[S^k]\to K^k[S^k]
+\end{align*} is a group isomorphism and hence $\pm \id$. We have the equivalence of $(f^{-1}\circ g)^*=\id$ if and only if for any $x\in A$:
+\begin{equation*}
+	\det(\diff \restr{\overline{f}}{A}\big|_x)>0\, .
+\end{equation*}
+\end{lemma}
+\begin{proof} Both $\overline{f}^*$ and $g^*$ are isomorphisms
+\begin{equation*}
+	\overline{f}^*,g^*:K^k[D^k\big/\partial D^k]\to K^k[B^k\big/\partial B^k]
+\end{equation*} Let $\beta_D$ be a generator of $K^k[D^k\big/\partial D^k]$ (obviously this is isomorphic to $\Z$). Then there are two cases: Either $g^*(\beta_D)=\overline{f}^*(\beta_D)$, or $g^*(\beta_D)=-\overline{f}^*(\beta_D)$. 
+Notice how $\restr{g}{\inti(D)}=\id$ and thereby smooth. Hence the composition $\restr{\overline{f}^{-1}\circ g}{\inti(D)}$ is smooth. Assume that the Homotopie is smooth on $\inti(D)$ (This is exactly Lemma 2.6.3 in \cite{Mukherjee2015DifferentialTopology})
+\todo{Quelle evtl einschrenken}.By the smoothnes of the homotopy the sign of the determinand of its jacobien is the same for all $t$ and all $x\in \inti(D)$ and positive if we are in the first case and else negative.
+
+
+\begin{lemma} \label{lem: Subset Discs creates a sphere}
+	If we take a sphere $S^k=B^k\big/\partial B^k$ and a closed (smoothly embedded)  disc $D^{k}\subseteq S^k$ then, by nature of being a disc, there is a diffeomorphism $\tilde{f}: B^k\to D^k$ that reduces to a map $f: S^k \to \frac{D^k}{\partial D^k}$. In the diagram
+	\begin{center}
+		% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAGUA9AaxAF9S6TLnyEUARnJVajFmwA68gGYAnOgGNgAER59gitHRV5GAAh3c+-aTCgBzeEVCqIAWyRkQOCEkkgARjBgUEgAtADMnvTMrIgg6iDUDHSBDAAKwngEbCpYdgAWOPyCIC7uiH7eHtSBwWGR1NFycUqJIMmpGdhZYiC5BUV8FHxAA
+		\begin{tikzcd}
+			S^k \arrow[r, "c"', bend right] & \frac{D^k}{\partial D^k} \arrow[l, "f"', bend right]
+		\end{tikzcd}
+	\end{center}the composition $f\circ c$ is homotopic to the identity. Or rather induced $\pm\id$ in $K^k(S^k)$ if $f$ is orientation preserving, as a map between oriented Spheres, where the orientation of $\frac{D^k}{\partial D^k}$ is induced from the inclusion of $D^k\supseteq B^k$.
+\end{lemma}
+\begin{proof}
+	Assume that $S^k=B^k\big/ \partial B^k$ and without restrictions $D^k\subseteq \inti(B^k)$.  Then we have two different charts of $D^k$. One given by the inclusion and one given by $\tilde{f}^{-1}$. Since the boundary always maps to the boundary the charts decent to maps where said boundary is qoutiend out. Hence the transition function between those two charts extends to a homeomorphism of spheres:
+	\begin{align*}
+		i\circ \tilde{f}:S^k\to S^k \,.
+	\end{align*}This map is now homotopically equivalent to either plus or minus the identity. Let $U\subseteq S^k$ be a open subset, and $\psi:U\to V\supseteq \R^k$ be a oriented chart. Then for any $x\in V$, such that $	 i\circ \tilde{f}(\psi(x))\in U$ we have that  $\det(\diff(\psi\circ i\circ \tilde{f}\circ \psi^{-1})\big|_x)$ is positive, if the map is homotopic to the identity, and otherwise negative. (The sign of the determinant here is chart and homotopy invariant, since for a change of sign there would need to be a point or time in which said determinant is zero which contradicts being a diffeomorphism.) Hence, $f\circ c$ is homotopic th the identity, if the orientations given by $f$ agrees with the standart orientation given by the inclusion and hence $(f\circ c)^*=\id$ and else $(f\circ c)^*=-\id$.
+\end{proof}
+
+
+\end{proof}
+\begin{lemma}
+Let $S^k=B^k\big/ \partial B^k$, where $B^k$ is the ball in $\R^k$. Let furthermore $S^k$ be oriented as a manifold, such that the atlass containes the chart $\id:\inti(B^k) \to \R^k$. Then $f^*:K^k\left[S^k\right]\to K^k\left[S^k\right]=\id$ if and only if for any $x\in B\coloneq \inti(B^k)\setminus f^{-1}(\partial B^k)$ the funktion $\tilde{f}\coloneq \restr{f}{B}$ has a Jacobian in $x$ with positive determinant. Else, $f^*=-\id$. 
+\end{lemma}
+\begin{proof}
+$f$ is either homotopic to the identity, or to the reflection on a subspace. Now assume that $f\simeq \id$. Then for $x\in B$ we have that $\det(\diff \tilde{f}\big|x)>0$ because the identity has a diffenential with positive jacobean and the sign of the determinant is carried through the homotopie: First we can assume the homoropie to be smooth by some approximation theorem \todo{referenz 1. John M. Lee – Introduction to Smooth Manifolds
+	
+	Dies ist eine der Standardquellen in der Differentialtopologie.
+	
+	Theorem 8.9 (Smooth approximation of continuous maps):
+	
+	Every continuous map 
+	f:M→N
+	f:M→N between smooth manifolds (with 
+	M
+	M compact) can be approximated arbitrarily closely by a smooth map.
+	
+	In Kombination mit:
+	
+	Theorem 8.10: Glättung einer Homotopie zwischen glatten Abbildungen.
+	
+	Dort heißt es sinngemäß:
+	
+	If 
+	f,g:M→N
+	f,g:M→N are smooth and homotopic as continuous maps, and 
+	M
+	M is compact, then there exists a smooth homotopy between them.}. A change of sign would imply a place where the determinant vanishes resulting in a time where the differential of the homotopie is no isomorphism and hence the homotopie itself is no diffeomorphism. With the same argument we get the a negative determinant implies the function being homotopic to $-\id$ 
+	\end{proof}
+	
+	
+	
+	This is the case if and only if the orientation in $D^k$ induced by $f$ (as a manifold with boundary) agrees with the orientation as a submanifold of $S^k$: Let $(f^{-1})^* (B^k\times R^k )=TD^k$ be the oriented Tangend bundle with orientation induced via $f$. On the other hand we have the Tandend bundle that is the pullback of the inclusion of $D^k$ ind $S^k$. Those two bundles carry the same orientation if $\det(\diff f_x)>0$ for any $x\in B^k$. The composition $f\circ c$ is homotopic to a homeomorphism (Thic can be seen by using excischen to realice that $(f\circ c)_*$ is an isomorphism in homology, and by hurewicz it is an isomophism between the two homotopy groups, and hence sends a generator $[g]$ of $\pi_k(S^k)$ to a generator $(f\circ c)_*([g])=\pm [g]$. Hence it homotomic to $\pm \id$.) 
+	$\frac{S(q\to)}{\cl \left(S(q\to)\setminus \bigcup\limits_j V_j \right)}\cong S_1\wedge\left( \bigvee_{j=1}^l V_j \right)
+	Here I need to formulate the write mapping. Notice how the sphere $(C_jV_j\Big/ \partial C_jV_j)$ can be given a generator (hence an orientation) from the Tangend space $T_{x_j}W(q\to)$ as follows:We have the splitting 
+	\begin{equation*}
+T_{x_j}W(q\to) \cong  T_{x_j}W(V_j)\oplus T_{x_j}\gamma_j
+\end{equation*} Where $\gamma_j$ denotes the gradient flow line that containes $x_j$. Using this splitting we have a map 
+\begin{equation*}
+T_{x_j}W(V_j)\oplus T_{x_j}\gamma_j \to \int(V_j)\times I
+\end{equation*} that we can extend to the compactifications 
+\begin{equation*}
+\overline{T_{x_j}W(V_j)\oplus T_{x_j}\gamma_j } \to (C_jV_j\Big/ \partial C_jV_j)
+\end{equation*} On $T_{x_j}W(V_j)\oplus T_{x_j}\gamma_j$ we have two ways to introduce orientations:
+\begin{enumerate}[(a)]
+\item From an orientation from $T^u_qM$ since $W(q\to)$ is contractible and hence we can define a global frame. Denote the resulting generater by $\alpha$.
+\item From an orientation from $T^u_pM$ together with $-\grad(f)$.Denote the resulting generater by $\beta$.
+\end{enumerate} From an orientation on $T^u_qM$ we can also defeine a generator of $K^p\left[N_q\cup N_p\cup C_1(L_q\cup N_p)\right]$, since it is homotopic to a small index pair. Lets call that generator $\alpha'$. The next question to consider is if $\kappa (\alpha)=\alpha'$.	
