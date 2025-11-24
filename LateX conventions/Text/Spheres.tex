@@ -111,3 +111,26 @@ We will later use similar maps in our main prove, but now we want to talk about 
 \begin{proof}
 	L
 \end{proof}
+\begin{corollary} \label{cor: suspension of a sphere is a sphere}
+	If we collaps a cone $C(S^k)$ over a shpere at its base, we obtain a sphere. 
+\end{corollary}
+\begin{proof}
+	We define the homeomorphism as follows:
+	\begin{align*}
+	\Omega:	C(S^k)\big/ \{0\}\times S^k &\to S^{k+1}\subset \R^{k+2}\\
+		\overline{(t,x)} & \mapsto (-\cos(\pi t),\sin(\pi t)x)\,.
+	\end{align*} This homeomorphism has the following properties:
+If $t>\frac{1}{2}$ we end up in the upper hemissphere. Furthermore, we can view the domain and its image as topological manifolds and if we cut out the collapsed points, we even have a smooth manifold. Here the map is differentiable. 
+\end{proof}
+We can use this map to construt a new map form $\overline{D^k}\big/ \partial D^k \to S^k $ as follows: 
+\begin{definition}\label{def: Disk modulo boundary to sphere}
+We can identify $\overline{D^k}\big/ \partial D^k$ with $C(S^{k-1})\big/\{0\}\times S^{k-1} $ as follows:
+\begin{align*}
+s: \overline{D^k}\big/ \partial D^k & \to C(S^{k-1})\big/\{0\}\times S^{k-1} \\
+\overline{x} &\mapsto \overline{(\norm{x},\frac{x}{\norm{x}})}\,.
+\end{align*} The composition $\Gamma \coloneq \Omega \circ s$ now gives a map 
+\begin{equation*}
+	\overline{D^k}\big/ \partial D^k \to  S^{k}
+\end{equation*}
+\end{definition}
+ 

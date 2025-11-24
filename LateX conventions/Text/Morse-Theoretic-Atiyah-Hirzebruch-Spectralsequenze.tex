@@ -1299,9 +1299,9 @@ The downwards maps in the Theorem are the induction of the canonical generators.
 		\end{align*} If this is not the case just compose $J$ with a basechage of degree one. Now $\alpha_p''$ generates $K^{-\lambda_p}(V_j,\partial V_j)$. The latter is isomoprhic to $K^{-\lambda_p+1}(I\times V_j,\partial(I\times  V_j))$ by definition. Now we denote the suspensision is the wedge produkt with a sphere. Hence for $K^{-\lambda_p+1}(I\times V_j,\partial(I\times  V_j))$ we can induce the generator by the function
 		\begin{align*}
 			f_p: I\times V_j \Big/ \partial(I\times V_j) &\to S \wedge S^{\lambda_p}\simeq  S^{\lambda_p+1}\\
-			(t,x)&\mapsto \left(t,	\left(B_{\mathfrak{b}^p}^{-1}\circ \nu_{x_j}\circ J^{-1}\right)(x)\right) \, .
+			(t,x)&\mapsto \Omega\left(t,	\Gamma\circ \left(B_{\mathfrak{b}^p}^{-1}\circ \nu_{x_j}\circ J^{-1}\right)(x)\right) \, .
 		\end{align*} \todo{specify the isomorphism !}
-		We abuse the notation a bit and identify the map $\left(B_{\mathfrak{b}^p}^{-1}\circ \nu_{x_j}\circ J^{-1}\right)$ with the one defined by quotiening out the boundary. We will leave out the quotiening in the notatino from now on to make the prove easyer to read. The invested reader should check, if the quotiend maps are always well defined! Now finally we have a little definition issue: In the diagramm we have that 
+	$\Gamma$ maps the disk modulo its boundary to a sphere and $\Omega$ maps the suspension of the sphere to the sphere one dimension higher. We abuse the notation a bit and identify the map $\left(B_{\mathfrak{b}^p}^{-1}\circ \nu_{x_j}\circ J^{-1}\right)$ with the one defined by quotiening out the boundary. We will leave out the quotiening in the notatino from now on to make the prove easyer to read. The invested reader should check, if the quotiend maps are always well defined! Now finally we have a little definition issue: In the diagramm we have that 
 		\begin{equation*}
 			f_p^*: K^{\lambda_p-1}[\mathbb{S}^{\lambda_p+1}]\to K^{-\lambda_p}[V_j,\partial V_j]\, ,
 		\end{equation*}whilst at the moment, $f_p$ maps to $K^{-\lambda_p+1}(I\times V_j,\partial(I\times  V_j))$. Hence we need to compose this $f_p^*$ with the isomorphism that comes from the suspension axiom: 
@@ -1344,7 +1344,7 @@ The downwards maps in the Theorem are the induction of the canonical generators.
 		\end{proof}
 		Now we need to transport our situation to fit the lemma. For this we will use the maps defined in the lemma above, and need a bunch of maps again: 
 		\begin{itemize}
-			\item First we define the map $\rho':H_-\to H_+\cap H_-$ to be $B_{\mathfrak{b}^q}^{-1}\circ {E^u_q}^{-1}\circ \rho \circ E^u_q\circ B_{\mathfrak{b}^q}\circ (\cdot 2)\circ \pi$ for all $x$ such that $x_0\neq 1$. Here, the map $\rho$ is given by 
+			\item First we define the map $\rho':H_-\to H_+\cap H_-$ to be $B_{\mathfrak{b}^q}^{-1}\circ {E^u_q}^{-1}\circ \rho \circ E^u_q\circ B_{\mathfrak{b}^q}\circ (\cdot 3)\circ \pi$ for all $x$ such that $x_0\neq 1$. Here, the map $\rho$ is given by 
 			\begin{align*}
 				\rho: W(q\to)\setminus \{q\}&\to W(q\to)\cap f^{-1}(c)\setminus W(q\to)\setminus \{q\}\\
 				x\mapsto \phi_{\tau(x)}(x)\,,
@@ -1352,7 +1352,7 @@ The downwards maps in the Theorem are the induction of the canonical generators.
 			\begin{align*}
 				 \tau: W(q\to)\setminus \{q\} &\to \R\\
 				x                  &\mapsto \tau(x) \text{ such that }f\circ \phi_{\tau(x)}(x) =c \, .
-			\end{align*}Furthermore  $(\cdot 2)$ denotes the stretching of $D^k$ (i.e. the image of $\pi$) to be the ball of diameter two. The north pole gets mapped to any element of the equator. (This choice will not matter later)
+			\end{align*}Furthermore  $(\cdot 3)$ denotes the stretching of $D^k$ (i.e. the image of $\pi$) to be the ball of diameter two. The north pole gets mapped to any element of the equator. (This choice will not matter later)
 			\item $\Phi:S^{\lambda_q}\to W(q\to) \cap N_p\cup C_1S(q\to)$ is defined with a case distingtion. We define 
 			\begin{equation*}
 				\restr{\Phi}{{H}_+}(x)=E^u_q\circ B_{\mathfrak{b}^q}^{-1}\circ \pi(x) \quad \text{and}\quad \restr{\Phi}{{H}_-}(-x_0,\dots x_{\lambda_q})=(x_0,f_q^{-1}\circ \rho')\,.
@@ -1396,13 +1396,24 @@ So lets expand this definition:
 			&=-\pi_-\circ s\circ col \left(-t,f_q\circ \rho'\left(\left(\pi_+^{-1}(x)\right)_{i=1,\dots,\lambda_{q}}\right)\right)\\
 			&=-\pi_-\circ f_p\underbrace{\circ l_1 \circ col}_ {= \id \text{arround y}} \left(-t,f_q\circ \rho'\left(\left(\pi_+^{-1}(x)\right)_{i=1,\dots,\lambda_{q}}\right)\right)\\
 			&=-\pi_-\circ f_p \left(-t,f_q\circ \rho'\left(\left(\pi_+^{-1}(x)\right)_{i=1,\dots,\lambda_{q}}\right)\right)\\
-			&=-\pi_-\left(-t,{B_{\mathfrak{b}^p}^{-1}\circ \nu_{x_j}\circ J^{-1}}\circ f_q^{-1}\circ \underbrace{B_{\mathfrak{b}^q}^{-1}\circ {E^u_q}^{-1}\circ \rho \circ E^u_q\circ B_{\mathfrak{b}^q}(2\cdot x)}_{=\rho\circ \pi_+^{-1}(x)}\right)\\
-			&=-\pi_-\left(-t,{B_{\mathfrak{b}^p}^{-1}\circ \nu_{x_j}\circ J^{-1}}\circ \rho \circ E^u_q\circ B_{\mathfrak{b}^q}(2\cdot x) \right) \\
-			&=-{B_{\mathfrak{b}^p}^{-1}\circ \nu_{x_j}\circ J^{-1}}\circ \rho \circ E^u_q\circ B_{\mathfrak{b}^q}(2\cdot x) 
+			&=-\pi_-\circ \Omega \circ  \left(-t,\Gamma \circ {B_{\mathfrak{b}^p}^{-1}\circ \nu_{x_j}\circ J^{-1}}\circ f_q^{-1}\circ \underbrace{B_{\mathfrak{b}^q}^{-1}\circ {E^u_q}^{-1}\circ \rho \circ E^u_q\circ B_{\mathfrak{b}^q}(3\cdot x)}_{=\rho\circ \pi_+^{-1}(x)}\right)\\
+			&=-\pi_-\circ \Omega \left(-t,\Gamma \underbrace{\circ {B_{\mathfrak{b}^p}^{-1}\circ \nu_{x_j}\circ J^{-1}}\circ \rho \circ E^u_q\circ B_{\mathfrak{b}^q}(3\cdot x)}_{\eqcolon z} \right) \\
+			&=-\pi_-\circ \Omega_{\lambda_q} \circ \left(-t,\Omega_{\lambda_p}(\norm{z},\frac{z}{\norm{z}}) \right) \\ 
+			&=-\pi_-\circ \Omega_{\lambda_q} \circ \left(-t,\left(-\cos(\pi \norm{z}),\sin\left(\pi\norm{z}\right) z\right) \right) \\
+			&= \sin(-\pi t) \left(-\cos(\pi \norm{z}),\sin\left(\pi\norm{z}\right) z\right)
 	\end{align*}
-	
-	
-	
+	We now want to look at the differential of this in $x$. To be specific we only care for the sign of the determinant of said differential. Since $t\in (-\frac{1}{2},0)$ is negative \todo{should be $-\frac{1}{3}$} ,the scalar multiplication with $\sin(-\pi t)$ has a jacobean with a positive determinant. Hence it does not interfere with the sign and we can leave it out. Hence we care for the sign of the jacobean of the map 
+	\begin{equation*}
+		x\mapsto \left(-\cos(\pi \norm{z}),\sin\left(\pi\norm{z}\right) z\right)\,.
+	\end{equation*}	Now the jacobean of the map splitts into two block matricies: 
+	\begin{equation*}
+		\begin{pmatrix}
+			\sin(\pi \norm{z})&0\\
+			0& B\\
+		\end{pmatrix}
+	\end{equation*}
+	This is true, as: (check the different tanged vecorts ), and $B$ is the following jacobean: 
+\todo{Wenn ich das hier but force durchgerechnet habe bin ich fertig!!}	
 	
 	
 	
