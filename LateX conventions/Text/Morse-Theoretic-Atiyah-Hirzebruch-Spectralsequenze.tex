@@ -1308,7 +1308,7 @@ The downwards maps in the Theorem are the induction of the canonical generators.
 		\begin{equation*}
 			K^{-\lambda_p}( X)\cong K^{-\lambda_p+1}(SX)\,.
 		\end{equation*}By abuse of notation we dont write that idetification and rather think of the top left corner as $K^{-\lambda_p+1}(I\times V_j,\partial(I\times  V_j))$.
-		\item Again, we want $f_q$ to be the map that induces the generator of $K^{-\lambda_q}[W(q\to)\cap N_q,S(q\to)]$ which comes from the canonical generator of $[C,B]$ together with the inclusion. Again instead of first introducing the generator on the prototype index pair, we can use ${E^u_q}^{-1}$ instead of the Morse chart. Again we can argue here, that the local degree of changing between the two is one, since ${E^u_q}^{-1}$ is a refined morse chart which can be choosen to be adapted to the ordered basis $\mathfrak{b}^q$ of $T^u_qM$. Hence we can define $f_q$ to be the quotient map:
+		\item Again, we want $f_q$ to be the map that induces the generator of $K^{-\lambda_q}[W(q\to)\cap N_q,S(q\to)]$ which comes from the canonical generator of $[C,B]$ together with the inclusion. Again instead of first introducing the generator on the prototype index pair, we can use ${E^u_q}^{-1}$ instead of the Morse chart. Again we can argue here, that the local degree of changing between the two is one, since ${E^u_q}^{-1}$ is a refined morse chart which can be choosen to be adapted to the ordered basis $\mathfrak{b}^q$ of $T^u_qM$.´ Hence we can define $f_q$ to be the quotient map:
 		\begin{align*}
 			W(q\to)\cap N_q\Big/ S(q\to)& \to S^{\lambda_p+1}\\
 			x& \mapsto \Gamma\circ  B_{\mathfrak{b}^q}^{-1}\circ {E^u_q}^{-1}(x)\,.
@@ -1323,7 +1323,7 @@ The downwards maps in the Theorem are the induction of the canonical generators.
 		\begin{equation*}
 			s^*: K^{-\lambda_p+1}[S_1\wedge S(q\to)]\to K^{-\lambda_p-1}[\mathbb{S}^{\lambda_p+1}]\,.
 		\end{equation*}
-		\item To find the map $r$ that fits the diagram (to make it commute) is the next goal. First we need to dig into $l_2$: From diagram \ref{diag: Definitino of delta j} we know that $l_2=\Sigma \circ \text{triv}_{C_1S(q\to)}\circ i_2^*\circ h_2^*$, Where $\Sigma$ denotes the suspension isomorphism. Hence, if the function $r^*$ makes the diagram commutative we need to ensure, that $f_q^* \circ r^*=l_2$ If we define the function 
+		\item To find the map $r$ that fits the diagram (to make it commute) is the next goal. First we need to dig into $l_2$: From diagram \ref{diag: Definitino of delta j} we know that $l_2=\Sigma \circ \text{triv}_{C_1S(q\to)}\circ i_2^*\circ h_2^*$, Where $\Sigma$ denotes the suspension isomorphism. Hence, if the function $r^*$ makes the diagram commutative we need to ensure, that $f_q^* \circ r^*=l_2$. If we define the function 
 		\begin{align*}
 			col: W(q\to) \cap N_p \cup C_1  S(q\to) \to S_1 \wedge S(q\to) \,
 		\end{align*} 
@@ -1344,7 +1344,7 @@ The downwards maps in the Theorem are the induction of the canonical generators.
 		\end{proof}
 		Now we need to transport our situation to fit the lemma. For this we will use the maps defined in the lemma above, and need a bunch of maps again: 
 		\begin{itemize}
-			\item First we define the map $\rho':H_-\to H_+\cap H_-$ to be $B_{\mathfrak{b}^q}^{-1}\circ {E^u_q}^{-1}\circ \rho \circ E^u_q\circ B_{\mathfrak{b}^q}\circ (\cdot 3)\circ \pi$ for all $x$ such that $x_0\neq 1$. Here, the map $\rho$ is given by 
+			\item Firts, the map $\rho$ is given by 
 			\begin{align*}
 				\rho: W(q\to)\setminus \{q\}&\to W(q\to)\cap f^{-1}(c)\setminus W(q\to)\setminus \{q\}\\
 				x\mapsto \phi_{\tau(x)}(x)\,,
@@ -1352,11 +1352,12 @@ The downwards maps in the Theorem are the induction of the canonical generators.
 			\begin{align*}
 				 \tau: W(q\to)\setminus \{q\} &\to \R\\
 				x                  &\mapsto \tau(x) \text{ such that }f\circ \phi_{\tau(x)}(x) =c \, .
-			\end{align*}Furthermore  $(\cdot 3)$ denotes the stretching of $D^k$ (i.e. the image of $\pi$) to be the ball of diameter three. The north pole gets mapped to any element of the equator. (This choice will not matter later)
+			\end{align*}
 			\item $\Phi:S^{\lambda_q}\to W(q\to) \cap N_p\cup C_1S(q\to)$ is defined with a case distingtion. We define 
-			\begin{equation*}
-				\restr{\Phi}{{H}_+}(x)=E^u_q\circ B_{\mathfrak{b}^q}^{-1}\circ \pi(x) \quad \text{and}\quad \restr{\Phi}{{H}_-}(-x_0,\dots x_{\lambda_q})=(x_0,f_q^{-1}\circ \rho')\,.
-			\end{equation*}Notice, how this function is continuous and does not depend on the choice taken in the definition of $\rho'$. 
+			\begin{align*}
+				\restr{\Phi}{{H}_+}(x)&=E^u_q\circ B_{\mathfrak{b}^q}^{-1}\circ \pi(x)\\
+				\restr{\Phi}{{H}_-}(x)&=(\euler^{\tau(y)},\rho (y))\text{ where }y=E^u_q\circ B_{\mathfrak{b}^q}(\pi_-(x)) \,.
+			\end{align*}Notice, how this function is continuous and does not depend on the choice taken in the definition of $\rho'$. 
 			\item $\Psi: S^{\lambda_q}\vee S^{\lambda_q}\to \left(W(q\to)\cap N_p \middle/ S(q\to)\right)\vee \mathbb{S}\wedge S(q\to)$ is given by mapping $x\mapsto \overline{\Phi(x)}$. The well definition is easy to see. 
 			\item $p_i$ for $i=1,2$ denotes the projection onto the first or second summand in a pointed sum. 
 			\item $C_{S(q\to)}:W(q\to)\cap N_q\cup C_1S(q\to) \to \left(W(q\to)\cap N_p \middle/ S(q\to)\right)\vee \mathbb{S}\wedge S(q\to)$ is the collaps of $S(q\to)$. 
@@ -1374,7 +1375,7 @@ The downwards maps in the Theorem are the induction of the canonical generators.
 	\end{tikzcd}
 		\end{adjustbox}
 		\end{fdiagram}
-		 Now define $r\coloneq -R$. For example compose $R$ with the reflection $(x_0,\dots x_{\lambda_q})\mapsto (-x_0,\dots,x_{\lambda_q})$. Then $r$ collapses the lower hemissphere. Then by the lemma above and commutativity we have up to homotopy:
+		 Now define $r\coloneq -R$. For example apply $R$ after the reflection $(x_0,\dots x_{\lambda_q})\mapsto (-x_0,\dots,x_{\lambda_q})$. Then by the lemma above and commutativity we have up to homotopy:
 		  \begin{align*}
 		  	r\circ f_q\circ c_1 
 		  	&=  	-R\circ f_q\circ c_1 \circ \Phi \circ \phi{-1}\\
@@ -1385,22 +1386,58 @@ The downwards maps in the Theorem are the induction of the canonical generators.
 		  With $r$ we finally have all the maps. Now we want to find out what degree the composition
 		  $s\circ r$ has. For this we calculate the local degree in some point by checking the sign of the determinant of the Jacobean.
 	\end{itemize} 
-	Now let $\tilde{y}= \frac{1}{3}(B_{\mathfrak{b}^q}^{-1}\circ {E^u_q}^{-1}(x_j)$, and $y\coloneq\Gamma(y)$. The multiplication by three in the definition made sure that  $y$ is in the interior (and in fact in the upper hemisphere). Now $\pi_+: H_+\to D^{\lambda_q}$ is a chart for the upper hemisphere that is the same orientation as $-\pi_-:H_-\to D^{\lambda_q}$, Around $y$ the function is a diffeomorphism, hence we can check for local degree by checking the sign of the determinant of the Jacobean of $s\circ r$ in $y$ with respect to charts around $y$ and around its image that are induced from the same orientation in $S^k$. Since $y$ gets mapped to the lower hemisphere we check the sign of the jacobean of
-	\begin{equation*}
-		-\pi_-\circ s\circ r \circ \pi_+^{-1}\quad  \text{in $x$, where } x\coloneq \pi_+(y) 
-	\end{equation*}
-So lets expand this definition:
+	Bevor we start differentiating, we expand the map arround $x\in \R^{\lambda_q}$, such that $x'\coloneq E^u_q\circ B_{\mathfrak{b}^q}(x)\in \rho{-1}(x_j)$, meaning that $x'$ is on the flow line towards $x_j$ and assume that $\tau(x_j)=1$.
 	\begin{align*}
-			-\pi_-\circ s\circ r \circ \pi_+^{-1}(x)
-			&=	-\pi_-\circ s\circ col\circ \Phi\left(-\underbrace{\left(\pi_+^{-1}(x)\right)_0}_{\coloneq t},\left(\pi_+^{-1}(x)\right)_{i=1,\dots,\lambda_{q}}\right)\\
-			&=-\pi_-\circ s\circ col \left(-t,f_q^{-1}\circ \rho'\left(\left(\pi_+^{-1}(x)\right)_{i=1,\dots,\lambda_{q}}\right)\right)\\
-			&=-\pi_-\circ f_p\underbrace{\circ l_1 \circ col}_ {= \id \text{arround y}} \left(-t,f_q\circ \rho'\left(\left(\pi_+^{-1}(x)\right)_{i=1,\dots,\lambda_{q}}\right)\right)\\
-			&=-\pi_-\circ f_p \left(-t,f_q^{-1}\circ \rho'\left(\left(\pi_+^{-1}(x)\right)_{i=1,\dots,\lambda_{q}}\right)\right)\\
-			&=-\pi_-\circ \Omega \circ  \left(-t,\Gamma \circ {B_{\mathfrak{b}^p}^{-1}\circ \nu_{x_j}\circ J^{-1}}\circ f_q^{-1}\circ \underbrace{B_{\mathfrak{b}^q}^{-1}\circ {E^u_q}^{-1}\circ \rho \circ E^u_q\circ B_{\mathfrak{b}^q}(3\cdot x)}_{=\rho\circ \pi_+^{-1}(x)}\right)\\
-			&=-\pi_-\circ \Omega \left(-t,\Gamma \underbrace{\circ {B_{\mathfrak{b}^p}^{-1}\circ \nu_{x_j}\circ J^{-1}}\circ \rho \circ E^u_q\circ B_{\mathfrak{b}^q}(3\cdot x)}_{\eqcolon z} \right) \\
-			&=-\pi_-\circ \Omega_{\lambda_q} \circ \left(-t,\Omega_{\lambda_p}(\norm{z},\frac{z}{\norm{z}}) \right) \\ 
-			&=-\pi_-\circ \Omega_{\lambda_q} \circ \left(-t,\left(-\cos(\pi \norm{z}),\sin\left(\pi\norm{z}\right) z\right) \right) \\
-			&= \sin(-\pi t) \left(-\cos(\pi \norm{z}),\sin\left(\pi\norm{z}\right) z\right)
+		&   \phantom{=}	\pi_+\circ s\circ r\circ \pi_+^{-1}(x_1,\dots .,x_{\lambda_q})\\
+		&=	\pi_+\circ s\circ R (- x_0,x_1,\dots .,x_{\lambda_q}) \quad x_0>0\\
+		&=	\pi_+\circ s\circ col \circ \restr{\Phi}{H_-} (-x_0,x_1,\dots .,x_{\lambda_q}) \\
+		&=	\pi_+\circ f_p\circ l_1 \circ col \left(e^{\tau(x')},\rho(x')\right) \quad \text{ $col$ and $l_q$ are the identity arround $\left(e^{\tau(x')},\rho(x')\right)$ } \\
+		&=\pi_+\circ \Omega  \Big(e^{\tau(E^u_q\circ B_{\mathfrak{b}^q}(x))},\Gamma \circ \underbrace{B_{\mathfrak{b}^p}^{-1} \circ \nu_{x_j}\circ J^{-1}\circ \rho \circ E^u_q\circ B_{\mathfrak{b}^q}(x)}_{\coloneq Z(x)}\Big)\\
+		&=\sin(\pi e^{\tau(E^u_q\circ B_{\mathfrak{b}^q}(x))}) \cdot
+		\begin{pmatrix}
+			-\cos\left(\pi \cdot \norm{Z(x)}\right)\\
+			 \sin\left(\pi \cdot \norm{Z(x)}\right) \cdot \frac{Z(x)}{\norm{Z(x)}})
+		\end{pmatrix}
+	\end{align*}
+	Here $Z$ is a funktion $Z: \inti(I\times D^{\lambda_q})\to \R^{\lambda_q-1}$ and we can calculate its jacobean Notice how $Z(y)=0$ where $y$ is the same as above. We only care for the sign of its jacobean, so we will manipulate the funktion in a way that might change the function, but not the sign of ots Jacobean determinant. 
+	Let $Q_y: V\to T_yV$ be the canonical map, that identifies a linear space with the tangendspace of a point from inside said space. Now we calculate:
+	
+	
+	\begin{align*}
+		&\phantom{=}Q_0^{-1}\circ \restr{\diff \left(B_{\mathfrak{b}^p}^{-1} \circ \nu_{x_j}\circ J^{-1}\circ \rho \circ E^u_q\circ B_{\mathfrak{b}^q}\right)}{y}\circ Q_y (e_i)\\
+		&=Q_0^{-1}\circ  \restr{\diff \left(B_{\mathfrak{b}^p}^{-1} \circ \nu_{x_j}\circ J^{-1}\circ \rho \circ E^u_q\right)}{B_{\mathfrak{b}^q}(y)}\circ Q_{B_{\mathfrak{b}^q}(y)}\circ B_{\mathfrak{b}^q}(e_i) \quad \text{ in general $Q$ and $\diff L$ has a commutative property}\\
+		&= Q_0^{-1}\circ \restr{\diff \left(B_{\mathfrak{b}^p}^{-1} \circ \nu_{x_j}\circ J^{-1}\right)}{x_j}\circ \restr{\diff \left( \rho \circ E^u_q\right)}{B_{\mathfrak{b}^q}(y)}\circ Q_{B_{\mathfrak{b}^q}(y)}\circ B_{\mathfrak{b}^q}(e_i)		
+	\end{align*}
+	Now the term $\restr{\diff \left( \rho \circ E^u_q\right)}{B_{\mathfrak{b}^q}(y)}\circ Q_{B_{\mathfrak{b}^q}(y)}\circ B_{\mathfrak{b}^q}$ induces a basis in $T_{x_j}W(q\to)$ that is compatible with the basis induced from
+	\begin{equation*}
+ \underbrace{\pi_{-\grad_{x_j}(f)^\top}}_{\text{projects onto the orthogonal complement of }-\grad_{x_j}(f)}\circ \restr{\diff  E^u_q}{B_{\mathfrak{b}^q}(y)}\circ Q_{{E^u_q}^{-1}(x_j)}\circ B_{\mathfrak{b}^q}
+	\end{equation*} To see this notice how $\rho\circ E^u_q(x)=E^u_q\circ A_{\tau\circ E^u_q(x)}(x)$. In the basis $\mathfrak{b}^q$ and with $y'\coloneq E^u_q\circ B_{\mathfrak{b}^q}(y)$, and $M\coloneq \diag(\mu_1,\dots,\mu_{\lambda_q})$ we can calculate:
+	\begin{align*}
+	&\phantom{=}\restr{\diff \left(B_{\mathfrak{b}^q}^{-1}\circ A_{\tau \circ E^u_q\circ B_{\mathfrak{b}^q}}\circ B_{\mathfrak{b}^q}\right)}{y}\\
+		&=\underbrace{\restr{\diff_t \left( B_{\mathfrak{b}^q}^{-1}\circ A_{t}\circ B_{\mathfrak{b}^q}\right)}{t=\tau (y')}}_{=M\cdot B_{\mathfrak{b}^q}^{-1}\circ A_{\tau(y')}\circ B_{\mathfrak{b}^q}(y)}
+		\cdot \underbrace{\restr{\diff_x \left(\tau \circ E^u_q \circ B_{\mathfrak{b}^q}\right)}{y}}_{=(-1,0,\dots,0)}
+		+\underbrace{\restr{\diff_x B_{\mathfrak{b}^q}^{-1}\circ A_{\tau(y')}\circ B_{\mathfrak{b}^q}}{y}}_{=B_{\mathfrak{b}^q}^{-1}\circ A_{\tau(y')}\circ B_{\mathfrak{b}^q}}\\
+\end{align*}	
+This has the jacobean 
+\begin{equation*}
+		\begin{pmatrix}
+			* &0\\
+			*&Z
+		\end{pmatrix}, 
+\end{equation*} where $Z$ has a positive determinant. Hence, 
+\begin{align*}
+&\pi_{-\grad_{x_j}(f)^\top} \circ \restr{\diff  E^u_q}{B_{\mathfrak{b}^q}(y)}\circ Q_{{E^u_q}^{-1}(x_j)}\circ B_{\mathfrak{b}^q}\circ 		\begin{pmatrix}
+	* &0\\
+	*&Z
+\end{pmatrix}\\
+&= \pi_{-\grad_{x_j}(f)^\top} \circ \restr{\diff \left( \rho \circ E^u_q\right)}{B_{\mathfrak{b}^q}(y)}\circ Q_{B_{\mathfrak{b}^q}(y)}\circ B_{\mathfrak{b}^q}
+\end{align*} Hence, if we restrict the map to $(e_1,...,e_{\lambda_q})$ we have that the two maps induce bases that have the same orientation, since $Z$ has positive determinant. 
+
+
+
+	 With this we can again interchange:
+	\begin{align*}
+		\restr{\diff \left( \rho \circ E^u_q\right)}{B_{\mathfrak{b}^q}(y)}\circ Q_{B_{\mathfrak{b}^q}(y)}\circ B_{\mathfrak{b}^q}= \pi_{-\grad_{x_j}(f)^\top} \circ \restr{\diff  E^u_q}{B_{\mathfrak{b}^q}(y)}\circ Q_{{E^u_q}^{-1}(x_j)}\circ B_{\mathfrak{b}^q}
 	\end{align*}
 	\begin{tcolorbox}
 	 A different try with the following change: We define $\restr{\Phi}{H_-}(x_0,\dots,x_{\lambda_q})$ as follows: Let $x'\coloneq \phi_1\left(E^u_q\circ B_{\mathfrak{b}^q}\circ \pi (x)\right)$. Then $\restr{\Phi}{H_-}(x_0,\dots,x_{\lambda_q})\coloneq \left(\pm \left( 1-\euler^{-\tau(x')+1}\right),\rho(x')\right)$. The reader should check for well definition here. Now to shorten the calculations let $t\coloneq 1-\euler^{-\tau(x')+1}$. and we use the chart $	(\Omega\circ (\id \wedge \Gamma))^{-1}$ in the image. We can calculate now: 
