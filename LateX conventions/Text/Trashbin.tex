@@ -1,4 +1,130 @@
 
+	\begin{tcolorbox}
+	A different try with the following change: We define $\restr{\Phi}{H_-}(x_0,\dots,x_{\lambda_q})$ as follows: Let $x'\coloneq \phi_1\left(E^u_q\circ B_{\mathfrak{b}^q}\circ \pi (x)\right)$. Then $\restr{\Phi}{H_-}(x_0,\dots,x_{\lambda_q})\coloneq \left(\pm \left( 1-\euler^{-\tau(x')+1}\right),\rho(x')\right)$. The reader should check for well definition here. Now to shorten the calculations let $t\coloneq 1-\euler^{-\tau(x')+1}$. and we use the chart $	(\Omega\circ (\id \wedge \Gamma))^{-1}$ in the image. We can calculate now: 
+	\begin{align*}
+		(\Omega\circ (\id \wedge \Gamma))^{-1} \circ s\circ r \circ \pi_+^{-1}(x)
+		&=\left(\pm t, B^{-1}_{\mathfrak{b}^p}\circ \nu_{x_j}\circ J^{-1}\circ \rho  (x')\right)\\
+		&=\left(\pm t, B^{-1}_{\mathfrak{b}^p}\circ \nu_{x_j}\circ J^{-1}\circ \rho  (x')\right)\\
+		&=
+	\end{align*}
+	Hopefully we are done with this. Lets start by looking at the differential: First notice how $\diff t\big|_{x'=x_j}=\euler^{-\tau(x)+1}\cdot \diff \tau \big|_{x_j}$ 
+	THe latter sends $-\grad_{x_j}(f)$ to a negative number and all orthogonal basis vectors to zero. 
+	Now $\diff \rho\big|_{x_j}$ sends every basis vector to itself and collapses $-\grad_{x_j}(f)$ to zero. 
+	Hence, for an andapted basis and if we denote this basis $\mathfrak{b}^q=\left(\mathfrak{b}^q_1,\mathfrak{b}^q_{>1}\right)$ we have that $\diff\left(\rho  \circ \phi_1\left(E^u_q\circ B_{\mathfrak{b}^q}\circ \pi \right)\right)\circ Q=Q^{-1}\circ B_{\mathfrak{b}^q_{<1}}$.
+	Furtermore we have that $Q\circ \diff\left( B_{\mathfrak{b}^p}\circ \nu_{x_j} \circ J{-1}\right)$. 
+\end{tcolorbox}
+We now want to look at the differential of this in $x$. To be specific we only care for the sign of the determinant of said differential. Since $t\in (-\frac{1}{2},0)$ is negative \todo{should be $-\frac{1}{3}$} ,the scalar multiplication with $\sin(-\pi t)$ has a jacobean with a positive determinant. In Fact, its jacobean is Hence it does not interfere with the sign and we can leave it out. Hence we care for the sign of the jacobean of the map 
+\begin{equation*}
+	x\mapsto \left(-\cos(\pi \norm{z}),\sin\left(\pi\norm{z}\right) z\right)\,.
+\end{equation*}	Now the jacobean of the map splitts into two block matricies: Tut sie nicht!! hier sauber reingehen! vielleicht auch mal $\norm(z)$ ableiten...
+\begin{equation*}
+	\begin{pmatrix}
+		\sin(\pi \norm{z})&0\\
+		0& B\\
+	\end{pmatrix}
+\end{equation*}
+For this to be true, we need $\mathfrak{b}^q=\left(\mathfrak{b}^q_i\right)_{i=1,\dots,\lambda_q}$ to be a basis such that the following is true: 
+Let $Q$ be the map from $T^u_qM \to T_{{E^u_q}^{-1}(x_j)}T^u_qM$. Then we want that $Q\left(\partial\left(\mathfrak{b}^q_1\right)\right)$ maps to $-\grad_{x_j}(f)$ via $\diff {E^u_q}{-1}$.  Furthermore, all other $\mathfrak{b}^q_i$ get mapped to something orthogonal. Then we have the following two lemmas to help us compute: 
+
+
+
+
+\begin{theorem}
+	The Map
+	\begin{align}
+		\tau: W(q\to)\setminus \{q\} &\to \R\\
+		x                  &\mapsto \tau(x) \text{ such that }f\circ \phi_{\tau(x)}(x) =c
+	\end{align}
+	is smooth.
+\end{theorem}
+\begin{proof}
+	We know that such a map exists and is well defined since every flow line passes through $f^{-1}(c)$. Now let $x\in W(q\to)\setminus \{q\}$, $V$ be a neighbourhood of $x$ and  $U$ be a neighbourhood of $\phi_{\tau(x)}(x)$. Define the map
+	\begin{align*}
+		G:V\times I &\to \R\\
+		(x,t)&       \mapsto f\circ \left(\phi_t(x)\right) \, .
+	\end{align*}
+	Now the partial derivative reads
+	\begin{equation*}
+		\frac{\partial}{\partial t}G\big|{x,t}=\diff f\big|_{\phi_t(x)}\circ \frac{\partial}{\partial t} \phi_t(x)\big|_t
+		=  \diff f\big|_{\phi_t(x)}\circ \left(-\grad_{\phi_t(x)}(f)\right) \,.
+	\end{equation*} For $\phi_{\tau(x)}$ we have that $T_{\phi_{\tau(x)}(x)}f^{-1}(c)=  \ker\diff f \big|_{\phi_{\tau(x)}(x)}$. Since the flow line is transversal to the level set or said differently, the gradient is orthogonal to level sets, we have that the latter does not live in the kernal and hence
+	\begin{equation*}
+		\frac{\partial}{\partial t}G\big|{x,\tau(x)}=\diff f \big|_{\phi_{\tau(x)}(x)}\left(-\grad_{\phi_{\tau(x)}(x)}(f)\right)\neq 0 \, .
+	\end{equation*} This lets us use the implicit function theorem to deduce that the level set $G=c$ is ocally the graph of a funktino $\tau: U_x\to \R$ where $U_x$ is a neighbourhood of $x$. Hence the function $\tau$ is globally smooth since this argument can be done everywhere.
+\end{proof}
+\begin{remark}
+	Now we care for the differential of $\tau$ in a point $x_j\in W(q\to)\cap f^{-1}(c)$. For this we choose a chart of $W(q\to)$ arround $x_j$ such that the induced bases of $T_{x_j}W(q\to)=\langle -\grad_{x_j}(f)\rangle \oplus T_{x_j}V_j$ that respects the splitting. for example $\frac{\partial}{ \partial x^1}\big|_{x_j}= -\grad_{x_j}(f) $ and $\frac{\partial}{ \partial x^i}\big|_{x_j}\in T_{x_j}V_j$ for $i$ bigger than one. With this we can start our calculations:
+	Notice how $x\mapsto f\circ \phi_{\tau(x)}(x)$ is a constant function and hence its differential is $0$.
+	\begin{align*}
+		0=\diff_x\left(f\circ \phi_{\tau}\right)&=\overbrace{\diff f }^{1\text{-form}}\left( \diff\phi_\tau\right)=\diff f \left( \diff_t \phi_t \circ\diff_x\tau(x)+\diff_x\phi_{\tilde{t}=\tau(x)}\right)\\
+		&=\diff f \left( \diff_t \phi_t\circ \diff_x\tau(x)\right)+\diff f \left( \diff_x\phi_{\tilde{t}=\tau(x)}\right)\\
+		&=\diff_t \left(f \circ\phi_t \right) \circ\diff_x\tau(x)\circ  +\diff f \left( \diff_x\phi_{\tilde{t}=\tau(x)} \right)
+	\end{align*}
+	Hence we know that
+	\begin{equation*}
+		\diff_x \tau =-\frac{\diff f \left( \diff_x\phi_{\tilde{t}=\tau(x)} \right)}{\diff_t \left(f \circ\phi_t \right)}=-\frac{\diff f \left( \diff_x\phi_{\tilde{t}=\tau(x)} \right)}{-\norm{\grad(f)^2}}
+	\end{equation*}  Now we can calculate in $x_j$ where $\tau(x_j)=0$
+	\begin{align*}
+		\diff_x \tau \big|_{x_j}\frac{\partial}{ \partial x^i}\big|_{x_j}
+		=\frac{
+			\diff f \big|_{x_j} \frac{\partial}{ \partial x^i}\big|_{x_j}}
+		{\norm{\grad(f)^2}}
+		=\frac{
+			g\left(\grad_{x_i}(f), \frac{\partial}{ \partial x^1}\big|_{x_j}\right)}
+		{\norm{\grad(f)^2}}=
+		\begin{cases}
+			-1 & \text{ if }i=1\\
+			0 & \text{ else. }
+		\end{cases}
+	\end{align*}
+\end{remark}
+\todo{find a chart arround $x_j$ such that the induced chart respects the splitting!}
+\begin{theorem}
+	The map
+	\begin{align*}
+		\rho: W(q\to)\setminus \{q\}&\to W(q\to)\cap f^{-1}(c)\setminus W(q\to)\setminus \{q\}\\
+		x\mapsto \phi_{\tau(x)}(x)\,.
+	\end{align*} is a submersion in $y\in S(q\to)$
+\end{theorem}
+\begin{proof} To prove this we calculate its differential $\diff\rho\big|_y$ as follows:
+	\begin{equation*}
+		\diff \rho \big|_y=\diff_x(\phi_{\tau})\big|_y=\diff_t\phi_t\big|_{t=\tau(x)}\circ \diff_x \tau \big|_y+\diff_x\phi_{\tau(y)}\big|_y
+	\end{equation*} We can rewrite this by viewing $\diff_x \tau \big|_y$ as a one form and using the definition of the flow: $\diff_t\phi_t\big|_{t=\tau(x)}=-\grad_{\rho(x)}(f)$:
+	\begin{equation*}
+		\diff \rho \big|_y=-\grad_{\rho(x)}(f)\cdot \diff_x \tau \big|_y+\diff_x\phi_{\tau(y)}\big|_y
+	\end{equation*}
+	Now if $y\in f^{-1}(c)$ we have that $\tau(y)=0$ and hence $\diff_x\phi_{\tau(y)}=\id$. Hence the differential reads:
+	\begin{equation*}
+		\diff \rho \big|_y=-\grad_{y}(f)\cdot \diff_x \tau \big|_y+\id\, .
+	\end{equation*}
+	Now we can choose a local chart arround $y$ such that $-\grad_y(f)$ becomes the first basis vector of the tangend space, and the rest are orthonormal. Then the differential acts on $-\grad_y(f)$:
+	\begin{equation*}
+		\diff \rho \big|_y(-\grad_y(f))=-\grad_{y}(f)\cdot \underbrace{ \diff_x \tau \big|_y(-\grad_y(f))}_{=-1}-\grad_y(f) =0\,
+	\end{equation*} and on all the other tangend vectors as the identity, due to the first summand vanishing.
+	Therefore the jacobean in this basis is of the form
+	\begin{equation*}
+		\diff \rho \big|_y=(0,1_{\lambda_{q}-1}).
+	\end{equation*}
+\end{proof}
+\end{proof}
+Back to our differential: We now have that 
+\begin{equation*}
+\diff\left(	\rho \circ E^u_q\circ B_{\mathfrak{b}^q}(3\cdot x)\right)\big|_{y}\left(e_i\right)=\begin{cases*}
+	0 &\text{ if }i=1\\
+	3\mathfrak{b}^q_i &\text{ else.}
+\end{cases*}
+\end{equation*} For the further calculation we claim that $\norm(z)=1-\tau(3x)$. 
+
+
+
+
+
+
+
+
+
+
+
 
 Now let $\tilde{y}= \frac{1}{3}(B_{\mathfrak{b}^q}^{-1}\circ {E^u_q}^{-1}(x_j)$, and $y\coloneq\Gamma(y)$. The multiplication by three in the definition made sure that  $y$ is in the interior (and in fact in the upper hemisphere). Now $\pi_+: H_+\to D^{\lambda_q}$ is a chart for the upper hemisphere that is the same orientation as $-\pi_-:H_-\to D^{\lambda_q}$, Around $y$ the function is a diffeomorphism, hence we can check for local degree by checking the sign of the determinant of the Jacobean of $s\circ r$ in $y$ with respect to charts around $y$ and around its image that are induced from the same orientation in $S^k$. Since $y$ gets mapped to the lower hemisphere we check the sign of the jacobean of
 \begin{equation*}

@@ -1238,6 +1238,10 @@ now the half cylinder ($x_1\geq 0$) is again homotopic to the whole with the inc
 \begin{equation*}
 	\delta^2_ {triple}=\sum_j\delta^j_{triple}\circ i_j^*
 \end{equation*}
+	Since $i_{C,B}^*$ is an isomorphism (since $W(q\to \cap N_p$ is a deformation retract of $C$ and the collaps collapses $B$ to $S(q\to)$), we have that 
+	\begin{equation} \label{eq: Delta in terms of delta j}
+		\Delta(\alpha_q)=\delta^1_{triple}(\alpha_q)=i^*_{C,B}\circ \sum_j\delta^j_{triple}\circ i_j^* \circ i^*_{B,A}(\alpha_q)
+	\end{equation}
 	
 	The map $\delta^2_{triple}$ is defined as the composition:
 	\begin{fdiagram} \label{diag: Definitino of delta j}
@@ -1386,7 +1390,7 @@ The downwards maps in the Theorem are the induction of the canonical generators.
 		  With $r$ we finally have all the maps. Now we want to find out what degree the composition
 		  $s\circ r$ has. For this we calculate the local degree in some point by checking the sign of the determinant of the Jacobean.
 	\end{itemize} 
-	Bevor we start differentiating, we expand the map arround $x\in \R^{\lambda_q}$, such that $x'\coloneq E^u_q\circ B_{\mathfrak{b}^q}(x)\in \rho{-1}(x_j)$, meaning that $x'$ is on the flow line towards $x_j$ and assume that $\tau(x_j)=1$.
+	Bevor we start differentiating, we expand the map arround $x\in \R^{\lambda_q}$, such that $x'\coloneq E^u_q\circ B_{\mathfrak{b}^q}(x)\in \rho{-1}(x_j)$, meaning that $x'$ is on the flow line towards $x_j$ and assume that $\tau(x')=1$.
 	\begin{align*}
 		&   \phantom{=}	\pi_+\circ s\circ r\circ \pi_+^{-1}(x_1,\dots .,x_{\lambda_q})\\
 		&=	\pi_+\circ s\circ R (- x_0,x_1,\dots .,x_{\lambda_q}) \quad x_0>0\\
@@ -1408,149 +1412,62 @@ The downwards maps in the Theorem are the induction of the canonical generators.
 		&=Q_0^{-1}\circ  \restr{\diff \left(B_{\mathfrak{b}^p}^{-1} \circ \nu_{x_j}\circ J^{-1}\circ \rho \circ E^u_q\right)}{B_{\mathfrak{b}^q}(y)}\circ Q_{B_{\mathfrak{b}^q}(y)}\circ B_{\mathfrak{b}^q}(e_i) \quad \text{ in general $Q$ and $\diff L$ has a commutative property}\\
 		&= Q_0^{-1}\circ \restr{\diff \left(B_{\mathfrak{b}^p}^{-1} \circ \nu_{x_j}\circ J^{-1}\right)}{x_j}\circ \restr{\diff \left( \rho \circ E^u_q\right)}{B_{\mathfrak{b}^q}(y)}\circ Q_{B_{\mathfrak{b}^q}(y)}\circ B_{\mathfrak{b}^q}(e_i)		
 	\end{align*}
-	Now the term $\restr{\diff \left( \rho \circ E^u_q\right)}{B_{\mathfrak{b}^q}(y)}\circ Q_{B_{\mathfrak{b}^q}(y)}\circ B_{\mathfrak{b}^q}$ induces a basis in $T_{x_j}W(q\to)$ that is compatible with the basis induced from
-	\begin{equation*}
- \underbrace{\pi_{-\grad_{x_j}(f)^\top}}_{\text{projects onto the orthogonal complement of }-\grad_{x_j}(f)}\circ \restr{\diff  E^u_q}{B_{\mathfrak{b}^q}(y)}\circ Q_{{E^u_q}^{-1}(x_j)}\circ B_{\mathfrak{b}^q}
-	\end{equation*} To see this notice how $\rho\circ E^u_q(x)=E^u_q\circ A_{\tau\circ E^u_q(x)}(x)$. In the basis $\mathfrak{b}^q$ and with $y'\coloneq E^u_q\circ B_{\mathfrak{b}^q}(y)$, and $M\coloneq \diag(\mu_1,\dots,\mu_{\lambda_q})$ we can calculate:
+	Now the term $\restr{\diff \left( \rho \circ E^u_q\right)}{B_{\mathfrak{b}^q}(y)}\circ Q_{B_{\mathfrak{b}^q}(y)}\circ B_{\mathfrak{b}^q}$ maps $e_1$ to zero. and $(e_2,\dots e_{\lambda_q})$
+	induces a basis in $T_{x_j}V_j$ that is compatible with a basis $(\mathfrak{d}_i)_{i=2,\dots \lambda_q}$ that satisfies the following: Adding $-\grad_{x_j}(f)$ as the first basis vector to $(\mathfrak{d}_i)_{i=2,\dots \lambda_q}$ gives a basis of $T_{x_j}W(q\to)$ that is compatible with the basis induced from $\mathfrak{b}^q$ that appears in the counting of flow lines in the Morse boundary operator. \todo{beweis in crixet}
+	Now we can look at the First part: 
 	\begin{align*}
-	&\phantom{=}\restr{\diff \left(B_{\mathfrak{b}^q}^{-1}\circ A_{\tau \circ E^u_q\circ B_{\mathfrak{b}^q}}\circ B_{\mathfrak{b}^q}\right)}{y}\\
-		&=\underbrace{\restr{\diff_t \left( B_{\mathfrak{b}^q}^{-1}\circ A_{t}\circ B_{\mathfrak{b}^q}\right)}{t=\tau (y')}}_{=M\cdot B_{\mathfrak{b}^q}^{-1}\circ A_{\tau(y')}\circ B_{\mathfrak{b}^q}(y)}
-		\cdot \underbrace{\restr{\diff_x \left(\tau \circ E^u_q \circ B_{\mathfrak{b}^q}\right)}{y}}_{=(-1,0,\dots,0)}
-		+\underbrace{\restr{\diff_x B_{\mathfrak{b}^q}^{-1}\circ A_{\tau(y')}\circ B_{\mathfrak{b}^q}}{y}}_{=B_{\mathfrak{b}^q}^{-1}\circ A_{\tau(y')}\circ B_{\mathfrak{b}^q}}\\
-\end{align*}	
-This has the jacobean 
-\begin{equation*}
-		\begin{pmatrix}
-			* &0\\
-			*&Z
-		\end{pmatrix}, 
-\end{equation*} where $Z$ has a positive determinant. Hence, 
-\begin{align*}
-&\pi_{-\grad_{x_j}(f)^\top} \circ \restr{\diff  E^u_q}{B_{\mathfrak{b}^q}(y)}\circ Q_{{E^u_q}^{-1}(x_j)}\circ B_{\mathfrak{b}^q}\circ 		\begin{pmatrix}
-	* &0\\
-	*&Z
-\end{pmatrix}\\
-&= \pi_{-\grad_{x_j}(f)^\top} \circ \restr{\diff \left( \rho \circ E^u_q\right)}{B_{\mathfrak{b}^q}(y)}\circ Q_{B_{\mathfrak{b}^q}(y)}\circ B_{\mathfrak{b}^q}
-\end{align*} Hence, if we restrict the map to $(e_1,...,e_{\lambda_q})$ we have that the two maps induce bases that have the same orientation, since $Z$ has positive determinant. 
-
-
-
-	 With this we can again interchange:
-	\begin{align*}
-		\restr{\diff \left( \rho \circ E^u_q\right)}{B_{\mathfrak{b}^q}(y)}\circ Q_{B_{\mathfrak{b}^q}(y)}\circ B_{\mathfrak{b}^q}= \pi_{-\grad_{x_j}(f)^\top} \circ \restr{\diff  E^u_q}{B_{\mathfrak{b}^q}(y)}\circ Q_{{E^u_q}^{-1}(x_j)}\circ B_{\mathfrak{b}^q}
-	\end{align*}
-	\begin{tcolorbox}
-	 A different try with the following change: We define $\restr{\Phi}{H_-}(x_0,\dots,x_{\lambda_q})$ as follows: Let $x'\coloneq \phi_1\left(E^u_q\circ B_{\mathfrak{b}^q}\circ \pi (x)\right)$. Then $\restr{\Phi}{H_-}(x_0,\dots,x_{\lambda_q})\coloneq \left(\pm \left( 1-\euler^{-\tau(x')+1}\right),\rho(x')\right)$. The reader should check for well definition here. Now to shorten the calculations let $t\coloneq 1-\euler^{-\tau(x')+1}$. and we use the chart $	(\Omega\circ (\id \wedge \Gamma))^{-1}$ in the image. We can calculate now: 
-	 \begin{align*}
-	 	(\Omega\circ (\id \wedge \Gamma))^{-1} \circ s\circ r \circ \pi_+^{-1}(x)
-	 	&=\left(\pm t, B^{-1}_{\mathfrak{b}^p}\circ \nu_{x_j}\circ J^{-1}\circ \rho  (x')\right)\\
-	 	&=\left(\pm t, B^{-1}_{\mathfrak{b}^p}\circ \nu_{x_j}\circ J^{-1}\circ \rho  (x')\right)\\
-	 	&=
-	 \end{align*}
-	 Hopefully we are done with this. Lets start by looking at the differential: First notice how $\diff t\big|_{x'=x_j}=\euler^{-\tau(x)+1}\cdot \diff \tau \big|_{x_j}$ 
-	 THe latter sends $-\grad_{x_j}(f)$ to a negative number and all orthogonal basis vectors to zero. 
-	 Now $\diff \rho\big|_{x_j}$ sends every basis vector to itself and collapses $-\grad_{x_j}(f)$ to zero. 
-	 Hence, for an andapted basis and if we denote this basis $\mathfrak{b}^q=\left(\mathfrak{b}^q_1,\mathfrak{b}^q_{>1}\right)$ we have that $\diff\left(\rho  \circ \phi_1\left(E^u_q\circ B_{\mathfrak{b}^q}\circ \pi \right)\right)\circ Q=Q^{-1}\circ B_{\mathfrak{b}^q_{<1}}$.
-	  Furtermore we have that $Q\circ \diff\left( B_{\mathfrak{b}^p}\circ \nu_{x_j} \circ J{-1}\right)$. 
-	\end{tcolorbox}
-	We now want to look at the differential of this in $x$. To be specific we only care for the sign of the determinant of said differential. Since $t\in (-\frac{1}{2},0)$ is negative \todo{should be $-\frac{1}{3}$} ,the scalar multiplication with $\sin(-\pi t)$ has a jacobean with a positive determinant. In Fact, its jacobean is Hence it does not interfere with the sign and we can leave it out. Hence we care for the sign of the jacobean of the map 
+		Q_0^{-1}\circ \restr{\diff \left(B_{\mathfrak{b}^p}^{-1} \circ \nu_{x_j}\circ J^{-1}\right)}{x_j}
+		&=\Big(\restr{\diff J}{x_j}\circ \restr{\diff \nu_{x_j}^{-1}}{0}\circ \restr{\diff B_{\mathfrak{b}^p}}{0} \circ Q_0 \Big)^{-1}\\
+		&=\Big(\underbrace{\restr{\diff J}{x_j}\circ Q_{0}}_{=\id_{T_{x_j}V_j}} \circ \nu_{x_j}^{-1}  \circ B_{\mathfrak{b}^p} \Big)^{-1}\\	
+		&=\Big( \nu_{x_j}^{-1}  \circ B_{\mathfrak{b}^p} \Big)^{-1}
+	\end{align*} Notice how $\nu_{x_j}^{-1}  \circ B_{\mathfrak{b}^p}$ induces a basis on $T_{x_j}V_j$ from a basis in $T^u_pM$. Comparing this basis to the basis  $(\mathfrak{d}_i)_{i=2,\dots \lambda_q}$ is what assigned the sign to the flow line in the Morse boundary operator. By the calculations we know that the Jacobean of the funktion $Z$ 
 	\begin{equation*}
-		x\mapsto \left(-\cos(\pi \norm{z}),\sin\left(\pi\norm{z}\right) z\right)\,.
-	\end{equation*}	Now the jacobean of the map splitts into two block matricies: Tut sie nicht!! hier sauber reingehen! vielleicht auch mal $\norm(z)$ ableiten...
-	\begin{equation*}
+		\diff Q_0^{-1}\circ \restr{\diff \left(B_{\mathfrak{b}^p}^{-1} \circ \nu_{x_j}\circ J^{-1}\circ \rho \circ E^u_q\circ B_{\mathfrak{b}^q}\right)}{y}\circ Q_y=
 		\begin{pmatrix}
-			\sin(\pi \norm{z})&0\\
-			0& B\\
-		\end{pmatrix}
-	\end{equation*}
-	For this to be true, we need $\mathfrak{b}^q=\left(\mathfrak{b}^q_i\right)_{i=1,\dots,\lambda_q}$ to be a basis such that the following is true: 
-	Let $Q$ be the map from $T^u_qM \to T_{{E^u_q}^{-1}(x_j)}T^u_qM$. Then we want that $Q\left(\partial\left(\mathfrak{b}^q_1\right)\right)$ maps to $-\grad_{x_j}(f)$ via $\diff {E^u_q}{-1}$.  Furthermore, all other $\mathfrak{b}^q_i$ get mapped to something orthogonal. Then we have the following two lemmas to help us compute: 
-
+			0&\tilde{Z}
+		\end{pmatrix}\,,
+	\end{equation*}where $\tilde{Z}$ is a $\lambda_{q-1}$ matrix with the sign of its determinant being given by the sign in the Morse boundary operator $n_{\gamma}$. 
 	
-
-
-\begin{theorem}
-	The Map
-	\begin{align}
-		\tau: W(q\to)\setminus \{q\} &\to \R\\
-		x                  &\mapsto \tau(x) \text{ such that }f\circ \phi_{\tau(x)}(x) =c
-	\end{align}
-	is smooth.
-\end{theorem}
-\begin{proof}
-	We know that such a map exists and is well defined since every flow line passes through $f^{-1}(c)$. Now let $x\in W(q\to)\setminus \{q\}$, $V$ be a neighbourhood of $x$ and  $U$ be a neighbourhood of $\phi_{\tau(x)}(x)$. Define the map
+	Now we can calculate the differential 
 	\begin{align*}
-		G:V\times I &\to \R\\
-		(x,t)&       \mapsto f\circ \left(\phi_t(x)\right) \, .
-	\end{align*}
-	Now the partial derivative reads
+			&   \restr{\diff \Big( \pi_+\circ s\circ r\circ \pi_+^{-1}(x_1,\dots .,x_{\lambda_q})\Big)}{x}\\
+			&=  \restr{\diff \left(\sin(\pi e^{\tau(E^u_q\circ B_{\mathfrak{b}^q}(x))}) \cdot
+				\begin{pmatrix}
+					-\cos\left(\pi \cdot \norm{Z(x)}\right)\\
+					\sin\left(\pi \cdot \norm{Z(x)}\right) \cdot \frac{Z(x)}{\norm{Z(x)}})
+				\end{pmatrix}\right)}{x}
+	\end{align*} To keep it readable we will first calculate
+	\begin{equation*} 
+	\restr{	\diff \left(\sin(\pi e^{\tau(E^u_q\circ B_{\mathfrak{b}^q}(x))})\right)}{x}=\cos(\pi\cdot \euler )\cdot \pi \euler \cdot \restr{\diff \tau }{E^u_q\circ B_{\mathfrak{b}^q}(x)}=\Big(\underbrace{\cos(\pi\cdot \euler )\cdot \pi \euler}_{<0},0,\dots,0\Big) 
+	\end{equation*} 
+	In this calculation we used that $x$ was choosen such that $\tau\circ E^u_q \circ B_{\mathfrak{b}^q}=1$ and $\mathfrak{b}^q$ was such that $\restr{\diff E^u_q}{y}\circ Q_y(\mathfrak{b}^q_i)$ equals $-\grad_{y}(f)$ for $i=1$ and for $i>1$ it equals $\restr{\diff \phi_{\tau(y)}}{y}^{-1}({w_i})$ where $(w_i)$ denotes a basis of $T_{x_j}V_j$. Hence applying the product rule to the differential above yealds a sum with the first summond being
 	\begin{equation*}
-		\frac{\partial}{\partial t}G\big|{x,t}=\diff f\big|_{\phi_t(x)}\circ \frac{\partial}{\partial t} \phi_t(x)\big|_t
-		=  \diff f\big|_{\phi_t(x)}\circ \left(-\grad_{\phi_t(x)}(f)\right) \,.
-	\end{equation*} For $\phi_{\tau(x)}$ we have that $T_{\phi_{\tau(x)}(x)}f^{-1}(c)=  \ker\diff f \big|_{\phi_{\tau(x)}(x)}$. Since the flow line is transversal to the level set or said differently, the gradient is orthogonal to level sets, we have that the latter does not live in the kernal and hence
+	\left(-1,0,\dots,0\right)\cdot 	\Big(\underbrace{\cos(\pi\cdot \euler )\cdot \pi \euler}_{<0},0,\dots,0\Big)^\top=
+	\begin{pmatrix}
+		a&0\\
+		0&0
+	\end{pmatrix} \, \quad \text{where  }a>0\,.
+	\end{equation*} Here we just used, that $Z(x)=0$. The second summand is:
 	\begin{equation*}
-		\frac{\partial}{\partial t}G\big|{x,\tau(x)}=\diff f \big|_{\phi_{\tau(x)}(x)}\left(-\grad_{\phi_{\tau(x)}(x)}(f)\right)\neq 0 \, .
-	\end{equation*} This lets us use the implicit function theorem to deduce that the level set $G=c$ is ocally the graph of a funktino $\tau: U_x\to \R$ where $U_x$ is a neighbourhood of $x$. Hence the function $\tau$ is globally smooth since this argument can be done everywhere.
-\end{proof}
-\begin{remark}
-	Now we care for the differential of $\tau$ in a point $x_j\in W(q\to)\cap f^{-1}(c)$. For this we choose a chart of $W(q\to)$ arround $x_j$ such that the induced bases of $T_{x_j}W(q\to)=\langle -\grad_{x_j}(f)\rangle \oplus T_{x_j}V_j$ that respects the splitting. for example $\frac{\partial}{ \partial x^1}\big|_{x_j}= -\grad_{x_j}(f) $ and $\frac{\partial}{ \partial x^i}\big|_{x_j}\in T_{x_j}V_j$ for $i$ bigger than one. With this we can start our calculations:
-	Notice how $x\mapsto f\circ \phi_{\tau(x)}(x)$ is a constant function and hence its differential is $0$.
-	\begin{align*}
-		0=\diff_x\left(f\circ \phi_{\tau}\right)&=\overbrace{\diff f }^{1\text{-form}}\left( \diff\phi_\tau\right)=\diff f \left( \diff_t \phi_t \circ\diff_x\tau(x)+\diff_x\phi_{\tilde{t}=\tau(x)}\right)\\
-		&=\diff f \left( \diff_t \phi_t\circ \diff_x\tau(x)\right)+\diff f \left( \diff_x\phi_{\tilde{t}=\tau(x)}\right)\\
-		&=\diff_t \left(f \circ\phi_t \right) \circ\diff_x\tau(x)\circ  +\diff f \left( \diff_x\phi_{\tilde{t}=\tau(x)} \right)
-	\end{align*}
-	Hence we know that
+		\underbrace{\sin(\pi\cdot e)}_{>0}\begin{pmatrix}
+			\sin(0)\cdot *=0\\
+			\pi\cdot 1_{\lambda_q\times \lambda_q}\circ \restr{\diff Z}{x}
+		\end{pmatrix}=\begin{pmatrix}
+		0&0\\
+		0&b\cdot Z
+		\end{pmatrix}\quad \text{ where $b>0$)}\,.
+	\end{equation*} Here we used that
 	\begin{equation*}
-		\diff_x \tau =-\frac{\diff f \left( \diff_x\phi_{\tilde{t}=\tau(x)} \right)}{\diff_t \left(f \circ\phi_t \right)}=-\frac{\diff f \left( \diff_x\phi_{\tilde{t}=\tau(x)} \right)}{-\norm{\grad(f)^2}}
-	\end{equation*}  Now we can calculate in $x_j$ where $\tau(x_j)=0$
-	\begin{align*}
-		\diff_x \tau \big|_{x_j}\frac{\partial}{ \partial x^i}\big|_{x_j}
-		=\frac{
-			\diff f \big|_{x_j} \frac{\partial}{ \partial x^i}\big|_{x_j}}
-		{\norm{\grad(f)^2}}
-		=\frac{
-			g\left(\grad_{x_i}(f), \frac{\partial}{ \partial x^1}\big|_{x_j}\right)}
-		{\norm{\grad(f)^2}}=
-		\begin{cases}
-			-1 & \text{ if }i=1\\
-			0 & \text{ else. }
-		\end{cases}
-	\end{align*}
-\end{remark}
-\todo{find a chart arround $x_j$ such that the induced chart respects the splitting!}
-\begin{theorem}
-	The map
-	\begin{align*}
-		\rho: W(q\to)\setminus \{q\}&\to W(q\to)\cap f^{-1}(c)\setminus W(q\to)\setminus \{q\}\\
-		x\mapsto \phi_{\tau(x)}(x)\,.
-	\end{align*} is a submersion in $y\in S(q\to)$
-\end{theorem}
-\begin{proof} To prove this we calculate its differential $\diff\rho\big|_y$ as follows:
+\restr{\diff \frac{\sin(\pi\norm{x})}{\norm{x}}\cdot x}{x\to 0}=\pi\cdot 1_{\lambda_q\times \lambda_q}
+	\end{equation*} But with this we have the jacobean 
 	\begin{equation*}
-		\diff \rho \big|_y=\diff_x(\phi_{\tau})\big|_y=\diff_t\phi_t\big|_{t=\tau(x)}\circ \diff_x \tau \big|_y+\diff_x\phi_{\tau(y)}\big|_y
-	\end{equation*} We can rewrite this by viewing $\diff_x \tau \big|_y$ as a one form and using the definition of the flow: $\diff_t\phi_t\big|_{t=\tau(x)}=-\grad_{\rho(x)}(f)$:
+		\restr{\diff \Big( \pi_+\circ s\circ r\circ \pi_+^{-1}(x_1,\dots .,x_{\lambda_q})\Big)}{x}=\begin{pmatrix}
+			a&0\\
+			0&bZ
+		\end{pmatrix}\,,
+	\end{equation*} and know that its determinant has a positive that equals $n_{\gamma}$ which is the assigned sign to the flow line containing $x_j$ in the Morse Boundary operator. Or said differently: The local and hence global degree of the map $r^*\circ s^*$ equals $n_\gamma$. With this we can calculate 
 	\begin{equation*}
-		\diff \rho \big|_y=-\grad_{\rho(x)}(f)\cdot \diff_x \tau \big|_y+\diff_x\phi_{\tau(y)}\big|_y
+		\delta^j_{triple}(\alpha_p)=\sum_{j}\delta^j_{triple}\circ f_p^*(\beta)=n_{\gamma}f^*_q(\beta)=n_\gamma(\alpha_q)
 	\end{equation*}
-	Now if $y\in f^{-1}(c)$ we have that $\tau(y)=0$ and hence $\diff_x\phi_{\tau(y)}=\id$. Hence the differential reads:
-	\begin{equation*}
-		\diff \rho \big|_y=-\grad_{y}(f)\cdot \diff_x \tau \big|_y+\id\, .
-	\end{equation*}
-	Now we can choose a local chart arround $y$ such that $-\grad_y(f)$ becomes the first basis vector of the tangend space, and the rest are orthonormal. Then the differential acts on $-\grad_y(f)$:
-	\begin{equation*}
-		\diff \rho \big|_y(-\grad_y(f))=-\grad_{y}(f)\cdot \underbrace{ \diff_x \tau \big|_y(-\grad_y(f))}_{=-1}-\grad_y(f) =0\,
-	\end{equation*} and on all the other tangend vectors as the identity, due to the first summand vanishing.
-	Therefore the jacobean in this basis is of the form
-	\begin{equation*}
-		\diff \rho \big|_y=(0,1_{\lambda_{q}-1}).
-	\end{equation*}
+	Furthermore: $\Delta(\alpha_p)=\delta^2_{triple}(\alpha_p)=\sum_{\gamma \in \mathcal{q,p}} n_\gamma(\alpha_q)$. This concludes the prove. 
 \end{proof}
-\end{proof}
-Back to our differential: We now have that 
-\begin{equation*}
-\diff\left(	\rho \circ E^u_q\circ B_{\mathfrak{b}^q}(3\cdot x)\right)\big|_{y}\left(e_i\right)=\begin{cases*}
-	0 &\text{ if }i=1\\
-	3\mathfrak{b}^q_i &\text{ else.}
-\end{cases*}
-\end{equation*} For the further calculation we claim that $\norm(z)=1-\tau(3x)$. 
