@@ -75,11 +75,11 @@ This section aims to set the playing field for the thesis. Due to the theory bei
 \begin{corollary}
 	Let $(M,c)$ be a smooth manifold and $\phi:U\to V$ be a chart around $p$ with $x_0=\phi(p)$ ($\phi \in \mathfrak{A}\in c$). Then 
 	\begin{align*}
-		\xi=\frac{\partial}{\partial x_j}\Big|_p : \mathcal{E}_p(M) &\to \R \\
-		f_p & \mapsto \xi(f_p)=\frac{\partial}{\partial x_j}\Big|_{x_0}(f\circ \phi^{-1} )
+		\xi=\restr{\frac{\partial}{\partial x_j}}{p} : \mathcal{E}_p(M) &\to \R \\
+		f_p & \mapsto \xi(f_p)=\restr{\frac{\partial}{\partial x_j}}{x_0}(f\circ \phi^{-1} )
 	\end{align*} is well-defined and a tangent vector. In fact, the family
 	\begin{align*}
-		\left(\frac{\partial}{\partial x_1}\Big|_p,...,\frac{\partial}{\partial x_m}\Big|_p\right)
+		\left( \restr{\frac{\partial}{\partial x_1}}{p},...,\restr{\frac{\partial}{\partial x_m}}{p}\right)
 	\end{align*} defines a basis of $TM_p$. Hence, the dimension of $TM_p$ is $m$.
 \end{corollary}
 \begin{definition}
@@ -90,64 +90,59 @@ This section aims to set the playing field for the thesis. Due to the theory bei
 	\end{align*} Furthermore, the \textbf{local vector fields} with respect to a chart $\phi:U\to V$
 	\begin{align*}
 		\frac{\partial}{\partial x_j}: U & \to \pi^{-1}(U) \\
-		p &\mapsto \frac{\partial}{\partial x_j}\Big|_p
+		p &\mapsto \restr{\frac{\partial}{\partial x_j}}{p}
 	\end{align*} induce a local trivialization:
 	\begin{align*}
 		\pi^{-1}(U)\cong U \times \R^m\, .
-	\end{align*} We can induce a topology on $TM$ such that all those trivializations are continuos. This then gives an atlas for $TM$ such that we have a $2m$-dimensional manifold. To be precise, the atlas is given by the maps $\pi^{-1}(U_i)\to R^m\times R^m; x\mapsto (\pi(x),q_{\phi\circ \pi(x)}(x))$ where $q_p$ denotes the coordinate map corresponding to the basis $(\frac{\partial}{\partial x_1}\big|_p,...,\frac{\partial}{\partial x_m}\big|_p)$ that depends on the chart $\phi_i$.  In fact, this yields a smooth manifold and a (smooth) vector bundle of dimension $m$. We call $TM$ the \textbf{tangent bundle}.
+	\end{align*} We can induce a topology on $TM$ such that all those trivializations are continuos. This then gives an atlas for $TM$ such that we have a $2m$-dimensional manifold. To be precise, the atlas is given by the maps $\pi^{-1}(U_i)\to R^m\times R^m; x\mapsto (\pi(x),q_{\phi\circ \pi(x)}(x))$ where $q_p$ denotes the coordinate map corresponding to the basis $(\restr{\frac{\partial}{\partial x_1}}{p},...,\restr{\frac{\partial}{\partial x_m}}{p})$ that depends on the chart $\phi_i$.  In fact, this yields a smooth manifold and a (smooth) vector bundle of dimension $m$. We call $TM$ the \textbf{tangent bundle}.
 \end{definition}
 \begin{definition}[The Derivative]
 	Let $(M,c)$ and $(M',c')$ be smooth manifolds (from now on we suppress the differentiable structure in our notation). We call a continuous function $f:M \to M'$ \textbf{smooth}, if for all $\phi\in \mathfrak{A}\in c$ and $\phi'\in \mathfrak{A}'\in c'$ the maps
 	\begin{align*}
 		\phi'\circ f\circ  \phi^{-1}:V\to V'
-	\end{align*} are smooth. A given smooth function induces a smooth function between the Tangent bundles as follows:
+	\end{align*} are smooth. A given smooth function induces a smooth function between the tangent bundles as follows:
 	\begin{align*}
 		Df: TM &\to TM' ~,Df_p(\xi)(g_p)=\xi((g\circ f)_p)
 	\end{align*}Here, $\xi\in T_pM$, $g_p\in E_p(M')$.
 \end{definition}
 \begin{corollary}\label{cor: Vectorfields hav funktions as inputs}
-	Let $f:M\to \R$ be smooth and $\phi: U\to V$ be a chart. Then we can interprete $\diff f$ as a one-form. To be prezice asume $q$ to be the coordinate funktion $T\R\to \R$ from the basis induced by the identity as a chart. $v\in \Gamma TM$ we have
+	Let $f:M\to \R$ be smooth and $\phi: U\to V$ be a chart. Then we can interpret $\diff f$ as a one-form. To be precise assume $q$ to be the coordinate function $T\R\to \R$ from the basis induced by the identity as a chart. $v\in \Gamma TM$ we have
 	\begin{align*}
 		q\circ \diff f(v)=v\cdot f
-	\end{align*} Here on the righd side, $f$ denotes a map $p\mapsto f_p$ such that $v(f)(p)\coloneq v_p(f_p)$ is well defined. We keep this notations so vector fields can take funktions as an input.
+	\end{align*} Here on the right side, $f$ denotes a map $p\mapsto f_p$ such that $v(f)(p)\coloneq v_p(f_p)$ is well defined. We keep this notations so vector fields can take functions as an input.
 \end{corollary}
 \begin{proof}
-	We proof this by showing it for the section $\frac{\partial}{\partial x_i}$ and thereby for any, since those sections form a basis of the space of sections as a $C^{\infty}(M,\R)$ vectorspace. Now let $g_p\in \mathcal{E}_p(\R)$ and $\phi(p)=x_0$. Then
+	We proof this by showing it for the section $\frac{\partial}{\partial x_i}$ and thereby for any, since those sections form a basis of the space of sections as a $C^{\infty}(M,\R)$ vector space. Now let $g_p\in \mathcal{E}_p(\R)$ and $\phi(p)=x_0$. Then
 	\begin{align*}
-		\diff f(\frac{\partial }{\partial x_i}\big|_p)(g_p)= \frac{\partial }{\partial x_i}\big|_p (g\circ f)_p=\frac{\partial }{\partial x_i}\big|_{x_0}(g\circ f\circ \phi^{-1})=\frac{\partial }{\partial x}\big|_{p}(g_p) \cdot \frac{\partial }{\partial x_i}\big|_p(f_p)
+		\restr{\diff f(\frac{\partial }{\partial x_i}}{p})(g_p)= \restr{\frac{\partial }{\partial x_i}}{p} (g\circ f)_p=\restr{\frac{\partial }{\partial x_i}}{x_0}(g\circ f\circ \phi^{-1})=\restr{\frac{\partial }{\partial x}}{p}(g_p) \cdot \restr{\frac{\partial }{\partial x_i}}{p}(f_p)
 	\end{align*}
 	Hence, $\diff f (v)=v(f)\frac{\partial }{\partial x}$ letting us conclude the statement.
 \end{proof}
 \begin{definition}[A Metric]
 	Let $M$ be a smooth manifold.
-	A section $g\in \Gamma(TM^*\otimes TM^*)$ into the tensor product of the dual Tangend bundle with itself is a\textbf{ riemannian metric} if the following are satisfied for all $p\in M$:
+	A section $g\in \Gamma(TM^*\otimes TM^*)$ into the tensor product of the dual tangend bundle with itself is a\textbf{ Riemannian metric} if the following are satisfied for all $p\in M$:
 	\begin{enumerate}
 		\item $g$ is \textbf{non degenerate}, meaning for a $v_p\in T_pM$ $g_p(v_p,w_p)=0 ~\forall w_p\in T_pM$ then $v_p=0$.
 		\item $g$ is \textbf{symmetric}, meaning $g_p(v_p,w_p)=g_p(w_p,v_p)~\forall v_p,w_p\in T_pM$ .
-		\item $g$ is \textbf{positiv definite}, meaning that $g_p(v_p,v_p)\geq 0 \forall v_p$ and vanishes only for $v_p=0$.
-	\end{enumerate} We cal a touple $(M,g)$ a \textbf{riemannian manifold}.
+		\item $g$ is \textbf{positive definite}, meaning that $g_p(v_p,v_p)\geq 0 \forall v_p$ and vanishes only for $v_p=0$.
+	\end{enumerate} We cal a tuple $(M,g)$ a \textbf{Riemannian manifold}.
 \end{definition}
-\begin{definition}
-	Let $M,N,L$ be smooth manifolds and $f:M\times N \to M'\times N'$. Let $X\in \gamma(TM)$ and $Y\in \Gamma(TN)$. We define $\tilde{X}\in \Gamma(T(M\times N))$ as follows. Let $f_p\in \mathcal{E}_p(M,N)$
-	\begin{align*}
-		\tilde{X}(f_p)=X((f\circ i_M)_{p_M}) \quad \text{ where }p_M=\pi_1(p) \, .
-	\end{align*}
-\end{definition}
+
 \begin{definition}[The Gradient]
-	Assume that $(M,g)$ is a smooth manifold together with a riemannian metric. Let $f:M\to \R$ be a smooth function. We define its \textbf{gradient} to be a vector field $\grad(f)\in \Gamma(TM)$ such that for any vecor field $V$:
+	Assume that $(M,g)$ is a smooth manifold together with a Riemannian metric. Let $f:M\to \R$ be a smooth function. We define its \textbf{gradient} to be a vector field $\grad(f)\in \Gamma(TM)$ such that for any vecor field $V$:
 	\begin{align*}
 		q\circ \diff f (V) = g(\grad(f),V) \, .
-	\end{align*} Here $q$ denotes the canonical coordinate funtion $T\R \to \R$.
+	\end{align*} Here $q$ denotes the canonical coordinate function $T\R \to \R$.
 \end{definition}
 \begin{definition}
-	Let $(M,g)$ be a riemannian manifold and $\phi:U\to V$ be a chart. We define the smooth functions $g_{ij}:U\to \R$ to be :
+	Let $(M,g)$ be a Tiemannian manifold and $\phi:U\to V$ be a chart. We define the smooth functions $g_{ij}:U\to \R$ to be :
 	\begin{align*}
 		g_{ij}=g(\frac{\partial}{\partial x_i},\frac{\partial}{\partial x_j}) \, .
 	\end{align*}
-	Then if two vectorfields $v,w$ over $U$ are given with $v=\sum v^i \frac{\partial}{\partial x_i}$ and $w=\sum _i w^i \frac{\partial}{\partial x_i}$ we can calculate the metric locally:
+	Then if two vector fields $v,w$ over $U$ are given with $v=\sum v^i \frac{\partial}{\partial x_i}$ and $w=\sum _i w^i \frac{\partial}{\partial x_i}$ we can calculate the metric locally:
 	\begin{align*}
 		g(v,w)=\sum_{ij}g_{ij} v^iw^j\, :U\to \R
-	\end{align*} Furthermore, we can invert the matricies $(g_{ij}(p))_{ij}$ for all $p$ (which is a smooth procedure which can be seen by the construction via cramers rule) to get smooth functinos 
+	\end{align*} Furthermore, we can invert the matrices $(g_{ij}(p))_{ij}$ for all $p$ (which is a smooth procedure which can be seen by the construction via Cramers rule) to get smooth functions 
 	\begin{align*}
 		g^{ij}: U&\to \R\\
 		p&\mapsto g^{ij}(p)= \left( (g_{kl}(p))_{kl}^{-1} \right)_{ij}
@@ -182,7 +177,7 @@ This section aims to set the playing field for the thesis. Due to the theory bei
 		\end{align*} 
 		\item For all $p$ we require $\phi(0,p)=p$. 
 	\end{enumerate}
-	We will write $\phi:t(p)\coloneq \phi(t,p)$ to keep the notation bearable. 
+	We will write $\phi_t(p)\coloneq \phi(t,p)$ to keep the notation bearable. 
 	If for all $p$ $I(p)=\R$ we call the system \textbf{global}. 
 \end{definition}
 
@@ -199,8 +194,56 @@ This section aims to set the playing field for the thesis. Due to the theory bei
 		p\mapsto X(p)\coloneq \restr{\frac{\diff }{\diff t}}{t=0}\phi_t(p)\in T_pM
 	\end{align*} the \textbf{associated vecor field}. This is in fact a smooth vector field. 
 \end{definition}
-Whilst differentiating leads to a smooth vector field, we can also go the other direktion by locally integrating a vector field to get a flow. To be precise:
-Those concepts are inverse to one another or in other words \todo{hier genauer werden}
+\begin{definition}[Dynamical System of a Vector Field]
+	Let $X\in \Gamma(M)$ be a global vector field on the smooth manifold $M$. Then we call a dynamical system $\phi$ on $M$ the \textbf{associated dynamical system} to $X$, if for all $t\in \R$ and $x\in M$ 
+	\begin{equation*}
+		\restr{\diff_t \phi_t(x)}{t=t_0}=X(\phi_{t_0}(x))\,.
+	\end{equation*} $\diff_t$ denotes the differential in $t$, meaning for fixed $x$ we differentiate 
+	\begin{equation*}
+		\phi(x): \R\to M,\quad t\mapsto \phi_t(x)\,
+	\end{equation*} and evaluate that in the constant trivial vector field $E: \R\to T\R$ with $E(t)=1_t$. 
+\end{definition}
+Whilst differentiating leads to a smooth vector field, we can also go the other direction by locally integrating a vector field to get a flow. To be precise:
+Those concepts are inverse to one another or in other words:
 \begin{theorem}
 	Let $M$ be a smooth manifold. Then there is a one to one correspondence between global maximal flows and vector fields. 
 \end{theorem}
+\begin{definition}
+	Let $V$ be a linear manifold (i.e. a finite dimensional vector space). Then for any $v\in V$ we have the canonical maps
+	\begin{align*}
+		Q_v:V&\to T_vV\,\\
+		x&\mapsto \left(f_v\mapsto \restr{\frac{\partial }{\partial t}}{t=0}f(v+tx)\right)
+	\end{align*}
+	Let $L:V\to V$ be a linear map viewed as a smooth map between manifolds. Then we have the identity:
+	\begin{equation*}
+		\restr{\diff L}{v} \circ Q_v =Q_{L(v)}\circ L\,.
+	\end{equation*} This is proven by a short calculation:
+	\begin{equation*}
+		\Big(\restr{\diff L}{v} \big( Q_v(x)\big)\Big)(f_{L(v)})=Q_{v}(x)\left(f\circ L\right)=\restr{\frac{\partial }{\partial t}}{t=0}f\circ L(v+tx)=\underbrace{\restr{\frac{\partial }{\partial t}}{t=0}f\big( L(v)+tL(x)\big)}_{=Q_{L(v)}\circ L(x)}
+	\end{equation*} Now let $v,v'\in V$ be two points in $V$. Then we have the translation
+	\begin{equation*}
+		tr_{v,v'}: V\to V;~x\mapsto (x+(v'-v))
+	\end{equation*}With this we can now find a connection between $Q_v$ and $Q_{v'}$ as follows:
+	\begin{equation*}
+		\left(\restr{\diff tr_{v,v'}}{v}(Q_v(x))\right)(f_{v'})=\restr{\frac{\partial }{\partial t}}{t=0}\left(f\circ tr_{v,v'}(v+tx)\right)=\restr{\frac{\partial }{\partial t}}{t=0}\left(f(v'+tx)\right)=Q_{v'}(x)(f_{v'}) \,.
+	\end{equation*} Hence:
+	\begin{equation*}
+		Q_{v'}=\diff tr_{v,v'}\circ Q_v\,.
+	\end{equation*}
+\end{definition}
+\begin{remark}
+	Let $X\in \Gamma(TM)$ be a vector field on the smooth manifold $M$, and $\phi$ be the associated dynamical system. For any fixed $t_0\in \R$ and any $x_0\in M$ we have the identity
+	\begin{equation*}
+		\restr{\diff \phi_{t_0} }{x_0} \circ\left(X(x_0)\right)=X(\phi_{t_0}(x_0))\,.
+	\end{equation*}
+\end{remark}
+\begin{proof}
+	This follows directly from the second property of flows as follows:
+	We first make use of the identity $\phi_{t_0}(x_0)=\phi_{t_0}\circ \phi_0(x_0)$ and $X(x_0)=\restr{\diff_t \phi_t(x_0)}{t=0}$ to calculate using the chain rule:
+	\begin{equation*}
+		\restr{\diff_t \phi_{t_0+t}(x_0)}{t=0}=	\restr{\diff_t \phi_{t_0}\circ \phi_t (x_0)}{t=0}=\restr{\diff_x \phi_{t_0}}{x=\phi_0(x_0)} \circ \restr{\diff \phi_t(x_0)}{t=0}=\restr{\diff_x \phi_{t_0}}{x=x_0}\circ X(x_0)\,,
+	\end{equation*} and alternatively
+	\begin{equation*}
+		\restr{\diff_t \phi_{t_0+t}(x_0)}{t=0}=	\restr{\diff_t \phi_{t}(\phi_{t_0}(x_0))}{t=0}=X(\phi_{t_0}(x_0))\,.
+	\end{equation*}
+\end{proof}
