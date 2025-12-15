@@ -140,4 +140,25 @@ Now we want to talk abpout charts of the Sphere. Assume that the sphere is oprie
 \begin{equation*}
 	(t,x)\mapsto \Bigg(-\cos(\pi t),\sin(\pi t)\Big( -cos(\pi \norm{x}),sin(\pi(\norm{x})\frac{x}{\norm{x}})\Big) \Bigg)
 \end{equation*}
+
+\begin{lemma} \label{lem: determined of javobean and collapsing map}
+	Let $S^k=B^k\big/\partial B^k$. Let furthermore $D^k\subseteq B^k$ be a closed disk in $B^k$. Let $f: B^k\to D^k$ be the smooth diffeomorphism (that makes $D^k$ a Disk). Let furthermore $A\coloneq \inti(B^k)\setminus f^{-1}(\partial D^k)$. Then $\restr{f}{A}$ is a smooth map between open sets of $\R^k$ and hence we have a well defined jaccobean. We define $\bar{f}:B^k\big/\partial B^k\to D^k\big/ \partial D^k$ to be the quotient map of $f$, and let $g:B^k\big/\partial B^k\to D^k\big/ \partial D^k$ be the collapsing of the komplement of $D^k$. Then 
+	\begin{align*}
+		(\overline{f}^{-1}\circ g)^*: K^k[S^k]\to K^k[S^k]
+	\end{align*} is a group isomorphism and hence $\pm \id$. We have the equivalence of $(f^{-1}\circ g)^*=\id$ if and only if for any $x\in A$:
+	\begin{equation*}
+		\det(\diff \restr{\overline{f}}{A}\big|_x)>0\, .
+	\end{equation*}
+\end{lemma}
+\begin{proof} Both $\overline{f}^*$ and $g^*$ are isomorphisms
+	\begin{equation*}
+		\overline{f}^*,g^*:K^k[D^k\big/\partial D^k]\to K^k[B^k\big/\partial B^k]
+	\end{equation*} Let $\beta_D$ be a generator of $K^k[D^k\big/\partial D^k]$ (obviously this is isomorphic to $\Z$). Then there are two cases: Either $g^*(\beta_D)=\overline{f}^*(\beta_D)$, or $g^*(\beta_D)=-\overline{f}^*(\beta_D)$. 
+	Notice how $\restr{g}{\inti(D)}=\id$ and thereby smooth. Hence the composition $\restr{\overline{f}^{-1}\circ g}{\inti(D)}$ is smooth. Assume that the Homotopie is smooth on $\inti(D)$ (This assumptian can by justified by Lemma 2.6.3 in \cite{Mukherjee2015DifferentialTopology} which tells us that homotopies between maps that are smooth in certain subdomains can be made smooth over said domains.)
+	.By the smoothnes of the homotopy the sign of the determinand of its jacobien is the same for all $t$ and all $x\in \inti(D)$ and positive if we are in the first case and else negative.
+	
+	
+	
+	
+	\end{proof}
  

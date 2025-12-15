@@ -298,12 +298,10 @@ We want to refine the unstable embedding $E^u_q:T^u_qM\to W(q\to)$. For this we 
 \end{proof}
 \begin{theorem}[Refined Stable Embdeding]
 	In the setting of the stable manifold theorem, we can refine the embedding
-	
-	\begin{align*}
-		E^u_q:T^u_p M \to W(p \to )
-	\end{align*}
-	
-	 such that it resembles the flow, meaning that for $x=E^s_p(v)$
+\begin{equation*}
+	E^u_q:T^u_q M \to W(q\to )\,, 
+\end{equation*}
+	such that it resembles the flow, meaning that for $x=E^s_p(v)$
 	the flow is given by
 	\begin{equation*}
 		\phi_t(x)=E^s_p(A_tv)\, ,
@@ -355,6 +353,147 @@ We want to refine the unstable embedding $E^u_q:T^u_qM\to W(q\to)$. For this we 
 \begin{remark}
 	Notice how the sign of the determinant of $A_t$ is always positiv.
 \end{remark}
+Now we want to understand the flow in an unstable set and analyze two maps: 
+\begin{remark}
+	The Map
+	\begin{align}
+		\tau: W(q\to)\setminus \{q\} &\to \R\\
+		x                  &\mapsto \tau(x) \text{ such that }f\circ \phi_{\tau(x)}(x) =c
+	\end{align}
+	is smooth.
+\end{remark}
+\begin{proof}
+	We know that such a map exists and is well defined since every flow line passes through $f^{-1}(c)$. Now let $x\in W(q\to)\setminus \{q\}$, $V$ be a neighbourhood of $x$ and  $U$ be a neighbourhood of $\phi_{\tau(x)}(x)$. Define the map
+	\begin{align*}
+		G:V\times I &\to \R\\
+		(x,t)&       \mapsto f\circ \left(\phi_t(x)\right) \, .
+	\end{align*}
+	Now the partial derivative reads
+	\begin{equation*}
+		\frac{\partial}{\partial t}G\big|{x,t}=\diff f\big|_{\phi_t(x)}\circ \frac{\partial}{\partial t} \phi_t(x)\big|_t
+		=  \diff f\big|_{\phi_t(x)}\circ \left(-\grad_{\phi_t(x)}(f)\right) \,.
+	\end{equation*} For $\phi_{\tau(x)}$ we have that $T_{\phi_{\tau(x)}(x)}f^{-1}(c)=  \ker\diff f \big|_{\phi_{\tau(x)}(x)}$. Since the flow line is transversal to the level set or said differently, the gradient is orthogonal to level sets, we have that the latter does not live in the kernal and hence
+	\begin{equation*}
+		\frac{\partial}{\partial t}G\big|{x,\tau(x)}=\diff f \big|_{\phi_{\tau(x)}(x)}\left(-\grad_{\phi_{\tau(x)}(x)}(f)\right)\neq 0 \, .
+	\end{equation*} This lets us use the implicit function theorem to deduce that the level set $G=c$ is ocally the graph of a funktino $\tau: U_x\to \R$ where $U_x$ is a neighbourhood of $x$. Hence the function $\tau$ is globally smooth since this argument can be done everywhere.
+\end{proof}
+\begin{remark}
+	Now we care for the differential of $\tau$ in a point $x_j\in W(q\to)\cap f^{-1}(c)$. For this we choose a chart of $W(q\to)$ arround $x_j$ such that the induced bases of $T_{x_j}W(q\to)=\langle -\grad_{x_j}(f)\rangle \oplus T_{x_j}V_j$ that respects the splitting. for example $\frac{\partial}{ \partial x^1}\big|_{x_j}= -\grad_{x_j}(f) $ and $\frac{\partial}{ \partial x^i}\big|_{x_j}\in T_{x_j}V_j$ for $i$ bigger than one. With this we can start our calculations:
+	Notice how $x\mapsto f\circ \phi_{\tau(x)}(x)$ is a constant function and hence its differential is $0$.
+	\begin{align*}
+		0=\diff_x\left(f\circ \phi_{\tau}\right)&=\overbrace{\diff f }^{1\text{-form}}\left( \diff\phi_\tau\right)=\diff f \left( \diff_t \phi_t \circ\diff_x\tau(x)+\diff_x\phi_{\tilde{t}=\tau(x)}\right)\\
+		&=\diff f \left( \diff_t \phi_t\circ \diff_x\tau(x)\right)+\diff f \left( \diff_x\phi_{\tilde{t}=\tau(x)}\right)\\
+		&=\diff_t \left(f \circ\phi_t \right) \circ\diff_x\tau(x)\circ  +\diff f \left( \diff_x\phi_{\tilde{t}=\tau(x)} \right)
+	\end{align*}
+	Hence we know that
+	\begin{equation}\label{eq: differential of tau}
+		\diff_x \tau =-\frac{\diff f \left( \diff_x\phi_{\tilde{t}=\tau(x)} \right)}{\diff_t \left(f \circ\phi_t \right)}=-\frac{\diff f \left( \diff_x\phi_{\tilde{t}=\tau(x)} \right)}{-\norm{\grad(f)^2}}
+	\end{equation}  Now we can calculate in $x_j$ where $\tau(x_j)=0$
+	\begin{align*}
+		\diff_x \tau \big|_{x_j}\frac{\partial}{ \partial x^i}\big|_{x_j}
+		=\frac{
+			\diff f \big|_{x_j} \frac{\partial}{ \partial x^i}\big|_{x_j}}
+		{\norm{\grad(f)^2}}
+		=\frac{
+			g\left(\grad_{x_i}(f), \frac{\partial}{ \partial x^1}\big|_{x_j}\right)}
+		{\norm{\grad(f)^2}}=
+		\begin{cases}
+			-1 & \text{ if }i=1\\
+			0 & \text{ else. }
+		\end{cases}
+	\end{align*}
+	This result can be extended to also work outside of $x_j$ as follows: Notice the identity for all $s\in \R$ and $x\in W(q\to)\setminus \{q\}$:
+	\begin{equation*}
+		\tau(\phi_s(x))=\tau(x)-s\,.
+	\end{equation*} Differentiating this in the variable $s$ and in for $s'$ yealds
+	\begin{equation*}
+		\restr{\diff \tau}{\phi_{s'}(x)}\circ \underbrace{\restr{\diff \phi_s(x)}{s=s'}}_{=-\grad_{\phi_s(x)}(f)}~=~\restr{\diff \tau(\phi_{s'}(x))}{s'}~=~\restr{\diff \tau(x)-s}{s'}=-1\,.
+	\end{equation*} And hence in $s'=0$ we have for all $x\in W(q\to)\setminus \{q\}$:
+	\begin{equation*}
+		\restr{\diff \tau }{x}(-\grad(x)(f))=-1\,.
+	\end{equation*}
+	We can furthermore define a basis of $T_yW(q\to)$ with $\mathfrak{b}_1\coloneq -\grad_y(f)$ and $\mathfrak{b}_i=\restr{\diff \phi_{\tau(y)}}{y}^{-1}({w_i})$ where $(w_i)$ denotes a basis of $T_{x_j}V_j$. Hence $w_i$ is orthogonal on $-\grad_{x_j}(f)$ for all $i>1$. Hence by the equation (\ref{eq: differential of tau}) we can caluclate:
+	\begin{equation*}
+		\diff_x \tau(\mathfrak{b}_i)=-\frac{\diff f \left( \diff_x\phi_{\tilde{t}=\tau(x)}(\mathfrak{b}_i) \right)}{-\norm{\grad(f)^2}}=-\frac{\diff f \left( w_i \right)}{-\norm{\grad(f)^2}}=0\quad \text{ for all }i>1\,.
+	\end{equation*}
+\end{remark}
+\begin{remark}
+	The map
+	\begin{align*}
+		\rho: W(q\to)\setminus \{q\}&\to W(q\to)\cap f^{-1}(c)\\
+		x\mapsto \phi_{\tau(x)}(x)\,.
+	\end{align*} is a submersion in $y\in S(q\to)$.
+\end{remark}
+\begin{proof} To prove this we calculate its differential $\diff\rho\big|_y$ as follows:
+	\begin{equation*}
+		\diff \rho \big|_y=\diff_x(\phi_{\tau})\big|_y=\diff_t\phi_t\big|_{t=\tau(x)}\circ \diff_x \tau \big|_y+\diff_x\phi_{\tau(y)}\big|_y
+	\end{equation*} We can rewrite this by viewing $\diff_x \tau \big|_y$ as a one form and using the definition of the flow: $\diff_t\phi_t\big|_{t=\tau(x)}=-\grad_{\rho(x)}(f)$:
+	\begin{equation*}
+		\diff \rho \big|_y=-\grad_{\rho(x)}(f)\cdot \diff_x \tau \big|_y+\diff_x\phi_{\tau(y)}\big|_y
+	\end{equation*}
+	Now if $y\in f^{-1}(c)$ we have that $\tau(y)=0$ and hence $\diff_x\phi_{\tau(y)}=\id$. Hence the differential reads:
+	\begin{equation*}
+		\diff \rho \big|_y=-\grad_{y}(f)\cdot \diff_x \tau \big|_y+\id\, .
+	\end{equation*}
+	Now we can choose a local chart arround $y$ such that $-\grad_y(f)$ becomes the first basis vector of the tangend space, and the rest are orthonormal. Then the differential acts on $-\grad_y(f)$:
+	\begin{equation*}
+		\diff \rho \big|_y(-\grad_y(f))=-\grad_{y}(f)\cdot \underbrace{ \diff_x \tau \big|_y(-\grad_y(f))}_{=-1}-\grad_y(f) =0\,
+	\end{equation*} and on all the other tangend vectors as the identity, due to the first summand vanishing.
+	Therefore the jacobean in this basis is of the form
+	\begin{equation*}
+		\diff \rho \big|_y=(0,1_{\lambda_{q}-1}).
+	\end{equation*}
+\end{proof}
+\begin{lemma}\label{lem: Rho and Tau induces a Morse boundary orientation}
+	Assume that $\mathfrak{d}=(\mathfrak{d}_i)$ is a basis of $T^u_qM$. Let $y\coloneq{E^u_q}^{-1}(x_j)$ and $y'\in (\rho\circ E^u_q)^{-1}(x_j)$. Then the map
+	\begin{align*}
+		\restr{\diff E^u_q}{y}^{-1}\circ \diff \rho \circ \restr{\diff E^u_q}{y'}\circ Q_{y'}\circ B_{\mathfrak{d}}&: \R^{\lambda_q}\to T_yT^u_qM
+	\end{align*} can be written as
+	\begin{align*}
+		\pi_{-\grad_{x_j}(f)^\top}\circ(B_{\mathfrak{b}^q_{x_j}}):
+		\R^{\lambda_q}&     \to T_{x_j}V_j\\
+		e_i           & \mapsto
+		\begin{cases}
+			0                                       & \text{ for }i=1\\
+			({\mathfrak{b}^q_{x_j}})_i & \text{ for }i\neq 1\,.
+		\end{cases}
+	\end{align*} where $({\mathfrak{b}^q_{x_j}})_j$ is basis of $T_{x_j}W(q\to)$ that is induced from $\mathfrak{d}$ and $({\mathfrak{b}^q_{x_j}})_i=-\grad_{x_j}(f)$. In other words, this is a basis compatible with the one used in the counting of flow lines in the Morse boundary operator.
+\end{lemma}
+\begin{Iprove}
+	To proove this, we first remined ourself how the basis $({\mathfrak{b}^q_{x_j}})_{j>1}$ is constructed. It is a basis that when extendet with $-\grad_{x_j}(f)$ as the first vector is compatible with $\mathfrak{d}$. Hence, we can construct it from $\mathfrak{d}$, by assuming that $\restr{\diff E^u_q}{y}\circ Q_y\circ \mathfrak{d}_1=-\grad_y(f)$. Then, if we push $\mathfrak{d}$ to $T_{x_j}W(q\to)$ via $\restr{\diff E^u_q}{y}\circ Q_y$ and delete the first vector, we get the Basis we wanted. So what we need to check in order to proof this lemma is, if the maps
+	\begin{align*}
+		\restr{\diff E^u_q}{y}\circ Q_y\circ B_{\mathfrak{d}}: &\R^{\lambda_q-1}\to \left(-\grad_{x_j}(f)\right)^\top\\
+		\restr{\diff E^u_q}{y}^{-1}\circ \diff \rho \circ \restr{\diff E^u_q}{y'}\circ Q_{y'}\circ B_{\mathfrak{d}}: &\R^{\lambda_q-1}\to \left(-\grad_{x_j}(f)\right)^\top
+	\end{align*} induce the same orientation when restricted to the same domain such that they become vector space isomorphisms. 
+	To proof this we will work from the bottom up: We adapt the basis $\mathfrak{d}$ to work with the lower map and show, later, that the adapted basis fits the requirements above:
+\end{Iprove}
+\begin{proof}
+	
+	We start by defining the space $\left(\tau\circ E^u_q\right)^{-1}(\tilde t)$, where $\tilde{t}\coloneq \tau\circ E^u_q(y')$. As a level set, this is a submanifold of $T^u_qM$ and its tangend space in $y'$ is given by the basis $\restr{E^u_q}{y'}^{-1}(\mathfrak{b_i})$ for $i>1$, where $\mathfrak{b}_i=\restr{\diff \phi_{\tilde{t}}}{y'}^{-1}({w_i})$ where $(w_i)$ denotes a basis of $T_{x_j}V_j$. Now we have the equality of maps:
+	\begin{align*}
+		\restr{A_{\tilde{t}}}{\left(\tau\circ E^u_q\right)^{-1}(\tilde t)}=\restr{\left({E^u_q}^{-1}\circ \rho \circ E^u_q\right)}{\left(\tau\circ E^u_q\right)^{-1}(\tilde t)}
+	\end{align*} Hence for a basis $\mathfrak{d}_i$ of $T^u_qM$ such that $\restr{\diff E^u_q}{y'}\circ Q_{y'}(\mathfrak{d_i})$ is $-\grad_{y'}(f)$ for $i=1$ and $\mathfrak{b_i}$ else, we have:
+	\begin{equation*}
+		\restr{\diff \left({E^u_q}^{-1}\circ \rho \circ E^u_q\right)}{y'}\circ Q_{y'}(\mathfrak{d}_i)=Q_y\circ A_{\tilde{t}}(\mathfrak{d}_i).
+	\end{equation*} For $i=1$, the left side maps to $0$, and the right side:
+	\begin{align*}
+		Q_y\circ A_{\tilde{t}}(\mathfrak{d}_1)
+		&=\restr{\diff A_{\tilde{t}}}{y'}\circ Q_{y'}(\mathfrak{d}_1)\\
+		&=\restr{\diff A_{\tilde{t}}}{y'} \circ {\restr{\diff E^u_q}{y'}}^{-1}(-\grad_{y'}(f))\\
+		&=\restr{\diff A_{\tilde{t}} \circ \diff E^u_q}{y'}^{-1}(-\grad_{y'}(f))\\
+		&=\restr{ \diff (E^u_q)^{-1} \circ \phi_{\tilde{t}}}{y'}^{-1}(-\grad_{y'}(f))\\
+		&=\restr{ \diff E^u_q}{x_j}^{-1} \circ \restr{\diff \phi_{\tilde{t}}}{y'}^{-1}(-\grad_{y'}(f))\\
+		&=\restr{ \diff E^u_q}{x_j}^{-1} \left(-\grad_{x_j}(f)\right)
+	\end{align*} The last equation is the general fact prooven in remark \ref{rem: jacobian of the flow in refined Morse chart}, that for fixed $t$ the identity holds:
+	\begin{equation*}
+		\restr{\diff_x \phi_t}{y} (-\grad_y(f))=-\grad_{\phi_t(y)}(f)
+	\end{equation*} Hence if $\pi$ denotes the projection onto the complement of $ \restr{ \diff E^u_q}{x_j}^{-1} \left(-\grad_{x_j}(f)\right)$ we have an equality of maps
+	\begin{equation*}
+		\restr{\diff \left({E^u_q}^{-1}\circ \rho \circ E^u_q\right)}{y'}\circ Q_{y'}=\pi \circ Q_y\circ A_{\tilde{t}}.
+	\end{equation*} Or by the above calculation, we can throw out $\pi$, if we exclude $\mathfrak{d}_1$. Furthermore, the equation shows that our requirement $\restr{\diff E^u_q}{y'}\circ Q_{y'}(\mathfrak{d_1})=-\grad_{y'}(f)$ implies that $\mathfrak{d}$ is compatible with a basis where $\restr{\diff E^u_q}{y}\circ Q_y\circ \mathfrak{d}_1=-\grad_y(f)$.
+	This concludes the prove!
+\end{proof}
+
 
 
 
@@ -371,33 +510,46 @@ We want to refine the unstable embedding $E^u_q:T^u_qM\to W(q\to)$. For this we 
 	\end{equation*}
 	This gives rise to a chain complex and hence gives rise to a homology theory, and a cohomology theory by applying the hom functor to the chain complex.
 \end{definition}
-\begin{lemma}[Orientation and Exact Sequences]
+\begin{definition}[Orientation and Exact Sequences]
 	As stated before, an orientation of a Vector space $V$ of dimension $m$ is given by an ordered basis $\mathfrak{b}=(b_1,\dots b_m)$ of $V$ and hence the produkt $b_1\wedge \dots \wedge b_m$ is an element of the maximal exterior product $\det(V)=\Lambda^mV$. Two ordered bases define different elements in $\det(V)$ where there difference is given by the determinant of the base change matrix. (This is just a calculation using multilinearity and the alternating property). Hence an orientation is a choice of one connected component of $\det(V)\setminus \{0\}$. Now a short exact sequence of vector spaces 
-	\begin{center}
-
-	\end{center} induces a canonical isomorphism 
+\begin{center}
+	% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRGJAF9T1Nd9CKAIzkqtRizYBBLjxAZseAkQBMo6vWatEIAEKzeigUQDM68VrYBhA-L5LByACznNknR05iYUAObwiUAAzACcIAFskMhAcCCQhbmCwyMQRGLjENQt3ECDbUIikLNikM2ztEF985NLqEsQnL04gA
+	\begin{tikzcd}
+		0 \arrow[r] & A \arrow[r, "f"] & B \arrow[r, "g"] & C \arrow[r] & 0
+	\end{tikzcd}
+\end{center}
+induces a canonical isomorphism 
 	\begin{align*}
 		 \det(A)\otimes \det(C)& \to \det(B)\\
 		 (a_1\wedge \dots\wedge a_l) \otimes (c_1\wedge \dots \wedge c_k) &\mapsto (f(a_1)\wedge \dots f(a_l)\wedge \tilde{c_1}\wedge \dots \wedge \tilde{c_k})\, ,
 	\end{align*} where $\tilde{c_j}\in g^{-1}(c_j)$ . The well definition of this map (invariance under choosen lift of $c$) can be calculated, since two different choices differ in an element in the kernal of $g$ which equals the image of $f$ and hence the different choices vanisch in the wedge produkt. By this isomorphism we get a orientation induced in the middle from the outside.
-\end{lemma}
+\end{definition}
 \begin{remark}[The Counting of Flow Lines]
-There are several ways to formulate the counting of flow lines that happens in the boundary operator.Let $\gamma_j\in \mathcal{M}(q\to p)$ and $x_j\in \gamma_j$ Instead of using the parallel transport, we can introduce two different ordered bases in $T_{x_j}W(q\to)$. We use the following notation: 
-Let $\gamma_j\in \mathcal{M}(q\to p)$ and $x_j\in \gamma_j$. For this we define $N_{x_j}^{W(q\to)}{\gamma_j}$ be the normal bundle of $\gamma_j$ as a submanifold of $W(q\to)$. Since $\gamma_j$ is contractible we can trivialize said normal bundle to get an bundle isomorphism: 
+There are several ways to formulate the counting of flow lines that happens in the boundary operator.Let $\gamma\in \mathcal{M}(q\to p)$ and $x\in \gamma$ Instead of using the parallel transport, we can introduce two different ordered bases in $T_{x}W(q\to)$. We use the following notation: 
+Let $\gamma\in \mathcal{M}(q\to p)$ and $x\in \gamma$. For this we define $N_{x}^{W(q\to)}{\gamma}$ be the normal bundle of $\gamma$ as a submanifold of $W(q\to)$. Since $\gamma$ is contractible we can trivialize said normal bundle to get an bundle isomorphism: 
 \begin{equation*}
-	\nu_j:N^{W(q\to)}{\gamma_j} \to \gamma_j \times T^u_pM \, .
-\end{equation*} Let $\nu_j\big|_{x_j}$ denote the isomorphism $N_{x_j}^{W(q\to)}{\gamma_j}\to  T^u_pM $. An orientation of $T^u_pM$ induces then one on $N_{x_j}^{W(q\to)}{\gamma_j}$ and we define the bases $(-\grad_{x_j}(f))$ to be positive. Hence we get the exact sequence
+	\nu:N^{W(q\to)}{\gamma} \to \gamma \times T^u_pM \, .
+\end{equation*} Let $\nu\big|_{x}$ denote the isomorphism $N_{x}^{W(q\to)}{\gamma}\to  T^u_pM $. An orientation of $T^u_pM$ induces then one on $N_{x}^{W(q\to)}{\gamma}$ and if we define the bases $(-\grad_{x}(f))$ of its own span to be positive, we get the exact sequence
 \begin{center}
-	% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRGJAF9T1Nd9CKAIzkqtRizYAdKQzpgA5gxgACALQyFAJzpQA+sAAeegFacAFADMAlDJ2LlXHiAzY8BIgCZR1es1aIIAAqBsZmAOrmAI4yOBDWTrxuAkQAzD7i-mwAcgB6wJExUnHWnKGmnJp0ALbVdKaJLnzugsgALBl+koEc3En8HijpQmJdAcG5THpoALJcYjBQCvBEoJZaENVIZCBxSEJ9IOub+9R7iJ6Hx1sXZxBIqVcbN+m794htTyeIAKx3D74JONzDRTDIAEZYBQAH3KZms+TUBxA1Dk4JgDAACs0UoEtFCABY4eacIA
-	\begin{tikzcd}
-		0 \arrow[r] & \langle -\grad_{x_j}(f)\rangle \arrow[r] & T_{x_j}W(q\to) \arrow[r] & N^{W(q\to)}_{x_j}\gamma_j \arrow[r]        & 0 \\
-		&                                          &                          & T^u_pM \arrow[u, "(v_j\big|_{x_j})^{-1}"'] &  
-	\end{tikzcd}
-\end{center} That introduces an orientation in the middle. 
-Another way to get an orientation there is to trivialize the bundle via the bundle isomorphism:
+% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRGJAF9T1Nd9CKAIzkqtRizYAdKQzpgA5gxgACALQyFAJzpQA+sAAenABQAzAJQydi5Vx4gM2PASIAmUdXrNWiEABUDYwB1EwBHGRwIC3teZwEiAGZPcR82ADkAPWBQiKkoi04gzk06AFsyuljHPhdBZAAWFO9JPw5uOP5XFGShMRbfAMymPTQAWS4xGCgFeCJQMy0IMqQyECikIQ6QReXN6g3EN23dlaODiCREk6Wz5PXLxAabvcQAVgurrwlBkxkwEZGTgWbJqLYgahyABGMAYAAVagk-FosAoABY4SacIA
+\begin{tikzcd}
+	0 \arrow[r] & \langle -\grad_{x}(f)\rangle \arrow[r] & T_{x}W(q\to) \arrow[r] & N^{W(q\to)}_{x}\gamma \arrow[r]     & 0 \\
+	&                                        &                        & T^u_pM \arrow[u, "(\nu_{x})^{-1}"'] &  
+\end{tikzcd}
+\end{center} That introduces an orientation in the middle that can be represented by the basis $\left(-\grad_x(f),i\circ \restr{\nu}{x}\right)(\mathfrak{b}^p)$, where $i$ is the inclusion $N_{x}^{W(q\to)}{\gamma}\to T_xW(q\to)$  and $(\mathfrak{b}^p)$ is a ordered basis ot $T^u_pM$. 
+Another way to get an orientation there is to trivialize the bundle $TW(q\to)$ via the isomorphism:
 \begin{equation*}
-	\mu: TW(q\to)\to W(q\to)\times T^u_pM\, .
-\end{equation*} This trivialization together with an orientation on $T^u_qM$ orients the middle in the above exact sequence. Now the deciding factor that gives $\gamma_j$ its sign is weather they agree.
+	\mu: TW(q\to)\to W(q\to)\times T^u_qM\,; \xi_y\mapsto \left( y, Q_{{E^u_q}^{-1}(y)}^{-1}\circ \restr{\diff {E^u_q}^{-1}}{y}(\xi_y)\right)\,.
+\end{equation*}
+
+ This trivialization together with an orientation on $T^u_qM$ orients the middle in the above exact sequence. Now the deciding factor that gives $\gamma$ its sign is weather the two orientations agree. This can by checked by calculating the determinant of a mcertain map. To formulate the map somewhat readible, we assume that $\mathfrak{b}^q$ is a basis of $T^u_qM$ such that for $y={E^u_q}^{-1}(x)$ we have $\restr{\diff {E^u_q}}{y}\circ Q_y(\mathfrak{b}^q_i)=-\grad_x(f)$ for $i=1$, and for all $i>1$ the image lives in the orthogonal complement of $-\grad_x(f)$ and hence in the domain of $\nu_x$. Then we can define the map 
+ \begin{align*}
+ B_{\mathfrak{b}^p}^{-1}\circ \nu_x	\circ\mu_x^{-1}\circ B_{\mathcal{b}^q}: \R^{\lambda_q}\supseteq \R^{\lambda_q-1}=\langle e_2,\dots e_{\lambda_q}\rangle &\to \R^{\lambda_q-1}\\
+ e_i &\mapsto B_{\mathfrak{b}^p}^{-1} \circ \nu_x \circ \restr{\diff E^u_q}{y}\circ Q_y (\mathfrak{b}^q_i)
+ \end{align*}
+ \begin{remark}
+ 	Notice how we already saw a different way to calculate the sign by the map from lemma \ref{lem: Rho and Tau induces a Morse boundary orientation}. 
+ 	\end{remark}
 
 \end{remark}
 Here i write a little bit about the Morse cohomology in german 

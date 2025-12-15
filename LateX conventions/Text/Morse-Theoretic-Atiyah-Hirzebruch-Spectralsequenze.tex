@@ -23,7 +23,7 @@ This is just a short summary. Prooves are omitted and the goal is to remaind our
 	We call an index pair $(N,L)$ \textbf{regular} if and only if the inclusion $I: L \hookrightarrow N$ is a cofibration.
 \end{definition}
 \begin{theorem}[Homotopy equivalence of index pairs] \label{thm: Homotopy equivalence of index pairs}
-	If $S$ is an isolated compact invariant set and $(N,L)$ and $(\tilde{N},\tilde{L})$ are two index pairs of $S$. Then $N/L$ and $\tilde{N}/\tilde{L}$ are homotopy equivalent as pointed spaces.
+	If $S$ is an isolated compact invariant set and $(N,L)$ and $(\tilde{N},\tilde{L})$ are two index pairs of $S$. Then $N/L$ and $\tilde{N}/\tilde{L}$ are homotopy equivalent as pointed spaces. This homotopie is canonical in transitive up to homotopy. 
 \end{theorem}
 
 
@@ -60,7 +60,7 @@ This is just a short summary. Prooves are omitted and the goal is to remaind our
 	\end{equation*} And thereby, the generacd tor only depends on $\mathfrak{b}$ concluding the proof.
 \end{proof}
 
-\begin{example}[A Map of Homology Groups]
+\begin{example}[A Map of K-Groups]
 	Let $f:M\to \R$ be a Morse Smale function on a smooth compact Riemannian manifold $(M,g)$. Let $q\in \Crit_k(f)$ and $p\in \Crit_{k-1}(f)$. Assume for a moment we already have an isolated regular compact index pair $(N_2,N_0)$ of $S=W(p\to q)\cup\{p,q\}$. 
 	For a $c\in (f(p),f(q))$ we set $N_1=N_0\cup (N_2 \cap M^c)$, where $M^c$ is the sublevel set. Clearly now $(N_2,N_1)$ is an index pair for $q$ and $(N_1,N_0)$ is a pair for $p$. Assuming we have regular index pairs $(N_q.L_q)$ and $(N_p,L_p)$ for $p,q$ we can now define a map:
 	\begin{align*}
@@ -82,30 +82,18 @@ This is just a short summary. Prooves are omitted and the goal is to remaind our
 
 
 
-\begin{definition}[Regular index pairs and a filtration on $M$] \label{def: Regular index pairs and a filtration on M } \label{def: Regular index pairs and a filtration on M}
+\begin{definition}[Regular Index Pairs and a Filtration on $M$] \label{def: Regular index pairs and a filtration on M } \label{def: Regular index pairs and a filtration on M}
 	As always let $f:M\to \R$ be a Morse-Smale function on a compact smooth Riemannian manifold $(M,g)$ of dimension $m$. Let $\phi_t:M\to M$ be the flow given by $-\grad f$. For $0\leq j\leq k\leq m$ define:
 	\begin{align*}
 		W(k,j)=\bigcup_{j\leq \lambda_p \leq \lambda_q\leq k} W(q \to p).
-	\end{align*}We know that this space is compact\todo{reference}. Assume that $N$ is a compact neighbourhood of $W(k,j)$, such that $\Crit(f)\cap N=\Crit(f)\cap W(k , j)$, meaning that $N$ does not contain any new critical points. Then the biggest invariant subspace from definition \ref{def: index pairs} is
-	\begin{align*}
-		I(N)\coloneq\{x\in N| \phi_t(x)\in N \forall t \in \R \}=W(j,k).
-	\end{align*} This follows from every gradient flow line starting and ending in a critical point.  Therefore, $W(k,j)$ is an isolated compact invariant set. By a corollary of the lambda lemma \todo{reference} we know that 
-	\begin{align*}
-		W^{s}_{j}&~\coloneq~ \bigcup_{j\leq \lambda_p}W(\to p)\\
-		W^{u}_{j}&~\coloneq~\bigcup_{\lambda_p\leq j}W(p \to )\,
-	\end{align*}
-	for all $j=0,...,m$ are compact as they are finite unions of compact sets. Now we define $N_m\coloneq M$ and choose a cofibered compact neighbourhood $N_{m-1}$ of $W^{p\to }_{m-1}$ that is positively invariant and satisfies $N_{m-1}\cap W^{\to p}_m=\emptyset$
-	One could for example define:
-	\begin{align*}
-		N_{m-1}\coloneq N_m \setminus \Big(\bigcup_{q\in \Crit_m(f)}  \mathring{N_q}\Big),
-	\end{align*} where $N_q$ is taken from example \ref{ex: Critical points as isolated compact invariant subsets}. Once we check that $N_{m-1}$ is an exit set with respect to $N_m$ we can conclude that $(N_m,N_{m-1})$ is a regular index pair for $\Crit_m(f)$. The first statement is clear, since every gradient line starting in $N_m\setminus N_{m-1}$ has to pass through $N_{m-1}$, as they go towards other critical points. This tells us that they have to leave $N_m\setminus N_{m-1}$, which is enclosed by $N_{m-1}$. The second thing to check can be done by showing that there is a neighbourhood $U\subset N_M$ of $N_{m-1}$ that deforms to $N_{m-1}$. For this notice that each $N_q$ with $\lambda_q=m$ is homeomorphic to $D^m$. Now choose a open neighbourhood $U_q$ in the disc of its boundary. By definition this retracts to the boundary with a retraction induced by the flow. And finally define $U\coloneq N_{m-1}\cap_{q\in \Crit_m(f)} U_q$. This retracts to $N_{m-1}$ telling us that our index pair is indeed regular. 
-	
-	Now we want to inductively define a filtration: 
-	For this we choose a compact cofibered neighborhood $N_{m-2}$ of $W^{u}_{m-2}$ that is positifely invariant in $N_{m-1}$ and has an empty intersection with $W^{\to p}_{m-1}$. This can be done similar to the construction of $N_{m-1}$ but instead of cutting out neighbourhoods if $q\in \Crit_{m}(f)$, we can cut out tubular neighborhoods of $W^{s}_{m-1}$.\todo{Referenz Dietmar Salamon} By iterating this process we get a filtration: 
+	\end{align*}There exists a filtration
 	\begin{equation} \label{eq: Filtration conley}
 		\emptyset=:N_{-1}\subset N_0\subset N_1\subset \cdots \subset N_{m-1}\subset N_m=M,
 	\end{equation} such that $(N_k,N_{j-1})$ is a regular index pair for $W(k,j)$ for all $0\leq j \leq k\leq m$.
 \end{definition}
+\begin{proof}
+	The proof is done by Dietmar Salamon and can be checked in \cite{Salamon1985} corollary 4.4. 
+\end{proof}
 \subsection{The Spectral sequence}
 
 \begin{definition} Let $M$ be a smooth manifold with Morse data and \begin{equation*}
@@ -162,7 +150,7 @@ This is just a short summary. Prooves are omitted and the goal is to remaind our
 
 
 The Main statement now is that the connecting homomorphism of K-Theory and of the long exact sequence given by the special Filtration in Morse Theory are comparable: 
-	\begin{theorem} \label{thm commuting connecting homomorphism}
+	\begin{theorem} \label{thm: commuting connecting homomorphism}
 		Given the filtration $N_{-1}\subseteq N_0 \subseteq \cdots \subseteq N_{m-1} \subseteq N_m=M$   from (\ref{eq: Filtration conley}).  The following diagram commutes:
 		\begin{center}
 	% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAGEA9YAawF8AFAFlSAHVEBbOjgAWAMwBOdHsACCfMaLwNYwANJ9uDQWhwBKMyA3pMufIRQBGclVqMWbLrwDUjwSPEpWUVlNQ1xbV0DIxNzS2sQDGw8AiIyR1d6ZlZEEHEAIywAcwg0ZjhxBiwJXDgAfWA0cSwwAAJxdgVcOp4BOTM+fUMfYwEAOTq0UgAZSfjSG2T7ImcM6iyPXILi0vLK6tqGgEdmto6unAaeX0F+weiRm-G6o5mX+cW7VJQyACZM9w5EB6bjXUYTHikCa8AC0fg+iVsKQcyGc-3WgLYIMa3gYT2h1z8UJ68VcMCgRXgRFAiggEiQZBAOAgSGcbmybHEaDoCjwjE4aCsCxAtPpiEZzKQvwSotZ1EliAAzDKFHSkAAWeUsxAAVgxHK2olgDBwdAaOC6ZRgfCFNNVYt+Wo1KrVSqdupdDvdiv1mzyogAIjATWaRja+BQ+EA
@@ -195,7 +183,7 @@ K^{-1}(Y,Z)\to	K^{-1}(Y)=K(SY)\cong K(X\cup CY\big/ X)\to K(X\cup CY)\cong K(X\b
 		{\bigoplus\limits_{p\in \Crit_k(f)}{K}^{-k}(N_p,L_p)} \arrow[r, "\Delta_{k+l}"] & {\bigoplus\limits_{q\in \Crit_{k+1}(f)}{K}^{-(k+1)}(N_q,L_q)}
 	\end{tikzcd}
 	\end{fdiagram}
-	 Furthermore we assumed that $l=0$. This doesnt change the gegularity since if $l$ was even, we can apply the Bott isomorphism and else the groups are $0$. 
+	 Furthermore we assumed that $l=0$. This doesnt change the generality since if $l$ was even, we can apply the Bott isomorphism and else the groups are $0$. 
 	Now we choose a triple $(A,B,C)$ in $M$ such that: 
 	\begin{enumerate}[(a)]
 		\item $(A,B)$ is a regular index pair for a critical point $q\in \Crit_{k+1}\,$.
@@ -263,8 +251,11 @@ We assume that $q$ is a critical point of index $k+1$ and $p$ is a critical poin
 	\end{enumerate}
 \end{lemma}
 
-The statements \ref{lem: enum: 1}-\ref{lem: enum: 4} are easy to proof by the definitions. The regularity can be derived from a general fact for pairs $(X,Y)$ in metric spaces: If $Y$ is closed in $X$ and there is a neighbourhood of $Y$ that is open in $X$ such that $Y$ is a strong deformation retract of $U$. So the only thing left to show is, that $N_p$ is a tubular neighbourhood. in \cite{MorseTheorySalmbon} in the proof of lemma 3.2 Salamon claims this to be true without a proof (page 119 in the attached source). Similar, in \cite{banyaga2004lectures} Banyaga claims this (also without any argument).
-I find this difficult to proof, since we cannot use the flow for the map from the normal bundle, as points leave $N_p$ along the flow: The Set $N_p$ is sketched in the figure below. 
+\begin{Iprove}
+	The statements \ref{lem: enum: 1}-\ref{lem: enum: 4} are easy to proof by the definitions. The regularity can be derived from a general fact for pairs $(X,Y)$ in metric spaces: If $Y$ is closed in $X$ and there is a neighbourhood of $Y$ that is open in $X$ such that $Y$ is a strong deformation retract of $U$. So the only thing left to show is, that $N_p$ is a tubular neighbourhood. In \cite{MorseTheorySalmbon} in the proof of lemma 3.2 Salamon claims this to be true without a proof (page 119 in the attached source). Similar, in \cite{banyaga2004lectures} Banyaga claims this (also without any argument).
+	The Set $N_p$ is sketched in the figure below. 
+	The Idea of the proove is as follows: By increasing $T$ (or decreasing $\epsilon$) we can assume $N_p$ to be an arbitrary small neighbourhood of $W(q\to) \cap M^c$. Now using the flow we can push $N_p$ close to $p$ ($\phi_N(N_p)$ for big $N$ ), where we use a tubular nieghbourhood embedding $J$ that overlapps $N_p$. We now need to proof that we can reduce the radii of the fibers in the domain of $J$ in a smooth way such that $J$ actually becomes a embedding onto the $N_p$ (that we pushed close to $p$). For this we will make use of the lambda lemma (in an improved version), which lets us induce a metric from the unstable tangend space of $P$ into the fiberes of $J$ (since they are transversal to the stable set). With this metric we can finally smoothly reduce the radii of our domain of $J$ to end up with the statement, that $\phi_N(N_p)$ is a tubular neighbourhood of a small part of the stable set of $p$ and hence $N_p$ also. The prove is given as an appendix in section \ref{section: Np tubular neighbourhood proove}.
+\end{Iprove}
 \begin{center}
 	
 	
@@ -422,328 +413,7 @@ I find this difficult to proof, since we cannot use the flow for the map from th
 			
 		}
 	\end{center}
-	So to proof this, we first formulate two lemmas. First we restate/ refine the $\lambda$-lemma: \todo{parameter dependence einfügen}
-	\begin{lemma}[The Technical $\lambda-$Lemma] 
-		Let $ M$ be a smooth manifold and let $p$ be a hyperbolic fixpoint of a diffeomorphism $\phi$ on $M$ with $\dim W(p \to)=r$ for ${0<r<m=\dim M}$. Let $N$ be an injective immersed submanifold of $M$ that is invariant under $\phi$ and has a point of transverse intersection $q$ with $W(\to p)$. Then for any $\epsilon>0$, any $r-$cell neighbourhood $D$ of $q$ in $N$ that also intersects $W(\to p)$ transversal and any $r-cell$ neighbourhood $B$ of $p$ in $W(p\to))$ there is a smaller cell $\tilde{D}\subset D$, an $n\in \N$ such that the following is true:
-		
-		We can assume that $B$ and $\phi^n(\tilde{D})$ lives in a chart centered at $p$ with a product structure $U\cong W(\to p)\cap B_\mu(0)\times W(p\to)\cap B_\mu(0)$. Here,the invers of the projection into $B\subseteq W(\to p)$:
-		\begin{equation*}
-			h: B\to \phi^n(\tilde{D})\, 
-		\end{equation*}satisfies:
-		\begin{enumerate}
-			\item $\sup_{x \in B}\norm{x-h(x)}<\epsilon$ and
-			\item For the inclusions  $i_1:B\to M$ and $i_2:\phi^n(\tilde{D})\to M$ we have that 
-			\begin{equation*}
-				\sup_{x \in B}\norm{\diff(i_1)_x-\diff(i_2\circ h)_x}<\epsilon\, .
-			\end{equation*}
-		\end{enumerate}
-	\end{lemma}
-	\begin{proof}
-		\begin{comment}
-		Let \( q \) be a point of transversal intersection of \( W(\to p) \) with \( N \). Since both \( N \) and \( W(\to p) \) are invariant under \( \phi \), it follows that \( \phi^n(q) \in N \cap W(\to p) \) for all \( n \in \N \). Moreover, the intersection remains transversal: the direct sum decomposition \( T_q M = T_q W(\to p) \oplus T_q N \) is preserved under \( d\phi_q \), which implies transversality at \( \phi^n(q) \) as well.
-		
-		Therefore, we may assume that \( q \) lies in a coordinate chart centered at the hyperbolic fixed point \( p \), and identify a neighborhood of \( p \) with an open subset of \( \mathbb{R}^m \), where \( m = \dim M \). By hyperbolicity of \( p \), the tangent space at \( p \) splits as
-		\[
-		T_p M = T^s_p M \oplus T^u_p M,
-		\]
-		and this splitting is preserved by \( d\phi_p \). As discussed earlier\todo{reference einfügen}, there exists a chart in which \( d\phi_p \) is represented by a real diagonal matrix (in suitable coordinates)\todo{in fact we can choose a Morse chart that satisfies this!}. Hence, we may choose an orthonormal basis of coordinates \( (x_s, x_u) \in \mathbb{R}^s \times \mathbb{R}^u \), adapted to the stable and unstable subspaces, such that
-		\[
-		d\phi_0 =
-		\begin{pmatrix}
-			A & 0 \\
-			0 & B
-		\end{pmatrix},
-		\]
-		where the eigenvalues of \( A \) have modulus less than 1, and those of \( B \) greater than 1.
-		
-		Since we are working in \( \mathbb{R}^m \), we identify the manifold and its tangent space locally around 0. We then expand \( \phi \) in a Taylor series at the origin:
-		\[
-		\phi(x_s, x_u) = \phi(0) + d\phi_0(x_s, x_u) + f(x_s, x_u),
-		\]
-		where \( f(0) = 0 \) and \( df(0) = 0 \). Writing this in coordinates gives:
-		\begin{equation} \label{eq: proof of Lambda lemma phi split}
-			\phi(x_s, x_u) = (A x_s + f_s(x_s, x_u),\; B x_u + f_u(x_s, x_u)).
-		\end{equation}
-		Furthermore, since $f=\phi-\diff \phi|_0$ we know that: 
-		\begin{align*}
-			\frac{\partial f_s}{\partial x_u}|_{(0,x_u)}=\frac{\partial \phi_s}{\partial x_u}|_{(0,x_u)}=0=\frac{\partial f_u}{\partial x_s}|_{(x_s,0)}=\frac{\partial \phi_u}{\partial x_s}|_{(x_s,0)}.
-		\end{align*} Similar to Corollary $\ref{cor: Tangendspace splits}$ we can define an inner product such that for the operator norm we have 
-		\begin{align*}
-			\norm{A}\leq \alpha <1 \quad \text{ and } \quad \norm{B^{-1}}\leq \frac{1}{\beta} <1.
-		\end{align*}
-		Since $1=\norm{\id}=\norm{BB^{-1}}\leq \norm{B}\cdot \norm{B^{-1}}$ we know that $\norm{B}\geq \beta$.
-		For a neighbourhood $U_1\subseteq U$ of the origin we define 
-		\begin{align*}
-			k:=\max_{i,j=s,u} \Bigg\{ \sup_{\overline{U_1}}\norm{\frac{\partial f_i}{\partial x_j}} \Bigg\},
-		\end{align*} and choose $U_1$ small enough such that $k$ satisfies:
-		
-		
-		\begin{gather*}
-			0<k<1 \\
-			\beta_1:=\beta -k >1 \\
-			\alpha_1:=\alpha +k <1 \\
-			k<\frac{1}{4}(b_1-1)^2.
-		\end{gather*}
-		This can be achieved since $\diff f\big|_0=0$.
-		Let $B$ be a cell neighbourhood of the origin in $W(p\to )$. For some $n \in \N$ we have that $\phi^{-n}(B)\subseteq U_1$. If the $\lambda-$lemma holds for $\phi^{-n}(B)$ for all $\epsilon$ it also holds for $B$, since the metric and $\phi$ are continuous and the $r-$cell is compact. Therefore, the change of distance after applying $\phi^{-n}$ is finite and we can choose the distance from $\phi^{-n}(B)$ to $D$ small enough such that $B$ is $\epsilon~C^1$-close to $D$. Hence, without restrictions $B\subseteq U_1$ and $q\in U_1$.  Next we define the inclination of $N$ with respect to the (un-)stable manifolds as follows: 
-		
-		Let $x\subseteq N \cap U_1$ and $v^0\in T_xN\subseteq T_0M=T^s_0M \oplus T^u_oM$ and let $v^0=(v_s^0,v_u^0)$ be the coordinate entries. Furthermore let $v$ be a unit vector. Now we define the \textbf{inclination} of $v^0$:
-		\begin{align*}
-			\lambda(v^0)=\frac{\norm{v^0_s}}{\norm{v^0_u}}.
-		\end{align*}
-		In other words: The smaller the inclination, the more parallel we are to $W(p\to)$. Notive how we can only define the inclination if $v^0_u\neq 0$. 
-		Furthermore define:
-		\begin{align*} x^n:=\phi^n(x), ~v^n:= \diff \phi_{x^{n-1}}(v^{n-1}) \text{ and } \phi(x)=(\phi_s(x),\phi_u(x))\in W(\to 0)\times W(0\to).
-		\end{align*}
-		Now we want to calculate the derivative $\diff \phi|_{q^n}$. But first inspect:
-		\begin{align*}
-			\diff \phi|_x=\begin{pmatrix}
-				\frac{\partial \phi_s}{\partial x_s}|_{x} & \frac{\partial \phi_s}{\partial x_u} |_{x}\\
-				\frac{\partial \phi_u}{\partial x_s} |_{x}& \frac{\partial \phi_u}{\partial x_u}|_{x}
-			\end{pmatrix}\overset{(\ref{eq: proof of Lambda lemma phi split}) }{~=~}
-			\begin{pmatrix}
-				A+ \frac{\partial f_s}{\partial x_s}|_{x}& \frac{\partial f_s}{\partial x_u}|_{x}\\
-				\frac{\partial f_u}{\partial x_s} |_{x} & B+ \frac{\partial f_u}{\partial x_u}|_{x}
-			\end{pmatrix} 
-		\end{align*} Since $q^n\in W(\to 0)$ and $\frac{\partial f_u}{\partial x_s}(x_s,u)$=0 this gives us:
-		
-		\begin{align*}
-			\diff \phi|_{q^n}=\begin{pmatrix}
-				A+ \frac{\partial f_s}{\partial x_s}|_{q^n}&    \frac{\partial f_s}{\partial x_u}|_{q^n}\\
-				0                                   & B+ \frac{\partial f_u}{\partial x_u}|_{q^n}
-			\end{pmatrix} 
-		\end{align*}
-		Let $B_s(\delta)$ denote the ball of radius $\delta$ around the origin that lives in $W(\to p)$ and $U_2:= B_s(\delta)\times B$. Since $\frac{\partial f_s}{\partial x_u}|_{(0,x_u)}=0$ and by the smoothness of  $\phi$, for any $\epsilon >0$ there exists a $\delta$ such that 
-		\begin{align*}
-			\underbrace{\sup_{U_2}\norm{\frac{\partial f_s}{\partial x_u}}}_{:=k_1}< \min\{\epsilon, k \}.
-		\end{align*} 
-		Again, we assume $q\in D\subseteq  U_2$. Now we want to get a hold of the inclination:  Let $x\in N$ such that $x^j\in U_2 $ for all $j\leq n$ and let $v^0\in T_xN$. Denote $v^n=(v^n_s,v^n_u)\in T_0W(\to 0)\times T_0W(0 \to)$. 
-		\begin{align}
-			\lambda(v^n)&= \frac{\norm{\diff \phi_s|_{x^{n-1}}(v^{n-1})}}{\norm{\diff \phi_u|_{x^{n-1}}(v^{n-1})}} \nonumber \\
-			&=\frac{\norm{Av_s^{n-1} +\ \frac{\partial f_s}{\partial x_s}|_{x^{n-1}}v_s^{n-1} \ \, + \, \frac{\partial f_s}{\partial x_u}|_{x^{n-1}}(v_u^{n-1})}}{\norm{\color{blue} \frac{\partial f_u}{\partial x_s}|_{x^{n-1}}(v_s^{n-1}) \color{black}+   Bv_u^{n-1}+\frac{\partial f_u}{\partial x_u}|_{x^{n-1}}(v_u^{n-1})}} \nonumber \\
-			& \leq \frac{ (\alpha +k )\norm{v_s^{n-1}}+k_1 \norm{(v_u^{n-1})}}
-			{ \color{blue}k \norm{(v_s^{n-1})} \color{black}  +  (\beta+k)\norm{ v_u^{n-1}}} \nonumber \\
-			& \leq \frac{ (\alpha +k )\norm{v_s^{n-1}}+k_1 \norm{(v_u^{n-1})}}
-			{ (\beta-k)\norm{ v_u^{n-1}}  - \color{blue} k_1 \norm{(v_s^{n-1})} \color{black} } &\quad \text{since } \beta-k>1 \text{ and }k_1<k<1 \nonumber \\
-			& = \frac{ (\alpha +k )\lambda(v^{n-1})+k_1}
-			{ \beta_1  - \color{blue} k_1 \lambda{v^{n-1}\color{black} }} &\quad \text{we divided by }\norm{v_u^{n-1}} \nonumber \\
-			&\leq \frac{\lambda(v^{n-1})+k_1}
-			{ \beta_1  - \color{blue} k_1 \lambda(v^{n-1}) \color{black} }  \label{eq: estimate lambda(v^n)}				
-		\end{align} 
-		If $x\in W(\to 0)$ the blue part above disappears and we get:
-		\begin{align*}
-			\lambda(v^n) \leq \frac{\lambda(v^{n-1})+k_1}{\beta_1}.
-		\end{align*} By induction we get:
-		\begin{align}
-			\lambda(v^n)\leq \frac{\lambda(v^{n-1})+k_1}{\beta_1}=\frac{\frac{\lambda(v^{n-2})+k_1}{\beta_1}+k_1}{\beta_1}= \frac{\frac{\lambda(v^{n-2})+\frac{k_1 \beta_1}{\beta_1}}{\beta_1}+k_1}{\beta_1} =\frac{\lambda(v^{n-2})+k_1+ k_1 \beta_1}{\beta_1^2}\leq \cdots \nonumber \\
-			\leq \frac{\lambda(v^0)+\sum_{l=0}^{n-1}k_1 \beta_1^l}{\beta_1^n}~. \label{eq: proof lambda lemma estimate lambda(v^n) with x=q}
-		\end{align} By using the geometric series we see:
-		\begin{align*}
-			\lambda(v^n)\leq \frac{\lambda(v^0)}{\beta_1^n}+k_1\sum_{l=1}^n\frac{1}{\beta^n} \leq \frac{\lambda(v^0)}{\beta_1^n}+k_1(\frac{1}{1-\beta_1}-1)=
-			\frac{\lambda(v^0)}{\beta_1^n}+k_1(\frac{b}{\beta_1-1}-\frac{\beta_1-1}{\beta_1-1}) \\ =\frac{\lambda(v^0)}{\beta_1^n}+k_1(\frac{1}{\beta_1-1}).
-		\end{align*}
-		Since $\beta_1$ was greater then 1 we can conclude that $\lim_{n \to \infty}\frac{\lambda(v^0)}{\beta_1^n}=0$ and since $k<\frac{1}{4}(\beta_1-1)^2$ we know that $\frac{k}{\beta_1-1}<\frac{b-1}{4}$. Because of that, a $n_0$ exists such that for all $n>n_0$ :
-		\begin{align*}
-			\lambda(v^n)\leq \frac{\lambda(v^0)}{\beta_1^n}+\frac{k}{b-1}< \frac{\beta_1-1}{3}.
-		\end{align*}  
-		Lets collect what we have done so far: We take a point $x$ from a transverse intersection of $N$ and $W(\to p)$. Then, we inspect the inclination of a tangent vector $v$ in ${T_xN\subseteq T^s_0M\times T^u_0M}$ and move the tangent vector via $\diff \phi$ alongside of the stable set and realize that the inclination gets smaller, the more we move it. 
-		
-		
-		
-		
-		
-		
-		For any $v\in T_{q^n}N$ there exists a $\tilde{v} \in T_qN$ such that $v=\tilde{v}^n$, since
-		$\diff \phi|_x:T_xM \to T_{\phi(x)}M$ is bijective. 
-		If we take an arbitrary local section $f:M \to TM$
-		that denotes the choice of $v^0\in T_xN$ we know that $\lambda \circ f$ is continuous, 
-		as it is the composition of continuous functions. In other words, the inclination smoothly depends on $v^0$ and $x$. 
-		This tells us that for a small enough cellular neighbourhood $D_0 \subseteq D\subseteq N \cap U_2$ such that for any $x\in D_0$ and $v_0\in T_xN$ of length $1$ we have
-		\begin{equation}
-			\lambda(v^0)\leq \frac{1}{2} (\beta_1-1).
-		\end{equation} (This is true as long as the invlination is well defined )
-		Now we claim that if $\phi^j(v^0)\in U_2$ for all $j=0,...,n$ then $\lambda(v^n)\leq \frac{1}{2}(\beta_1-1).$ We prove this by induction: The case $n=0$ is already done. For the induction step we use the estimate (\ref{eq: estimate lambda(v^n)}), $k_1 <k<1$ and $k< \frac{1}{4}(\beta_1-1)^2$:
-		\begin{align*}
-			\lambda(v^{n+1})\leq \frac{\lambda(v^{n})+k_1}{ \beta_1  - k_1 \lambda(v^{n})}\leq \frac{ \frac{1}{2}(\beta_1-1)+\frac{1}{4}(\beta_1-1)^2}{ \beta_1  - \frac{1}{2}(\beta_1-1))} = \frac{1}{2}(\beta_1-1).
-		\end{align*} Using the above estimate and (\ref{eq: estimate lambda(v^n)}) again we conclude that for all $x\in D_0$ such that $\phi^j(x)\in U_2$ for all $j=0,...,n$ and for any unit vector $v^0\in T_xN$ we have:
-		\begin{align*}
-			\lambda(v^{n})& \leq \frac{\lambda(v^{n-1})+k_1}{ \beta_1  - k_1 \lambda(v^{n-1})}\\
-			&\leq \frac{\lambda(v^{n-1})+k_1}{ \beta_1  - \frac{1}{2}(\beta_1-1))}\\
-			&\leq \frac{\lambda(v^{n-1})+k_1}{ (\frac{1}{2}(1+\beta_1))}.
-		\end{align*} Notice that for $\beta_2:=\frac{1}{2}(1+\beta_1)$ we have $1<\beta_2<\beta_1$. Again like in the equation (\ref{eq: proof lambda lemma estimate lambda(v^n) with x=q}) we can use induction to conclude:
-		\begin{align*}
-			\lambda(v^n)\leq \frac{\lambda(v^0)}{\beta_2^n}+\frac{k_1}{\beta_2-1},
-		\end{align*} and since $k_1\leq \epsilon$ we have for any $n$ large enough, any $x\in D_0$ such that $\phi^j(x) \in U_2$ for $j=0,...,n$ and any unit vector $v^0 \in T_xN$:
-		\begin{align*}
-			\lambda(v^b)\leq \epsilon(1+\frac{1}{\beta_2-1}).
-		\end{align*}
-		Let $\pi_u:U \to W(0\to)$ be the projection. Since $\phi$ is expanding on $W(0 \to)$ we know that a $n_2\geq n_1$ exists such that $B\subseteq \pi_u(D_{n_2})$, where $D_{n_2}$ denotes the connected component of $\phi^{n_2}(D_0)\cap U$ that contains $q^{n_2}$. If $\dim N > \dim W(0 \to)$ we can choose a subset of $\dim W(0\to)$ and then the projection restricted to $D_{n_2}$:  $\pi_u|{D{n_2}}$ can be modified to be one to one. For this we use the fact that we are an embedded manifold.Hence, we are given by an implicit function where the derivatives in $W(\to p)-$direction are invertible as a matrix. By the implicit function theorem we can take any point $x$ from $D_{n_2}$ and conclude that there is a neighbourhood $U(x)\subset W(p\to)$ around $\pi_u(x)$ in $D_{n_2}$ and a smooth function $G: W(p\to)\to W(\to p)$, such that around $x$ $D_{n_2}$ looks like $(y,G(y))$ telling us that the projection onto the domain of $G$ is one to one after restricting $D_{n_2}$ to $U(x)\times \im(G)$. Now we can define $h$ to be the inverse of that projection (that is $G\times \id$) and get the closeness of $B$ to $D_{n_2}$. To see that we first check the distances and the difference after differentiating. For this we need the maps: $i_1:B\to M, x \mapsto (0,x)$, and $i_2: ~D_{n^2} \to M,~ x\mapsto x$ and $h: B \to D_{n^2},~ x \mapsto \pi_u^{-1}(x)=(h_s(x),x)=(h_s(x),h_u(x)$:
-		
-		\begin{align*}
-			\sup_{x\in B} \norm{ \diff( i_{1} )_x-\diff (i_2 \circ h )_x} &= \sup_{x\in B} \norm{ \begin{psmallmatrix}
-					0 \\
-					1
-				\end{psmallmatrix}- \begin{psmallmatrix}
-					\diff (h_s)_x \\
-					1
-			\end{psmallmatrix} } \\
-			&=\sup _{x\in B} \norm{\diff (h_s)_x } &\\
-			&= \sup_{x \in B} \sup_{\norm{v}\leq 1} \norm{\frac{\diff(h_s)_x}{\diff(h_u)_x}(v) \diff(h_u)_x}(v) & \text{ here:} \begin{cases} h_u \equiv  \id_{w(\to p)} \times h_u \\
-				h_s \equiv h_s \times \id_{W(p \to)}.
-			\end{cases} \\
-			&=\sup_{x \in B} \sup_{\norm{v}\leq 1} \frac{\norm{(\diff(h)_x)_s(v)}}{\norm{(\diff(h)_x)_u(v)}}\norm{v}\\
-			&= \sup_{x \in B} \sup_{\norm{v} = 1} \lambda(\diff h_x(v)) & \text{since $\diff h_x$ is linear} \\
-			& \leq \epsilon(1+\frac{1}{\beta_2-1}).
-		\end{align*} The last inequality follows from $\diff h_x(v))$ being an element in $T_xN$ and the existence of a $\tilde{v} \in D_0:\tilde{v}^n=v$. Finally since $\beta_2$ is independent of $\epsilon$ we can make this construction for any $\epsilon$.
-		Furthermore since we can increase $n$ (and decrease the sice of $\tilde{D}$) such that $D_{n^2}$ is arbitrary close to the origin, the statement that 
-		\begin{equation*}
-			\sup_{x\in B}\norm{x-h(x)}<\epsilon 
-		\end{equation*} is clear.
-		
-		%here stats the proof of the strukturel inclination lemma
-		
-		Therefore, by definition we have that for any $\mathcal{N}^r(f,(\phi,U),(\psi,V),\epsilon)$ that contains $i_2$ there is a $r-$cell $D_{n^2}$ and a $h$ such that $i_2 \circ h \in \mathcal{N}^r(f,(\phi,U),(\psi,V),\epsilon)$. This tells us that every neighbourhood of $i_1$ contains such an $h$ and therefore, in the $C^r-$generating metric $d_1$, an $r-$cell and a $h$ exists such that $d_1(i_1.i_2\circ h)<\epsilon.$ This concludes the proof of the lambda lemma.  	
-		
-		we proofed the same with the only difference, that we defined the $r-$cell $D$ arbitrary. We now want to show that this $r-$cell can be defined to be the image of a moved smaller cell of a given $r-cell$. So lets inspect the already given proof:
-		
-		We started by moving the point of transverse intersection $q$ closer to the fixpoint by applying the diffeomorphism to it. Then we defined an neighbourhood $D_0$ of that moved point in the stable manifold (compare \ref{eq: proof lambda lemma small neighbourhood}). Here we were able to get a hold of the inclination. Then we moved $D_0$ via applying the isomorphism closer to the fixed point and restricted it to the dimension of the unstable manifold. This restriction we can refine as follows: First we define $D_{n^2}$ to be the moved $D_0$. Lets say we moved $q$ $n-$times. In other words $q\in \phi^{-n}(D_{n^2})$ Then there exist a small $r-$cell neighbourhood of $q$ that lives in $D \cap \phi^{-n}(D_{n^2})$. That is because $ \phi^{-n}(D_{n^2})$ is an in $N$ open neighbourhood of $y$, hence $\phi^{-n}(D_{n^2}) \cap D$ is open in $D$. Hence we can find a ball around $y$ in $D$ that is contained in the intersection. We call that $r-$cell $\tilde{D}$. Then $\phi^n(\tilde{D})$ is an $r-$dimensional subset of $D_{n^2}$ and the rest of the proof can be done with that subset. All arguments work, as that subset is transverse to $W(\to p)$. 
-	\end{comment}
-	The proov is essentially the same as given in David Hurtubise - Lectures on Morse Homology. I omitted it here. 
-	\end{proof}
-	Next we proove that fiberwise the flow is monotonly decreasing in any normal-direction with respect to $W(\to p)$:
-	\begin{lemma}\label{lem: fibrewise monotopnically}
-		Let $U$ be a tubular neighbourhood of $W(\to p)\cap M^c$, with $J:NW(\to p)\cap M^c\to M$ beeing the corresponding embedding. For $x\in W(\to p)\cap M^c$ we denote $U_x$ the embedded fiber over $x$. Then there exists a $T>0$ big enough and a global trivialization $\Phi: NW(\to p)\cap M^c\to  \left(W(\to p)\cap M^c\right)\times \R^{\lambda_p}$ such that the the composition $f\circ \phi_T \circ J\circ \Phi^{-1}$ is fibrewise monotonically decreasing meaning that for any  $0\neq v\in U_x$  and $\nu >0 $ small the function
-		\begin{align*}
-			l_v: (1-\nu,1+\nu) &\to \R\\
-			\lambda &\mapsto f\circ \phi_T \circ J\circ \Phi^{-1}(x,\lambda \cdot v)
-		\end{align*} has negative derivative.
-	\end{lemma}
-	\begin{proof}
-		We will apply the technichal $\lambda$-lemma. For this we reuse the notation as follows. The lemma tells us, that for any $\mu_T>0$ we can find a $T$ big enough, such that $\phi_T(J(U_x))$ is close in the following sense: There is a neighbourhood $L$ of $p$ and a Morse chart 
-		\begin{align*}
-			\Psi: L\to \R^{\lambda_p}\times \R^{m-\lambda_p}
-		\end{align*} such that $\restr{\Psi}{\R^{\lambda_p}}\supseteq W(p\to)$. In this chart the set $\phi_T(J(U_x))$ is the graph of a funktion $h^s_x:\R^{\lambda_p}\to \R^{m-\lambda_p}$ that satisfies:
-		\begin{align*}
-			\norm{\diff h^s_v}<\mu_T\\ 
-			\norm{ h^s_v}<\mu_T
-		\end{align*}
-		We define the map $h_x=h^s_x\oplus \id_{\lambda_p}: \R^{\lambda_p}\to \R^m$.
-		
-		
-		
-		
-		
-		Now $\phi_T(J(U_x))=\Gamma(h^s_x)=\im (h_x)$. Using this we define our global trivialisation:
-		\begin{align*}
-			\Phi: NW(\to p)\cap M^c &\to  \left(W(\to p)\cap M^c\right)\times \R^{\lambda_p}\\
-			\xi &\mapsto \left(\pi(\xi), h^{-1}_{\pi(\xi)}\circ \Psi \circ \phi_T \circ J(\xi)\right)
-		\end{align*}
-		In this trivialization the funktion $l_v$ looks like:
-		\begin{align*}
-			l_v(\lambda)
-			&=f \circ \phi_T\circ J \circ \Phi^{-1} (x,\lambda v)\\
-			&=f \circ \phi_T\circ J\circ J^{-1}\circ \phi_{-T}\circ \Psi^{-1} \circ h_x\\
-			&=f \circ \Psi^{-1} \circ h_x\, .
-		\end{align*} 
-		In coordinates this reads:
-		
-		
-		
-		Now we can calculate its derivative to conclude the statement: 
-		\begin{align*}
-			\diff (l_v)(\lambda)
-			&=\restr{\diff (f\circ \psi^{-1})}{h_x(\lambda v)}\circ \restr{\diff h_x}{\lambda v} (v)\\
-			&=\restr{\diff (f\circ \psi^{-1})}{h_x(\lambda v)} (v,\diff h_x^s(v))\\
-			&=-2\lambda \sum_{i_1}^{\lambda_p}(v^i)^2+\left(h^s_x(\lambda v)\right)^T\cdot (\diff h_x^s)^i(\lambda v)\\
-			&\leq-2\lambda \norm{v}^2 +\lambda^2 (\mu^T )^2\norm{v}^2\\
-			&= \left( -2+(\mu^T)^2\lambda \right) \lambda \norm{v}^2<0 \text{ for all $v\neq 0$, $\lambda \in I$ and for all $T$ big enough.}
-		\end{align*}		
-	\end{proof}
-	Hence, the sets $N_p\cap U_x$ are starshaped with respect to the embedding of the normal space.
-	
-	Now we want to \textbf{smoothly} rescale to the starshaped neighbourhood. This is in general not possible and homeomorphisms from starshaped neighbourhoods to $R^n$ are hard to describe, even if they are not required to be a resacling. The main problem in the general case is, that the following: for each $v\in \phi_T(J(U_x))$ by the star shaped property there is a unique $\lambda_v$ ,  such that $f\circ (\lambda_v v)=a-\epsilon$. But the map $v\mapsto \lambda_v$ needs not to be continouos in the general starshaped setting however here it is and it even continouosly depends on $x$:
-	\begin{definition}[Hyperspherical coordinates]
-		For our next proof we need to introduces spherical coordinates on $R^{\lambda_{p}}$. Define $s_k\coloneq \sin(\theta_k)$ and $c_k\coloneq \cos(\theta_k)$:
-		\begin{align*}
-			\Lambda: \R_{\geq 0}\times [0,\pi]^{\lambda_{p}-2}\times [0,2\pi)&\to \R^{\lambda_p}  \\
-			(r,\theta_1,\dots, \theta_{\lambda_p-1})&\mapsto \begin{pmatrix}
-				rc_1\\
-				rs_1c_2\\
-				\vdots  \\
-				rs_1 \cdots s_{\lambda_{p}-2} c_{\lambda_{p}-1} \\
-				rs_1 \cdots s_{\lambda_{p}-2} s_{\lambda_{p}-1}		
-			\end{pmatrix}
-		\end{align*}
-		With differential 
-		\begin{align*}
-			\begin{pmatrix} 
-				c_1                        &-rs_1              &0        &0 &\cdots &0      \\
-				s_1c_2                     &rc_1c_2            &-rs_1s_2 &0 &\cdots &0      \\
-				\vdots                     &\vdots             & \vdots  &  &\ddots &\vdots \\
-				&                   &         &  &             \\
-				s_1\cdots s_{n-2}c_{n-1}   &\cdots             &\cdots   &  &       &-rs_1\cdots s_{n-2}s_{n-1} \\
-				s_{1}\cdots s_{n-2}s_{n-1} &rc_1\cdots s_{n-1} &\cdots   &  &       &\phantom{-}rs_1\cdots s_{n-2}c_{n-1}\\
-			\end{pmatrix}
-		\end{align*}
-		
-	\end{definition}
-	
-	We have shown in lemma \ref{lem: fibrewise monotopnically} that the maps $l_v$ are monotonically decreasing. Hence the condition $f(x)\geq a-\epsilon$ gives rise to a starshaped fiber. But we want the fibers to be homeomorphic to $R^{\lambda_p}$ and the dream would be to just rescale it as follows: 
-	Assume that $\rho>0$ is small enough, such that for all $x\in \left( W(\to p)\cap M^{c}\right) $ we have that $\sup\limits_{x\in h_x\left(B_{\rho}(0)\right)}(f(x))\geq a-\epsilon$. Now we have the maps\todo{f mit $f\circ \Psi^{-1}$ ersetzen, da hier eigentlich die Morse karte genutzt wird!!}: 
-	\begin{align*}
-		r_x: h_x(\partial\left(B_{\rho}(0)\right))&\to \R_{\geq 1}\\
-		v&\mapsto \lambda_v \text{ such that }f( \lambda_v v)=a-\epsilon
-	\end{align*} Notice that for small enough $\epsilon$ such a $\lambda_v$ exists and the lemma \ref{lem: fibrewise monotopnically} gives us uniqueness. Now we want to have continouoity and furthermore continouos dependence on $x$ for which we will use the parameter-dependent implicit funktion theorem:
-	\begin{lemma}
-		The parameterdependent funktions $r_x$ are continouos and depend continouos on $x$
-	\end{lemma}
-	\begin{proof}
-		We redefine the funktion $r_x$  by using spherical coordinates as follows: Implizitly for each $x$ we have the Mapping: 
-		\begin{align*}
-			F_x:\R_{\geq 0}\times [0,\pi]^{\lambda_{p}-2}\times [0,2\pi) &\to \R\\
-			(r,\theta_1,\dots, \theta_{\lambda_p-1})&\mapsto f\circ h_x\circ \Lambda(r,\theta_1,\dots, \theta_{\lambda_p-1})
-		\end{align*}
-		Here the funktion reads:
-		\begin{align*}
-			f\circ h_x\circ \Lambda(\underbrace{r,\theta_1,\dots, \theta_{\lambda_p-1}}_{\coloneq v})
-			= f(
-			\begin{pmatrix}
-				h_x^s(\Lambda(v)) \\
-				\Lambda (v)
-			\end{pmatrix})
-			= -2r^2 +2\sum_{i=\lambda_p+1}^{m} \left(h_x(\Lambda(v)) \right)_i^2
-		\end{align*} To make use of the implizit funktion theorem, we inspect the differential in $r$-direktion:
-		\begin{equation*}
-			\frac{\partial}{\partial r}(-2r^2 +2\sum_{i=\lambda_p+1}^{m} \left(h_x(\Lambda(v)) \right)_i^2)=-4r+2\sum_{i=\lambda_p+1}^m\left(\sum_{j=1}^{\lambda_p}\left(
-			\frac{\partial (h_x)_i}{\partial x_j}\frac{\partial \Lambda_j}{\partial r}
-			\right)\right)
-		\end{equation*} This does not vanish for big enough $r$, since the partial differentials of $\lambda$ are of norm one, and those of $h_x$ are small. Hence for big enough $r$ , lets say $r\geq \mu>0$ this is negative and thereby we get a funktion 
-		\begin{align*}
-			\tilde{r_x}: [0,\pi]^{\lambda_{p}-2}\times [0,2\pi)  \to \R_{\geq \mu}
-		\end{align*} such that $(f\circ h_x\circ \Lambda)^{-1}(a-\epsilon) $ is the graph of $\tilde{r_x}$. Hence, if we define $\pi_r: \R_{\geq 0}\times [0,\pi]^{\lambda_{p}-2}\times [0,2\pi) \to [0,\pi]^{\lambda_{p}-2}\times [0,2\pi)$ to be the projection we have that
-		\begin{align*}
-			r_x: h_x\left(\partial B_{\rho}(0) \right)&\to \R\\
-			v&\mapsto \tilde{r}_x\circ \pi_r(\Lambda^{-1}(h_x^{-1} v))
-		\end{align*} is continouos and depends continouosly on $x$. (In reality we still need to check for smoothness in $\Lambda(\{\theta_{\lambda_{p}-1}=0\}$. This can be done by a different parametrisation of the sphere meaning by different spherical coordinates.)The resulting funktion agrees with the earlyer definition of $r_x$ concluding the proof. 
-	\end{proof}
-	
-	
-	
-	
-	\begin{proof}[Proof That $N_p$ is Tubular]
-		To finish our proof we rescale the Fibers smoothly. For this we first restrict the domain of $J$: Let $\nu>0$ be small enough, such that for 
-		\begin{equation*}
-			N_{\nu}W(\to p)\cap M^c\coloneq \{\xi|\text{ if }\Phi(\xi)=(x,v), \norm{v}<\nu\}
-		\end{equation*} the supremum
-		\begin{equation*}
-			\sup\limits_{x \in \phi_T\circ J \left( N_{\nu}W(\to p)\cap M^c \right)}\geq a-\epsilon
-		\end{equation*} Hence, $J( N_{\nu}W(\to p)\cap M^c)$ is included in $N_p$ and now we resscale the fibres $U_x^{\nu}\coloneq  U_x\cap \im J( N_{\nu}W(\to p)\cap M^c)\supseteq U_x$ to get a surjective inclusion into $N_p$. 
-		For all $x\in W(\to p)\cap M^c$ we define the smooth rescaling as follows: 
-		\begin{align*}
-			RS: U_x^{\nu} &\to U_x\\
-			v &\mapsto \phi_{-T}\circ \Psi^{-1} \circ r_x \left(\rho \cdot \frac{h_x^{-1}\circ \Psi \circ\phi_T(v)}{\norm{h_x^{-1}\circ \Psi \circ\phi_T(v)}} \right)
-		\end{align*} This rescaling is smooth, smoothly depends on $x$, and it maps surjectifly onto $N_p\cap U_x$. 
-	\end{proof}
+
 The same arguments work to show that $N_q$ is a tubular neighbourhood of $W(q\to)\cap M_c$, by replacing $f$ with $-f$. Furthermore, we can assume, that the $V_j$ from below are fibers in the normal neighbourhood. This can be realized, since $V_j$ intersect transversal and by trivialization we have a global fram of the bundel and hence can smoothly rescale the embedding along the frame to get that $V_j$ is the image of the fibre above $x_j$. 
 
 
@@ -755,473 +425,8 @@ The same arguments work to show that $N_q$ is a tubular neighbourhood of $W(q\to
 
 
 
-	\begin{comment}
-\begin{proof}[Proof of Theorem \ref{thm commuting connecting homomorphism}]
-Lets star proving the commutativity of the diagramm (\ref{diag: that we really want to show}).
-	For the proof we use the following naming conventions:
-	\begin{enumerate}
-		\item $i_{something}$ is always the inclusion and hence not explained in the text.
-		\item$c_{something}$ will be the collapsing map and will be described in more details, if not trivialy obvious.
-		\item For a object in $\TopCPoint$, $b$ will always denote the destinguished base point.
-	\end{enumerate}
-	
-	
-	But lets start this:
-	By definition we get the triple connecting morphism as the composition of the inclusion with the connecting homomorphism of the pair, and the connecting homomorphism is defined as a compostion such that the diagramm below commutes: remember that by definition in diagram (\ref{diag: that we really want to show}) the superskript $k$ denotes also the index of $p$ which from now on will be denoted by $\lambda_{p}$:
-\begin{fdiagram}\label{diag: Definition Boundary operator proof connecting hom}
-	\begin{adjustbox}{max width=\textwidth}
-% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBoBmAXVJADcBDAGwFcYkQBpAPWGAFoAOgMb0AtgCMo9APpoAvnwCMcgARDxWAObIAMtICOQgMbM0KgHKyVpFSr1njptQKOMAFHv3O4MHKKxgzHDAlvIAlOpalCBypOiYuPiEKGQATNR0TKzs3LyCwmKSMvJKqpHadgaOZqHOGprRsfHYeAREiqTpNAwsbIicPPkiElKyZQL1yADK0orOAO4wUJowKh4GziY1smF1UTFxIBgtSe0UGT3Z-blDhaPye9ozc0KLy6vrhi5Oobs2zwslis1pUHN8wa41p5vL5-IFgqE5GEIhN9k0jglWslkKlOhcsn0BvwhMMimNHsgLBtqlSIU4AMKzT6bH47GmM1JuSxfLa03blRqHY6JNooXGKfG9HKDEl3YrjSZUrw02rspnQlU7R6C5oi7G44iSq5E24jeUUpUs7Z0sH1AD0UOp4L52oOuqxZ0N3QJ0uJBTN5PKlO5mrQNk8oddcgyQPgRFAADMAE4QURIMggHAQJAdTJS-pYLgAKjdIGTqZzNCzSFxIEYAUJUAgzHEjDYNAAFjB6FB2JAwO3M-QsIw+wQ2Ojy2nEBnq4hyDR6wP2E2W22QJ3u73+v3Bzhh6Od+PS1Oa1Xs4gACze-MgIzSIRMNAd+jFk8p6fXzMXgCsN+NWDSMAj6MM+9ByG+k4fkgf7fkgABs-6Em4ojFmEgzKO+FaIAA7OeCGLg2K7Nq2g5dj2Y7LlWB6UROhynoguZznhebGkIsCMPuQFoMOSZyFh04LnBiC1pchL3sBEy+OBkGUHIQA
-\begin{tikzcd}
-	& {K^{-\lambda_p} \big[ N_q\cup N_p, L_q\cup N_p \big]} \arrow[r, no head, Rightarrow]                                           & {K^{-\lambda_p} \big[ N_q \cup N_p \cup \big/ (L_q \cup N_p) \big]}                                             \\
-	&                                                                                                                                & {K^{-\lambda_p} \big[ N_q \cup N_p \cup C_1(L_q \cup N_p) \big]} \arrow[u, "(m^*)^{-1}"]                        \\
-	{K^{{-\lambda_p}-1} \big[ L_q\cup N_p \big]} \arrow[r, no head, Rightarrow] \arrow[ruu, "\delta_{pair}"]                       & {K^{-\lambda_p} \big[S_1 \wedge (L_q \cup N_p) \big]} \arrow[r, "c_\alpha^*"]                                                  & {K^{-\lambda_p} \big[ N_q \cup N_p \cup C_1(L_q \cup N_p)\cup C_2(N_q\cup N_p) \big]} \arrow[u, "i_{\alpha}^*"] \\
-	{K^{{-\lambda_p}-1} \big[L_q\cup N_p ,  L_p \cup \cl(L_q \setminus{N_p})\big]} \arrow[u, "i^*"] \arrow[r, no head, Rightarrow] & {K^{-\lambda_p} \big[S_1 \wedge (L_q\cup N_p) , S_1 \wedge ( L_p \cup \cl (L_q \setminus{N_p}))\big]} \arrow[u, "c_{\beta}^*"] &                                                                                                                
-\end{tikzcd}
-	\end{adjustbox}
-\end{fdiagram} 
-The map $\alpha$ here is given by:
-	\begin{align*}
-		c_\alpha: N_q \cup N_p \cup C_1(L_q \cup N_p)\cup C_2(N_q\cup N_p)& \to S_1 \wedge (L_q \cup N_p)\\
-		x& \mapsto 
-		\left\{	\begin{array}{ll}
-			p & \text{if } x\in C_2(N_q\cup N_p) \\
-			x & \text{else}
-		\end{array} \right.
-	\end{align*} This map is well defined and continouos, as every point in $S_1 \wedge (L_q \cup N_p)$ is of the form $[(t_1,x)]$ where $x\in L_q \cup N_p$. and those are the points in the domain of $\alpha$ that not get collapsed to $p$. Now is the time where we want to show that the triple connecting homomorphism factors over a space that acts like a coproduct. This means that it satisfys the universal property of a coproduct and hence any morphism from this space is determined by the morphisms from all its summands. For this we need the unstable sphere $S^u(q)\coloneq W(q\to)\cap F^{-1}(c)$. We call connected components of $S^u(q)\cap N_p$ $V_j$. Remember that those $V_j$ can be realiced as normal fibers of $W(\to p)\cap M^c$ via the normal neighbourhood embedding that has been established before.  With this we have the space
-	\begin{equation*}
-		K^{-\lambda_p} \left[  \frac{ C_1(L_q)}{ \cl \left(C_1(L_q)\setminus \bigcup\limits_{j=1}^l C_1V_j \right) } \right]
-	\end{equation*} which is a coproduct together with the homomorphisms: 
-	\begin{equation*}
-	c_j^*:	K^{-\lambda_p}\left[\frac{C_1 V_j}{\partial C_1 V_j}\right] \to 	K^p \left[  \frac{ C_1(L_q)}{ \cl \left(C_1(L_q)\setminus \bigcup\limits_{j=1}^l C_1V_j \right) } \right]
-	\end{equation*} That is induced from $c_j$, which is the collaps of everything but the interior of $C_1 V_j$. These $c_j^*$ have right inverses $i_j^*$ that are induced by the inclusion. Now this date gives the touble that satisfys the coproduct property with finitly many summands:
-	
-	\begin{equation} 
-		\left(	K^{-\lambda_p} \left[  \frac{ C_1(L_q)}{ \cl \left(C_1(L_q)\setminus \bigcup\limits_{j=1}^l C_1V_j \right) } \right], \left(c_j\right)_j \right)
-	\end{equation}
-	
-	This is easy to see since we have the equality (in $\TopCPoint$):
-	\begin{align*}
-		\frac{ C_1(L_q)}{ \cl \left(C_1(L_q)\setminus \bigcup\limits_{j=1}^l C_1V_j \right) }= \bigvee_{j=1}^lC_1V_j \big/ \partial C_1 V_j \,.
-	\end{align*} and hence this follows from the additivity of K-theory. (This equality is given setwise and topology wise, since they carry the same induced topologys as they can be realiced as quotiends of the same superset)
-	As mentiond before, we want the triple connecting homomorphism to factor over this coproduct. This is a little bit tedious due to the cumbersome definitions of the sets in question. But lets start by giving the definitions of the maps that supposedly commute:	
-	
-	\begin{fdiagram}\label{diag: factor over a coproduct}
-	\begin{adjustbox}{max width=\textwidth}%I changed the "bend right" to 10 : bend right=10 in the last expression!!
-% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBoAmAXVJADcBDAGwFcYkQBpAPWAFoAdfo3oBbAEZR6AfTQBfAASCxWAObIAylICM8gBSCA7jCgqY8gDJSAjoIDGzNPIByMgJTzS8zTsPHTeixlFfntHO0Y9SytguBgcESwwZjhgFzlXVyVVShBZUnRMXHxCFDItajomVnZuPkFhcUkZBSy1Z2tg0PawkId5AGFtXSjOvrT3Vpy8guw8AiItCgqGFjZEEH4cWoEhUQlpOWDGGAAzHGR5YJOAJ3pbYAGhqNdZB-Cj05xdQa1h60z+LF4olksFlCpQvUsAkcHApMAAFYAXi0si4ER+ADUpAjgtdVAALHDuFr8fEqIlTfIgDCzYpEchLGgrarrbb1PZNOT1T7IQQ3O7AH7ybEI16CND0a54JiPHSi2SCcmU3LU2lFealUjEZZVNacHg7Br7Zpg1QXFzROxjGSkEbWxxpM0qKYVPzwIigG4QERIMggHAQJCLSqrdhYKSCJhoAn0LgAKjsWGutnktkj-GjsYTSZTaYzYjicfjqq91x9fpogaQjNDrI2mcYMeLpZA3t9iFr1cQIZZ+sEAGt6GhJQnW+2kABmKtBzvMvXsdMIsfTNvljvTgOz3sL9aD4ej+M4kA0YSFxgABUKcxKIGVOBPIELYCgSF4ABYAJyric9mdId95zDdZdBEBNXENVFckoWQgA
-\begin{tikzcd}
-	{K^{-\lambda_p} \big[ N_q \cup N_p,L_q \cup N_p \big]}                                                                                                                             &                                                                                                                                                &                                                                                                                            \\
-	{K^{-\lambda_p} \big[ N_q \cup N_p \cup C_1(L_q \cup N_p) \big]} \arrow[u, "(m^*)^{-1}"]                                                                                           &                                                                                                                                                &                                                                                                                            \\
-	{K^{-\lambda_p} \big[S_1 (\wedge L_q\cup N_p) , S_1 \wedge ( L_p \cup \cl (L_q \setminus{N_p}))\big]} \arrow[u, "i_\alpha^*\circ c_\alpha^*\circ c_\beta^*"] \arrow[r, "\alpha^*"] & {	K^{-\lambda_p} \left[  \frac{ C_1(L_q)}{ \cl \left(C_1(L_q)\setminus \bigcup\limits_{j=1}^l C_1V_j \right) } \right]} \arrow[lu, "\kappa^*"] & {K^{-\lambda_p}\left[\frac{C_1 V_j}{\partial C_1 V_j}\right]} \arrow[l, "c_j^*"] \arrow[llu, "\kappa^*_j"', bend right=10]
-\end{tikzcd}
-	\end{adjustbox}
-	\end{fdiagram}
-	We define the maps $\alpha^*$, $\kappa^*$ and then inspect the map $i_\alpha^*\circ c_\alpha^*\circ c_\beta^*$ and $\kappa_j$:
-	\begin{align*}
-	\alpha:\frac{ C_1(L_q)}{ \cl \left(C_1(L_q)\setminus \bigcup\limits_{j=1}^l C_1V_j \right) } &\to \frac{ S_1 \wedge L_q\cup N_p }{ S_1 \wedge  L_p \cup \cl (L_q \setminus{N_p})}\\
-		x&\mapsto \begin{cases}
-			p & \text{ if   } x \in S_1\wedge(L_p\cup \cl(L_q\setminus N_p))\\
-			x & \text{ else }
-		\end{cases}
-	\end{align*} This map is well defined and continouos, since it is the composition of a collaps with the inclusion:
-\begin{center}
-	% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB12AzAJzoGNgAAgDCAfQCMACgAyYgI4BKAL7DO-BkM4MYXHFPHS5SznBg4AtljBM4W9gCMsAc35M02rFZxwxwAFYAvBLKAHqahgBqYv72PC4AFjiKQspCIMqk6Ji4+IQoEuRUtIwsbJy8AsCGsgoqwgDKkvYA7jBQzjBCQnJo9m596pq18vZmlta2wAByYmjKKhlZIBjYeAREAExF1PTMrIgc3HyCQk0Sre2dPQrq7kKzfapnzZxtHV03g+wD-cPGY3MVhscBmcwWygyxSu8CIoF4EAsSDIIBwECQhRK+zY-AgDAYdDQCEy8J4iIx1DRSG2WLKh2sGlseShyiAA
-	\begin{tikzcd}
-		\frac{ C_1(L_q)}{ \cl \left(C_1(L_q)\setminus \bigcup\limits_{j=1}^l C_1V_j \right) }  \arrow[r, "collaps"] & \frac{C_1(L_q)}{ S_1 \wedge  L_p \cup \cl (L_q \setminus{N_p})} \arrow[r, "inclusion"] & \frac{ S_1 \wedge L_q\cup N_p }{ S_1 \wedge  L_p \cup \cl (L_q \setminus{N_p})}
-	\end{tikzcd}
-\end{center}
-The map $\kappa^*$ is given by 
-\begin{align*}
-	\kappa: N_q\cup N_p\cup C_1(L_q\cup N_p)&\to \frac{ C_1(L_q)}{ \cl \left(C_1(L_q)\setminus \bigcup\limits_{j=1}^l C_1V_j \right) }\\
-	x &\mapsto \begin{cases}
-		p & \text{ if  } x\in  \cl \left(C_1(L_q\cup N_p)\setminus \bigcup\limits_{j=1}^l C_1V_j \right) \cup N_q \cup N_p\\
-		x & \text{ else},
-	\end{cases}
-\end{align*} and hence is just a collapsing map with refomulation of the image. (By inspecting the set that gets collapsed one sees that maps image is contained in the stated image and hence is well defined). Now we want to compare $\kappa^*\circ \alpha^*$ with $i_\alpha^*\circ c_\alpha^*\circ c_\beta^*$. Sadly the two maps are not induced by commuting topological maps. We will show that the reqired maps $(m^*)^{-1}\circ \kappa^*\circ \alpha^*$ and $(m^*)^{-1}\circ i_\alpha^*\circ c_\alpha^*\circ c_\beta^*$ commute and whilst the latter is a isomorphism, it is not necesserily induced by a homeomorphism. Hence we cannot see this commutation purly in $\TopCPoint$.
-\begin{multline*}
-	c_{\beta}\circ c_{\alpha}\circ i_{\alpha}:  N_q\cup N_p\cup C_1(L_q\cup N_p) \to \frac{ S_1 \wedge L_q\cup N_p }{ S_1 \wedge  L_p \cup \cl (L_q \setminus{N_p})}\\
-	x\mapsto\begin{cases}
-		x & \text{ if } x\in \underbrace{N_p\cup N_q \cup \{0\}\times (L_q\cup N_p)}_{ \text{due to $c_\alpha\circ i_\alpha$}}\cup \underbrace{S\wedge(L_p\cup \cl(L_q\setminus N_p))}_{\text{ due to }c_\beta} \\
-		p & \text{ else }.
-	\end{cases}
-\end{multline*}
-Now we just need to compare the subsets that get collapsed via $\alpha \circ \kappa$ and via $c_{\beta}\circ c_{\alpha}\circ i_{\alpha}$. The latter is already given in the formulation above, and the first is the union
-\begin{align*}
-	&\underbrace{\cl \left(C_1(L_q\cup N_p)\setminus \bigcup\limits_{j=1}^l C_1V_j \right) \cup N_q \cup N_p}_{\text{ due to } \kappa} \cup \underbrace{S_1\wedge(L_p\cup \cl(L_q\setminus N_p))}_{ \text{ due to } \alpha}\\
-	=& 
-\end{align*}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	Furtermore, have the maps: 
-	\[
-	\resizebox{\textwidth}{!}{$
-		\begin{aligned}
-			c_{\gamma}: \left[ N_q \cup N_p \cup C_1(L_q \cup N_p)\cup C_2(N_q\cup N_p) \right] & \to  \left[  \quotient{\frac{N_q\cup N_p \cup C_1(L_q\cup N_p)\cup C_2(N_q \cup N_p)}{C_2(N_q \cup N_p)} }{ \frac{ C_1 (L_p \cup \overline{(L_q  \setminus N_p)}) \cup  C_2(N_q \cup N_p)}{C_2(N_q\cup N_p)}}  \right] \\
-			x & \mapsto \left\{ 
-			\begin{array}{ll}
-				p& \text{if } x\in C_2(N_q \cup N_p) \quad \cup \quad    C_1 (L_p \cup \overline{(L_q  \setminus N_p)}) \\
-				x& \text{else }
-			\end{array}
-			\right.
-		\end{aligned}
-		$}
-	\] and 
-	\[
-	\begin{aligned}
-		c_{\beta}: \left[S_1 \wedge (L_q \cup N_p) \right] & \to  \left[ \quotient{S_1 \wedge L_q\cup N_p }{S_1 \wedge  L_p \cup (L_q \setminus \mathring{N_p})} \right] \\
-		x & \mapsto \left\{ 
-		\begin{array}{ll}
-			p& \text{if } x\in S_1 \wedge  L_p \cup (L_q \setminus \mathring{N_p})\\
-			x& \text{else }
-		\end{array}
-		\right.
-	\end{aligned}
-	\]
-	This map is again well defined and continouos and is also a map of pairs. In fact, both maps $\alpha$ and $\beta$ can be written as $x\mapsto \overline{x}$ and since the collapsed space is contractible, they induce isomorphism between the $K$-groups. The map $\gamma$ is just the identity.
-	
-	
-	
-	
-	Furthermore, we have the commutative diagramm: 
-	\begin{center}
-		\begin{adjustbox}{max width=\textwidth}
-			% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZARgBoAGAXVJADcBDAGwFcYkQBpAPTQAIAdfoxgAzHMl4A5APoBHAfwDGzPjL6DlfAMLTiACgAychZqnS0ASg0reOgEx6Zs66vMWFAJywBzABY5KEABfUnRMXHxCFHIKajomVnZudX4AIx9kAGVdBQB3GChvGF5DYxczSwV070CQsOw8AiIY4jiGFjZETi5gNCCqjMFZZgg8GDAcYGziPIKi3iNnJRs1XiCpnMF8wuKF8xMbDUYSxYU4GBwAWywwZjhgNSCLfsFq2tCQDAbIojJWmnaiS6yQUwjEEgUw1GWHGk0EIg89EUDzk5VW5R0+kWaLcGOkDicB1clnW9kcZWWxOea2ACgRSNpmJO+3KgggtBgHkYNxgwFK8jOF2utzgFWe7nKtnx5PkOJJwDJTjlz36nh8-lqcTm8CIoAREEuSDsNBwECQZHiHXYimkwFeF3oQS4ACpgh99YbEBbTUgYpagSBBEw0L56C63XqPAajSazYgAMwAhKdQP8bz0S6XMOuuogD1IRMgH2IP2AlM2u1pjNZp05yhBIA
-			\begin{tikzcd}
-				{K^p \big[S_1 \wedge (L_q \cup N_p) \big]} \arrow[r, "\alpha^*"]                                                                                    & {K^p \left[ N_q \cup N_p \cup C_1(L_q \cup N_p)\cup C_2(N_q\cup N_p) \right]}                                                                                                                                                                     \\
-				{K^{p} \big[\quotient{S_1 \wedge L_q\cup N_p }{S_1 \wedge  L_p \cup \cl (L_q \setminus{N_p})} \big]} \arrow[u, "c_{\beta}^*"] \arrow[r, "\gamma^*"] & {K^p \left[  \quotient{\frac{N_q\cup N_p \cup C_1(L_q\cup N_p)\cup C_2(N_q \cup N_p)}{C_2(N_q \cup N_p)} }{ \frac{ C_1 (L_p \cup \overline{(L_q  \setminus N_p)}) \cup  C_2(N_q \cup N_p)}{C_2(N_q\cup N_p)}}  \right]} \arrow[u, "c_{\gamma}^*"]
-			\end{tikzcd}
-		\end{adjustbox}
-	\end{center} To see the commutativitie we have to show that 
-	\begin{align*}
-		c_{\beta}\circ \alpha =\gamma \circ c_{\gamma}: N_q \cup N_p \cup C_1(L_q \cup N_p)\cup C_2(N_q\cup N_p) \to \left[ \quotient{S_1 \wedge L_q\cup N_p }{S_1 \wedge  L_p \cup (L_q \setminus \mathring{N_p})} \right]
-	\end{align*} since $\alpha$ and $\beta$ are both of the form $x \mapsto \overline{x}=x $ or $p$  we compare the case distinctions:
-	\begin{itemize}
-		\item $c_{\beta} \circ \alpha (x)=p \Leftrightarrow x \in C_1 \left( L_p \cup \cl (L_q \setminus {N_p}) \right) \, \cup \, C_2(N_q \cup N_p)$
-		\item $\gamma \circ c_{\gamma}(x)=p \Leftrightarrow x\in C_2(N_q \cup N_p) \, \cup\,     C_1 (L_p \cup \cl(L_q  \setminus N_p)) \cup  C_2(N_q \cup N_p)$
-	\end{itemize} Which are the same. Now we consider the maps:
-	\[
-	\resizebox{\textwidth}{!}{$
-		\begin{aligned}
-			c: \left[ N_q \cup N_p \cup C_1(L_q \cup N_p) \right]  & \to \left[  
-			\frac{
-				N_q \cup N_p \cup C_1(L_q\cup N_p)
-			}{
-				\cl \left( N_q \cup N_p \cup C_1(L_q\cup N_p)\setminus \bigcup\limits_{j=1}^l C_1V_j \right)
-			} 
-			\right] \\
-			x&\mapsto 
-			\left\{ 
-			\begin{array}{ll}
-				p & \text{ if } x\in \cl (N_q \cup N_p \cup C_1(L_q\cup N_p)\setminus \bigcup\limits_{j=1}^l C_1V_j ) \\
-				x& \text{ else }
-			\end{array}   
-			\right.
-		\end{aligned}
-		$}
-	\] and 
-	
-	\[
-	\resizebox{\textwidth}{!}{$
-		\begin{aligned}
-			c_{\iota}: \left[ N_q \cup N_p \cup C_1(L_q \cup N_p) \right] &\to \left[\quotient{\frac{N_q\cup N_p \cup C_1(L_q\cup N_p)\cup C_2(N_q \cup N_p)}{C_2(N_q \cup N_p)}}{ \frac{N_q\cup N_p \cup C_1 (L_p \cup \cl \left( L_q \setminus \bigcup\limits_{j=1}^l V_j \right)) \cup  C_2(N_q \cup N_p)}{C_2(N_q \cup N_p)}}\right] \\
-			x&\mapsto \left\{ \begin{array}{ll}
-				p & \text{ if } x\in N_q\cup N_p \cup C_1 (L_p \cup \cl \left( L_q \setminus \bigcup\limits_{j=1}^l V_j \right)) \cup  C_2(N_q \cup N_p) \\
-				x & \text{ else }
-			\end{array}    \right. \, .
-		\end{aligned}
-		$}
-	\] We define $V_j$ to be the the finitly many components $N_p\cap S(q\to)$ and hence we can identify the sets $\overline{L_q\setminus N_p}=\cl(L_q\setminus (L_q\cap N_q))=\cl(L_q\setminus (\bigcup\limits_{j=1}^l))$ and with this the map $\eta$ in the diagramm below is just the identity:
-	
-	
-	\begin{center}
-		\begin{adjustbox}{max width=\textwidth}
-			% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBoAmAXVJADcBDAGwFcYkQBpAPTQAIAdfoxgAzHMl4A5APoBHAfwDGzPjL6DlfAMLSAjAAoAMnIWap0tAEoNK3jvL6Zsm6ouWFAJywBzABY5KEABfUnRMXHxCFDJdajomVnZudSFRcXN5F3MUsx0DY0ylWzV3QS8-AODQkAxsPAIiMmI4hhY2RE4eBQAjHwknU2KLQZTe7wB6XiMTLJKen0CQsLrIol1SWJpWxI7khWExCQURD3pFYAHZ4ay86eci1ysg4FNGfbTHGYfskbs9O6uVkEcBgOAAtlgwMw4PNvJpBIwsBCcHBpMAAFYAXl0QS4bzyADVpOjPD5-O4gqSKotqrUIg0UOsqFsEu1OikDuljqdzn98nJAZZnq93mJ9LcCoLgaCIVCYYIxvChEjcKiMdjcfi9ESSWUyTgKVT-DTlvSosh1gBmFqs9i8PYItJHQQnM4vCVyIUvDRvR1ij2yaz8EHgyHQ2FKxHItVYnF4vk6o0G3iUvXU3i8Kqm+rm9YAFhtbSSPD94kEsmYEDwMDAOGALp5FwF3zUvwDUu+9k+hTMJWeXcuLbcQWFDbdTkBbb0U2MOVsPtFOH0vAKChDsvDCp8kZVKLRsc1vETafJpW+fwcg97w+AA6+16eQRPlSWNXCOcapALLKLuy6pedfgKyrLAazrMdzgnIc520f5JWgoNcmkS97yGJ5b2Q7tfj7FNvX4V1eTyGdrm+QQIFoGAPERMAYGAO4M2lUM5WyIUzzMC8sMFftMKgh8hUpJNFjiGAoG8eAiFAE4IDBJAyBAHAICQdZ4l-EAsDRQQmDQXx6FxAAqLMQCkmTEGUhSkHIH8dhAfQwS4PTLC4YAAFocUM4ykEtGhzNMqy2UUez3I8aSkAAdm8xTEDk7Z-I0-hvHoMEwV0wLXw8xA8wizy-PYdTBFgRgcHoVLqnSgBWLKMpyjp1PrfhQRSgy0uCkyADZKoqlTrMUOL8CK-SgpCxB2vkyLwq6tlBAa1LKCCIA
-			\begin{tikzcd}
-				{K^p \big[ N_q \cup N_p \cup \big/ (L_q \cup N_p) \big]}                                                                                                                                                                                           &                                                                                                                                                                                                                                                                                                             \\
-				{K^p \left[ N_q \cup N_p \cup C_1(L_q \cup N_p) \right]} \arrow[u, "(m^*)^{-1}"]                                                                                                                                                                   & {K^p \left[  \frac{N_q \cup N_p \cup C_1(L_q\cup N_p)}{ \cl \left(N_q \cup N_p \cup C_1(L_q\cup N_p)\setminus \bigcup\limits_{j=1}^l C_1V_j \right) } \right]} \arrow[l, "c^*"]                                                                                                                             \\
-				{K^p \left[ N_q \cup N_p \cup C_1(L_q \cup N_p)\cup C_2(N_q\cup N_p) \right]} \arrow[u, "i_{\alpha}^*"]                                                                                                                                            & {K^p \left[  \frac{ C_1(L_q\cup N_p)}{ \cl \left(C_1(L_q\cup N_p)\setminus \bigcup\limits_{j=1}^l C_1V_j \right) } \right]} \arrow[u, "i_\delta^*"]                                                                                                                                                         \\
-				& { K^p \left[  \frac{ C_1(L_q)}{ \cl \left(C_1(L_q)\setminus \bigcup\limits_{j=1}^l C_1V_j \right) } \right]  } \arrow[u, "i_{\eta}^*"]                                                                                                                                                                      \\
-				{K^p \left[  \quotient{\frac{N_q\cup N_p \cup C_1(L_q\cup N_p)\cup C_2(N_q \cup N_p)}{C_2(N_q \cup N_p)} }{ \frac{ C_1 (L_p \cup \overline{(L_q  \setminus N_p)}) \cup  C_2(N_q \cup N_p)}{C_2(N_q\cup N_p)}}  \right]} \arrow[uu, "c_{\gamma}^*"] & {K^p\left[\quotient{\frac{N_q\cup N_p \cup C_1(L_q\cup N_p)\cup C_2(N_q \cup N_p)}{C_2(N_q \cup N_p)}}{ \frac{N_q\cup N_p \cup C_1 (L_p \cup \cl \left( L_q \setminus \bigcup\limits_{j=1}^l V_j \right)) \cup  C_2(N_q \cup N_p)}{C_2(N_q \cup N_p)}}\right]} \arrow[u, "c_{\iota}^*"] \arrow[l, "\eta^*"]
-			\end{tikzcd}
-		\end{adjustbox}
-	\end{center}
-	Now the mamoth task is to show that this beast commutes:
-	For this we preoceed with the same strategy since again all maps are inclusions and collases and hence the maps look like $x\mapsto \overline{x}=x $ or $p$. For the consideration assume that $x\neq p$ in the domain. Then: 
-	\begin{align*}
-		\eta \circ c_{\gamma} \circ i_{\alpha}(x)=p \Leftrightarrow x\in   C_1 (L_p \cup \overline{(L_q  \setminus N_p)}) \cup  C_2(N_q \cup N_p)
-	\end{align*} On the other hand: 
-	\begin{align*}
-		&	c_{\iota}\circ i_{\eta} \circ i_{\delta}\circ c(x)=
-		p \Leftrightarrow c(x)=p  \text{ or } c_{\iota}(x)=p \\
-		x\in &  \cl \left(N_q \cup N_p \cup C_1(L_q\cup N_p)\setminus \bigcup\limits_{j=1}^l C_1V_j \right) \cup  N_q\cup N_p \cup C_1 (L_p \cup \cl \left( L_q \setminus \bigcup\limits_{j=1}^l V_j \right)) \cup  C_2(N_q \cup N_p) \\
-		= &C_1 \cl \left( (L_q\cup N_p)\setminus \bigcup\limits_{j=1}^l V_j \right) \cup  C_1 (L_p \cup \cl \left( L_q \setminus \bigcup\limits_{j=1}^l V_j \right)) \cup  C_2(N_q \cup N_p)\\
-		= &C_1 \cl \left( (L_q)\setminus \bigcup\limits_{j=1}^l V_j \right) \cup  C_1 (L_p \cup \cl \left( L_q \setminus \bigcup\limits_{j=1}^l V_j \right)) \cup  C_2(N_q \cup N_p)\\
-		= & C_1 (L_p \cup \cl \left( L_q \setminus \bigcup\limits_{j=1}^l V_j \right)) \cup  C_2(N_q \cup N_p)\\
-	\end{align*}
-	And now the conditions agree and hence the big diagramm commutes.
-	Now notice how we have the homeomorphism 
-	\begin{align*}
-		\Lambda:  \left[  \frac{ C_1(L_q)}{ \cl \left(C_1(L_q)\setminus \bigcup\limits_{j=1}^l C_1V_j \right) } \right]
-		\to \bigvee_{j=1}^lC_1V_j \big/ \partial C_1 V_j
-	\end{align*} that is the identity on all $C_1\mathring{V_j}$. Furthermore we have the compression maps
-	\begin{align*}
-		c_j: \bigvee_{j=1}^lC_1V_j \big/ \partial C_1 V_j \to C_1V_j \big/ \partial C_1 V_j 
-	\end{align*}
-	Hence by the additivity of $K-$Theorie, the pair
-	\begin{align*}
-		\left( K^p \left[  \frac{ C_1(L_q)}{ \cl \left(C_1(L_q)\setminus \bigcup\limits_{j=1}^l C_1V_j \right) } \right]  ,\left( \left( c_j \circ \Lambda \right)^*\right)_j \right)
-	\end{align*} satisfies the coproduct universal property. For this coproduct we denote the left inverse of the inclusion $\left( \left( c_j \circ \Lambda \right)^*\right)_j$ by $\pi_j$.
-	
-	So consider the map
-	\begin{equation}\label{eq: connecting hom the core mapping}
-	\kappa_j:	c^*\circ i_{\delta}^*\circ i_{\eta}^*	\circ (c_j\circ \Lambda)^*: K^p\left[ C_1 V_j\big/ \partial C_1V_j \right] \to K^p\left[N_q\cup N_p\cup C_1(L_q\cup N_p)\right]
-	\end{equation}
-	This map is induced from
-	\begin{align*}
-		N_q\cup N_p\cup C_1(L_q\cup N_p)\to C_1 V_j\big/ \partial C_1V_j\\
-		x\mapsto 
-		\left\{ 
-		\begin{array}{ll}
-			x &\text{ if }x\in \mathring{C_1(V_j)}\, ,\\
-			p			& \text{ else }.
-		\end{array}
-		\right.
-	\end{align*}
-	For all $C_1V_j$ we need an homeomorphism to $S^{k+1}$:
-	\begin{align*}
-		r:  C_1V_j \big/ \partial C_1 V_j &\to I\times D^k \big/ \partial (I\times D^k) \\
-		(t,x) & \mapsto (t,\psi(x))
-	\end{align*} For this we use that $N_p$ is a tubular neighbourhood of $W(\to p)\cap M^c$ where that latter is contractable. Hence, we have a homotopy equivalence by contracting the base space and the fibers simultaniouosly via a frame. and the transversality ensures, that this gives a homeomorphism from $V_j$ to the fibre over $p$, which is a ball $B\subseteq W(p\to)$. and composed with the refined Morse chart this is a Ball $B^{\lambda_p}$ in $\R^{\lambda_p}$. This gives us a well defined homeomorphism:
-	\begin{equation*}
-		r: C_1V_j\big/ \partial(C_1V_j)  \to C_1 B^{\lambda_p} \big/ \partial (C_1B^{\lambda_p})
-	\end{equation*} Hence, an orientation on $TW(p\to)$,  induces a generator $\alpha$ of $K^p\left[C_1V_j\big/ \partial(C_1V_j) \right]$. \color{red}{Here the orientation is introduced by choosing the refined Morse chart.} \color{black}
-	
-	On the other hand, we have a generator on $N_p\cup N_p \cup C_1(L_p\cup N_p)$ induced from an orientation on $TW(q\to)$ as follows: First we get a generator of the $K$ group of the Regular index pair $(N_q\big/ L_q)\simeq \left(N_q \cup N_p \middle/ L_q \cup N_p \right)$ by choosing a small index pair and the homotopy. This generator induces a generator $\beta$ of $K^p \left[ N_q \cup N_p \cup C_1(L_q \cup N_p) \right]$ by pulling it back vie the contratcion of the cone $C_1$. 
-	Now we need to study, how the image of $\alpha$ under the map (\ref{eq: connecting hom the core mapping})  relates to $\beta$ as seen in the diagram.
-\begin{center}
-% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBoBGAXVJADcBDAGwFcYkQBpAPTQAIAdHIP79GMAGY5kvGcKFD+4gE70AxsF4BhAPrkAFABltARwCUAXwHy5vDSNWNZ1+VZFjJe186879RsyJwMDgAtlhgzHAC-ABGWADmqsxoblhhOHDawABWALzk5lyOvgBq2tlOcoKu-EoJABY4ppXellW1DTiUIOak6Ji4+IQo5BTUdEys7NwpohJSpeXRcfEA9NFo9Ep4TFq6vGXZInXxjd29-dh4BERkxOMMLGyInDxu88gAcib2ybzfsySfF8hh+-CB-20aFMx0653GMCg8XgRFAyggISQZBAOAgSAATBcQOjMYhRji8Yh8TRHlMXiIANb0NCbHp9YlKDFIcm4rHmSjmIA
-\begin{tikzcd}
-	{K^p\left[N_q\cup N_p\cup C_1(L_q\cup N_p)\right]}                                                                                                              &                                                                                \\
-	{K^p 		\left[   			\frac{ C_1(L_q)} 				 { \cl  				 	\left( 				 		C_1(L_q)\setminus \bigcup\limits_{j=1}^l C_1V_j  				 	\right)  				 } 		\right]} \arrow[u] & {K^p\left[C_1V_j \big/ \partial C_1 V_j\right]} \arrow[lu, "\kappa_j"] \arrow[l]
-\end{tikzcd}
-\quad % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBoAmAXVJADcBDAGwFcYkQBpAPTQAIAdHIP79GMAGY5kvGcKFD+4gE70AxsF4BhAPoBGABQAZbQEcAlAF8B8ubw0jVjWTfnWRYyfrcvvOg8fMROBgcAFssMGY4AX4AIywAc1VmNHcscJw4bWAAKwBeXQsuJz8ANW0c5zlBN34lRIALHDMqnytqusacShALUnRMXHxCFF0KajomVnZuVNEJKTKKmPiEgHoYtHolPCYtPV5ynJF6hKaevoHsPAIiMl0JhhY2RE4edwXkADlTBxTeH5zZJ8PxGX78YEA7RoMwnLoXfogDDXYZEcikB40J7TV6zD6SZB+AAqXGY0IAsitEhsRFsdlg9n5eCSyWhKXCzt1eojkUNbigyMRHlMXm85h4pD8TFT1mDAp1OQirnyRsgxkKsSKZjxkAARUnZEQwNDYRgECwiVZrWnbXZOfVk4BGk1YM1gKxKpGDG6q9EaybPbVoZAAZS4TtE9FCsSg9GhAGpChcJjAoAl4ERQMoIKEkGQQDgIEhyJcQNnc4gxgWi4h0QGcSARABrehoLYgGiMeixGCMAAK3tRr1OTW5WaUOaQVcLedL5aQAGYaDPK3OJxW6yuACxryeILfLmsAVl3FaPh6QADZT8WL4gT4j54hL3eFxZKBYgA
-\begin{tikzcd}
-	{K^p\left[N_q \big/(L_q)\right]} \arrow[r]                                                                                                                      & {K^p[D^u_{\epsilon}\big/\partial D^u_{\epsilon} ]} \arrow[r]                    & {K^p[S^{\lambda_p+1}]} \arrow[d]                                  \\
-	{K^p\left[N_q\cup N_p\cup C_1(L_q\cup N_p)\right]} \arrow[u] \arrow[ru]                                                                                         &                                                                                 & {K^p\left[C_1T^u_pM \big/ \partial C_1 T^u_pM \right]} \arrow[ld] \\
-	{K^p 		\left[   			\frac{ C_1(L_q)} 				 { \cl  				 	\left( 				 		C_1(L_q)\setminus \bigcup\limits_{j=1}^l C_1V_j  				 	\right)  				 } 		\right]} \arrow[u] & {K^p\left[C_1V_j \big/ \partial C_1 V_j\right]} \arrow[lu, "\kappa_j"'] \arrow[l] &                                                                  
-\end{tikzcd}
-\end{center}
 
-	
-		 \todo{Hier ist noch einiges zu tun!}
-	\begin{Iprove}
-		The idea of the next proof is the following: an orientation in $N_{x_j}\gamma_j$ induces a generator of the $k$-th K group $C_1V_j\big/ \partial (C_1v_j)$. This generator can be pulled back to be a generator of the $k$-th K group of $W(q\to )\cap M_c\big/ \partial (W(q\to )\cap M_c)$ via the collapsing map. This pulling back coincides with the map from (\ref{eq: connecting hom the core mapping}). Now assume that the basis $(b_j,-\grad(f))$ of $N_{x_j}\gamma_j\oplus T_{x_j}\gamma_j$ is positifly oriented with respect to the orientation of $T^u_qM$. And assume furthermore, that the inverse of the embedding $E^u_q$ is an oriented chart. Then the pulled back generator agrees with the generator of $W(q\to )\cap M_c\big/ \partial (W(q\to )\cap M_c)$ that is induced by directly using $E^u_q$. 
-	\end{Iprove}
-	
-	\begin{minipage}{\dimexpr \textwidth-3.5\fboxsep-2\fboxrule}
-		\abovecaptionskip=0pt
-		\sbox0{\includegraphics[width=3.8cm]{Text/Pictures/V_jTimesI}}% get height and width
-		\hangafter \numexpr -\ht0/\baselineskip -1\relax% adds one blank lines at bottom
-		\hangindent \dimexpr \wd0 + 1.2em\relax% adds 1em margin on right
-		\vbox{\raisebox{-\height}[0pt][0pt]{\hspace{0.2em}\box0}}\vspace{-1.2ex}% overlap image
-For this we make use of an collar neighbourhood of $W(q\to )\cap M_c$ defined as follows:	Again using the implicit funktion theorem and spherical coordinates (compare \color{red}referenz \color{black}) we have that the preimage of $W(q\to )\cap M_c$ under the embeddign $E^u_q: T^u_qM\to W(q\to)$ is (after rescaling the funktion) a Disk, So withour restrictions assume that $E^u_q(B_1(0))=W(q\to )\cap M_c$. Then $\mathfrak{C}\coloneq E^u_p(B_2(0))$ is a collar neighbourhood and $V_j\times I\hookrightarrow L_i\subseteq \mathfrak{C}$ embedds in the obvious way. This is done by mapping $V_j\times I$ fisrst into $B_2(0)$ via $(v,t)\mapsto (E^u_q)^{-1}v\cdot (1+t)$ and then applying $E^u_p$. 
-	\end{minipage}
-	
-This mapping $E^u_q$ gives also rise to an oriented chart of $V_j$: For this we deform $B_2(0)$ to be a cylinder along $\gamma_j$ by changing the base such that $(E^u_q)^{-1}x_j$ is the first base vector whilst keeping the orientation ($\det$ of base change is one). Then just strech the disc:
- \begin{equation*}
- 	(x_1,\dots x_{\lambda_{p}+1})\mapsto (\frac{x_1}{|x_1|},\dots x_{\lambda_{p}+1})\, .
- \end{equation*}. By transversality of $V_j$ and $\gamma_j$ we can assume that the orthogonal projection $\Pi_j$ along the first basis vector restricted to the preimage of $V_j$ is a homeomorphism. Now we get the chart as a composition:
- \begin{align*}
- 	E^u_{q,j}\coloneq  \Pi_j\circ (E^u_{q})^{-1}: V_j \to \R^{\lambda_{p}} 
- \end{align*}
-  Here is where the definition of the Morse boundary operator comes because now we have two different orientations in $V_j$. One induced from $T^u_pM$ (lets call the oriented basis $b^u_p$) and one induced from above. Hence in $Tx_j\gamma_j\oplus Tx_jV_j$ we have two different oriented basis induced from this chart and from the chart given by the tubular neighbourhood embedding of $W(\to p)\cap M^c$ restricted to the normal fiber above $x_j$.
-  \begin{center}
-% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB12AlAPWE4Z0AtgCModAPpoAviGml0mXPkIoAjOSq1GLNgBUeTKQFk5CkBmx4CRMmq31mrRCABqEgFZytMKAHN4IlAAMwAnCCEkDRAcCCQyEEERGAYABSVrVRAsMGxYEGpHXRcARwlgEUMpWXkQ8MjEACZqWKjCnWcQAClOESw-AB9ygFVygA9PaWk+AFo1WWoklPSrFTZQ-oALHDM6iKRmmLjEBKLOgAoAUSrgEo9pAEoCxLpktIy1lwYYYJ3pCmkQA
-\begin{tikzcd}
-	\R^{\lambda_p}                                                   & T^u_pM \arrow[l, "q_{b^u_p}" description] \\
-	V_j \arrow[ru, "J\big|_{U_{x_j}}^{-1}"'] \arrow[u, "(E^u_{qj})"] &                                          
-\end{tikzcd}
-  \end{center}
-  If we now swich to the Alexandrof kompakitifikations we have that this diagramm kommutes up to homotopy, if and only if the orientaions agree. \todo{hier beweis nachholen. Sollte eine einfache übuingsaufgabe sein mittels abbildungsgrad zwischen sphären ist homotopieinvariante}. Else we have a change of sign. Hence we have the diagramm that commutes up to sign: 
-  
-  \begin{center}	
- % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAGUAdTmmGAAnYA9YNwZ0AtgCModAPpoAviEWl0mXPkIoAjOSq1GLNtwBmAJzoBjYAGE5O-gBUhTBQFlFozmjrm8jPz2ji5uaJ4qaiAY2HgERGQ6BvTMrIggZpY2wfwAanIAVl7cvv5YgTn5RSoGMFAA5vBEoBYQEkh6IDgQSGQg4lIwDAAKGnHaIOZY9QAWOCDUKcbp3FhQ-Ny8AgCOcsBSrgrKqi3mbUgATNTdHYtGaRmcaxucEGjMcPwAUtxS0wA+ewAqnsAB6FRSKEQAWh0ymoAyGo1iWjYU1m8xOIFa7UQVy6PUQfSWD1W602fH4AAoAKKHYDbIoASgW-TogxGY1R6QYMFMmIoiiAA
- \begin{tikzcd}
- 	S\vee S^{\lambda_p}                                                                                               & \frac{C_1 T^u_pM}{\partial C_1 T^u_pM} \arrow[l, "\id \vee q_{b^u_p}"'] \\
- 	\frac{C_1 V_j}{\partial C_1 V_j} \arrow[ru, "\id \oplus J\big|_{U_{x_j}}^{-1}"'] \arrow[u, "\id \vee (E^u_{qj})"] &                                                                        
- \end{tikzcd}
-  \end{center}
-  
-Here the right path coincides with the path $f_2\circ f_1$. Now we introduce a left part that will later factor over the collaps that induces $\kappa_j$:
-\begin{center}
-	% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZARgBoAGAXVJADcBDAGwFcYkQBlAHS9phgAEHAHrAejegFsARlHoB9NAF8QS0uky58hFACYK1Ok1bseAMwBO9AMbAAwvOICAKsOaKAskrFc09C3hMAg5Oru5oXqrqIBjYeAREZMSGDCxsiCDmVrYhAgBq8gBW3jx+AVhBuQXFURpx2kTkBjSpJhkAcvIAjiEAFAAy3QCUqoYwUADm8ESglhCSSE0gOBBIZCAS0jCMAAqa8TogWGDYsCAtxumZXFhQAjx8gtJuirUgcwuI6ytI+kZpphudx4EDQLDgAgAUjxpFgJgAfeTAACqSIAHkUlCo1LMLPNFjQfog-q0rjxbvdePwBL0AKIvYBdYpDUQAWmIKhom22e3qCQyFjhAAscG8PgTlqtEABmC4AjJmeQAVnOG3oW12+waAuFopx7zxn1lkt+NC2YCgSFZ0qWpPY1ggjAkaAQXPVPK1-JAgomItGSiAA
-	\begin{tikzcd}
-		N_qC_1(L_q) \arrow[rd, "collaps"', bend right] & S\vee S^{\lambda_p} \arrow[r, "\id \vee b^u_p" description] \arrow[d, "\id \vee (E^u_{qj})^{-1}"'] \arrow[l, "f_5"'] & \frac{C_1 T^u_pM}{\partial C_1 T^u_pM} \arrow[ld, "\id \oplus J\big|_{U_{x_j}}"] \\
-		& \frac{C_1 V_j}{\partial C_1 V_j}                                                                                     &                                                                                 
-	\end{tikzcd}
-\end{center}
-We define $f_5$ as follows:
-\begin{align*}
-	f_5: S\vee S^{\lambda_p}= \frac{B_2(0)}{\partial B_2(0)} &\to N_qC_1(L_q)\\
-	x&\mapsto \begin{cases}
-		E^u_q(x)& \text{if } \norm{x}\leq 1\\
-		(\lambda,x_j)& \text{if } x=(\lambda+1)\cdot x_j\text{, where }\lambda>0 \text{ and }x_j\in 	(E^u_q)^{-1}(V_j)\\
-		p& \text{ else}.
-	\end{cases}
-\end{align*}
-Now the left side commutes and also factos over the collaps that induces $\kappa_j$.\textit{ hence $\kappa_j$ is up to homotopie the plus or minus the identity which is determined by the sign of the Morse boundary operator at $\gamma_j$}. Now lets collect all:
-
-The (trivialized) tubular neighbourhood embedding 
-\begin{align*}
-	J: W(p\to)\cap M^c\cong W(p\to)\cap M^c\times T^u_pM \to N_p
-\end{align*}
-together with collapsing $W(\to p)\cap M^c$ (which is realiced by the projection $\pi: W(p\to)\cap M^c\times T^u_pM\to T^u_pM$) and a koordinate map $q$ induced by a basis of $T^u_pM$ gives rise to a map:
-\begin{align*}
-	T\coloneq q_{b^u_p}\circ \pi\circ J^{-1}: N_p\to \R^{\lambda_{p}}
-\end{align*}
-This gives rise to a well defined map 
-\begin{equation*}
-	\tilde{T}: \frac{N_p}{L_p}\to \overline{\R^{\lambda_{p}}}\cong S^{\lambda_p}; \tilde{T}(x)=\overline{T(x)}
-\end{equation*}which again can be extended to a map which we will call $T$ by abuse of notation: 
-\begin{align*}
-T\coloneq \id\vee \tilde{T}: S_1\vee \left(L_q\cup N_p \middle/  L_p \cup \cl (L_q \setminus {N_p})\right) \to S^{\lambda_p+1}
-\end{align*} 
-
- Hence, the Morse datum together with $T$ gives rise to a natural generaor of $K^{\lambda_p-1}\left[L_q\cup N_p ,  L_p \cup \cl (L_q \setminus {N_p})\right]$. Furthermore the map  $\left((c_j\circ \Lambda)^*\right)_j^{-1}\circ c_{\iota}^*\circ (\eta^*)^{-1}\circ \gamma^*\circ T$ commutes with the map $\id \vee b^u_p\circ (\id \oplus J\big|_{U_{x_j}})$. To see this notice how $\eta$ and $\gamma$ are just the identity. Furthermore $c_\iota$ is, and $\left((c_j\circ \Lambda)^*\right)_j^{-1}$ is induced by the inclusion of $C_1V_j\big/ \partial C_1V_j$ into the space $C_1L_q\big/ \cl\left(C_1(L_q)\setminus \bigcup\limits_{j=1}^lC_1V_j \right)$. Hence the composition reads
- \begin{align*}
-\left((c_j\circ \Lambda)^*\right)_j^{-1}\circ c_{\iota}^*\circ (\eta^*)^{-1}\circ \gamma^*
-=\left(\gamma \circ \eta^{-1}\circ c_{\iota}\circ i\right)^*\\
-=\left[x\mapsto \begin{cases}
-	p & \text{ if }x\in N_q\cup N_p\cup C_1\left(L_q\cup \cl\left(L_q\setminus \bigcup\limits_{j=1}^lV_j\right) \right)\\
-	x & \text{ else .}
-\end{cases}\right]^*
- \end{align*}  Now the collapsing reqirement is much easyer in reality, is $x$ comes from $C_1V_j$ because: 
- \begin{align*}
- 	C_1V_j \bigcup N_q\cup N_p\cup C_1\left(L_q\cup \cl\left(L_q\setminus \bigcup\limits_{j=1}^lV_j\right) \right)= \partial C_1V_j 
- \end{align*} With this in mind, the whole composition equals:
- \begin{align*}
- 	q_{b^u_p}\circ \pi \circ J^{-1}\circ \gamma \circ \eta^{-1}\circ c_{\iota}\circ i=(\id \vee q_{b^u_p})\circ (\id \oplus J^{-1}) \, .
- \end{align*}
- Hence this composition equals $(id\vee J\big|_{U_{x_j}}\circ B_{b^u_p})^{-1}$. Now lets stich everything together and let $p$ be a generator of $K^{\lambda_p-1}\left[L_q\cup N_p ,  L_p \cup \cl (L_q \setminus {N_p})\right]$ induced by $T$ and the orientation of $T^u_pM$. (This means that $p=T^*(\beta)$, where $\beta$ is the Bott generator of $K^{\lambda_p-1}[S^{\lambda_p-1}]$). Then:
-\begin{align*}
-	\delta_{triple}(p)
-	&=(m^*)^{-1}\circ \underbrace{c^*\circ i_{\delta}^*\circ i_{\eta}^*}_{=\sum\limits_{j=1}^l\kappa _j\circ \pi_j}\circ c_{\iota}^*\circ (i_{\eta}^{-1})^*\circ \gamma^*(p)\\
-	&=(m^*)^{-1} \circ \sum_{j=1}^{l}\left(\kappa_j\circ \pi_j\circ c_{\iota}^*\circ (i_{\eta}^{-1})^*\circ \gamma^*\right)(T^*(\beta))\\
-	&=(m^*)^{-1} \circ \sum_{j=1}^{l}\left(\kappa_j\circ (\underbrace{q_{b^u_p}\circ \pi\circ J^{-1}\circ \gamma \circ i_{\eta}^{-1}\circ c_{\iota}\circ i_j}_{=(\id \vee q_{b^u_p})\circ (\id \oplus J^{-1})})^*(\beta)\right)\\
-	&=(m^*)^{-1} \circ \sum_{j=1}^{l}\left(\kappa_j((\pm)_{\gamma_j}(\id\vee E^u_{qj})^*(\beta)) \right)
-\end{align*}
- Now we give its image a canonical generator induced by a basis of $T^u_qM$. For this we need a map $S^{\lambda_p+1}\to N_q\big/ L_q$ that commutes with $(m^*)^{-1} \circ f_5$. Once we have this we are finally done!!!
- 	This however can be done easily. For this we make use of the unstable manifold theorem and rescale the immersion such that $W(q\to )\cap M_c$ is the image of the Ball $B_0(1)$. Furthermore,  $N_q\slash L_q\simeq W(q\to )\cap M_c$ since it is a tubular neighbourhood. Hence we get a map 
- 	\begin{align*}
- 		(E^u_q):  S^{\lambda_p+1}\to N_q\slash L_q
- 	\end{align*} Now $(E^u_q)\simeq (m\circ f_5)\simeq \id$ since  $(E^u_q)^{-1}\circ (m\circ f_5)\simeq \id$. The latter is clear due to the first being just a streching $B_0(1)\to B_0(2)$ and then collaps of the outer ring. This composition however obvieously is homotopic to the identity. 
- 	Hence $(E^u_q)^*\circ (m^*)^{-1}=f_5^*$ .
- 	
- 	Now we apply $(E^u_q)^*$ to the calculation above to figure out the map:
- 	
- 	\begin{align*}
- 	(E^u_q)^*\circ 	\delta_{triple}(p)
- 	&= (E^u_q)^*\circ (m^*)^{-1} \circ \sum_{j=1}^{l}\left(collaps^* \circ (\pm)_{\gamma_j} (\id\vee E^u_{qj})^*(\beta) \right)\\
- 	&= \sum_{j=1}^l (\pm)_{\gamma_j} f_5^* collaps^* \circ (\id\vee E^u_{qj})^*(\beta)\\
- 	&=\sum_{j=1}^l (\pm)_{\gamma_j} \beta=n(p,q)\beta
- 		 	\end{align*}
-Or said differently by defining $q$ to be the generator of $N_q\big/L_q$ given by the orientation of $T^u_qM$ as $q=((E^u_q)^{-1})^*(\beta)$ then:
-\begin{equation*}
-	\delta_{triple}(p)=n(p,q)q\,.
-\end{equation*} 	
- \todo{Uns interresiert wie viele q da rauskommen. Also eher eine Koordinatenmap nach dem tripple operator. Wenn ich die einfüre,dann könnte es passen? }
- 
- 
-% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBoAmAXVJADcBDAGwFcYkQBpAPTQAIAdHIP79GMAGY5kvGcKFD+4gE70AxsF4BhAPoBGABQAZbQEcAlAF8B8ubw0jVjWTfnWRYyfrcvvOg8fMROBgcAFssMGY4AX4AIywAc1VmNHcscJw4bWAAKwBeXQsuJz8ANW0c5zlBN34lRIALHDMqnytqusacShALUnRMXHxCFF0KajomVnZuVNEJKTKKmPiEgHoYtHolPCYtPV5ynJF6hKaevoHsPAIiMl0JhhY2RE4edwXkADlTBxTeH5zZJ8PxGX78YEA7RoMwnLoXfogDDXYZEcikB40J7TV6zD6SZB+AAqXGY0IAsitEhsRFsdlg9n5eCSyWhKXCzt1eojkUNbigyMRHlMXm85h4pD8TFT1mDAp1OQirnyRsgxkKsSKZjxkAARUnZEQwNDYRgECwiVZrWnbXZOfVk4BGk1YM1gKxKpGDG6q9EaybPbVoZAAZS4TtE9FCsSg9GhAGpCp7eT6iGNMQGcWLkCJlGpgAAhbTkfTESwRul23hFktliwXCYwKAJeBEUDKCChJBkEA4CBIciXEAdruIMa9-uIdGZ0UiADW9DQWxANEY9FiMEYAAVvajXqcmtz20pO0hx33u0OR0gAMw0C9jzWB17iYtH4cn0fTh8AFivn6QH970nABWf9T0QEDgKQAA2J8s1fH932vKdoMg+DRVfG9kIAxA4InW8MPYV9dBwiCAHY0LvGd2FiPQyNHSiCPQmjXjo8gVxAOAGiwSRL0RFCmIfcdsVneZPH0ABRA1zHDABaQoHCwJRVF4LAOSaMwuAAKk4tcN23Xd+RACJsFgXpKAsIA
-\begin{tikzcd}
-	{K^p\left[N_q \big/(L_q)\right]} \arrow[r]                                                                                                                      & {K^p[D^u_{\epsilon}\big/\partial D^u_{\epsilon} ]} \arrow[r, "f_4"]                                                                 & {K^p[S^{\lambda_p+1}]} \arrow[d, "f_1"]                                  \\
-	{K^p\left[N_q\cup N_p\cup C_1(L_q\cup N_p)\right]} \arrow[u] \arrow[ru, "f_3"]                                                                                  & {K^p[\frac{B_2(0)}{\partial B_2(0)}]} \arrow[r, "b_1"] \arrow[u, "b_2"] \arrow[d, "\left((E^u_q)^{-1}\circ i\right)^*" description] & {K^p\left[C_1T^u_pM \big/ \partial C_1 T^u_pM \right]} \arrow[ld, "f_2"] \\
-	{K^p 		\left[   			\frac{ C_1(L_q)} 				 { \cl  				 	\left( 				 		C_1(L_q)\setminus \bigcup\limits_{j=1}^l C_1V_j  				 	\right)  				 } 		\right]} \arrow[u] & {K^p\left[C_1V_j \big/ \partial C_1 V_j\right]} \arrow[lu, "\kappa_j"'] \arrow[l]                                                     &                                                                         
-\end{tikzcd}
-Now we start going arround that diagramm wich is commutative up to hopotopie and start at the bottom. $b_1$ is the same map as $f_1$ and hence makes use of the orientation of $T^u_pM$. $f_2\circ b_1$ is homotopic to the inculsion induced mapping $\left((E^u_q)^{-1}\circ i\right)^*$. This can be seen as follows: First notice how $f_2\circ b_1$ is homotopic to map induced from $(\id\oplus E^u_{q,j})^{-1})$
-\begin{equation*}
-	(x_1,\dots x_{\lambda_{p}+1})\mapsto (\frac{x_1}{|x_1|},\dots x_{\lambda_{p}+1})\, .
-\end{equation*}
-now the half cylinder ($x_1\geq 0$) is again homotopic to the whole with the inclusion and collapsing being the homotopic invers maps. Those considerations also work modulo the boundary. Now $f_2\circ b_1$ is homotopic to $\left((E^u_q)^{-1}\circ i\right)^*$ if and only if the chart $(E^u_q)^{-1}$  by applying the streching map $s:\frac{B_2(0)}{\partial B_2(0)}\to \frac{B_2(0)}{\partial B_2(0)}$: (which is homotopic to the identity.)
-\begin{center}
-	
-	
-	\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
-	
-	\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
-		%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
-		
-		%Shape: Block Arc [id:dp2516942430671658] 
-		\draw  [fill={rgb, 255:red, 245; green, 166; blue, 35 }  ,fill opacity=1 ] (284,83.96) .. controls (298.88,68.69) and (319.24,58.69) .. (342.17,57.27) .. controls (351.83,56.67) and (361.22,57.63) .. (370.11,59.95) -- (362.53,89.26) .. controls (356.65,87.73) and (350.44,87.08) .. (344.05,87.48) .. controls (328.89,88.42) and (315.43,95.05) .. (305.6,105.17) -- cycle ;
-		%Shape: Ellipse [id:dp31830895843634066] 
-		\draw  [line width=2.25]  (258.59,146.8) .. controls (258.59,97.56) and (298.5,57.65) .. (347.74,57.65) .. controls (396.97,57.65) and (436.89,97.56) .. (436.89,146.8) .. controls (436.89,196.04) and (396.97,235.95) .. (347.74,235.95) .. controls (298.5,235.95) and (258.59,196.04) .. (258.59,146.8) -- cycle ;
-		%Shape: Ellipse [id:dp9709870130157104] 
-		\draw   (288.6,146.8) .. controls (288.6,114.14) and (315.08,87.66) .. (347.74,87.66) .. controls (380.4,87.66) and (406.87,114.14) .. (406.87,146.8) .. controls (406.87,179.46) and (380.4,205.93) .. (347.74,205.93) .. controls (315.08,205.93) and (288.6,179.46) .. (288.6,146.8) -- cycle ;
-		%Shape: Circle [id:dp482439832706389] 
-		\draw  [draw opacity=0][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ] (348.7,143.89) .. controls (349.7,143.43) and (350.88,143.87) .. (351.33,144.87) .. controls (351.79,145.87) and (351.35,147.04) .. (350.35,147.5) .. controls (349.35,147.95) and (348.17,147.51) .. (347.72,146.51) .. controls (347.27,145.52) and (347.71,144.34) .. (348.7,143.89) -- cycle ;
-		%Shape: Arc [id:dp1835190035098445] 
-		\draw  [draw opacity=0][line width=2.25]  (305.17,104.91) .. controls (315.42,94.49) and (329.49,87.79) .. (345.25,87.13) .. controls (351.39,86.87) and (357.36,87.55) .. (363.01,89.04) -- (347.74,146.8) -- cycle ; \draw  [color={rgb, 255:red, 80) -- (423.42,97.86) ;
-			%Straight Lines [id:da15646287377542745] 
-			\draw    (320.32,61.14) -- (397.42,70.86) ;
-			
-			%Straight Lines [id:da5095357448746147] 
-			\draw    (323.57,61.6) -- (351.75,235.79) ;
-			%Straight Lines [id:da6233786094876668] 
-			\draw    (323.57,61.6) -- (321.84,230.24) ;
-			%Straight Lines [id:da23916661666457828] 
-			\draw    (322.57,62.6) -- (289.95,214.07) ;
-			%Straight Lines [id:da33960840190709396] 
-			\draw    (322.57,62.6) -- (270.05,186.5) ;
-			%Straight Lines [id:da11039605607469682] 
-			\draw    (322.57,62.6) -- (260.47,152.72) ;
-			%Straight Lines [id:da5150377253833407] 
-			\draw    (322.57,62.6) -- (265.75,115.61) ;
-			
-			% Text Node
-			\draw (311.67,43.4) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize]  {$y_{j}$};
-			
-			
-		\end{tikzpicture}
-		
-		\end{center}
-		Using this streching we have that 
-		\begin{minipage}{\dimexpr \textwidth-2\fboxsep-2\fboxrule}
-		\abovecaptionskip=0pt
-		\sbox0{\includegraphics[width=3.8cm]{Text/Pictures/the rescaling with rays}}% get height and width
-		\hangafter \numexpr -\ht0/\baselineskip -1\relax% adds one blank lines at bottom
-		\hangindent \dimexpr \wd0 + 1.2em\relax% adds 1em margin on right
-		\vbox{\raisebox{-\height}[0pt][0pt]{\hspace{0.2em}\box0}}\vspace{-1ex}% overlap image
-		Furthermore, $V_j\times I$ is homeomorphic to $\mathfrak{C}$ by streching it. The streching can be done along rays starting in $y_j=(x_j,1)$. This is homotopic to the identity, if viewed as a endomorphism in $W(q\to)\cap M_c$. We can now define the collapsing map $W(q\to)\cap M_c$ in a continouos way by defining it to be the identity inside of $L_j$ and outside we map each point to the intersection of the ray containing said point with the bundary of $L_p$.
-		Das solworklte die letzte Lücke sein!
-		\end{minipage}
-	\end{proof}; green, 227; blue, 194 }  ,draw opacity=1 ][line width=2.25]  (305.17,104.91) .. controls (315.42,94.49) and (329.49,87.79) .. (345.25,87.13) .. controls (351.39,86.87) and (357.36,87.55) .. (363.01,89.04) ;  
-		%Shape: Ellipse [id:dp3336819844491399] 
-		\draw  [draw opacity=0][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ] (331.4,87.95) .. controls (332.4,87.49) and (333.57,87.93) .. (334.03,88.93) .. controls (334.48,89.93) and (334.04,91.11) .. (333.04,91.56) .. controls (332.05,92.02) and (330.87,91.58) .. (330.41,90.58) .. controls (329.96,89.58) and (330.4,88.4) .. (331.4,87.95) -- cycle ;
-		%Straight Lines [id:da2883617960271355] 
-		\draw    (320.32,61.14) -- (375.42,231.86) ;
-		%Straight Lines [id:da6580977928561076] 
-		\draw    (320.32,61.14) -- (399.42,218.86) ;
-		%Straight Lines [id:da549347805026984] 
-		\draw    (320.32,61.14) -- (420.42,196.86) ;
-		%Straight Lines [id:da3542746287685834] 
-		\draw    (320.32,61.14) -- (435.42,164.86) ;
-		%Straight Lines [id:da38915223346361993] 
-		\draw    (320.32,61.14) -- (435.42,130.86) ;
-		%Straight Lines [id:da011207389658813405] 
-		\draw    (320.32,61.14
-\end{comment}
-\begin{proof}[Commuting triple connecting homomophisms]
+\begin{proof}[Proof of Theorem \ref{thm: commuting connecting homomorphism}]
 	We first notice, that we have the map of triples given by the inclusion:
 	\begin{align*}
 		\left( ~W(q\to)\cap N_q ~,~S(q\to)~,~S(q\to ) \setminus \bigcup\limits_jV_j ~\right) \to (C,B,A)
@@ -1332,9 +537,13 @@ The downwards maps in the Theorem are the induction of the canonical generators.
 			col: W(q\to) \cap N_p \cup C_1  S(q\to) \to S_1 \wedge S(q\to) \,
 		\end{align*} 
 		to be the collision, of $W(q\to) \cap N_p $ to a point, then
-		$i_2^*h_2^*=col^*$. Now while the function  $\text{triv}_{C_1S(q\to)}$ is not topologically induced, its inverse is. Lets call the collaps of $C_1S(q\to)$ $c_1$. Then since $\Sigma$ is a natural transformation we have 
+		$i_2^*h_2^*=col^*$. Now while the function  $\text{triv}_{C_1S(q\to)}$ is not topologically induced, its inverse is. Lets call the collaps of $C_1S(q\to)$: 
 		\begin{equation*}
-		 f_q^*\circ r^*=l_2\Leftrightarrow c_1^*\circ f_q^*\circ r^*=\Sigma \circ col^*
+		k_1:	\left(W(q\to)\cap N_p \right)\cup C_1S(q\to)\to \left(W(q\to)\cap N_p \middle/ S(q\to) \right) 
+		\end{equation*}
+		 $\pi_1$. Then since $\Sigma$ is a natural transformation we have 
+		\begin{equation*}
+		 f_q^*\circ r^*=l_2\Leftrightarrow k_1^*\circ f_q^*\circ r^*=\Sigma \circ col^*
 		\end{equation*}
 		Now all maps are topologically induced except $\Sigma$ and the latter is just used to geht the index in the $K$ group right. Hence, if $r$ would be such that
 		\begin{equation*}
@@ -1369,27 +578,31 @@ The downwards maps in the Theorem are the induction of the canonical generators.
 		\end{itemize}
 		This gives the commutative diagram,
 		\begin{fdiagram}
-		\begin{adjustbox}{max width=\textwidth}
-	% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZAJgBpiBdUkANwEMAbAVxiRAB12IaYAnBrGBjAAEgH0A1AF9OPGAAJO3PgKGixAWikgppdJlz5CKMgEYqtRizacAtnRwALAEbPgAZSkA9YJwZ1bZyg6MQBHbV19bDwCIjIAZgt6ZlZEDnZ7J1cPb192f0DgsIi9EAxooyIABnIkq1T0zJc3Tx8-AKCQ8J1S8sNYlFNSc2pk6zT5AHUAClDOHAgASkV2AGM6NHkAOTE0TlWmTYBhMVN3Wfmlnqj+42R40iq6lJt8mAAzHGmZufYFxf2G22uxWtiwUCgDBgAHp5Odfv9OLwsABzRw4RbXMoGGJ3B6UUb1NighzNHKcADuMCgKIU8MumMi2IqA3uw2e43SUM+3wufyWgM2O02dnBkJhcL5iPYyLRGNkMAUdlJ2U8lOptMlCKuUgsGvgRFA714EFsSBqIAWSCGlheaU4ABkOsF9lheKsVmgsCtVm6PasxMQQNR-M4YAwAAo4yppQTYWBY42m83UK2IMi2zmO510V3uz3evP+07BkCh8NRlnGEBx8GsJlJs2IB6WiApzMNAPAACi3RDdDDkejAxrYHj9dKjaQLbTABZCXb0hHHFhEyamza0wBWBvrpAZtMANl3ycQ89bSAA7AvOScPFKliUjXvENeL4gtzeGpwvSX+4PK1uNhawTE8mzfI8v1eX8g3-Cth2rECJ2fU8LTTN8xm-dgI2wUtyyHKtgLHOsdAoKQgA
-	\begin{tikzcd}
-		&                                                            &                                                                                                                                                                          & \left(W(q\to)\cap N_p \middle/ S(q\to)\right)                                                                                            \\
-		&  W(q\to) \cap N_p\cup C_1S(q\to) \arrow[rr, "C_{S(q\to)}"] & \mathbb{S}^{\lambda_q} \arrow[ru]                                                                                                                                        & \left(W(q\to)\cap N_p \middle/ S(q\to)\right)\vee \mathbb{S}\wedge S(q\to) \arrow[u, "\pi_1" description] \arrow[d, "\pi_2" description] \\
-		\mathbb{S}^{\lambda_q} \arrow[rr, "c_{Eq}" description] \arrow[ru, "\Phi"] &                                                            & \overline{H_+}\vee \overline{H_-} \arrow[u, "\Lambda\circ \pi \circ c_2" description] \arrow[d, "\Lambda\circ \pi \circ c_1" description] \arrow[ru, "\Psi" description] &  \mathbb{S}\wedge S(q\to)                                                                                                                \\
-		&                                                            & \mathbb{S}^{\lambda_q} \arrow[ru]                                                                                                                                        &                                                                                                                                         
-	\end{tikzcd}
+	\begin{comment}
+			\begin{adjustbox}{max width=\textwidth}
+			% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZAJgBpiBdUkANwEMAbAVxiRAB12IaYAnBrGBjAAEgH0A1AF9OPGAAJO3PgKGixAWikgppdJlz5CKMgEYqtRizacAtnRwALAEbPgAZSkA9YJwZ1bZyg6MQBHbV19bDwCIjIAZgt6ZlZEDnZ7J1cPb192f0DgsIi9EAxooyIABnIkq1T0zJc3Tx8-AKCQ8J1S8sNYlFNSc2pk6zT5AHUAClDOHAgASkV2AGM6NHkAOTE0TlWmTYBhMVN3Wfmlnqj+42R40iq6lJt8mAAzHGmZufYFxf2G22uxWtiwUCgDBgAHp5Odfv9OLwsABzRw4RbXMoGGJ3B6UUb1NighzNHKcADuMCgKIU8MumMi2IqA3uw2e43SUM+3wufyWgM2O02dnBkJhcL5iPYyLRGNkMAUdlJ2U8lOptMlCKuUgsGvgRFA714EFsSBqIAWSCGlheaU4ABkOsF9lheKsVmgsCtVm6PasxMQQNR-M4YAwAAo4yppQTYWBY42m83UK2IMi2zmO510V3uz3evP+07BkCh8NRlnGEBx8GsJlJs2IB6WiApzMNAPAACi3RDdDDkejAxrYHj9dKjaQLbTABZCXb0hHHFhEyamza0wBWBvrpAZtMANl3ycQ89bSAA7AvOScPFKliUjXvENeL4gtzeGpwvSX+4PK1uNhawTE8mzfI8v1eX8g3-Cth2rECJ2fU8LTTN8xm-dgI2wUtyyHKtgLHOsdAoKQgA
+			\begin{tikzcd}
+				&                                                            &                                                                                                                                                                          & \left(W(q\to)\cap N_p \middle/ S(q\to)\right)                                                                                            \\
+				&  W(q\to) \cap N_p\cup C_1S(q\to) \arrow[rr, "C_{S(q\to)}"] & \mathbb{S}^{\lambda_q} \arrow[ru]                                                                                                                                        & \left(W(q\to)\cap N_p \middle/ S(q\to)\right)\vee \mathbb{S}\wedge S(q\to) \arrow[u, "\pi_1" description] \arrow[d, "\pi_2" description] \\
+				\mathbb{S}^{\lambda_q} \arrow[rr, "c_{Eq}" description] \arrow[ru, "\Phi"] &                                                            & \overline{H_+}\vee \overline{H_-} \arrow[u, "\Lambda\circ \pi \circ c_2" description] \arrow[d, "\Lambda\circ \pi \circ c_1" description] \arrow[ru, "\Psi" description] &  \mathbb{S}\wedge S(q\to)                                                                                                                \\
+				&                                                            & \mathbb{S}^{\lambda_q} \arrow[ru]                                                                                                                                        &                                                                                                                                         
+			\end{tikzcd}
 		\end{adjustbox}
+	\end{comment}
+	\includegraphics[width=\textwidth]{Text/Pictures/Kommutative Diagram Sphere equator collaps.jpeg.pdf}
 		\end{fdiagram}
 		 Now define $r\coloneq -R$. For example apply $R$ after the reflection $(x_0,\dots x_{\lambda_q})\mapsto (-x_0,\dots,x_{\lambda_q})$. Then by the lemma above and commutativity we have up to homotopy:
 		  \begin{align*}
-		  	r\circ f_q\circ c_1 
-		  	&=  	-R\circ f_q\circ c_1 \circ \Phi \circ \phi{-1}\\
-		  	&=  	-R\circ \Lambda \circ c_2\circ C_{Eq} \circ \phi{-1}\\
-		  	&=  	R\circ \Lambda \circ c_1\circ C_{Eq} \circ \phi{-1}\\
+		  	r\circ f_q\circ k_1 
+		  	&=  	-R\circ f_q\circ k_1 \circ \Phi \circ \Phi^{-1}\\
+		  	&=  	-R\circ \Lambda \circ \pi\circ c_2\circ C_{Eq} \circ \Phi^{-1}\\
+		  	&=  	R\circ \underbrace{\Lambda \circ \pi\circ c_1\circ C_{Eq} }_{\simeq \id}\circ\Phi^{-1}\\
 		  	&=		col\, .
 		  \end{align*}
-		  With $r$ we finally have all the maps. Now we want to find out what degree the composition
-		  $s\circ r$ has. For this we calculate the local degree in some point by checking the sign of the determinant of the Jacobean.
-	\end{itemize} 
+		 
+	\end{itemize}  
+	With $r$ we finally have all the maps. Now we want to find out what degree the composition
+	$s\circ r$ has. For this we calculate the local degree in some point by checking the sign of the determinant of the Jacobean. This strategy works out since we are in the situation of lemma \ref{lem: determined of javobean and collapsing map}.
 	Bevor we start differentiating, we expand the map arround $x\in \R^{\lambda_q}$, such that $x'\coloneq E^u_q\circ B_{\mathfrak{b}^q}(x)\in \rho{-1}(x_j)$, meaning that $x'$ is on the flow line towards $x_j$ and assume that $\tau(x')=1$.
 	\begin{align*}
 		&   \phantom{=}	\pi_+\circ s\circ r\circ \pi_+^{-1}(x_1,\dots .,x_{\lambda_q})\\
@@ -1409,18 +622,19 @@ The downwards maps in the Theorem are the induction of the canonical generators.
 	
 	\begin{align*}
 		&\phantom{=}Q_0^{-1}\circ \restr{\diff \left(B_{\mathfrak{b}^p}^{-1} \circ \nu_{x_j}\circ J^{-1}\circ \rho \circ E^u_q\circ B_{\mathfrak{b}^q}\right)}{y}\circ Q_y (e_i)\\
-		&=Q_0^{-1}\circ  \restr{\diff \left(B_{\mathfrak{b}^p}^{-1} \circ \nu_{x_j}\circ J^{-1}\circ \rho \circ E^u_q\right)}{B_{\mathfrak{b}^q}(y)}\circ Q_{B_{\mathfrak{b}^q}(y)}\circ B_{\mathfrak{b}^q}(e_i) \quad \text{ in general $Q$ and $\diff L$ has a commutative property}\\
+		&=Q_0^{-1}\circ  \restr{\diff \left(B_{\mathfrak{b}^p}^{-1} \circ \nu_{x_j}\circ J^{-1}\circ \rho \circ E^u_q\right)}{B_{\mathfrak{b}^q}(y)}\circ Q_{B_{\mathfrak{b}^q}(y)}\circ B_{\mathfrak{b}^q}(e_i) \\
 		&= Q_0^{-1}\circ \restr{\diff \left(B_{\mathfrak{b}^p}^{-1} \circ \nu_{x_j}\circ J^{-1}\right)}{x_j}\circ \restr{\diff \left( \rho \circ E^u_q\right)}{B_{\mathfrak{b}^q}(y)}\circ Q_{B_{\mathfrak{b}^q}(y)}\circ B_{\mathfrak{b}^q}(e_i)		
 	\end{align*}
 	Now the term $\restr{\diff \left( \rho \circ E^u_q\right)}{B_{\mathfrak{b}^q}(y)}\circ Q_{B_{\mathfrak{b}^q}(y)}\circ B_{\mathfrak{b}^q}$ maps $e_1$ to zero. and $(e_2,\dots e_{\lambda_q})$
-	induces a basis in $T_{x_j}V_j$ that is compatible with a basis $(\mathfrak{d}_i)_{i=2,\dots \lambda_q}$ that satisfies the following: Adding $-\grad_{x_j}(f)$ as the first basis vector to $(\mathfrak{d}_i)_{i=2,\dots \lambda_q}$ gives a basis of $T_{x_j}W(q\to)$ that is compatible with the basis induced from $\mathfrak{b}^q$ that appears in the counting of flow lines in the Morse boundary operator. \todo{beweis in crixet}
-	Now we can look at the First part: 
-	\begin{align*}
+	induces a basis in $T_{x_j}V_j$ that is compatible with a basis $(\mathfrak{d}_i)_{i=2,\dots \lambda_q}$ that satisfies the following: Adding $-\grad_{x_j}(f)$ as the first basis vector to $(\mathfrak{d}_i)_{i=2,\dots \lambda_q}$ gives a basis of $T_{x_j}W(q\to)$ that is compatible with the basis induced from $\mathfrak{b}^q$ that appears in the counting of flow lines in the Morse boundary operator. This was proven earlyer in lemma \ref{lem: Rho and Tau induces a Morse boundary orientation}.
+	Now we can look at the first part: 
+\begin{align*}
 		Q_0^{-1}\circ \restr{\diff \left(B_{\mathfrak{b}^p}^{-1} \circ \nu_{x_j}\circ J^{-1}\right)}{x_j}
 		&=\Big(\restr{\diff J}{x_j}\circ \restr{\diff \nu_{x_j}^{-1}}{0}\circ \restr{\diff B_{\mathfrak{b}^p}}{0} \circ Q_0 \Big)^{-1}\\
 		&=\Big(\underbrace{\restr{\diff J}{x_j}\circ Q_{0}}_{=\id_{T_{x_j}V_j}} \circ \nu_{x_j}^{-1}  \circ B_{\mathfrak{b}^p} \Big)^{-1}\\	
 		&=\Big( \nu_{x_j}^{-1}  \circ B_{\mathfrak{b}^p} \Big)^{-1}
-	\end{align*} Notice how $\nu_{x_j}^{-1}  \circ B_{\mathfrak{b}^p}$ induces a basis on $T_{x_j}V_j$ from a basis in $T^u_pM$. Comparing this basis to the basis  $(\mathfrak{d}_i)_{i=2,\dots \lambda_q}$ is what assigned the sign to the flow line in the Morse boundary operator. By the calculations we know that the Jacobean of the funktion $Z$ 
+\end{align*}
+	 Notice how $\nu_{x_j}^{-1}  \circ B_{\mathfrak{b}^p}$ induces a basis on $T_{x_j}V_j$ from a basis in $T^u_pM$. Comparing this basis to the basis  $(\mathfrak{d}_i)_{i=2,\dots \lambda_q}$ is what assigned the sign to the flow line in the Morse boundary operator. By the calculations we know that the Jacobean of the funktion $Z$ 
 	\begin{equation*}
 		\diff Q_0^{-1}\circ \restr{\diff \left(B_{\mathfrak{b}^p}^{-1} \circ \nu_{x_j}\circ J^{-1}\circ \rho \circ E^u_q\circ B_{\mathfrak{b}^q}\right)}{y}\circ Q_y=
 		\begin{pmatrix}
@@ -1470,4 +684,331 @@ The downwards maps in the Theorem are the induction of the canonical generators.
 		\delta^j_{triple}(\alpha_p)=\sum_{j}\delta^j_{triple}\circ f_p^*(\beta)=n_{\gamma}f^*_q(\beta)=n_\gamma(\alpha_q)
 	\end{equation*}
 	Furthermore: $\Delta(\alpha_p)=\delta^2_{triple}(\alpha_p)=\sum_{\gamma \in \mathcal{q,p}} n_\gamma(\alpha_q)$. This concludes the prove. 
+\end{proof}
+
+
+
+
+
+\section{The proove that $N_p$ is a tubular neighbourhood} \label{section: Np tubular neighbourhood proove}
+	So to proof this, we first formulate two lemmas. First we restate/ refine the $\lambda$-lemma: \todo{parameter dependence einfügen}
+\begin{lemma}[The Technical $\lambda-$Lemma] 
+	Let $ M$ be a smooth manifold and let $p$ be a hyperbolic fixpoint of a diffeomorphism $\phi$ on $M$ with $\dim W(p \to)=r$ for ${0<r<m=\dim M}$. Let $N$ be an injective immersed submanifold of $M$ that is invariant under $\phi$ and has a point of transverse intersection $q$ with $W(\to p)$. Then for any $\epsilon>0$, any $r-$cell neighbourhood $D$ of $q$ in $N$ that also intersects $W(\to p)$ transversal and any $r-cell$ neighbourhood $B$ of $p$ in $W(p\to))$ there is a smaller cell $\tilde{D}\subset D$, an $n\in \N$ such that the following is true:
+	
+	We can assume that $B$ and $\phi^n(\tilde{D})$ lives in a chart centered at $p$ with a product structure $U\cong W(\to p)\cap B_\mu(0)\times W(p\to)\cap B_\mu(0)$. Here,the invers of the projection into $B\subseteq W(\to p)$:
+	\begin{equation*}
+		h: B\to \phi^n(\tilde{D})\, 
+	\end{equation*}satisfies:
+	\begin{enumerate}
+		\item $\sup_{x \in B}\norm{x-h(x)}<\epsilon$ and
+		\item For the inclusions  $i_1:B\to M$ and $i_2:\phi^n(\tilde{D})\to M$ we have that 
+		\begin{equation*}
+			\sup_{x \in B}\norm{\diff(i_1)_x-\diff(i_2\circ h)_x}<\epsilon\, .
+		\end{equation*}
+	\end{enumerate}
+\end{lemma}
+\begin{proof}
+	
+	Let \( q \) be a point of transversal intersection of \( W(\to p) \) with \( N \). Since both \( N \) and \( W(\to p) \) are invariant under \( \phi \), it follows that \( \phi^n(q) \in N \cap W(\to p) \) for all \( n \in \N \). Moreover, the intersection remains transversal: the direct sum decomposition \( T_q M = T_q W(\to p) \oplus T_q N \) is preserved under \( d\phi_q \), which implies transversality at \( \phi^n(q) \) as well.
+	
+	Therefore, we may assume that \( q \) lies in a coordinate chart centered at the hyperbolic fixed point \( p \), and identify a neighborhood of \( p \) with an open subset of \( \mathbb{R}^m \), where \( m = \dim M \). By hyperbolicity of \( p \), the tangent space at \( p \) splits as
+	\[
+	T_p M = T^s_p M \oplus T^u_p M,
+	\]
+	and this splitting is preserved by \( d\phi_p \). As discussed earlier\todo{reference einfügen}, there exists a chart in which \( d\phi_p \) is represented by a real diagonal matrix (in suitable coordinates)\todo{in fact we can choose a Morse chart that satisfies this!}. Hence, we may choose an orthonormal basis of coordinates \( (x_s, x_u) \in \mathbb{R}^s \times \mathbb{R}^u \), adapted to the stable and unstable subspaces, such that
+	\[
+	d\phi_0 =
+	\begin{pmatrix}
+		A & 0 \\
+		0 & B
+	\end{pmatrix},
+	\]
+	where the eigenvalues of \( A \) have modulus less than 1, and those of \( B \) greater than 1.
+	
+	Since we are working in \( \mathbb{R}^m \), we identify the manifold and its tangent space locally around 0. We then expand \( \phi \) in a Taylor series at the origin:
+	\[
+	\phi(x_s, x_u) = \phi(0) + d\phi_0(x_s, x_u) + f(x_s, x_u),
+	\]
+	where \( f(0) = 0 \) and \( df(0) = 0 \). Writing this in coordinates gives:
+	\begin{equation} \label{eq: proof of Lambda lemma phi split}
+		\phi(x_s, x_u) = (A x_s + f_s(x_s, x_u),\; B x_u + f_u(x_s, x_u)).
+	\end{equation}
+	Furthermore, since $f=\phi-\diff \phi|_0$ we know that: 
+	\begin{align*}
+		\frac{\partial f_s}{\partial x_u}|_{(0,x_u)}=\frac{\partial \phi_s}{\partial x_u}|_{(0,x_u)}=0=\frac{\partial f_u}{\partial x_s}|_{(x_s,0)}=\frac{\partial \phi_u}{\partial x_s}|_{(x_s,0)}.
+	\end{align*} Similar to Corollary $\ref{cor: Tangendspace splits}$ we can define an inner product such that for the operator norm we have 
+	\begin{align*}
+		\norm{A}\leq \alpha <1 \quad \text{ and } \quad \norm{B^{-1}}\leq \frac{1}{\beta} <1.
+	\end{align*}
+	Since $1=\norm{\id}=\norm{BB^{-1}}\leq \norm{B}\cdot \norm{B^{-1}}$ we know that $\norm{B}\geq \beta$.
+	For a neighbourhood $U_1\subseteq U$ of the origin we define 
+	\begin{align*}
+		k:=\max_{i,j=s,u} \Bigg\{ \sup_{\overline{U_1}}\norm{\frac{\partial f_i}{\partial x_j}} \Bigg\},
+	\end{align*} and choose $U_1$ small enough such that $k$ satisfies:
+	
+	
+	\begin{gather*}
+		0<k<1 \\
+		\beta_1:=\beta -k >1 \\
+		\alpha_1:=\alpha +k <1 \\
+		k<\frac{1}{4}(b_1-1)^2.
+	\end{gather*}
+	This can be achieved since $\diff f\big|_0=0$.
+	Let $B$ be a cell neighbourhood of the origin in $W(p\to )$. For some $n \in \N$ we have that $\phi^{-n}(B)\subseteq U_1$. If the $\lambda-$lemma holds for $\phi^{-n}(B)$ for all $\epsilon$ it also holds for $B$, since the metric and $\phi$ are continuous and the $r-$cell is compact. Therefore, the change of distance after applying $\phi^{-n}$ is finite and we can choose the distance from $\phi^{-n}(B)$ to $D$ small enough such that $B$ is $\epsilon~C^1$-close to $D$. Hence, without restrictions $B\subseteq U_1$ and $q\in U_1$.  Next we define the inclination of $N$ with respect to the (un-)stable manifolds as follows: 
+	
+	Let $x\subseteq N \cap U_1$ and $v^0\in T_xN\subseteq T_0M=T^s_0M \oplus T^u_oM$ and let $v^0=(v_s^0,v_u^0)$ be the coordinate entries. Furthermore let $v$ be a unit vector. Now we define the \textbf{inclination} of $v^0$:
+	\begin{align*}
+		\lambda(v^0)=\frac{\norm{v^0_s}}{\norm{v^0_u}}.
+	\end{align*}
+	In other words: The smaller the inclination, the more parallel we are to $W(p\to)$. Notive how we can only define the inclination if $v^0_u\neq 0$. 
+	Furthermore define:
+	\begin{align*} x^n:=\phi^n(x), ~v^n:= \diff \phi_{x^{n-1}}(v^{n-1}) \text{ and } \phi(x)=(\phi_s(x),\phi_u(x))\in W(\to 0)\times W(0\to).
+	\end{align*}
+	Now we want to calculate the derivative $\diff \phi|_{q^n}$. But first inspect:
+	\begin{align*}
+		\diff \phi|_x=\begin{pmatrix}
+			\frac{\partial \phi_s}{\partial x_s}|_{x} & \frac{\partial \phi_s}{\partial x_u} |_{x}\\
+			\frac{\partial \phi_u}{\partial x_s} |_{x}& \frac{\partial \phi_u}{\partial x_u}|_{x}
+		\end{pmatrix}\overset{(\ref{eq: proof of Lambda lemma phi split}) }{~=~}
+		\begin{pmatrix}
+			A+ \frac{\partial f_s}{\partial x_s}|_{x}& \frac{\partial f_s}{\partial x_u}|_{x}\\
+			\frac{\partial f_u}{\partial x_s} |_{x} & B+ \frac{\partial f_u}{\partial x_u}|_{x}
+		\end{pmatrix} 
+	\end{align*} Since $q^n\in W(\to 0)$ and $\frac{\partial f_u}{\partial x_s}(x_s,u)$=0 this gives us:
+	
+	\begin{align*}
+		\diff \phi|_{q^n}=\begin{pmatrix}
+			A+ \frac{\partial f_s}{\partial x_s}|_{q^n}&    \frac{\partial f_s}{\partial x_u}|_{q^n}\\
+			0                                   & B+ \frac{\partial f_u}{\partial x_u}|_{q^n}
+		\end{pmatrix} 
+	\end{align*}
+	Let $B_s(\delta)$ denote the ball of radius $\delta$ around the origin that lives in $W(\to p)$ and $U_2:= B_s(\delta)\times B$. Since $\frac{\partial f_s}{\partial x_u}|_{(0,x_u)}=0$ and by the smoothness of  $\phi$, for any $\epsilon >0$ there exists a $\delta$ such that 
+	\begin{align*}
+		\underbrace{\sup_{U_2}\norm{\frac{\partial f_s}{\partial x_u}}}_{:=k_1}< \min\{\epsilon, k \}.
+	\end{align*} 
+	Again, we assume $q\in D\subseteq  U_2$. Now we want to get a hold of the inclination:  Let $x\in N$ such that $x^j\in U_2 $ for all $j\leq n$ and let $v^0\in T_xN$. Denote $v^n=(v^n_s,v^n_u)\in T_0W(\to 0)\times T_0W(0 \to)$. 
+	\begin{align}
+		\lambda(v^n)&= \frac{\norm{\diff \phi_s|_{x^{n-1}}(v^{n-1})}}{\norm{\diff \phi_u|_{x^{n-1}}(v^{n-1})}} \nonumber \\
+		&=\frac{\norm{Av_s^{n-1} +\ \frac{\partial f_s}{\partial x_s}|_{x^{n-1}}v_s^{n-1} \ \, + \, \frac{\partial f_s}{\partial x_u}|_{x^{n-1}}(v_u^{n-1})}}{\norm{\color{blue} \frac{\partial f_u}{\partial x_s}|_{x^{n-1}}(v_s^{n-1}) \color{black}+   Bv_u^{n-1}+\frac{\partial f_u}{\partial x_u}|_{x^{n-1}}(v_u^{n-1})}} \nonumber \\
+		& \leq \frac{ (\alpha +k )\norm{v_s^{n-1}}+k_1 \norm{(v_u^{n-1})}}
+		{ \color{blue}k \norm{(v_s^{n-1})} \color{black}  +  (\beta+k)\norm{ v_u^{n-1}}} \nonumber \\
+		& \leq \frac{ (\alpha +k )\norm{v_s^{n-1}}+k_1 \norm{(v_u^{n-1})}}
+		{ (\beta-k)\norm{ v_u^{n-1}}  - \color{blue} k_1 \norm{(v_s^{n-1})} \color{black} } &\quad \text{since } \beta-k>1 \text{ and }k_1<k<1 \nonumber \\
+		& = \frac{ (\alpha +k )\lambda(v^{n-1})+k_1}
+		{ \beta_1  - \color{blue} k_1 \lambda{v^{n-1}\color{black} }} &\quad \text{we divided by }\norm{v_u^{n-1}} \nonumber \\
+		&\leq \frac{\lambda(v^{n-1})+k_1}
+		{ \beta_1  - \color{blue} k_1 \lambda(v^{n-1}) \color{black} }  \label{eq: estimate lambda(v^n)}				
+	\end{align} 
+	If $x\in W(\to 0)$ the blue part above disappears and we get:
+	\begin{align*}
+		\lambda(v^n) \leq \frac{\lambda(v^{n-1})+k_1}{\beta_1}.
+	\end{align*} By induction we get:
+	\begin{align}
+		\lambda(v^n)\leq \frac{\lambda(v^{n-1})+k_1}{\beta_1}=\frac{\frac{\lambda(v^{n-2})+k_1}{\beta_1}+k_1}{\beta_1}= \frac{\frac{\lambda(v^{n-2})+\frac{k_1 \beta_1}{\beta_1}}{\beta_1}+k_1}{\beta_1} =\frac{\lambda(v^{n-2})+k_1+ k_1 \beta_1}{\beta_1^2}\leq \cdots \nonumber \\
+		\leq \frac{\lambda(v^0)+\sum_{l=0}^{n-1}k_1 \beta_1^l}{\beta_1^n}~. \label{eq: proof lambda lemma estimate lambda(v^n) with x=q}
+	\end{align} By using the geometric series we see:
+	\begin{align*}
+		\lambda(v^n)\leq \frac{\lambda(v^0)}{\beta_1^n}+k_1\sum_{l=1}^n\frac{1}{\beta^n} \leq \frac{\lambda(v^0)}{\beta_1^n}+k_1(\frac{1}{1-\beta_1}-1)=
+		\frac{\lambda(v^0)}{\beta_1^n}+k_1(\frac{b}{\beta_1-1}-\frac{\beta_1-1}{\beta_1-1}) \\ =\frac{\lambda(v^0)}{\beta_1^n}+k_1(\frac{1}{\beta_1-1}).
+	\end{align*}
+	Since $\beta_1$ was greater then 1 we can conclude that $\lim_{n \to \infty}\frac{\lambda(v^0)}{\beta_1^n}=0$ and since $k<\frac{1}{4}(\beta_1-1)^2$ we know that $\frac{k}{\beta_1-1}<\frac{b-1}{4}$. Because of that, a $n_0$ exists such that for all $n>n_0$ :
+	\begin{align*}
+		\lambda(v^n)\leq \frac{\lambda(v^0)}{\beta_1^n}+\frac{k}{b-1}< \frac{\beta_1-1}{3}.
+	\end{align*}  
+	Lets collect what we have done so far: We take a point $x$ from a transverse intersection of $N$ and $W(\to p)$. Then, we inspect the inclination of a tangent vector $v$ in ${T_xN\subseteq T^s_0M\times T^u_0M}$ and move the tangent vector via $\diff \phi$ alongside of the stable set and realize that the inclination gets smaller, the more we move it. 
+	
+	
+	
+	
+	
+	
+	For any $v\in T_{q^n}N$ there exists a $\tilde{v} \in T_qN$ such that $v=\tilde{v}^n$, since
+	$\diff \phi|_x:T_xM \to T_{\phi(x)}M$ is bijective. 
+	If we take an arbitrary local section $f:M \to TM$
+	that denotes the choice of $v^0\in T_xN$ we know that $\lambda \circ f$ is continuous, 
+	as it is the composition of continuous functions. In other words, the inclination smoothly depends on $v^0$ and $x$. 
+	This tells us that for a small enough cellular neighbourhood $D_0 \subseteq D\subseteq N \cap U_2$ such that for any $x\in D_0$ and $v_0\in T_xN$ of length $1$ we have
+	\begin{equation}
+		\lambda(v^0)\leq \frac{1}{2} (\beta_1-1).
+	\end{equation} (This is true as long as the invlination is well defined )
+	Now we claim that if $\phi^j(v^0)\in U_2$ for all $j=0,...,n$ then $\lambda(v^n)\leq \frac{1}{2}(\beta_1-1).$ We prove this by induction: The case $n=0$ is already done. For the induction step we use the estimate (\ref{eq: estimate lambda(v^n)}), $k_1 <k<1$ and $k< \frac{1}{4}(\beta_1-1)^2$:
+	\begin{align*}
+		\lambda(v^{n+1})\leq \frac{\lambda(v^{n})+k_1}{ \beta_1  - k_1 \lambda(v^{n})}\leq \frac{ \frac{1}{2}(\beta_1-1)+\frac{1}{4}(\beta_1-1)^2}{ \beta_1  - \frac{1}{2}(\beta_1-1))} = \frac{1}{2}(\beta_1-1).
+	\end{align*} Using the above estimate and (\ref{eq: estimate lambda(v^n)}) again we conclude that for all $x\in D_0$ such that $\phi^j(x)\in U_2$ for all $j=0,...,n$ and for any unit vector $v^0\in T_xN$ we have:
+	\begin{align*}
+		\lambda(v^{n})& \leq \frac{\lambda(v^{n-1})+k_1}{ \beta_1  - k_1 \lambda(v^{n-1})}\\
+		&\leq \frac{\lambda(v^{n-1})+k_1}{ \beta_1  - \frac{1}{2}(\beta_1-1))}\\
+		&\leq \frac{\lambda(v^{n-1})+k_1}{ (\frac{1}{2}(1+\beta_1))}.
+	\end{align*} Notice that for $\beta_2:=\frac{1}{2}(1+\beta_1)$ we have $1<\beta_2<\beta_1$. Again like in the equation (\ref{eq: proof lambda lemma estimate lambda(v^n) with x=q}) we can use induction to conclude:
+	\begin{align*}
+		\lambda(v^n)\leq \frac{\lambda(v^0)}{\beta_2^n}+\frac{k_1}{\beta_2-1},
+	\end{align*} and since $k_1\leq \epsilon$ we have for any $n$ large enough, any $x\in D_0$ such that $\phi^j(x) \in U_2$ for $j=0,...,n$ and any unit vector $v^0 \in T_xN$:
+	\begin{align*}
+		\lambda(v^b)\leq \epsilon(1+\frac{1}{\beta_2-1}).
+	\end{align*}
+	Let $\pi_u:U \to W(0\to)$ be the projection. Since $\phi$ is expanding on $W(0 \to)$ we know that a $n_2\geq n_1$ exists such that $B\subseteq \pi_u(D_{n_2})$, where $D_{n_2}$ denotes the connected component of $\phi^{n_2}(D_0)\cap U$ that contains $q^{n_2}$. If $\dim N > \dim W(0 \to)$ we can choose a subset of $\dim W(0\to)$ and then the projection restricted to $D_{n_2}$:  $\pi_u|{D{n_2}}$ can be modified to be one to one. For this we use the fact that we are an embedded manifold.Hence, we are given by an implicit function where the derivatives in $W(\to p)-$direction are invertible as a matrix. By the implicit function theorem we can take any point $x$ from $D_{n_2}$ and conclude that there is a neighbourhood $U(x)\subset W(p\to)$ around $\pi_u(x)$ in $D_{n_2}$ and a smooth function $G: W(p\to)\to W(\to p)$, such that around $x$ $D_{n_2}$ looks like $(y,G(y))$ telling us that the projection onto the domain of $G$ is one to one after restricting $D_{n_2}$ to $U(x)\times \im(G)$. Now we can define $h$ to be the inverse of that projection (that is $G\times \id$) and get the closeness of $B$ to $D_{n_2}$. To see that we first check the distances and the difference after differentiating. For this we need the maps: $i_1:B\to M, x \mapsto (0,x)$, and $i_2: ~D_{n^2} \to M,~ x\mapsto x$ and $h: B \to D_{n^2},~ x \mapsto \pi_u^{-1}(x)=(h_s(x),x)=(h_s(x),h_u(x)$:
+	
+	\begin{align*}
+		\sup_{x\in B} \norm{ \diff( i_{1} )_x-\diff (i_2 \circ h )_x} &= \sup_{x\in B} \norm{ \begin{psmallmatrix}
+				0 \\
+				1
+			\end{psmallmatrix}- \begin{psmallmatrix}
+				\diff (h_s)_x \\
+				1
+		\end{psmallmatrix} } \\
+		&=\sup _{x\in B} \norm{\diff (h_s)_x } &\\
+		&= \sup_{x \in B} \sup_{\norm{v}\leq 1} \norm{\frac{\diff(h_s)_x}{\diff(h_u)_x}(v) \diff(h_u)_x}(v) & \text{ here:} \begin{cases} h_u \equiv  \id_{w(\to p)} \times h_u \\
+			h_s \equiv h_s \times \id_{W(p \to)}.
+		\end{cases} \\
+		&=\sup_{x \in B} \sup_{\norm{v}\leq 1} \frac{\norm{(\diff(h)_x)_s(v)}}{\norm{(\diff(h)_x)_u(v)}}\norm{v}\\
+		&= \sup_{x \in B} \sup_{\norm{v} = 1} \lambda(\diff h_x(v)) & \text{since $\diff h_x$ is linear} \\
+		& \leq \epsilon(1+\frac{1}{\beta_2-1}).
+	\end{align*} The last inequality follows from $\diff h_x(v))$ being an element in $T_xN$ and the existence of a $\tilde{v} \in D_0:\tilde{v}^n=v$. Finally since $\beta_2$ is independent of $\epsilon$ we can make this construction for any $\epsilon$.
+	Furthermore since we can increase $n$ (and decrease the sice of $\tilde{D}$) such that $D_{n^2}$ is arbitrary close to the origin, the statement that 
+	\begin{equation*}
+		\sup_{x\in B}\norm{x-h(x)}<\epsilon 
+	\end{equation*} is clear.
+	
+	%here stats the proof of the strukturel inclination lemma
+	
+	Therefore, by definition we have that for any $\mathcal{N}^r(f,(\phi,U),(\psi,V),\epsilon)$ that contains $i_2$ there is a $r-$cell $D_{n^2}$ and a $h$ such that $i_2 \circ h \in \mathcal{N}^r(f,(\phi,U),(\psi,V),\epsilon)$. This tells us that every neighbourhood of $i_1$ contains such an $h$ and therefore, in the $C^r-$generating metric $d_1$, an $r-$cell and a $h$ exists such that $d_1(i_1.i_2\circ h)<\epsilon.$ This concludes the proof of the lambda lemma.  	
+	
+	we proofed the same with the only difference, that we defined the $r-$cell $D$ arbitrary. We now want to show that this $r-$cell can be defined to be the image of a moved smaller cell of a given $r-cell$. So lets inspect the already given proof:
+	
+	We started by moving the point of transverse intersection $q$ closer to the fixpoint by applying the diffeomorphism to it. Then we defined an neighbourhood $D_0$ of that moved point in the stable manifold (compare \ref{eq: proof lambda lemma small neighbourhood}). Here we were able to get a hold of the inclination. Then we moved $D_0$ via applying the isomorphism closer to the fixed point and restricted it to the dimension of the unstable manifold. This restriction we can refine as follows: First we define $D_{n^2}$ to be the moved $D_0$. Lets say we moved $q$ $n-$times. In other words $q\in \phi^{-n}(D_{n^2})$ Then there exist a small $r-$cell neighbourhood of $q$ that lives in $D \cap \phi^{-n}(D_{n^2})$. That is because $ \phi^{-n}(D_{n^2})$ is an in $N$ open neighbourhood of $y$, hence $\phi^{-n}(D_{n^2}) \cap D$ is open in $D$. Hence we can find a ball around $y$ in $D$ that is contained in the intersection. We call that $r-$cell $\tilde{D}$. Then $\phi^n(\tilde{D})$ is an $r-$dimensional subset of $D_{n^2}$ and the rest of the proof can be done with that subset. All arguments work, as that subset is transverse to $W(\to p)$. 
+	
+\end{proof}
+Next we proove that fiberwise the flow is monotonly decreasing in any normal-direction with respect to $W(\to p)$:
+\begin{lemma}\label{lem: fibrewise monotopnically}
+	Let $U$ be a tubular neighbourhood of $W(\to p)\cap M^c$, with $J:NW(\to p)\cap M^c\to M$ beeing the corresponding embedding. For $x\in W(\to p)\cap M^c$ we denote $U_x$ the embedded fiber over $x$. Then there exists a $T>0$ big enough and a global trivialization $\Phi: NW(\to p)\cap M^c\to  \left(W(\to p)\cap M^c\right)\times \R^{\lambda_p}$ such that the the composition $f\circ \phi_T \circ J\circ \Phi^{-1}$ is fibrewise monotonically decreasing meaning that for any  $0\neq v\in U_x$  and $\nu >0 $ small the function
+	\begin{align*}
+		l_v: (1-\nu,1+\nu) &\to \R\\
+		\lambda &\mapsto f\circ \phi_T \circ J\circ \Phi^{-1}(x,\lambda \cdot v)
+	\end{align*} has negative derivative.
+\end{lemma}
+\begin{proof}
+	We will apply the technichal $\lambda$-lemma. For this we reuse the notation as follows. The lemma tells us, that for any $\mu_T>0$ we can find a $T$ big enough, such that $\phi_T(J(U_x))$ is close in the following sense: There is a neighbourhood $L$ of $p$ and a Morse chart 
+	\begin{align*}
+		\Psi: L\to \R^{\lambda_p}\times \R^{m-\lambda_p}
+	\end{align*} such that $\restr{\Psi}{\R^{\lambda_p}}\supseteq W(p\to)$. In this chart the set $\phi_T(J(U_x))$ is the graph of a funktion $h^s_x:\R^{\lambda_p}\to \R^{m-\lambda_p}$ that satisfies:
+	\begin{align*}
+		\norm{\diff h^s_v}<\mu_T\\ 
+		\norm{ h^s_v}<\mu_T
+	\end{align*}
+	We define the map $h_x=h^s_x\oplus \id_{\lambda_p}: \R^{\lambda_p}\to \R^m$.
+	
+	
+	
+	
+	
+	Now $\phi_T(J(U_x))=\Gamma(h^s_x)=\im (h_x)$. Using this we define our global trivialisation:
+	\begin{align*}
+		\Phi: NW(\to p)\cap M^c &\to  \left(W(\to p)\cap M^c\right)\times \R^{\lambda_p}\\
+		\xi &\mapsto \left(\pi(\xi), h^{-1}_{\pi(\xi)}\circ \Psi \circ \phi_T \circ J(\xi)\right)
+	\end{align*}
+	In this trivialization the funktion $l_v$ looks like:
+	\begin{align*}
+		l_v(\lambda)
+		&=f \circ \phi_T\circ J \circ \Phi^{-1} (x,\lambda v)\\
+		&=f \circ \phi_T\circ J\circ J^{-1}\circ \phi_{-T}\circ \Psi^{-1} \circ h_x\\
+		&=f \circ \Psi^{-1} \circ h_x\, .
+	\end{align*} 
+	In coordinates this reads:
+	
+	
+	
+	Now we can calculate its derivative to conclude the statement: 
+	\begin{align*}
+		\diff (l_v)(\lambda)
+		&=\restr{\diff (f\circ \psi^{-1})}{h_x(\lambda v)}\circ \restr{\diff h_x}{\lambda v} (v)\\
+		&=\restr{\diff (f\circ \psi^{-1})}{h_x(\lambda v)} (v,\diff h_x^s(v))\\
+		&=-2\lambda \sum_{i_1}^{\lambda_p}(v^i)^2+\left(h^s_x(\lambda v)\right)^T\cdot (\diff h_x^s)^i(\lambda v)\\
+		&\leq-2\lambda \norm{v}^2 +\lambda^2 (\mu^T )^2\norm{v}^2\\
+		&= \left( -2+(\mu^T)^2\lambda \right) \lambda \norm{v}^2<0 \text{ for all $v\neq 0$, $\lambda \in I$ and for all $T$ big enough.}
+	\end{align*}		
+\end{proof}
+Hence, the sets $N_p\cap U_x$ are starshaped with respect to the embedding of the normal space.
+
+Now we want to \textbf{smoothly} rescale to the starshaped neighbourhood. This is in general not possible and homeomorphisms from starshaped neighbourhoods to $R^n$ are hard to describe, even if they are not required to be a resacling. The main problem in the general case is, that the following: for each $v\in \phi_T(J(U_x))$ by the star shaped property there is a unique $\lambda_v$ ,  such that $f\circ (\lambda_v v)=a-\epsilon$. But the map $v\mapsto \lambda_v$ needs not to be continouos in the general starshaped setting however here it is and it even continouosly depends on $x$:
+\begin{definition}[Hyperspherical coordinates]
+	For our next proof we need to introduces spherical coordinates on $R^{\lambda_{p}}$. Define $s_k\coloneq \sin(\theta_k)$ and $c_k\coloneq \cos(\theta_k)$:
+	\begin{align*}
+		\Lambda: \R_{\geq 0}\times [0,\pi]^{\lambda_{p}-2}\times [0,2\pi)&\to \R^{\lambda_p}  \\
+		(r,\theta_1,\dots, \theta_{\lambda_p-1})&\mapsto \begin{pmatrix}
+			rc_1\\
+			rs_1c_2\\
+			\vdots  \\
+			rs_1 \cdots s_{\lambda_{p}-2} c_{\lambda_{p}-1} \\
+			rs_1 \cdots s_{\lambda_{p}-2} s_{\lambda_{p}-1}		
+		\end{pmatrix}
+	\end{align*}
+	With differential 
+	\begin{align*}
+		\begin{pmatrix} 
+			c_1                        &-rs_1              &0        &0 &\cdots &0      \\
+			s_1c_2                     &rc_1c_2            &-rs_1s_2 &0 &\cdots &0      \\
+			\vdots                     &\vdots             & \vdots  &  &\ddots &\vdots \\
+			&                   &         &  &             \\
+			s_1\cdots s_{n-2}c_{n-1}   &\cdots             &\cdots   &  &       &-rs_1\cdots s_{n-2}s_{n-1} \\
+			s_{1}\cdots s_{n-2}s_{n-1} &rc_1\cdots s_{n-1} &\cdots   &  &       &\phantom{-}rs_1\cdots s_{n-2}c_{n-1}\\
+		\end{pmatrix}
+	\end{align*}
+	
+\end{definition}
+
+We have shown in lemma \ref{lem: fibrewise monotopnically} that the maps $l_v$ are monotonically decreasing. Hence the condition $f(x)\geq a-\epsilon$ gives rise to a starshaped fiber. But we want the fibers to be homeomorphic to $R^{\lambda_p}$ and the dream would be to just rescale it as follows: 
+Assume that $\rho>0$ is small enough, such that for all $x\in \left( W(\to p)\cap M^{c}\right) $ we have that $\sup\limits_{x\in h_x\left(B_{\rho}(0)\right)}(f(x))\geq a-\epsilon$. Now we have the maps\todo{f mit $f\circ \Psi^{-1}$ ersetzen, da hier eigentlich die Morse karte genutzt wird!!}: 
+\begin{align*}
+	r_x: h_x(\partial\left(B_{\rho}(0)\right))&\to \R_{\geq 1}\\
+	v&\mapsto \lambda_v \text{ such that }f( \lambda_v v)=a-\epsilon
+\end{align*} Notice that for small enough $\epsilon$ such a $\lambda_v$ exists and the lemma \ref{lem: fibrewise monotopnically} gives us uniqueness. Now we want to have continouoity and furthermore continouos dependence on $x$ for which we will use the parameter-dependent implicit funktion theorem:
+\begin{lemma}
+	The parameterdependent funktions $r_x$ are continouos and depend continouos on $x$
+\end{lemma}
+\begin{proof}
+	We redefine the funktion $r_x$  by using spherical coordinates as follows: Implizitly for each $x$ we have the Mapping: 
+	\begin{align*}
+		F_x:\R_{\geq 0}\times [0,\pi]^{\lambda_{p}-2}\times [0,2\pi) &\to \R\\
+		(r,\theta_1,\dots, \theta_{\lambda_p-1})&\mapsto f\circ h_x\circ \Lambda(r,\theta_1,\dots, \theta_{\lambda_p-1})
+	\end{align*}
+	Here the funktion reads:
+	\begin{align*}
+		f\circ h_x\circ \Lambda(\underbrace{r,\theta_1,\dots, \theta_{\lambda_p-1}}_{\coloneq v})
+		= f(
+		\begin{pmatrix}
+			h_x^s(\Lambda(v)) \\
+			\Lambda (v)
+		\end{pmatrix})
+		= -2r^2 +2\sum_{i=\lambda_p+1}^{m} \left(h_x(\Lambda(v)) \right)_i^2
+	\end{align*} To make use of the implizit funktion theorem, we inspect the differential in $r$-direktion:
+	\begin{equation*}
+		\frac{\partial}{\partial r}(-2r^2 +2\sum_{i=\lambda_p+1}^{m} \left(h_x(\Lambda(v)) \right)_i^2)=-4r+2\sum_{i=\lambda_p+1}^m\left(\sum_{j=1}^{\lambda_p}\left(
+		\frac{\partial (h_x)_i}{\partial x_j}\frac{\partial \Lambda_j}{\partial r}
+		\right)\right)
+	\end{equation*} This does not vanish for big enough $r$, since the partial differentials of $\lambda$ are of norm one, and those of $h_x$ are small. Hence for big enough $r$ , lets say $r\geq \mu>0$ this is negative and thereby we get a funktion 
+	\begin{align*}
+		\tilde{r_x}: [0,\pi]^{\lambda_{p}-2}\times [0,2\pi)  \to \R_{\geq \mu}
+	\end{align*} such that $(f\circ h_x\circ \Lambda)^{-1}(a-\epsilon) $ is the graph of $\tilde{r_x}$. Hence, if we define $\pi_r: \R_{\geq 0}\times [0,\pi]^{\lambda_{p}-2}\times [0,2\pi) \to [0,\pi]^{\lambda_{p}-2}\times [0,2\pi)$ to be the projection we have that
+	\begin{align*}
+		r_x: h_x\left(\partial B_{\rho}(0) \right)&\to \R\\
+		v&\mapsto \tilde{r}_x\circ \pi_r(\Lambda^{-1}(h_x^{-1} v))
+	\end{align*} is continouos and depends continouosly on $x$. (In reality we still need to check for smoothness in $\Lambda(\{\theta_{\lambda_{p}-1}=0\}$. This can be done by a different parametrisation of the sphere meaning by different spherical coordinates.)The resulting funktion agrees with the earlyer definition of $r_x$ concluding the proof. 
+\end{proof}
+
+
+
+
+\begin{proof}[Proof That $N_p$ is Tubular]
+	To finish our proof we rescale the Fibers smoothly. For this we first restrict the domain of $J$: Let $\nu>0$ be small enough, such that for 
+	\begin{equation*}
+		N_{\nu}W(\to p)\cap M^c\coloneq \{\xi|\text{ if }\Phi(\xi)=(x,v), \norm{v}<\nu\}
+	\end{equation*} the supremum
+	\begin{equation*}
+		\sup\limits_{x \in \phi_T\circ J \left( N_{\nu}W(\to p)\cap M^c \right)}\geq a-\epsilon
+	\end{equation*} Hence, $J( N_{\nu}W(\to p)\cap M^c)$ is included in $N_p$ and now we resscale the fibres $U_x^{\nu}\coloneq  U_x\cap \im J( N_{\nu}W(\to p)\cap M^c)\supseteq U_x$ to get a surjective inclusion into $N_p$. 
+	For all $x\in W(\to p)\cap M^c$ we define the smooth rescaling as follows: 
+	\begin{align*}
+		RS: U_x^{\nu} &\to U_x\\
+		v &\mapsto \phi_{-T}\circ \Psi^{-1} \circ r_x \left(\rho \cdot \frac{h_x^{-1}\circ \Psi \circ\phi_T(v)}{\norm{h_x^{-1}\circ \Psi \circ\phi_T(v)}} \right)
+	\end{align*} This rescaling is smooth, smoothly depends on $x$, and it maps surjectifly onto $N_p\cap U_x$. 
 \end{proof}
