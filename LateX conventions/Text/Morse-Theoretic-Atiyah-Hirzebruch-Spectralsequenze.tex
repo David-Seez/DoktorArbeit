@@ -162,9 +162,9 @@ The Main statement now is that the connecting homomorphism of K-Theory and of th
 		\end{center}
 	\end{theorem}
 \begin{Iprove}
-	We will first build up a diagramm that encapusates the connecting homomorphism from K-theory, which was build as follows: Assume that $(X,Y,Z)$ is a topological pair. Then the first map is induced from the kollaps: $Y\to Y\big/ Z$. Afterwards we have the connecting homomorphism of the pair:
+	We will first build up a diagramm that encapusates the connecting homomorphism from K-theory, which was build as follows: Assume that $(X,Y,Z)$ is a topological triple. Then the first map is induced from the kollaps: $Y\to Y\big/ Z$. Afterwards we have the connecting homomorphism of the pair $(X,Y)$:
 	
-	Then the K-groups of the pointed spaces $X\big/ X$ and $X\cup CY$, where the latter denotes a cone above $Y$ agree. From the latter we can quotien out $X$, and $X\cup CY\big/ X\cong SY$. Hence we have the triple connecting homomophism as the composition:
+	The K-groups of the pointed spaces $X\big/ Y$ and $X\cup CY$, where the latter denotes a cone above $Y$ agree. From the latter we can quotien out $X$, and $X\cup CY\big/ X\cong SY$. Hence we have the triple connecting homomophism as the composition:
 	\begin{equation*}
 K^{-1}(Y,Z)\to	K^{-1}(Y)=K(SY)\cong K(X\cup CY\big/ X)\to K(X\cup CY)\cong K(X\big/ Y) 
 	\end{equation*}The triple connecting homomorphism for lower K-Groups is defined exactly the same via the identification $K^{-n}(X,Y)=K(S^n\vee (X,Y))$. For higher K-Groups we apply the natural Bott isomorphism and make use of the identity. By doing this we get the tripple homomorphism 
@@ -176,11 +176,10 @@ K^{-1}(Y,Z)\to	K^{-1}(Y)=K(SY)\cong K(X\cup CY\big/ X)\to K(X\cup CY)\cong K(X\b
 \end{tikzcd}
 	\end{center} For the proof of the upper square, we actually proof that the following commutes:
 	\begin{fdiagram}\label{diag: that we really want to show}
-	% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAGEA9YAawF8AFAFlSAHVEBbOjgAWAMwBOdHsACCfMaLwNYwANJ9uDQWhwBKMyA3pMufIRQBGclVqMWbLrwDUjwSPEpWUVlNQ1xbV0DIxNzS2sQDGw8AiIyR1d6ZlZEEHEAIywAcwg0ZjhxBiwJXDgAfWA0cSwwAAJxdgVcOp4BOTM+fUNgAFp+AQA5OrRSABlp+NIbZPsiZwzqLI9cguLS8srq2oaAR2a2jq6cBp5fQX7B6NGBW8cBybqTuc-41xgoIrwIigRQQCRIMggHAQJDONzZNjiNB0BR4RicNBWJYgUHgxCQ6FIABMCVxsOohMQAGZSQowcSKTDqZt3Dk8qIACIwBg4Og3bzGKwUPhAA
-	\centering
+	% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAGEA9YAawF8AFAFlSAHVEBbOjgAWAMwBOdHsACCfMaLwNYwANJ9uDQWhwBKMyA3pMufIRQBGclVqMWbLrwDUjwSPEpWUVlNQ1xbV0DIxNzS2sQDGw8AiIyR1d6ZlZEEHEAIywAcwg0ZjhxBiwJXDgAfWA0cSwwAAJxdgVcOp4BOTM+fUNgAFp+AQA5OrRSABlp+NIbZPsiZwzqLI9cguLS8srq2oaAR2a2jq6cBp5fQX7B6NGBW8cBybqTuc-41xgoIrwIigRQQCRIMggHAQJDONzZNjiNB0BR4RicNBWJYgUHgxCQ6FIABMCVxsOohMQAGZSQowcSKTDqZt3Dk8qIACIwBg4Og3PhWCh8IA
 	\begin{tikzcd}
-		{C^{k}(M,\mathfrak{A},\tilde{K}^{l}(pt))} \arrow[r, "\partial^p"] \arrow[d]     & {C^{k+1}(M,\mathfrak{A},\tilde{K}^{l}(pt))} \arrow[d]         \\
-		{\bigoplus\limits_{p\in \Crit_k(f)}{K}^{-k}(N_p,L_p)} \arrow[r, "\Delta_{k+l}"] & {\bigoplus\limits_{q\in \Crit_{k+1}(f)}{K}^{-(k+1)}(N_q,L_q)}
+		{C^{k}(M,\mathfrak{A},\tilde{K}^{l}(pt))} \arrow[r, "\partial^p"] \arrow[d]   & {C^{k+1}(M,\mathfrak{A},\tilde{K}^{l}(pt))} \arrow[d]         \\
+		{\bigoplus\limits_{p\in \Crit_k(f)}{K}^{-k}(N_p,L_p)} \arrow[r, "\Delta_{k}"] & {\bigoplus\limits_{q\in \Crit_{k+1}(f)}{K}^{-(k+1)}(N_q,L_q)}
 	\end{tikzcd}
 	\end{fdiagram}
 	 Furthermore we assumed that $l=0$. This doesnt change the generality since if $l$ was even, we can apply the Bott isomorphism and else the groups are $0$. 
@@ -460,7 +459,7 @@ The same arguments work to show that $N_q$ is a tubular neighbourhood of $W(q\to
 			\end{adjustbox}
 	\end{fdiagram}
 
-The downwards maps in the Theorem are the induction of the canonical generators. This is done by the following assignement
+The downwards maps in the theorem are the induction of the canonical generators. This is done by the following assignement
 	
 	
 	
@@ -484,7 +483,7 @@ The downwards maps in the Theorem are the induction of the canonical generators.
 \end{tikzcd}
 		\end{adjustbox}
 	\end{fdiagram}
-		Now we have a list of the Functions from the diagramm above:\todo{Achtung hier stimmt was nicht... ich muss $f_p$ noch mit $\beta$ composen oder im diagramm etwas ändern.}
+	The maps in the diagramm are given as follows:
 	\begin{itemize}
 		\item The map $f_p$ induces $\alpha_p$. Remember, that $\alpha_p$ comes from the canonical generator $\alpha_p'$ of the index pair $[B,A]$ and $\alpha_p'$ is defined as
 		\begin{align*}
@@ -509,14 +508,14 @@ The downwards maps in the Theorem are the induction of the canonical generators.
 		\begin{align*}
 			f_p: I\times V_j \Big/ \partial(I\times V_j) &\to S \wedge S^{\lambda_p}\simeq  S^{\lambda_p+1}\\
 			(t,x)&\mapsto \Omega\left(t,	\Gamma\circ \left(B_{\mathfrak{b}^p}^{-1}\circ \nu_{x_j}\circ J^{-1}\right)(x)\right) \, .
-		\end{align*} \todo{specify the isomorphism !}
-	$\Gamma$ maps the disk modulo its boundary to a sphere and $\Omega$ maps the suspension of the sphere to the sphere one dimension higher. We abuse the notation a bit and identify the map $\left(B_{\mathfrak{b}^p}^{-1}\circ \nu_{x_j}\circ J^{-1}\right)$ with the one defined by quotiening out the boundary. We will leave out the quotiening in the notatino from now on to make the prove easyer to read. The invested reader should check, if the quotiend maps are always well defined! Now finally we have a little definition issue: In the diagramm we have that 
+		\end{align*}
+	$\Gamma$ maps the disk modulo its boundary to a sphere and $\Omega$ maps the suspension of the sphere to the sphere one dimension higher These Maps are given in definitino \ref{cor: suspension of a sphere is a sphere} and \ref{def: Disk modulo boundary to sphere}. We abuse the notation a bit and identify the map $\left(B_{\mathfrak{b}^p}^{-1}\circ \nu_{x_j}\circ J^{-1}\right)$ with the one defined by quotiening out the boundary. We will leave out the quotiening in the notatino from now on to make the prove easyer to read. The invested reader should check, if the quotiend maps are always well defined! Now finally we have a little definition issue: In the diagramm we have that 
 		\begin{equation*}
 			f_p^*: K^{\lambda_p-1}[\mathbb{S}^{\lambda_p+1}]\to K^{-\lambda_p}[V_j,\partial V_j]\, ,
-		\end{equation*}whilst at the moment, $f_p$ maps to $K^{-\lambda_p+1}(I\times V_j,\partial(I\times  V_j))$. Hence we need to compose this $f_p^*$ with the isomorphism that comes from the suspension axiom: 
+		\end{equation*}whilst at the moment, $f_p$ maps to $K^{-\lambda_p-1}(I\times V_j,\partial(I\times  V_j))$. Hence we need to compose this $f_p^*$ with the isomorphism that comes from the suspension axiom: 
 		\begin{equation*}
 			K^{-\lambda_p}( X)\cong K^{-\lambda_p+1}(SX)\,.
-		\end{equation*}By abuse of notation we dont write that idetification and rather think of the top left corner as $K^{-\lambda_p+1}(I\times V_j,\partial(I\times  V_j))$.
+		\end{equation*}And then add the bott isomorphism to rais th eindex by two. By abuse of notation we dont write that idetification and rather think of the top left corner as $K^{-\lambda_p+1}(I\times V_j,\partial(I\times  V_j))$.
 		\item Again, we want $f_q$ to be the map that induces the generator of $K^{-\lambda_q}[W(q\to)\cap N_q,S(q\to)]$ which comes from the canonical generator of $[C,B]$ together with the inclusion. Again instead of first introducing the generator on the prototype index pair, we can use ${E^u_q}^{-1}$ instead of the Morse chart. Again we can argue here, that the local degree of changing between the two is one, since ${E^u_q}^{-1}$ is a refined morse chart which can be choosen to be adapted to the ordered basis $\mathfrak{b}^q$ of $T^u_qM$.´ Hence we can define $f_q$ to be the quotient map:
 		\begin{align*}
 			W(q\to)\cap N_q\Big/ S(q\to)& \to S^{\lambda_p+1}\\
