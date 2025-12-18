@@ -28,7 +28,7 @@ This is just a short summary. Prooves are omitted and the goal is to remaind our
 \begin{definition}[Connected Simple System]
 	A \textbf{connected simple system} consists of a cllection $I_0$ of pointed spaces along with a collection $I_m$ of homotopy classes of maps between these spaces such that 
 		\begin{enumerate}[(i)]
-			\item $\hom(X,Y)\coloneq \{[f]\in [X:Y]:[f]\in I_m\}$ consists of exactly one element for each pair of spaces $(x,y)\in I_0$, where $[X:Y]$ denotes the set of homotopy classes of maps between $X$ and $Y$.
+			\item $\hom(X,Y)\coloneq \{[f]\in [X:Y]:[f]\in I_m\}$ consists of exactly one element for each pair of spaces $(X,Y)\in I_0^2$, where $[X:Y]$ denotes the set of homotopy classes of maps between $X$ and $Y$.
 			\item If $X,Y,Z\in I_0,[f]\in \hom(X,Y),$ and $g\in \hom(Y,Z)$, then $[g\circ f]\in \hom(X,Z)$.
 			\item $\hom(X,Y)=\{[\id_X]\}$ for all $X\in I_0$. 
 		\end{enumerate}
@@ -73,6 +73,58 @@ A \textbf{morphism} $\Phi:I\to Y$ between two connected simple systems $I=(I_0,I
 		C^{k}(M,\mathfrak{A},\tilde{K}^{l}(pt)= \bigoplus_{q\in \Crit_k(f)} K^k(\mathcal{IP}_q)).
 	\end{equation}
 \end{remark}
+
+\begin{definition}[Canonical Isomorphism Class]
+	A \textbf{canonical isomorphism class } of rings (or other algebraic structures) is a set of rings $R_0$ together with a set of ring homomorphisms $R_m$ such that
+	\begin{enumerate}[(i)]
+		\item For $R,L \in R_0$ the set $\hom(X,Y)\coloneq \{f:X\to Y: f \in R_m\}$ consists of exactly one element. 
+		\item If $R,L,S\in R_0$ and $f\in \hom(R,L)$ and $g\in \hom(L,S)$, then $g\circ f\in \hom(X,Z)\,$.
+		\item $\hom(X,X)=\{\id_x\}$
+	\end{enumerate}
+	A \textbf{morphism} between two canonical isommorphism classes of rings $\Psi: (R_0,R_m)\to (S_0,S_m)$ is a collection of homomorphisms such that 
+	\begin{enumerate}
+		\item For any $R\in R_0$ and $S\in S_0$ the set $\Psi(R,S)\coloneq \{f:R\to S: f\in \Psi\}$ contains exactly one element.
+		\item If $R,\bar{R}\in R_0$ and $S,\bar{S}\in S_0$, $f\in \hom(\bar{R},R)$, $g\in \hom(S,\bar{S})$ and $\psi\in \Psi(R,S)$, then $g\circ \psi\circ g\in \Psi(\bar{R},\bar{S})\,$.
+	\end{enumerate}
+\end{definition}
+\begin{remark}
+	Again the second property lets us induce a morphism between two canonical isommorphism classes of rings $\Psi: (R_0,R_m)\to (S_0,S_m)$ by a single isomorphism 
+	\begin{equation*}
+		\psi: R\to S
+	\end{equation*} for $R\in R_0$ and $S\in S_0$.
+\end{remark}
+\begin{remark}
+	We call the category of simple connected systems $\SCS$ and the categorie of canonical isomorphism classes of rings $\CICR$ 
+\end{remark}
+\begin{definition}
+	The classical complex topological K-functors $\tilde{K}^i$ define a family of kontravariant funtors 
+	\begin{align*}
+		\SCS \to \CICR
+	\end{align*} that is fiven on the objects as follows:
+	For $(I_0,I_m)$ being a family of pointed topological spaces, we get a new family of rings as:
+	\begin{equation*}
+		R_0\coloneq \{\tilde{K}^i(X): X\in I_0\}\,,
+	\end{equation*} and a family of ringhomomorphisms 
+	\begin{equation*}
+		R_m \coloneq \{\tilde{K}^i(f):[f]\in I_m\}\,.
+	\end{equation*}Obviously, the tuple $(R_0,R_m)$ is an object in $\CICR$. 
+	Now a morphism in $\Phi:(I_0,I_m)\to (J_0,J_m)$ in $\SCS$ gifes rise to a collecting of ringisomorphisms
+	\begin{equation*}
+		\Psi\coloneq \{\tilde{K}^i(\phi):[\phi]\in \Phi\}\,.
+	\end{equation*}By the homotopy property of reduced K-theory, this becomes a morphism in $\CICR$.
+\end{definition}
+\begin{example}
+	Any pointed topological space $X$ defines a simple connected system $(\{X\},{[\id_x]})$. Similar, any ring $R$ defines a caninical isomorphism class of rings $(\{R\},\{\id_R\})$.
+\end{example}
+\begin{definition}
+	Let $(M,f,g)$ be a smooth manifold $M$ together with a morse smale funtion $f$. Let $S\subseteq M$ be a compact invariant subset. Then the index pairs of $S$ together with the canonical isomorphisms between them define a simple conected system which we will denote with $\mathcal{IP}_S$.   
+\end{definition}
+\begin{remark}
+	Let $\underline{\Z}$ be the canonical equivalence class of rings consiting only of the ring $\Z$, and let $p$ be a critical point of index $\lambda_p$ in $M$. Then remark \ref{ex: Critical points as isolated compact invariant subsets} gives us the existence of a morphism for all $i\in \N$:
+	\begin{equation*}
+		\tilde{K}^{\lambda_p+2i}(\mathcal{IP}_p)\to \underline{Z}\,.
+	\end{equation*} The next remark will ehlp is to get a canonical isomorphism.
+\end{remark}
 \begin{remark}
 		Furthermore, this isomorphism 
 		\begin{equation} \label{ kritical points as direct sum of homology groups}
@@ -105,6 +157,10 @@ A \textbf{morphism} $\Phi:I\to Y$ between two connected simple systems $I=(I_0,I
 	\begin{align}\label{equation: definition of boundary operator for filtrations}
 		\Delta^k:\bigoplus_{p\in \Crit_{k-1}(f)}K^{k-1}(N_p,L_p) \to \bigoplus_{q\in \Crit_k(f)}K^k(N_q,L_q)
 	\end{align}
+	We can define this also with canonical isomorphism classes:
+	\begin{equation*}
+		\underline{\Delta^k}:\bigoplus\limits_{p\in \Crit_{k-1}(f)}K^{k-1}(\mathcal{IP}_p)\to \bigoplus\limits_{q\in \Crit_{k}(f)}K^{k}(\mathcal{IP}_q)
+	\end{equation*} \todo{define direkt sum of canonical isomorphism classes}
 \end{example}
 
 
@@ -119,14 +175,21 @@ A \textbf{morphism} $\Phi:I\to Y$ between two connected simple systems $I=(I_0,I
 	\end{align*}There exists a filtration
 	\begin{equation} \label{eq: Filtration conley}
 		\emptyset=:N_{-1}\subset N_0\subset N_1\subset \cdots \subset N_{m-1}\subset N_m=M,
-	\end{equation} such that $(N_k,N_{j-1})$ is a regular index pair for $W(k,j)$ for all $0\leq j \leq k\leq m$. From this we can induce a filtration of conected simple systems:
+	\end{equation} such that $(N_k,N_{j-1})$ is a regular index pair for $W(k,j)$ for all $0\leq j \leq k\leq m$. If we define $\mathcal{IP}_i\coloneq \mathcal{IP}_{\Crit_i(f)}$ we can induce a filtration of conected simple systems:
 	\begin{equation*}
-		\emptyset \to \mathcal{IP}_0\to \mathcal{IP}_1 \to \cdots \to \mathcal{IP}_{m-1} \to \mathcal{IP}_m 
-	\end{equation*} Where $\mathcal{IP}_i$ denotes the simple system $\mathcal{IP}_{\Crit_i(f)}$ and the map $\mathcal{IP}_i\to \mathcal{IP}_{i+1}$ is induced from the inclusion $i: (N_i,N_{i-1})\to (N_{i+1},N_i)$. \todo{ we get even More! we get a list of such sequiences! maby a spectral sequence?}
+		\emptyset \to \mathcal{IP}_0\to \mathcal{IP}_1 \to \cdots \to \mathcal{IP}_{m-1} \to \mathcal{IP}_m \
+	\end{equation*} 
 \end{definition}
 \begin{proof}
 	The proof is done by Dietmar Salamon and can be checked in \cite{Salamon1985} corollary 4.4. 
 \end{proof}
+\begin{remark}
+	Now $\mathcal{IP}_k$ has a pointed spaces as a representative, that if of the form $\bigvee_{p\in \Crit_k}(N_p\big/L_p)$. Hence, $\tilde{K}^k(\mathcal{IP}_k)$ has a representative that omitts an isomorphism to $\bigoplus_{p\in \Crit_k(f)}\tilde{K}^k(N_p\big/L_p)$. Hence as canonical isomophism classes of rings we get the isomorphism:
+	\begin{equation*}
+		\tilde{K}^k(\mathcal{IP}_k)\to \bigoplus_{q\in \Crit_k(f)}\tilde{K}^k(\mathcal{IP}_p)
+	\end{equation*} and with this we can define the morphism $\underline{\Delta^k}:	\tilde{K}^{k-1}(\mathcal{IP}_{k-1})\to 	\tilde{K}^k(\mathcal{IP}_k)$.
+	I think with this, i can give the definition of the following spectral sequence in the language of canonical isomorphism classes!
+\end{remark}
 \subsection{The Spectral sequence}
 
 \begin{definition} Let $M$ be a smooth manifold with Morse data and \begin{equation*}
@@ -182,7 +245,7 @@ A \textbf{morphism} $\Phi:I\to Y$ between two connected simple systems $I=(I_0,I
 \end{corollary}
 
 
-The Main statement now is that the connecting homomorphism of K-Theory and of the long exact sequence given by the special Filtration in Morse Theory are comparable: 
+The Main statement now is that the connecting homomorphism of K-Theory and of the long exact sequence given by the special Filtration in Morse theory are comparable: 
 	\begin{theorem} \label{thm: commuting connecting homomorphism}
 		Given the filtration $N_{-1}\subseteq N_0 \subseteq \cdots \subseteq N_{m-1} \subseteq N_m=M$   from (\ref{eq: Filtration conley}).  The following diagram commutes:
 		\begin{center}
@@ -582,7 +645,7 @@ The downwards maps in the theorem are the induction of the canonical generators.
 			r\circ f_q\circ c_1=col\,, 
 		\end{equation*}then the requirement on the induced maps would be satisfied. We first however need to formulate a little lemma:
 		\begin{lemma}
-			Let $S^k\coloneq \{x\in \R^{k+1}|\norm{x}=1\}$, $H_+\coloneq\{x\in S^k|x_0\geq 0\}$ denote the upper hemissphere, $H_-$ the lower hemissphere,  $\pi:S^k \to D^k$ with $\pi(x_0,\dots,x_{k})=(x_1,\dots x_k)$ be the projection and $\Lambda$ be the homeopmorphism from $D^k\big/\partial D^k \to S^k$. Let furthermore $c_{Eq}:S^k\to \overline{H_+}\vee \overline{H_-}$ be the collaps of the equator, where $\overline{H_+}$ denotes the upper hemisphere modulo the equator and $\overline{H_-}$ is defined analog. Let finally $c_2: \overline{H_+}\vee \overline{H_-} \to \overline{H_+}$ be the collaps of the second summand and analogusly $c_1:  \overline{H_+}\vee \overline{H_-} \to \overline{H_-}$. Then we have that $\Lambda\circ \pi\circ c_2\circ c_{Eq}\simeq -\Lambda\circ \pi\circ c_1\circ c_{Eq}$, where de minus denotes any map homeomorphism of negative degree. 
+			Let $S^k\coloneq \{x\in \R^{k+1}|\norm{x}=1\}$, $H_+\coloneq\{x\in S^k|x_0\geq 0\}$ denote the upper hemissphere, $H_-$ the lower hemissphere,  $\pi:S^k \to D^k$ with $\pi(x_0,\dots,x_{k})=(x_1,\dots x_k)$ be the projection and $\Lambda$ be the homeopmorphism from $D^k\big/\partial D^k \to S^k$. Let furthermore $c_{Eq}:S^k\to \overline{H_+}\vee \overline{H_-}$ be the collaps of the equator, where $\overline{H_+}$ denotes the upper hemisphere modulo the equator and $\overline{H_-}$ is defined analog. Let finally $c_2: \overline{H_+}\vee \overline{H_-} \to \overline{H_+}$ be the collaps of the second summand and analogusly $c_1:  \overline{H_+}\vee \overline{H_-} \to \overline{H_-}$. Then we have that $\Lambda\circ \pi\circ c_2\circ c_{Eq}\simeq -\Lambda\circ \pi\circ c_1\circ c_{Eq}$, where de minus denotes any smooth homotopie equivalence of negative degree. 
 		\end{lemma}
 		\begin{proof}
 			This lemma is the concrete version of a standart lemma that is often formulated along the lines: Let $q:S^k\to S^k\vee S^k$ be the collaps of the equator and $p_i$ be the projection to the $i$-th summand, then $p_1\circ q=-p_2\circ q$.  
