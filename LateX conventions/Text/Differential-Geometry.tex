@@ -23,7 +23,7 @@ This section aims to set the playing field for the thesis. Due to the theory bei
 	For $r=\infty$ we call the pair $(M,c)$ a smooth manifold.
 \end{definition}
 \begin{corollary}
-	Every transition functions $\phi_{ij}$ $i,j\in I^2$ of a differentiable atlas $\mathfrak{A}=(\phi_i)_{i\in I}$ is not just a homeomorphism but also a diffeomorphism due to $\phi_{ji}=\phi_{ij}^{-1}$ 
+	Every transition functions $\phi_{ij}$ where $(i,j)\in I^2$ of a differentiable atlas $\mathfrak{A}=(\phi_i)_{i\in I}$ is not just a homeomorphism but also a diffeomorphism due to $\phi_{ji}=\phi_{ij}^{-1}$ 
 \end{corollary}
 \begin{definition}
 	Let $(M,c)$ be a differentiable manifold of class $r$ and $U\subseteq M$ open. We call a continuos function 
@@ -48,7 +48,7 @@ This section aims to set the playing field for the thesis. Due to the theory bei
 	If $p\in M$ is fix, $f\in \mathcal{E}(U)$ and $g\in \mathcal{E}(U')$ such that $p\in U\cap U'$ we say that $f$ and $g$ have the same \textbf{germ in $p$}, if there is another open neighborhood $W\subseteq U\cap U'$ of $p$ such that $\restr{f}{w}=\restr{g}{W}$. This defines an equivalence relation $\sim_p$. An equivalence class $s$ of local functions around $p$ is called a \textbf{germ in $p$}. We write $s=f_p$, if $s=[f]$ with $f\in \mathcal{E}(U)$. 
 	We write 
 	\begin{align*}
-		\mathcal{E}_p(M)=\left. \left( \sum_{U \text{open},p\in U }\mathcal{E}(U)\right)\middle/ \sim_p \right. \, .
+		\mathcal{E}_p(M)=\left. \left( \bigsqcup_{U \text{open},p\in U }\mathcal{E}(U)\right)\middle/ \sim_p \right. \, .
 	\end{align*} For the set of germs and call it the \textbf{stalk in $p$}. Here $\sum$ denotes the co-product (also called sum)  in $\Top$ and hence the disjoint union.
 \end{definition}
 \begin{corollary}
@@ -83,7 +83,7 @@ This section aims to set the playing field for the thesis. Due to the theory bei
 	\end{align*} defines a basis of $TM_p$. Hence, the dimension of $TM_p$ is $m$.
 \end{corollary}
 \begin{definition}
-	For a smooth manifold $(M,c)$ the sum $\sum_pTM_p$ comes with a natural projection 
+	For a smooth manifold $(M,c)$ the sum $\bigsqcup_pTM_p$ comes with a natural projection 
 	\begin{align*}
 		\pi: TM &\to M \\
 		\xi &\mapsto p \text{ where }\xi \in TM_p 
@@ -95,6 +95,13 @@ This section aims to set the playing field for the thesis. Due to the theory bei
 	\begin{align*}
 		\pi^{-1}(U)\cong U \times \R^m\, .
 	\end{align*} We can induce a topology on $TM$ such that all those trivializations are continuos. This then gives an atlas for $TM$ such that we have a $2m$-dimensional manifold. To be precise, the atlas is given by the maps $\pi^{-1}(U_i)\to R^m\times R^m; x\mapsto (\pi(x),q_{\phi\circ \pi(x)}(x))$ where $q_p$ denotes the coordinate map corresponding to the basis $(\restr{\frac{\partial}{\partial x_1}}{p},...,\restr{\frac{\partial}{\partial x_m}}{p})$ that depends on the chart $\phi_i$.  In fact, this yields a smooth manifold and a (smooth) vector bundle of dimension $m$. We call $TM$ the \textbf{tangent bundle}.
+\end{definition}
+\begin{definition}\label{Koordinate maps vector spaces}
+	For a $m$ dimensional vector space $V$ with basis $\mathfrak{b}$ we define the two maps:
+	\begin{align*}
+		B_{\mathfrak{b}}:\R^m\to V: \quad e_i\mapsto \mathfrak{b}_i\\
+		q_{\mathfrak{b}}:B_{\mathfrak{b}}^{-1}:V\to \R^m\,.
+	\end{align*}
 \end{definition}
 \begin{definition}[The Derivative]
 	Let $(M,c)$ and $(M',c')$ be smooth manifolds (from now on we suppress the differentiable structure in our notation). We call a continuous function $f:M \to M'$ \textbf{smooth}, if for all $\phi\in \mathfrak{A}\in c$ and $\phi'\in \mathfrak{A}'\in c'$ the maps
@@ -118,6 +125,39 @@ This section aims to set the playing field for the thesis. Due to the theory bei
 	\end{align*}
 	Hence, $\diff f (v)=v(f)\frac{\partial }{\partial x}$ letting us conclude the statement.
 \end{proof}
+
+
+\begin{definition}
+	Let $V$ be a linear manifold (i.e. a finite dimensional vector space). Then for any $v\in V$ we have the canonical maps
+	\begin{align*}
+		Q_v:V&\to T_vV\,\\
+		x&\mapsto \left(f_v\mapsto \restr{\frac{\partial }{\partial t}}{t=0}f(v+tx)\right)
+	\end{align*}
+	Let $L:V\to V$ be a linear map viewed as a smooth map between manifolds. Then we have the identity:
+	\begin{equation*}
+		\restr{\diff L}{v} \circ Q_v =Q_{L(v)}\circ L\,.
+	\end{equation*} This is proven by a short calculation:
+	\begin{equation*}
+		\Big(\restr{\diff L}{v} \big( Q_v(x)\big)\Big)(f_{L(v)})=Q_{v}(x)\left(f\circ L\right)=\restr{\frac{\partial }{\partial t}}{t=0}f\circ L(v+tx)=\underbrace{\restr{\frac{\partial }{\partial t}}{t=0}f\big( L(v)+tL(x)\big)}_{=Q_{L(v)}\circ L(x)}
+	\end{equation*} Now let $v,v'\in V$ be two points in $V$. Then we have the translation
+	\begin{equation*}
+		tr_{v,v'}: V\to V;~x\mapsto (x+(v'-v))
+	\end{equation*}With this we can now find a connection between $Q_v$ and $Q_{v'}$ as follows:
+	\begin{equation*}
+		\left(\restr{\diff tr_{v,v'}}{v}(Q_v(x))\right)(f_{v'})=\restr{\frac{\partial }{\partial t}}{t=0}\left(f\circ tr_{v,v'}(v+tx)\right)=\restr{\frac{\partial }{\partial t}}{t=0}\left(f(v'+tx)\right)=Q_{v'}(x)(f_{v'}) \,.
+	\end{equation*} Hence:
+	\begin{equation*}
+		Q_{v'}=\diff tr_{v,v'}\circ Q_v\,.
+	\end{equation*} 
+	The map $Q$ then denotes the map on the whole tangent bundle:
+	\begin{equation*}
+		Q:TV\to V;\xi_p \mapsto Q_p(\xi_p)
+	\end{equation*}
+\end{definition}
+
+
+
+
 \begin{definition}[A Metric]
 	Let $M$ be a smooth manifold.
 	A section $g\in \Gamma(TM^*\otimes TM^*)$ into the tensor product of the dual tangend bundle with itself is a\textbf{ Riemannian metric} if the following are satisfied for all $p\in M$:
@@ -131,24 +171,26 @@ This section aims to set the playing field for the thesis. Due to the theory bei
 \begin{definition}[The Gradient]
 	Assume that $(M,g)$ is a smooth manifold together with a Riemannian metric. Let $f:M\to \R$ be a smooth function. We define its \textbf{gradient} to be a vector field $\grad(f)\in \Gamma(TM)$ such that for any vecor field $V$:
 	\begin{align*}
-		q\circ \diff f (V) = g(\grad(f),V) \, .
-	\end{align*} Here $q$ denotes the canonical coordinate function $T\R \to \R$.
+		Q\circ \diff f (V) = g(\grad(f),V) \, .
+	\end{align*}
 \end{definition}
-\begin{definition}
-	Let $(M,g)$ be a Tiemannian manifold and $\phi:U\to V$ be a chart. We define the smooth functions $g_{ij}:U\to \R$ to be :
+\begin{definition}\label{def: local description of gradient gij}
+	Let $(M,g)$ be a Riemannian manifold and $\phi:U\to V$ be a chart. We define the smooth functions $g_{ij}:U\to \R$ to be :
 	\begin{align*}
 		g_{ij}=g(\frac{\partial}{\partial x_i},\frac{\partial}{\partial x_j}) \, .
 	\end{align*}
 	Then if two vector fields $v,w$ over $U$ are given with $v=\sum v^i \frac{\partial}{\partial x_i}$ and $w=\sum _i w^i \frac{\partial}{\partial x_i}$ we can calculate the metric locally:
 	\begin{align*}
-		g(v,w)=\sum_{ij}g_{ij} v^iw^j\, :U\to \R
+		g(v,w)=\sum_{ij}g_{ij} v_iw_j\, :U\to \R
 	\end{align*} Furthermore, we can invert the matrices $(g_{ij}(p))_{ij}$ for all $p$ (which is a smooth procedure which can be seen by the construction via Cramers rule) to get smooth functions 
 	\begin{align*}
 		g^{ij}: U&\to \R\\
 		p&\mapsto g^{ij}(p)= \left( (g_{kl}(p))_{kl}^{-1} \right)_{ij}
 	\end{align*}
 \end{definition}
-
+\begin{remark}
+	Due to the rare appearance of big summations with vectors and co-vectors in this work, we omit the Einstein summation convention and give all coordinate entries lower indices. 
+\end{remark}
 
 \begin{lemma}
 	Let $\phi:U\to V$ be a chart. Then the gradient has the local form:
@@ -203,34 +245,11 @@ This section aims to set the playing field for the thesis. Due to the theory bei
 		\phi(x): \R\to M,\quad t\mapsto \phi_t(x)\,
 	\end{equation*} and evaluate that in the constant trivial vector field $E: \R\to T\R$ with $E(t)=1_t$. 
 \end{definition}
-Whilst differentiating leads to a smooth vector field, we can also go the other direction by locally integrating a vector field to get a flow. To be precise:
-Those concepts are inverse to one another or in other words:
+Those two concepts are inverse to one another or in other words:
 \begin{theorem}
 	Let $M$ be a smooth manifold. Then there is a one to one correspondence between global maximal flows and vector fields. 
 \end{theorem}
-\begin{definition}
-	Let $V$ be a linear manifold (i.e. a finite dimensional vector space). Then for any $v\in V$ we have the canonical maps
-	\begin{align*}
-		Q_v:V&\to T_vV\,\\
-		x&\mapsto \left(f_v\mapsto \restr{\frac{\partial }{\partial t}}{t=0}f(v+tx)\right)
-	\end{align*}
-	Let $L:V\to V$ be a linear map viewed as a smooth map between manifolds. Then we have the identity:
-	\begin{equation*}
-		\restr{\diff L}{v} \circ Q_v =Q_{L(v)}\circ L\,.
-	\end{equation*} This is proven by a short calculation:
-	\begin{equation*}
-		\Big(\restr{\diff L}{v} \big( Q_v(x)\big)\Big)(f_{L(v)})=Q_{v}(x)\left(f\circ L\right)=\restr{\frac{\partial }{\partial t}}{t=0}f\circ L(v+tx)=\underbrace{\restr{\frac{\partial }{\partial t}}{t=0}f\big( L(v)+tL(x)\big)}_{=Q_{L(v)}\circ L(x)}
-	\end{equation*} Now let $v,v'\in V$ be two points in $V$. Then we have the translation
-	\begin{equation*}
-		tr_{v,v'}: V\to V;~x\mapsto (x+(v'-v))
-	\end{equation*}With this we can now find a connection between $Q_v$ and $Q_{v'}$ as follows:
-	\begin{equation*}
-		\left(\restr{\diff tr_{v,v'}}{v}(Q_v(x))\right)(f_{v'})=\restr{\frac{\partial }{\partial t}}{t=0}\left(f\circ tr_{v,v'}(v+tx)\right)=\restr{\frac{\partial }{\partial t}}{t=0}\left(f(v'+tx)\right)=Q_{v'}(x)(f_{v'}) \,.
-	\end{equation*} Hence:
-	\begin{equation*}
-		Q_{v'}=\diff tr_{v,v'}\circ Q_v\,.
-	\end{equation*}
-\end{definition}
+
 \begin{remark}\label{rem: differential of a flow evaluated at the defining vector field}
 	Let $X\in \Gamma(TM)$ be a vector field on the smooth manifold $M$, and $\phi$ be the associated dynamical system. For any fixed $t_0\in \R$ and any $x_0\in M$ we have the identity
 	\begin{equation*}

@@ -1,5 +1,5 @@
 \section{What are Spheres}
-In this section we want to inspect representations of homotopical Spheres. To give a little overview we will define the sphere to come with an orientation. To be more specific we have the definition:
+In this section we want to inspect representations of homotopical spheres. To give a little overview we will define the sphere to come with an orientation. To be more specific we have the definition:
 \begin{definition}[The $k-$-Sphere]
 	Let $\R^k$ be the k-dimensional vector space given as the span of $e_1,\dots e_k$ together with the eucliden metric $\norm{\cdot}_2$. Then the set
 	\begin{align*}
@@ -24,7 +24,7 @@ Now we have a lot of spaces that are homotopic or even homeomorph to the sphere.
 	\item The one-point compactification of a vector space together with an oriented basis.
 \end{enumerate}
 We already saw how we can map the one-point compactification of a vector space with an ordered basis to a sphere wia the stereographic projections from the south pole. 
-So lets inspect the other construction
+So lets inspect the other construction\begin{comment}
 \begin{corollary}
 	Given the disk $D^k\subseteq \R^k$ we have a homeomorphism 
 	\begin{align*}
@@ -74,6 +74,7 @@ So lets inspect the other construction
 	This lets us deduce the statment, as the onepoint compactification of the disk can be mapped to the sphere as seen in the corollary above.
 \end{proof}
 We will later use similar maps in our main prove, but now we want to talk about spheres in $K-$theorie. 
+	\end{comment}
 \begin{definition}
 	Let $f: S^k\to S^k$ be continouos. We know that $f^*:K^k[S^k]\to K^k[S^k]$ is a group homomorphism and via the map $\Z \to K^k[S^k]$ induced from mapping $1\mapsto \beta$ we get a induced map $\tilde{f}$ such that the diagramm kommutes:
 	\begin{center}
@@ -92,25 +93,10 @@ We will later use similar maps in our main prove, but now we want to talk about 
 	The map $\deg$ is an group isomorphism. 
 \end{corollary}
 \begin{proof}
-	We start by prooving that it is a group homomorphism. Let $f,g$ be representatives of two elements in $\pi_k(S^k)$. Let $\deg(f)=m$, and $\deg(g)=n$. The map $f+g$ is defined as the composition:
-\begin{center}
-	% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAGUA9AaxAF9S6TLnyEUARnJVajFmy7cAOooDuMKAHMYAAgX9BIDNjwEiAJinV6zVog49+09VoQpQAMwBOEALZIyIDgQSJIyNmwAxvoe3n6IoUFIFmFydu7Kapo6Go58QA
-	\begin{tikzcd}
-		S^k \arrow[r, "c"] & S^k\wedge S^k \arrow[r, "f\wedge g"] & S^k
-	\end{tikzcd}
-\end{center} Here $c$ denotes the collaps of the equator. 
+Still to do
 \end{proof}
 
-\begin{corollary}
-	We want to understand homöomorphisms between boukettes of spheres. Or to beginn with let:
-	\begin{align*}
-		f:S^k\to \bigvee S^k
-	\end{align*}
-	Now how does $f*$ look like? for this we
-\end{corollary}
-\begin{proof}
-	L
-\end{proof}
+
 \begin{corollary} \label{cor: suspension of a sphere is a sphere}
 	If we collaps a cone $C(S^k)$ over a shpere at its base, we obtain a sphere. 
 \end{corollary}
