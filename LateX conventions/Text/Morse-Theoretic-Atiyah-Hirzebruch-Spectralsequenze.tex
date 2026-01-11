@@ -780,8 +780,71 @@ The downwards maps in the theorem are the induction of the canonical generators.
 	\end{equation*}
 	Furthermore: $\Delta(\alpha_p)=\delta^2_{triple}(\alpha_p)=\sum_{\gamma \in \mathcal{q,p}} n_\gamma(\alpha_q)$. This concludes the prove. 
 \end{proof}
+\begin{corollary} [Simplifying the Spectral Sequence]
+By the bott-periodicity we have natural isomorphisms between 
+\begin{equation*}
+\beta:	E^{p,q}_r\cong E^{p,p+2}_r\,,
+\end{equation*} and the commuting squares
+\begin{center}
+	\begin{tikzcd}
+			E^{p,q  }_q \arrow[r,"d_r^{p,q  }"] \arrow[d,"\beta"]&E^{p+r,q-r+1}_r \arrow[d,"\beta"]\\
+			E^{p,q+2}_q \arrow[r,"d_r^{p,q+2}"]                &E^{p+r,q+2-r+1}_r
+	\end{tikzcd}
+\end{center}
+Furthermore, $	E^{p,2n+1}_r=0$
+\end{corollary}
 
 
+
+\begin{theorem}[The last page]
+	The Last page $E^{pq}_{\infty}$ is in some sense associated top the K-groups
+\end{theorem}
+\begin{definition}[Filtration of the K-Groups]
+	We define:
+	\begin{equation*}
+		\prescript{(r)}{}{K^p(M)}\coloneq \ker\left[i^*: K^p(M)\to K^p(N_r)\right]
+	\end{equation*} With this we get the two filtrations:
+	\begin{align*}
+		&K^0(M)~=~	\prescript{(-1)}{}{K^0(M)} ~~\supseteq ~~\prescript{(0)}{}{K^0(M)}~~\supseteq~~ \prescript{(1)}{}{K^0(M)}~~\supseteq ~~\cdots~~ \supseteq ~~ \prescript{(m)}{}{K^0(M)}~=~0 \\
+			&K^0(M)~=~	\prescript{(-1)}{}{K^1(M)} ~~\supseteq ~~\prescript{(0)}{}{K^1(M)}~~\supseteq~~ \prescript{(1)}{}{K^1(M)}~~\supseteq ~~\cdots~~ \supseteq ~~\prescript{(m)}{}{K^1(M)}~=~0
+	\end{align*}
+\end{definition}
+\begin{lemma}
+	Let $s\in 2\Z$ be even. Then:
+	\begin{equation*}
+		\prescript{(s)}{}{K^0(M)}=\prescript{(s+1)}{}{K^0(M)}\quad \text{and}\quad 	\prescript{(s-1)}{}{K^1(M)}=\prescript{(s)}{}{K^1(M)}
+	\end{equation*}
+\end{lemma}
+\begin{proof}
+	First we inspect the $K$ sequence of the triple $(M,N_{s+1},N_s)$:
+\begin{center}
+	\begin{tikzcd}
+		{	K^0(M,M_{s+1})} \arrow[r,"\epsilon \coloneq i^*"]&{K^0(M,M_{s})}  \arrow[r,"i^*"]& {\underbrace{K^0(M_{s+1},M_{s})}_{=0}}
+	\end{tikzcd}
+\end{center}The last $0$ is a result of $(K^0(M_{s+1},M_{s})$ being an index pair of $\Crit_{s+1}$ and hence the quotient is homotopically equivalent to a bouquet of spheres of odd dimension. Hence taking the zeroth th K-group yealds the trivial group. But then $\epsilon$ is an epimorphism. Now since the square of inclusions is commutative:
+\begin{center}
+	\begin{tikzcd}
+		{(M,N_s)} \arrow[d]& \arrow[l] M \arrow[d]\\
+		{(M,N_{s+1})}&\arrow[l] M
+	\end{tikzcd}
+\end{center}
+We get the commutative ladder
+\begin{center}
+	\begin{tikzcd}
+		{K^0(M,N_s)} \arrow[r,"\alpha"]                        & K^0(M)\arrow[r,"\beta"] \arrow[d, equal ] &K^0(N_{s+1})&\quad \text{long exact sequence of }(M,N_s)\\
+		{K^0(M,N_{s+1})} \arrow[u,"\epsilon"]\arrow[r,"\gamma"]& K^0(M)\arrow[r,"\delta"]& K^0(N_{s+1})&\quad \text{long exact sequence of }(M,N_{s+1})
+	\end{tikzcd}
+\end{center} Now from $\epsilon$ being an epimorphism we can conclude that the image of $\alpha$ equals the image of $\gamma$ and hence the kernel of $\beta$ agrees with the kernel of $\delta$. This concludes the first part of the lemma. The second part is proven by the same argument. 
+\end{proof}
+With this we can simplyfy the gradings:
+\begin{align*}
+I: 	K^0(M)~=~\prescript{(0)}{}{K^0(M)}~\supseteq~\prescript{(2)}{}{K^0(M)}~\supseteq~\prescript{(4)}{}{K^0(M)}~\supseteq ~\cdots~\supseteq 0\\ 
+J: K^1(M)~=~\prescript{(-1)}{}{K^1(M)}~\supseteq~\prescript{(1)}{}{K^1(M)}~\supseteq~\prescript{(3)}{}{K^0(M)}~\supseteq ~\cdots~\supseteq 0
+\end{align*}
+To find the last page $E^{p,q}_{\infty}$ we notice that for $r$ big enough, $N_{p+r-1}=M$ and $N_{p-r}=0$. Hence the spectral sequence becomes stationary with 
+\begin{equation*}
+	E^{p,q}_{\infty}=\frac{\ker[K^{p+q}(M)\to K^{p+q}(N_{p-1})]}{\ker[K^{p+q}(M)\to K^{p+q}(N_{p})]}\,.
+\end{equation*}
 
 
 
