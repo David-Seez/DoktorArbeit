@@ -207,13 +207,29 @@ A \textbf{morphism} $\Phi:I\to Y$ between two connected simple systems $I=(I_0,I
 		\end{tikzcd}
 	\end{center} Hence, $\beta\circ \delta^*_{triple}$ factors over ${K^{p+q}(N_{p+r-1},N_{p-r})}\slash \ker \alpha$ and because the bottom row is exact (by the triple sequence) we have get a map 
 	\begin{equation*}
-		{K^{p+q}(N_{p+r-1},N_{p-r})}\slash \ker \alpha \to \ker\big[K_{p+q+1}(N_{p+2r-1},N_{p})\to K^{p+q+1}(N_{p+r-1},N_{p})  \big]
+		{K^{p+q}(N_{p+r-1},N_{p-r})}\slash \ker \alpha \to \ker\big[K^{p+q+1}(N_{p+2r-1},N_{p})\to K^{p+q+1}(N_{p+r-1},N_{p})  \big]
 	\end{equation*} Now since ${K^{p+q}(N_{p+r-1},N_{p-r})}\supseteq \ker\big[K^{p+q}(N_{p+r-1},N_{p-r})\to K^{p+q}(N_{p-1},N_{p-r})  \big]$ we can restrict the domain and furthermore compose with the quotient map to get a well-defined map
 	\begin{align*}
 		d_r^{p,q}: ~E^{p,q}_r &  \to E^{p+r,q-r+1}_{r}\\
 		[x]                   &  \mapsto [\beta\circ \delta^*_{triple}(x)]
 	\end{align*}
+	Now we proof that $d^{p+r,q-r+1}_r\circ d^{p,q}_r=0$ by inspecting the definition and hoping for it to contain consecutive maps in an exact sequence. In the lower diagram, the top square defines $d^{p,r}_r$ and the lower square defines $d^{p+r,q-r+1}_r$ as described above. 
+	\begin{center}
+		\begin{adjustbox}{width=\textwidth}
+			% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAGkA9YNAagEcAvgAoAcgH0evAE4BaAIyDSEnrOmCAlCCXpMufIRTzyVWoxZsuUoWMlolKtGs3bSu7HgJEy80-WasiBzcfPy8irZSAExyisp2MgouOiAYHgZExr7U-hZBVqHhIo68MUnxPMluqXqehshRpNlmAZYhAkWRfLEOdlXu+l5GpFF+5oHB1qXFCQDMPRV8ZYpaKWmD9Y2jOeNtU1EzUvPlJeqr1et1RLMjY6357WEHXaULp8mmMFAA5vBEoAAzaQQAC2SDIIBwECQxhaeRAAB0EYw0AALOiuQHAsGICFQpCNOETJGwBg4OicABUkhw0iwaAYMEEmJAQNBBOo+MQNyJbCRACMYOSWWycbCuTzcsSEaTyVSaXSGUyRdikDyuQAWFKitWc6GIACsO3uiJlMDJFOpwFp9MZzO1qsQGr1SAAbMb4STzXKrTalfbqjrDS7EK6HezQyGAOyCCiCIA
+			\begin{tikzcd}
+				{K^{p+q}(N_{p+r-1},N_{p-r})} \arrow[r, "\alpha"] \arrow[d, "\delta^*_{triple}"] & {K^{p+q}(N_{p},N_{p-r})} \arrow[d, "\delta^*_{triple}"]                &                                                             &                                 \\
+				{K^{p+q+1}(N_{p+2r-1},N_{p+r-1})} \arrow[r, "\beta"]                            & {K^{p+q+1}(N_{p+2r-1},N_{p})} \arrow[r] \arrow[d, "\delta^*_{triple}"] & {K^{p+q+1}(N_{p+r-1},N_{p})} \arrow[d, "\delta^*_{triple}"] &                                 \\
+				& {K^{p+q+2}(N_{p+3r-1},N_{p+2r-1})} \arrow[r]                           & {K^{p+q+2}(N_{p+3r-1},N_{p+r})} \arrow[r]                   & {K^{p+q+2}(N_{p+2r-1},N_{p+r})}
+			\end{tikzcd}
+		\end{adjustbox}
+	\end{center}
+	Notice how the composition factors over two consecutive maps in the horizontal exact sequence that is in the middle of the diagram above. Hence the quotient 
+	\begin{equation*}
+		\frac{\ker~ d^{p+r,q-r+1}_r}{\im~ d^{p,q}_r}
+	\end{equation*} is well defined. Now $\ker~ d^{p+r,q-r+1}_r=\ker[K^{p+q+1}(N_{p+2r+1},N_{p+1})\to(K^{p+q+1}(N_{p+r-1},N_{p+1}))]$, since: \todo{hier weiter machen}
 \end{definition}
+
 \begin{corollary}[The first page]
 	We start by analysing the first page
 	\begin{align*}
@@ -234,13 +250,18 @@ A \textbf{morphism} $\Phi:I\to Y$ between two connected simple systems $I=(I_0,I
 		E^{p,q}_1&\cong \tilde{K}^{p+q}(N_p\slash N_{p-1})\\
 		&\cong \bigoplus_{w\in \Crit_p(f)}\tilde{K}^q(pt)=C^k(M,f,g,\mathfrak{o};\tilde{K}^q(pt))\\
 	\end{align*} In sum we have the chain of horizontal isomorphisms: 
-	\begin{center}
-		% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAFEA9YNUgRwC+AfQCMIAaXSZc+QihHkqtRizYAdNXgaxgAaQHc0AakEAKAHJC0GuAzpwAFgAJLPALQiBASnGSQGbDwCIgAmRWp6ZlZEEA0AIywAcwg0ZjghYAB3DSwwJw0AYQAnXCtTADMvAQ0tHX1OPlM0HB8JKUDZIgBmcOUotgLDAVMAWVINAFs6HAdyoroAa2AAQQkarG0YPQNG5q9WvwCZYJQyESVI1RiuHiMFQVFfduO5ZAVziJVo2M0NuoNbiITMNXMZPDY7I4XBk0N4nv5pEFXmEPn0rj8EslUkx0lkcnlCiUcDC7sNKtVfpttg0mi14Uckd1SKjLt9BoDhmNJtNZvMlqtxpT-jS9q0lDAoIl4ERQHMIBMkGQQDgIEgFGjvhpGGgHHR4XKFYh1SqkGENeo1HEYDg9W0QAbFdQTYgACyffoxKCiQz8AT6orytVO1WIACsdodiDNzoAbBGA4aesqQwB2eOB13BpCh93orUMHV0ADk-ozOeTSBjuc1lutxdLiazUfThpTTbjFAEQA
+\begin{fdiagram}\label{diag: first page comparison}
+	\begin{adjustbox}{width=\textwidth}
+	% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAFEA9YNUgRwC+AfQCMIAaXSZc+QihHkqtRizYAdNXgaxgAaQHc0AakEAKAHJC0GuAzpwAFgAJLPALQiBASnGSQGbDwCIgAmRWp6ZlZEEA0AIywAcwg0ZjghYAB3DSwwJw0AYQAnXCtTADMvAQ0tHX1OPlM0HB8JKUDZIgBmcOUotgLDAVMAWVINAFs6HAdyoroAa2AAQQkarG0YPQNG5q9WvwCZYJQyESVI1RiuHiMFQVFfduO5ZAVziJVo2M0NuoNbiITMNXMZPDY7I4XBk0N4nv5pEFXmEPn0rj8EslUkx0lkcnlCiUcDC7sNKtVfpttg0mi14Uckd1SKjLt9BoDhmNJtNZvMlqtxpT-jS9q0lDAoIl4ERQHMIBMkGQQDgIEgFGjvhpGGgHHR4XKFYh1SqkGENeo1HEYDg9W0QAbFdQTYgACyffoxKCiQz8AT6orytVO1WIACsdodiDNzoAbBGA4aesqQwB2eOB13BpCh93orUMHV0ADk-ozOeTSBjuc1lutxdLiazUfThpTTbjFAEQA
 		\begin{tikzcd}
 			{E^{p,q}_1} \arrow[r, "\alpha"] \arrow[d, "{d_1^{p,q}}"] & \tilde{K}^{p+q}(N_p\slash N_{p-1}) \arrow[r, "\beta"] \arrow[d] & \bigoplus_{w\in \Crit_p(f)}\tilde{K}^q(pt) \arrow[d] & {C^{p}(M,\mathfrak{A},\tilde{K}^q(pt))} \arrow[d] \arrow[l] \\
 			{E^{p+1,q}_1} \arrow[r, "\alpha'"]                       & \tilde{K}^{p+1+q}(N_{p+1}\slash N_{p}) \arrow[r, "\beta'"]      & \bigoplus_{w\in \Crit_{p+1}(f)}\tilde{K}^q(pt)       & {C^{p+1}(M,\mathfrak{A},\tilde{K}^q(pt))} \arrow[l]        
 		\end{tikzcd}
-	\end{center}
+	\end{adjustbox}
+		
+\end{fdiagram}
+
+
 	By naturality of the triple boundary operator, that the second vertical map is the boundary operator. Now on the next rug we can induce two maps. From the left to make the diagram commute and from the right. Do they agree? Or asked differently, is the map induced from the $d_1$ map the boundary operator of morse homology?
 \end{corollary}
 
@@ -791,7 +812,43 @@ By the bott-periodicity we have natural isomorphisms between
 			E^{p,q+2}_q \arrow[r,"d_r^{p,q+2}"]                &E^{p+r,q+2-r+1}_r
 	\end{tikzcd}
 \end{center}
-Furthermore, $	E^{p,2n+1}_r=0$
+By diagrramm \ref{diag: first page comparison} we know that $E_1^{*}$ is isomorphic to the following double graded group with a map: 
+\begin{center}
+	\begin{framed}
+	\begin{adjustbox}{width=\textwidth}
+	% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZAZgBoBGAXVJADcBDAGwFcYkQBhAPWAAYBfABQBZUgB0xAW3o4AFgDMATvQDWwAIL9xYgFoBKEFvSZc+QigAsFanSat23YOSGiJ0uUtUatE-YdLG2HgERACs1jQMLGyInDwATC7a7grKaprafkYgGEFmRABsEbbR7BIAxlAQOAjZuaYhKGTxNlH2sbz+gQ3myFYtkXYxIJ11JsG94QMl7SNdOeP5KEXTbcMVVTXz9RNEZMStQw48AiLJMqleGb4GY3mNfaQHg6Wxjs5nbhee6T66twEFvdJk9Dq84sBEp8pN80t5MgDurtlqCXrMNtVaoCdksSKQLGDZqNsYsHlYCWjhsSkbjwhSZlTtqTekV6WsymJKpimcCiPFiuyOjyenzSKsjkK7iKUPzngz2NSgdLkPy2RK5lLkcheAL1cKtTrQoThvrceRdeCMVtNWaxcaOVzrSTeShzXLBSArViaQ9zWrLZzNt6lVrzbx7bFTQ8iuHKexDDYYFAAObwIigJQQSRIHUgHAQJDm+WxCRoeiKPBMLiKzPZxBF-NIfnFz1iMsVrBV8jzWtNmiNxBkFul8uVxhceI9xRZpAADn7BcQAE44yW26PO+Oa9O6yu84vyLmPSOO12pzP67mB+Qi8f16fx5Psr3EEV90gAOzPndIcLv1-fheVj-qEgF1uQzbXsQYGFkO14WDB9bAdeoGAi+5B7teiRoT+9bzv+s6IeQH4LkgCE4Re5BvgOAgUXW8RXou8S3uqACOIA0Iw9AAEYwIwAAKzLsIoWDJrIODnvRf7XkuiHxMhB6EXRTZwQeX7KYg8SQQeBRydRTEkS2aAJvwQA
+	\begin{tikzcd}
+		& {} \arrow[rrrrr, "p"] &             &                                                    &                                                    &                                                    & {}     \\
+		{} \arrow[dddd, "q"'] & \cdots \arrow[r]      & 0 \arrow[r] & {C^{0}(M,\mathfrak{A},\Z)} \arrow[r, "\partial^0"] & {C^{1}(M,\mathfrak{A},\Z)} \arrow[r, "\partial^1"] & {C^{2}(M,\mathfrak{A},\Z)} \arrow[r, "\partial^2"] & \cdots \\
+		& \cdots \arrow[r]      & 0 \arrow[r] & 0 \arrow[r]                                        & 0 \arrow[r]                                        & 0 \arrow[r]                                        & \cdots \\
+		& \cdots \arrow[r]      & 0 \arrow[r] & {C^{0}(M,\mathfrak{A},\Z)} \arrow[r, "\partial^0"] & {C^{1}(M,\mathfrak{A},\Z)} \arrow[r, "\partial^1"] & {C^{2}(M,\mathfrak{A},\Z)} \arrow[r, "\partial^2"] & \cdots \\
+		& \cdots \arrow[r]      & 0 \arrow[r] & 0 \arrow[r]                                        & 0 \arrow[r]                                        & 0 \arrow[r]                                        & \cdots \\
+		{}                    &                       &             &                                                    &                                                    &                                                    &       
+	\end{tikzcd}
+	\end{adjustbox}
+\end{framed}
+\end{center}
+And hence, $E_2^{p,q}$ is isomorphic to the quotient 
+\begin{framed}
+	\begin{center}
+		\begin{adjustbox}{width=\textwidth}
+		% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZAZgBoBGAXVJADcBDAGwFcYkQAJAPQAYAKALKkAOsIC29HAAsAZgCd6Aa2ABBAL4jhALQCUIDeky58hFABYK1Ok1btu5QZonT5S1RtG79pQ9jwEiAFZLGgYWNkROLgAmR1FnWQVldU0vAxAMPxMiADYQ63D2UQBjKAgcBHTM4wCUMmirMNtInm9fGtNkCwbQmwiQVqqjf07gnoLmgbaM4eyUPPGm-pKyiunqkaIyYka+u1448UlEtxTPPSGs2q7SHd7CyPtDhNdkj20Lnxmr0dvdh6isSE8WOr3cqU+7U28z+90mK3KlS+GzmJFIZn+k0GyNm1wsGLh-WxUNReQJE2WwlKiPWuM60XyS3YxO+HSIDMWexatJ+7NhFOZPLZKAZ5KZ3MuwuQPEZXJAQuh0tIgUx-QVqPIsoBCLWksVms52qpqyRJOumruAsiOtNrP16NVRWNNL1GtIPEdkXV1zyHsJ7G9vzFcsGVhgUAA5vAiKB5BAxEhyABOGg4CBIaIyq0gACOIBojHoACMYIwAAp09hyLARqQ4aZxhOIaLBEBpjN5bNoBtyeNICxt9PN9KNxOd9uIcgj3tN6IMwdIHjTvuIVsT4jL2dkBeIMybxMAdlTQ8C+8QAA5j0gcmeUzuD2fogOJ+ez+RLzuk2-5xPyEuvqOk7br+U6UGoQA
+		\begin{tikzcd}
+			& {} \arrow[rrrrr, "p"] &               &                                      &                                      &                          & {}     \\
+			{} \arrow[dddd, "q"'] & \cdots                & 0             & {H^0(M,\mathfrak{A},\Z)}             & {H^1(M,\mathfrak{A},\Z)}             & {H^2(M,\mathfrak{A},\Z)} & \cdots \\
+			& \cdots \arrow[rru]    & 0 \arrow[rru] & 0 \arrow[rru]                        & 0 \arrow[rru]                        & 0                        & \cdots \\
+			& \cdots \arrow[rru]    & 0 \arrow[rru] & {H^0(M,\mathfrak{A},\Z)} \arrow[rru] & {H^1(M,\mathfrak{A},\Z)} \arrow[rru] & {H^2(M,\mathfrak{A},\Z)} & \cdots \\
+			& \cdots \arrow[rru]    & 0 \arrow[rru] & 0 \arrow[rru]                        & 0 \arrow[rru]                        & 0                        & \cdots \\
+			{}                    &                       &               &                                      &                                      &                          &       
+		\end{tikzcd}
+		\end{adjustbox}
+	\end{center}
+\end{framed}
+Now since later pages are summand-wise quotients of earlyer pages we have that $E^{p,q}_r=0$ if $q$ is odd. This is also true for $E^{p,q}_{\infty}$, since the sequence stabilices, meaning that it becomes independent of $r$ for $r$ big enough. With this we do the following simplifications: 
+\begin{itemize}
+	\item First we identify for all even $q$ $E^{p,q}_r$ with $E^{p,0}_r \equiv E^p_r$.
+	\item If $r$ is even, then $d^{p,q}_r: E^{p,q}_r\to E^{p+r,q-r+1}_r$ is the trivial map, since the image is trivial. 
+\end{itemize} 
 \end{corollary}
 
 
