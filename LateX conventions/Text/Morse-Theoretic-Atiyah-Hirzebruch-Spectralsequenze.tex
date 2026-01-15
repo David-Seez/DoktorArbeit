@@ -192,43 +192,46 @@ A \textbf{morphism} $\Phi:I\to Y$ between two connected simple systems $I=(I_0,I
 \end{remark}
 \subsection{The Spectral sequence}
 
-\begin{definition} Let $M$ be a smooth manifold with Morse data and \begin{equation*}
-		\emptyset=:N_{-1}\subset N_0\subset N_1\subset \cdots \subset N_{m-1}\subset N_m=M,
-	\end{equation*} be a filtrations constructed in \ref{def: Regular index pairs and a filtration on M}. Then we define the Groups
-	\begin{equation*}
-		E^{p,q}_r(M)\coloneq \frac{\ker\big[K^{p+q}(N_{p+r-1},N_{p-r})\to K^{p+q}(N_{p-1},N_{p-r})  \big]}{\ker\big[K^{p+q}(N_{p+r-1},N_{p-r})\to K^{p+q}(N_{p},N_{p-r})\big]} \, .
-	\end{equation*} To define a boundary operator, we proceed as follows:
-	The following diagram commutes (by naturality of the boundary in the triple sequence).
-	\begin{center}
-		% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAGkA9YNAagEcAvgAoAcgH0evAE4BaAIyDSEnrOmCAlCCXpMufIRTzyVWoxZsuUoWMlolKtGs3bSu7HgJEy80-WasiBzcfPy8irZSAExyisp2MgouOiAYHgZExr7U-hZBVqHhIo68MUnxPMluqXqehshRpNlmAZYhAkWRfLEOdsmmMFAA5vBEoABm0hAAtkhkIDgQSMYteSAAOuuMaAAWdK4TU7OI84tIjauBG+uwDDh0nABUkjjSWGgMMIIHIJMz59QzogAMw5cxXTYAIxg9x+f2OKyBoMubE2t3uTxebw+XzhRyQyKBABZBBRBEA
-		\begin{tikzcd}
-			{K^{p+q}(N_{p+r-1},N_{p-r})} \arrow[r, "\alpha"] \arrow[d, "\delta^*_{triple}"] & {K^{p+q}(N_{p},N_{p-r})} \arrow[d, "\delta^*_{triple}"] &                              \\
-			{K^{p+q+1}(N_{p+2r-1},N_{p+r-1})} \arrow[r, "\beta"]                            & {K^{p+q+1}(N_{p+2r-1},N_{p})} \arrow[r]                 & {K^{p+q+1}(N_{p+r-1},N_{p})}
-		\end{tikzcd}
-	\end{center} Hence, $\beta\circ \delta^*_{triple}$ factors over ${K^{p+q}(N_{p+r-1},N_{p-r})}\slash \ker \alpha$ and because the bottom row is exact (by the triple sequence) we have get a map 
-	\begin{equation*}
-		{K^{p+q}(N_{p+r-1},N_{p-r})}\slash \ker \alpha \to \ker\big[K^{p+q+1}(N_{p+2r-1},N_{p})\to K^{p+q+1}(N_{p+r-1},N_{p})  \big]
-	\end{equation*} Now since ${K^{p+q}(N_{p+r-1},N_{p-r})}\supseteq \ker\big[K^{p+q}(N_{p+r-1},N_{p-r})\to K^{p+q}(N_{p-1},N_{p-r})  \big]$ we can restrict the domain and furthermore compose with the quotient map to get a well-defined map
-	\begin{align*}
-		d_r^{p,q}: ~E^{p,q}_r &  \to E^{p+r,q-r+1}_{r}\\
-		[x]                   &  \mapsto [\beta\circ \delta^*_{triple}(x)]
-	\end{align*}
-	Now we proof that $d^{p+r,q-r+1}_r\circ d^{p,q}_r=0$ by inspecting the definition and hoping for it to contain consecutive maps in an exact sequence. In the lower diagram, the top square defines $d^{p,r}_r$ and the lower square defines $d^{p+r,q-r+1}_r$ as described above. 
-	\begin{center}
-		\begin{adjustbox}{width=\textwidth}
-			% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAGkA9YNAagEcAvgAoAcgH0evAE4BaAIyDSEnrOmCAlCCXpMufIRTzyVWoxZsuUoWMlolKtGs3bSu7HgJEy80-WasiBzcfPy8irZSAExyisp2MgouOiAYHgZExr7U-hZBVqHhIo68MUnxPMluqXqehshRpNlmAZYhAkWRfLEOdlXu+l5GpFF+5oHB1qXFCQDMPRV8ZYpaKWmD9Y2jOeNtU1EzUvPlJeqr1et1RLMjY6357WEHXaULp8mmMFAA5vBEoAAzaQQAC2SDIIBwECQxhaeRAAB0EYw0AALOiuQHAsGICFQpCNOETJGwBg4OicABUkhw0iwaAYMEEmJAQNBBOo+MQNyJbCRACMYOSWWycbCuTzcsSEaTyVSaXSGUyRdikDyuQAWFKitWc6GIACsO3uiJlMDJFOpwFp9MZzO1qsQGr1SAAbMb4STzXKrTalfbqjrDS7EK6HezQyGAOyCCiCIA
+	\begin{definition} Let $M$ be a smooth manifold with Morse data and \begin{equation*}
+			\emptyset=:N_{-1}\subset N_0\subset N_1\subset \cdots \subset N_{m-1}\subset N_m=M,
+		\end{equation*} be a filtrations constructed in \ref{def: Regular index pairs and a filtration on M}. Then we define the Groups
+		\begin{align*}
+			Z^{p,q}_r	&\coloneq \ker\big[K^{p+q}(N_{p+r-1},N_{p-r})\to K^{p+q}(N_{p-1},N_{p-r})  \big]\\
+			B^{p,q}_r	&\coloneq \ker\big[K^{p+q}(N_{p+r-1},N_{p-r})\to K^{p+q}(N_{p  },N_{p-r})  \big] \\
+			E^{p,q}_r(M)&\coloneq \frac{	Z^{p,q}_r}{B^{p,q}_r}=\frac{\ker\big[K^{p+q}(N_{p+r-1},N_{p-r})\to K^{p+q}(N_{p-1},N_{p-r})  \big]}{\ker\big[K^{p+q}(N_{p+r-1},N_{p-r})\to K^{p+q}(N_{p},N_{p-r})\big]} \, .
+		\end{align*} To define a boundary operator, we proceed as follows:
+		The following diagram commutes (by naturality of the boundary in the triple sequence).
+		\begin{center}
+			% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAGkA9YNAagEcAvgAoAcgH0evAE4BaAIyDSEnrOmCAlCCXpMufIRTzyVWoxZsuUoWMlolKtGs3bSu7HgJEy80-WasiBzcfPy8irZSAExyisp2MgouOiAYHgZExr7U-hZBVqHhIo68MUnxPMluqXqehshRpNlmAZYhAkWRfLEOdsmmMFAA5vBEoABm0hAAtkhkIDgQSMYteSAAOuuMaAAWdK4TU7OI84tIjauBG+uwDDh0nABUkjjSWGgMMIIHIJMz59QzogAMw5cxXTYAIxg9x+f2OKyBoMubE2t3uTxebw+XzhRyQyKBABZBBRBEA
 			\begin{tikzcd}
-				{K^{p+q}(N_{p+r-1},N_{p-r})} \arrow[r, "\alpha"] \arrow[d, "\delta^*_{triple}"] & {K^{p+q}(N_{p},N_{p-r})} \arrow[d, "\delta^*_{triple}"]                &                                                             &                                 \\
-				{K^{p+q+1}(N_{p+2r-1},N_{p+r-1})} \arrow[r, "\beta"]                            & {K^{p+q+1}(N_{p+2r-1},N_{p})} \arrow[r] \arrow[d, "\delta^*_{triple}"] & {K^{p+q+1}(N_{p+r-1},N_{p})} \arrow[d, "\delta^*_{triple}"] &                                 \\
-				& {K^{p+q+2}(N_{p+3r-1},N_{p+2r-1})} \arrow[r]                           & {K^{p+q+2}(N_{p+3r-1},N_{p+r})} \arrow[r]                   & {K^{p+q+2}(N_{p+2r-1},N_{p+r})}
+				{K^{p+q}(N_{p+r-1},N_{p-r})} \arrow[r, "\alpha"] \arrow[d, "\delta^*_{triple}"] & {K^{p+q}(N_{p},N_{p-r})} \arrow[d, "\delta^*_{triple}"] &                              \\
+				{K^{p+q+1}(N_{p+2r-1},N_{p+r-1})} \arrow[r, "\beta"]                            & {K^{p+q+1}(N_{p+2r-1},N_{p})} \arrow[r]                 & {K^{p+q+1}(N_{p+r-1},N_{p})}
 			\end{tikzcd}
-		\end{adjustbox}
-	\end{center}
-	Notice how the composition factors over two consecutive maps in the horizontal exact sequence that is in the middle of the diagram above. Hence the quotient 
-	\begin{equation*}
-		\frac{\ker~ d^{p+r,q-r+1}_r}{\im~ d^{p,q}_r}
-	\end{equation*} is well defined. Now $\ker~ d^{p+r,q-r+1}_r=\ker[K^{p+q+1}(N_{p+2r+1},N_{p+1})\to(K^{p+q+1}(N_{p+r-1},N_{p+1}))]$, since: \todo{hier weiter machen}
-\end{definition}
+		\end{center} Hence, $\beta\circ \delta^*_{triple}$ factors over ${K^{p+q}(N_{p+r-1},N_{p-r})}\slash \ker \alpha$ and because the bottom row is exact (by the triple sequence) we have get a map 
+		\begin{equation*}
+			{K^{p+q}(N_{p+r-1},N_{p-r})}\slash \ker \alpha \to \ker\big[K^{p+q+1}(N_{p+2r-1},N_{p})\to K^{p+q+1}(N_{p+r-1},N_{p})  \big]=Z^{p+r,q-r+1}_r
+		\end{equation*} Now since ${K^{p+q}(N_{p+r-1},N_{p-r})}\supseteq \ker\big[K^{p+q}(N_{p+r-1},N_{p-r})\to K^{p+q}(N_{p-1},N_{p-r})  \big]=Z^{p,q}_r$ we can restrict the domain and furthermore compose with the quotient map to get a well-defined map
+		\begin{align*}
+			d_r^{p,q}: ~E^{p,q}_r &  \to E^{p+r,q-r+1}_{r}\\
+			[x]                   &  \mapsto [\beta\circ \delta^*_{triple}(x)]
+		\end{align*}
+		Now we proof that $d^{p+r,q-r+1}_r\circ d^{p,q}_r=0$ by inspecting the definition and hoping for it to contain consecutive maps in an exact sequence. In the lower diagram, the top square defines $d^{p,r}_r$ and the lower square defines $d^{p+r,q-r+1}_r$ as described above. 
+		\begin{center}
+			\begin{adjustbox}{width=\textwidth}
+				% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAGkA9YNAagEcAvgAoAcgH0evAE4BaAIyDSEnrOmCAlCCXpMufIRTzyVWoxZsuUoWMlolKtGs3bSu7HgJEy80-WasiBzcfPy8irZSAExyisp2MgouOiAYHgZExr7U-hZBVqHhIo68MUnxPMluqXqehshRpNlmAZYhAkWRfLEOdlXu+l5GpFF+5oHB1qXFCQDMPRV8ZYpaKWmD9Y2jOeNtU1EzUvPlJeqr1et1RLMjY6357WEHXaULp8mmMFAA5vBEoAAzaQQAC2SDIIBwECQxhaeRAAB0EYw0AALOiuQHAsGICFQpCNOETJGwBg4OicABUkhw0iwaAYMEEmJAQNBBOo+MQNyJbCRACMYOSWWycbCuTzcsSEaTyVSaXSGUyRdikDyuQAWFKitWc6GIACsO3uiJlMDJFOpwFp9MZzO1qsQGr1SAAbMb4STzXKrTalfbqjrDS7EK6HezQyGAOyCCiCIA
+				\begin{tikzcd}
+					{K^{p+q}(N_{p+r-1},N_{p-r})} \arrow[r, "\alpha"] \arrow[d, "\delta^*_{triple}"] & {K^{p+q}(N_{p},N_{p-r})} \arrow[d, "\delta^*_{triple}"]                &                                                             &                                 \\
+					{K^{p+q+1}(N_{p+2r-1},N_{p+r-1})} \arrow[r, "\beta"]                            & {K^{p+q+1}(N_{p+2r-1},N_{p})} \arrow[r] \arrow[d, "\delta^*_{triple}"] & {K^{p+q+1}(N_{p+r-1},N_{p})} \arrow[d, "\delta^*_{triple}"] &                                 \\
+					& {K^{p+q+2}(N_{p+3r-1},N_{p+2r-1})} \arrow[r]                           & {K^{p+q+2}(N_{p+3r-1},N_{p+r})} \arrow[r]                   & {K^{p+q+2}(N_{p+2r-1},N_{p+r})}
+				\end{tikzcd}
+			\end{adjustbox}
+		\end{center}
+		Notice how the composition factors over two consecutive maps in the horizontal exact sequence that is in the middle of the diagram above. Hence the quotient 
+		\begin{equation*}
+			\frac{\ker~ d^{p+r,q-r+1}_r}{\im~ d^{p,q}_r} \quad \text{ or respectively } \quad \frac{\ker~d^{p,q}_r}{\im ~ d_r^{p-r,q+r-1}}
+		\end{equation*} is well defined. 
+		Now $[x]\in \ker~d^{p,q}_r \Leftrightarrow \beta \circ \delta_{triple}^*(x)\in B^{p+r,q-r+1}_r=\ker[K^{p+q+1}(N_{p+2r-1},N_p)\to K^{p+q+1}(N_{p+r},N_p)]$. 
+	\end{definition}
 
 \begin{corollary}[The first page]
 	We start by analysing the first page
