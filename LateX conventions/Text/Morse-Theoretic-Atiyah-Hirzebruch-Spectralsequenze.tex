@@ -117,7 +117,7 @@ A \textbf{morphism} $\Phi:I\to Y$ between two connected simple systems $I=(I_0,I
 	Any pointed topological space $X$ defines a simple connected system $(\{X\},{[\id_x]})$. Similar, any ring $R$ defines a caninical isomorphism class of rings $(\{R\},\{\id_R\})$.
 \end{example}
 \begin{definition}
-	Let $(M,f,g)$ be a smooth manifold $M$ together with a morse smale funtion $f$. Let $S\subseteq M$ be a compact invariant subset. Then the index pairs of $S$ together with the canonical isomorphisms between them define a simple conected system which we will denote with $\mathcal{IP}_S$.   
+	Let $(M,f,g)$ be a smooth manifold $M$ together with a Morse Smale funtion $f$. Let $S\subseteq M$ be a compact invariant subset. Then the index pairs of $S$ together with the canonical isomorphisms between them define a simple conected system which we will denote with $\mathcal{IP}_S$.   
 \end{definition}
 \begin{remark}
 	Let $\underline{\Z}$ be the canonical equivalence class of rings consiting only of the ring $\Z$, and let $p$ be a critical point of index $\lambda_p$ in $M$. Then remark \ref{ex: Critical points as isolated compact invariant subsets} gives us the existence of a morphism for all $i\in \N$:
@@ -295,7 +295,7 @@ A \textbf{morphism} $\Phi:I\to Y$ between two connected simple systems $I=(I_0,I
 		f':D'\to \widetilde{D}';x\mapsto f(x) \quad \text{and}\quad g:E'\to \widetilde{E}'; [x]\mapsto [g(x)]
 	\end{equation*} and check for well definition as maps and that the pair is a morphism of exact couples. The well definition of $f'$ follows directly from $f\circ \alpha=\widetilde{\alpha}\circ f$. For the well definition of $g'$ asume that $[x]=[y]\in E'$, meaning that $x-y\in \im d=\im \beta \circ \gamma$ hence for some $z$ we have that $x-y=\beta\circ \gamma(z)$ and hence $g(x-z)=g\circ \beta \circ \gamma (z)=\widetilde{\beta}\circ f\circ \gamma(z)=\widetilde{\beta}\circ \widetilde{\gamma}\circ g(z)\in \im \widetilde{d}$. This proofes the well definition.
 \end{proof}
-\begin{definition}[Spectral Sequence from an Exact Couple]
+\begin{definition}[Spectral Sequence From an Exact Couple]
 	We can now iterate this procedure to get a list of spaces with maps
 	$ (E,d),(E',d'),(E'',d'')\dots$ or often written as $(E_1,d_1),(E_2,d_2),\dots$ which is called a \textbf{spectral sequence}. Notice how $E_{r+1}$ is given by $(E_r,d_r)$ whilst $d_{r+1}$ needs further information. Whilst the spectral sequence is defined inductively, the needed information is not captured in $(E_r,d_r)_r$ but rather in the exact couple. Or said differently, we get a sequence of exact couples $(E_r,D_r,\alpha_r,\beta_r,\gamma_r)$ from which we can get the spectral sequence. We can reformulate the maps as follows:
 	\begin{equation*}
@@ -312,10 +312,10 @@ A \textbf{morphism} $\Phi:I\to Y$ between two connected simple systems $I=(I_0,I
 	\end{equation*}
 \end{definition}
 \begin{corollary}
-	We can define the categorie of spectral sequences $\SpS$ where the objects consist of families of pairs $(E_r,d_r)_r\in \Z$ where $E_r$ are groups (or objects in an abelian categorie) and $d_r$ are endomorphisms in $E_r$, such that $E_{r+1}\cong \frac{\ker{d_r}}{\im d_r}$. Morphisms between two spectral sequences $(E_r,d_r)_r\in \N\to (\widetilde{E_r},\widetilde{d_r})_r\in \N$ are families of morphisms $(f_r:E_r\to \widetilde{E_r})$ such that for all $r$ we have that $f_r\circ d_r=\widetilde{d_r}\circ f_r$.
+	We can define the categorie of spectral sequences $\SpS$ where the objects consist of families of pairs $(E_r,d_r)_r\in \Z$ where $E_r$ are groups (or objects in an abelian categorie) and $d_r$ are endomorphisms in $E_r$, such that $E_{r+1}\cong \frac{\ker{d_r}}{\im d_r}$. Morphisms between two spectral sequences $(E_r,d_r)_{r\in \N}\to (\widetilde{E_r},\widetilde{d_r})_{r\in \N}$ are families of morphisms $(f_r:E_r\to \widetilde{E_r})$ such that for all $r$ we have that $f_r\circ d_r=\widetilde{d_r}\circ f_r$.
 \end{corollary}
 \begin{corollary}
-	We have a funcor from $\ExCoup$ to $\SpS$ given as follows: Let $(E,D,\alpha,\beta,\gamma)$ be an exact couple. Let $(E_r,d_r,\alpha_r,\beta_r,\gamma_r)=Der^r((E,D,\alpha,\beta,\gamma))$ where $Der^r$ denotes the r-th derivation of the exact couple. Then $(E_r,d_r\coloneq \beta_r\circ \gamma_r)_r$ is an exact sequence as described above. Assume that we have the two exact couples $(D,E,\alpha,\beta,\gamma)$ and $(\widetilde{D},\widetilde{E},\widetilde{\alpha},\widetilde{\beta},\widetilde{\gamma})$ with the morphisms $(f:D\to \widetilde{D},g:E\to \widetilde{E})$. Then the famliy $(Der^r(f))_r$ is a morphism of spectral sequences.
+	We have a functor from $\ExCoup$ to $\SpS$ given as follows: Let $(E,D,\alpha,\beta,\gamma)$ be an exact couple. Let $(E_r,d_r,\alpha_r,\beta_r,\gamma_r)=Der^r((E,D,\alpha,\beta,\gamma))$ where $Der^r$ denotes the r-th derivation of the exact couple. Then $(E_r,d_r\coloneq \beta_r\circ \gamma_r)_r$ is an exact sequence as described above. Assume that we have the two exact couples $(D,E,\alpha,\beta,\gamma)$ and $(\widetilde{D},\widetilde{E},\widetilde{\alpha},\widetilde{\beta},\widetilde{\gamma})$ with the morphisms $(f:D\to \widetilde{D},g:E\to \widetilde{E})$. Then the famliy $(Der^r(f))_r$ is a morphism of spectral sequences.
 \end{corollary}
 \begin{corollary}[Explicit Pages]\label{cor: explicit pages of exact sequences arising from exact couples}
 	For a spectral seqquence arising from an exact couple defined as above we have a natural isomorphism
