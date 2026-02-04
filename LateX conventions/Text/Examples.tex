@@ -57,3 +57,49 @@
 	\end{equation*}
 	Hence, the first short exact sequence gives is an isomorphism between $K^0(S^3)\cong \Z$.
 	\end{example} 
+	Now we want to calculate the K group of a non trivial example:
+	\begin{example}[The Real Projective Space]
+	Here, we define $\R\PP^n$ to be $\R^{n+1}\setminus 0$ modulo scalar multiples. Hence it is the space of lines in $\R^{n+1}$. Alternatively we can view it as the $n$-sphere where the operation from $\{\id,-\id\}$ is quotient out. From this description we get a metric, since $S^n\supseteq \R^{n+1}$ inherits the subspacae metric in which all operations from $\{\id,-\id\}$ are isometries. Hence, this metric projects down to $\R\PP^n$. Now let
+	\begin{equation*}
+		A=\diag(\lambda_0,\lambda_1,\dots,\lambda_n)
+	\end{equation*}be a symmetric matrix with real $\lambda_i\in \R$. Then we define the map
+	\begin{equation*}
+		\Lambda:\R^{n+1}\setminus\{0\}\to \R; \Lambda(x)\coloneq \frac{\langle x,Ax\rangle}{\norm{x}^2}\,.
+	\end{equation*}Notice that this function descends to a well defined function $\tilde{\Lambda}:\R\PP^n\to \R$. On the whole $\R^{n+1}$ we can define the function
+	\begin{equation*}
+		f:\R^{n+1}\to \R;~f(x)\coloneq \frac{1}{2}\langle x,Ax\rangle=\frac{1}{2}\sum_{i=0}^n\lambda_i x_i^2\,.
+	\end{equation*} Now assume that $\phi_t(x)$ is the flow associated to $- \grad(f)$, meaning
+	\begin{equation*}
+		\frac{\diff \phi_t(x)}{\diff t}=-\grad_{\phi_t(x)}(f)=-Ax\,,
+	\end{equation*} since 
+	\begin{equation*}
+		\frac{\partial f}{\partial x_i}(x)=\lambda_ix_i\,.
+	\end{equation*}
+	Now we have the lemma: 
+	\begin{lemma}
+		The flow lines of the negative gradient flow with respect to $\frac{1}{2}\tilde{\Lambda}$ on $\R\PP^n$ are the images under the quotient map 
+		\begin{equation*}
+			\pi: \R^{n+1}\setminus \{0\}\to \R\PP^n
+		\end{equation*}of the flow lines of the linear system
+		\begin{equation*}
+			\frac{\diff \Phi_t(x)}{\diff t}=-A \Phi_t(x)
+		\end{equation*}
+	\end{lemma}
+	\begin{proof}
+	Let $x$ be a point on the flow line $\Phi_t(x)$. Then $-\grad(f)(x)=-Ax.$ Now we split this into a part that is orthogonal to $y$ and one that is paralell:
+	\begin{equation*}
+		-\grad(f)(x)=\underbrace{-\Lambda(x)x}_{\text{parallel to } x}~+~\underbrace{-Ax+\Lambda(x)x}_{\text{orthogonal to }x}\,.
+	\end{equation*} The claim of orthogonality is just a calculation of the inner product $\langle -Ax+\Lambda(x)x,x\rangle=0$
+	\end{proof} Now we radially project this onto the sphere via 
+	\begin{equation*}
+		\pi_r:\R^{n+1}\setminus\{0\}\to S^n; x\mapsto \frac{x}{\norm{x}}
+	\end{equation*} the differential of this projection kills the parallel part and hence reads:
+	\begin{equation*}
+		\restr{\diff \pi_r}{x}(-\grad_x(f))=\frac{-Ax+\Lambda(x)x}{\norm{x}}
+	\end{equation*} If we restrict $\restr{f}{S^n}$ we get that the gradient $-\grad_y(\restr{f}{S^n})=-Ay+\Lambda(y)y$. To see this, let $v\in T_yS^b\supseteq T_yR^{n+1}$ and remember that the inner produkt on $S^b$ is induced from the euclidean one. Then 
+	\begin{align*}
+		\langle \grad_y(\restr{f}{S^n}),y\rangle_{S^n}
+		&=\diff \restr{f}{S^n}(v)=\diff f(v)=\langle \grad_y(f),v\rangle_{\R^{n+1}}\\
+		&=\langle \text{proj}_{T_yS^n}(\grad_y(f)),v\rangle_{\R^{n+1}}=\langle Ay-\Lambda(y)y,v \rangle_{\R^{n+1}}
+	\end{align*} Hence. the 
+	\end{example}
