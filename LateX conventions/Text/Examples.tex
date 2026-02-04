@@ -1,30 +1,59 @@
-\section{Examples}
-We begoin with a minimal example that has non trivial higher differential:
-\begin{example}[The Sphere]
-If we take the three-sphere $S^3\subseteq \R^4$ and denote the north pole with $N$ and the south pole with $S$ we get the Morse chain complex as
-\begin{center}
-	\begin{tikzcd}
-	0\arrow[r]& \langle S \rangle_{\Z} \arrow[r] &0\arrow[r] & 0\arrow[r]&\langle N \rangle_{\Z} \arrow[r]& 0 
-	\end{tikzcd}
-\end{center}Then for the second page we get the Morse homology together with the 0 maps and on the third page we have: 
-\begin{center}
-	\begin{tikzcd}
-		\langle S\rangle \arrow[rrr, "d_3^0", bend left] & 0 & 0 & \langle N\rangle
-	\end{tikzcd}
-\end{center}
-Now we want to check what $d_3^0(S)$ is. For this we want to use its definition and hence we need to give the Morse filtration. For this we can use:
-\begin{equation*}
-	N_{-1}\coloneq\emptyset,\quad N_{0,1,2}\coloneq H_- \text{ the southern hemisphere},\quad  N_3=S^3\,.
-\end{equation*}
-First we translate $E_r$ into the language where the definition was formulated. 
-We know that $EM_3^p$ is naturally isomorphic to $$E^{p,0}_3=\frac{\gamma^{-1}\big(\alpha^2D^{p,-2}\big)}{\beta\big(\ker(\restr{\alpha^2}{D^{p+3-1,-2}})\big)}$$
-Now for $r=3$ and $p=0$
-\begin{equation*}
-	\alpha^2D^{2,-2}=\im (K^0(N_2)\to K^0(N_0))=\im(K^0(H_-)\to K^0(H_-))\cong Z
-\end{equation*} Hence $E^{0,0}_3={\gamma^{-1}(\alpha^2D^{2,-2})}^{0,0}\cap E^{0,0}_0= K^0(N_0,\emptyset)\cong \Z$. And similar we conclude that $E^{3,0}_3=K^3(N_3,N_2)\cong\Z$. 
-Now we analyze the map 
-\begin{equation*}
-	d^{0,0}_3: K^0(N_0,\emptyset) \to K^3(N_3,N_2)
-\end{equation*} So far we where able to ignore all orientation, (which we formally need for the morse boundary operator). So lets fix the orientations of the unstable part by saying the unstable part of the north pole (i.e. the whole $S^3$) is \textbf{not} the canonical orientation of $S^3\supset \R^4$, whilst the unstable part of the south pole (i.e. the empty set) has the orientatino $+1$. Then
-
-\end{example} 
+	\section{Examples}
+	We begoin with a minimal example that has non trivial higher differential:
+	\begin{example}[The Sphere]
+	If we take the three-sphere $S^3\subseteq \R^4$ and denote the north pole with $N$ and the south pole with $S$ we get the Morse chain complex as
+	\begin{center}
+		\begin{tikzcd}
+		0\arrow[r]& \langle S \rangle_{\Z} \arrow[r] &0\arrow[r] & 0\arrow[r]&\langle N \rangle_{\Z} \arrow[r]& 0 
+		\end{tikzcd}
+	\end{center}Then for the second page we get the Morse homology together with the 0 maps and on the third page we have: 
+	\begin{center}
+		\begin{tikzcd}
+			\langle S\rangle  & 0 & 0 &\arrow[lll, "d_3^0", bend left] \langle N\rangle
+		\end{tikzcd}
+	\end{center}
+	Now we want to check what $d_3^0(S)$ is. For this we want to use its definition and hence we need to give the Morse filtration. For this we can use:
+	\begin{equation*}
+		N_{-1}\coloneq\emptyset,\quad N_{0,1,2}\coloneq H_- \text{ the southern hemisphere},\quad  N_3=S^3\,.
+	\end{equation*}
+	First we translate $E_r$ into the language where the definition was formulated. 
+	We know that $EM_3^p$ is naturally isomorphic to $$E^{p,0}_3=\frac{\gamma^{-1}\big(\alpha^2D^{p,-2}\big)}{\beta\big(\ker(\restr{\alpha^2}{D^{p+3-1,-2}})\big)}$$
+	Now for $r=3$ and $p=0$
+	\begin{equation*}
+		\alpha^2D^{2,-2}=\im (K^0(N_2)\to K^0(N_0))=\im(K^0(H_-)\to K^0(H_-))\cong Z
+	\end{equation*} Hence $E^{0,0}_3={\gamma^{-1}(\alpha^2D^{2,-2})}^{0,0}\cap E^{0,0}_0= K^0(N_0,\emptyset)\cong \Z$. And similar we conclude that $E^{3,0}_3=K^3(N_3,N_2)\cong\Z$. 
+	Now we analyze the map 
+	\begin{equation*}
+		d^{3,0}_3:  K^3(N_3,N_2) \to K^0(N_0,\emptyset) 
+	\end{equation*} So far we where able to ignore all orientation, (which we formally need for the morse boundary operator). So lets fix the orientations of the unstable part by saying the unstable part of the north pole (i.e. the whole $S^3$) is the canonical orientation of $S^3\supset \R^4$, whilst the unstable part of the south pole (i.e. the south pole) has the orientation $-1$. 
+	
+	Now $d_r=\beta\circ \alpha^2\circ \gamma$ and $\gamma: K^3(N_3,N_2)\to K^0(N_3)$ maps our generator induced by $N$ to the standard generator of $K^3(S^3)$ induced by the choosen orientation, due to $N_2$ being a contractible subset. Now $\alpha^2:  K^3(N_3) \to  K^3(N_1)$ is the zero map, since its range is $0$ due to $N_1$ being homotopically equivalent to the point and $3$ being odd.Finally $\beta: K^3(N_1) \to K^4(N_0,\emptyset)$ is the connecting homomorphism that trivial here. Hence $d^3,0_3$ is the zero map.And thereby $EM_4$ which equalse $E_\infty$ is  
+	\begin{center}
+		\begin{tikzcd}
+				\langle S\rangle  & 0 & 0 & \langle N\rangle
+		\end{tikzcd}
+	\end{center}Now how to we get information about our beloved K groups back? For this we remined ourself about the filtration 
+	\begin{equation*}
+		K^0(S^3)=F{-1}K^0(S^3)\supseteq F^0K^0(S^3)\supseteq F^1 K^0(S^3) \supseteq F^2K^0(S^3)\supseteq F^3K^0(S^3)=0
+	\end{equation*}
+	Now using this filtration we have the short exact sequence
+	\begin{center}
+		\begin{tikzcd}
+			0 \arrow[r]&F^0K^0(S^3)\arrow[r] &K^0(S^3)\arrow[r]&E^{0,0}_4=\frac{F^{-1}K^0(S^3)}{F^{0}K^0(S^3)} \arrow[r]&0
+		\end{tikzcd}
+	\end{center}Hence, $K^0(S^3)$ is an extension of $F^0K^0(S^3)$ and $E^{0,0}_4\cong \Z$ 
+	Furthermore, we have the exact sequence
+	\begin{center}
+		\begin{tikzcd}
+			0 \arrow[r]
+			&F^1K^0(S^3)\arrow[r] 
+			&F^0K^0(S^3)\arrow[r]
+			&E^{1,-1}_4=\frac{F^{0}K^0(S^3)}{F^{1}K^0(S^3)}=0 \arrow[r]
+			&0
+		\end{tikzcd}
+	\end{center} Hence, $F^0K^0(S^3)\cong F^1K^0(S^3)$ and by the same argument we can continue this chain 
+	\begin{equation*}
+		F^0K^0(S^3)\cong F^1K^0(S^3)\cong F^2K^0(S^3)\cong F^3K^0(S^3)=0
+	\end{equation*}
+	Hence, the first short exact sequence gives is an isomorphism between $K^0(S^3)\cong \Z$.
+	\end{example} 
