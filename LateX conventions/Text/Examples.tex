@@ -100,6 +100,13 @@
 	\begin{align*}
 		\langle \grad_y(\restr{f}{S^n}),y\rangle_{S^n}
 		&=\diff \restr{f}{S^n}(v)=\diff f(v)=\langle \grad_y(f),v\rangle_{\R^{n+1}}\\
-		&=\langle \text{proj}_{T_yS^n}(\grad_y(f)),v\rangle_{\R^{n+1}}=\langle Ay-\Lambda(y)y,v \rangle_{\R^{n+1}}
-	\end{align*} Hence. the 
+		&=\langle \mathrm{proj}_{T_yS^n}(\grad_y(f)),v\rangle_{\R^{n+1}}=\langle Ay-\Lambda(y)y,v \rangle_{\R^{n+1}}
+	\end{align*} Here $\mathrm{proj}_{T_yS^n}$ denotes the projection onto the subspace ${T_yS^n}\subseteq T_y\R^{n+1}$. This however tells us that the image $\widetilde{\Phi_t(x)}$ of $\Phi_t(x)$ under the radial projection solves the equation
+	\begin{equation*}
+		\frac{\diff \widetilde{\Phi_t(y)}}{t}=-\grad_y(\restr{f}{S^n})(\widetilde{\Phi_t(y)})=-\frac{1}{2}\grad_y(\restr{\Lambda}{S^n})(\widetilde{\Phi_t(y)})\quad \text{ since } f=\frac{1}{2}\Lambda
+	\end{equation*} Hence descending to the quotient $\R\PP^n$ yields that $\left[\widetilde{\Phi_{2t}(y)}\right]$ is a solution of the flow associeted to the negative gradient of $\tilde{\Lambda}$ in $\R\PP^n$. Now the other way round should be trivial: Take a solution $\psi_t(x)$ of $\tilde{\Lambda}$ in $\R\PP^n$. Then for fixed $t,x$ let $U$ be a neighbourhood of $\psi_t(x)$. This $U$ can be lifted to $S^n$ and the solution there solves the lifted version of the flow induced from $\tilde{\Lambda}$. And from here we can argue that the solution is part of a solution of the linear differential equation 
+	\begin{equation*}
+		\frac{\diff \phi_t(x)}{\diff t}=-\grad_{\phi_t(x)}(f)=-Ax\,.
+	\end{equation*} This concludes the proof.
+	Hence critical points in $\R\PP^n$ are eigenvalues of $A$. Hence, for the function to be Morse, we need the critical points to be isolated, meaning that all eigenspaces have dimension one. So we assume that the diagonal entries in $A$ are all different. For simplicity we assume that $\lambda_0<\lambda_1\cdots <\lambda_n$.
 	\end{example}
