@@ -109,7 +109,7 @@
 		\frac{\diff \phi_t(x)}{\diff t}=-\grad_{\phi_t(x)}(f)=-Ax\,.
 	\end{equation*} This concludes the proof.
 	Hence critical points in $\R\PP^n$ are eigenvalues of $A$. Hence, for the function to be Morse, we need the critical points to be isolated, meaning that all eigenspaces have dimension one. So we assume that the diagonal entries in $A$ are all different. For simplicity we assume that $\lambda_0<\lambda_1\cdots <\lambda_n$. Since $A$ is diagonal we know that $[e_i]$ are the critical points.
-	\begin{lemma}
+	\begin{lemma}\label{lem: unstable manifolds of real projective space}
 		Each critical point $[e_i]$ is non degenerate, of index $i$ and its unstable manifold is
 		\begin{equation*}
 			W([e_i]\to)\eqcolon U_i=\{[x_0:x_1,\dots x_i,0,\dots,0]\in \R\PP^n| x_i\neq 0\}\,,
@@ -126,9 +126,49 @@
 		\end{align*} Now the image gives representatives of norm one and hence in this chart we calculate:
 		\begin{align*}
 			\tilde{\Lambda}\circ \phi_i(y_1,\dots,y_n)
-			&= \sum_{j=1}^iy_i^2\lambda_{i-1}+\lambda_i({1-\norm{y}_2^2})+\sum_{j=i+1}^n y_j^2\lambda_j\\
-			&= \sum_{j=1}^iy_i^2\lambda_{i-1}+\lambda_i(1-\sum_{j=1}^n y_j^2 )+\sum_{j=i+1}^n y_j^2\lambda_j \\
-			&= \sum_{j=1}^iy_i^2(\lambda_{i-1}-\lambda_i)+\lambda_i+\sum_{j=i+1}^n y_j^2(\lambda_j-\lambda_i)
-		\end{align*}
-	\end{proof}
+			&= \sum_{j=1}^iy_i^2\lambda_{j-1}+\lambda_i({1-\norm{y}_2^2})+\sum_{j=i+1}^n y_j^2\lambda_j\\
+			&= \sum_{j=1}^iy_i^2\lambda_{j-1}+\lambda_i(1-\sum_{j=1}^n y_j^2 )+\sum_{j=i+1}^n y_j^2\lambda_j \\
+			&= \sum_{j=1}^iy_i^2(\lambda_{j-1}-\lambda_i)+\lambda_i+\sum_{j=i+1}^n y_j^2(\lambda_j-\lambda_i)
+		\end{align*} With this local description we can calculate the hession in $[e_i]=\phi_i(0)$:
+		\begin{equation*}
+			\restr{\frac{\partial ^2\tilde{\Lambda}\circ \phi_i}{\partial y_k \, \partial y_l}}{0}=
+			\begin{cases}
+			0								&\text{ if }k\neq l \\
+			2(\lambda_{k-1}-\lambda_i)<0	&\text{ if }k=l\leq i \\
+			2(\lambda_k-\lambda_i)>0		&\text{ if } k=l > i\\
+			\end{cases}
+		\end{equation*} 
+ Hence, $[e_j]$ is a non degenerate critical point of index $i$. Now concerning the unstable manifolds, we pick a point $x=x_ke_k+\cdots x_le_l\in\R^{n+1}$ with $x_k$ and $x_l$ not equal to zero. This points trajectory in $\R^{n+1}$ under $-\grad (f)$ is
+	\begin{equation*}
+		\phi_t(x)=x_k\euler^{-\lambda_kt}e_k+\cdots x_l\euler^{-\lambda_l t}e_l\,.
+	\end{equation*} Hence for $t$ approaching negative infinity, the term $x_l\euler^{-\lambda_l t}e_l$ is leading, whilst for $t$ approaching infinity, the summand $x_k\euler^{-\lambda_kt}e_k$ is leading. Since projectively we don't care about absolute values but rater relations having a leading coordinate meaning that relatively all other coordinates approach zero. Hence:
+	\begin{equation*}
+		\lim_{t \to -\infty}([\phi_t(x)])=[e_l]\quad \text{ and, }\quad \lim_{t \to +\infty}([\phi_t(x)])=[e_k]\,.
+	\end{equation*} 
+		\end{proof}
+		Now we know how the groups in the Morse chain complex are looking. The next step is the boundary operator:
+		\begin{lemma}
+			The differential in $C_*(\R\PP^n,\Lambda^*)$ with the right orientations act as
+			\begin{equation*}
+				\partial_i([e_i])=(-1)^{i-1}[e_{i-1}]-[e_{i-1}]\,.
+			\end{equation*}
+		\end{lemma}
+		\begin{proof}
+			First we notice that $W([e_i]\to [e_{i-1}])$ is a one dimensional projective space with two points missing. If we would look at the Morse homology with coeficients in $\Z_2$ we would be done here, since $\R\PP^1\setminus \{p,q\}$ consists of two lines. Hence, over $\Z_2$ the boundary operator is trivial. However now we want to assign an orientation to all the unstable manifolds $U_i$. First, notice the commutative diagram that comes from the description of $U_i$ from lemma \ref{lem: unstable manifolds of real projective space}:
+			\begin{center}
+				\begin{tikzcd}
+					T_{[e_i]}U_i \arrow[r,hook]& T_{[e_i]}\R\PP^n\\
+					\langle e_1,\dots e_{i-1} \rangle \arrow[u] \arrow[r,hook] & T_{e_i}S^n \arrow[u]
+				\end{tikzcd} or equivalently 
+								\begin{tikzcd}
+					T_{[e_i]}U_i \arrow[r,hook]& T_{[e_i]}\R\PP^n\\
+					\langle -e_1,\dots -e_{i-1} \rangle \arrow[u] \arrow[r,hook] & T_{-e_i}S^n \arrow[u]
+				\end{tikzcd} 
+			\end{center}
+			Now let 
+			\begin{equation*}
+				x\in W([x_i]\to [e_{i-1}])=\{[0:\cdots 0:x_{i-1}:x_{i}:0:\cdots 0]|x_{i-1}\neq 0 \text{ and }x_i\neq 0 \}\,.
+			\end{equation*} Then we can choose representatives, such that $x_{i-1}^2+x_i^2=1$, and $(x_{i-1},x_i)$ is in the upper halve plane meaning that $x_i>0$. Now take a $x\in W([e_i]\to [e_{i-1}])$. Then $T_xW([e_i]\to [e_{i-1}])$ has an oriented basis given as the pushforeward of $v=x_{i}e_{i-1}-x_{i-1}e_{i}$ under the projection $T_xS^n\to T_x\R\PP^n$. Now we want to analyze how this relates to the orientation induced by the flow and the two unstable orientations: if both $x_i$ and $x_{i-1}$ are positive, then $v$ points in the direction of the flow. Else, if $x_{i-1}$ is negative, $-v$ points in the direction of the flow. \todo{why is the half circle a truthfully depiction and model?}. The parallel transport of $T_{[x_{i-1}]}U_{i-1}$ to the normal space of $-\grad_x(\tilde{\Lambda})$ induced by the negative flow maps the basis $e(_{0},\dots e_{i-2})$ of $T_{[e_{i-1}]}U_i$ to $e(_{0},\dots e_{i-2})$ in the orthogonal complement of $-\grad_c(\tilde{\Lambda})$ in $T_x\R\PP^n$. So we need to compare the ordered basis $(v,e_1)$
+		\end{proof}
 	\end{example}
+	
