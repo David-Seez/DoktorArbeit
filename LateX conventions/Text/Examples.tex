@@ -158,17 +158,27 @@
 			\begin{center}
 				\begin{tikzcd}
 					T_{[e_i]}U_i \arrow[r,hook]& T_{[e_i]}\R\PP^n\\
-					\langle e_1,\dots e_{i-1} \rangle \arrow[u] \arrow[r,hook] & T_{e_i}S^n \arrow[u]
+					\langle e_0,\dots e_{i-1} \rangle \arrow[u] \arrow[r,hook] & T_{e_i}S^n \arrow[u]
 				\end{tikzcd} or equivalently 
 								\begin{tikzcd}
 					T_{[e_i]}U_i \arrow[r,hook]& T_{[e_i]}\R\PP^n\\
-					\langle -e_1,\dots -e_{i-1} \rangle \arrow[u] \arrow[r,hook] & T_{-e_i}S^n \arrow[u]
+					\langle -e_0,\dots -e_{i-1} \rangle \arrow[u] \arrow[r,hook] & T_{-e_i}S^n \arrow[u]
 				\end{tikzcd} 
 			\end{center}
 			Now let 
 			\begin{equation*}
 				x\in W([x_i]\to [e_{i-1}])=\{[0:\cdots 0:x_{i-1}:x_{i}:0:\cdots 0]|x_{i-1}\neq 0 \text{ and }x_i\neq 0 \}\,.
-			\end{equation*} Then we can choose representatives, such that $x_{i-1}^2+x_i^2=1$, and $(x_{i-1},x_i)$ is in the upper halve plane meaning that $x_i>0$. Now take a $x\in W([e_i]\to [e_{i-1}])$. Then $T_xW([e_i]\to [e_{i-1}])$ has an oriented basis given as the pushforeward of $v=x_{i}e_{i-1}-x_{i-1}e_{i}$ under the projection $T_xS^n\to T_x\R\PP^n$. Now we want to analyze how this relates to the orientation induced by the flow and the two unstable orientations: if both $x_i$ and $x_{i-1}$ are positive, then $v$ points in the direction of the flow. Else, if $x_{i-1}$ is negative, $-v$ points in the direction of the flow. \todo{why is the half circle a truthfully depiction and model?}. The parallel transport of $T_{[x_{i-1}]}U_{i-1}$ to the normal space of $-\grad_x(\tilde{\Lambda})$ induced by the negative flow maps the basis $e(_{0},\dots e_{i-2})$ of $T_{[e_{i-1}]}U_i$ to $e(_{0},\dots e_{i-2})$ in the orthogonal complement of $-\grad_c(\tilde{\Lambda})$ in $T_x\R\PP^n$. So we need to compare the ordered basis $(v,e_1)$
+			\end{equation*} Then we can choose representatives, such that $x_{i-1}^2+x_i^2=1$, and $(x_{i-1},x_i)$ is in the upper halve plane meaning that $x_i>0$. Now take a $x\in W([e_i]\to [e_{i-1}])$. Then $T_xW([e_i]\to [e_{i-1}])$ has an oriented basis given as the pushforeward of $v=x_{i}e_{i-1}-x_{i-1}e_{i}$ under the projection $T_xS^n\to T_x\R\PP^n$. Now we want to analyze how this relates to the orientation induced by the flow and the two unstable orientations: if both $x_i$ and $x_{i-1}$ are positive, then $v$ points in the direction of the flow. Else, if $x_{i-1}$ is negative, $-v$ points in the direction of the flow. \todo{why is the half circle a truthfully depiction and model?}. The parallel transport of $T_{[x_{i-1}]}U_{i-1}$ to the normal space of $-\grad_x(\tilde{\Lambda})$ induced by the negative flow maps the basis $e(_{0},\dots e_{i-2})$ of $T_{[e_{i-1}]}U_i$ to $(e_{0},\dots e_{i-2})$ in the orthogonal complement of $-\grad_c(\tilde{\Lambda})$ in $T_x\R\PP^n$. So we need to compare the ordered basis $(v,e_0,\dots e_{i-2})$ to the transported ordered basis $(e_0,\dots e_{i-1})$ that started in $T_{[e_i]}U_i$. This procedure maps the basis vectors as follows:
+			\begin{equation*}
+				e_j\mapsto \begin{cases*}
+					x_ie_{i-1}-x_{i-1}e_i& if $j=i-1$\\
+					e_j & else.
+				\end{cases*}
+			\end{equation*} In other words, we need to ask when the two basis
+			\begin{equation*}
+				(\pm (x_ie_{i-1}-x_{i-1}e_i),e_0,\dots e_{i-2}) \quad \text{ and }\quad (e_0,\dots e_{i-2},x_ie_{i-1}-x_{i-1}e_i)\,,
+			\end{equation*} where the sign depends on the sign of $x_{i-1}$ are comparable. A case distinction of said sign yields: If $x_{i-1}>0$ the basis carry the same orientation, if and only if $i$ is odd, since then it takes evenly many switches of coordinates. 
+			If $x_{i-1}<0$ then thy never agree. Why?
 		\end{proof}
 	\end{example}
 	
