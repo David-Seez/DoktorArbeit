@@ -108,5 +108,27 @@
 	\begin{equation*}
 		\frac{\diff \phi_t(x)}{\diff t}=-\grad_{\phi_t(x)}(f)=-Ax\,.
 	\end{equation*} This concludes the proof.
-	Hence critical points in $\R\PP^n$ are eigenvalues of $A$. Hence, for the function to be Morse, we need the critical points to be isolated, meaning that all eigenspaces have dimension one. So we assume that the diagonal entries in $A$ are all different. For simplicity we assume that $\lambda_0<\lambda_1\cdots <\lambda_n$.
+	Hence critical points in $\R\PP^n$ are eigenvalues of $A$. Hence, for the function to be Morse, we need the critical points to be isolated, meaning that all eigenspaces have dimension one. So we assume that the diagonal entries in $A$ are all different. For simplicity we assume that $\lambda_0<\lambda_1\cdots <\lambda_n$. Since $A$ is diagonal we know that $[e_i]$ are the critical points.
+	\begin{lemma}
+		Each critical point $[e_i]$ is non degenerate, of index $i$ and its unstable manifold is
+		\begin{equation*}
+			W([e_i]\to)\eqcolon U_i=\{[x_0:x_1,\dots x_i,0,\dots,0]\in \R\PP^n| x_i\neq 0\}\,,
+		\end{equation*} whilst the stable manifold is
+		\begin{equation*}
+			W(\to [e_i])\eqcolon S_i=\{[0,\dots,0,x_i,x_{i+1},\dots,x_n]\in\R\PP^n|x_i\neq 0\}
+		\end{equation*}
+	\end{lemma}
+	\begin{proof}
+		Let $B^n$ be the open unit ball in $\R^n$ and $V_i\coloneq \{[x_,\dots,x_n]\in\R\PP^n|x_i\neq 0\}$. Then we define the parametrization
+		\begin{align*}
+			\phi_i:B^n &\to V_i\\
+			(y_1,\dots y_n)&\mapsto [y_1,\dots,y_i,\sqrt{1-\norm{y}_2^2},y_{i+1},\dots,y_n]\,.
+		\end{align*} Now the image gives representatives of norm one and hence in this chart we calculate:
+		\begin{align*}
+			\tilde{\Lambda}\circ \phi_i(y_1,\dots,y_n)
+			&= \sum_{j=1}^iy_i^2\lambda_{i-1}+\lambda_i({1-\norm{y}_2^2})+\sum_{j=i+1}^n y_j^2\lambda_j\\
+			&= \sum_{j=1}^iy_i^2\lambda_{i-1}+\lambda_i(1-\sum_{j=1}^n y_j^2 )+\sum_{j=i+1}^n y_j^2\lambda_j \\
+			&= \sum_{j=1}^iy_i^2(\lambda_{i-1}-\lambda_i)+\lambda_i+\sum_{j=i+1}^n y_j^2(\lambda_j-\lambda_i)
+		\end{align*}
+	\end{proof}
 	\end{example}
