@@ -58,6 +58,11 @@
 	Hence, the first short exact sequence gives is an isomorphism between $K^0(S^3)\cong \Z$.
 	\end{example} 
 	Now we want to calculate the K group of a non trivial example:
+	
+	
+	
+	
+	
 	\begin{example}[The Real Projective Space]
 	Here, we define $\R\PP^n$ to be $\R^{n+1}\setminus 0$ modulo scalar multiples. Hence it is the space of lines in $\R^{n+1}$. Alternatively we can view it as the $n$-sphere where the operation from $\{\id,-\id\}$ is quotient out. From this description we get a metric, since $S^n\supseteq \R^{n+1}$ inherits the subspacae metric in which all operations from $\{\id,-\id\}$ are isometries. Hence, this metric projects down to $\R\PP^n$. Now let
 	\begin{equation*}
@@ -159,11 +164,13 @@
 				\begin{tikzcd}
 					T_{[e_i]}U_i \arrow[r,hook]& T_{[e_i]}\R\PP^n\\
 					\langle e_0,\dots e_{i-1} \rangle \arrow[u] \arrow[r,hook] & T_{e_i}S^n \arrow[u]
-				\end{tikzcd} or equivalently 
+				\end{tikzcd} 	
+				or equivalently 
 								\begin{tikzcd}
 					T_{[e_i]}U_i \arrow[r,hook]& T_{[e_i]}\R\PP^n\\
 					\langle -e_0,\dots -e_{i-1} \rangle \arrow[u] \arrow[r,hook] & T_{-e_i}S^n \arrow[u]
-				\end{tikzcd} 
+				\end{tikzcd}
+				
 			\end{center}
 			Now let 
 			\begin{equation*}
@@ -176,9 +183,23 @@
 				\end{cases*}
 			\end{equation*} In other words, we need to ask when the two basis
 			\begin{equation*}
-				(\pm (x_ie_{i-1}-x_{i-1}e_i),e_0,\dots e_{i-2}) \quad \text{ and }\quad (e_0,\dots e_{i-2},x_ie_{i-1}-x_{i-1}e_i)\,,
-			\end{equation*} where the sign depends on the sign of $x_{i-1}$ are comparable. A case distinction of said sign yields: If $x_{i-1}>0$ the basis carry the same orientation, if and only if $i$ is odd, since then it takes evenly many switches of coordinates. 
-			If $x_{i-1}<0$ then thy never agree. Why?
+				((x_ie_{i-1}-x_{i-1}e_i),e_0,\dots e_{i-2}) \quad \text{ and }\quad (e_0,\dots e_{i-2},x_ie_{i-1}-x_{i-1}e_i)\,,
+			\end{equation*} if  $x_{i-1}>0$ are comparable.Then,  the basis carry the same orientation, if and only if $i$ is odd, since then it takes evenly many transpositions of coordinates. 
+			
+			If $x_{i-1}<0$ we notice, that our representation of $[e_{i-1}]$ is given by $-e_{i-1}$ and hence the unstable tangend space has the basis $-e_0,\cdots -e_{i-2}$. Hence in $x$ we get the oriented basis $(-v,-e_0,\cdots -e_{i-2})$. We compare this basis to basis that comes from transporting the basis $(e_0,\dots e_{i-1})$ of $T_{[e_i]}U_{[e_i]}$ to $x$ resulting in the basis $(e_0,\dots e_{i-2},v)$. By definition we would now move $v$ to the front and change its sign, whilst not changing the orientation. This results in th basis $(-1)^{i-2+1}(-v,e_0,\cdots e_{i-2})$. The sign comes from the number of needed permutations plus one change of sign. Now we remove $-v$ and compare the basis
+			\begin{equation*}
+				(-e_0,\cdots -e_{i-2}) \quad \text{ and }(-1)^{i-2+1}(-v,e_0,\cdots e_{i-2})=(-1)^{i-2+1+i-2}(-v,-e_0,\cdots -e_{i-2})\,.
+			\end{equation*} Since the sign of $(-1)^{i-2+1+i-2}$ is always negative, they never agree.
+			
+			
+			
+			\begin{equation*}
+				-x_{i}e_{i-1},e_0,\cdots e_{i-2}\,.
+			\end{equation*} These basis carry the same orientation as the basis $e_0,\cdots e_{i-1}$ if and only if $i$ is odd.  which can be seen by a case distinction of the parity of $i$: Assume that $i$ is even. Then odd many transpositions bring $-x_{i}e_{i-1}$ to the back. and since $-x_{i}$ we cannote make it compatible. If $i$ is odd, then even many transpositions are needed to bring $-x_{i}e_{i-1}$ to the back and the basis are compatible. 
+			Hence, if $i$ is odd, we have to count two connecting flow lines and if $i$ is even, we count minus two, which is wrong.
+			An alternative approach gives the same wrong answer: 
+			
+			ok argue the other direction: we take the basis $(e_0,\cdots e_{i-1})$ of $T_{[e_i]}U_{[e_i]}$. Then we move it along the flow to $T_xU_{[e_i]}$ (and get the basis $(e_0,\cdots e_{i-2},x_ie_{i-1}-x_{i-1}e_i)$ ) and manipulate orientation preservingly, such that $-\grad_x(\tilde{\Lambda})$ is the FIRST basis vector. Hence $-v$ is the fist. hence we need $i-2$ transpostioons and a change of sing in the first entry. Now if $i$ is odd then we end with the basis $(-v,e_0,\cdots e_{i-2})$ and if $i$ is even we have the basis $(-v,-e_0,e_1,\cdots e_{i-2})$ finally we need to cut out $v$ and compare to the bases $(e_0,\cdots e_{i-2})$ coming from $T_{[e_{i-1}]}U_{[e_{i-1}]}$. Hence they agree iff $i$ is odd. Where is the mistake?
 		\end{proof}
 	\end{example}
 	
