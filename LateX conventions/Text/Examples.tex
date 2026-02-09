@@ -207,6 +207,45 @@
 				(-e_0,\cdots -e_{i-2}) \quad \text{ and }(-1)^{i-2+1}(-v,e_0,\cdots e_{i-2})=(-1)^{i-2+1+i-2}(-v,-e_0,\cdots -e_{i-2})\,.
 			\end{equation*} Since the sign of $(-1)^{i-2+1+i-2}$ is always negative, they never agree. Hence, the Morse boundary operator counts minus two flow lines, if $i$ is even and else, the two flow lines cancel out concluding the proof.
 		\end{proof}
-		Now we want to find out how $d_3$ looks. 
+		Now for odd $n$, $EM_1$ of the form:
+		\begin{center}
+			\begin{tikzcd}
+				0&\langle [e_0] \rangle \arrow[r,"-2"]&\langle [e_1] \rangle \arrow[r,"0"]&\langle [e_2] \rangle \arrow[r,"-2"]&\cdots \arrow[r,"-2"] &\langle [e_n] \rangle \arrow[r,"0"]&0
+			\end{tikzcd}
+		\end{center} and for even $n$:
+		\begin{center}
+					\begin{tikzcd}
+			0&\langle [e_0] \rangle \arrow[r,"-2"]&\langle [e_1] \rangle \arrow[r,"0"]&\langle [e_2] \rangle \arrow[r,"-2"]&\cdots \arrow[r,"0"] &\langle [e_n] \rangle \arrow[r,"0"]&0
+		\end{tikzcd}
+			\end{center}
+		Hence we have the $EM_2$ pages as follows:
+		\begin{center}
+			\begin{tikzcd}
+				0&\langle [e_0] \rangle &0
+			\frac{\langle [e_1] \rangle }{\langle -2[e_1] \rangle } 
+			&0
+			&	\frac{\langle [e_3] \rangle }{\langle -2[e_3] \rangle }
+			&\cdots 
+			&	\frac{\langle [e_n] \rangle }{\langle -2[e_n] \rangle }&0
+			\end{tikzcd}
+		\end{center} if $n$ is odd, and in the even case: 
+		\begin{center}
+			\begin{tikzcd}
+	0&\langle [e_0] \rangle &
+	\frac{\langle [e_1] \rangle }{\langle -2[e_1] \rangle } 
+	&0
+	&	\frac{\langle [e_3] \rangle }{\langle -2[e_3] \rangle }
+	&\cdots 
+	&\langle [e_n] \rangle &0
+\end{tikzcd}
+		\end{center}
+		When it comes to higher differentials, we notice the following: Only for odd $r$ the differentials are possible nontrivial. Hence, the differentials change the parity of $p$. Hence the only possible way this is not trivial is, if $d_r$ maps to $p=0$. 
+		Hence for $r=3$ the only differential we need to look at is 
+		\begin{align*}
+			d_3^3:\frac{\langle [e_3] \rangle }{\langle -2[e_3] \rangle } \to \langle [e_0] \rangle
+		\end{align*} To understand this differential we need to get specific about the used filtration. We define the filtration inductively as follows:
+		\begin{equation*}
+		N_m\coloneq \R\PP^n\quad \text{ and }\quad 	N_i\coloneq \frac{\{(x_0,\cdots x_n)\in N_{i+1}\,|\, \abs{x_i}\leq \frac{2}{3}\}}{\{\pm \id\}}
+		\end{equation*}
 	\end{example}
 	
