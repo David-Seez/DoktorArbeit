@@ -59,119 +59,135 @@
 	\end{example} 
 	Now we want to calculate the K group of a non trivial example:
 	
-	
-	
-	
-	
-	\begin{example}[The Real Projective Space]
-	Here, we define $\R\PP^n$ to be $\R^{n+1}\setminus 0$ modulo scalar multiples. Hence it is the space of lines in $\R^{n+1}$. Alternatively we can view it as the $n$-sphere where the operation from $\{\id,-\id\}$ is quotient out. From this description we get a metric, since $S^n\supseteq \R^{n+1}$ inherits the subspacae metric in which all operations from $\{\id,-\id\}$ are isometries. Hence, this metric projects down to $\R\PP^n$. Now let
-	\begin{equation*}
-		A=\diag(\lambda_0,\lambda_1,\dots,\lambda_n)
-	\end{equation*}be a symmetric matrix with real $\lambda_i\in \R$. Then we define the map
-	\begin{equation*}
-		\Lambda:\R^{n+1}\setminus\{0\}\to \R; \Lambda(x)\coloneq \frac{\langle x,Ax\rangle}{\norm{x}^2}\,.
-	\end{equation*}Notice that this function descends to a well defined function $\tilde{\Lambda}:\R\PP^n\to \R$. On the whole $\R^{n+1}$ we can define the function
-	\begin{equation*}
-		f:\R^{n+1}\to \R;~f(x)\coloneq \frac{1}{2}\langle x,Ax\rangle=\frac{1}{2}\sum_{i=0}^n\lambda_i x_i^2\,.
-	\end{equation*} Now assume that $\phi_t(x)$ is the flow associated to $- \grad(f)$, meaning
-	\begin{equation*}
-		\frac{\diff \phi_t(x)}{\diff t}=-\grad_{\phi_t(x)}(f)=-Ax\,,
-	\end{equation*} since 
-	\begin{equation*}
-		\frac{\partial f}{\partial x_i}(x)=\lambda_ix_i\,.
-	\end{equation*}
-	Now we have the lemma: 
-	\begin{lemma}
-		The flow lines of the negative gradient flow with respect to $\frac{1}{2}\tilde{\Lambda}$ on $\R\PP^n$ are the images under the quotient map 
+		
+		
+		
+		
+		\begin{example}[The Real Projective Space]
+		Here, we define $\R\PP^n$ to be $\R^{n+1}\setminus 0$ modulo scalar multiples. Hence it is the space of lines in $\R^{n+1}$. Alternatively we can view it as the $n$-sphere where the operation from $\{\id,-\id\}$ is quotient out. From this description we get a metric, since $S^n\supseteq \R^{n+1}$ inherits the subspacae metric in which all operations from $\{\id,-\id\}$ are isometries. Hence, this metric projects down to $\R\PP^n$. Now let
 		\begin{equation*}
-			\pi: \R^{n+1}\setminus \{0\}\to \R\PP^n
-		\end{equation*}of the flow lines of the linear system
+			A=\diag(\lambda_0,\lambda_1,\dots,\lambda_n)
+		\end{equation*}be a symmetric matrix with real $\lambda_i\in \R$. Then we define the map
 		\begin{equation*}
-			\frac{\diff \Phi_t(x)}{\diff t}=-A \Phi_t(x)
+			\Lambda:\R^{n+1}\setminus\{0\}\to \R; \Lambda(x)\coloneq \frac{\langle x,Ax\rangle}{\norm{x}^2}\,.
+		\end{equation*}Notice that this function descends to a well defined function $\tilde{\Lambda}:\R\PP^n\to \R$. On the whole $\R^{n+1}$ we can define the function
+		\begin{equation*}
+			f:\R^{n+1}\to \R;~f(x)\coloneq \frac{1}{2}\langle x,Ax\rangle=\frac{1}{2}\sum_{i=0}^n\lambda_i x_i^2\,.
+		\end{equation*} Now assume that $\phi_t(x)$ is the flow associated to $- \grad(f)$, meaning
+		\begin{equation*}
+			\frac{\diff \phi_t(x)}{\diff t}=-\grad_{\phi_t(x)}(f)=-A\phi_t(x)\,,
+		\end{equation*} since 
+		\begin{equation*}
+			\frac{\partial f}{\partial x_i}(x)=\lambda_ix_i\,.
 		\end{equation*}
-	\end{lemma}
-	\begin{proof}
-	Let $x$ be a point on the flow line $\Phi_t(x)$. Then $-\grad(f)(x)=-Ax.$ Now we split this into a part that is orthogonal to $y$ and one that is paralell:
-	\begin{equation*}
-		-\grad(f)(x)=\underbrace{-\Lambda(x)x}_{\text{parallel to } x}~+~\underbrace{-Ax+\Lambda(x)x}_{\text{orthogonal to }x}\,.
-	\end{equation*} The claim of orthogonality is just a calculation of the inner product $\langle -Ax+\Lambda(x)x,x\rangle=0$
-	\end{proof} Now we radially project this onto the sphere via 
-	\begin{equation*}
-		\pi_r:\R^{n+1}\setminus\{0\}\to S^n; x\mapsto \frac{x}{\norm{x}}
-	\end{equation*} the differential of this projection kills the parallel part and hence reads:
-	\begin{equation*}
-		\restr{\diff \pi_r}{x}(-\grad_x(f))=\frac{-Ax+\Lambda(x)x}{\norm{x}}
-	\end{equation*} If we restrict $\restr{f}{S^n}$ we get that the gradient $-\grad_y(\restr{f}{S^n})=-Ay+\Lambda(y)y$. To see this, let $v\in T_yS^b\supseteq T_yR^{n+1}$ and remember that the inner produkt on $S^b$ is induced from the euclidean one. Then 
-	\begin{align*}
-		\langle \grad_y(\restr{f}{S^n}),y\rangle_{S^n}
-		&=\diff \restr{f}{S^n}(v)=\diff f(v)=\langle \grad_y(f),v\rangle_{\R^{n+1}}\\
-		&=\langle \mathrm{proj}_{T_yS^n}(\grad_y(f)),v\rangle_{\R^{n+1}}=\langle Ay-\Lambda(y)y,v \rangle_{\R^{n+1}}
-	\end{align*} Here $\mathrm{proj}_{T_yS^n}$ denotes the projection onto the subspace ${T_yS^n}\subseteq T_y\R^{n+1}$. This however tells us that the image $\widetilde{\Phi_t(x)}$ of $\Phi_t(x)$ under the radial projection solves the equation
-	\begin{equation*}
-		\frac{\diff \widetilde{\Phi_t(y)}}{t}=-\grad_y(\restr{f}{S^n})(\widetilde{\Phi_t(y)})=-\frac{1}{2}\grad_y(\restr{\Lambda}{S^n})(\widetilde{\Phi_t(y)})\quad \text{ since } f=\frac{1}{2}\Lambda
-	\end{equation*} Hence descending to the quotient $\R\PP^n$ yields that $\left[\widetilde{\Phi_{2t}(y)}\right]$ is a solution of the flow associeted to the negative gradient of $\tilde{\Lambda}$ in $\R\PP^n$. Now the other way round should be trivial: Take a solution $\psi_t(x)$ of $\tilde{\Lambda}$ in $\R\PP^n$. Then for fixed $t,x$ let $U$ be a neighbourhood of $\psi_t(x)$. This $U$ can be lifted to $S^n$ and the solution there solves the lifted version of the flow induced from $\tilde{\Lambda}$. And from here we can argue that the solution is part of a solution of the linear differential equation 
-	\begin{equation*}
-		\frac{\diff \phi_t(x)}{\diff t}=-\grad_{\phi_t(x)}(f)=-Ax\,.
-	\end{equation*} This concludes the proof.
-	Hence critical points in $\R\PP^n$ are eigenvalues of $A$. Hence, for the function to be Morse, we need the critical points to be isolated, meaning that all eigenspaces have dimension one. So we assume that the diagonal entries in $A$ are all different. For simplicity we assume that $\lambda_0<\lambda_1\cdots <\lambda_n$. Since $A$ is diagonal we know that $[e_i]$ are the critical points.
-	\begin{lemma}\label{lem: unstable manifolds of real projective space}
-		Each critical point $[e_i]$ is non degenerate, of index $i$ and its unstable manifold is
-		\begin{equation*}
-			W([e_i]\to)\eqcolon U_i=\{[x_0:x_1,\dots x_i,0,\dots,0]\in \R\PP^n| x_i\neq 0\}\,,
-		\end{equation*} whilst the stable manifold is
-		\begin{equation*}
-			W(\to [e_i])\eqcolon S_i=\{[0,\dots,0,x_i,x_{i+1},\dots,x_n]\in\R\PP^n|x_i\neq 0\}
-		\end{equation*}
-	\end{lemma}
-	\begin{proof}
-		Let $B^n$ be the open unit ball in $\R^n$ and $V_i\coloneq \{[x_,\dots,x_n]\in\R\PP^n|x_i\neq 0\}$. Then we define the parametrization
-		\begin{align*}
-			\phi_i:B^n &\to V_i\\
-			(y_1,\dots y_n)&\mapsto [y_1,\dots,y_i,\sqrt{1-\norm{y}_2^2},y_{i+1},\dots,y_n]\,.
-		\end{align*} Now the image gives representatives of norm one and hence in this chart we calculate:
-		\begin{align*}
-			\tilde{\Lambda}\circ \phi_i(y_1,\dots,y_n)
-			&= \sum_{j=1}^iy_i^2\lambda_{j-1}+\lambda_i({1-\norm{y}_2^2})+\sum_{j=i+1}^n y_j^2\lambda_j\\
-			&= \sum_{j=1}^iy_i^2\lambda_{j-1}+\lambda_i(1-\sum_{j=1}^n y_j^2 )+\sum_{j=i+1}^n y_j^2\lambda_j \\
-			&= \sum_{j=1}^iy_i^2(\lambda_{j-1}-\lambda_i)+\lambda_i+\sum_{j=i+1}^n y_j^2(\lambda_j-\lambda_i)
-		\end{align*} With this local description we can calculate the hession in $[e_i]=\phi_i(0)$:
-		\begin{equation*}
-			\restr{\frac{\partial ^2\tilde{\Lambda}\circ \phi_i}{\partial y_k \, \partial y_l}}{0}=
-			\begin{cases}
-			0								&\text{ if }k\neq l \\
-			2(\lambda_{k-1}-\lambda_i)<0	&\text{ if }k=l\leq i \\
-			2(\lambda_k-\lambda_i)>0		&\text{ if } k=l > i\\
-			\end{cases}
-		\end{equation*} 
- Hence, $[e_j]$ is a non degenerate critical point of index $i$. Now concerning the unstable manifolds, we pick a point $x=x_ke_k+\cdots x_le_l\in\R^{n+1}$ with $x_k$ and $x_l$ not equal to zero. This points trajectory in $\R^{n+1}$ under $-\grad (f)$ is
-	\begin{equation*}
-		\phi_t(x)=x_k\euler^{-\lambda_kt}e_k+\cdots x_l\euler^{-\lambda_l t}e_l\,.
-	\end{equation*} Hence for $t$ approaching negative infinity, the term $x_l\euler^{-\lambda_l t}e_l$ is leading, whilst for $t$ approaching infinity, the summand $x_k\euler^{-\lambda_kt}e_k$ is leading. Since projectively we don't care about absolute values but rater relations having a leading coordinate meaning that relatively all other coordinates approach zero. Hence:
-	\begin{equation*}
-		\lim_{t \to -\infty}([\phi_t(x)])=[e_l]\quad \text{ and, }\quad \lim_{t \to +\infty}([\phi_t(x)])=[e_k]\,.
-	\end{equation*} 
-		\end{proof}
-		Now we know how the groups in the Morse chain complex are looking. The next step is the boundary operator:
+		Now we have the lemma: 
 		\begin{lemma}
-			The differential in $C_*(\R\PP^n,\Lambda^*)$ with the right orientations act as
+			The flow lines of the negative gradient flow with respect to $\frac{1}{2}\tilde{\Lambda}$ on $\R\PP^n$ are the images under the quotient map 
 			\begin{equation*}
-				\partial_i([e_i])=(-1)^{i-1}[e_{i-1}]-[e_{i-1}]\,.
+				\pi: \R^{n+1}\setminus \{0\}\to \R\PP^n
+			\end{equation*}of the flow lines of the linear system
+			\begin{equation*}
+				\frac{\diff \Phi_t(x)}{\diff t}=-A \Phi_t(x)
 			\end{equation*}
 		\end{lemma}
 		\begin{proof}
-			First we notice that $W([e_i]\to [e_{i-1}])$ is a one dimensional projective space with two points missing. If we would look at the Morse homology with coeficients in $\Z_2$ we would be done here, since $\R\PP^1\setminus \{p,q\}$ consists of two lines. Hence, over $\Z_2$ the boundary operator is trivial. However now we want to assign an orientation to all the unstable manifolds $U_i$. First, notice the commutative diagram that comes from the description of $U_i$ from lemma \ref{lem: unstable manifolds of real projective space}:
-			\begin{center}
-				\begin{tikzcd}
-					T_{[e_i]}U_i \arrow[r,hook]& T_{[e_i]}\R\PP^n\\
-					\langle e_0,\dots e_{i-1} \rangle \arrow[u] \arrow[r,hook] & T_{e_i}S^n \arrow[u]
-				\end{tikzcd} 	
-				or equivalently 
-								\begin{tikzcd}
-					T_{[e_i]}U_i \arrow[r,hook]& T_{[e_i]}\R\PP^n\\
-					\langle -e_0,\dots -e_{i-1} \rangle \arrow[u] \arrow[r,hook] & T_{-e_i}S^n \arrow[u]
-				\end{tikzcd}
-				
-			\end{center}
+		Let $x$ be a point on the flow line $\Phi_t(x)$. Then $-\grad(f)(x)=-Ax.$ Now we split this into a part that is orthogonal to $y$ and one that is paralell:
+		\begin{equation*}
+			-\grad(f)(x)=\underbrace{-\Lambda(x)x}_{\text{parallel to } x}~+~\underbrace{-Ax+\Lambda(x)x}_{\text{orthogonal to }x}\,.
+		\end{equation*} The claim of orthogonality is just a calculation of the inner product $\langle -Ax+\Lambda(x)x,x\rangle=0$
+		\end{proof} Now we radially project this onto the sphere via 
+		\begin{equation*}
+			\pi_r:\R^{n+1}\setminus\{0\}\to S^n; x\mapsto \frac{x}{\norm{x}}
+		\end{equation*} the differential of this projection kills the parallel part and hence reads:
+		\begin{equation*}
+			\restr{\diff \pi_r}{x}(-\grad_x(f))=\frac{-Ax+\Lambda(x)x}{\norm{x}}
+		\end{equation*} If we restrict $\restr{f}{S^n}$ we get that the gradient $-\grad_y(\restr{f}{S^n})=-Ay+\Lambda(y)y$. To see this, let $v\in T_yS^n\subseteq T_yR^{n+1}$ and remember that the inner produkt on $S^b$ is induced from the euclidean one. Then 
+		\begin{align*}
+			\langle \grad_y(\restr{f}{S^n}),y\rangle_{S^n}
+			&=\diff \restr{f}{S^n}(v)=\diff f(v)=\langle \grad_y(f),v\rangle_{\R^{n+1}}\\
+			&=\langle \mathrm{proj}_{T_yS^n}(\grad_y(f)),v\rangle_{\R^{n+1}}=\langle Ay-\Lambda(y)y,v \rangle_{\R^{n+1}}
+		\end{align*} Here $\mathrm{proj}_{T_yS^n}$ denotes the projection onto the subspace ${T_yS^n}\subseteq T_y\R^{n+1}$. This however tells us that the image $\widetilde{\Phi_t(x)}$ of $\Phi_t(x)$ under the radial projection solves the equation
+		\begin{equation*}
+			\frac{\diff \widetilde{\Phi_t(y)}}{t}=-\grad_y(\restr{f}{S^n})(\widetilde{\Phi_t(y)})=-\frac{1}{2}\grad_y(\restr{\Lambda}{S^n})(\widetilde{\Phi_t(y)})\quad \text{ since } f=\frac{1}{2}\Lambda
+		\end{equation*} Hence descending to the quotient $\R\PP^n$ yields that $\left[\widetilde{\Phi_{2t}(y)}\right]$ is a solution of the flow associeted to the negative gradient of $\tilde{\Lambda}$ in $\R\PP^n$. Now the other way round should be trivial: Take a solution $\psi_t(x)$ of $\tilde{\Lambda}$ in $\R\PP^n$. Then for fixed $t,x$ let $U$ be a neighbourhood of $\psi_t(x)$. This $U$ can be lifted to $S^n$ and the solution there solves the lifted version of the flow induced from $\tilde{\Lambda}$. And from here we can argue that the solution is part of a solution of the linear differential equation 
+		\begin{equation*}
+			\frac{\diff \phi_t(x)}{\diff t}=-\grad_{\phi_t(x)}(f)=-Ax\,.
+		\end{equation*} This concludes the proof.
+		Hence critical points in $\R\PP^n$ are eigenvalues of $A$. Hence, for the function to be Morse, we need the critical points to be isolated, meaning that all eigenspaces have dimension one. So we assume that the diagonal entries in $A$ are all different. For simplicity we assume that $\lambda_0<\lambda_1\cdots <\lambda_n$. Since $A$ is diagonal we know that $[e_i]$ are the critical points.
+		\begin{lemma}\label{lem: unstable manifolds of real projective space}
+			Each critical point $[e_i]$ is non degenerate, of index $i$ and its unstable manifold is
+			\begin{equation*}
+				W([e_i]\to)\eqcolon U_i=\{[x_0:x_1,\dots x_i,0,\dots,0]\in \R\PP^n| x_i\neq 0\}\,,
+			\end{equation*} whilst the stable manifold is
+			\begin{equation*}
+				W(\to [e_i])\eqcolon S_i=\{[0,\dots,0,x_i,x_{i+1},\dots,x_n]\in\R\PP^n|x_i\neq 0\}
+			\end{equation*}
+		\end{lemma}
+		\begin{proof}
+			Let $B^n$ be the open unit ball in $\R^n$ and $V_i\coloneq \{[x_,\dots,x_n]\in\R\PP^n|x_i\neq 0\}$. Then we define the parametrization
+			\begin{align*}
+				\phi_i:B^n &\to V_i\\
+				(y_1,\dots y_n)&\mapsto [y_1,\dots,y_i,\sqrt{1-\norm{y}_2^2},y_{i+1},\dots,y_n]\,.
+			\end{align*} Now the image gives representatives of norm one and hence in this chart we calculate:
+			\begin{align*}
+				\tilde{\Lambda}\circ \phi_i(y_1,\dots,y_n)
+				&= \sum_{j=1}^iy_i^2\lambda_{j-1}+\lambda_i({1-\norm{y}_2^2})+\sum_{j=i+1}^n y_j^2\lambda_j\\
+				&= \sum_{j=1}^iy_i^2\lambda_{j-1}+\lambda_i(1-\sum_{j=1}^n y_j^2 )+\sum_{j=i+1}^n y_j^2\lambda_j \\
+				&= \sum_{j=1}^iy_i^2(\lambda_{j-1}-\lambda_i)+\lambda_i+\sum_{j=i+1}^n y_j^2(\lambda_j-\lambda_i)
+			\end{align*} With this local description we can calculate the hession in $[e_i]=\phi_i(0)$:
+			\begin{equation*}
+				\restr{\frac{\partial ^2\tilde{\Lambda}\circ \phi_i}{\partial y_k \, \partial y_l}}{0}=
+				\begin{cases}
+				0								&\text{ if }k\neq l \\
+				2(\lambda_{k-1}-\lambda_i)<0	&\text{ if }k=l\leq i \\
+				2(\lambda_k-\lambda_i)>0		&\text{ if } k=l > i\\
+				\end{cases}
+			\end{equation*} 
+	 Hence, $[e_j]$ is a non degenerate critical point of index $i$. Now concerning the unstable manifolds, we pick a point $x=x_ke_k+\cdots x_le_l\in\R^{n+1}$ with $x_k$ and $x_l$ not equal to zero. This points trajectory in $\R^{n+1}$ under $-\grad (f)$ is
+		\begin{equation*}
+			\phi_t(x)=x_k\euler^{-\lambda_kt}e_k+\cdots x_l\euler^{-\lambda_l t}e_l\,.
+		\end{equation*} Hence for $t$ approaching negative infinity, the term $x_l\euler^{-\lambda_l t}e_l$ is leading, whilst for $t$ approaching infinity, the summand $x_k\euler^{-\lambda_kt}e_k$ is leading. Since projectively we don't care about absolute values but rater relations having a leading coordinate meaning that relatively all other coordinates approach zero. Hence:
+		\begin{equation*}
+			\lim_{t \to -\infty}([\phi_t(x)])=[e_l]\quad \text{ and, }\quad \lim_{t \to +\infty}([\phi_t(x)])=[e_k]\,.
+		\end{equation*} 
+			\end{proof}
+			\begin{definition}[Orientations]
+				For orienting the unstable manifolds we make use of the projection $\R^{n+1}\supseteq S^n\to \R\PP^n$. Hence, we can lift $T_{[e_i]}\R\PP^n $ to $T_{\pm e_i}S^n$ and include that into $T_{\pm e_i}\R^{n+1}$, where we have the maps $Q_{\pm e_i}:\R^{n+1}\to T_{\pm e_i}\R^{n+1}$. In this way we get two canonical lifts of the tangent space:
+				\begin{center}
+					\begin{tikzcd}
+							T_{[e_i]}\R\PP^n \arrow[r,"{\diff \pi_{e_i}^{-1}}"] \arrow[d,"{\diff \pi_{-e_i}^{-1}}"] & T_{ e_i}S^n \arrow[d,"{Q_{e_i}^{-1}}"]\\
+							T_{- e_i}S^n \arrow[r,"{Q_{-e_i}}"] & \langle (e_j)_{j\neq i} \rangle
+					\end{tikzcd}
+				\end{center}
+				In general, the diagram is not commutative. To see this notice how $\pi\circ -\id=\pi$. Hence $\restr{\diff \pi}{-e_i} \circ \restr{\diff -\id}{e_i} =\restr{\diff \pi}{e_i}$ and with that:  
+				\begin{align*}
+					Q_{-e_i}^{-1}\circ \restr{\diff \pi}{-e_i}^{-1}\circ \restr{\diff \pi}{e_i}\circ Q_{e_i}
+					&=Q_{-e_i}^{-1}\circ \restr{\diff \pi}{-e_i}^{-1}\circ \restr{\diff \pi}{-e_i} \circ \restr{\diff (-\id)}{e_i} \circ Q_{e_i}\\
+					&Q_{-e_i}^{-1}\circ \restr{\diff \pi}{-e_i}^{-1}\circ \restr{\diff \pi}{-e_i} \circ Q_{-e_i}\circ -\id \\
+					&=Q_{-e_i}^{-1}\circ Q_{-e_i} -\id =-\id\,.
+				\end{align*} Hence, we can define a canonical orientation on $T_{[e_i]}\R\PP^n$ that is given by $(e_j)_{j\neq i}$ or equivalent $(-e_j)_{j\neq i}$ depending on the choosen lift. Now in the same way we can induce orientations to the unstable manifolds $U_i$ by two equivalent ways:
+							\begin{center}
+					\begin{tikzcd}
+						T_{[e_i]}U_i \arrow[r,hook]& T_{[e_i]}\R\PP^n\\
+						\langle (e_0,\dots e_{i-1}) \rangle \arrow[u] \arrow[r,hook] & T_{e_i}S^n \arrow[u]
+					\end{tikzcd} 	
+					or equivalently 
+					\begin{tikzcd}
+						T_{[e_i]}U_i \arrow[r,hook]& T_{[e_i]}\R\PP^n\\
+						\langle -e_0,\dots -e_{i-1} \rangle \arrow[u] \arrow[r,hook] & T_{-e_i}S^n \arrow[u]
+					\end{tikzcd}
+					
+				\end{center}
+			\end{definition}
+			Now we know how the groups in the Morse chain complex are looking. The next step is the boundary operator:
+			\begin{lemma}
+				The differential in $C_*(\R\PP^n,\Lambda^*)$ with the right orientations act as
+				\begin{equation*}
+					\partial_i([e_i])=(-1)^{i-1}[e_{i-1}]-[e_{i-1}]\,.
+				\end{equation*}
+			\end{lemma}
+		\begin{proof}
+			First we notice that $W([e_i]\to [e_{i-1}])$ is a one dimensional projective space with two points missing. If we would look at the Morse homology with coeficients in $\Z_2$ we would be done here, since $\R\PP^1\setminus \{p,q\}$ consists of two lines. Hence, over $\Z_2$ the boundary operator is trivial. However we want to use the orientations from above.
 			Now let 
 			\begin{equation*}
 				x\in W([x_i]\to [e_{i-1}])=\{[0:\cdots 0:x_{i-1}:x_{i}:0:\cdots 0]|x_{i-1}\neq 0 \text{ and }x_i\neq 0 \}\,.
@@ -184,24 +200,13 @@
 			\end{equation*} In other words, we need to ask when the two basis
 			\begin{equation*}
 				((x_ie_{i-1}-x_{i-1}e_i),e_0,\dots e_{i-2}) \quad \text{ and }\quad (e_0,\dots e_{i-2},x_ie_{i-1}-x_{i-1}e_i)\,,
-			\end{equation*} if  $x_{i-1}>0$ are comparable.Then,  the basis carry the same orientation, if and only if $i$ is odd, since then it takes evenly many transpositions of coordinates. 
+			\end{equation*} if  $x_{i-1}>0$ are comparable.Then, the basis carry the same orientation, if and only if $i$ is odd, since then it takes evenly many transpositions of coordinates. 
 			
 			If $x_{i-1}<0$ we notice, that our representation of $[e_{i-1}]$ is given by $-e_{i-1}$ and hence the unstable tangend space has the basis $-e_0,\cdots -e_{i-2}$. Hence in $x$ we get the oriented basis $(-v,-e_0,\cdots -e_{i-2})$. We compare this basis to basis that comes from transporting the basis $(e_0,\dots e_{i-1})$ of $T_{[e_i]}U_{[e_i]}$ to $x$ resulting in the basis $(e_0,\dots e_{i-2},v)$. By definition we would now move $v$ to the front and change its sign, whilst not changing the orientation. This results in th basis $(-1)^{i-2+1}(-v,e_0,\cdots e_{i-2})$. The sign comes from the number of needed permutations plus one change of sign. Now we remove $-v$ and compare the basis
 			\begin{equation*}
 				(-e_0,\cdots -e_{i-2}) \quad \text{ and }(-1)^{i-2+1}(-v,e_0,\cdots e_{i-2})=(-1)^{i-2+1+i-2}(-v,-e_0,\cdots -e_{i-2})\,.
-			\end{equation*} Since the sign of $(-1)^{i-2+1+i-2}$ is always negative, they never agree.
-			
-			\begin{comment}
-				
-				
-				\begin{equation*}
-					-x_{i}e_{i-1},e_0,\cdots e_{i-2}\,.
-				\end{equation*} These basis carry the same orientation as the basis $e_0,\cdots e_{i-1}$ if and only if $i$ is odd.  which can be seen by a case distinction of the parity of $i$: Assume that $i$ is even. Then odd many transpositions bring $-x_{i}e_{i-1}$ to the back. and since $-x_{i}$ we cannote make it compatible. If $i$ is odd, then even many transpositions are needed to bring $-x_{i}e_{i-1}$ to the back and the basis are compatible. 
-				Hence, if $i$ is odd, we have to count two connecting flow lines and if $i$ is even, we count minus two, which is wrong.
-				An alternative approach gives the same wrong answer: 
-				
-				ok argue the other direction: we take the basis $(e_0,\cdots e_{i-1})$ of $T_{[e_i]}U_{[e_i]}$. Then we move it along the flow to $T_xU_{[e_i]}$ (and get the basis $(e_0,\cdots e_{i-2},x_ie_{i-1}-x_{i-1}e_i)$ ) and manipulate orientation preservingly, such that $-\grad_x(\tilde{\Lambda})$ is the FIRST basis vector. Hence $-v$ is the fist. hence we need $i-2$ transpostioons and a change of sing in the first entry. Now if $i$ is odd then we end with the basis $(-v,e_0,\cdots e_{i-2})$ and if $i$ is even we have the basis $(-v,-e_0,e_1,\cdots e_{i-2})$ finally we need to cut out $v$ and compare to the bases $(e_0,\cdots e_{i-2})$ coming from $T_{[e_{i-1}]}U_{[e_{i-1}]}$. Hence they agree iff $i$ is odd. Where is the mistake?
-			\end{comment}
+			\end{equation*} Since the sign of $(-1)^{i-2+1+i-2}$ is always negative, they never agree. Hence, the Morse boundary operator counts minus two flow lines, if $i$ is even and else, the two flow lines cancel out concluding the proof.
 		\end{proof}
+		Now we want to find out how $d_3$ looks. 
 	\end{example}
 	
