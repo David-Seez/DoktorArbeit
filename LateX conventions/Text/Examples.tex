@@ -245,7 +245,12 @@
 			d_3^3:\frac{\langle [e_3] \rangle }{\langle -2[e_3] \rangle } \to \langle [e_0] \rangle
 		\end{align*} To understand this differential we need to get specific about the used filtration. We define the filtration inductively as follows:
 		\begin{equation*}
-		N_m\coloneq \R\PP^n\quad \text{ and }\quad 	N_i\coloneq \frac{\{(x_0,\cdots x_n)\in N_{i+1}\,|\, \abs{x_i}\leq \frac{2}{3}\}}{\{\pm \id\}}
+		N_m\coloneq \R\PP^n\quad \text{ and }\quad 	N_i\coloneq \frac{\{(x_0,\cdots x_n)\in N_{i+1}\,|\, \abs{x_i}\leq \frac{3}{4}\}}{\{\pm \id\}}
 		\end{equation*}
+		Now we claim that $(N_i, N_{i-1})$ is a regular index pair for $\{[e_i]\}$. For this to be true we check the four properties: 
+		\begin{enumerate}[(i)]
+			\item First we check, if the closure of the maximal invarient subset of $N_i\setminus N_{i-1}$ is contained in the interior of $N_i\setminus N_{i-1}$. This is clear, since the only invariant subset is $\{[e_i]\}$. 
+			\item  To see that $N_{i-1}$ is positively invariant in $N_i$ we lift the flow to the sphere and show more general: if $[x]\in N_i$, then $\phi_t([x])\in N_i$ for all $i$ and $t\geq 0$: $[x]\in x_i$ means that $x_j\leq \frac{3}{4}$ for all $j>i$. Then $\phi_t([x])=[-A\Phi_t(x)]=[-\pi_r(A\Phi_t(x))]$ for the radial projection $\pi_r$. We now claim that after the radial projection the $x_j$ values for $j>i$ never increase along the flow.
+		\end{enumerate}
 	\end{example}
 	
