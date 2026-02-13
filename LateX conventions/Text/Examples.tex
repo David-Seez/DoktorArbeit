@@ -244,13 +244,9 @@
 		\begin{align*}
 			d_3^3:\frac{\langle [e_3] \rangle }{\langle -2[e_3] \rangle } \to \langle [e_0] \rangle
 		\end{align*} To understand this differential we need to get specific about the used filtration. We define the filtration inductively as follows:
-		\begin{equation*}
-		N_m\coloneq \R\PP^n\quad \text{ and }\quad 	N_i\coloneq \frac{\{(x_0,\cdots x_n)\in N_{i+1}\,|\, \abs{x_i}\leq \frac{3}{4}\}}{\{\pm \id\}}
-		\end{equation*}
-		Now we claim that $(N_i, N_{i-1})$ is a regular index pair for $\{[e_i]\}$. For this to be true we check the four properties: 
-		\begin{enumerate}[(i)]
-			\item First we check, if the closure of the maximal invarient subset of $N_i\setminus N_{i-1}$ is contained in the interior of $N_i\setminus N_{i-1}$. This is clear, since the only invariant subset is $\{[e_i]\}$. 
-			\item  To see that $N_{i-1}$ is positively invariant in $N_i$ we lift the flow to the sphere and show more general: if $[x]\in N_i$, then $\phi_t([x])\in N_i$ for all $i$ and $t\geq 0$: $[x]\in x_i$ means that $x_j\leq \frac{3}{4}$ for all $j>i$. Then $\phi_t([x])=[-A\Phi_t(x)]=[-\pi_r(A\Phi_t(x))]$ for the radial projection $\pi_r$. We now claim that after the radial projection the $x_j$ values for $j>i$ never increase along the flow.
-		\end{enumerate}
+	For any $i$ define $c_i\in (\lambda_i,\lambda_{i+1})$ and with this we define the filtration 
+	\begin{equation*}
+		N_{-1}\coloneq \emptyset,\quad N_i=\tilde{\Lambda}(-\infty,c_i) \text{ the sublevel sets }, \quad N_n\coloneq \R\PP^n\,.
+	\end{equation*} With this filtration it is somewhat easy to see that $(N_i,N_{i-1})$ gives a regular index pair of $[e_i]$. One just needs to go through the definitions: First it is clear, that the only critical point inside of the closure of $N_i\setminus N_{i-1}$ is $[e_i]$ and it is in the interiour. Secondly, the positiv lime invariance is clear, since $\tilde{\Lambda}$ decreases along flow lines. And $N_{i-1}$ is an exit set also by definition. Finally the cofibration property of the pair $N_i,N_{i-1}$ is to be shown. For this we notice, that $c_i$ is a regular value of $R$. Hence there exists an $\epsilon>0$, such that $f^{-1}\left([a,a+\epsilon)\right)$ contains no kritical point and hence this defines an open color of $N_i$ inside $N_{i+1}$. This open color can easyly be shown to be an NDR pair, which in turn is a cofibration. Those are standart arguments seen in \cite{Whitehead1978} Chapter 5.1. Now that we have our filtration we can start looking at higher differentials: 
 	\end{example}
 	
