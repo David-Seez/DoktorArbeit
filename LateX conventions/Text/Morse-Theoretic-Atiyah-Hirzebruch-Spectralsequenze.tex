@@ -288,7 +288,7 @@ A \textbf{morphism} $\Phi:I\to Y$ between two connected simple systems $I=(I_0,I
 \begin{proof}
 	Let $(D,E,\alpha,\beta,\gamma)$ be the exact couple we started with and call the derived couple $(D',E',\alpha',\beta',\gamma')$.
 	First we show the well definition of $\beta$. Let $a\in D'=\alpha(a_1)=\alpha(a_2)$. Then $a_1-a_2\in \ker\alpha=\im \gamma $. Hence $\beta(a_1)-\beta(a_2)=\beta(a_1-a_2)\in \im (\beta\circ \gamma)=\im d$. Furthermore, since $\beta(a_1)\in \im \beta=\ker\gamma \subseteq \ker d$ we have that the map $\beta'$ is well defined. For the well definition of $\gamma'$ we ssume that $[b_1]=[b_2]\in E'$. But then the difference of $b_1$ and $b_2$ is zero in $E'$ meaning in the image oif $d$, which is again contained in the image of $\beta$ and thereby in the kernal of $\alpha$. This menas that under $\alpha$ the image of $b_1$ and $b_2$ agree.
-	Now to show that the derived couple is also exact one continuous the diagram yoga. We do exemplary the equiality of the kernal of $\beta'$ with the image of $\alpha'$:
+	Now to show that the derived couple is also exact one continuous the diagram yoga. We do exemplary the equality of the kernal of $\beta'$ with the image of $\alpha'$:
 	Assume that $\beta'(x)=0$. That means that $\beta(\tilde{x})\in \im d$ with $\alpha(\tilde{x})=x$. We now want to show that $x\in \alpha^2D$, and do this by showing that $\tilde{x}=\alpha(z)$ for some $z$. Now since $\beta(\tilde{x})\in \im d$ we have that $\beta(\tilde{x})=d(y)=\beta\circ \gamma(x)$ for some $y$. In other words, $\tilde{x}-\gamma(y)\in \ker \beta=\im \alpha$. Hence, $\tilde{x}-\gamma(y)=\alpha(z)$ for some $z$. But now applying $\alpha$ to both side and using that $\alpha\circ \gamma=0$ we can deduce that $\alpha^2(z)=\alpha(\tilde{x})$. This shows that the kernal of $\beta'$ is contained in the image of $\alpha'$. The other direction of the inclusion is easier: Let $a=\alpha(\tilde{a}) \in D'$. Then $\beta'\circ \alpha'(z)=[\beta(z)]=\beta\circ \alpha (\tilde{a})=0$. Similary one checks for exactnes in the other corners.
 	Now to show that we have an endofunktor we need to define what to do on morphisms. So assume that we have the two exact couples $(D,E,\alpha,\beta,\gamma)$ and $(\widetilde{D},\widetilde{E},\widetilde{\alpha},\widetilde{\beta},\widetilde{\gamma})$ with the morphisms $(f:D\to \widetilde{D},g:E\to \widetilde{E})$. We now need to define a morphism of exact couples $((f':D'\to \widetilde{D}',g:E'\to \widetilde{E}'))$ between the derived couples. For this we define:
 	\begin{equation*}
@@ -299,15 +299,15 @@ A \textbf{morphism} $\Phi:I\to Y$ between two connected simple systems $I=(I_0,I
 	We can now iterate this procedure to get a list of spaces with maps
 	$ (E,d),(E',d'),(E'',d'')\dots$ or often written as $(E_1,d_1),(E_2,d_2),\dots$ which is called a \textbf{spectral sequence}. Notice how $E_{r+1}$ is given by $(E_r,d_r)$ whilst $d_{r+1}$ needs further information. Whilst the spectral sequence is defined inductively, the needed information is not captured in $(E_r,d_r)_r$ but rather in the exact couple. Or said differently, we get a sequence of exact couples $(E_r,D_r,\alpha_r,\beta_r,\gamma_r)$ from which we can get the spectral sequence. We can reformulate the maps as follows:
 	\begin{equation*}
-		D_r= \alpha^{r-1}(D),\quad E_r=\ker d_{r-1}\big/ \im d_{r-1},\quad  \alpha_r= \restr{\alpha}{ \alpha^{r-1}(D)} ,\quad \beta_r =[\beta \circ  \alpha^{r-1}], \quad \gamma_r= \gamma, \quad  d_r= \beta_r\circ \gamma_r
-	\end{equation*}
+		D_r= \alpha^{r-1}(D),\quad E_r=\ker d_{r-1}\big/ \im d_{r-1},\quad  \alpha_r= \restr{\alpha}{ \alpha^{r-1}(D)} ,\quad \beta_r =[\beta \circ  \alpha^{1-r}], \quad \gamma_r= \gamma, \quad  d_r= \beta_r\circ \gamma_r
+	\end{equation*} $\alpha^{1-r}$ means taking the preimage by alpha $1-r$ times. The well definition of this formulation was proven earlier. 
 	The bidegree of the maps is easy to deduct from the formulations above:
 	\begin{equation*}
 		\begin{array}{lll}
 			\alpha_r&\text{ has bidegree }& (-1,1)    \\
 			\beta_r &\text{ has bidegree }& (-r+2,r-1)\\
 			\gamma_r&\text{ has bidegree }& (0,0)     \\
-			d_r     &\text{ has bidegree }& (-r+2,r-1)\\
+			d_r     &\text{ has bidegree }& (r,+r+1)\\
 		\end{array}
 	\end{equation*}
 \end{definition}
@@ -364,13 +364,13 @@ A \textbf{morphism} $\Phi:I\to Y$ between two connected simple systems $I=(I_0,I
 	\end{equation*}
 \end{corollary}
 \begin{corollary}[The Exact Sequence Stabilizes]
-	For all $r\geq m-1$ it holds that
+	For all $r\geq m+1$ it holds that
 	\begin{equation*}
 		E_{r}=E_{r+1}=\cdots
 	\end{equation*} For this great enough $r$ we define $E_{\infty}\coloneq E_{r}$.
 \end{corollary}
 \begin{proof}
-	Notice how our original $E^{p,q}$ is supportet in a strip regarding $p$ which is fancy languare for saying that $E^{p,q}=0$ for $p>0$ and for $p\geq m$. These conditinos cary through the whole spectral sequence, as suceeding pages are quotients of preceeding ones respecting the grading. Now the map $d_r$ has bidegree $(-r+2,r-1)$, and hence $d_r=0$ since the domain or codomain is zero , if the $p$ grading is greater then the $p-$length of the supporting strip meaning $|-r+2|>m$ which gives us the claimes $r\geq m-1$.
+	Notice how our original $E^{p,q}$ is supportet in a strip regarding $p$ which is fancy languare for saying that $E^{p,q}=0$ for $p>0$ and for $p\geq m$. These conditinos cary through the whole spectral sequence, as suceeding pages are quotients of preceeding ones respecting the grading. Now the map $d_r$ has bidegree $(r,-r+1)$, and hence $d_r=0$ since the domain or codomain is zero , if the $p$ grading is greater then the $p-$length of the supporting strip meaning $p>m$ which gives us the claimes $r\geq m+1$.
 \end{proof}
 Now we refomulate the corollary \ref{cor: explicit pages of exact sequences arising from exact couples} for the infinity page. We have the constant sequence of groups $E_r=E_{r+1}=\cdots$ and by the corollary we have
 \begin{equation*}
