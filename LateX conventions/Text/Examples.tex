@@ -247,6 +247,56 @@
 	For any $i$ define $c_i\in (\lambda_i,\lambda_{i+1})$ and with this we define the filtration 
 	\begin{equation*}
 		N_{-1}\coloneq \emptyset,\quad N_i=\tilde{\Lambda}(-\infty,c_i) \text{ the sublevel sets }, \quad N_n\coloneq \R\PP^n\,.
-	\end{equation*} With this filtration it is somewhat easy to see that $(N_i,N_{i-1})$ gives a regular index pair of $[e_i]$. One just needs to go through the definitions: First it is clear, that the only critical point inside of the closure of $N_i\setminus N_{i-1}$ is $[e_i]$ and it is in the interiour. Secondly, the positiv lime invariance is clear, since $\tilde{\Lambda}$ decreases along flow lines. And $N_{i-1}$ is an exit set also by definition. Finally the cofibration property of the pair $N_i,N_{i-1}$ is to be shown. For this we notice, that $c_i$ is a regular value of $R$. Hence there exists an $\epsilon>0$, such that $f^{-1}\left([a,a+\epsilon)\right)$ contains no kritical point and hence this defines an open color of $N_i$ inside $N_{i+1}$. This open color can easyly be shown to be an NDR pair, which in turn is a cofibration. Those are standart arguments seen in \cite{Whitehead1978} Chapter 5.1. Now that we have our filtration we can start looking at higher differentials: 
+	\end{equation*} With this filtration it is somewhat easy to see that $(N_i,N_{i-1})$ gives a regular index pair of $[e_i]$. One just needs to go through the definitions: First it is clear, that the only critical point inside of the closure of $N_i\setminus N_{i-1}$ is $[e_i]$ and it is in the interiour. Secondly, the positiv lime invariance is clear, since $\tilde{\Lambda}$ decreases along flow lines. And $N_{i-1}$ is an exit set also by definition. Finally the cofibration property of the pair $N_i,N_{i-1}$ is to be shown. For this we notice, that $c_i$ is a regular value of $R$. Hence there exists an $\epsilon>0$, such that $f^{-1}\left([a,a+\epsilon)\right)$ contains no kritical point and hence this defines an open color of $N_i$ inside $N_{i+1}$. This open color can easyly be shown to be an NDR pair, which in turn is a cofibration. Those are standart arguments seen in \cite{Whitehead1978} Chapter 5.1.
+	\begin{lemma}
+		In the filtration, each $N_i$ is homotopically equivalent to $\R\PP^i$. 
+	\end{lemma}
+	\begin{proof}
+\begin{comment}
+			We proof this by induction a,d for $N_0$ this is clear, since the space is contractible to $[e_0]$ via the flow. Hence it is homotopically equivalent to a point which is $\R\PP^0$ by definition. Now assume that $N_i\simeq \R\PP^i$ for $i\leq n$. We know that by the Morse theory $N_{n+1}$ has the homotopy type of $N_n$ with a disc of dimension $n+1$ attached. Hence
+	\begin{equation*}
+		N_{n+1}\simeq N_m\cup_\phi D^n
+	\end{equation*} Now we need to analyce the attaching map $\phi$:
+\end{comment} 
+Notice how for all $i$ the closure $\overline{U_i}$ is homotopically equivalent to $\R\PP^i$. So we want to show that $N_i\simeq \overline{U_i}$ and for this we start by noticing that $N_i\simeq \tilde{\Lambda}^{-1}(-\infty,\lambda_{i-1}+\epsilon)$ for all $\epsilon>0$ small enough. Now the next step is to get rid of epsilon. Let $L_\epsilon$ denote $\tilde{\Lambda}^{-1}(-\infty,\lambda_{i-1}+\epsilon)$ and hence we want to show that $L{\epsilon}\simeq L_0$. For this we define 
+\begin{equation*}
+	H:L_\epsilon \times [0,1] \to L_\epsilon\,\quad ([x],t) \text{ with }\norm{x}=1 \mapsto \left[\sum_{j=1}^i x_j^2e_j +(1-t)\sum_{j>i}x_j^2e_j \right] 
+\end{equation*} 
+First we need to check if this map is well defined in two senses. Is the definition invariant under the chosen representative and do we map into $L_\epsilon$. 
+For the independence of the chosen representative we notice that the image of $x$ and $-x$ differ by sign and hence define the same equivalence class. Also applying $\tilde{\Lambda}$ to the image we notice that the image is less then $\lambda_{i}+\epsilon$. this is true, since $\tilde{\Lambda}$ is a weighted sum of the eigenvalues and the addition of $(1-t)$ decreases the weights on the bigger eigenvalues reducing the sum: \todo{in formeln nachrechnen}
+
+
+ To see this we normalize the image of $H_t$ for any $t$ and apply $\tilde{\Lambda}$: 
+\begin{equation*}
+	\tilde{\Lambda}(H_t([x]))=\frac{\sum_{j\leq i} \lambda_j x_j^2+(1-t)\sum_{j>i}\lambda_jx_j^2}{{\sum_{j\leq i}  x_j^2+(1-t)\sum_{j>i}x_j^2}}\leq 
+\end{equation*}
+
+
+	\end{proof}
+	
+	
+	
+	
+	 Now that we have our filtration we can start looking at higher differentials: For this we start with $n=3$ and then go up. In the case of $n=3$ we are tivial, since $d^0_3$ is given by the composition
+	\begin{center}
+		\begin{tikzcd}
+			&&K^0(N_3 )\arrow[d,"i^*"]\\
+			K^{0}(N_0,\emptyset)\arrow[rrd,"d_3"] \arrow[r,"\gamma"] &K^0(N_0)\arrow[r,"\widetilde{\alpha^{-2}}"]& K^{0}(N_2) \arrow[d,"\delta"]\\
+			&&K^1(N_3,N_2)
+		\end{tikzcd}
+	\end{center}
+
+			Here $\alpha^{-1}$ is any left inverse of $\alpha^2$ or taking the preimage (the well definednes or rather independence of the choosen inverse was shown in the definition of the derived exact couple). The vertical sequence is exact and since $N_2=N_3\setminus D$ where $D$ is contractible, we have that $i^*$ is surjective and hence $\delta$ is trivial and thereby $dM_3^0=0$.
+			The same arguments yealds that for $\R\PP^4$ the map $d^1_3=0$.
+			And hence for $\R\PP^n$ with $n\leq4$ all higher differentials are trivial. Let $n=5$. Then we have a chance for a nontrivial $d_3^0$.
+			Again, the map is given via the diagram 
+			\begin{center}
+				\begin{tikzcd}
+					&&K^0(N_3 )\arrow[d,"i^*"]\\
+					K^{0}(N_0,\emptyset)\arrow[rrd,"d_3"] \arrow[r,"\gamma"] &K^0(N_0)\arrow[r,"\widetilde{\alpha^{-2}}"]& K^{0}(N_2) \arrow[d,"\delta"]\\
+					&&K^1(N_3,N_2)
+				\end{tikzcd}
+			\end{center}
+			However this time, $N_2$ is not just $N_3$ with something collapsable removed and hence there is no clear argument why $i^*$ should be surjective. 
 	\end{example}
 	
