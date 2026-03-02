@@ -211,12 +211,12 @@
 			\end{equation*} we manipulate the first and keep note of the sign of the alterations:
 			\begin{equation*}
 				(-v,-e_0,\cdots -e_{i-2})=(-1)^{i}(v,e_0,\cdots e_{i-2}) =(-1)^{i+i-1}(e_0,\dots e_{i-2},v)\,.
-			\end{equation*} Hence, the orientations never agree. Therefore the counting of flow lines noted by $n(p,q)$ gives: 
+			\end{equation*} Hence, the orientations never agree. Now if $i$ is odd the two flow lines cancel out when counted with the sign and if $i$ is even, we count minus two flow lines. Therefore the counting of flow lines noted by $n(p,q)$ gives: 
 			
 			\begin{equation*}
-				n(e_{i+1},e_i)={(-1)}^i-1
+				n(e_{i+1},e_i)={(-1)}^i-1\,,
 			\end{equation*}
-			The Morse cohomology boundary operator hence equals:
+			and the Morse cohomology boundary operator equals:
 		\begin{equation*}
 			\partial_i([e_i])=n([e_{i-1}],e_i) [e_{i+1}]= ({(-1)}^i-1)[e_{i+1}]
 		\end{equation*}	
@@ -224,44 +224,46 @@
 		Now for even $n$, $EM_1$ of the form:
 		\begin{center}
 			\begin{tikzcd}
-				0&\langle [e_0] \rangle \arrow[r,"-2"]&\langle [e_1] \rangle \arrow[r,"0"]&\langle [e_2] \rangle \arrow[r,"-2"]&\cdots \arrow[r,"-2"] &\langle [e_n] \rangle \arrow[r,"0"]&0
+				0&\langle [e_0] \rangle \arrow[r,"0"]&\langle [e_1] \rangle \arrow[r,"-2"]&\langle [e_2] \rangle \arrow[r,"0"]&\cdots \arrow[r,"-2"] &\langle [e_n] \rangle \arrow[r,"0"]&0
 			\end{tikzcd}
 		\end{center} and for odd $n$:
 		\begin{center}
 					\begin{tikzcd}
-			0&\langle [e_0] \rangle \arrow[r,"-2"]&\langle [e_1] \rangle \arrow[r,"0"]&\langle [e_2] \rangle \arrow[r,"-2"]&\cdots \arrow[r,"0"] &\langle [e_n] \rangle \arrow[r,"0"]&0
+			0&\langle [e_0] \rangle \arrow[r,"0"]&\langle [e_1] \rangle \arrow[r,"-2"]&\langle [e_2] \rangle \arrow[r,"0"]&\cdots \arrow[r,"0"] &\langle [e_n] \rangle \arrow[r,"0"]&0
 		\end{tikzcd}
 			\end{center}
 		Hence we have the $EM_2$ pages as follows:
 		\begin{center}
 			\begin{tikzcd}
-				0&\langle [e_0] \rangle &0
-			\frac{\langle [e_1] \rangle }{\langle -2[e_1] \rangle } 
+				0&\langle [e_0] \rangle &0&
+			\frac{\langle [e_2] \rangle }{\langle -2[e_2] \rangle } 
 			&0
-			&	\frac{\langle [e_3] \rangle }{\langle -2[e_3] \rangle }
 			&\cdots 
 			&	\frac{\langle [e_n] \rangle }{\langle -2[e_n] \rangle }&0
 			\end{tikzcd}
 		\end{center} if $n$ is even, and in the odd case: 
 		\begin{center}
 			\begin{tikzcd}
-	0&\langle [e_0] \rangle &
-	\frac{\langle [e_1] \rangle }{\langle -2[e_1] \rangle } 
-	&0
-	&	\frac{\langle [e_3] \rangle }{\langle -2[e_3] \rangle }
+	0&\langle [e_0] \rangle &0&
+\frac{\langle [e_2] \rangle }{\langle -2[e_2] \rangle } 
+&0
 	&\cdots 
 	&\langle [e_n] \rangle &0
 \end{tikzcd}
 		\end{center}
-		When it comes to higher differentials, we notice the following: Only for odd $r$ the differentials are possible nontrivial. Hence, the differentials change the parity of $p$. Hence the only possible way this is not trivial is, if $d_r$ maps to $p=0$. 
-		Hence for $r=3$ the only differential we need to look at is 
-		\begin{align*}
-			d_3^3:\frac{\langle [e_3] \rangle }{\langle -2[e_3] \rangle } \to \langle [e_0] \rangle
-		\end{align*} To understand this differential we need to get specific about the used filtration. We define the filtration inductively as follows:
+		When it comes to higher differentials, we notice the following: Only for odd $r$ the differentials are possible nontrivial Hence for $\R\PP^2$ we are done and we can get the complex k-groups: 
+		For $K^0(\R\PP^2)$ we get a associeted graded group that is isomorphic to $\Z\oplus \Z_2$. Hence we need to calculate the extension 
+		\begin{center}
+			\begin{tikzcd}
+				0\arrow[r]& \Z \arrow[r]&K^0(\R\PP^2)&\arrow[r]&\Z_2\arrow[r]&0
+			\end{tikzcd}
+		\end{center} giving us $K^0(\R\PP^2)\cong \Z\oplus \Z_2$. 
+		And similar $K^1(\R\PP^2)=0$. 
+		To understand the higher differentials we need to get specific about the used filtration. We define the filtration inductively as follows:
 	For any $i$ define $c_i\in (\lambda_i,\lambda_{i+1})$ and with this we define the filtration 
 	\begin{equation*}
 		N_{-1}\coloneq \emptyset,\quad N_i=\tilde{\Lambda}(-\infty,c_i) \text{ the sublevel sets }, \quad N_n\coloneq \R\PP^n\,.
-	\end{equation*} With this filtration it is somewhat easy to see that $(N_i,N_{i-1})$ gives a regular index pair of $[e_i]$. One just needs to go through the definitions: First it is clear, that the only critical point inside of the closure of $N_i\setminus N_{i-1}$ is $[e_i]$ and it is in the interiour. Secondly, the positiv lime invariance is clear, since $\tilde{\Lambda}$ decreases along flow lines. And $N_{i-1}$ is an exit set also by definition. Finally the cofibration property of the pair $N_i,N_{i-1}$ is to be shown. For this we notice, that $c_i$ is a regular value of $R$. Hence there exists an $\epsilon>0$, such that $f^{-1}\left([a,a+\epsilon)\right)$ contains no kritical point and hence this defines an open color of $N_i$ inside $N_{i+1}$. This open color can easyly be shown to be an NDR pair, which in turn is a cofibration. Those are standart arguments seen in \cite{Whitehead1978} Chapter 5.1.
+	\end{equation*} With this filtration it is somewhat easy to see that $(N_i,N_{i-1})$ gives a regular index pair of $[e_i]$. One just needs to go through the definitions: First it is clear, that the only critical point inside of the closure of $N_i\setminus N_{i-1}$ is $[e_i]$ and it is in the interiour. Secondly, the positiv lime invariance is clear, since $\tilde{\Lambda}$ decreases along flow lines. And $N_{i-1}$ is an exit set also by definition. Finally the cofibration property of the pair $N_i,N_{i-1}$ is to be shown. For this we notice, that $c_i$ is a regular value of $R$. Hence there exists an $\epsilon>0$, such that $f^{-1}\left([a,a+\epsilon)\right)$ contains no critical point and hence this defines an open color of $N_i$ inside $N_{i+1}$. This open color can be shown to be an NDR pair, which in turn is a cofibration. Those are standart arguments seen in \cite{Whitehead1978} Chapter 5.1.
 	\begin{lemma}
 		In the filtration, each $N_i$ is homotopically equivalent to $\R\PP^i$. 
 	\end{lemma}
@@ -272,7 +274,7 @@
 		N_{n+1}\simeq N_m\cup_\phi D^n
 	\end{equation*} Now we need to analyce the attaching map $\phi$:
 \end{comment} 
-Notice how for all $i$ the sublevelset $\tilde{\Lambda}{-1}(-\infty,\lambda_i]$ is an embedded projective space $\R\PP^i$.To show that $N_i$ is homotopically equivalent we start by noticing that $N_i\simeq \tilde{\Lambda}^{-1}(-\infty,\lambda_{i-1}+\epsilon)$ for all $\epsilon>0$ small enough. Now the next step is to get rid of epsilon. Let $L_\epsilon$ denote $\tilde{\Lambda}^{-1}(-\infty,\lambda_{i-1}+\epsilon)$ and hence we want to show that $L{\epsilon}\simeq L_0$. For this we define 
+Notice how for all $i$ the sublevelset $\tilde{\Lambda}^{-1}(-\infty,\lambda_i]$ is an embedded projective space $\R\PP^i$.To show that $N_i$ is homotopically equivalent we start by noticing that $N_i\simeq \tilde{\Lambda}^{-1}(-\infty,\lambda_{i-1}+\epsilon)$ for all $\epsilon>0$ small enough. Now the next step is to get rid of epsilon. Let $L_\epsilon$ denote $\tilde{\Lambda}^{-1}(-\infty,\lambda_{i-1}+\epsilon)$ and hence we want to show that $L{\epsilon}\simeq L_0$. For this we define 
 \begin{equation*}
 	H:L_\epsilon \times [0,1] \to L_\epsilon\,\quad ([x],t) \text{ with }\norm{x}=1 \mapsto \left[\sum_{j=1}^i x_je_j +(1-t)\sum_{j>i}x_je_j \right] 
 \end{equation*} 
@@ -284,8 +286,8 @@ Now obviously $H_1$ maps to  $\tilde{\Lambda}{-1}(-\infty,\lambda_i]$.
 	
 	
 	
-	
-	 Now that we have our filtration we can start looking at higher differentials: For this we start with $n=3$ and then go up. In the case of $n=3$ we are tivial, since $d^0_3$ is given by the composition
+	\todo{$d_3^0$ ist sowieso 0, da das bild 0 ist!!}
+	 Now that we have our filtration we can start looking at higher differentials: For this we start with $n=3$ and then go up. In the case of $n=3$ we are tr+livial, since $d^0_3$ is given by the composition
 	\begin{center}
 		\begin{tikzcd}
 			&&K^0(N_3 )\arrow[d,"i^*"]\\
@@ -296,15 +298,23 @@ Now obviously $H_1$ maps to  $\tilde{\Lambda}{-1}(-\infty,\lambda_i]$.
 
 			Here $\alpha^{-1}$ is any left inverse of $\alpha^2$ or taking the preimage (the well definednes or rather independence of the choosen inverse was shown in the definition of the derived exact couple). The vertical sequence is exact and since $N_2=N_3\setminus D$ where $D$ is contractible, we have that $i^*$ is surjective and hence $\delta$ is trivial and thereby $dM_3^0=0$.
 			The same arguments yealds that for $\R\PP^4$ the map $d^1_3=0$.
-			And hence for $\R\PP^n$ with $n\leq4$ all higher differentials are trivial. Let $n=5$. Then again, the map is given via the diagram 
+			And hence for $\R\PP^n$ with $n\leq4$ all higher differentials are trivial and the second page is also the last page. This lets us conclude, that $K^0(\R\PP^3)$ is an extension of $/Z\oplus \Z_2$ and there is only one possible extension namely the splitting one. Hence $K^0(\R\PP^3)\cong \Z\otimes \Z_2$. Similar we get $K^1(\R\PP^3)\cong\Z$ 
+			
+			
+			
+			Let $n=5$. Then again, the map is given via the diagram 
 			\begin{center}
 				\begin{tikzcd}
 					&&K^0(N_3 )\arrow[d,"i^*"]\\
 					K^{0}(N_0,\emptyset)\arrow[rrd,"d_3"] \arrow[r,"\gamma"] &K^0(N_0)\arrow[r,"\widetilde{\alpha^{-2}}"]& K^{0}(N_2) \arrow[d,"\delta"]\\
 					&&K^1(N_3,N_2)\arrow[d]\\
-					&&K^1(N_3)\\
+					&&K^1(N_3)\arrow[d]\\
+					&&K^1(N_2)\\
 				\end{tikzcd}
 			\end{center}
-			However this time, since $N_3\simeq \R\PP^3$ we have that $K^1(N_3)=0$ (This is well known)
+			However this time, since $N_3\simeq \R\PP^3$ we have that $K^1(N_3)=\Z$ and we have that $K^1(N_2)=0$. Hence, $K^1(N_3,N_2)\to K^1(N_3)$ is surjective and hence an isomorphism, resulting in $\delta=0$. The next candidate for a nontrivial higher differential is $d_3^{3}$ which however is trivial since there is not other homomorphism form $Z_2$ to $\Z$. So our hope is on $d_5$ now! However this is again zero.... In fact all higher differential are zero!   
+	\end{example}
+	
+	\begin{example}Make a produkt morse funktion on $\R\PP^2\times \R\PP^4$!. 
 	\end{example}
 	
