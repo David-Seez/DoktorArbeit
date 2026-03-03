@@ -415,6 +415,35 @@ Hence in our later inspections of $E_{\infty}$ we can assume $r$ to be arbitrary
 		\frac{\ker \left(K^{p+q}(M)\to K^{p+q}(N_{p-1})\right) }{\ker\left( K^{p,q}(M)\to K^{p,q}(N_p)\right)} \cong L^{p,q}\,,
 	\end{equation*} that is induced by the pullback of the inclusion. Together with the $\gamma$ induced isomorphism from $E_\infty^{p,q}\to L^{p,q}$ we conclude the proof.
 \end{proof}
+\begin{definition}[Associated Graded Group]
+	Let $G$ be a group together with a finite filtration of subgroups $\{F^i\}_{i=-1,\dots,-m}$ for $i=-1,\dots m$ such that 
+	\begin{equation*}
+		G=F^{-1}\subseteq F^0 \subseteq F^1\subseteq \cdots \subseteq F^{m-1}\subseteq F^m=0
+	\end{equation*}
+	Then we define the \textbf{associated graded group of $G$ with respect to the Filtration $\{F_i\}$} to be 
+	\begin{equation*}
+		\gr(G)\coloneq \bigoplus_{i=0}^{m} F^{i-1}\big/ F^{i}\, .
+	\end{equation*} 
+	From $\gr(G)$ we can rebuild $G$ by rebuilding $\{F^i\}$ up to extension problems in the following way:
+	\begin{equation*}
+		\begin{array}{ll}
+			F^{m-1} & =F^{m-1}\big/F^m=\gr(G)_m \\
+			F^{m-2} &  \text{ is an extension } 
+			\begin{tikzcd}
+				0 \arrow[r] & F^{m-1} \arrow[r] & F^{m-2} \arrow[r] & F^{m-2}\big/F^{m-1}=\gr(G)_{m-1} \arrow[r] & 0
+				\end{tikzcd}\\
+		F^{m-1}&  \text{ is an extension } 
+		\begin{tikzcd}
+			0 \arrow[r] & F^{m-2} \arrow[r] & F^{m-3} \arrow[r] & F^{m-3}\big/F^{m-2}=\gr(G)_{m-2} \arrow[r] & 0
+		\end{tikzcd} \\
+		\vdots & \cdots\\
+		F^{-1}&  \text{ is an extension } 
+		\begin{tikzcd}
+			0 \arrow[r] & F^{0} \arrow[r] & F^{-1} \arrow[r] & F^{-1}\big/F^{0}=\gr(G)_{0} \arrow[r] & 0
+		\end{tikzcd}
+		\end{array}
+	\end{equation*}
+\end{definition}
 \begin{corollary}
 	Define the groups
 	\begin{equation*}
