@@ -530,6 +530,54 @@ Another way to get an orientation there is to trivialize the bundle $TW(q\to)$ v
  	\end{remark}
 
 \end{remark}
+\begin{definition}[Morse Cohomology]
+Let $G$ be a commutative ring with one. To get the cohomology we have to dualice the chain complex. Let $\Crit_k(f)=\{p_1,\dots p_l\}$ be a basis of the $k$-th chain group $C_k(M,\mathfrak{A},G)$. Then the functionals
+\begin{equation*}
+	\eta_i:C_k(M,\mathfrak{A},G) \to G; p_j \mapsto \begin{cases*}
+		1 & \text{ if } j=i\\
+		0 & \text{ else.}
+	\end{cases*}
+\end{equation*} 
+are a basis of the dial group $C^k(M,\mathfrak{A},G)$. The coboundary map is easy to obtain too. Let $q_j$ for $j=1,\dots,r$ be the critical points with index $k+1$ and let $\xi_i$ be the corresponding forms. Then let $n_f(q_j,p_i)$ be the number of flow lines form $q_j$ to $p_i$ counted with the sign. Then the coboundary map is given as:
+\begin{align*}
+	\partial^k:C^k(M,\mathfrak{A},G) & \to C^{k+1}(M,\mathfrak{A},G)\\
+	\eta_i &\mapsto \partial^{k}\eta_i=\eta_i\circ \partial_{k+1}=\sum_j n_j(q_j,p_i) \xi_j \,.
+\end{align*}
+\end{definition}
+\begin{corollary}
+	If $M$ is an oriented manifold, orientations from the unstable tanged space in critical points $T^u_qM$ induce Orientations in the stable  
+\end{corollary}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Here i write a little bit about the Morse cohomology in german 
 \begin{theorem}[Morse Cohomology]
 	Um die Morse Kohomologie zu erhalten, dualizieren wir den Kettenkomplex für einen Ring $G$ mit 1. Sei $\Crit_k={p_1,...p_l}$ eine Basis der $k-$ten Kettengruppe. Für 
