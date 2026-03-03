@@ -255,7 +255,7 @@
 		For $K^0(\R\PP^2)$ we get a associeted graded group that is isomorphic to $\Z\oplus \Z_2$. Hence we need to calculate the extension 
 		\begin{center}
 			\begin{tikzcd}
-				0\arrow[r]& \Z \arrow[r]&K^0(\R\PP^2)&\arrow[r]&\Z_2\arrow[r]&0
+				0\arrow[r]& \Z \arrow[r]&K^0(\R\PP^2)\arrow[r]&\Z_2\arrow[r]&0
 			\end{tikzcd}
 		\end{center} giving us $K^0(\R\PP^2)\cong \Z\oplus \Z_2$. 
 		And similar $K^1(\R\PP^2)=0$. 
@@ -287,7 +287,20 @@ Now obviously $H_1$ maps to  $\tilde{\Lambda}{-1}(-\infty,\lambda_i]$.
 	
 	
 	\todo{$d_3^0$ ist sowieso 0, da das bild 0 ist!!}
-	 Now that we have our filtration we can start looking at higher differentials: For this we start with $n=3$ and then go up. In the case of $n=3$ we are tr+livial, since $d^0_3$ is given by the composition
+	 Now that we have our filtration we can start looking at higher differentials. If $n$ is even, then every other group in $EM_2$ is zero hence all higher differentials vanish as only odd $d_r$ are candidates to be non trivial. So let $n$ be odd. Then only differentials landing in the last group $EM_n$ can possible be non trivial. However, for all $r<n$ the differential that lands in $EM_r^m \cong \Z$ starts in $EM_r^{m-r}\cong \Z_2$. Hence they are all trivial as well. Now if $r=m$ we have the differential 
+	 \begin{equation*}
+	 	\diff_m^0:  EM_m^0 \to EM_m^m
+	 \end{equation*} which is possible non-zero. However this differential is given as follows: 
+	 
+	 \begin{center}
+	 	\begin{tikzcd}
+	 		&&K^0(N_m )\arrow[d,"i^*"]\\
+	 		K^{0}(N_0,\emptyset)\arrow[rrd,"d_m^0"] \arrow[r,"\gamma"] &K^0(N_0)\arrow[r,"\widetilde{\alpha^{-m}}"]& K^{0}(N_{m-1}) \arrow[d,"\delta"]\\
+	 		&&K^1(N_m,N_{m-1})
+	 	\end{tikzcd}
+	 \end{center}
+	 Here $\alpha^{-m}$ is any left inverse of $\alpha^m$ or taking the preimage (the well definednes or rather independence of the choosen inverse was shown in the definition of the derived exact couple). The vertical sequence is exact and since $N_{m-1}=N_m\setminus D$ where $D$ is contractible, we have that $i^*$ is surjective and hence $\delta$ is trivial and thereby $dM_m^0=0$.
+	  Then For this we start with $n=3$ and then go up. In the case of $n=3$ we are trivial, since $d^0_3$ is given by the composition
 	\begin{center}
 		\begin{tikzcd}
 			&&K^0(N_3 )\arrow[d,"i^*"]\\
@@ -296,23 +309,31 @@ Now obviously $H_1$ maps to  $\tilde{\Lambda}{-1}(-\infty,\lambda_i]$.
 		\end{tikzcd}
 	\end{center}
 
-			Here $\alpha^{-1}$ is any left inverse of $\alpha^2$ or taking the preimage (the well definednes or rather independence of the choosen inverse was shown in the definition of the derived exact couple). The vertical sequence is exact and since $N_2=N_3\setminus D$ where $D$ is contractible, we have that $i^*$ is surjective and hence $\delta$ is trivial and thereby $dM_3^0=0$.
-			The same arguments yealds that for $\R\PP^4$ the map $d^1_3=0$.
-			And hence for $\R\PP^n$ with $n\leq4$ all higher differentials are trivial and the second page is also the last page. This lets us conclude, that $K^0(\R\PP^3)$ is an extension of $/Z\oplus \Z_2$ and there is only one possible extension namely the splitting one. Hence $K^0(\R\PP^3)\cong \Z\otimes \Z_2$. Similar we get $K^1(\R\PP^3)\cong\Z$ 
+			Here $\alpha^{-1}$ is any left inverse of $\alpha^2$ or taking the preimage (the well definednes or rather independence of the choosen inverse was shown in the definition of the derived exact couple). The vertical sequence is exact and since $N_2=N_3\setminus D$ where $D$ is contractible. A contraction is given by flowing along the positive gradient of $\tilde{\Lambda}$. Hence, we have that $i^*$ is surjective and thereby $\delta$ is trivial resulting in $dM_m^0=0$. For all real projective spaces the spectral sequence becomes stable on the second page and hence we can calculate the complex K-groups: 
 			
 			
 			
-			Let $n=5$. Then again, the map is given via the diagram 
-			\begin{center}
-				\begin{tikzcd}
-					&&K^0(N_3 )\arrow[d,"i^*"]\\
-					K^{0}(N_0,\emptyset)\arrow[rrd,"d_3"] \arrow[r,"\gamma"] &K^0(N_0)\arrow[r,"\widetilde{\alpha^{-2}}"]& K^{0}(N_2) \arrow[d,"\delta"]\\
-					&&K^1(N_3,N_2)\arrow[d]\\
-					&&K^1(N_3)\arrow[d]\\
-					&&K^1(N_2)\\
-				\end{tikzcd}
-			\end{center}
-			However this time, since $N_3\simeq \R\PP^3$ we have that $K^1(N_3)=\Z$ and we have that $K^1(N_2)=0$. Hence, $K^1(N_3,N_2)\to K^1(N_3)$ is surjective and hence an isomorphism, resulting in $\delta=0$. The next candidate for a nontrivial higher differential is $d_3^{3}$ which however is trivial since there is not other homomorphism form $Z_2$ to $\Z$. So our hope is on $d_5$ now! However this is again zero.... In fact all higher differential are zero!   
+			
+			
+			\begin{comment}
+				 
+				The same arguments yealds that for $\R\PP^4$ the map $d^1_3=0$.
+				And hence for $\R\PP^n$ with $n\leq4$ all higher differentials are trivial and the second page is also the last page. This lets us conclude, that $K^0(\R\PP^3)$ is an extension of $/Z\oplus \Z_2$ and there is only one possible extension namely the splitting one. Hence $K^0(\R\PP^3)\cong \Z\otimes \Z_2$. Similar we get $K^1(\R\PP^3)\cong\Z$ 
+				
+				
+				
+				Let $n=5$. Then again, the map is given via the diagram 
+				\begin{center}
+					\begin{tikzcd}
+						&&K^0(N_3 )\arrow[d,"i^*"]\\
+						K^{0}(N_0,\emptyset)\arrow[rrd,"d_3"] \arrow[r,"\gamma"] &K^0(N_0)\arrow[r,"\widetilde{\alpha^{-2}}"]& K^{0}(N_2) \arrow[d,"\delta"]\\
+						&&K^1(N_3,N_2)\arrow[d]\\
+						&&K^1(N_3)\arrow[d]\\
+						&&K^1(N_2)\\
+					\end{tikzcd}
+				\end{center}
+				However this time, since $N_3\simeq \R\PP^3$ we have that $K^1(N_3)=\Z$ and we have that $K^1(N_2)=0$. Hence, $K^1(N_3,N_2)\to K^1(N_3)$ is surjective and hence an isomorphism, resulting in $\delta=0$. The next candidate for a nontrivial higher differential is $d_3^{3}$ which however is trivial since there is not other homomorphism form $Z_2$ to $\Z$. So our hope is on $d_5$ now! However this is again zero.... In fact all higher differential are zero!   
+			\end{comment}
 	\end{example}
 	
 	\begin{example}Make a produkt morse funktion on $\R\PP^2\times \R\PP^4$!. 
