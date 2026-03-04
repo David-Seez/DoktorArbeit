@@ -536,8 +536,32 @@ Notice how we already saw a different way to calculate the sign by the map from 
 		&=\diff_x(f)(V)+\diff_x'(f')(V')\\
 		&=g(\grad_x(f),V)+g'(\grad_{x}'(f'),V')\\
 		&=(g\oplus g')(\underbrace{(\grad_x(f),\grad_{x}'(f'))}_{\grad_{(x,x')}(f+f')},(V,V'))\,.
-	\end{align*} Hence the flow also splits and thereby the (un-)stable manifolds split Hence we can orient all unstable manifolds via that splitting whcih gives os $\mathfrak{o}\oplus \mathfrak{o}'$. Finally transversal intersection is a property that carries over to products and hence the Morse datum $(M\times M',\mathfrak{A}\times \mathfrak{A}',\Lambda)$ with $\mathfrak{A}\times \mathfrak{A}'\coloneq (g\oplus g',f+f',\mathfrak{o}\oplus \mathfrak{o}')$ really gives a valid Morse datum.^
+	\end{align*} Hence the flow also splits and thereby the (un-)stable manifolds split Hence we can orient all unstable manifolds via that splitting which gives os $\mathfrak{o}\oplus \mathfrak{o}'$. Finally transversal intersection is a property that carries over to products and hence the Morse datum $(M\times M',\mathfrak{A}\times \mathfrak{A}',\Lambda)$ with $\mathfrak{A}\times \mathfrak{A}'\coloneq (g\oplus g',f+f',\mathfrak{o}\oplus \mathfrak{o}')$ really gives a valid Morse datum.
+	The splitting of the flow gives a splitting of the connecting flow lines and hence of the mudular space: 
+	\begin{equation*}
+		\mathcal{M}\left((q,q')\to (p,p')\right)=\mathcal{M}(q\to p\times \mathcal{M}(p\to p)
+	\end{equation*} Assume that $p\neq p'$ and $q\neq q'$. Then for the modular space to be non empty we need 
+	\begin{equation*}
+		\ind(q)>\ind(p) \quad \text{and}\quad \ind(q')>\ind(p')\,.
+	\end{equation*} This results in the index of $(q,q')$ being at least two bigger then the index of $(p,p')$. Hence, if we want to count flow lines between two consecutive indices, either $p=p'$ or $q=q'$. Then we have the modular space
+	\begin{equation*}
+		\mathcal{M}\left((q,q')\to (p,p')\right)=\begin{cases}
+			p\times \mathcal{M}(q',p')&\text{ if } p=q\\
+			\mathcal{M}(q,p)\times p' &\text{ if } p'=q' \,.
+		\end{cases}
+	\end{equation*}
+	And consequently, since the orientations also split we get for critical points $(q,q')$ and $(p,p')$ with consequtive indices:
+	\begin{equation*}
+		n\left((q,q'),(p,p') \right)=\begin{cases}
+			n(q',p') & \text{ if } q=p\\
+			n(q,p) & \text{ if } q'=p'\\
+			0& \text{ else.}
+		\end{cases}
+	\end{equation*}
 	\end{definition}
+	\begin{corollary}[The Boundary Morphism]
+		Th
+	\end{corollary}
 
 
 
