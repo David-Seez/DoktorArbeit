@@ -530,9 +530,22 @@ Another way to get an orientation there is to trivialize the bundle $TW(q\to)$ v
 Notice how we already saw a different way to calculate the sign by the map from lemma \ref{lem: Rho and Tau induces a Morse boundary orientation}. 
 \end{remark}
 \begin{definition}
-	Let $(M,\mathfrak{A},\Lambda)$ and $(M',\mathfrak{A}',\Lambda)$ be two Morse data with $\mathfrak{A}=(g,f,\mathfrak{o})$ and $ \mathfrak{A}'=(g',f',\mathfrak{o}')$. Then on $M\times M'$ we define the Morse function $f+f'$ and the metric $g\oplus g'$. 
-	
-\end{definition}
+	Let $(M,\mathfrak{A},\Lambda)$ and $(M',\mathfrak{A}',\Lambda)$ be two Morse data with $\mathfrak{A}=(g,f,\mathfrak{o})$ and $ \mathfrak{A}'=(g',f',\mathfrak{o}')$. Then on $M\times M'$ we define the Morse function $f+f'$ and the metric $g\oplus g'$. Then $\diff d_{(x,x')}(f+f')=\diff_x(f)+\diff_x'(f')$ and hence the critical points of $f+f'$ are pairs $(p,p')$ such that $p$ is critical for $f$ and $p'$ is critical for $f'$. By corollary \ref{cor: local form of the Hessian} we conclude that the hessian splits into block diagonal form and hence the property of non degenerayc follows. Since we use the product metric $g\oplus g'$ we also get a splitting gradient of $f+f'$: 
+	\begin{align*}
+		\diff_{(x,x')}(f+f')(V,V')
+		&=\diff_x(f)(V)+\diff_x'(f')(V')\\
+		&=g(\grad_x(f),V)+g'(\grad_{x}'(f'),V')\\
+		&=(g\oplus g')(\underbrace{(\grad_x(f),\grad_{x}'(f'))}_{\grad_{(x,x')}(f+f')},(V,V'))\,.
+	\end{align*} Hence the flow also splits and thereby the (un-)stable manifolds split Hence we can orient all unstable manifolds via that splitting whcih gives os $\mathfrak{o}\oplus \mathfrak{o}'$. Finally transversal intersection is a property that carries over to products and hence the Morse datum $(M\times M',\mathfrak{A}\times \mathfrak{A}',\Lambda)$ with $\mathfrak{A}\times \mathfrak{A}'\coloneq (g\oplus g',f+f',\mathfrak{o}\oplus \mathfrak{o}')$ really gives a valid Morse datum.^
+	\end{definition}
+
+
+
+
+
+
+
+
 
 \begin{definition}[Morse Cohomology]
 Let $G$ be a commutative ring with one. To get the cohomology we have to dualice the chain complex. Let $\Crit_k(f)=\{p_1,\dots p_l\}$ be a basis of the $k$-th chain group $C_k(M,\mathfrak{A},G)$. Then the functionals
@@ -549,7 +562,10 @@ are a basis of the dial group $C^k(M,\mathfrak{A},G)$. The coboundary map is eas
 \end{align*}
 \end{definition}
 \begin{corollary}
-	If $M$ is an oriented manifold, orientations from the unstable tanged space in critical points $T^u_qM$ induce Orientations in the stable  
+	If $M$ is an oriented manifold, orientations from the unstable tanged space in critical points $T^u_qM$ induce Orientations in the stable tangend space since 
+	\begin{equation*}
+		T_qM=T_q^uM\otimes T_q^sM\,.
+	\end{equation*}
 \end{corollary}
 
 
