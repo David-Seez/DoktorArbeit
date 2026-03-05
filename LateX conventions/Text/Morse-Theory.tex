@@ -530,7 +530,7 @@ Another way to get an orientation there is to trivialize the bundle $TW(q\to)$ v
 Notice how we already saw a different way to calculate the sign by the map from lemma \ref{lem: Rho and Tau induces a Morse boundary orientation}. 
 \end{remark}
 \begin{definition}
-	Let $(M,\mathfrak{A},\Lambda)$ and $(M',\mathfrak{A}',\Lambda)$ be two Morse data with $\mathfrak{A}=(g,f,\mathfrak{o})$ and $ \mathfrak{A}'=(g',f',\mathfrak{o}')$. Then on $M\times M'$ we define the Morse function $f+f'$ and the metric $g\oplus g'$. Then $\diff d_{(x,x')}(f+f')=\diff_x(f)+\diff_x'(f')$ and hence the critical points of $f+f'$ are pairs $(p,p')$ such that $p$ is critical for $f$ and $p'$ is critical for $f'$. By corollary \ref{cor: local form of the Hessian} we conclude that the hessian splits into block diagonal form and hence the property of non degenerayc follows. Since we use the product metric $g\oplus g'$ we also get a splitting gradient of $f+f'$: 
+	Let $(M,\mathfrak{A},\Lambda)$ and $(M',\mathfrak{A}',\Lambda)$ be two Morse data with $\mathfrak{A}=(g,f,\mathfrak{o})$ and $ \mathfrak{A}'=(g',f',\mathfrak{o}')$. Then on $M\times M'$ we define the Morse function $f+f'$ and the metric $g\oplus g'$. Then $\diff_{(x,x')}(f+f')=\diff_x(f)+\diff_x'(f')$ and hence the critical points of $f+f'$ are pairs $(p,p')$ such that $p$ is critical for $f$ and $p'$ is critical for $f'$. By corollary \ref{cor: local form of the Hessian} we conclude that the hessian splits into block diagonal form and hence the property of non degenerayc follows. Since we use the product metric $g\oplus g'$ we also get a splitting gradient of $f+f'$: 
 	\begin{align*}
 		\diff_{(x,x')}(f+f')(V,V')
 		&=\diff_x(f)(V)+\diff_x'(f')(V')\\
@@ -550,15 +550,66 @@ Notice how we already saw a different way to calculate the sign by the map from 
 			\mathcal{M}(q,p)\times p' &\text{ if } p'=q' \,.
 		\end{cases}
 	\end{equation*}
-	And consequently, since the orientations also split we get for critical points $(q,q')$ and $(p,p')$ with consequtive indices:
+	Now we want to analyce how the splitting affects the counting of flow lines. For this we go through our classical procedure given in the definition \ref{def: Morse homology}. Assume that $q'=p'$, and let $\gamma$ be an element of $\mathcal{M}(q,p)$ with $x\in \gamma$. Then $(\gamma,q')\in \mathcal{M}\left((q,q'),(p,q')\right)$. Now let $(b,b')$ be a basis of  
+	\begin{equation*}
+		T_{(x,q')}W\left((q,q')\to \right)=T_xW(q\to) \times T_{q'}W(q' \to )\,.
+	\end{equation*} that is oriented with respect to $T^u_{q,q'}M\times M'$ and assume that $-\grad_x(f)$ is the last vector in $b$. Now manipulate this basis such that it fitts into the splitting 
+	\begin{equation*}
+			T_{(x,q')}W\left((q,q')\to \right)=N_{(x,q')}(\gamma,q')\oplus -\grad_{x,q'}(f+f')\,.
+	\end{equation*}by moving $-\grad_x(f)$ to the back. This requires $\ind_{q'}(f')$ many transpositions. Hence if $\tilde{b}$ denotes $b$ without its last vector we have the equalitiy :
+	\begin{equation*}
+		(b,b') \text{ carries the same orientation as } (-1)^{\ind_q'(f')}(\tilde{b},b',-\grad_{(x,x')}(f+f'))\,.
+	\end{equation*} Now moving the basis $(\tilde{b},b,-\grad_{(x,x')}(f+f'))$ down along the flow and comparing it to the orientation of 
+	\begin{equation*}
+		T_{p,q'}W((p',q')\to ) = T_{p}W(p\to )\times T_{q'}W(q' \to ) 
+	\end{equation*}
+	
+	 is the same just comparing $\tilde{b}$ with the orientation of $ T_{p}W(p\to )$ which again is the sign $n_{\gamma}$. Hence:
+	$n_{\gamma,q'}=(-1)^{\ind_{q'}}n_\gamma$. Going though the same argument for the case that $q=p$ is easyer, since we can assume $-\grad_x(f)$ to already be in the back and hence we get for critical points $(q,q')$ and $(p,p')$ with consequtive indices:
 	\begin{equation*}
 		n\left((q,q'),(p,p') \right)=\begin{cases}
-			n(q',p') & \text{ if } q=p\\
-			n(q,p) & \text{ if } q'=p'\\
+			\phantom{(-1)^{\ind_{q'}(f')}}n(q',p') & \text{ if } q=p\\
+			(-1)^{\ind_{q'}(f')} n(q,p) & \text{ if } q'=p'\\
 			0& \text{ else.}
 		\end{cases}
 	\end{equation*}
 	\end{definition}
+	The consideration of products stems from \cite{AudinDamian2014}. However she is missing the sign in her consideration of the boundary map of the poduct. 
+	\begin{remark}
+			Let $(M,\mathfrak{A},\Lambda)$ and $(M',\mathfrak{A}',\Lambda)$ be two Morse data with $\mathfrak{A}=(g,f,\mathfrak{o})$ and $ \mathfrak{A}'=(g',f',\mathfrak{o}')$. Then the map
+		\begin{equation*}
+			\Phi: \bigoplus_{i+j=k}C_i(M,\mathcal{A},\Lambda)\otimes C_j(M,'\mathcal{A}',\Lambda) \to C_k(M\times M',\mathfrak{A}\times \mathfrak{A}',\Lambda)
+		\end{equation*}
+		Is an isomorphism of groups and furthermore if we denote the boundary morphism in the chaincomplex corresponding to $M$ by $\partial_f$, the one correspondint to $M'$ by $\partial_{f'}$ and the one corresponding to the product $M\times M'$ by $\partial_{f+f'}$  we get an  isomorphism of chain complexes induced by $\Phi$:
+		\begin{equation*}
+			\left(C_*(M,\mathcal{A},\Lambda)\otimes C_*(M,'\mathcal{A}',\Lambda),(-1)^j\partial_f\otimes 1 +1\otimes \partial_{f'} \right)
+			\to 
+			\left(C_*(M\times M',\mathfrak{A}\times \mathfrak{A}',\Lambda),\partial_{f+f'}\right)
+		\end{equation*}
+	\end{remark}
+	\begin{proof}
+		The isomorphism of groups is easy to see, since we have an bijection of the generators
+		\begin{equation*}
+			(p\otimes q) \leftrightarrow (p,q)\,.
+		\end{equation*} Since both sides are free $\Lambda$-modules we can apply the universal property of free modules giving us an canonical isomorphism of $\Lambda$ modules and hence an group isomorphism.
+		Now we want to show that we get a isomorphism of chain complexes and hence need to check if the boundary map commutes with $\Phi$. Let $a$ be a critical point of index $i$ of $f$ and let $a'$ be a critical ppoint of index $j$ of $f'$. On the one hand we can calculate
+		\begin{align*}
+			\Phi \left((-1)^j\partial_f\otimes 1 +1\otimes \partial_{f'}\right)(a\otimes a')
+			&= \Phi \left((-1)^j\partial_f(a) \otimes a' +a\otimes  \partial_{f'}(a')\right)\\
+			&= \Phi \left(\sum_{b\in \Crit_{i-1}(f)}(-1)^jn(a,b)b\otimes a' +a\otimes \sum_{b_\in \Crit_{j-1}(f')}n(a',b')b'\right) \\
+			&=\sum_{b\in \Crit_{i-1}(f)}(-1)^j n(a,b)(b, a') +\sum_{b_\in \Crit_{j-1}(f')}n(a',b')(a,b')\,,
+		\end{align*} and on the other hand
+		\begin{align*}
+			\partial_{f+f'}\left(\Phi(a \otimes a')\right)
+			&=\partial_{f+f'}(a,a')\\
+			&=\sum_{(b,b')\in \Crit_{i+j-1}(f+f')}n\left((a,a'),(b,b')\right)\,(b,b')\\
+			&=\underbrace{\sum_{b\in \Crit_{i-1}(f)}(-1)^j n(a,b)(b,a')}_{a'=b'}+
+			\underbrace{\sum_{b'\in \Crit_{j-1}(f')}n(a',b')(a,b')}_{a=b}\,.
+		\end{align*}
+		
+	\end{proof}
+	
+	
 	\begin{corollary}[The Boundary Morphism]
 		Th
 	\end{corollary}
