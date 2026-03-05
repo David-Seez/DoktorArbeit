@@ -561,9 +561,8 @@ Notice how we already saw a different way to calculate the sign by the map from 
 		(b,b') \text{ carries the same orientation as } (-1)^{\ind_q'(f')}(\tilde{b},b',-\grad_{(x,x')}(f+f'))\,.
 	\end{equation*} Now moving the basis $(\tilde{b},b,-\grad_{(x,x')}(f+f'))$ down along the flow and comparing it to the orientation of 
 	\begin{equation*}
-		T_{p,q'}W((p',q')\to ) = T_{p}W(p\to )\times T_{q'}W(q' \to ) 
+		T_{p,q'}W((p',q')\to ) = T_{p}W(p\to )\times T_{q'}W(q' \to)~ 
 	\end{equation*}
-	
 	 is the same just comparing $\tilde{b}$ with the orientation of $ T_{p}W(p\to )$ which again is the sign $n_{\gamma}$. Hence:
 	$n_{\gamma,q'}=(-1)^{\ind_{q'}}n_\gamma$. Going though the same argument for the case that $q=p$ is easyer, since we can assume $-\grad_x(f)$ to already be in the back and hence we get for critical points $(q,q')$ and $(p,p')$ with consequtive indices:
 	\begin{equation*}
@@ -578,21 +577,27 @@ Notice how we already saw a different way to calculate the sign by the map from 
 	\begin{remark}
 			Let $(M,\mathfrak{A},\Lambda)$ and $(M',\mathfrak{A}',\Lambda)$ be two Morse data with $\mathfrak{A}=(g,f,\mathfrak{o})$ and $ \mathfrak{A}'=(g',f',\mathfrak{o}')$. Then the map
 		\begin{equation*}
-			\Phi: \bigoplus_{i+j=k}C_i(M,\mathcal{A},\Lambda)\otimes C_j(M,'\mathcal{A}',\Lambda) \to C_k(M\times M',\mathfrak{A}\times \mathfrak{A}',\Lambda)
+			\Phi: \bigoplus_{i+j=k}C_i(M,\mathfrak{A},\Lambda)\otimes_\Lambda C_j(M,'\mathfrak{A}',\Lambda) \to C_k(M\times M',\mathfrak{A}\times \mathfrak{A}',\Lambda)
 		\end{equation*}
-		Is an isomorphism of groups and furthermore if we denote the boundary morphism in the chaincomplex corresponding to $M$ by $\partial_f$, the one correspondint to $M'$ by $\partial_{f'}$ and the one corresponding to the product $M\times M'$ by $\partial_{f+f'}$  we get an  isomorphism of chain complexes induced by $\Phi$:
+		Is an isomorphism of groups and furthermore if we denote the boundary morphism in the chaincomplex corresponding to $M$ by $\partial_f$, the one correspondint to $M'$ by $\partial_{f'}$ and the one corresponding to the product $M\times M'$ by $\partial_{f+f'}$ we	
+		 get an  isomorphism of chain complexes induced by $\Phi$:
 		\begin{equation*}
-			\left(C_*(M,\mathcal{A},\Lambda)\otimes C_*(M,'\mathcal{A}',\Lambda),(-1)^j\partial_f\otimes 1 +1\otimes \partial_{f'} \right)
+			\left(\bigoplus_{i+j=*}C_i(M,\mathfrak{A},\Lambda)\otimes_\Lambda C_j(M,'\mathfrak{A}',\Lambda),(-1)^j\partial_f\otimes 1 +1\otimes \partial_{f'} \right)
 			\to 
 			\left(C_*(M\times M',\mathfrak{A}\times \mathfrak{A}',\Lambda),\partial_{f+f'}\right)
 		\end{equation*}
+		Here the left side defines the tensor product of chain complexes. Hence we get an natural isomorphism of chain complexes:
+		\begin{equation*}
+			C_*(M,\mathfrak{A},\Lambda)\otimes_\Lambda C_*(M,'\mathfrak{A}',\Lambda) \to C_*(M\times M',\mathfrak{A}\times \mathfrak{A}',\Lambda) \,.
+		\end{equation*}
 	\end{remark}
+
 	\begin{proof}
 		The isomorphism of groups is easy to see, since we have an bijection of the generators
 		\begin{equation*}
 			(p\otimes q) \leftrightarrow (p,q)\,.
 		\end{equation*} Since both sides are free $\Lambda$-modules we can apply the universal property of free modules giving us an canonical isomorphism of $\Lambda$ modules and hence an group isomorphism.
-		Now we want to show that we get a isomorphism of chain complexes and hence need to check if the boundary map commutes with $\Phi$. Let $a$ be a critical point of index $i$ of $f$ and let $a'$ be a critical ppoint of index $j$ of $f'$. On the one hand we can calculate
+		Now we want to show that we get a isomorphism of chain complexes and hence need to check if the boundary map commutes with $\Phi$. Let $a$ be a critical point of index $i$ of $f$ and let $a'$ be a critical point of index $j$ of $f'$. On the one hand we can calculate
 		\begin{align*}
 			\Phi \left((-1)^j\partial_f\otimes 1 +1\otimes \partial_{f'}\right)(a\otimes a')
 			&= \Phi \left((-1)^j\partial_f(a) \otimes a' +a\otimes  \partial_{f'}(a')\right)\\
@@ -610,9 +615,42 @@ Notice how we already saw a different way to calculate the sign by the map from 
 	\end{proof}
 	
 	
-	\begin{corollary}[The Boundary Morphism]
-		Th
-	\end{corollary}
+\begin{lemma}[Algebraic Künneth Formula]
+	If $\Lambda$ is a principle ideal domain, and $C$ and $C'$ are chain complexes over $\Lambda$ such that all $C_n$ are free $\Lambda$ modules, then for each $n$ there is a natural short exact sequence 
+	\begin{center}
+		\begin{adjustbox}{width=\textwidth}
+		\begin{tikzcd}
+		0 \arrow[r]&
+		\bigoplus_i\left(H_i(C)\otimes_\Lambda H_{n-i}(C')\right)\arrow[r]&
+		H_n(C\otimes_\Lambda C') \arrow[r]&
+		\bigoplus_i\left(\Tor_{\Lambda}\left(
+		H_i(C),H_{n-i-1}(C')
+		\right) \right) \arrow[r]&0
+		\end{tikzcd}
+		\end{adjustbox}
+	\end{center}that splits.
+\end{lemma}
+\begin{proof}
+	The proof is purely homological algebra and standard in algebraic topology textbooks. Compare Theorem 3B.5. in  \cite{hatcher2002algebraic} for example.
+\end{proof}
+\begin{theorem}[Morse-theoretic Künneth Formula]
+	If $\Lambda$ is a principle ideal domain, and let $(M,\mathfrak{A},\Lambda)$ and $(M',\mathfrak{A}',\Lambda)$ be two Morse data. Then there is a splitting short exact sequence 
+	\begin{multline*}
+		0~\to ~
+		\bigoplus_i\left(H_i(M,\mathfrak{A},\Lambda)\otimes_\Lambda H_{n-i}(M',\mathfrak{A}',\Lambda)\right) ~\to~
+			H_n(M\times M',\mathfrak{A}\times \mathfrak{A}',\Lambda) \\
+		~	\to ~
+			\bigoplus_i\left(\Tor_{\Lambda}\left(
+			H_i(M,\mathfrak{A},\Lambda),H_{n-i-1}(M',\mathfrak{A}',\Lambda)
+			\right) \right)~ \to ~0
+	\end{multline*}
+\end{theorem}
+\begin{proof}
+	The Theorem follows directly from the Lemma above together with the natural isomorphism of chain complexes 
+	\begin{equation*}
+		C_*(M,\mathfrak{A},\Lambda)\otimes_\Lambda C_*(M,'\mathfrak{A}',\Lambda) \to C_*(M\times M',\mathfrak{A}\times \mathfrak{A}',\Lambda) \,.
+	\end{equation*}
+\end{proof}
 
 
 
