@@ -634,7 +634,7 @@ Notice how we already saw a different way to calculate the sign by the map from 
 	The proof is purely homological algebra and standard in algebraic topology textbooks. Compare Theorem 3B.5. in  \cite{hatcher2002algebraic} for example.
 \end{proof}
 \begin{theorem}[Morse-theoretic Künneth Formula]
-	If $\Lambda$ is a principle ideal domain, and let $(M,\mathfrak{A},\Lambda)$ and $(M',\mathfrak{A}',\Lambda)$ be two Morse data. Then there is a splitting short exact sequence 
+	If $\Lambda$ is a principle ideal domain, and let $(M,\mathfrak{A},\Lambda)$ and $(M',\mathfrak{A}',\Lambda)$ be two Morse data. Then for each $n$ there is a splitting short exact sequence 
 	\begin{multline*}
 		0~\to ~
 		\bigoplus_i\left(H_i(M,\mathfrak{A},\Lambda)\otimes_\Lambda H_{n-i}(M',\mathfrak{A}',\Lambda)\right) ~\to~
@@ -646,7 +646,7 @@ Notice how we already saw a different way to calculate the sign by the map from 
 	\end{multline*}
 \end{theorem}
 \begin{proof}
-	The Theorem follows directly from the Lemma above together with the natural isomorphism of chain complexes 
+	The theorem follows directly from the Lemma above together with the natural isomorphism of chain complexes 
 	\begin{equation*}
 		C_*(M,\mathfrak{A},\Lambda)\otimes_\Lambda C_*(M,'\mathfrak{A}',\Lambda) \to C_*(M\times M',\mathfrak{A}\times \mathfrak{A}',\Lambda) \,.
 	\end{equation*}
@@ -674,6 +674,59 @@ are a basis of the dial group $C^k(M,\mathfrak{A},G)$. The coboundary map is eas
 	\eta_i &\mapsto \partial^{k}\eta_i=\eta_i\circ \partial_{k+1}=\sum_j n_j(q_j,p_i) \xi_j \,.
 \end{align*}
 \end{definition}
+
+\begin{theorem}[Morse-theoretic Cohomological Künneth Formular]
+		If $\Lambda$ is a principle ideal domain, and let $(M,\mathfrak{A},\Lambda)$ and $(M',\mathfrak{A}',\Lambda)$ be two Morse data. Then for each $n$ there is a splitting short exact sequence 
+	\begin{multline*}
+		0~\to ~
+		\bigoplus_i\left(H^i(M,\mathfrak{A},\Lambda)\otimes_\Lambda H^{n-i}(M',\mathfrak{A}',\Lambda)\right) ~\to~
+		H^n(M\times M',\mathfrak{A}\times \mathfrak{A}',\Lambda) \\
+		~	\to ~
+		\bigoplus_i\left(\Tor_{\Lambda}\left(
+		H^i(M,\mathfrak{A},\Lambda),H^{n-i+1}(M',\mathfrak{A}',\Lambda)
+		\right) \right)~ \to ~0
+	\end{multline*}
+\end{theorem}
+\begin{proof}
+	We show this by giving a natural isomorphism of the chain complexes 
+	\begin{equation*}
+		C^*(M,\mathfrak{A},\Lambda)\otimes_\Lambda C^*(M,'\mathfrak{A}',\Lambda) \to C^*(M\times M',\mathfrak{A}\times \mathfrak{A}',\Lambda) \,.
+	\end{equation*}
+	First we need to give an group isomorphism 
+	\begin{equation*}
+		\Phi: \bigoplus_{i+j=k}C^i(M,\mathfrak{A},\Lambda)\otimes_\Lambda C^j(M,'\mathfrak{A}',\Lambda) \to C^k(M\times M',\mathfrak{A}\times \mathfrak{A}',\Lambda)
+	\end{equation*} This isomorphism however is clear and given on the generators : Let $a$ and $a'$ be critical pointes of index $i$ and $j$ with respect to $f$ and $f'$. Let $\eta$ and $eta'$ be the corresponding generators of $C^i(M,\mathfrak{A},\Lambda)$ and $C^j(M,'\mathfrak{A}',\Lambda)$. Then we have the bijection 
+	\begin{equation*}
+		\eta \otimes \eta' \leftrightarrow (\eta,\eta')\,.
+	\end{equation*} To get an chain isomorphism we need to check the compatibility with the coboundary maps. For each $b_l\in \Crit_{i+1}(f)$ let $\xi_l$ be the corresponding form and similar for each $z_k\in \Crit_{j+1}(f')$ let $\zeta_k$ be the corresponding form. Then we calculate
+	\begin{align*}
+	\Phi\left(
+	(-1)^j \partial^f\otimes 1+1\otimes \partial^{f'}
+	\right) (\eta \otimes \eta')
+	&= \Phi\left(
+	(-1)^j \partial^f(\eta)\otimes \eta'+\eta\otimes \partial^{f'}(\eta')
+	\right)\\
+		&= \Phi\left(
+	\sum_{l}(-1)^j n(b_l,a)\xi_l \otimes \eta'+\sum_k n(z_k,a')\eta\otimes \zeta_k
+	\right)\\
+		&= 
+	\sum_{l}(-1)^j n(b_l,a)(\xi_l , \eta')+\sum_k n(z_k,a')(\eta, \zeta_k)
+	\\
+	\end{align*} and the other way arround, if we define for $(x,x')$ with $\ind_{f+f'}(x,x')=\ind_{f+f'}(a,a')+1$ the corresponding form to be $\nu$ we have:
+	\begin{align*}
+		\partial^{f+f'}\Phi(\eta\otimes \eta')
+		&=\partial^{f+f'}(\eta,\eta')\\
+		&=\sum_{(x,x')\in \Crit_{i+j+1}(f+f')}n\left(
+													(a,a'),(x,x')
+											   \right)(\nu)\\
+		&=\underbrace{\sum_l (-1)^{j}n(b_l,a)(\xi_l,\eta')}_{a'=x'}+
+		  \underbrace{\sum_kn(z_k,a')(\eta,\zeta_k)}_{a=x}
+	\end{align*}
+	Now finally we can applie the Algebraic Künneth Formular for Cohomology and we are done. The latter formular is almost the same is the homological one but with a different index shift in the $\Tor$ functor. Again this is standart homological algebra.
+\end{proof}
+
+
+
 \begin{corollary}
 	If $M$ is an oriented manifold, orientations from the unstable tanged space in critical points $T^u_qM$ induce Orientations in the stable tangend space since 
 	\begin{equation*}
@@ -707,35 +760,3 @@ are a basis of the dial group $C^k(M,\mathfrak{A},G)$. The coboundary map is eas
 
 
 
-
-
-
-
-Here i write a little bit about the Morse cohomology in german 
-\begin{theorem}[Morse Cohomology]
-	Um die Morse Kohomologie zu erhalten, dualizieren wir den Kettenkomplex für einen Ring $G$ mit 1. Sei $\Crit_k={p_1,...p_l}$ eine Basis der $k-$ten Kettengruppe. Für 
-	\begin{align*}
-		\eta_i: C_k&\to G \\
-		p_j&\mapsto \begin{cases}
-			0 & \text{if }j=i \\
-			1 & \text{ else}
-		\end{cases}
-	\end{align*} 
-	bekommen wir eine Basis $(\eta_1,...,\eta_l)$ der Cocetten Gruppe. Die Randabbilsung ist nun der spannende Teil. Seien $(q_1,...,q_r)$ kritische Punkte von Index $k+1$ und $(\xi_j)_{j=1,...,r}$ die resultierende Basis von$C^{k+1}$. Dann
-	\begin{align*}
-		\diff{}_k:C^k &\to C^{k+1}\\
-		\eta_i&\mapsto \diff \eta_i=\eta_i\circ \partial_{k+1}=\sum_j n_f(q_j,p_i)\xi_j.
-	\end{align*}
-	Hier beschreibt $n_f (q,p)$ das zählen von Flusslionien von $q$ nach $p$ mittels  $f$.Indem wir kritische Punkte und die formen identifizieren erhalten wird das folgende: 
-	\begin{align*}
-		&C^k =\bigoplus_{q\in \Crit_k}\Z =C_k.\\
-		& \begin{aligned}\diff:~ C^k & \to C^{k+1} \\
-			q &\mapsto \sum_{p\in \Crit_{k+1}}n_f(q,p)=\sum_{p\in \Crit_{k+1} }n_{-f}(p,q)=\partial_{-f}.
-		\end{aligned}
-	\end{align*} Hier bezeichnet $\partial_{-f}$ den Randoperator $C(M,-f,g)$. 
-\end{theorem}
-\begin{theorem}[Poincaré Dualität] Schnell sehen wir, dass $$C^k(M,f)=C_{m-k}(M,-f)$$ damit erhalten wir: 
-	\begin{equation*}
-		H^k(M)\cong H^k(M,f)= \ker(\partial_{-f})\big/ \im\partial_{-f}=H_{m-k}(M,-f)\cong H_k(M)
-	\end{equation*}
-\end{theorem}

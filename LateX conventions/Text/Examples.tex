@@ -343,6 +343,44 @@ Now obviously $H_1$ maps to  $\tilde{\Lambda}{-1}(-\infty,\lambda_i]$.
 			\end{comment}
 	\end{example}
 	
-	\begin{example}Make a produkt morse funktion on $\R\PP^2\times \R\PP^4$!. 
+	\begin{example}
+		Make a produkt morse funktion on $\R\PP^2\times \R\PP^4$!. 
+		For this we assume that $\tilde{\Lambda}_2$ is a Morse function on $\R\PP^2$ and defined as above and similary $\tilde{\Lambda}_4$ is one for $\R\PP^4$.
+		From the established Künneth formular we know that the Morse cohomology of $\R\PP^2 \times \R\PP^4$ is as follows: 
+		\begin{equation*}
+			H^n(\R\PP^2\times \R\PP^4,\tilde{\Lambda_2}+\tilde{\Lambda}_4)\cong \bigoplus_i\left(
+			H^i(\R\PP^2,\tilde{\Lambda}_2)\otimes H^{n-i} (\R\PP^4,\tilde{\Lambda}_4)
+			\right) \oplus \bigoplus_i \Tor\left(
+			H^i(\R\PP^2,\tilde{\Lambda}_2),
+			 H^{n-i+1} (\R\PP^4,\tilde{\Lambda}_4)
+			\right)\,.
+		\end{equation*}
+		
+		First we list the Homology of $\R\PP^2$ and $\R\PP^4:$
+	\begin{equation*}
+		\begin{array}{c|c c}
+			& \R\PP^2 &\R\PP^4\\
+			\hline
+			H^0&\Z&\Z \\
+			H^1&0&0\\
+			H^2&\Z_2&\Z_2\\
+			H^3&0&0\\
+			H^4&0&\Z_2
+		\end{array}
+	\end{equation*}
+ Furthermore the only non-zero $\Tor$ is $\Tor(\Z_2,\Z_2)$. Which only appears for $n=3$ and $n=5$. Furtermore we have for the tensor groups for any $A$: $\Z\otimes A\cong A$ and $\Z_2\otimes \Z_2 \cong \Z_2$.  Hence we have the resulting isomorphisms: 
+ \begin{equation*}
+ 	H^i(\R\PP^2\times \R\PP^4)\cong \begin{cases}
+ 		\Z & \text{ if }i=  0\,,\\
+	 	0  & \text{ if }i=  1\,,\\
+	 	\Z_2\oplus \Z_2& \text{ if }i=  1\,,\\
+	 	\Z_2 & \text{ if }i=  3\,,\\
+	 	\Z_2\oplus \Z_2 & \text{ if }i=  4\,,\\
+	 	\Z_2& \text{ if }i=  5\,,\\
+	 	\Z_2& \text{ if }i=  6\,,\\
+	 	0& \text{ if }i>6\,.
+ 	\end{cases}
+ \end{equation*}
+	
 	\end{example}
 	
