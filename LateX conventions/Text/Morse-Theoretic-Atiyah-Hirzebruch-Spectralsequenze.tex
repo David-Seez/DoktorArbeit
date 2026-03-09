@@ -184,6 +184,27 @@ A \textbf{morphism} $\Phi:I\to Y$ between two connected simple systems $I=(I_0,I
 	The proof is done by Dietmar Salamon and can be checked in \cite{Salamon1985} corollary 4.4. 
 \end{proof}
 \begin{remark}
+	Let $M$ and $M'$ be smooth manifolds with $f:M\to \R$ and $f':M'\to \R$ Morse smale functions for the metrics $g$ on $M$ and $g'$ on $M'$. Let $\mathfrak{o}$ be a choice of orientations on all unstable manifolds of $M$ and $\mathfrak{o}'$ on $M'$. Let $(M\times M')$ be equiped with the Morse function $f+f'$ and the metric $g\oplus g'$ together with the orientations $\mathfrak{o}\oplus \mathfrak{o}'$. In other words, we work in a setting that we established in definition \ref{def: Definition produce Morse datum}. Let $(N_i)_i$  be a filtration on $M$ that satisfys that $(N_k,N_j-1)$ is a regular index pair for $W(k,j)$ for all $0\leq j\leq k\leq m=\dim(M)$. Let  $(N_j')_j$be one on $M'$ that also suffices those conditions. Then the Filtration
+	$N_*\otimes N_*'$ defined by
+	\begin{equation*}
+		(N_*\otimes N_*')_k\coloneq \bigcup_{i+j\leq k}N_i\times N_{j}'
+	\end{equation*} gives a filtration on $M\times M'$ satisfying the same condition. 
+\end{remark}
+
+\begin{proof}
+	We need to show that $\left((N_*\otimes N_*')_k,(N_*\otimes N_*')_{j-1}\right)$ gives a regular index pair for $W(k,j)$ for all $0\leq j\leq k\leq m$. Hence we need to go through the three properties. The first property staits that the maximal invariant subset of the closure of $\left((N_*\otimes N_*')_k\setminus (N_*\otimes N_*')_{j-1}\right)$ is $W(k,j)$ and exists in the interiour of the set-difference. This is clear, since 
+	\begin{align*}
+		W(k,j)&=\bigcup _{(q,q')\in \Crit_{k}(f+f')}W((q,q')\to)~\cap~ \bigcup _{(p,p')\in \Crit_{j}(f+f')}W(\to (p,p'))\\
+		&=\bigcup_{\substack{q\in \Crit_i(f),\\ q'\in \Crit_{i'}(f')\\ i+i'=k}}W(q\to)\times W(q'\to)
+		~\cap~ 
+		\bigcup _{\substack{p\in \Crit_l(f),\\ p*\in \Crit_{l'}(f')\\l+l'=k}}W(\to p)\times W(\to p')\\
+		&=\bigcup_{\substack{i+i'=k\\l+l'=j}} \quad \left(\bigcup_{\substack{q\in \Crit_{i}(f)\\ p\in \Crit_l(f)}}W(q\to p) 
+		 ~\times ~
+		 \bigcup_{\substack{q'\in \Crit_{i'}(f')\\ p'\in \Crit_l'(f')}}W(q'\to p') \right)\\
+		 &=\bigcup_{\substack{i+i'=k\\l+l'=j}} W(i,l)\times W(i',l')
+	\end{align*}
+\end{proof}
+\begin{remark}
 	Now $\mathcal{IP}_k$ has a pointed spaces as a representative, that if of the form $\bigvee_{p\in \Crit_k}(N_p\big/L_p)$. Hence, $\tilde{K}^k(\mathcal{IP}_k)$ has a representative that omitts an isomorphism to $\bigoplus_{p\in \Crit_k(f)}\tilde{K}^k(N_p\big/L_p)$. Hence as canonical isomophism classes of rings we get the isomorphism:
 	\begin{equation*}
 		\tilde{K}^k(\mathcal{IP}_k)\to \bigoplus_{q\in \Crit_k(f)}\tilde{K}^k(\mathcal{IP}_p)
