@@ -192,7 +192,7 @@ A \textbf{morphism} $\Phi:I\to Y$ between two connected simple systems $I=(I_0,I
 \end{remark}
 
 \begin{proof}
-	We need to show that $\left((N_*\otimes N_*')_k,(N_*\otimes N_*')_{j-1}\right)$ gives a regular index pair for $W(k,j)$ for all $0\leq j\leq k\leq m$. Hence we need to go through the three properties. The first property staits that the maximal invariant subset of the closure of $\left((N_*\otimes N_*')_k\setminus (N_*\otimes N_*')_{j-1}\right)$ is $W(k,j)$ and exists in the interiour of the set-difference. This is clear, since 
+	We need to show that $\left((N_*\otimes N_*')_k,(N_*\otimes N_*')_{j-1}\right)$ gives a regular index pair for $W(k,j)$ for all $0\leq j\leq k\leq m$. Hence we need to go through the three properties. The first property staits that the maximal invariant subset of the closure of $\left((N_*\otimes N_*')_k\setminus (N_*\otimes N_*')_{j-1}\right)$ is $W(k,j)$ and exists in the interiour of the set-difference. This is clear, since the space $W(k,j)$ splits nicely:
 	\begin{align*}
 		W(k,j)&=\bigcup _{(q,q')\in \Crit_{k}(f+f')}W((q,q')\to)~\cap~ \bigcup _{(p,p')\in \Crit_{j}(f+f')}W(\to (p,p'))\\
 		&=\bigcup_{\substack{q\in \Crit_i(f),\\ q'\in \Crit_{i'}(f')\\ i+i'=k}}W(q\to)\times W(q'\to)
@@ -201,8 +201,16 @@ A \textbf{morphism} $\Phi:I\to Y$ between two connected simple systems $I=(I_0,I
 		&=\bigcup_{\substack{i+i'=k\\l+l'=j}} \quad \left(\bigcup_{\substack{q\in \Crit_{i}(f)\\ p\in \Crit_l(f)}}W(q\to p) 
 		 ~\times ~
 		 \bigcup_{\substack{q'\in \Crit_{i'}(f')\\ p'\in \Crit_l'(f')}}W(q'\to p') \right)\\
-		 &=\bigcup_{\substack{i+i'=k\\l+l'=j}} W(i,l)\times W(i',l')
+		 &=\bigcup_{\substack{i+i'=k\\l+l'=j}} W(i,l)\times W(i',l')\,.
 	\end{align*}
+	With this it is easy to see the first property: Since the flow splits into the two factors, we have that the maximal invariant subset $I$ also splits meaning 
+	\begin{align*}
+		I\left((N_*\otimes N_*')_k \right)
+		=I(\bigcup_{i+j\leq k}N_i\times N_{j}')
+		=\bigcup_{i+j\leq k}I(N_i\times N_{j}')
+		=\bigcup_{i+j\leq k}(I(N_i)\times I(N_{j}'))\,.
+	\end{align*}Furthermore the same argument works on the difference $\left((N_*\otimes N_*')_k,(N_*\otimes N_*')_{j-1}\right)$ letting us deduce the first property for the tensorproduct filtration from said property for all factors. 
+	The same splitting idea lets us deduce the positive invariance of $(N_*\otimes N_*')_k$ in $(N_*\otimes N_*')_{j-1}$ and shows the exit set property of $(N_*\otimes N_*')_{j-1}$. Now finally we need to proof the regularity, meaning that the inclusion $(N_*\otimes N_*')_{j-1}\to (N_*\otimes N_*')_k$ is a cofibration. For this we notice that the cofibration property is stable under finite products, since we fan just build the product homotopy of each factor. Now a standart result is that cofibrations are stable under pushouts and hence especially under unions concluding the proof. Compare \cite{May1999} Chapter 6 on the claim about cofibrations.
 \end{proof}
 \begin{remark}
 	Now $\mathcal{IP}_k$ has a pointed spaces as a representative, that if of the form $\bigvee_{p\in \Crit_k}(N_p\big/L_p)$. Hence, $\tilde{K}^k(\mathcal{IP}_k)$ has a representative that omitts an isomorphism to $\bigoplus_{p\in \Crit_k(f)}\tilde{K}^k(N_p\big/L_p)$. Hence as canonical isomophism classes of rings we get the isomorphism:
