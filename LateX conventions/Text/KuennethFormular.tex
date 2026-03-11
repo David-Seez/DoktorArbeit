@@ -1,3 +1,18 @@
 \section{A Künneth Formular}
-\begin{lemma}
+\begin{lemma}Let $M,f$ be a smooth manifold with a Morse-Smale function $f$ and an adapted filtration $\{N_i\}$. Let furthermore $X$ be a topological space such that $K^*(X)$ is free. Then the extermal Product
+	\begin{equation*}
+		K^*(M)\otimes K^*(X)\to K^*(M\times X)
+	\end{equation*} is an isomorphism.
 \end{lemma}
+\begin{proof}
+	We start by considering the spectral sequence for the filtration $\{N_i\} $ on $M$ and $\{N_i\times X\}$ on $M\times X$. Notice if we denote the pointed $X$ by $X_+\coloneq X\sqcup \{+\}$ we have 
+	\begin{align*}
+		\left( N_i\times X\middle/N_{i-1}\times X \right)
+		&\simeq \left( N_i / N_{i-1} \right) \times X\\
+		&\simeq \bigvee_{p\in \Crit_i}\left( D^p\times X\middle/ \partial D^p \times X \right)\\
+		&\simeq
+		\bigvee_{p\in \Crit_i}\left( D^p\times X_+\middle/ \partial D^p \times X_+\cup D^p\times \{+\} \right)\\
+		&\simeq 	\bigvee_{p\in \Crit_i}\left( (D^p\big/ \partial D^p) \times X_+ \Big/D^p\vee X_+\right)\\
+		  &= \bigvee_{p\in \Crit_i}(S^p\wedge X_+)
+	\end{align*} Since the homotopys here are natural, we have commuting differentials 
+\end{proof}
