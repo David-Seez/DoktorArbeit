@@ -1,0 +1,386 @@
+\section{Examples}
+	We begoin with a minimal example that has non trivial higher differential:
+	\begin{example}[The Sphere]
+	If we take the three-sphere $S^3\subseteq \R^4$ and denote the north pole with $N$ and the south pole with $S$ we get the Morse chain complex as
+	\begin{center}
+		\begin{tikzcd}
+		0\arrow[r]& \langle S \rangle_{\Z} \arrow[r] &0\arrow[r] & 0\arrow[r]&\langle N \rangle_{\Z} \arrow[r]& 0 
+		\end{tikzcd}
+	\end{center}Then for the second page we get the Morse homology together with the 0 maps and on the third page we have: 
+	\begin{center}
+		\begin{tikzcd}
+			\langle S\rangle  & 0 & 0 &\arrow[lll, "d_3^0", bend left] \langle N\rangle
+		\end{tikzcd}
+	\end{center}
+	Now we want to check what $d_3^0(S)$ is. For this we want to use its definition and hence we need to give the Morse filtration. For this we can use:
+	\begin{equation*}
+		N_{-1}\coloneq\emptyset,\quad N_{0,1,2}\coloneq H_- \text{ the southern hemisphere},\quad  N_3=S^3\,.
+	\end{equation*}
+	First we translate $E_r$ into the language where the definition was formulated. 
+	We know that $EM_3^p$ is naturally isomorphic to $$E^{p,0}_3=\frac{\gamma^{-1}\big(\alpha^2D^{p,-2}\big)}{\beta\big(\ker(\restr{\alpha^2}{D^{p+3-1,-2}})\big)}$$
+	Now for $r=3$ and $p=0$
+	\begin{equation*}
+		\alpha^2D^{2,-2}=\im (K^0(N_2)\to K^0(N_0))=\im(K^0(H_-)\to K^0(H_-))\cong Z
+	\end{equation*} Hence $E^{0,0}_3={\gamma^{-1}(\alpha^2D^{2,-2})}^{0,0}\cap E^{0,0}_0= K^0(N_0,\emptyset)\cong \Z$. And similar we conclude that $E^{3,0}_3=K^3(N_3,N_2)\cong\Z$. 
+	Now we analyze the map 
+	\begin{equation*}
+		d^{3,0}_3:  K^3(N_3,N_2) \to K^0(N_0,\emptyset) 
+	\end{equation*} So far we where able to ignore all orientation, (which we formally need for the morse boundary operator). So lets fix the orientations of the unstable part by saying the unstable part of the north pole (i.e. the whole $S^3$) is the canonical orientation of $S^3\supset \R^4$, whilst the unstable part of the south pole (i.e. the south pole) has the orientation $-1$. 
+	
+	Now $d_r=\beta\circ \alpha^2\circ \gamma$ and $\gamma: K^3(N_3,N_2)\to K^0(N_3)$ maps our generator induced by $N$ to the standard generator of $K^3(S^3)$ induced by the choosen orientation, due to $N_2$ being a contractible subset. Now $\alpha^2:  K^3(N_3) \to  K^3(N_1)$ is the zero map, since its range is $0$ due to $N_1$ being homotopically equivalent to the point and $3$ being odd.Finally $\beta: K^3(N_1) \to K^4(N_0,\emptyset)$ is the connecting homomorphism that trivial here. Hence $d^3,0_3$ is the zero map.And thereby $EM_4$ which equalse $E_\infty$ is  
+	\begin{center}
+		\begin{tikzcd}
+				\langle S\rangle  & 0 & 0 & \langle N\rangle
+		\end{tikzcd}
+	\end{center}Now how to we get information about our beloved K groups back? For this we remined ourself about the filtration 
+	\begin{equation*}
+		K^0(S^3)=F{-1}K^0(S^3)\supseteq F^0K^0(S^3)\supseteq F^1 K^0(S^3) \supseteq F^2K^0(S^3)\supseteq F^3K^0(S^3)=0
+	\end{equation*}
+	Now using this filtration we have the short exact sequence
+	\begin{center}
+		\begin{tikzcd}
+			0 \arrow[r]&F^0K^0(S^3)\arrow[r] &K^0(S^3)\arrow[r]&E^{0,0}_4=\frac{F^{-1}K^0(S^3)}{F^{0}K^0(S^3)} \arrow[r]&0
+		\end{tikzcd}
+	\end{center}Hence, $K^0(S^3)$ is an extension of $F^0K^0(S^3)$ and $E^{0,0}_4\cong \Z$ 
+	Furthermore, we have the exact sequence
+	\begin{center}
+		\begin{tikzcd}
+			0 \arrow[r]
+			&F^1K^0(S^3)\arrow[r] 
+			&F^0K^0(S^3)\arrow[r]
+			&E^{1,-1}_4=\frac{F^{0}K^0(S^3)}{F^{1}K^0(S^3)}=0 \arrow[r]
+			&0
+		\end{tikzcd}
+	\end{center} Hence, $F^0K^0(S^3)\cong F^1K^0(S^3)$ and by the same argument we can continue this chain 
+	\begin{equation*}
+		F^0K^0(S^3)\cong F^1K^0(S^3)\cong F^2K^0(S^3)\cong F^3K^0(S^3)=0
+	\end{equation*}
+	Hence, the first short exact sequence gives is an isomorphism between $K^0(S^3)\cong \Z$.
+	\end{example} 
+	Now we want to calculate the K group of a non trivial example:
+	
+		
+		
+		
+		
+		\begin{example}[The Real Projective Space]
+		Here, we define $\R\PP^n$ to be $\R^{n+1}\setminus 0$ modulo scalar multiples. Hence it is the space of lines in $\R^{n+1}$. Alternatively we can view it as the $n$-sphere where the operation from $\{\id,-\id\}$ is quotient out. From this description we get a metric, since $S^n\supseteq \R^{n+1}$ inherits the subspacae metric in which all operations from $\{\id,-\id\}$ are isometries. Hence, this metric projects down to $\R\PP^n$. Now let
+		\begin{equation*}
+			A=\diag(\lambda_0,\lambda_1,\dots,\lambda_n)
+		\end{equation*}be a symmetric matrix with real $\lambda_i\in \R$. Then we define the map
+		\begin{equation*}
+			\Lambda:\R^{n+1}\setminus\{0\}\to \R; \Lambda(x)\coloneq \frac{\langle x,Ax\rangle}{\norm{x}^2}\,.
+		\end{equation*}Notice that this function descends to a well defined function $\tilde{\Lambda}:\R\PP^n\to \R$. On the whole $\R^{n+1}$ we can define the function
+		\begin{equation*}
+			f:\R^{n+1}\to \R;~f(x)\coloneq \frac{1}{2}\langle x,Ax\rangle=\frac{1}{2}\sum_{i=0}^n\lambda_i x_i^2\,.
+		\end{equation*} Now assume that $\phi_t(x)$ is the flow associated to $- \grad(f)$, meaning
+		\begin{equation*}
+			\frac{\diff \phi_t(x)}{\diff t}=-\grad_{\phi_t(x)}(f)=-A\phi_t(x)\,,
+		\end{equation*} since 
+		\begin{equation*}
+			\frac{\partial f}{\partial x_i}(x)=\lambda_ix_i\,.
+		\end{equation*}
+		Now we have the lemma: 
+		\begin{lemma}
+			The flow lines of the negative gradient flow with respect to $\frac{1}{2}\tilde{\Lambda}$ on $\R\PP^n$ are the images under the quotient map 
+			\begin{equation*}
+				\pi: \R^{n+1}\setminus \{0\}\to \R\PP^n
+			\end{equation*}of the flow lines of the linear system
+			\begin{equation*}
+				\frac{\diff \Phi_t(x)}{\diff t}=-A \Phi_t(x)
+			\end{equation*}
+		\end{lemma}
+		\begin{proof}
+		Let $x$ be a point on the flow line $\Phi_t(x)$. Then $-\grad(f)(x)=-Ax.$ Now we split this into a part that is orthogonal to $y$ and one that is paralell:
+		\begin{equation*}
+			-\grad(f)(x)=\underbrace{-\Lambda(x)x}_{\text{parallel to } x}~+~\underbrace{-Ax+\Lambda(x)x}_{\text{orthogonal to }x}\,.
+		\end{equation*} The claim of orthogonality is just a calculation of the inner product $\langle -Ax+\Lambda(x)x,x\rangle=0$
+		\end{proof} Now we radially project this onto the sphere via 
+		\begin{equation*}
+			\pi_r:\R^{n+1}\setminus\{0\}\to S^n; x\mapsto \frac{x}{\norm{x}}
+		\end{equation*} the differential of this projection kills the parallel part and hence reads:
+		\begin{equation*}
+			\restr{\diff \pi_r}{x}(-\grad_x(f))=\frac{-Ax+\Lambda(x)x}{\norm{x}}
+		\end{equation*} If we restrict $\restr{f}{S^n}$ we get that the gradient $-\grad_y(\restr{f}{S^n})=-Ay+\Lambda(y)y$. To see this, let $v\in T_yS^n\subseteq T_yR^{n+1}$ and remember that the inner produkt on $S^b$ is induced from the euclidean one. Then 
+		\begin{align*}
+			\langle \grad_y(\restr{f}{S^n}),y\rangle_{S^n}
+			&=\diff \restr{f}{S^n}(v)=\diff f(v)=\langle \grad_y(f),v\rangle_{\R^{n+1}}\\
+			&=\langle \mathrm{proj}_{T_yS^n}(\grad_y(f)),v\rangle_{\R^{n+1}}=\langle Ay-\Lambda(y)y,v \rangle_{\R^{n+1}}
+		\end{align*} Here $\mathrm{proj}_{T_yS^n}$ denotes the projection onto the subspace ${T_yS^n}\subseteq T_y\R^{n+1}$. This however tells us that the image $\widetilde{\Phi_t(x)}$ of $\Phi_t(x)$ under the radial projection solves the equation
+		\begin{equation*}
+			\frac{\diff \widetilde{\Phi_t(y)}}{t}=-\grad_y(\restr{f}{S^n})(\widetilde{\Phi_t(y)})=-\frac{1}{2}\grad_y(\restr{\Lambda}{S^n})(\widetilde{\Phi_t(y)})\quad \text{ since } f=\frac{1}{2}\Lambda
+		\end{equation*} Hence descending to the quotient $\R\PP^n$ yields that $\left[\widetilde{\Phi_{2t}(y)}\right]$ is a solution of the flow associeted to the negative gradient of $\tilde{\Lambda}$ in $\R\PP^n$. Now the other way round should be trivial: Take a solution $\psi_t(x)$ of $\tilde{\Lambda}$ in $\R\PP^n$. Then for fixed $t,x$ let $U$ be a neighbourhood of $\psi_t(x)$. This $U$ can be lifted to $S^n$ and the solution there solves the lifted version of the flow induced from $\tilde{\Lambda}$. And from here we can argue that the solution is part of a solution of the linear differential equation 
+		\begin{equation*}
+			\frac{\diff \phi_t(x)}{\diff t}=-\grad_{\phi_t(x)}(f)=-Ax\,.
+		\end{equation*} This concludes the proof.
+		Hence critical points in $\R\PP^n$ are eigenvalues of $A$. Hence, for the function to be Morse, we need the critical points to be isolated, meaning that all eigenspaces have dimension one. So we assume that the diagonal entries in $A$ are all different. For simplicity we assume that $\lambda_0<\lambda_1\cdots <\lambda_n$. Since $A$ is diagonal we know that $[e_i]$ are the critical points.
+		\begin{lemma}\label{lem: unstable manifolds of real projective space}
+			Each critical point $[e_i]$ is non degenerate, of index $i$ and its unstable manifold is
+			\begin{equation*}
+				W([e_i]\to)\eqcolon U_i=\{[x_0:x_1,\dots x_i,0,\dots,0]\in \R\PP^n| x_i\neq 0\}\,,
+			\end{equation*} whilst the stable manifold is
+			\begin{equation*}
+				W(\to [e_i])\eqcolon S_i=\{[0,\dots,0,x_i,x_{i+1},\dots,x_n]\in\R\PP^n|x_i\neq 0\}
+			\end{equation*}
+		\end{lemma}
+		\begin{proof}
+			Let $B^n$ be the open unit ball in $\R^n$ and $V_i\coloneq \{[x_,\dots,x_n]\in\R\PP^n|x_i\neq 0\}$. Then we define the parametrization
+			\begin{align*}
+				\phi_i:B^n &\to V_i\\
+				(y_1,\dots y_n)&\mapsto [y_1,\dots,y_i,\sqrt{1-\norm{y}_2^2},y_{i+1},\dots,y_n]\,.
+			\end{align*} Now the image gives representatives of norm one and hence in this chart we calculate:
+			\begin{align*}
+				\tilde{\Lambda}\circ \phi_i(y_1,\dots,y_n)
+				&= \sum_{j=1}^iy_i^2\lambda_{j-1}+\lambda_i({1-\norm{y}_2^2})+\sum_{j=i+1}^n y_j^2\lambda_j\\
+				&= \sum_{j=1}^iy_i^2\lambda_{j-1}+\lambda_i(1-\sum_{j=1}^n y_j^2 )+\sum_{j=i+1}^n y_j^2\lambda_j \\
+				&= \sum_{j=1}^iy_i^2(\lambda_{j-1}-\lambda_i)+\lambda_i+\sum_{j=i+1}^n y_j^2(\lambda_j-\lambda_i)
+			\end{align*} With this local description we can calculate the hession in $[e_i]=\phi_i(0)$:
+			\begin{equation*}
+				\restr{\frac{\partial ^2\tilde{\Lambda}\circ \phi_i}{\partial y_k \, \partial y_l}}{0}=
+				\begin{cases}
+				0								&\text{ if }k\neq l \\
+				2(\lambda_{k-1}-\lambda_i)<0	&\text{ if }k=l\leq i \\
+				2(\lambda_k-\lambda_i)>0		&\text{ if } k=l > i\\
+				\end{cases}
+			\end{equation*} 
+	 Hence, $[e_j]$ is a non degenerate critical point of index $i$. Now concerning the unstable manifolds, we pick a point $x=x_ke_k+\cdots x_le_l\in\R^{n+1}$ with $x_k$ and $x_l$ not equal to zero. This points trajectory in $\R^{n+1}$ under $-\grad (f)$ is
+		\begin{equation*}
+			\phi_t(x)=x_k\euler^{-\lambda_kt}e_k+\cdots x_l\euler^{-\lambda_l t}e_l\,.
+		\end{equation*} Hence for $t$ approaching negative infinity, the term $x_l\euler^{-\lambda_l t}e_l$ is leading, whilst for $t$ approaching infinity, the summand $x_k\euler^{-\lambda_kt}e_k$ is leading. Since projectively we don't care about absolute values but rater relations having a leading coordinate meaning that relatively all other coordinates approach zero. Hence:
+		\begin{equation*}
+			\lim_{t \to -\infty}([\phi_t(x)])=[e_l]\quad \text{ and, }\quad \lim_{t \to +\infty}([\phi_t(x)])=[e_k]\,.
+		\end{equation*} 
+			\end{proof}
+			\begin{definition}[Orientations]
+				For orienting the unstable manifolds we make use of the projection $\R^{n+1}\supseteq S^n\to \R\PP^n$. Hence, we can lift $T_{[e_i]}\R\PP^n $ to $T_{\pm e_i}S^n$ and include that into $T_{\pm e_i}\R^{n+1}$, where we have the maps $Q_{\pm e_i}:\R^{n+1}\to T_{\pm e_i}\R^{n+1}$. In this way we get two canonical lifts of the tangent space:
+				\begin{center}
+					\begin{tikzcd}
+							T_{[e_i]}\R\PP^n \arrow[r,"{\diff \pi_{e_i}^{-1}}"] \arrow[d,"{\diff \pi_{-e_i}^{-1}}"] & T_{ e_i}S^n \arrow[d,"{Q_{e_i}^{-1}}"]\\
+							T_{- e_i}S^n \arrow[r,"{Q_{-e_i}}"] & \langle (e_j)_{j\neq i} \rangle
+					\end{tikzcd}
+				\end{center}
+				In general, the diagram is not commutative. To see this notice how $\pi\circ -\id=\pi$. Hence $\restr{\diff \pi}{-e_i} \circ \restr{\diff -\id}{e_i} =\restr{\diff \pi}{e_i}$ and with that:  
+				\begin{align*}
+					Q_{-e_i}^{-1}\circ \restr{\diff \pi}{-e_i}^{-1}\circ \restr{\diff \pi}{e_i}\circ Q_{e_i}
+					&=Q_{-e_i}^{-1}\circ \restr{\diff \pi}{-e_i}^{-1}\circ \restr{\diff \pi}{-e_i} \circ \restr{\diff (-\id)}{e_i} \circ Q_{e_i}\\
+					&Q_{-e_i}^{-1}\circ \restr{\diff \pi}{-e_i}^{-1}\circ \restr{\diff \pi}{-e_i} \circ Q_{-e_i}\circ -\id \\
+					&=Q_{-e_i}^{-1}\circ Q_{-e_i} -\id =-\id\,.
+				\end{align*} Hence, we can define a canonical orientation on $T_{[e_i]}\R\PP^n$ that is given by $(e_j)_{j\neq i}$ or equivalent $(-e_j)_{j\neq i}$ depending on the choosen lift. Now in the same way we can induce orientations to the unstable manifolds $U_i$ by two equivalent ways:
+							\begin{center}
+					\begin{tikzcd}
+						T_{[e_i]}U_i \arrow[r,hook]& T_{[e_i]}\R\PP^n\\
+						\langle (e_0,\dots e_{i-1}) \rangle \arrow[u] \arrow[r,hook] & T_{e_i}S^n \arrow[u]
+					\end{tikzcd} 	
+					or equivalently 
+					\begin{tikzcd}
+						T_{[e_i]}U_i \arrow[r,hook]& T_{[e_i]}\R\PP^n\\
+						\langle -e_0,\dots -e_{i-1} \rangle \arrow[u] \arrow[r,hook] & T_{-e_i}S^n \arrow[u]
+					\end{tikzcd}
+					
+				\end{center}
+			\end{definition}
+			Now we know how the groups in the Morse chain complex are looking. The next step is the boundary operator:
+			\begin{lemma}
+				The differential in $C^*(\R\PP^n,\Lambda^*)$ with the right orientations act as
+						\begin{equation*}
+					\partial_i([e_i])=n([e_{i-1}],e_i) [e_{i+1}]= ({(-1)}^i-1)[e_{i+1}]
+				\end{equation*}	
+			\end{lemma}
+		\begin{proof}
+			First we notice that $W([e_i]\to [e_{i-1}])$ is a one dimensional projective space with two points missing. If we would look at the Morse homology with coeficients in $\Z_2$ we would be done here, since $\R\PP^1\setminus \{p,q\}$ consists of two lines. Hence, over $\Z_2$ the boundary operator is trivial. However we want to use the orientations from above.
+			Now let 
+			\begin{equation*}
+				x\in W([x_i]\to [e_{i-1}])=\{[0:\cdots 0:x_{i-1}:x_{i}:0:\cdots 0]|x_{i-1}\neq 0 \text{ and }x_i\neq 0 \}\,.
+			\end{equation*} Then we can choose representatives, such that $x_{i-1}^2+x_i^2=1$, and $(x_{i-1},x_i)$ is in the upper halve plane meaning that $x_i>0$. Now take a $x\in W([e_i]\to [e_{i-1}])$. Then $T_xW([e_i]\to [e_{i-1}])$ has an oriented basis given as the pushforeward of $v=x_{i}e_{i-1}-x_{i-1}e_{i}$ under the projection $T_xS^n\to T_x\R\PP^n$. Now we want to analyze how this relates to the orientation induced by the flow and the two unstable orientations: if both $x_i$ and $x_{i-1}$ are positive, then $v$ points in the direction of the flow or said different, $-\grad_x(f)=v$. Else, if $x_{i-1}$ is negative, $-v$ points in the direction of the flow(i.e. $-\grad_x(f)=-v$). The parallel transport of $T_{[e_{i-1}]}U_{i-1}$ to the normal space of $-\grad_x(\tilde{\Lambda})$ induced by the negative flow maps the basis $(e_{0},\dots, e_{i-2})$ of $T_{[e_{i-1}]}U_i$ to $(e_{0},\dots e_{i-2})$ in the orthogonal complement of $-\grad_x(\tilde{\Lambda})$ in $T_x\R\PP^n$. So we need to compare in $T_x\R\PP^n$ the basis $(-\grad_x(f),e_0,\dots e_{i-2})$ to the  basis $(e_0,\dots e_{i-1})$ in $T_{[e_i]}U_i$ after transporting it to $T_x\R\PP^n$ along the flow. This latter transport maps the basis vectors as follows:
+			\begin{equation*}
+				e_j\mapsto \begin{cases*}
+					x_ie_{i-1}-x_{i-1}e_i& if $j=i-1$\\
+					e_j & else.
+				\end{cases*}
+			\end{equation*} In other words, we need to ask when the two basis
+			\begin{equation*}
+				((x_ie_{i-1}-x_{i-1}e_i),e_0,\dots e_{i-2}) \quad \text{ and }\quad (e_0,\dots e_{i-2},x_ie_{i-1}-x_{i-1}e_i)\,,
+			\end{equation*} if  $x_{i-1}>0$ are comparable.Then, the basis carry the same orientation, if and only if $i$ is odd, since then it takes evenly many transpositions of coordinates. 
+			
+			If $x_{i-1}<0$ we notice, that our representation of $[e_{i-1}]$ is given by $-e_{i-1}$ and hence the unstable tangent space has the basis $-e_0,\cdots -e_{i-2}$. Hence in $x$ we get the oriented basis 
+			\begin{equation*}
+				(-\grad_x(f),-e_0,\cdots -e_{i-2})=(-v,-e_0,\cdots -e_{i-2})\,.
+			\end{equation*} We compare this basis to basis that comes from transporting the basis $(e_0,\dots e_{i-1})$ of $T_{[e_i]}U_{[e_i]}$ to $x$ resulting in the basis $(e_0,\dots e_{i-2},v)$. Hence we compare the bases 
+			\begin{equation*}
+				(-v,-e_0,\cdots -e_{i-2}) \quad \text{and}\quad (e_0,\dots e_{i-2},v)
+			\end{equation*} we manipulate the first and keep note of the sign of the alterations:
+			\begin{equation*}
+				(-v,-e_0,\cdots -e_{i-2})=(-1)^{i}(v,e_0,\cdots e_{i-2}) =(-1)^{i+i-1}(e_0,\dots e_{i-2},v)\,.
+			\end{equation*} Hence, the orientations never agree. Now if $i$ is odd the two flow lines cancel out when counted with the sign and if $i$ is even, we count minus two flow lines. Therefore the counting of flow lines noted by $n(p,q)$ gives: 
+			
+			\begin{equation*}
+				n(e_{i+1},e_i)={(-1)}^i-1\,,
+			\end{equation*}
+			and the Morse cohomology boundary operator equals:
+		\begin{equation*}
+			\partial_i([e_i])=n([e_{i-1}],e_i) [e_{i+1}]= ({(-1)}^i-1)[e_{i+1}]
+		\end{equation*}	
+		\end{proof}
+		Now for even $n$, $EM_1$ of the form:
+		\begin{center}
+			\begin{tikzcd}
+				0&\langle [e_0] \rangle \arrow[r,"0"]&\langle [e_1] \rangle \arrow[r,"-2"]&\langle [e_2] \rangle \arrow[r,"0"]&\cdots \arrow[r,"-2"] &\langle [e_n] \rangle \arrow[r,"0"]&0
+			\end{tikzcd}
+		\end{center} and for odd $n$:
+		\begin{center}
+					\begin{tikzcd}
+			0&\langle [e_0] \rangle \arrow[r,"0"]&\langle [e_1] \rangle \arrow[r,"-2"]&\langle [e_2] \rangle \arrow[r,"0"]&\cdots \arrow[r,"0"] &\langle [e_n] \rangle \arrow[r,"0"]&0
+		\end{tikzcd}
+			\end{center}
+		Hence we have the $EM_2$ pages as follows:
+		\begin{center}
+			\begin{tikzcd}
+				0&\langle [e_0] \rangle &0&
+			\frac{\langle [e_2] \rangle }{\langle -2[e_2] \rangle } 
+			&0
+			&\cdots 
+			&	\frac{\langle [e_n] \rangle }{\langle -2[e_n] \rangle }&0
+			\end{tikzcd}
+		\end{center} if $n$ is even, and in the odd case: 
+		\begin{center}
+			\begin{tikzcd}
+	0&\langle [e_0] \rangle &0&
+\frac{\langle [e_2] \rangle }{\langle -2[e_2] \rangle } 
+&0
+12	&\cdots 
+	&\langle [e_n] \rangle &0
+\end{tikzcd}
+		\end{center}
+		When it comes to higher differentials, we notice the following: Only for odd $r$ the differentials are possible nontrivial Hence for $\R\PP^2$ we are done and we can get the complex k-groups: 
+		For $K^0(\R\PP^2)$ we get a associeted graded group that is isomorphic to $\Z\oplus \Z_2$. Hence we need to calculate the extension 
+		\begin{center}
+			\begin{tikzcd}
+				0\arrow[r]& \Z \arrow[r]&K^0(\R\PP^2)\arrow[r]&\Z_2\arrow[r]&0
+			\end{tikzcd}
+		\end{center} giving us $K^0(\R\PP^2)\cong \Z\oplus \Z_2$. 
+		And similar $K^1(\R\PP^2)=0$. 
+		To understand the higher differentials we need to get specific about the used filtration. We define the filtration inductively as follows:
+	For any $i$ define $c_i\in (\lambda_i,\lambda_{i+1})$ and with this we define the filtration 
+	\begin{equation*}
+		N_{-1}\coloneq \emptyset,\quad N_i=\tilde{\Lambda}(-\infty,c_i) \text{ the sublevel sets }, \quad N_n\coloneq \R\PP^n\,.
+	\end{equation*} With this filtration it is somewhat easy to see that $(N_i,N_{i-1})$ gives a regular index pair of $[e_i]$. One just needs to go through the definitions: First it is clear, that the only critical point inside of the closure of $N_i\setminus N_{i-1}$ is $[e_i]$ and it is in the interiour. Secondly, the positiv lime invariance is clear, since $\tilde{\Lambda}$ decreases along flow lines. And $N_{i-1}$ is an exit set also by definition. Finally the cofibration property of the pair $N_i,N_{i-1}$ is to be shown. For this we notice, that $c_i$ is a regular value of $R$. Hence there exists an $\epsilon>0$, such that $f^{-1}\left([a,a+\epsilon)\right)$ contains no critical point and hence this defines an open color of $N_i$ inside $N_{i+1}$. This open color can be shown to be an NDR pair, which in turn is a cofibration. Those are standart arguments seen in \cite{Whitehead1978} Chapter 5.1.
+	\begin{lemma}
+		In the filtration, each $N_i$ is homotopically equivalent to $\R\PP^i$. 
+	\end{lemma}
+	\begin{proof}
+\begin{comment}
+			We proof this by induction a,d for $N_0$ this is clear, since the space is contractible to $[e_0]$ via the flow. Hence it is homotopically equivalent to a point which is $\R\PP^0$ by definition. Now assume that $N_i\simeq \R\PP^i$ for $i\leq n$. We know that by the Morse theory $N_{n+1}$ has the homotopy type of $N_n$ with a disc of dimension $n+1$ attached. Hence
+	\begin{equation*}
+		N_{n+1}\simeq N_m\cup_\phi D^n
+	\end{equation*} Now we need to analyce the attaching map $\phi$:
+\end{comment} 
+Notice how for all $i$ the sublevelset $\tilde{\Lambda}^{-1}(-\infty,\lambda_i]$ is an embedded projective space $\R\PP^i$.To show that $N_i$ is homotopically equivalent we start by noticing that $N_i\simeq \tilde{\Lambda}^{-1}(-\infty,\lambda_{i-1}+\epsilon)$ for all $\epsilon>0$ small enough. Now the next step is to get rid of epsilon. Let $L_\epsilon$ denote $\tilde{\Lambda}^{-1}(-\infty,\lambda_{i-1}+\epsilon)$ and hence we want to show that $L{\epsilon}\simeq L_0$. For this we define 
+\begin{equation*}
+	H:L_\epsilon \times [0,1] \to L_\epsilon\,\quad ([x],t) \text{ with }\norm{x}=1 \mapsto \left[\sum_{j=1}^i x_je_j +(1-t)\sum_{j>i}x_je_j \right] 
+\end{equation*} 
+First we need to check if this map is well defined in two senses. Is the definition invariant under the chosen representative and do we map into $L_\epsilon$. 
+For the independence of the chosen representative we notice that the image of $x$ and $-x$ differ by sign and hence define the same equivalence class. Also applying $\tilde{\Lambda}$ to the image we notice that the image is less then $\lambda_{i}+\epsilon$. this is true, since $\tilde{\Lambda}$ is a weighted sum of the eigenvalues and the addition of $(1-t)$ decreases the weights on the bigger eigenvalues reducing the overall weighted sum. \todo{in formeln nachrechnen}
+
+Now obviously $H_1$ maps to  $\tilde{\Lambda}{-1}(-\infty,\lambda_i]$. 
+	\end{proof}
+	
+	
+	
+	\todo{$d_3^0$ ist sowieso 0, da das bild 0 ist!!}
+	 Now that we have our filtration we can start looking at higher differentials. If $n$ is even, then every other group in $EM_2$ is zero hence all higher differentials vanish as only odd $d_r$ are candidates to be non trivial. So let $n$ be odd. Then only differentials landing in the last group $EM_n$ can possible be non trivial. However, for all $r<n$ the differential that lands in $EM_r^m \cong \Z$ starts in $EM_r^{m-r}\cong \Z_2$. Hence they are all trivial as well. Now if $r=m$ we have the differential 
+	 \begin{equation*}
+	 	\diff_m^0:  EM_m^0 \to EM_m^m
+	 \end{equation*} which is possible non-zero. However this differential is given as follows: 
+	 
+	 \begin{center}
+	 	\begin{tikzcd}
+	 		&&K^0(N_m )\arrow[d,"i^*"]\\
+	 		K^{0}(N_0,\emptyset)\arrow[rrd,"d_m^0"] \arrow[r,"\gamma"] &K^0(N_0)\arrow[r,"\widetilde{\alpha^{-m}}"]& K^{0}(N_{m-1}) \arrow[d,"\delta"]\\
+	 		&&K^1(N_m,N_{m-1})
+	 	\end{tikzcd}
+	 \end{center}
+	 Here $\alpha^{-m}$ is any left inverse of $\alpha^m$ or taking the preimage (the well definednes or rather independence of the choosen inverse was shown in the definition of the derived exact couple). The vertical sequence is exact and since $N_{m-1}=N_m\setminus D$ where $D$ is contractible, we have that $i^*$ is surjective and hence $\delta$ is trivial and thereby $dM_m^0=0$.
+	  Then For this we start with $n=3$ and then go up. In the case of $n=3$ we are trivial, since $d^0_3$ is given by the composition
+	\begin{center}
+		\begin{tikzcd}
+			&&K^0(N_3 )\arrow[d,"i^*"]\\
+			K^{0}(N_0,\emptyset)\arrow[rrd,"d_3"] \arrow[r,"\gamma"] &K^0(N_0)\arrow[r,"\widetilde{\alpha^{-2}}"]& K^{0}(N_2) \arrow[d,"\delta"]\\
+			&&K^1(N_3,N_2)
+		\end{tikzcd}
+	\end{center}
+
+			Here $\alpha^{-1}$ is any left inverse of $\alpha^2$ or taking the preimage (the well definednes or rather independence of the choosen inverse was shown in the definition of the derived exact couple). The vertical sequence is exact and since $N_2=N_3\setminus D$ where $D$ is contractible. A contraction is given by flowing along the positive gradient of $\tilde{\Lambda}$. Hence, we have that $i^*$ is surjective and thereby $\delta$ is trivial resulting in $dM_m^0=0$. For all real projective spaces the spectral sequence becomes stable on the second page and hence we can calculate the complex K-groups of $\R\PP^n$: 
+			For even $n$ we have the two graded associated groups:
+			\begin{align*}
+				\gr(K^0(\R\PP^n))&=\Z\oplus \underbrace{\Z_2 \oplus \cdots \oplus \Z_2}_{\frac{n}{2} \text{summands }} \\
+				\gr(K^1(\R\PP^n))&=0
+			\end{align*}
+			
+			
+			
+			
+			
+			
+			
+			\begin{comment}
+				 
+				The same arguments yealds that for $\R\PP^4$ the map $d^1_3=0$.
+				And hence for $\R\PP^n$ with $n\leq4$ all higher differentials are trivial and the second page is also the last page. This lets us conclude, that $K^0(\R\PP^3)$ is an extension of $/Z\oplus \Z_2$ and there is only one possible extension namely the splitting one. Hence $K^0(\R\PP^3)\cong \Z\otimes \Z_2$. Similar we get $K^1(\R\PP^3)\cong\Z$ 
+				
+				
+				
+				Let $n=5$. Then again, the map is given via the diagram 
+				\begin{center}
+					\begin{tikzcd}
+						&&K^0(N_3 )\arrow[d,"i^*"]\\
+						K^{0}(N_0,\emptyset)\arrow[rrd,"d_3"] \arrow[r,"\gamma"] &K^0(N_0)\arrow[r,"\widetilde{\alpha^{-2}}"]& K^{0}(N_2) \arrow[d,"\delta"]\\
+						&&K^1(N_3,N_2)\arrow[d]\\
+						&&K^1(N_3)\arrow[d]\\
+						&&K^1(N_2)\\
+					\end{tikzcd}
+				\end{center}
+				However this time, since $N_3\simeq \R\PP^3$ we have that $K^1(N_3)=\Z$ and we have that $K^1(N_2)=0$. Hence, $K^1(N_3,N_2)\to K^1(N_3)$ is surjective and hence an isomorphism, resulting in $\delta=0$. The next candidate for a nontrivial higher differential is $d_3^{3}$ which however is trivial since there is not other homomorphism form $Z_2$ to $\Z$. So our hope is on $d_5$ now! However this is again zero.... In fact all higher differential are zero!   
+			\end{comment}
+	\end{example}
+	
+	\begin{example}
+		Make a produkt morse funktion on $\R\PP^2\times \R\PP^4$!. 
+		For this we assume that $\tilde{\Lambda}_2$ is a Morse function on $\R\PP^2$ and defined as above and similary $\tilde{\Lambda}_4$ is one for $\R\PP^4$.
+		From the established Künneth formular we know that the Morse cohomology of $\R\PP^2 \times \R\PP^4$ is as follows: 
+		\begin{equation*}
+			H^n(\R\PP^2\times \R\PP^4,\tilde{\Lambda_2}+\tilde{\Lambda}_4)\cong \bigoplus_i\left(
+			H^i(\R\PP^2,\tilde{\Lambda}_2)\otimes H^{n-i} (\R\PP^4,\tilde{\Lambda}_4)
+			\right) \oplus \bigoplus_i \Tor\left(
+			H^i(\R\PP^2,\tilde{\Lambda}_2),
+			 H^{n-i+1} (\R\PP^4,\tilde{\Lambda}_4)
+			\right)\,.
+		\end{equation*}
+		
+		First we list the Homology of $\R\PP^2$ and $\R\PP^4:$
+	\begin{equation*}
+		\begin{array}{c|c c}
+			& \R\PP^2 &\R\PP^4\\
+			\hline
+			H^0&\Z&\Z \\
+			H^1&0&0\\
+			H^2&\Z_2&\Z_2\\
+			H^3&0&0\\
+			H^4&0&\Z_2
+		\end{array}
+	\end{equation*}
+ Furthermore the only non-zero $\Tor$ is $\Tor(\Z_2,\Z_2)$. Which only appears for $n=3$ and $n=5$. Furtermore we have for the tensor groups for any $A$: $\Z\otimes A\cong A$ and $\Z_2\otimes \Z_2 \cong \Z_2$.  Hence we have the resulting isomorphisms: 
+ \begin{equation*}
+ 	H^i(\R\PP^2\times \R\PP^4)\cong \begin{cases}
+ 		\Z & \text{ if }i=  0\,,\\
+	 	0  & \text{ if }i=  1\,,\\
+	 	\Z_2\oplus \Z_2& \text{ if }i=  1\,,\\
+	 	\Z_2 & \text{ if }i=  3\,,\\
+	 	\Z_2\oplus \Z_2 & \text{ if }i=  4\,,\\
+	 	\Z_2& \text{ if }i=  5\,,\\
+	 	\Z_2& \text{ if }i=  6\,,\\
+	 	0& \text{ if }i>6\,.
+ 	\end{cases}
+ \end{equation*}
+	
+	\end{example}
+	

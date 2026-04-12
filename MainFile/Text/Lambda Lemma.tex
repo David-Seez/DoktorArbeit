@@ -58,9 +58,9 @@ TN \arrow[u] \arrow[r, "\diff f"] & TM \arrow[u] & TZ \arrow[u] \arrow[l, "\diff
 
 
 
-\begin{cor} \label{cor: lambda lemma flow lines have decreasing index}
+\begin{corollary} \label{cor: lambda lemma flow lines have decreasing index}
     This tells us that two critical points $p,q$ of the same index either have a zero dimensional manifold connecting them or else none at all. Since a zero dimensional manifold would only contain discrete points a connection between two different critical points of the same index cannot exist. Furthermore those manifolds are path connected via the integral curves. Furthermore, if $W(q\to p)$ is not empty, it must contain a flow line of dimension one. But then $\ind_f(q)>\ind_f(p)$.
-\end{cor}
+\end{corollary}
 
 
 \begin{remark}
@@ -118,9 +118,9 @@ $i_k (P_k)=W_k\subseteq M$. We call $W_1$ $\epsilon ~C^1-$ close to $W_2$ if and
 \begin{remark}
     The idea behind the map $h$ is that two immersed manifolds respectively maps can be in proximity but have different parametrizations, such that whilst they are setwise close, pointwise they are not. With $h$ one can re-parametrize to avoid that problem.
 \end{remark}
-\begin{cor}\label{cor: Subspaces are also close}
+\begin{corollary}\label{cor: Subspaces are also close}
 If $A$ is smoothly embedded into $B$ and $B$ is $\epsilon~C^1$ close to $D$ as smoothly embedded manifolds in $M$, then $A$ is also $\epsilon~C^1$ close to $D$.
-\end{cor}
+\end{corollary}
 \begin{proof} First let $i_b$ and $i_D$ denote the smooth injective immersions of $A$ and $D$ into $M$.
 Since $B$ is $\epsilon~C^1-$close we have an $h$ such that $d(i_B,i_D\circ h)<\epsilon$. Now the $C^1$ topology cares for the pointwise closeness of the images of the maps and their derivatives. This tells us that the composition of a smooth injective immersion from the right keeps that property. In our case we can use the inclusion $i_a: A \hookrightarrow B$ to conclude that $$d(i_B\circ i_A,i_D\circ h\circ i_A)<\epsilon.$$
 \end{proof}
@@ -298,11 +298,11 @@ h_s \equiv h_s \times \id_{W(p \to)}.
 
 
  
-\begin{cor}\label{cor: lambda lemma first corollary} Let $M$ be a smooth manifold and suppose that $p,q$ are hyperbolic fixpoints of a diffeomorphism $\phi:M\to M$. If $W(q \to)$ and $W(\to p)$ have a point of transversal intersection, then 
+\begin{corollary}\label{cor: lambda lemma first corollary} Let $M$ be a smooth manifold and suppose that $p,q$ are hyperbolic fixpoints of a diffeomorphism $\phi:M\to M$. If $W(q \to)$ and $W(\to p)$ have a point of transversal intersection, then 
 \begin{align*}
 W(p\to) \subseteq \overline{W(q \to )}.
 \end{align*}
-\end{cor}
+\end{corollary}
 \begin{proof}
 We proof this corollary by showing that every neighbourhood of any point in $W(p\to)$ must contain elements of $W(q \to)$. The setup for this proof is the left side of figure \ref{fig: Proof of the closures of unstable sets}. Let $a\in W(p \to)$ and let $A,B \subset W(p   \to )$ be $r-$cell neighbourhoods of $a$ respectively of $p$. Notice, that there exists a $n$ such that $\phi^{-n}(A)\subseteq B$. By the $\lambda-$lemma for any $\delta$ there is a neighbourhood $D_{\delta}\subseteq W(q \to)$ such that $B$ is $\delta$ $C^1-$close to $D_{\delta}$. Since $\phi^{-n}(A)\subseteq B$ we know that $\phi^{-n}(A)$ is $\delta$ $C^1-$close to $D_{\delta}$. Thus for any $\epsilon$ we can choose a $\delta$ such that $A$ is $\epsilon~C^1-$close to $\phi^{n}(D_{\delta})$. Therefore any in $M$ open neighbourhood of $a$ contains points in $W(q\to)$.   
 \end{proof}
@@ -315,12 +315,12 @@ We proof this corollary by showing that every neighbourhood of any point in $W(p
     The left side shows the setup for the proof of corollary \ref{cor: lambda lemma first corollary} and the right side of corollary \ref{cor: transitivity of fixpoints}.
 \end{figure}\clearpage
 
-\begin{cor}[Transitivity of gradient lines for diffeomorphisms] \label{cor: transitivity of fixpoints}
+\begin{corollary}[Transitivity of gradient lines for diffeomorphisms] \label{cor: transitivity of fixpoints}
 Let $M$ be a smooth manifold and suppose that $p_i$ for $i=1,2,3$ are hyperbolic fixed points of the diffeomorphism $\phi:M\to M$. Now if $W(p_3\to) $ and $ W(\to p_2)$ intersect transversally in a point and $W(p_2\to) $ and $ W(\to p_1)$ intersect transversally in a point then also $W(p_3 \to )$ and $ W(\to p_1)$. Furthermore, if $W(p_3 \to) \transcap W( \to p_2)$ and $W(p_2 \to) \transcap W(\to p_1)$ we obtain:
 \begin{align*}
 \overline{W(p_3 \to p_1)} \supseteq W(p_3 \to p_2) \cup W(p_2 \to p_1) \cup \{p_1,p_2,p_3\}.
 \end{align*} 
-\end{cor}
+\end{corollary}
 \begin{proof} The setup for this proof is the right side in figure \ref{fig: Proof of the closures of unstable sets}.
 Let $a$ be in the transverse intersection of $W(p_2 \to )$ and $W(\to p_1 )$. Let $A\subseteq W(p_w \to)$ be an $r-$cell neighbourhood of $a$ and $B\subseteq W(p_2\to)$ one of $p_2$ where $\dim W(p_2 \to)=r$. Then by the same argument as in the proof of corollary \ref{cor: lambda lemma first corollary} we have that for arbitrary $\epsilon>0$ there exists an $D_\delta \subseteq W(p_3 \to)$  such that $A$ is $\epsilon~C^1-$close to $\phi^n(D_{\delta})$. Since $A$ has a point of transverse intersection with $W(\to p_1)$ there is an $\epsilon>0$ such that $A$ and $\phi^n(D_{\delta})$ intersect transversally. That is because the property of having a transverse intersection is locally stable.
 
@@ -334,17 +334,17 @@ Now assume that $W(p_3 \to) \transcap W(\to p_2)$ and $W(p_2 \to) \transcap W(\t
 \end{proof}
 
 For now $M$ will be a smooth compact Riemannian manifold and $f:M \to \R$ a Morse-Smale function. In this setting we have the following corollaries:
-\begin{cor}[Transitivity of gradient lines for critical points] \label{cor: lambda lemma transitivity of critical points}
+\begin{corollary}[Transitivity of gradient lines for critical points] \label{cor: lambda lemma transitivity of critical points}
 Let $p,q,r$ be critical points of $f$ such that $W(r \to q)\neq \emptyset$ and $W(q\to p) \neq \emptyset$. Then we have that $W(r \to p)\neq \emptyset$, and 
 \begin{align*}
 \overline{W(r \to p)}\supseteq W(r \to q)\cup W(q \to p) \cup \{p,q,r\}.
 \end{align*} 
-\end{cor}
+\end{corollary}
 \begin{definition} Let $p,q,r$ be critical points of a Morse-Smale function on a smooth compact Riemannian manifold. We say that $q$ \textbf{succeeds} $r$, if $W(r \to q)\neq \emptyset$ and write $p\succeq q$. With this definition we have that $(\Crit_f(M),\succeq)$ is a partially ordered set called the \textbf{face diagram}. The face diagramm of the torus can be seen in figure \ref{fig: Definition of the filtration}.
 \end{definition}
-\begin{cor}
+\begin{corollary}
 The pair $(\Crit_f(M), \succeq)$ is a partial ordered set.
-\end{cor}
+\end{corollary}
 \begin{proof}
 We need to check three properties:
 \begin{enumerate}
@@ -353,14 +353,14 @@ We need to check three properties:
 \item \textit{Transitivity} was proven above.
 \end{enumerate}
 \end{proof}
-\begin{cor}\label{cor: lambda lemma corollary a} For any critical point $q$ of $f$ we have that
+\begin{corollary}\label{cor: lambda lemma corollary a} For any critical point $q$ of $f$ we have that
 \begin{align*}
 \overline{W(q\to)}\supseteq \bigcap_{\{p \in \Crit_f(M) | ~p \succeq q\}} W(p \to).
 \end{align*} If $p \succeq q$ then we can extend it to
 \begin{align*}
 \overline{W(q \to p)}\supseteq \bigcap_{\{\tilde{q},\tilde{p} \in \Crit_f(M) |~ q \succeq \tilde{q} \succeq \tilde{p} \succeq p \} }W(\tilde{q} \to \tilde{p})
 \end{align*}
-\end{cor}
+\end{corollary}
 \begin{proof}
 This is a reformulation of corollary \ref{cor: transitivity of fixpoints}.
 \end{proof}
@@ -384,9 +384,9 @@ Choose a sequence $(x_j)_{j\in \N}$ such that all $x_j\in (W(q\to )\cap U) \setm
 \end{align}
  Now we have that $\lim_{j\to \infty}k_j=\infty$. Since $M$ is compact and $\overline{W(\to q)}$ is closed we know that it is also compact and therefore the series $(\phi^{-k_j}(x_j))_j$ has a limit point $x\in \overline{W(\to q)}$. After restricting to a subsequence we can assume that $\lim_{j\to \infty} \phi^{-k_j}(x_j)=x$. We now want to show that $x\in W(\to p)$. Notice that $\lim_{j \to \infty}\phi^k(\phi^{k_j}(x_j))=\phi^k(x)$ and by (\ref{eq: lambda lemma proof of a lemma }) we have that $\phi^k(x)\in \overline{U}$ for all $k$. Therefore, $x$ needs to be in the stable set of $p$, as otherwise it would converge to some other critical point in $\overline{U}$, which does not exist. Furthermore, since $x$ is not in $U$ it cannot be $p$ and this concludes the search for an intersection different from $p$.  
 \end{proof}
-\begin{cor} \label{cor: lambda lemma corollary b}
+\begin{corollary} \label{cor: lambda lemma corollary b}
 Let $p,q$ be critical points of $f$. If $\overline{W(q \to)}\cap W(p \to) \neq \emptyset$, then $q \succeq p$.
-\end{cor}
+\end{corollary}
 \begin{proof}
 We prove this by constructing a chain in the partially ordered $(\Crit(f),\succeq)$ that starts in $p=p_1$ and ends in $q$. For this we construct the following algorithm: 
 \begin{enumerate}
@@ -395,7 +395,7 @@ We prove this by constructing a chain in the partially ordered $(\Crit(f),\succe
 \end{enumerate}
 The recipe above leads to the chain $\cdots p_k \succeq p_{k-1} \succeq \cdots p_1=p$. Since there are only finitely many critical points, this terminates eventually which means that at one point $p_k=q$ and the transitivity tell us, that $q\succeq p$.
 \end{proof}
-\begin{cor}\label{cor: lambda lemma closer of (un-)stabnle sets}
+\begin{corollary}\label{cor: lambda lemma closer of (un-)stabnle sets}
 For any critical point $q$ of $f$ we have:
 \begin{align*}
 \overline{W(q \to)}=\bigcup_{q \succeq p} W(p \to), 
@@ -403,16 +403,16 @@ For any critical point $q$ of $f$ we have:
 \begin{align*}
 \overline{W(\to q )}=\bigcup_{r \succeq q} W(\to r). 
 \end{align*}
-\end{cor}
+\end{corollary}
 \begin{proof}
 For the first equation, \glqq $\supseteq$ \grqq~ is just corollary \ref{cor: lambda lemma corollary a}. To show the other inclusion we take an element $x\in \overline{W(q \to)}$. This $x$ is contained in some $W(p \to)$ and therefore we have that $\overline{W(q \to)} \cap W(p \to)\neq \emptyset$. With corollary \ref{cor: lambda lemma corollary b} we can conclude that $q\succeq p$ and therefore $W(p \to)$ is contained in the right union telling us that $x$ is contained in the union. \\
 For the second equation notice how it is the first equation if one considers $-f$ instead of $f$. 
 \end{proof}
-\begin{cor} If $p$ and $q$ are critical points and $q \succeq p$, then 
+\begin{corollary} If $p$ and $q$ are critical points and $q \succeq p$, then 
 \begin{align*}
 \overline{W(p \to q)}=\overline{W(q\to)}\cap \overline{W(\to p)}=\bigcup_{q \succeq \tilde{q} \succeq \tilde{p}\succeq p } W(\tilde{q} \to \tilde{p}).
 \end{align*} The union here is to be interpreted like the union in corollary \ref{cor: lambda lemma corollary a}.
-\end{cor}
+\end{corollary}
 \begin{proof}
 It is obvious, that ${\overline{W(q\to p)}\subseteq \overline{W(q\to)}\cap \overline{W(\to p)}}$, since $$W(q \to p)=W(q\to)\cap W(\to p).$$ For the other containment take $x\in \overline{W(q\to)}\cap \overline{W(\to p)}$. By the corollary \ref{cor: lambda lemma closer of (un-)stabnle sets} we can take a $q_2 \in \Crit_f(M)$ such that $q \succeq q_2$ and $x\in W(q_2 \to)$ and a $p_2\in \Crit_f(M)$ such that $p_2 \succeq p$ and $x\in W(\to p_2)$. Therefore, $x\in W(q_2\to p_2)$ letting us deduce that $q_2\succeq p_2$.
 By corollary  \ref{cor: lambda lemma transitivity of critical points} we can conclude that:

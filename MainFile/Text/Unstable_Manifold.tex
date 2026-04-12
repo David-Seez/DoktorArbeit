@@ -72,7 +72,7 @@ The Main theorem of this chapter will be the:
 \end{proof}
 
 
-\begin{cor}\label{cor: Tangendspace splits}
+\begin{corollary}\label{cor: Tangendspace splits}
 	By the above, we see that the tangent space $T_pM$ now splits into two parts $T_p^sM\bigoplus T_p^uM$, such that for $t>0$ :
 	\begin{align*}
 		&\diff \phi_t\big|_p:T_p^sM\to T_p^sM \text{ is \textbf{contracting} with eigenvalue $\lambda<1$}\\
@@ -82,7 +82,7 @@ The Main theorem of this chapter will be the:
 	\begin{align*}
 		\diff \phi _t |_p= \text{diag}(\frac{1}{\euler},...,\frac{1}{\euler})\oplus \text{diag}(e,...,e).
 	\end{align*} Then using the Euclidean norm we are a contraction. This situation is depicted in figure \ref{fig: The splitting of the tangent space}.
-\end{cor}
+\end{corollary}
 
 
 \begin{figure}
@@ -153,9 +153,9 @@ The Main theorem of this chapter will be the:
 		&=\phi^{-n} \circ \chi^{-1} \circ \tilde{h}^{n}=E^s_n(x).
 	\end{align*} To confirm that $E^s$ gives us an immersion onto $W(\to p)$ we first need to check for smoothness and bijectivity.By definition, we are smooth and by since all functions that compose to $E^s_n$, the latter is injective for all $n$. Now if $E^s_n(x)=E^s_m(y)$ with $m>n$, then $\tilde{h}^m(x)\in B_0$, since $\tilde{h}$ is a contraction and by the well definition we have $E^s_m(x)=E^s_m(y)$ which concludes to $x=y$, as the latter are injective for $m$. The surjectivity is also clear, as for all $x\in W(\to p)$ there is an $n$ such that $\phi^n(x)\in \chi^{-1}(B_0)$ and with that the point $\Tilde{h}^{-n}(\chi(\phi^n))$ does the job. So the last step is to verify that $\diff E^s|_x$ is injective. This follows from $\tilde{h}$ having an injective differential, since it is a contraction. Furthermore, $\chi^{-1}$ has an injective differential, as it is the inverse of a chart and $\phi$ has an injective differential, since $\diff \phi (x)=e^{-\frac{\partial}{\partial x}|_{\phi(x)}}$. The latter equality was shown in the proof of remark $\ref{rem: critical points are hyperbolic fixpoints}$. This concludes the proof for the stable set. For the unstable set we replace $f$ by $f^-1$. 
 \end{proof}
-\begin{cor}
+\begin{corollary}
 	From the proof of the (un-)stable manifold theorem, we can deduce that $T_pW(\to p)=T^s_pM$.
-\end{cor}
+\end{corollary}
 \begin{proof}
 	For this we just use theorem \ref{thm: local (un-)stable manifold theorem} a bit more sophisticated. By the second statement of the theorem, we know that $T_pW^s_r(\theta)=T^s_p$. Notice that we actually talk about an equality here. But since $W^s_r(\theta)=\chi(W(\to p) \cap U)$ we know that $T_pW(\to p)=T^s_p$. 
 \end{proof}

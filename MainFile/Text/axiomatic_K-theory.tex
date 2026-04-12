@@ -17,12 +17,12 @@ First we start by purely formal statements for which we need a few definitions:
 	If $X$ is in $\TopCPoint$ with base-point $x_0$ we define $\Tilde{K}(X)$ as the kernel of the map $i^*:K(X)\to K(x_0)$, where $i$ is the inclusion of the base-point.
 \end{definition}
 
-\begin{cor}
+\begin{corollary}
 	If $c:X\to x_0$ is the collapsing map sending each point to the base-point, then we get a splitting 
 	\begin{align*}
 		K(X)\cong \Tilde{K}(X) \oplus K(x_0) \, .
 	\end{align*}  
-\end{cor}
+\end{corollary}
 \begin{proof}
 	We have the exact sequence of Rings:
 	\begin{center}
@@ -39,9 +39,9 @@ First we start by purely formal statements for which we need a few definitions:
 	\end{center}
 	So let $k\in K(y_0)$. Then since $K$ is a contravariant functor we know that $$c_X^*({f}\einsch{x_0})^*(k)=({f}\einsch{x_0}\circ c_x)^*(k)\, .$$ But since pointed maps send basepoints we have that ${f}\einsch{x_0}\circ c_x=C_y\circ {f}\einsch{x_0}$ and hence we can conclude the commutativity. 
 \end{proof}
-\begin{cor}
+\begin{corollary}
 	By the above we can conclude that $\tilde{K}$ is a functor from $\TopCPoint$ to $\Ring$.
-\end{cor}
+\end{corollary}
 \begin{proof}
 	The proof is somewhat fundamental.First we notice that we have a funcor from $\TopCPoint$ to the category of short exact sequences of rings. Since the right inverse respectifly the splitting is natural by the above, we have a functor to the short exact sequences together with right inverses. Here we have an endofuncor that sends each such sequence to a splitted one:
 	% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRGJAF9T1Nd9CKMgEYqtRizYduvbHgJFh5MfWatEIAIJceIDHIGLSo6qskbtMvX3mDkAJmWmJ6kACEds-gpSOT4tTZNAB1giDRmOAACAGFPawMfZABmJwDzEDirfW87VP8zVyzdHNsiABY0wql40sMUSoKXGs4xGCgAc3giUAAzACcIAFskRxAcCCRK9Nde+IHhqeoJpAA2Z0CNDvnBkcR18cnEaeqNfpBqACMYMCgkAFpVgHYrBb3Uw6QAVg2M0KwoFFQuFIlFpLo3t9lkcnr9XKE0FgAPr2HaLRCwz6IACcr12SCUWOSePRZCx9hJewOK0QAA5KUhMTSfjMpMCIkxogCLiBrrc1sQGYgxjSPqcQNyhdSYXC2JKIfjjtCoayNKEAAoACywXAonCAA
@@ -52,15 +52,15 @@ First we start by purely formal statements for which we need a few definitions:
 	Where $\Phi$ is constructed as follows: 
 	first we get a left inverse of $f$ given by $l(b)=f^{-1}(b-r\circ g(b))$ and with this we define $\Phi(b)=l(b)\oplus g(b)$. Finally, we have a functor that sends such a sequence to its middle therm. 
 \end{proof}
-\begin{cor} \label{cor: reduced Ktheory is unpointed K-theory}
+\begin{corollary} \label{cor: reduced Ktheory is unpointed K-theory}
 	If $X\in \TopC$, we define $\tilde{K}(X)$ to be the composition of $\tilde{K}$ with the natural map from $\TopC \to \TopCPoint$. Then, since $K(\emptyset)=0$ we have $K(X)\cong \tilde{K}(X^0)$ where $X^0$ denotes the pointed $X$.
-\end{cor}
+\end{corollary}
 \begin{definition}
 	For $(X,Y)$ in $\TopCPair$ we define $K(X,Y):=\tilde{K}(X/Y)$. This gives a contravariant functor. 
 \end{definition}
-\begin{cor}
+\begin{corollary}
 	The pointed sum $\bigvee$ denotes the coproduct in the categorie of pointed topological spaces.
-\end{cor}
+\end{corollary}
 \begin{proof}
 	Let $(X,x_0)$ and $(Y,y_0)$ be pointed topological spaces. Then $(X\vee Y )$ together with the inclusions 
 	\begin{align*}
@@ -86,16 +86,16 @@ First we start by purely formal statements for which we need a few definitions:
 		X \wedge  Y := (X\times Y)\slash (X \vee Y )
 	\end{align*}
 \end{definition}
-\begin{prop}
+\begin{remark}
 	For pointed spaces $X,Y,Z$ we have natural isomorphisms:
 	\begin{equation*}
 		X\wedge(Y\wedge Z) \cong (X\wedge Y)\wedge Z
 	\end{equation*}
-\end{prop}
+\end{remark}
 From now on, we can view the spheres as pointed spaces by taking the base point to be the one. 
-\begin{cor}
+\begin{corollary}
 	Obviously, $S^n\cong S^1\wedge \cdots \wedge S^1 $ $n-$times. To see this, just realize that $S^n=I^n\slash \partial$. 
-\end{cor}
+\end{corollary}
 \begin{definition}
 	For a pointed space $X$, we define $S^1\vee X$ to be the reduced suspension and the n-th iterated suspension is naturally isomorphic to $S^n\vee X$ and we write $S^nX$. Furthermore, by mapping $f$ to $\overline{\id \times f}$ we get an endofuncor in $\TopCPoint$.
 \end{definition}
@@ -122,10 +122,10 @@ From now on, we can view the spheres as pointed spaces by taking the base point 
 	\end{align*} This gives a functor from $\TopC$ to $\TopCPoint$.
 	We define the \textbf{unreduced suspension of X} to be $CX\slash X := CX\slash \{1\}\times X$.
 \end{definition}
-\begin{cor}
+\begin{corollary}
 	Notice, that we can include $I\hookrightarrow XC\slash X $ and by this identification if we collapse I to a point we get $(CX\slash X)\big/ I =SX$. But then since $SX\simeq CX\slash X$ we have an isomorphism between $\tilde{K}(SX)\cong K(CX,X)$. This is because the latter is by definition $\tilde{K}(CX\slash X)$ and since $\tilde{K}$ factors over $\hTopC$ we are done. hence, the use of $SX$ for the reduced and unreduced suspension leads to no problem.
-\end{cor}
-\begin{cor}\label{cor: first iso to reduction of K-group}
+\end{corollary}
+\begin{corollary}\label{cor: first iso to reduction of K-group}
 	If $(X,Y)\in ob(\TopCPair)$ we define $X\cup CY$ to be $$X\sqcup CY\big/(Y\sim \{1\}\times Y)\in Ob(\TopCPoint)\, .$$ Notice that there is a natural (in the sence that this is a natural transformation between the two functors) isomorphism:
 	\begin{equation}
 		(X\cup CY) \big/ X \cong CY\slash Y\, .
@@ -135,7 +135,7 @@ From now on, we can view the spheres as pointed spaces by taking the base point 
 		&\cong \tilde{K}(SY)\\
 		&\cong \tilde{K}^{-1}(Y),.
 	\end{align*}
-\end{cor}
+\end{corollary}
 \begin{lemma} \label{lem: Exact part for pairs}
 	Let $(X,Y)\in ob(\TopCPair)$ and define $i:(Y,\emptyset) \to (X,\emptyset)$ and $j:(Y,\emptyset)\to(X,Y)$ to be the inclusions. Then we have an exact sequence:
 	\begin{center}
@@ -175,7 +175,7 @@ From now on, we can view the spheres as pointed spaces by taking the base point 
 		&=[E]-[n]=\xi \, .
 	\end{align*}    
 \end{proof}
-\begin{cor}
+\begin{corollary}
 	Let $X=A\vee B$. Then the sequence:
 	\begin{center}
 		% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRGJAF9T1Nd9CKAIzkqtRizYAdKXgaxgAaU4AKAEIBKLjxAZseAkQBMo6vWatEIGXIXKVAQRk0YMAASbtvfQKIBmU3ELaVkseRglVQctbm9+QxQAFkDzSSsOTjEYKABzeCJQADMAJwgAWyQyEBwIJCFYkBLyuuoapBMgtJAAKwA9ACovRtKKxA62xADOyxAsAaGm0amJxMzOIA
@@ -184,7 +184,7 @@ From now on, we can view the spheres as pointed spaces by taking the base point 
 		\end{tikzcd}
 	\end{center}
 	where $i:A\to A\vee B$ is the inclusion and $j: A\vee B\to B$ is the collapsing of $A$, is exact.
-\end{cor}
+\end{corollary}
 \begin{proof}
 	Let $X=A\vee B$ and $Y=A$. Then $X\slash Y \cong B$ and under this homeomorphism $j$ from lemma \ref{lem: Exact part for pairs} becomes the map $j$ from this corollary. All that is left is to show that $i^*$ is surjective, and $j^*$ is injective. 
 	To see that $i^*$ is surjective, consider the map $q':A\vee B\to A$ by collapsing $B$. Then $i^*\circ q'^*=(q'\circ i)^*=(\id)^*$. Hence, $i^*$ has a canonical right inverse and is thereby injective.  If we define $i_B:B\to A\vee B$ to be the inclusion, we hence that: $i_B^*\circ j^*=(j\circ i_B)^*=\id$ and hence $j^*$ is injective, leaving us with the statement.
@@ -222,9 +222,9 @@ From now on, we can view the spheres as pointed spaces by taking the base point 
 		\Psi\circ \Phi &=\id
 	\end{align*}, and is thereby the left inverse)
 \end{proof}
-\begin{cor}
+\begin{corollary}
 	With ne notation from above, the pair $(\tilde{K}(X\vee Y),(c_X^*,c_Y^*))$ satisfies the universal property of the coproduct. 
-\end{cor}
+\end{corollary}
 \begin{proof}
 	let $G$ be a group and 
 	\begin{align*}
@@ -235,7 +235,7 @@ From now on, we can view the spheres as pointed spaces by taking the base point 
 		h\circ c_X^* =f_X \quad \text{and }\quad h\circ c_Y^* =f_Y
 	\end{equation*} The uniqueness is an easy diagramm yoga.
 \end{proof}
-\begin{cor}\label{cor: exactnes of the reduced inclusion sequence}
+\begin{corollary}\label{cor: exactnes of the reduced inclusion sequence}
 	If $(X,Y)\in ob(\TopCPair)$ and $Y\in ob(\TopCPoint)$ such that $X$ is pointed by using the base point $y_0$ from $Y$. Then the sequence 
 	\begin{center}
 		% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAGkAKADVIE0AlCAC+pdJlz5CKAIzkqtRizYAdFXgaxg7YTyGjx2PASIAmedXrNWiEGo1adnQSIUwoAc3hFQAMwBOEAC2SGQgOBBIcorWbABWAHoAVCJiIAHBUdQRSOYxyrZYya7CQA
@@ -243,7 +243,7 @@ From now on, we can view the spheres as pointed spaces by taking the base point 
 			{K(X,Y)} \arrow[r, "j^*"] & \tilde{K}(X) \arrow[r, "i^*"] & \tilde{K}(Y)
 		\end{tikzcd}
 	\end{center} is exact.
-\end{cor}
+\end{corollary}
 \begin{proof}
 	We have the commutative diagram with exact top row:
 	\begin{equation*}
@@ -441,13 +441,13 @@ From now on, we can view the spheres as pointed spaces by taking the base point 
 	\end{equation*}
 \end{proof}
 
-\begin{prop}
+\begin{remark}
 	The map $\delta: K^{-n}(Y)\to K^{-n+1}(X,Y)$ is a natural transformation between the functors 
 	\begin{itemize}
 		\item $K^{-n+1}$ from $\TopCPair$ to $\Ab$
 		\item $K^{-n}\circ R$ from $\TopCPair$ to $\Ab$, where $R$ is an endofunctor in $\TopCPair$ sending $(X,A)\mapsto (A,\emptyset)$
 	\end{itemize}
-\end{prop}
+\end{remark}
 \begin{proof}
 	Let $f:(X,A)\to (Y,B)$ be a map of pairs. then we need to check if the diagramm 
 	\begin{center}
@@ -458,7 +458,7 @@ From now on, we can view the spheres as pointed spaces by taking the base point 
 		\end{tikzcd}
 	\end{center} commutes. This however is the case since $\delta$ is defined via the pullback of the inclusion $(m^*)$ together with a the natural isomorphisms $\theta$ and $\pi^*$
 \end{proof}
-\begin{cor}\label{cor: retractions induce splitting sequences}
+\begin{corollary}\label{cor: retractions induce splitting sequences}
 	If $Y\subseteq X$ is a retract. Then for all $n\geq 0$, the sequence 
 	\begin{equation*}
 		% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAGkA9YAWjAF8AFAA1SATQCUIfqXSZc+QigCM5KrUYs2XXgJFSZc7HgJEATGur1mrRB258hk6ephQA5vCKgAZgCcIAFskMhAcCCRVDRs2ACtOACppWRB-IMjqcKQLEAALGDooJDAmBgYrTVsQLESXfiA
@@ -466,7 +466,7 @@ From now on, we can view the spheres as pointed spaces by taking the base point 
 			{K^{-n}(X,Y)} \arrow[r, "j^*"] & K^{-n}(X) \arrow[r, "i^*"] & K^{-n}(Y)
 		\end{tikzcd}
 	\end{equation*} is a splitting short exact sequence. This splitting is naturally dependent on the retraction map. The kernel of the map $i^*$ is $K^{-n}(X,Y)$.
-\end{cor}
+\end{corollary}
 \begin{theorem}[Additivity]
 	If $X$ and $Y$ are pointed topological spaces and $X\vee Y$ denotes the topological sum, we have:
 	$\tilde{K}^{-n}(X\vee Y)\cong \tilde{K}^{-n}(X)\oplus \tilde{K}^{-n}(Y)$
@@ -480,7 +480,7 @@ From now on, we can view the spheres as pointed spaces by taking the base point 
 \begin{proof}
 	Notice, that if $Y$ is a retraction of $X$, then $SY$ is a retraction of $SX$. This is true since $S$ is an endofunctor and retraction means that the inclusion has a left inverse. This property, however, gets translated by the functor. Now since $K$ is functorial this induces a right inverse of $i^*$ which again lets us deduce that $i^*$ is surjective and with that we have that $\delta$ is zero.   
 \end{proof}
-\begin{cor}
+\begin{corollary}
 	Let $X,Y$ be objects in $\TopCPoint$. Then we have the projection maps 
 	\begin{align*}
 		\pi_X:X\times Y\to Y \, , \quad \pi_Y:X\times Y\to Y\, .
@@ -488,7 +488,7 @@ From now on, we can view the spheres as pointed spaces by taking the base point 
 	\begin{align*}
 		\tilde{K}^{-n}(X\times Y)\cong \tilde{K}^{-n}\oplus \tilde{K}^{-n}(X)\oplus \tilde{K}^{-n}(Y)
 	\end{align*}
-\end{cor}
+\end{corollary}
 \begin{proof}
 	$X$ is a retract of $X\times Y$ and $Y$ is a retract of $(X\times Y)\slash X$ (for the quotient to be natural, we include $X$ at the base point of $Y$). With this we apply corollary \ref{cor: retractions induce splitting sequences} twice:
 	\begin{equation*}
@@ -498,7 +498,7 @@ From now on, we can view the spheres as pointed spaces by taking the base point 
 			s    \end{array}
 	\end{equation*}
 \end{proof}
-\begin{cor}
+\begin{corollary}
 	Let's inspect the isomorphism induced by the splitting for $n=0$: 
 	\begin{center}
 		% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB128HZgBpAL4AKABqc8AW3gACAJrTOcBnTgALaSICUIAaXSZc+QigCM5KrUYs24rDxj9hYrlilw523fux4CRAEzm1PTMrIgcLvaOQrKeFjBQAObwRKAAZgBOEBJIZiA4EEiBlqFsQrZRWAIA+rEAegBUOnogmdlIZPmFiHkh1uHAAFYCjc3pWTk91AUd1ABGMGBQSADMnX1hIAw6FAJAA
@@ -537,7 +537,7 @@ From now on, we can view the spheres as pointed spaces by taking the base point 
 			0 \arrow[r] & \tilde{K}(X \wedge Y) \arrow[r, "j^*"] & \tilde{K}(X\times Y) \arrow[r, "(i_X)^*\oplus (i_Y)^*"] & \tilde{K}(X)\oplus \tilde{K}(Y) \arrow[r] & 0
 		\end{tikzcd}
 	\end{center}
-\end{cor}
+\end{corollary}
 \begin{definition}[Exterior Product]
 	The \textbf{exterior product } $\mu:K(X)\otimes K(Y)\to K(X\times Y)$ is defined via the two projections $\pi_X:X\times Y\to X$ and $\pi_Y:X\times Y\to Y$ by:
 	\begin{align*}
@@ -570,6 +570,6 @@ From now on, we can view the spheres as pointed spaces by taking the base point 
 		K^{-n}(X)\otimes K^{-m}(Y)\to K^{-n-m}(X\times Y)
 	\end{align*} This fits into the diagram: 
 \end{definition}
-\begin{cor}
+\begin{corollary}
 	
-\end{cor}
+\end{corollary}

@@ -11,7 +11,7 @@
 \usepackage[hidelinks]{hyperref}
 \usepackage{tikz-cd}
 \tikzcdset{scale cd/.style={every label/.append style={scale=#1},
-    cells={nodes={scale=#1}}}}
+		cells={nodes={scale=#1}}}}
 \usepackage{pgfplots}
 \usepackage{tabularx}
 \usepackage{mathtools}
@@ -26,7 +26,7 @@
 \usepackage{mwe}
 % Drawing
 \usepackage{tikz}
-\usepackage{tikz-3dplot}
+
 
 % Styles
 \tikzset{>=latex}
@@ -61,30 +61,66 @@
 
 \usepackage[most]{tcolorbox}
 \usepackage[dvipsnames]{xcolor}
+\usepackage{thmtools}
+
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{booktabs}
 
 
-\newtheorem{theorem}{Theorem}
 
+\usepackage[ntheorem]{empheq}
+\usepackage{mdframed}	% für Rahmen
 
-\newtheorem{lemma}[theorem]{Lemma}
+\mdfsetup{%
+	ntheorem 		= false,
+	leftmargin 		= 10pt,
+	everyline 		= true,
+	splittopskip 	= 15pt,
+	splitbottomskip = 10pt,
+	linewidth		= 1pt
+}
+
+\theoremstyle{plain}
+\newmdtheoremenv{theorem}{Theorem}[subsection]
+\newmdtheoremenv{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newmdtheoremenv{fact}[theorem]{Fact}
 
 \theoremstyle{definition}
-\newtheorem{remark}[theorem]{Remark}
+\newtheorem{example}[theorem]{Example} 
+\newtheorem{examples}[theorem]{Examples}
 \newtheorem{definition}[theorem]{Definition}
-\newtheorem{example}[theorem]{Example}
-\newtheorem{cor}[theorem]{Corollary}
+\newtheorem{defn}[theorem]{Definition}
 \newtheorem{corollary}[theorem]{Corollary}
-\newtheorem{prop}[theorem]{Proposition}
-\newtheorem{fact}[theorem]{Fact}
+\newtheorem{remark}[theorem]{Remark}
 
-\numberwithin{theorem}{section}
-\usepackage{thmtools}
+\mdfdefinestyle{definitionstyle}{
+	leftline=true,
+	rightline=false,
+	topline=false,
+	bottomline=false,
+	linecolor=gray,
+	linewidth=3pt,
+	innerleftmargin=10pt,
+	innerrightmargin=0pt,
+	innertopmargin=0pt,
+	innerbottommargin=5pt,
+	skipabove=0pt,
+	skipbelow=0pt,
+	outerlinewidth=0pt,
+	align=center,
+	frametitle={Proof Strategy:},        % Ihre gewünschte Überschrift
+	frametitlefont=\bfseries,       % Fett formatiert
+	frametitlerule=false,           % Keine Linie unter der Überschrift
+}
+\newmdenv[style=definitionstyle]{Iprove}
+
 \usepackage{mathtools}
 \pgfplotsset{compat=newest}
 
 \usepackage{cleveref}
-
-
+\usepackage{bbm}
 
 
 
@@ -93,6 +129,7 @@
 
 \let\uglyphi\phi
 \let\phi\varphi
+
 
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\N}{\mathbb{N}}
@@ -110,6 +147,7 @@
 \newcommand{\sing}{\mathrm{sing}}
 \newcommand{\Morse}{\mathrm{Morse}}
 \newcommand{\im}{\mathrm{im}}
+\DeclareMathOperator{\gr}{\mathrm{gr}}
 \newcommand{\conv}{\mathrm{conv}}
 \newcommand{\grad}{\mathrm{grad}}
 \newcommand*\diff{\mathop{}\!\mathrm{d}}
@@ -122,6 +160,8 @@
 \DeclareMathOperator{\supp}{\mathrm{supp}}
 \DeclarePairedDelimiter\abs{\lvert}{\rvert}%
 \DeclareMathOperator{\cl}{\mathrm{cl}}
+\DeclareMathOperator{\inti}{\mathrm{int}}
+\DeclareMathOperator{\Tor}{\mathrm{Tor}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Categories
 \DeclareMathOperator{\Set}{\mathbf{Set}}
 \DeclareMathOperator{\Ab}{\mathbf{Ab}}
@@ -143,36 +183,38 @@
 \DeclareMathOperator{\Cmod}{\mathbf{Mod}}
 \DeclareMathOperator{\vect}{\mathrm{Vect}}
 \DeclareMathOperator{\Diff}{\mathrm{Diff}}
+\DeclareMathOperator{\ExCoup}{\mathbf{ExCoup}}
+\DeclareMathOperator{\SpS}{\mathbf{SpS}}
+\DeclareMathOperator{\SCS}{\mathbf{SCS}}
+\DeclareMathOperator{\CICR}{\mathbf{CICR}}
 \newcommand{\GL}{\mathrm{GL}}
 \newcommand{\G}{\mathrm{G}}
-
+\DeclareMathOperator{\Mat}{\mathrm{Mat}}
+\DeclareMathOperator{\gen}{\mathrm{span}}
+%\DeclareMathOperator{\hom}{\mathrm{hom}}
+\DeclareMathOperator{\Idm}{\mathbbm{1}}
 
 \def\quotient#1#2{%
 	\left.
-    	\raise1ex\hbox{$#1$}
-    \middle/ 
-    	\lower1ex\hbox{$#2$}%
-    \right.
-    }
+	\raise1ex\hbox{$#1$}
+	\middle/ 
+	\lower1ex\hbox{$#2$}%
+	\right.
+}
 \newcommand*\colvec[3][]{
-    \begin{pmatrix}\ifx\relax#1\relax\else#1\\\fi#2\\#3\end{pmatrix}
+	\begin{pmatrix}\ifx\relax#1\relax\else#1\\\fi#2\\#3\end{pmatrix}
 }
 \newcommand\einsch[1]{\raisebox{-.5ex}{$\Big|$}_{#1}}
 
-\newcommand\restr[2]{{% we make the whole thing an ordinary symbol
-		\left.\kern-\nulldelimiterspace % automatically resize the bar with \right
-		#1 % the function
-		\littletaller % pretend it's a little taller at normal size
-		\right|_{#2} % this is the delimiter
-}}
+\newcommand\restr[2]{\left.#1\right|_{#2}}
 
 
 \newcommand{\iso}{\mathrm{iso}}
 
-\DeclareMathOperator{\Hess}{\text{Hess}}
+\DeclareMathOperator{\Hess}{\mathrm{Hess}}
 \newcommand{\stillOpen}{\color{red}{ [still open]}}
-\DeclareMathOperator{\id}{\text{id}}
-\newcommand{\Ob}{\text{Ob}}
+\DeclareMathOperator{\id}{\mathrm{id}}
+\newcommand{\Ob}{\mathrm{Ob}}
 \newcommand{\ind}{\mathrm{ind}}
 \newcommand{\euler}{\mathrm{e}}
 \newcommand{\Whab}{W_{h^{\beta\alpha}}}
@@ -209,14 +251,32 @@ style=alphabetic
 \AtBeginEnvironment{pmatrix}{\renewcommand\arraystretch{1.5}}
 
 \tikzcdset{scale cd/.style={every label/.append style={scale=#1},
-    cells={nodes={scale=#1}}}}
+		cells={nodes={scale=#1}}}}
 
 \usepackage{adjustbox}
 
-% Satz (Theorem): Wichtiges Ergebnis.
-% Lemma: Hilfssatz für den Beweis eines wichtigeren Ergebnisses.
-% Proposition: Weniger bedeutende, aber nützliche Aussagen.
-% Korollar: Direkte Folgerung aus einem Satz oder Lemma.
-% Definition: Einführung eines neuen Begriffs.
-% Bemerkung (Remark): Erläuterung oder Zusatzinformation.
-% Beispiel: Veranschaulichung eines Begriffs oder Satzes.
+\newenvironment{fdiagram}{%
+	\refstepcounter{equation}%
+	\begin{tcolorbox}[
+		enhanced,
+		sharp corners,
+		boxrule=1pt,
+		colback=white,
+		colframe=black,
+		fonttitle=\bfseries,
+		coltitle=black,
+		attach boxed title to bottom right={yshift=3mm,xshift=-2mm},
+		boxed title style={colback=gray!20, colframe=black, sharp corners, boxrule=0.5pt},
+		title=Diagram~\theequation
+		]%
+	}{%
+	\end{tcolorbox}%
+}
+
+
+
+
+%%%%%%%%%%nur hier benötigt
+\usepackage{wrapfig}
+\usepackage{mwe}       % Für \dummyimage
+

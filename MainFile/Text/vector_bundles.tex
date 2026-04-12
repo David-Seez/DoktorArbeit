@@ -31,21 +31,21 @@ We follow the book of Atiyah \cite{atiyah1989k}.
 	If $\pi:E\to Y$ is a family of vector spaces, $X$ a topological space and $f:X\to Y  $ a continuous function. Then we define the induced the pullback of the family $f^*{\pi}:f^*(E) \to X$ as follows: 
 	$f^*(E)$ is the subspace of $(x,e)\in X\times E$ such that $f(x)=\pi(e)$ or in other words: $e$ needs to be in the fiber above $f(x)$ with the obvious projection.
 \end{definition}
-\begin{cor} \label{cor: pullback is functoriell}
+\begin{corollary} \label{cor: pullback is functoriell}
 	If $g:Z\to Y$ is continuous, there is a natural isomorphism $$g^*f^*(E)\cong (g\circ f)^*(E).$$ 
-\end{cor}
+\end{corollary}
 \begin{definition}[Trivial bundle]\label{def: Trivial bundle}
 	If a family $\pi: E \to X$ is isomorphic to a product family $\Tilde{\pi}:X\times V\to X$ we call it a \textbf{trivial family}.
 \end{definition}
 \begin{definition}[Vector bundle]\label{def: Vector bundle}
 	If for every $x\in X$ there is a neighborhood $U$ containing $x$ such that $E\einsch{Y}:=i^*(E)$, where $i:U\hookrightarrow X$ is the inclusion,is trivial we call the family a \textbf{vector bundle}. Notice that if $f:Y\to X$ we get the induced vector bundle $f^*(E)$.  
 \end{definition}
-\begin{cor}
+\begin{corollary}
 	Notice how the function $x\mapsto \dim(E_x)$ is locally constant.
-\end{cor}
-\begin{cor}
+\end{corollary}
+\begin{corollary}
 	Since the topology of the bundle needs to be compatible with the vector space we can conclude that the space of global sections denoted by $\Gamma(X)$ is itself a vector space.
-\end{cor}
+\end{corollary}
 \begin{definition}[Compact-open topology]
 	Let $X,Y$ be topological spaces. Then the set of continuous maps $C(X,Y)$ can be equipped with the topology that has 
 	\begin{equation*}
@@ -87,9 +87,9 @@ Now we want to equip this with a topology this such that $T(E)$ is a bundle over
 		f^*T(E)\cong Tf^*(E)
 	\end{equation*}
 \end{definition}
-\begin{cor}\label{cor: sections into hom(E,F) = hom(E,F)}
+\begin{corollary}\label{cor: sections into hom(E,F) = hom(E,F)}
 	We can identify $\Gamma \hom(E,F)$ with $\hom(E,F)$ since for any section $s:X\to \hom(E,F)$ we can define the homomophism $\Tilde{s}:E\to F$ by sending $v\mapsto s(v)$. This is a homomorphism since $\Tilde{\pi}s(v)=\pi(v)$. 
-\end{cor}
+\end{corollary}
 \subsection{Sub-bundles and quotient bundles}
 \begin{definition}[Sub-bundles]\label{def: Sub-bundles}
 	Let $\pi:E\to X$ be a bundle. A \textbf{sub-bundle} is a subset of $E$ which is a bundle in the induced topology and vector-structure.     
@@ -97,9 +97,9 @@ Now we want to equip this with a topology this such that $T(E)$ is a bundle over
 \begin{definition}[Mono- and epimorphism]\label{def: Mono- and epimorphism}
 	A homomorphism $\phi: E\to F$ is a \textbf{monomorphism} is all $\phi_x$ are monomorphisms (i.e. injective). Respectively it is called an \textbf{epimorphism} if all $\phi_x$ are epimorphisms(i.e. surjectiv).
 \end{definition}
-\begin{cor}
+\begin{corollary}
 	If $F$ is a sub-bundle of $E$, then the inclusion $\phi:F\to E$ is a monomorphism.
-\end{cor}
+\end{corollary}
 \newpage
 \begin{lemma} \label{lem: monos induce sub-bundles}
 	If $\phi:E \to F$ is a monomorphims, then $\phi(E)$ is a sub-bundle and $\phi:E\to \phi(E)$ is an isomorphism. 
@@ -111,26 +111,26 @@ Now we want to equip this with a topology this such that $T(E)$ is a bundle over
 		(a,b)&\mapsto \phi(E)+i(b)\quad \text{ where $i$- denotes the inclusion }G\hookrightarrow F \, .
 	\end{align*} This is an isomorphism and thereby, there exists and open neighbourhood $U$ of $x$ such that ${\theta}\einsch{U}$ is an isomorphism.  That is because $\iso(V,W)$ is open in $\hom(V,W)$. Since $E$ is a sub-bundle of $E\otimes G$ we have that $\theta(E)=\phi(E)$ is a sub-bundle of $F$. 
 \end{proof}
-\begin{cor}
+\begin{corollary}
 	In the proof, we have shown more: locally a sub-bundle is a direct summand. Furthermore, we have shown, that the set of points $x$ where $\phi_x$ is a monomorphims, is open.
-\end{cor}
+\end{corollary}
 \begin{definition}[Quotient bundle]\label{def: Quotient bundle}
 	If $F$ is a sub-bundle of $E$ we define the \textbf{quotient bundle} $E\slash F$ as the union of all spaces $E_x\slash F_x$ induced with the quotient topology. 
 \end{definition}
-\begin{cor}
+\begin{corollary}
 	The quotient bundle is a bundle because locally $F$ is a direct summand and thereby $E\slash F$ is locally trivial. 
-\end{cor}
+\end{corollary}
 \begin{definition}[Strict homomorphisms]\label{def: Strict homomorphisms}
 	A homomorphism $\phi:E\to F$ is a \textbf{strict homomorphism}, if the function $x\mapsto \dim(\ker(\phi_x))$ is locally constant.
 \end{definition}
-\begin{prop}
+\begin{remark}
 	If $\phi:E\to F$ is a strict homomorphism, then 
 	\begin{enumerate}[(i)]
 		\item $\ker(\phi)=\bigcup_x \ker(\phi_x)$ is a sub-bundle of $E$, \label{enum: ker}
 		\item $\im{\phi}=\bigcup_x \im(\phi_x)$ is a sub-bundle of $F$, \label{enum: im}
 		\item$\coker(\phi)=\bigcup_x \coker(\phi_x)$ is a bundle in the quotient structure. \label{enum: coker}
 	\end{enumerate}
-\end{prop}
+\end{remark}
 \begin{proof}
 	Obviously, \ref{enum: im} implies \ref{enum: coker}, since the cokernel is defined to be the quotient.
 	\begin{equation*}
@@ -164,9 +164,9 @@ Now we want to equip this with a topology this such that $T(E)$ is a bundle over
 		\end{tikzcd}
 	\end{center} where the verticals are Isomorphisms. But then by lemma \ref{lem: monos induce sub-bundles} $\ker(\phi)$ is a sub-bundle of ${E^*}^*$ and hence of $E$.
 \end{proof}
-\begin{cor}\label{cor: rank is upper-semi-continuous}
+\begin{corollary}\label{cor: rank is upper-semi-continuous}
 	Notice that the argument above shows, that around $x$ the rank can only increase, because $\psi$ is a monomorphism. Hence, $\rank(\phi_x)$ is \textbf{upper semi-continuous in} $x$ (even if $\phi$ is not strict).
-\end{cor}
+\end{corollary}
 \begin{definition}[Projection operator]\label{def: Projection operator}
 	A \textbf{projection operator} $P: E\to E$ is a homomorphism such that $P^2=P$. 
 \end{definition}
@@ -332,7 +332,7 @@ We need the following fact:
 		\theta_1 \cap_{\phi} \theta _2: E_1 \cap_{\phi} E_2 \to (V_1 \cap V_2)\times \C^n\, .
 	\end{equation*} This proves the local triviality.
 \end{definition}
-\begin{cor}[Elementary Properties of the Gluing and Clutching Construction]\label{cor: Elementary Properties of the Gluing and Clutching Construction}
+\begin{corollary}[Elementary Properties of the Gluing and Clutching Construction]\label{cor: Elementary Properties of the Gluing and Clutching Construction}
 	Elementary properties of the gluing and clutching construction are:
 	\begin{enumerate}
 		\item If $E$ is a bundle over $X$, then the identity defines ans isomorphism and 
@@ -350,7 +350,7 @@ We need the following fact:
 			(E_1 \cup _{\phi}E_2)^* &\cong E^*_1\bigcup_{(\phi^*)^{-1}}E^*_2 \, .
 		\end{align*} $(-)^*$ denotes the dual here.
 	\end{enumerate}
-\end{cor}
+\end{corollary}
 \begin{lemma}\label{lem: Clutching is unique up to homotopy}
 	The isomorphism class of $E_1 \cup_{\phi}E_2$ only depends on the homotopy class of the isomorphism $\phi: {E_1}\einsch{A}\to {E_2}\einsch{A}$.
 \end{lemma}
@@ -428,7 +428,7 @@ We need the following fact:
 		\end{tikzcd}
 	\end{equation*} is called exact, if it is fiber-wise exact.
 \end{definition}
-\begin{cor} \label{cor: splitting exact sequenz}
+\begin{corollary} \label{cor: splitting exact sequenz}
 	If  \begin{tikzcd}
 		0 \arrow[r] & E' \arrow[r, "\phi'"] & F \arrow[r, "\phi''"] & E'' \arrow[r] & 0
 	\end{tikzcd}
@@ -436,7 +436,7 @@ We need the following fact:
 	\begin{equation*}
 		E\cong E'\oplus E''\, .
 	\end{equation*}
-\end{cor}
+\end{corollary}
 \begin{proof}
 	If we give $E$ a metric we have an isomorphism $E\cong E'\oplus (E')^{\bot }$. However, ${(E')^{\bot}\cong E''}$.
 \end{proof}
@@ -470,15 +470,15 @@ We need the following fact:
 		\theta_{\alpha}(V_{\alpha})\to E_x
 	\end{align*} is surjective.
 \end{proof}
-\begin{cor}
+\begin{corollary}
 	If E is any bundle, there exists an epimorphism $\phi: X \times \C^m\to E$ for some $m\in \N$.
-\end{cor}
+\end{corollary}
 \begin{proof}
 	This is just lemma \ref{lem: existence of finite dimensional ample subspaces}.
 \end{proof}
-\begin{cor}
+\begin{corollary}
 	If $E$ is any bundle, there exists a bundle $F$ such that $E\oplus F$ is trivial.
-\end{cor}
+\end{corollary}
 \begin{proof}
 	Consider the exact sequence 
 	\begin{tikzcd}
@@ -500,12 +500,12 @@ We need the following fact:
 		E:= (\G_n(V)\times V)\slash F\,.
 	\end{equation*} Then $E$ is called the \textbf{classifying Bundle over $G_n(V)$}.
 \end{definition}
-\begin{cor}
+\begin{corollary}
 	If $E'$ is a bundle over $X$ and $\phi: X\times V\to E'$ an epimorphism, then if $\Phi:X\to \G_n(V)$ is the map induced by $\phi$, we have
 	\begin{equation*}
 		E'\cong \Phi^*(E)\,
 	\end{equation*} where $E$ is the classifying bundle.
-\end{cor}
+\end{corollary}
 \begin{proof}
 	To see this we show that we have an isomorphism, i.e. a homeomorphism that is fiber-wise an isomorphism.
 	So take $x\in X$. Then:
@@ -681,18 +681,18 @@ We need the following fact:
 		\item $X$ is a \textbf{trivial} $G-$space if $g(X)=x$ for all $x\in X$ and $g\in G$
 	\end{enumerate}
 \end{definition}
-\begin{cor} Suppose that $E$ is a $G-$vector bundle over $X$.
+\begin{corollary} Suppose that $E$ is a $G-$vector bundle over $X$.
 	If $X$ is a free $G-$space and define $X\slash G$ to be its orbit space. Then $\pi: X\to X\slash G$ is a finite covering map. 
 	
 	
 	Furthermore, $E$ is necessarily a free $G-$space because if $g(e)=e$ for some $e\in E$, then $\pi(g(e))=\pi(e)$ which is equivalent to $g(\pi(e))=\pi(e)$ and the freeness of $X$ concludes that $g=1$. The orbit space $G\slash E$ has a natural vector bundle structure over $X\slash G$. Which is well,defined by the second condition of a $G-$vector bundle and the locally freenes comes from the fact, that $E\slash G \to X\slash G$ is locally isomorphic to $E\to X$. Conversely, if $V$ is a vector bundle over $X$, then $\pi*(E)$, where $\pi: E\to E\slash G$, is a vector bundle over $X$. Hence:
-\end{cor}
-\begin{prop}
+\end{corollary}
+\begin{remark}
 	If $X$ is a $G-$free, vector bundles over $X$ correspond bijectively to vector bundles over $X\slash G$ by 
 	\begin{equation*}
 		E\mapsto E\slash G
 	\end{equation*}
-\end{prop}
+\end{remark}
 \newpage
 \begin{fact}
 	Any finite representation is the direct sum of irreducible representations. Hence is $V$ is a representation of $G$, we have a unique (up to order) decomposition:
@@ -700,7 +700,7 @@ We need the following fact:
 		V\cong \sum_{i=1}^kn_iV_i\, .
 	\end{equation*}
 \end{fact}
-\begin{cor}
+\begin{corollary}
 	Now for any two $G-$modules (i.e. representation spaces of $G$) $V,W$ we have the vector space $\hom_G(V,W)$ of $G-$homomorphisms. We then have:
 	\begin{align*}
 		\hom_G(V_i,V_j)=\begin{cases}
@@ -721,7 +721,7 @@ We need the following fact:
 	\begin{align*}
 		\frac{1}{\abs{G}^2}\sum_{g_1\in G,g_2 \in G}g_1(g_2(e))=\frac{1}{\abs{G}^2}\abs{G}\sum_{g \in G}g(e)=\mathrm{Av}(e)\, .
 	\end{align*} Hence the image of $\mathrm{Av}$ is a sub-bundle denoted by $E^G$.
-\end{cor}
+\end{corollary}
 
 
 \section{K-Theory}

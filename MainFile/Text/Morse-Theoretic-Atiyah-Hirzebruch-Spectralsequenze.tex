@@ -1,0 +1,589 @@
+\section{Morse-Theoretic Atiyah-Hirzebruch Spectralsequence}
+\subsection{Conley index}
+This is just a short summary. Prooves are omitted and the goal is to remaind ourself of the definitinos. 
+\begin{definition}[Compact invariant isolated subset]
+	For a flow $\phi_t:M\to M$ on a locally compact metric space we call a subset $S\subseteq M$ \textbf{invariant subspace} if and only if $\phi_t(S)=S$ for all $t\in \R$. For any subset $N\subseteq M$ we define the \textbf{maximal invariant subset}
+	\begin{align*}
+		I(N)&=\{x\in N|~ \phi_t(x)\in N \forall t\in \R\}\\
+		&=\bigcap_{t\in \R} \phi_t(N).
+	\end{align*} A \textbf{compact invariant subset} $S$ is called \textbf{isolated}, if a compact neighborhood $N$ exists, such that $I(N)=S$.
+\end{definition}
+\begin{definition}[Index pairs] \label{def: index pairs}
+	Let $S$ be an isolated compact invariant subset. A topological pair $(N,L)$ of compact subsets of $M$ where $L\subseteq N$ is called an \textbf{index pair of }S, if it satisfies the following:
+	\begin{enumerate}
+		\item $S=I(\overline{N\setminus L})\subseteq (\mathring{N\setminus L})$.
+		\item  $x\in L$ and $\phi_{[0,t]}(x)\subseteq N$ implies that  $\phi_{[0,t]}(x)\subseteq L$. We call $L$ \textbf{positively invariant in } $N$. Here $\phi_{[0,t]}(x)\coloneq\{ \phi_{\tilde{t}}(x)|\tilde{t}\in [0,t]\}$.
+		\item For all $x\in N$ such that a $t$ exists, with $\phi_t(x)\not\in N$, there exists a $t'$ with $\phi_{[0,t']}(x)\subseteq N$ and $\phi_{t'}(x)\in L$.
+	\end{enumerate}
+	This definition captures how the flow lines leave the invariant space $S$. Due to the third property we call $L$ the \textbf{exit set}.
+\end{definition}
+
+
+\begin{definition}[Regular index pairs]
+	We call an index pair $(N,L)$ \textbf{regular} if and only if the inclusion $I: L \hookrightarrow N$ is a cofibration.
+\end{definition}
+\begin{theorem}[Homotopy equivalence of index pairs] \label{thm: Homotopy equivalence of index pairs}
+	If $S$ is an isolated compact invariant set and $(N,L)$ and $(\tilde{N},\tilde{L})$ are two index pairs of $S$. Then $N/L$ and $\tilde{N}/\tilde{L}$ are homotopy equivalent as pointed spaces. This homotopie is canonical in transitive up to homotopy. 
+\end{theorem}
+\begin{definition}[Connected Simple System]
+	A \textbf{connected simple system} consists of a cllection $I_0$ of pointed spaces along with a collection $I_m$ of homotopy classes of maps between these spaces such that 
+		\begin{enumerate}[(i)]
+			\item $\hom(X,Y)\coloneq \{[f]\in [X:Y]:[f]\in I_m\}$ consists of exactly one element for each pair of spaces $(X,Y)\in I_0^2$, where $[X:Y]$ denotes the set of homotopy classes of maps between $X$ and $Y$.
+			\item If $X,Y,Z\in I_0,[f]\in \hom(X,Y),$ and $g\in \hom(Y,Z)$, then $[g\circ f]\in \hom(X,Z)$.
+			\item $\hom(X,Y)=\{[\id_X]\}$ for all $X\in I_0$. 
+		\end{enumerate}
+\end{definition}
+\begin{remark}
+	This definitions comes from Salamon in \cite{Salamon1985}.
+\end{remark}
+\begin{remark} Let $S$ be a isolated, compact, invariant subset of $M$ with respect to the Morse flow $\phi$. Then the collections
+\begin{align*}
+	I_0&\coloneq \{N\big/ L: (N,L)\text{ is index pair for }S\}\\
+	I_m&\coloneq \{[f]: f \text{ is the homotopy equivalence of index pairs from the proof of theorem \ref{thm: Homotopy equivalence of index pairs}}\}\,,
+\end{align*} make up a connected simple system. We call this $\mathcal{IP}_S$.
+\end{remark}
+\begin{definition}[Morphisms of Connected Simple Systems]
+A \textbf{morphism} $\Phi:I\to Y$ between two connected simple systems $I=(I_0,I_m)$ and $J=()J_0,J_m)$ is a collection of homotopy classes of maps between spaces io $I_0$ and $J_0$ such that
+\begin{enumerate}[(i)]
+	\item For every $X\in I_0$ and $Y\in J_0$ the set $\Phi(X,Y)\coloneq \{[\phi]\in [X:Y]:[\phi]\in \Phi\}$ consits of exactly one element. 
+	\item If $X,\bar{X}\in I_0$ and $Y,\bar{Y}\in J_0$ and if $[\phi]\in \Phi[X,Y]$,$[f]\in \hom[\bar{X},X]$,$g\in \hom(Y,\bar{Y})$, then $[g\circ \phi\circ f]\in \Phi(\bar{X},\bar{Y}$
+\end{enumerate}
+\end{definition}
+\begin{remark}
+	By the second property of a morphism between connected somple systems $I$ and $J$ we can induce such a single map $\phi:X\to Y$ where $X\in I_0$ and $Y\in Y_0$. 
+\end{remark}
+
+\begin{remark}[Critical points as isolated compact invariant subsets] \label{ex: Critical points as isolated compact invariant subsets}
+	Let ${f:M\to \R}$ be a Morse function on a smooth Riemannian manifold $(M,g)$. Let $q\in \Crit_k(f)$. Around $q$ we have Morse charts $\phi:U \to T_qM$ (after identifying $q_i$ and $\partial q_i$) where  ${\phi(W(q\to)\cap U)\subseteq T_q^{u}M}$ and ${\phi(W(\to q)\cap U)\subseteq T_q^{s}M}$. With this we can define the balls:
+	\begin{align*}
+		D^{s}_\epsilon &~=~\{v\in T_q^{s}M | \norm{v}\leq \epsilon \}, \\
+		D^{u}_\epsilon &~=~\{v\in T_q^{u }M | \norm{v}\leq \epsilon \}. 
+	\end{align*} They give rise to the index pair $N_q\coloneq\phi^{-1}( D^{s }\times  D^{u })$ and $L_q=\phi^{-1}( D^{ s}\times \partial D^{u})$. This index pair is in fact regular, since $(N_q,L_q)\cong  (D^{ s}\times  D^{u }, D^{s}\times \partial D^{u}) \cong (D^{u}_{\epsilon},\partial D^{u}_{\epsilon} )$. Now we know the K-group of such a pair:
+	\begin{align} \label{eq: homology of indexx pair of critical point}
+		K^i(N_q,L_q)=K^i(D^{k},\partial D^{k})=\begin{cases}
+			\Z & \text{if } i-k\in 2\N,\\
+			0& \text{else. }
+		\end{cases}
+	\end{align}
+	Notice that for $k=0$ we need to consider $\partial D^k=\emptyset$, to get an index pair. That's why we let $\partial$ denote the manifold boundary insted of the topological boundary. However, now we can identify for all $k$: \begin{equation} \label{ kritical points as direct sum of homology groups}
+		C^{k}(M,\mathfrak{A},\tilde{K}^{l}(pt)=\bigoplus_{ \Crit_k(f)} \Z \cong \bigoplus_{q\in \Crit_k(f)} K^k(N_q,L_q;\Z).
+	\end{equation}
+	Or using the language of connected simple systems, we have the identification \todo{define what K(IP) should mean}
+	\begin{equation} 
+		C^{k}(M,\mathfrak{A},\tilde{K}^{l}(pt)= \bigoplus_{q\in \Crit_k(f)} K^k(\mathcal{IP}_q)).
+	\end{equation}
+\end{remark}
+
+\begin{definition}[Canonical Isomorphism Class]
+	A \textbf{canonical isomorphism class } of rings (or other algebraic structures) is a set of rings $R_0$ together with a set of ring homomorphisms $R_m$ such that
+	\begin{enumerate}[(i)]
+		\item For $R,L \in R_0$ the set $\hom(X,Y)\coloneq \{f:X\to Y: f \in R_m\}$ consists of exactly one element. 
+		\item If $R,L,S\in R_0$ and $f\in \hom(R,L)$ and $g\in \hom(L,S)$, then $g\circ f\in \hom(X,Z)\,$.
+		\item $\hom(X,X)=\{\id_x\}$
+	\end{enumerate}
+	A \textbf{morphism} between two canonical isommorphism classes of rings $\Psi: (R_0,R_m)\to (S_0,S_m)$ is a collection of homomorphisms such that 
+	\begin{enumerate}
+		\item For any $R\in R_0$ and $S\in S_0$ the set $\Psi(R,S)\coloneq \{f:R\to S: f\in \Psi\}$ contains exactly one element.
+		\item If $R,\bar{R}\in R_0$ and $S,\bar{S}\in S_0$, $f\in \hom(\bar{R},R)$, $g\in \hom(S,\bar{S})$ and $\psi\in \Psi(R,S)$, then $g\circ \psi\circ g\in \Psi(\bar{R},\bar{S})\,$.
+	\end{enumerate}
+\end{definition}
+\begin{remark}
+	Again the second property lets us induce a morphism between two canonical isommorphism classes of rings $\Psi: (R_0,R_m)\to (S_0,S_m)$ by a single isomorphism 
+	\begin{equation*}
+		\psi: R\to S
+	\end{equation*} for $R\in R_0$ and $S\in S_0$.
+\end{remark}
+\begin{remark}
+	We call the category of simple connected systems $\SCS$ and the categorie of canonical isomorphism classes of rings $\CICR$ 
+\end{remark}
+\begin{definition}
+	The classical complex topological K-functors $\tilde{K}^i$ define a family of kontravariant funtors 
+	\begin{align*}
+		\SCS \to \CICR
+	\end{align*} that is fiven on the objects as follows:
+	For $(I_0,I_m)$ being a family of pointed topological spaces, we get a new family of rings as:
+	\begin{equation*}
+		R_0\coloneq \{\tilde{K}^i(X): X\in I_0\}\,,
+	\end{equation*} and a family of ringhomomorphisms 
+	\begin{equation*}
+		R_m \coloneq \{\tilde{K}^i(f):[f]\in I_m\}\,.
+	\end{equation*}Obviously, the tuple $(R_0,R_m)$ is an object in $\CICR$. 
+	Now a morphism in $\Phi:(I_0,I_m)\to (J_0,J_m)$ in $\SCS$ gifes rise to a collecting of ringisomorphisms
+	\begin{equation*}
+		\Psi\coloneq \{\tilde{K}^i(\phi):[\phi]\in \Phi\}\,.
+	\end{equation*}By the homotopy property of reduced K-theory, this becomes a morphism in $\CICR$.
+\end{definition}
+\begin{example}
+	Any pointed topological space $X$ defines a simple connected system $(\{X\},{[\id_x]})$. Similar, any ring $R$ defines a caninical isomorphism class of rings $(\{R\},\{\id_R\})$.
+\end{example}
+\begin{definition}
+	Let $(M,f,g)$ be a smooth manifold $M$ together with a Morse Smale funtion $f$. Let $S\subseteq M$ be a compact invariant subset. Then the index pairs of $S$ together with the canonical isomorphisms between them define a simple conected system which we will denote with $\mathcal{IP}_S$.   
+\end{definition}
+\begin{remark}
+	Let $\underline{\Z}$ be the canonical equivalence class of rings consiting only of the ring $\Z$, and let $p$ be a critical point of index $\lambda_p$ in $M$. Then remark \ref{ex: Critical points as isolated compact invariant subsets} gives us the existence of a morphism for all $i\in \N$:
+	\begin{equation*}
+		\tilde{K}^{\lambda_p+2i}(\mathcal{IP}_p)\to \underline{Z}\,.
+	\end{equation*} The next remark will ehlp is to get a canonical isomorphism.
+\end{remark}
+\begin{remark}
+		Furthermore, this isomorphism 
+		\begin{equation} \label{ kritical points as direct sum of homology groups}
+			C^{k}(M,\mathfrak{A},\tilde{K}^{l}(pt)=\bigoplus_{ \Crit_k(f)} \Z \cong \bigoplus_{q\in \Crit_k(f)} K^k(N_q,L_q;\Z).
+		\end{equation}
+		can be made canonically, using orientations: Let $q$ be a critical point in index $\lambda_q$. Let $\mathfrak{b}$ be a ordered basis of $T^u_qM$. Let $\psi$ be a refined Morse chart arround $q$, such that the induced basis in $T_qM=T^u_qM\oplus T^u_qM$ projects onto a a basis of the first factor $T^u_qM$ that is compatible with $\mathfrak{b}$. Using this Morse chart do define the generator of the regular index pair of $q$ gives a unique generator.
+\end{remark}
+\begin{proof}
+	Let $\psi_1$ and $\psi_2$ be two such Morse charts. Notice that they only differ by order of the directions and their signs, meaning that for all $i$ there is a $j$ such that $\psi_1^{-1}(e_i)=\pm \psi_2{-1}(e_j)$. Hence, viewed as maps into the tangent space we have that $\psi_1(N_p,L_q)=\psi_1(N_p,L_q)\subseteq T_qM$. We define $B^{\lambda_{q}}_{\epsilon}(0)\subseteq \R^{\lambda_q}$ to be the sphere. The generator of $\psi_1(N_p,L_q)$ comes as the pullback of the canonical bott generator of $K^i(B^{\lambda_{q}}_{\epsilon}(0),\partial B^{\lambda_{q}}_{\epsilon}(0))$ via the basis map after the collapse map $c:(D^{ s}\times  D^{u }, D^{s}\times \partial D^{u}) \cong (D^{u}_{\epsilon},\partial D^{u}_{\epsilon} )$. Let $\alpha$ be a generator of $\psi_1(N_p,L_q)$ induced from the basis $\mathfrak{b_1}$ that comes from $\psi_1$. I.e. 
+	\begin{equation*}
+		\alpha=\left( B_{\mathfrak{b}_1}\circ c\right)^*(\beta)
+	\end{equation*} By assumption, the map $ B_{\mathfrak{b}_1}\circ  B_{\mathfrak{b}}^{-1}$ has determinant one. Hence it is homotopic to the identity, and this homotopy can be reduced to a well defined homotopy on the quotient space $\left(D^{u}_{\epsilon}\middle/ \partial D^{u}_{\epsilon} \right)$. Hence
+	\begin{equation*}
+		\alpha=\left( B_{\mathfrak{b}}\circ c\right)^*(\beta)
+	\end{equation*} And thereby, the generator only depends on $\mathfrak{b}$ concluding the proof.
+\end{proof}
+
+\begin{example}[A Map of K-Groups]
+	Let $f:M\to \R$ be a Morse Smale function on a smooth compact Riemannian manifold $(M,g)$. Let $q\in \Crit_k(f)$ and $p\in \Crit_{k-1}(f)$. Assume for a moment we already have an isolated regular compact index pair $(N_2,N_0)$ of $S=W(p\to q)\cup\{p,q\}$. 
+	For a $c\in (f(p),f(q))$ we set $N_1=N_0\cup (N_2 \cap M^c)$, where $M^c$ is the sublevel set. Clearly now $(N_2,N_1)$ is an index pair for $q$ and $(N_1,N_0)$ is a pair for $p$. Assuming we have regular index pairs $(N_q.L_q)$ and $(N_p,L_p)$ for $p,q$ we can now define a map:
+	\begin{align*}
+		\Delta^k(q \to p):K^{k-1}(N_p,L_p) \to  K^k(N_q,L_q) 
+	\end{align*} as the composition:
+	\begin{center}
+% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZAZgBoAGAXVJADcBDAGwFcYkQBpAPQGsAKAHIB9AI6kAMqIDcAHRkAtAJQgAvqXSZc+QigBMFanSat23fsP3CAjLIXK1G7HgJErBmgxZtEnLsB4AtFYqgkJuwuS2SqrqIBhO2kTk7kZepn6BwaFoEkJoUfaGMFAA5vBEoABmAE4QALZIbiA4EEjJqSY+cgDGBCUxVbUNiPrNrYhNnp0gcrCMOPRCwDjVWGiMMCoDIDX1SGRjSKNT3jMyvWD9KpQqQA
+\begin{tikzcd}
+	{K^{k-1}(N_p,L_p;\Z)} \arrow[r, "\cong"] & {K^{k-1}(N_1,N_0;\Z)} \arrow[r, "\delta_{triple}"] & {K^k(N_2,N_1;\Z)} \arrow[r, "\cong"] & {K^k(N_q,L_q;\Z)}
+\end{tikzcd}
+	\end{center} where $\delta_{triple}$ is the connecting homomorphism, and the other two maps are induced by the homotopic equivalence of two index pairs corresponding to the same isolated compact invariant subset. Putting all together we can define a morphism:
+	\begin{align}\label{equation: definition of boundary operator for filtrations}
+		\Delta^k:\bigoplus_{p\in \Crit_{k-1}(f)}K^{k-1}(N_p,L_p) \to \bigoplus_{q\in \Crit_k(f)}K^k(N_q,L_q)
+	\end{align}
+	We can define this also with canonical isomorphism classes:
+	\begin{equation*}
+		\underline{\Delta^k}:\bigoplus\limits_{p\in \Crit_{k-1}(f)}K^{k-1}(\mathcal{IP}_p)\to \bigoplus\limits_{q\in \Crit_{k}(f)}K^{k}(\mathcal{IP}_q)
+	\end{equation*} \todo{define direkt sum of canonical isomorphism classes}
+\end{example}
+
+
+
+
+
+
+\begin{definition}[Regular Index Pairs and a Filtration on $M$] \label{def: Regular index pairs and a filtration on M } \label{def: Regular index pairs and a filtration on M}
+	As always let $f:M\to \R$ be a Morse-Smale function on a compact smooth Riemannian manifold $(M,g)$ of dimension $m$. Let $\phi_t:M\to M$ be the flow given by $-\grad f$. For $0\leq j\leq k\leq m$ define:
+	\begin{align*}
+		W(k,j)=\bigcup_{j\leq \lambda_p \leq \lambda_q\leq k} W(q \to p).
+	\end{align*}There exists a filtration
+	\begin{equation} \label{eq: Filtration conley}
+		\emptyset=:N_{-1}\subset N_0\subset N_1\subset \cdots \subset N_{m-1}\subset N_m=M,
+	\end{equation} such that $(N_k,N_{j-1})$ is a regular index pair for $W(k,j)$ for all $0\leq j \leq k\leq m$. If we define $\mathcal{IP}_i\coloneq \mathcal{IP}_{\Crit_i(f)}$ we can induce a filtration of conected simple systems:
+	\begin{equation*}
+		\emptyset \to \mathcal{IP}_0\to \mathcal{IP}_1 \to \cdots \to \mathcal{IP}_{m-1} \to \mathcal{IP}_m \
+	\end{equation*} 
+\end{definition}
+\begin{proof}
+	The proof is done by Dietmar Salamon and can be checked in \cite{Salamon1985} corollary 4.4. 
+\end{proof}
+\begin{remark}
+	Let $M$ and $M'$ be smooth manifolds with $f:M\to \R$ and $f':M'\to \R$ Morse smale functions for the metrics $g$ on $M$ and $g'$ on $M'$. Let $\mathfrak{o}$ be a choice of orientations on all unstable manifolds of $M$ and $\mathfrak{o}'$ on $M'$. Let $(M\times M')$ be equiped with the Morse function $f+f'$ and the metric $g\oplus g'$ together with the orientations $\mathfrak{o}\oplus \mathfrak{o}'$. In other words, we work in a setting that we established in definition \ref{def: Definition produce Morse datum}. Let $(N_i)_i$  be a filtration on $M$ that satisfys that $(N_k,N_j-1)$ is a regular index pair for $W(k,j)$ for all $0\leq j\leq k\leq m=\dim(M)$. Let  $(N_j')_j$be one on $M'$ that also suffices those conditions. Then the Filtration
+	$N_*\otimes N_*'$ defined by
+	\begin{equation*}
+		(N_*\otimes N_*')_k\coloneq \bigcup_{i+j\leq k}N_i\times N_{j}'
+	\end{equation*} gives a filtration on $M\times M'$ satisfying the same condition. 
+\end{remark}
+
+\begin{proof}
+	We need to show that $\left((N_*\otimes N_*')_k,(N_*\otimes N_*')_{j-1}\right)$ gives a regular index pair for $W(k,j)$ for all $0\leq j\leq k\leq m$. Hence we need to go through the three properties. The first property staits that the maximal invariant subset of the closure of $\left((N_*\otimes N_*')_k\setminus (N_*\otimes N_*')_{j-1}\right)$ is $W(k,j)$ and exists in the interiour of the set-difference. This is clear, since the space $W(k,j)$ splits nicely:
+	\begin{align*}
+		W(k,j)&=\bigcup _{(q,q')\in \Crit_{k}(f+f')}W((q,q')\to)~\cap~ \bigcup _{(p,p')\in \Crit_{j}(f+f')}W(\to (p,p'))\\
+		&=\bigcup_{\substack{q\in \Crit_i(f),\\ q'\in \Crit_{i'}(f')\\ i+i'=k}}W(q\to)\times W(q'\to)
+		~\cap~ 
+		\bigcup _{\substack{p\in \Crit_l(f),\\ p*\in \Crit_{l'}(f')\\l+l'=k}}W(\to p)\times W(\to p')\\
+		&=\bigcup_{\substack{i+i'=k\\l+l'=j}} \quad \left(\bigcup_{\substack{q\in \Crit_{i}(f)\\ p\in \Crit_l(f)}}W(q\to p) 
+		 ~\times ~
+		 \bigcup_{\substack{q'\in \Crit_{i'}(f')\\ p'\in \Crit_l'(f')}}W(q'\to p') \right)\\
+		 &=\bigcup_{\substack{i+i'=k\\l+l'=j}} W(i,l)\times W(i',l')\,.
+	\end{align*}
+	With this it is easy to see the first property: Since the flow splits into the two factors, we have that the maximal invariant subset $I$ also splits meaning 
+	\begin{align*}
+		I\left((N_*\otimes N_*')_k \right)
+		=I(\bigcup_{i+j\leq k}N_i\times N_{j}')
+		=\bigcup_{i+j\leq k}I(N_i\times N_{j}')
+		=\bigcup_{i+j\leq k}(I(N_i)\times I(N_{j}'))\,.
+	\end{align*}Furthermore the same argument works on the difference $\left((N_*\otimes N_*')_k,(N_*\otimes N_*')_{j-1}\right)$ letting us deduce the first property for the tensorproduct filtration from said property for all factors. 
+	The same splitting idea lets us deduce the positive invariance of $(N_*\otimes N_*')_k$ in $(N_*\otimes N_*')_{j-1}$ and shows the exit set property of $(N_*\otimes N_*')_{j-1}$. Now finally we need to proof the regularity, meaning that the inclusion $(N_*\otimes N_*')_{j-1}\to (N_*\otimes N_*')_k$ is a cofibration. For this we notice that the cofibration property is stable under finite products, since we fan just build the product homotopy of each factor. Now a standart result is that cofibrations are stable under pushouts and hence especially under unions concluding the proof. Compare \cite{May1999} Chapter 6 on the claim about cofibrations.
+\end{proof}
+\begin{remark}
+	Now $\mathcal{IP}_k$ has a pointed spaces as a representative, that if of the form $\bigvee_{p\in \Crit_k}(N_p\big/L_p)$. Hence, $\tilde{K}^k(\mathcal{IP}_k)$ has a representative that omitts an isomorphism to $\bigoplus_{p\in \Crit_k(f)}\tilde{K}^k(N_p\big/L_p)$. Hence as canonical isomophism classes of rings we get the isomorphism:
+	\begin{equation*}
+		\tilde{K}^k(\mathcal{IP}_k)\to \bigoplus_{q\in \Crit_k(f)}\tilde{K}^k(\mathcal{IP}_p)
+	\end{equation*} and with this we can define the morphism $\underline{\Delta^k}:	\tilde{K}^{k-1}(\mathcal{IP}_{k-1})\to 	\tilde{K}^k(\mathcal{IP}_k)$.
+	I think with this, i can give the definition of the following spectral sequence in the language of canonical isomorphism classes!
+\end{remark}
+
+
+
+\section{The Spectral Sequence using Exact Couples}
+\begin{definition}\label{def: Exact Couple giving A Morse Sps} Let $M$ be a smooth manifold with Morse data and
+	\begin{equation*}
+		\emptyset=:N_{-1}\subset N_0\subset N_1\subset \cdots \subset N_{m-1}\subset N_m=M,
+	\end{equation*} be a filtrations constructed in \ref{def: Regular index pairs and a filtration on M}. Then we define the Groups
+	\begin{equation*}
+		\begin{array}{llll}
+			D^{p,q} & \coloneq K^{p+q}(N_p)&
+			~\text{and}~&D \coloneq \bigoplus_{p,q}D^{p,q}\\
+			E^{p,q} & \coloneq K^{p+q}(N_p,N_{p-1})
+			&~\text{and}~ &E\coloneq \bigoplus_{p,q}E^{p,q}
+		\end{array}
+	\end{equation*}
+	Now we have the exact sequence from the pair $(N_p,N_p-1)$:
+	\begin{center}
+		\begin{tikzcd}
+			\cdots\arrow[r] & K^{p+q-1}(N_{p-1})\arrow[r,"\delta_{p,q}^*"]&K^{p+q}(N_p,N_{p-1}) \arrow[r,"j_{p,q}^*"]&K^{p+q}(N_p)\arrow[r,"i_{p,q}^*"]&K^{p+q}(N_{p-1})\cdots
+		\end{tikzcd}
+	\end{center}
+	With this we define the maps
+	\begin{equation*}
+		\begin{array}{lll|l}
+			\alpha&\coloneq \mathop{\oplus}\limits_{p,q}~i_{p,q}^*:&D\to D&(-1,1)\\
+			\beta&\coloneq  \mathop{\oplus}\limits_{p,q}~\delta_{p,q}^*:&D\to E&(1,0)\\
+			\gamma&\coloneq \mathop{\oplus}\limits_{p,q}~j_{p,q}^*:&E\to D&(0,0)\\
+			&&&\text{bidegree}
+		\end{array}
+	\end{equation*}
+	Obviously by definition the compositions in the triangle are exact:
+	\begin{center}
+		\begin{tikzcd}
+			D\arrow[rr,"\alpha"]&&D\arrow[dl,"\beta"]\\
+			&E \arrow[ul,"\gamma"]&
+		\end{tikzcd}
+	\end{center}
+	Finally we define $d\coloneq \beta\circ \gamma$.
+\end{definition}
+\begin{definition}[Exact Couples]
+	Two groups $D,E$ and maps
+	\begin{equation*}
+		\begin{array}{lc}
+			\begin{array}{ll}
+				\alpha: &D\to D\\
+				\beta : &D\to E\\
+				\gamma: &E\to D\\
+			\end{array}
+			&
+			\begin{tikzcd}
+				D\arrow[rr,"\alpha"]&&D\arrow[dl,"\beta"]\\
+				&E \arrow[ul,"\gamma"]&
+			\end{tikzcd}
+		\end{array}
+	\end{equation*} such that the compositions in the trianlge are exact are called an \textbf{exact couple}. we define $d\coloneq \beta\circ \gamma$. In this case it is obvious that $d^2=0$.
+\end{definition}
+\begin{definition}[Categorie of Exact Couples]
+	We define the categorie $\ExCoup$ as follows:
+	The objects are exact couples, i.e. quintibles $(D,E,\alpha,\beta,\gamma)$ where $D,E$ are groups (or objects in an abelian categorie), such that the triangle is exact:
+	\begin{center}
+		\begin{tikzcd}
+			D\arrow[rr,"\alpha"]&&D\arrow[dl,"\beta"]\\
+			&E \arrow[ul,"\gamma"]&
+		\end{tikzcd}
+	\end{center}.Given another exact couple $(D',E',\alpha',\beta',\gamma')$ we define a morphism from one to another to be a touple of morphisms $(f:D\to D',g:E\to E')$ such that the following diagram commutes:
+	\begin{center}
+		\begin{tikzcd}
+			D \arrow[r,"\alpha"]\arrow[d,"f"]& D \arrow[d,"f"] \arrow[r,"\beta"]&E \arrow[d,"g"] \arrow[r,"\gamma"]&D\arrow[d,"f"]\\
+			D' \arrow[r,"\alpha'"]& D'  \arrow[r,"\beta'"]&E'  \arrow[r,"\gamma'"]&D'
+		\end{tikzcd}
+	\end{center}
+\end{definition}
+\begin{corollary}[An Endofunktor in the Categorie of Exact Couples]
+	We can derive a new exact couple with the following definitions:
+	\begin{equation*}
+		\begin{array}{llc}
+			\begin{array}{ll}
+				E'&\coloneq \ker d \big/ \im d \\
+				D'&\coloneq \alpha(A)
+			\end{array}&
+			\begin{array}{lll}
+				\alpha'&:~ D'\to D'&a\mapsto \alpha(a)\\
+				\beta' &:~ D'\to E'&a=\alpha(\tilde{a})\mapsto [\beta(\tilde{a})]\\
+				\gamma' &:~ E'\to D' &[b]\mapsto\gamma(b) \\
+			\end{array}
+			&
+			\begin{tikzcd}
+				D'\arrow[rr,"\alpha'"]&&D'\arrow[dl,"\beta'"]\\
+				&E' \arrow[ul,"\gamma'"]&
+			\end{tikzcd}
+		\end{array}
+	\end{equation*} We again defnie $d'\coloneq \beta'\circ \gamma'$.
+	The derifing of a new exact couple as defined above defines an endofunctor which er denote by $Der$.
+\end{corollary}
+\begin{proof}
+	Let $(D,E,\alpha,\beta,\gamma)$ be the exact couple we started with and call the derived couple $(D',E',\alpha',\beta',\gamma')$.
+	First we show the well definition of $\beta$. Let $a\in D'=\alpha(a_1)=\alpha(a_2)$. Then $a_1-a_2\in \ker\alpha=\im \gamma $. Hence $\beta(a_1)-\beta(a_2)=\beta(a_1-a_2)\in \im (\beta\circ \gamma)=\im d$. Furthermore, since $\beta(a_1)\in \im \beta=\ker\gamma \subseteq \ker d$ we have that the map $\beta'$ is well defined. For the well definition of $\gamma'$ we ssume that $[b_1]=[b_2]\in E'$. But then the difference of $b_1$ and $b_2$ is zero in $E'$ meaning in the image oif $d$, which is again contained in the image of $\beta$ and thereby in the kernal of $\alpha$. This menas that under $\alpha$ the image of $b_1$ and $b_2$ agree.
+	Now to show that the derived couple is also exact one continuous the diagram yoga. We do exemplary the equality of the kernal of $\beta'$ with the image of $\alpha'$:
+	Assume that $\beta'(x)=0$. That means that $\beta(\tilde{x})\in \im d$ with $\alpha(\tilde{x})=x$. We now want to show that $x\in \alpha^2D$, and do this by showing that $\tilde{x}=\alpha(z)$ for some $z$. Now since $\beta(\tilde{x})\in \im d$ we have that $\beta(\tilde{x})=d(y)=\beta\circ \gamma(x)$ for some $y$. In other words, $\tilde{x}-\gamma(y)\in \ker \beta=\im \alpha$. Hence, $\tilde{x}-\gamma(y)=\alpha(z)$ for some $z$. But now applying $\alpha$ to both side and using that $\alpha\circ \gamma=0$ we can deduce that $\alpha^2(z)=\alpha(\tilde{x})$. This shows that the kernal of $\beta'$ is contained in the image of $\alpha'$. The other direction of the inclusion is easier: Let $a=\alpha(\tilde{a}) \in D'$. Then $\beta'\circ \alpha'(z)=[\beta(z)]=\beta\circ \alpha (\tilde{a})=0$. Similary one checks for exactnes in the other corners.
+	Now to show that we have an endofunktor we need to define what to do on morphisms. So assume that we have the two exact couples $(D,E,\alpha,\beta,\gamma)$ and $(\widetilde{D},\widetilde{E},\widetilde{\alpha},\widetilde{\beta},\widetilde{\gamma})$ with the morphisms $(f:D\to \widetilde{D},g:E\to \widetilde{E})$. We now need to define a morphism of exact couples $((f':D'\to \widetilde{D}',g:E'\to \widetilde{E}'))$ between the derived couples. For this we define:
+	\begin{equation*}
+		f':D'\to \widetilde{D}';x\mapsto f(x) \quad \text{and}\quad g:E'\to \widetilde{E}'; [x]\mapsto [g(x)]
+	\end{equation*} and check for well definition as maps and that the pair is a morphism of exact couples. The well definition of $f'$ follows directly from $f\circ \alpha=\widetilde{\alpha}\circ f$. For the well definition of $g'$ asume that $[x]=[y]\in E'$, meaning that $x-y\in \im d=\im \beta \circ \gamma$ hence for some $z$ we have that $x-y=\beta\circ \gamma(z)$ and hence $g(x-z)=g\circ \beta \circ \gamma (z)=\widetilde{\beta}\circ f\circ \gamma(z)=\widetilde{\beta}\circ \widetilde{\gamma}\circ g(z)\in \im \widetilde{d}$. This proofes the well definition.
+\end{proof}
+\begin{definition}[Spectral Sequence From an Exact Couple]
+	We can now iterate this procedure to get a list of spaces with maps
+	$ (E,d),(E',d'),(E'',d'')\dots$ or often written as $(E_1,d_1),(E_2,d_2),\dots$ which is called a \textbf{spectral sequence}. Notice how $E_{r+1}$ is given by $(E_r,d_r)$ whilst $d_{r+1}$ needs further information. Whilst the spectral sequence is defined inductively, the needed information is not captured in $(E_r,d_r)_r$ but rather in the exact couple. Or said differently, we get a sequence of exact couples $(E_r,D_r,\alpha_r,\beta_r,\gamma_r)$ from which we can get the spectral sequence. We can reformulate the maps as follows:
+	\begin{equation*}
+		D_r= \alpha^{r-1}(D),\quad E_r=\ker d_{r-1}\big/ \im d_{r-1},\quad  \alpha_r= \restr{\alpha}{ \alpha^{r-1}(D)} ,\quad \beta_r =[\beta \circ  \alpha^{1-r}], \quad \gamma_r= \gamma, \quad  d_r= \beta_r\circ \gamma_r
+	\end{equation*} $\alpha^{1-r}$ means taking the preimage by alpha $1-r$ times. The well definition of this formulation was proven earlier. 
+	The bidegree of the maps is easy to deduct from the formulations above:
+	\begin{equation*}
+		\begin{array}{lll}
+			\alpha_r&\text{ has bidegree }& (-1,1)    \\
+			\beta_r &\text{ has bidegree }& (-r+2,r-1)\\
+			\gamma_r&\text{ has bidegree }& (0,0)     \\
+			d_r     &\text{ has bidegree }& (r,+r+1)\\
+		\end{array}
+	\end{equation*}
+\end{definition}
+\begin{corollary}
+	We can define the categorie of spectral sequences $\SpS$ where the objects consist of families of pairs $(E_r,d_r)_r\in \Z$ where $E_r$ are groups (or objects in an abelian categorie) and $d_r$ are endomorphisms in $E_r$, such that $E_{r+1}\cong \frac{\ker{d_r}}{\im d_r}$. Morphisms between two spectral sequences $(E_r,d_r)_{r\in \N}\to (\widetilde{E_r},\widetilde{d_r})_{r\in \N}$ are families of morphisms $(f_r:E_r\to \widetilde{E_r})$ such that for all $r$ we have that $f_r\circ d_r=\widetilde{d_r}\circ f_r$.
+\end{corollary}
+\begin{corollary}
+	We have a functor from $\ExCoup$ to $\SpS$ given as follows: Let $(E,D,\alpha,\beta,\gamma)$ be an exact couple. Let $(E_r,d_r,\alpha_r,\beta_r,\gamma_r)=Der^r((E,D,\alpha,\beta,\gamma))$ where $Der^r$ denotes the r-th derivation of the exact couple. Then $(E_r,d_r\coloneq \beta_r\circ \gamma_r)_r$ is an exact sequence as described above. Assume that we have the two exact couples $(D,E,\alpha,\beta,\gamma)$ and $(\widetilde{D},\widetilde{E},\widetilde{\alpha},\widetilde{\beta},\widetilde{\gamma})$ with the morphisms $(f:D\to \widetilde{D},g:E\to \widetilde{E})$. Then the famliy $(Der^r(f))_r$ is a morphism of spectral sequences.
+\end{corollary}
+\begin{corollary}[Explicit Pages]\label{cor: explicit pages of exact sequences arising from exact couples}
+	For a spectral seqquence arising from an exact couple defined as above we have a natural isomorphism
+	\begin{equation*}
+		E_{r+1}= \frac{\gamma^{-1}(\alpha^r D)}{\beta(\ker \alpha ^r)}
+	\end{equation*}
+\end{corollary}
+\begin{proof}
+	We proceed by induction starting with $n=1$.
+	Here we have by exactnes:
+	\begin{equation*}
+		\ker(\beta \circ \gamma)=\gamma^{-1}(\ker(\beta))=\gamma^{-1}(\im(\alpha)),\quad \text{and}\quad
+		\im(\beta\circ \gamma)=\beta(\ker(\alpha))\,.
+	\end{equation*}
+	Hence:
+	\begin{equation*}
+		E_2=\frac{\ker(d_1)}{\im(d_1)}=\frac{\ker(\beta\circ \gamma)}{\im(\beta \circ \gamma)}=\frac{\gamma^{-1}(\alpha D)}{\beta(\ker(\alpha))}\,.
+	\end{equation*}
+	Now Assume that
+	\begin{equation*}
+		E_r=\frac{\gamma^{-1}(\alpha^{r-1}D)}{\beta(\ker \alpha^{r-1})}
+	\end{equation*}
+	Then we have
+	\begin{equation*}
+		\ker{d_r}=\ker{\beta_r\gamma_r}=\gamma_r^{-1}(\im(\alpha_r))=\gamma_r^{-1}(\alpha^r(D))\,.
+	\end{equation*} Now $\gamma_r:E_r\to D_r$ maps $[x]\mapsto \gamma(x)$, hence by induction assumption
+	\begin{equation*}
+		\ker{d_r}=\frac{\gamma{-1}(\alpha^nD)}{\beta(\ker \alpha)}\,.
+	\end{equation*} Notice that $\alpha^{r-1}(\ker(\alpha_r))$ containes those elements in $D$, that are killed by the $\alpha^n$, in other words this equals $\ker \alpha^r$. Now $\beta_r=[\beta\circ \alpha^{r-1}]$ and hence using the induction assumptian again we can conclude:
+	\begin{equation*}
+		\im(\beta_r\gamma_r)=[\beta(\alpha^{r-1}\ker(\alpha_r))]=\frac{\beta(\ker\alpha^r D)}{\beta(\ker \alpha^{r-1})}\,.
+	\end{equation*} Now using the isomorphism theorem we get the natural isomorphism from the statement.
+\end{proof}
+\begin{definition}
+	In our case all pages of the spectral sequence inherit a double grading and the boundary maps to. Hence we will denote
+	\begin{equation*}
+		E_r=\bigoplus_{p,q}E_r^{p,q}\quad \text{and} \quad d_r=\oplus_{p,q}d_r^{p,q}
+	\end{equation*}
+\end{definition}
+\begin{corollary}\label{cor: explicit pages of exact sequences arising from exact couples with grading}
+	The grading carries through all pages and we can reformulate
+	\begin{equation*}
+		E^{p,q}_{r+1}=\frac{\gamma^{-1}\alpha^rD}{\beta(\ker \alpha^r)}\cap E^{p,q}_{r+1}
+		=\frac{\gamma^{-1}\big((\alpha^rD)\cap D^{p,q}\big)}{\beta((\ker \alpha^r)\cap D^{p-1,q})}
+		=\frac{\gamma^{-1}\alpha^rD^{p+r,q-r}}{\beta(\ker \restr{\alpha^r}{D^{p-1,q}})}
+	\end{equation*}
+\end{corollary}
+\begin{corollary}[The Exact Sequence Stabilizes]
+	For all $r\geq m+1$ it holds that
+	\begin{equation*}
+		E_{r}=E_{r+1}=\cdots
+	\end{equation*} For this great enough $r$ we define $E_{\infty}\coloneq E_{r}$.
+\end{corollary}
+\begin{proof}
+	Notice how our original $E^{p,q}$ is supportet in a strip regarding $p$ which is fancy languare for saying that $E^{p,q}=0$ for $p>0$ and for $p\geq m$. These conditinos cary through the whole spectral sequence, as suceeding pages are quotients of preceeding ones respecting the grading. Now the map $d_r$ has bidegree $(r,-r+1)$, and hence $d_r=0$ since the domain or codomain is zero , if the $p$ grading is greater then the $p-$length of the supporting strip meaning $p>m$ which gives us the claimes $r\geq m+1$.
+\end{proof}
+Now we refomulate the corollary \ref{cor: explicit pages of exact sequences arising from exact couples} for the infinity page. We have the constant sequence of groups $E_r=E_{r+1}=\cdots$ and by the corollary we have
+\begin{equation*}
+	\frac{\gamma{-1}(\alpha^rD)}{\beta(\ker{\alpha^r})}=\frac{\gamma{-1}(\alpha^{r+1}D)}{\beta(\ker{\alpha^{r+1}})}=\frac{\gamma{-1}(\alpha^{r+2}D)}{\beta(\ker{\alpha^{r+2}})}=\cdots
+\end{equation*}
+Hence in our later inspections of $E_{\infty}$ we can assume $r$ to be arbitrary big.
+\begin{lemma}[The last page]
+	In our spectral sequence, we have that
+	\begin{equation*}
+		E_{\infty}^{p,q}=\frac{\ker[K^{p+q}(M)\to K^{p+q}(N_{p-1})]}{\ker[K^{p+q}(M)\to K^{p+q}(N_{p1})]}
+	\end{equation*}
+\end{lemma}
+\begin{proof}
+	For each fixed $(p,q)$ there is an $r$ big enough such that $\alpha^r D^{p,q}=0$, since $\alpha^r$ has degree $-r$ in $p$, hence for $r>p$, $\alpha^r$ maps $D^{p,q}$ to something negative in $p$ and hence to the trivial group.
+	Thus $D=\cup_{r\geq 0}\ker \alpha^r$. Now the denominator of $E^{p,q}_r$ equals $\beta(\ker( \restr{\alpha^r}{D^{p+q-1,q-r}})$ and hence for $r$ big enough this equals the image of $\restr{\beta}{D^{p-1,q}}$ which in turn is the kernal of $\restr{\gamma}{E^{p,q}}$. For the numerator, we start by looking at $(\alpha^r D)^{p,q}=\alpha^rD^{p+r,q-r}$. Now $D^{p+r,q-r}=K^{p+q}(N_{p+n})$. Hence for $n$ big enough (such that $N_{p+n}=M$) we can calculate $\alpha^n(K^{p+q}(N_{p+n}))=\im(K^{p+q}(M)\to K^{p+q}(N_p))$. This results in the description\todo{is das wahr mit gamma eingeschränkt auf Epq?}
+	\begin{equation*}
+		E^{p,q}_\infty=\frac{\gamma^{-1}\big(\im(K^{p+q}(M)\to K^{p+q}(N_p))\big)}{\ker\restr{\gamma}{E^{p,q}}}
+	\end{equation*}
+	Next we define the groups
+	\begin{equation*}
+		L^{p,q}\coloneq \im(K^{p+q}(M)\to K^{p+q}(N_p)) \cap \im \gamma= \im(K^{p+q}(M)\to K^{p+q}(N_p)) \cap \ker \alpha
+	\end{equation*}
+	And since we have for any $f$ and any subset $S$ of the  codomain of $f$ the equality $f^{-1}(S)=f^{-1}(S\cap \im f)$ holds,
+	we have in our setting $ E^{p,q}_\infty=\frac{L^{p,q}}{\ker(\restr{\gamma}{E^{p,q}})}$. Now the kernal of the funktion
+	\begin{equation*}
+		\tilde{\gamma}:\gamma^{-1} (L^{p,q})\to L^{p,q};~x\mapsto \gamma(x)
+	\end{equation*} equals $\ker \restr{\gamma}{E^{p,q}}$: Since $\gamma^{-1} (L^{p,q})\subseteq E^{p,q}$ the kernal of  $\tilde{\gamma}$ is clearly contained in $ker \restr{\gamma}{E^{p,q}}$. If on the other hand $\gamma(x)=0$ for $x\in E^{p,q}$ then $x\in \gamma^{-1}(0)$ and since zero is contained in $L^{p,q}$ we conclude that the two kernals are equal and hence we can apply the isomorphism theorem to get the isomorphism that is induced from $\gamma$:
+	
+	\begin{equation*}
+		E^{p,q}_\infty=\frac{L^{p,q}}{\ker(\restr{\gamma}{E^{p,q}})} \to L^{p,q}\,.
+	\end{equation*}
+	Now finally we define the mapping
+	\begin{equation*}
+		\ker \left(K^{p+q}(M)\to K^{p+q}(N_{p-1})\right) \to L^{p,q}
+		=\im(K^{p+q}(M)\to K^{p+q}(N_p)) \cap \ker \alpha\\
+	\end{equation*} That maps an element $x\in K^{p,q}(M)$ to the pullback of the inclusion $N_p\to M$. This map is well defined, since applying $\alpha$ to the image of an element from the domain is the same as the pullback of $x$ via the inclusion $N_{p-1}\to M$ and equlals zero by definition of the domain. Hence the original map maps into the kernal of alpha which proofs the well definition. This line of reasoning also shows the surjectivity since every element in $K^{p,q}(N_p)$ that comes from the whole $M$ and maps to zero if restricted to $N_{p-1}$ can be expressed as the pullback from the whole $M$ restricted to those, that vanish over $N_{p-1}$. TIts easy to see that the kernal of this surjection equals the kernal of the pullback
+	\begin{equation*}
+		K^{p,q}(M)\to K^{p,q}(N_p)\,,
+	\end{equation*} because ever element that pulls back to zero over $N_p$ also pulls back to zero over $N_{p-1}$, and the other containemend is trivially true.
+	To the surjection we can again apply the isomorphism theorem to get the isomorphism
+	\begin{equation*}
+		\frac{\ker \left(K^{p+q}(M)\to K^{p+q}(N_{p-1})\right) }{\ker\left( K^{p,q}(M)\to K^{p,q}(N_p)\right)} \cong L^{p,q}\,,
+	\end{equation*} that is induced by the pullback of the inclusion. Together with the $\gamma$ induced isomorphism from $E_\infty^{p,q}\to L^{p,q}$ we conclude the proof.
+\end{proof}
+\begin{definition}[Associated Graded Group]
+	Let $G$ be a group together with a finite filtration of subgroups $\{F^i\}_{i=-1,\dots,-m}$ for $i=-1,\dots m$ such that 
+	\begin{equation*}
+		G=F^{-1}\subseteq F^0 \subseteq F^1\subseteq \cdots \subseteq F^{m-1}\subseteq F^m=0
+	\end{equation*}
+	Then we define the \textbf{associated graded group of $G$ with respect to the Filtration $\{F_i\}$} to be 
+	\begin{equation*}
+		\gr(G)\coloneq \bigoplus_{i=0}^{m} F^{i-1}\big/ F^{i}\, .
+	\end{equation*} 
+	From $\gr(G)$ we can rebuild $G$ by rebuilding $\{F^i\}$ up to extension problems in the following way:
+	\begin{equation*}
+		\begin{array}{ll}
+			F^{m-1} & =F^{m-1}\big/F^m=\gr(G)_m \\
+			F^{m-2} &  \text{ is an extension } 
+			\begin{tikzcd}
+				0 \arrow[r] & F^{m-1} \arrow[r] & F^{m-2} \arrow[r] & F^{m-2}\big/F^{m-1}=\gr(G)_{m-1} \arrow[r] & 0
+				\end{tikzcd}\\
+		F^{m-1}&  \text{ is an extension } 
+		\begin{tikzcd}
+			0 \arrow[r] & F^{m-2} \arrow[r] & F^{m-3} \arrow[r] & F^{m-3}\big/F^{m-2}=\gr(G)_{m-2} \arrow[r] & 0
+		\end{tikzcd} \\
+		\vdots & \cdots\\
+		F^{-1}&  \text{ is an extension } 
+		\begin{tikzcd}
+			0 \arrow[r] & F^{0} \arrow[r] & F^{-1} \arrow[r] & F^{-1}\big/F^{0}=\gr(G)_{0} \arrow[r] & 0
+		\end{tikzcd}
+		\end{array}
+	\end{equation*}
+\end{definition}
+\begin{corollary}
+	Define the groups
+	\begin{equation*}
+		F^lK^n(M)\coloneq \ker\left(K^{n}(M)\to K^n(N_l)\right)\,.
+	\end{equation*} Those give an decending filtration of the $n-th$ K-group of $M$:
+	\begin{equation*}
+		K^n(M)=F^{-1}K^n(M)\supseteq F^{0}K^n(M)\supseteq \cdots \supseteq F^{m-1}K^n(M)\supseteq F^{m}K^n(M)=0\,.
+	\end{equation*}
+	Then by the corollary above we can conculde that
+	\begin{equation*}
+		E^{p,q}_r=\frac{F^{p-1}K^{p+q}(M)}{F^pK^{p+q}(M)}\,.
+	\end{equation*} Hence, the diagonals on the infinity page are the associated graded groups to $K^{p+q}(M)$ with respect to the filtration above.
+\end{corollary}
+
+\begin{corollary}[The first page]
+	In our setting we get the first page to be defined as the quotient
+	\begin{equation*}
+		E^{p,q}  \coloneq K^{p+q}(N_p,N_{p-1})
+	\end{equation*}
+	Now since $(N_p,N_{p-1})$ is a regular index pair for $\Crit_p(f)$ we have a flow induced homotopiy equivalentce:
+	
+	\begin{equation*}
+		N_p\slash N_{p-1}
+		\simeq          \big(\bigcup_{w\in Crit_p(f)}D^u_\epsilon(w)\big) \slash (\bigcup_{w\in Crit_p(f)} \partial D^u_\epsilon(w)\big)
+		\cong           \bigvee_{w\in \Crit_p(f)}S^p
+	\end{equation*} Here, we use the definitions from above
+	\begin{align*}
+		D^{u}_\epsilon (w)&~\coloneq~ \phi_w^{-1} \big(\{v\in T_w^{u }M | \norm{v}\leq \epsilon \} \big),
+	\end{align*}and the last isomorphism is induced by orientations in the unstable manifolds. We can continue our inspection:
+	\begin{align}\label{def: The Map between E_1 and Morse chain group}
+		E^{p,q}_1&\cong \widetilde{K}^{p+q}(N_p\slash N_{p-1})\\
+		&\cong \bigoplus_{w\in \Crit_p(f)}\widetilde{K}^q(pt)=C^k(M,f,g,\mathfrak{o};\widetilde{K}^q(pt))\\
+	\end{align} Notice that this is trivial for all odd $q$ and naturally isomorphic for all even $q$. In sum we have the chain of horizontal isomorphisms:
+	\begin{fdiagram}\label{diag: first page comparison}
+		\begin{adjustbox}{width=\textwidth}
+			% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAFEA9YNUgRwC+AfQCMIAaXSZc+QihHkqtRizYAdNXgaxgAaQHc0AakEAKAHJC0GuAzpwAFgAJLPALQiBASnGSQGbDwCIgAmRWp6ZlZEEA0AIywAcwg0ZjghYAB3DSwwJw0AYQAnXCtTADMvAQ0tHX1OPlM0HB8JKUDZIgBmcOUotgLDAVMAWVINAFs6HAdyoroAa2AAQQkarG0YPQNG5q9WvwCZYJQyESVI1RiuHiMFQVFfduO5ZAVziJVo2M0NuoNbiITMNXMZPDY7I4XBk0N4nv5pEFXmEPn0rj8EslUkx0lkcnlCiUcDC7sNKtVfpttg0mi14Uckd1SKjLt9BoDhmNJtNZvMlqtxpT-jS9q0lDAoIl4ERQHMIBMkGQQDgIEgFGjvhpGGgHHR4XKFYh1SqkGENeo1HEYDg9W0QAbFdQTYgACyffoxKCiQz8AT6orytVO1WIACsdodiDNzoAbBGA4aesqQwB2eOB13BpCh93orUMHV0ADk-ozOeTSBjuc1lutxdLiazUfThpTTbjFAEQA
+			\begin{tikzcd}
+				{E^{p,q}_1} \arrow[r, "\alpha"] \arrow[d, "{d_1^{p,q}}"] & \widetilde{K}^{p+q}(N_p\slash N_{p-1}) \arrow[r, "\beta"] \arrow[d] & \bigoplus_{w\in \Crit_p(f)}\widetilde{K}^q(pt) \arrow[d] & {C^{p}(M,\mathfrak{A},\widetilde{K}^q(pt))} \arrow[d] \arrow[l] \\
+				{E^{p+1,q}_1} \arrow[r, "\alpha'"]                       & \widetilde{K}^{p+1+q}(N_{p+1}\slash N_{p}) \arrow[r, "\beta'"]      & \bigoplus_{w\in \Crit_{p+1}(f)}\widetilde{K}^q(pt)       & {C^{p+1}(M,\mathfrak{A},\widetilde{K}^q(pt))} \arrow[l]
+			\end{tikzcd}
+		\end{adjustbox}
+		
+	\end{fdiagram}
+\end{corollary}By naturality of the triple boundary operator, that the second vertical map is the boundary operator. Now on the next rug we can induce two maps. From the left to make the diagram commute and from the right. Do they agree? Or asked differently, is the map induced from the $d_1$ map the boundary operator of morse homology? We already answered this in theorem \ref{thm: commuting connecting homomorphism}. This theorem lets us define a new spectral sequence as follows:
+\begin{definition}
+	Let $(D,E,\alpha,\beta,\gamma)$ be the exact couple from definition \ref{def: Exact Couple giving A Morse Sps}. Furthermore, let $\Psi\coloneq \oplus _{p,q}\Psi^{p,q}$ be the isomorphism from $E=\bigoplus_{p,q} E^{p,q}\to \bigoplus_{p,q} C^{p}(M,\mathfrak{A},\widetilde{K}^q(pt))$ that is defined in equation \ref{def: The Map between E_1 and Morse chain group}. Furthermore, let $\beta:K^{2s}(pt)\to \Z)$ be the isomorphisms induced from the bott generator. Then we define
+	\begin{equation*}
+		\Lambda: E \to \widetilde{E}\coloneq \bigoplus_{p,q} C(M,\mathfrak{A},\Z) \otimes_{\Z}
+		\begin{cases}
+			\Z &\text{ if $q$ is even,}\\
+			0 &\text{ if $q$ is odd}\,.
+		\end{cases}
+	\end{equation*} Then define $\widetilde{D}\coloneq D$ and the new exact couple $(\widetilde{D},\widetilde{E},\widetilde{\alpha},\widetilde{\beta},\widetilde{\gamma})$ as follows:
+	\begin{equation*}
+		\begin{array}{lll}
+			\widetilde{\alpha}&\coloneq\alpha                     &:~\widetilde{D} \to \widetilde{D}\\
+			\widetilde{\beta} &\coloneq \Lambda \circ \beta       &:~\widetilde{D} \to \widetilde{E}\\
+			\widetilde{\gamma}&\coloneq \gamma \circ \Lambda^{-1} &:~\widetilde{E} \to \widetilde{D}
+		\end{array}
+	\end{equation*} We get a morphism of exact couples from $(D,E, \alpha,\beta,\gamma)$ to $(\widetilde{D},\widetilde{E},\widetilde{\alpha},\widetilde{\beta},\widetilde{\gamma})$ that is given as $(\Lambda,\id_D)$.
+	This new exact couple gives rise to a spectral sequence $(\widetilde{E}_r,\widetilde{d}_r)_r$, where the first page is the Morse-chain group in all even $q$.
+	Hence, the second page is the Morse homology.
+\end{definition}
+
+\begin{corollary}[Periodicity in $q$]
+	The exact couple $(\widetilde{D},\widetilde{E},\widetilde{\alpha},\widetilde{\beta},\widetilde{\gamma})$ has periodicity in $q$ meaning that we have the isomophism of exact couples given by the identity functions
+	\begin{equation*}
+		f^{p,q}:\widetilde{E}{p,q}\to \widetilde{E}^{p,q+2}
+	\end{equation*}
+	Here the notation might seem a bit strange. However, the summonds $\widetilde{E}{p,q}$ and $\widetilde{E}{p,q+2}$ are actually the same. They only differ by there inclsion map into $\widetilde{E}$. Now the pair $(f:\oplus_{p,q}:\widetilde{E}\to \widetilde{E}, g\coloneq \id \widetilde{D}\to \widetilde{D})$ defines an isomorphism of exact couples. The compatibility with morphisms is clear. Now since building up the spectral sequence is functorial we know that for all $p,q$ we have canonical (in the sence that they traslate $\widetilde{d}_r^{p,q}$ to $\widetilde{d}_r^{p,q+2}$) isomorphisms
+	\begin{equation*}
+		\widetilde{E}_r^{p,q}\cong \widetilde{E}_{r}^{p,q+2}\,.
+	\end{equation*} Furthermore, $\widetilde{E}_r^{p,q}=0$ for all odd $q$.
+\end{corollary}
+\begin{definition}
+	For $r>0$ we define $EM_r^p\coloneq\widetilde{E}^{p,0}_r$ and
+	\begin{equation*}
+		dM_r:EM_r^p\to EM_r^{p+r}; x\mapsto
+		\begin{cases}
+			0&\text{ if $r$ is even}\\
+			\widetilde{d_r^{p,0}}(x)\in \widetilde{E}_r^{p,-r+1}=EM_r^p&\text{ else. }
+		\end{cases}
+	\end{equation*} The last equality comes from the corollary above. Furthermore, we have a morphism of spectral sequences $(\widetilde{E_r},\widetilde{d_r})\to (EM_r,dM_r)$ by the maps
+	\begin{equation*}
+		f_r^{p,q}:\widetilde{E}^{p,q} \to EM^p_r; x\mapsto
+		\begin{cases}
+			0 & \text{ if $q$ is odd}\\
+			x \in EM_r=\widetilde{E}^{p,0}\cong \widetilde{E}^{p,q} &\text{ if $q$ is even.}
+		\end{cases}
+	\end{equation*}
+\end{definition}
+
+
+\begin{theorem}[Summary of the Specrtal Sequence]
+	For each Morse datum $(M,f,g,\mathfrak{A})$ together with a filtration $N_{-1}\subseteq N_0 \subseteq \cdots \subseteq N_{m-1} \subseteq N_m=M$   from (\ref{eq: Filtration conley}) there esists a Spectralsequence $(EM^p_r,dM^p_r)$ where each page is graded in $p$ such that
+	\begin{itemize}
+		\item The first page is the morse complex, hence the second page is the Morse homology
+		\item The spectral sequence becomes stationary and the infinity page is the associeted graded goup of the K-groups meaning:
+		\begin{align*}
+			\bigoplus_{p\in 2\N\phantom{+1}} E_\infty ^p \text{ is a associated graded group to }K^0(M) \\
+			\bigoplus_{p\in 2\N+1} E_\infty ^p \text{ is a associated graded group to }K^1(M)\,.
+		\end{align*}
+	\end{itemize}
+	\end{theorem}
+\begin{remark}[Recover from Associated Graded Groups]
+	Let $G$ be a group and 
+\end{remark}
+
+
+
+
+\section{Higher Differentials}
+
+
