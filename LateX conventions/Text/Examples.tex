@@ -247,7 +247,7 @@
 	0&\langle [e_0] \rangle &0&
 \frac{\langle [e_2] \rangle }{\langle -2[e_2] \rangle } 
 &0
-12	&\cdots 
+	&\cdots 
 	&\langle [e_n] \rangle &0
 \end{tikzcd}
 		\end{center}
@@ -313,9 +313,17 @@ Now obviously $H_1$ maps to  $\tilde{\Lambda}{-1}(-\infty,\lambda_i]$.
 			For even $n$ we have the two graded associated groups:
 			\begin{align*}
 				\gr(K^0(\R\PP^n))&=\Z\oplus \underbrace{\Z_2 \oplus \cdots \oplus \Z_2}_{\frac{n}{2} \text{summands }} \\
-				\gr(K^1(\R\PP^n))&=0
+				\gr(K^1(\R\PP^n))&=0\,.
 			\end{align*}
+			For odd $n$ we get
 			
+						\begin{align*}
+				\gr(K^0(\R\PP^n))&=\Z\oplus \underbrace{\Z_2 \oplus \cdots \oplus \Z_2}_{\frac{n-1}{2} \text{summands }} \\
+				\gr(K^1(\R\PP^n))&=\Z\,.
+			\end{align*}
+			Hence for any $n$ we have \begin{equation*}
+				K^0(\R\PP^n)\cong \Z\oplus G \text{ with } |G|=2^{\left\lfloor \frac{n}{2}\right\rfloor}\,.
+			\end{equation*}
 			
 			
 			
@@ -342,6 +350,9 @@ Now obviously $H_1$ maps to  $\tilde{\Lambda}{-1}(-\infty,\lambda_i]$.
 				However this time, since $N_3\simeq \R\PP^3$ we have that $K^1(N_3)=\Z$ and we have that $K^1(N_2)=0$. Hence, $K^1(N_3,N_2)\to K^1(N_3)$ is surjective and hence an isomorphism, resulting in $\delta=0$. The next candidate for a nontrivial higher differential is $d_3^{3}$ which however is trivial since there is not other homomorphism form $Z_2$ to $\Z$. So our hope is on $d_5$ now! However this is again zero.... In fact all higher differential are zero!   
 			\end{comment}
 	\end{example}
+	\begin{fact}
+		In fact $K^0(\R\PP^n)\cong \Z \oplus \Z_{2^{\left\lfloor \frac{n}{2}\right\rfloor}}.$ 
+	\end{fact}
 	
 	\begin{example}
 		Make a produkt morse funktion on $\R\PP^2\times \R\PP^4$!. 
@@ -373,7 +384,7 @@ Now obviously $H_1$ maps to  $\tilde{\Lambda}{-1}(-\infty,\lambda_i]$.
  	H^i(\R\PP^2\times \R\PP^4)\cong \begin{cases}
  		\Z & \text{ if }i=  0\,,\\
 	 	0  & \text{ if }i=  1\,,\\
-	 	\Z_2\oplus \Z_2& \text{ if }i=  1\,,\\
+	 	\Z_2\oplus \Z_2& \text{ if }i= 2\,,\\
 	 	\Z_2 & \text{ if }i=  3\,,\\
 	 	\Z_2\oplus \Z_2 & \text{ if }i=  4\,,\\
 	 	\Z_2& \text{ if }i=  5\,,\\
@@ -381,6 +392,27 @@ Now obviously $H_1$ maps to  $\tilde{\Lambda}{-1}(-\infty,\lambda_i]$.
 	 	0& \text{ if }i>6\,.
  	\end{cases}
  \end{equation*}
+ Hence the $E_3$ page looks with the only possible nontrivial differentials looks like
+ \begin{center}
+ 	\begin{tikzcd}
+ 		0&\Z &0&\Z_2\oplus \Z_2 \arrow[rrr,bend left,"d_3^2"]& \Z_2\arrow[rrr,bend left,"d_3^3"]&\Z_2\oplus \Z_2 &\Z_2&\Z_2&0
+ 	\end{tikzcd}
+ \end{center}
+	Now the K theory of the product space $\R\PP^2\times \R\PP^4$ is known and can be calculated for the $K$ groups of the factors via the Künneth formular for K-theory that gives us two short exact sequence
+	\begin{center}
+	\begin{tikzcd}
+		0 \arrow[r]&K^0(X)\otimes K^0(Y) \arrow[r]&K^0(X\times Y)\arrow[r]&\Tor(K^1(X),K^1(Y))\arrow[r]&0\\
+			0 \arrow[r]&K^1(X)\otimes K^1(Y) \arrow[r]&K^1(X\times Y)\arrow[r]&\Tor(K^0(X),K^0(Y))\arrow[r]&0
+	\end{tikzcd}
+	\end{center}In our case the two sequences lool like\begin{center}
 	
+		\begin{tikzcd}
+		0 \arrow[r]&¸(\Z\oplus \Z_2)\otimes (\Z\oplus \Z_4) \arrow[r]&K^0(\R\PP^2\times \R\PP^4)\arrow[r]&\Tor(0,0)\arrow[r]&0\\
+		0 \arrow[r]&0\arrow[r]&K^1(\R\PP^2\times \R\PP^4)\arrow[r]&\Tor(\Z_2,\Z_4)\arrow[r]&0
+	\end{tikzcd}
+	\end{center}
+	And thereby \begin{equation*}
+		K^0(\R\PP^2\times \R\PP^4)\cong \Z\oplus \Z_2\oplus \Z_2\oplus \Z_4\text{ and }	K^1(\R\PP^2\times \R\PP^4)\cong \Z_2
+	\end{equation*} Now the oreder of $\PP^4)\cong \Z\oplus \Z_2\oplus \Z_2\oplus \Z_4\text{ and }	K^1(\R\PP^2\times \R\PP^4)$ is two. Hence assuming all higher differentials beeing $0$ and thereby having the $E_3$ page as the last page this results in a contradiction since the sum over all odd entries of $EM_3$ gives a group of order four and the order stays invariant under group extensions. 	 
 	\end{example}
 	
