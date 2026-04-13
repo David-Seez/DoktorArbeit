@@ -1,0 +1,290 @@
+% ============================================================
+%  PREAMBLE — PhD Thesis
+%  Topic: Morse-theoretic construction of the Atiyah–Hirzebruch SS
+%
+%  Robustness: all \newcommand replaced by \providecommand;
+%  all \DeclareMathOperator guarded by \let\Foo\relax so that
+%  loading this file twice (or alongside an old preamble) is safe.
+% ============================================================
+
+% ---- Document class & language -----------------------------------------
+\documentclass{scrartcl}
+\usepackage[english]{babel}
+
+% ---- Page geometry & header/footer ------------------------------------
+\usepackage[headheight=18pt]{geometry}
+\usepackage{scrlayer-scrpage}
+\usepackage{lastpage}
+
+\pagestyle{scrheadings}
+\clearpairofpagestyles
+\setkomafont{pagehead}{\bfseries}
+\ihead{\leftmark}
+\ohead{\Large\textbar\enskip\thepage}
+\cfoot{}
+\automark[section]{section}
+\KOMAoptions{headsepline=true}
+
+% ---- Core math packages -----------------------------------------------
+\usepackage{amsmath, amsfonts, amsthm}
+\usepackage{mathtools}
+\usepackage{bbm}
+\usepackage{MnSymbol}
+
+% ---- Graphics & figures -----------------------------------------------
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage{caption}
+\usepackage{svg}                % requires Inkscape on PATH
+
+% ---- TikZ & PGF -------------------------------------------------------
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+\usepgfplotslibrary{colormaps}
+
+\usetikzlibrary{backgrounds, patterns}
+\tikzset{>=latex}
+\tikzcdset{scale cd/.style={every label/.append style={scale=#1},
+		cells={nodes={scale=#1}}}}
+
+% ---- Color & boxes ----------------------------------------------------
+\usepackage[dvipsnames]{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{mdframed}
+\usepackage{framed}
+\usepackage[ntheorem]{empheq}
+
+% ---- Tables -----------------------------------------------------------
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{booktabs}
+
+% ---- Miscellaneous ----------------------------------------------------
+\usepackage{pdflscape}
+\usepackage[utf8]{inputenc}
+\usepackage{fancyvrb}
+\usepackage[shortlabels]{enumitem}
+\usepackage{todonotes}
+\usepackage{adjustbox}
+\usepackage{pdfpages}
+\usepackage{epstopdf}
+\usepackage{etoolbox}
+
+% ---- Hyperlinks (load late, before cleveref) --------------------------
+\usepackage[hidelinks]{hyperref}
+\usepackage{cleveref}
+
+% ---- Bibliography -----------------------------------------------------
+\usepackage[backend=biber, style=alphabetic]{biblatex}
+\addbibresource{sample.bib}
+
+% ============================================================
+%  THEOREM ENVIRONMENTS
+% ============================================================
+
+\mdfsetup{%
+	ntheorem        = false,
+	leftmargin      = 10pt,
+	everyline       = true,
+	splittopskip    = 15pt,
+	splitbottomskip = 10pt,
+	linewidth       = 1pt
+}
+
+\theoremstyle{plain}
+\newmdtheoremenv{theorem}{Theorem}[subsection]
+\newmdtheoremenv{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newmdtheoremenv{fact}[theorem]{Fact}
+
+\theoremstyle{definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{examples}[theorem]{Examples}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{defn}[theorem]{Definition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{remark}[theorem]{Remark}
+
+% Proof strategy box (left bar style)
+\mdfdefinestyle{proofstyle}{%
+	leftline         = true,
+	rightline        = false,
+	topline          = false,
+	bottomline       = false,
+	linecolor        = gray,
+	linewidth        = 3pt,
+	innerleftmargin  = 10pt,
+	innerrightmargin = 0pt,
+	innertopmargin   = 0pt,
+	innerbottommargin= 5pt,
+	skipabove        = 0pt,
+	skipbelow        = 0pt,
+	frametitle       = {Proof Strategy:},
+	frametitlefont   = \bfseries,
+	frametitlerule   = false,
+}
+\newmdenv[style=proofstyle]{Iprove}
+
+% Numbered diagram box
+\newenvironment{fdiagram}{%
+	\refstepcounter{equation}%
+	\begin{tcolorbox}[
+		enhanced, sharp corners, boxrule=1pt,
+		colback=white, colframe=black,
+		fonttitle=\bfseries, coltitle=black,
+		attach boxed title to bottom right={yshift=3mm, xshift=-2mm},
+		boxed title style={colback=gray!20, colframe=black,
+			sharp corners, boxrule=0.5pt},
+		title=Diagram~\theequation
+		]%
+	}{%
+	\end{tcolorbox}%
+}
+
+% ============================================================
+%  PRETTY SYMBOLS
+% ============================================================
+\let\uglyepsilon\epsilon  \let\epsilon\varepsilon
+\let\uglyphi\phi          \let\phi\varphi
+
+\AtBeginEnvironment{pmatrix}{\renewcommand\arraystretch{1.5}}
+
+% ============================================================
+%  MACRO DEFINITIONS
+%
+%  \providecommand  — silently skips if already defined.
+%  \let\Foo\relax before \DeclareMathOperator — resets the name
+%    so LaTeX allows redeclaration (safe to do on every run).
+% ============================================================
+
+% ---- Number fields ----------------------------------------------------
+\providecommand{\R}{\mathbb{R}}
+\providecommand{\N}{\mathbb{N}}
+\providecommand{\Z}{\mathbb{Z}}
+\providecommand{\C}{\mathbb{C}}
+\providecommand{\Q}{\mathbb{Q}}
+\providecommand{\T}{\mathbb{T}}
+\providecommand{\B}{\mathbb{B}}
+\providecommand{\PP}{\mathbb{P}}
+
+% ---- Calligraphic letters ---------------------------------------------
+\providecommand{\CC}{\mathcal{C}}
+\providecommand{\Sp}{\mathcal{S}}
+\providecommand{\Chi}{\mathcal{X}}
+
+% ---- Categories -------------------------------------------------------
+\let\Set\relax    \DeclareMathOperator{\Set}{\mathbf{Set}}
+\let\Ab\relax     \DeclareMathOperator{\Ab}{\mathbf{Ab}}
+\let\Ring\relax   \DeclareMathOperator{\Ring}{\mathbf{Ring}}
+\let\CDiff\relax  \DeclareMathOperator{\CDiff}{\mathbf{CDiff}}
+\let\Top\relax    \DeclareMathOperator{\Top}{\mathbf{Top}}
+\let\hTop\relax   \DeclareMathOperator{\hTop}{\mathbf{hTop}}
+\let\TopP\relax   \DeclareMathOperator{\TopP}{\mathbf{TopP}}
+\let\TopH\relax   \DeclareMathOperator{\TopH}{\mathbf{TopH}}
+\let\hTopH\relax  \DeclareMathOperator{\hTopH}{\mathbf{hTopH}}
+\let\TopC\relax   \DeclareMathOperator{\TopC}{\mathbf{TopC}}
+\let\hTopC\relax  \DeclareMathOperator{\hTopC}{\mathbf{hTopC}}
+\let\TopCPair\relax   \DeclareMathOperator{\TopCPair}{\mathbf{TopC^{2}}}
+\let\TopCPoint\relax  \DeclareMathOperator{\TopCPoint}{\mathbf{TopC^{0}}}
+\let\hTopP\relax  \DeclareMathOperator{\hTopP}{\mathbf{hTopP}}
+\let\absgrp\relax \DeclareMathOperator{\absgrp}{\mathbf{AbSemGrp}}
+\let\Cvec\relax   \DeclareMathOperator{\Cvec}{\mathbf{Vect}}
+\let\Pmod\relax   \DeclareMathOperator{\Pmod}{\mathbf{Pmod}}
+\let\Cmod\relax   \DeclareMathOperator{\Cmod}{\mathbf{Mod}}
+\let\ExCoup\relax \DeclareMathOperator{\ExCoup}{\mathbf{ExCoup}}
+\let\SpS\relax    \DeclareMathOperator{\SpS}{\mathbf{SpS}}
+\let\SCS\relax    \DeclareMathOperator{\SCS}{\mathbf{SCS}}
+\let\CICR\relax   \DeclareMathOperator{\CICR}{\mathbf{CICR}}
+
+% ---- General math operators -------------------------------------------
+\let\spec\relax   \DeclareMathOperator{\spec}{\mathrm{spec}}
+\let\conj\relax   \DeclareMathOperator{\conj}{\mathrm{conj}}
+\let\sing\relax   \DeclareMathOperator{\sing}{\mathrm{sing}}
+\let\Morse\relax  \DeclareMathOperator{\Morse}{\mathrm{Morse}}
+\let\gr\relax     \DeclareMathOperator{\gr}{\mathrm{gr}}
+\let\supp\relax   \DeclareMathOperator{\supp}{\mathrm{supp}}
+\let\cl\relax     \DeclareMathOperator{\cl}{\mathrm{cl}}
+\let\inti\relax   \DeclareMathOperator{\inti}{\mathrm{int}}
+\let\Tor\relax    \DeclareMathOperator{\Tor}{\mathrm{Tor}}
+\let\coker\relax  \DeclareMathOperator{\coker}{\mathrm{coker}}
+\let\rank\relax   \DeclareMathOperator{\rank}{\mathrm{rank}}
+\let\herm\relax   \DeclareMathOperator{\herm}{\mathrm{herm}}
+\let\End\relax    \DeclareMathOperator{\End}{\mathrm{End}}
+\let\id\relax     \DeclareMathOperator{\id}{\mathrm{id}}
+\let\Hess\relax   \DeclareMathOperator{\Hess}{\mathrm{Hess}}
+\let\Mat\relax    \DeclareMathOperator{\Mat}{\mathrm{Mat}}
+\let\gen\relax    \DeclareMathOperator{\gen}{\mathrm{span}}
+\let\Idm\relax    \DeclareMathOperator{\Idm}{\mathbbm{1}}
+\let\Fix\relax    \DeclareMathOperator{\Fix}{\mathrm{Fix}}
+\let\Aut\relax    \DeclareMathOperator{\Aut}{\mathrm{Aut}}
+\let\vect\relax   \DeclareMathOperator{\vect}{\mathrm{Vect}}
+\let\Diff\relax   \DeclareMathOperator{\Diff}{\mathrm{Diff}}
+
+\providecommand{\im}{\mathrm{im}}
+\providecommand{\conv}{\mathrm{conv}}
+\providecommand{\grad}{\mathrm{grad}}
+\providecommand{\Lip}{\mathrm{Lip}}
+\providecommand{\diag}{\mathrm{diag}}
+\providecommand{\sign}{\mathrm{sign}}
+\providecommand{\CW}{\mathrm{\scriptscriptstyle CW}}
+\providecommand{\Crit}{\mathrm{Crit}}
+\providecommand{\ind}{\mathrm{ind}}
+\providecommand{\GL}{\mathrm{GL}}
+\providecommand{\G}{\mathrm{G}}
+\providecommand{\Ob}{\mathrm{Ob}}
+\providecommand{\iso}{\mathrm{iso}}
+
+% ---- Differential calculus --------------------------------------------
+\providecommand*\diff{\mathop{}\!\mathrm{d}}
+\providecommand{\dat}[1]{\diff_{#1}}
+
+% ---- Restrictions -----------------------------------------------------
+\providecommand\restr[2]{\left.#1\right|_{#2}}
+
+% ---- Delimiters & norms -----------------------------------------------
+\let\abs\relax
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}
+\providecommand{\norm}[1]{\left\lVert#1\right\rVert}
+
+% ---- Morse theory -----------------------------------------------------
+\providecommand{\ChM}{C^{\mathrm{M}}}
+\providecommand{\ChCW}{C^{\mathrm{CW}}}
+\providecommand{\ChSing}{C}
+\providecommand{\bM}{\partial^{\mathrm{M}}}
+\providecommand{\bCW}{\partial^{\mathrm{CW}}}
+\providecommand{\HM}{H^{\mathrm{M}}}
+\providecommand{\HCW}{H^{\mathrm{CW}}}
+\providecommand{\conn}{\delta}
+\providecommand{\Wu}[1]{W^{\mathrm{u}}(#1)}
+\providecommand{\Ws}[1]{W^{\mathrm{s}}(#1)}
+\providecommand{\Mflow}[2]{\mathcal{M}(#1,#2)}
+
+% ---- K-theory ---------------------------------------------------------
+\let\K\relax  \DeclareMathOperator{\K}{\mathrm{K}}
+\providecommand{\KO}{\mathrm{KO}}
+\providecommand{\KU}{\mathrm{KU}}
+\providecommand{\Kvect}[1]{\mathrm{Vect}(#1)}
+\providecommand{\GLR}[1]{\GL(#1,\mathbb{R})}
+
+% ---- Spectral sequences -----------------------------------------------
+\providecommand{\Epq}[2]{E^{#1}_{#2}}
+\providecommand{\drpq}[1]{d^{#1}}
+
+% ---- Misc helpers -----------------------------------------------------
+\providecommand{\euler}{\mathrm{e}}
+\providecommand{\ii}{\mathrm{i}}
+\providecommand{\transcap}{\text{$\cap\kern-0.4em|\kern0.4em$}}
+\providecommand{\Exp}{\mathbb{E}\mathrm{xp}}
+\providecommand{\stillOpen}{\color{red}{[\textbf{open}]}}
+\providecommand{\Whab}{W_{h^{\beta\alpha}}}
+\providecommand{\Lab}{\mathcal{F}(\mathfrak{A}^{\alpha},\mathfrak{A}^{\beta})}
+
+\providecommand*\colvec[3][]{%
+	\begin{pmatrix}\ifx\relax#1\relax\else#1\\\fi#2\\#3\end{pmatrix}}
+
+\def\quotient#1#2{%
+	\left.\raise1ex\hbox{$#1$}\middle/\lower1ex\hbox{$#2$}\right.}
