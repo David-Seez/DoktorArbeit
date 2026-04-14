@@ -250,15 +250,40 @@
 \DeclarePairedDelimiter\abs{\lvert}{\rvert}
 \providecommand{\norm}[1]{\left\lVert#1\right\rVert}
 
+% ---- Algebraic Topology -----------------------------------------------
+
+% ---- Chain complexes ------------
+	\providecommand{\ChM}{{}^{\mathcal{M}}C}
+	\providecommand{\ChCW}{{}^{\mathcal{CW}}C}
+	\providecommand{\ChSing}{{}^{\mathcal{S}}C}
+	
+% ---- Boundary Maps --------------
+	\providecommand{\bM}{{}^{\mathcal{M}}\partial}
+	\providecommand{\bCW}{{}^{\mathcal{CW}}\partial}
+	\providecommand{\bS}{{}^{\mathcal{S}}\partial}
+	
+% ---- Coboundary Maps ------------
+	\providecommand{\cbM}{{}^{\mathcal{M}}\mathrm{d}}
+	\providecommand{\cbCW}{{}^{\mathcal{CW}}\mathrm{d}}
+	\providecommand{\cbS}{{}^{\mathcal{S}}\mathrm{d}}
+	
+% ---- Connecting Homomorphism ----
+	\providecommand{\connM}{{}^\mathcal{M}\delta}
+	\providecommand{\connCW}{{}^\mathcal{CW}\delta}
+	\providecommand{\connS}{{}^\mathcal{S}\delta}
+
+%---- Homology Groups -------------
+	\providecommand{\HM}{{}^{\mathcal{M}}H}
+	\providecommand{\HCW}{H^{\mathrm{CW}}H}
+	\providecommand{\HS}{H^{\mathrm{S}}H}
+
+	\providecommand{\conn}{\delta}
+
+
+
+
+
 % ---- Morse theory -----------------------------------------------------
-\providecommand{\ChM}{C^{\mathrm{M}}}
-\providecommand{\ChCW}{C^{\mathrm{CW}}}
-\providecommand{\ChSing}{C}
-\providecommand{\bM}{\partial^{\mathrm{M}}}
-\providecommand{\bCW}{\partial^{\mathrm{CW}}}
-\providecommand{\HM}{H^{\mathrm{M}}}
-\providecommand{\HCW}{H^{\mathrm{CW}}}
-\providecommand{\conn}{\delta}
 \providecommand{\Wu}[1]{W^{\mathrm{u}}(#1)}
 \providecommand{\Ws}[1]{W^{\mathrm{s}}(#1)}
 \providecommand{\Mflow}[2]{\mathcal{M}(#1,#2)}

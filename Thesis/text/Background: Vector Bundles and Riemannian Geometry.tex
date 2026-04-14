@@ -1,0 +1,115 @@
+	\section{Vector Bundles and Riemannian Geometry}
+\label{sec:background-geometry}
+Due to differential geometry and the theory of vector bundles being areas of mathematics used by pure mathematicians interested in analytical aspects like curvature, by topologists interested in invariants like Euler characteristics, physicists using the spaces as playgrounds for general relativity theories, and many others, there are numerous competing notational conventions. This thesis lies at the tripoint of differential geometry, dynamical systems, and algebraic topology. Hence, there is no a priori preferred notational convention.
+In this chapter, we establish the necessary background in the theory of vector bundles and Riemannian manifolds whilst not proving all the basics; we establish the notation used throughout this thesis. We establish manifolds and vector bundles in parallel, as they are interdependent on one another.
+\subsection{Differentiable Structures on Topological Manifolds}
+We begin by defining a topological manifold. Afterwards, we equip that space with with increasingly more structure and hence reduce the generality until we arrive at the playground of the thesis: 
+
+\begin{definition}[Topological Manifold] \label{def: Vector Bundles and Riemannian Geometry- Topological Manifold}
+	A second countable Hausdorff space $M$ is called a \textbf{topological manifold} of dimension $m\in \N$, if it is locally homeomorphic to $\R^m$. To be precise, for all $p\in M$ there exists an open neighbourhood $U\subseteq M$ of $p$, an open set $V\subseteq \R^m$  and a map $\phi:W\to V$ that is a homeomorphism. We call the map $\phi:U\to V$ a \textbf{chart around $p$ on $M$}, and $\phi^{-1}$ a \textbf{local coordinate system around $p$ on $M$}.
+\end{definition}
+
+\begin{definition}[Differentiable Manifold] \label{def: Vector Bundles and Riemannian Geometry- Differentiable Manifold}
+	Let $M$ be a topological manifold of dimension $m$. 
+	\begin{enumerate}
+		\item A \textbf{differentiable atlas of class} $r\in \N\cup\{\infty\}$ is a family of charts $\mathfrak{A}=\left( \phi_i:U_i \to V_i\right)_{i\in I}$ such that
+		\begin{enumerate}
+			\item $\bigcup_{i\in I}U_i=M$, meaning that $\left( U_i\right)$ is an open covering of $M$.
+			\item For every pair $(i,j)\in I^2$, the \textbf{transition function}:
+			\begin{align*}
+				\phi_{ij}:\phi_j(U_i \cap U_j)&\to \phi_i(U_i \cap U_j)\\
+				x                             &\mapsto \left(\phi_i \circ \phi_j^{-1}\right)(x)
+			\end{align*}
+			is differentiable of class $r$.
+		\end{enumerate}
+		We call such an atlas a $C^r$-atlas.
+		\item Two $C^r$-atlases $\mathfrak{A}$ and $\mathfrak{B}$ are called \textbf{equivalent} if the family $\mathfrak{A}+\mathfrak{B}=\left(\phi_i,\phi_j\right)_{ij}$ is a $C^r$-atlas.
+	\end{enumerate}
+	A \textbf{differentiable structure of class $r$} on $M$ is an equivalence class $c$ of $C^r$-atlases. 
+	For $r=\infty$, we call the pair $(M,c)$ a smooth manifold.
+\end{definition}
+
+
+\begin{corollary}
+	Every transition function $\phi_{ij}$, $i,j\in I^2$ of a differentiable atlas $\mathfrak{A}=(\phi_i)_{i\in I}$ is not merely a homeomorphism but also a diffeomorphism. This follows from the fact that $\phi_{ij}^{-1}=\phi_{ji}$ which provides smooth inverses.
+\end{corollary}
+
+\begin{definition}[Smooth Functions] \label{def: Vector Bundles and Riemannian Geometry-smooth functions}
+	Let $(M,c)$ be a differentiable manifold of class $r$ and $U\subseteq M$ open. We call a continuous function 
+	\begin{align*}
+		f:U \to \R
+	\end{align*} \textbf{differentiable of class $r$}, if for any chart (and hence for all) $(\phi_i)_{i\in I}=\mathfrak{A}\in c$ the compositions $f\circ \phi_i^{-1}$ are differentiable of class $r$. For $r=\infty$ we define:
+	\begin{align*}
+		\mathcal{E}(U)=\{f :  U \to \R \text{ continouos}~|~ f \text{ is differentiable of class }\infty \} . 
+	\end{align*}
+\end{definition} 
+
+
+\begin{corollary}
+	Let $(M,c)$ be a smooth manifold of dimension $m$ and $U\subseteq M$ be an open subset. With pointwise defined operations, the set $(\mathcal{E}(U),+,\cdot,\circ)$ becomes an $\R-$algebra. Furthermore, $\mathcal{E}$ becomes a sheaf of $\R$-algebras.
+\end{corollary}
+\begin{proof}
+	There is not really a need for a proof. However, it might help to work through the definition of a sheaf. First, $\mathcal{E}$ is a presheaf, where the restriction in the domain of a function gives the needed restriction homomorphism:
+	\begin{align*}
+		\text{res}^U_V: \mathcal{E}(U) &\to \mathcal{E}(V) \\
+		f &\mapsto \restr{f}{V} \, .
+	\end{align*} The required properties of a presheaf are trivial. Furthermore, this gives a sheaf as the requirement of locality is trivial for functions and the property of gluing is also trivial for functions, since differentiability is a local property.
+\end{proof}
+\begin{definition}
+	If $p\in M$ is fix, $f\in \mathcal{E}(U)$ and $g\in \mathcal{E}(U')$ such that $p\in U\cap U'$ we say that $f$ and $g$ have the same \textbf{germ in $p$}, if there is another open neighborhood $W\subseteq U\cap U'$ of $p$ such that $\restr{f}{W}=\restr{g}{W}$. This defines an equivalence relation $\sim_p$. An equivalence class $s$ of local functions around $p$ is called a \textbf{germ in $p$}. We write $s=f_p$, if $s=[f]$ with $f\in \mathcal{E}(U)$. 
+	We write 
+	\begin{align*}
+		\mathcal{E}_p(M)=\left. \left( \sum_{U \text{open},p\in U }\mathcal{E}(U)\right)\middle/ \sim_p \right. \, 
+	\end{align*} for the set of germs, and call it the \textbf{stalk in $p$}. Where $\sum$ denotes the co-product (disjoint union) in $\Top$.
+\end{definition}
+\begin{corollary}
+	For a smooth manifold $(M,c)$ the set $\mathcal{E}_p(M)$ inherits an $\R-$algebra structure from the $\mathcal{E}(U)$. Furthermore, it carries a natural (evaluation-)homomorphism:
+	\begin{align*}
+		\mathrm{eval}_p: \mathcal{E}_p(M) & \to \R \\
+		f_p  & \mapsto f(p)\eqcolon f_p(p)
+	\end{align*}
+	The stalks are also local rings with maximal ideal $\mathfrak{m}_p=\ker(\mathrm{eval}_p)$. Hence, the pair $(M,\mathcal{E})$ gives us a locally ringed space.
+\end{corollary}
+\begin{proof}
+	We only need to verify the local ring structure of the stalks. An element $f_p\in \mathcal{E}_p(M)$ is invertible if and only if $f(p)\neq 0$, equivalently if $f_p\notin \ker(\mathrm{eval}_p)$. Thus $\mathcal{E}_p(M) \big/ \ker(\mathrm{eval}_p)$ is a field, which proves that $\ker(\mathrm{eval}_p)$ is maximal.
+\end{proof}
+
+
+
+\begin{definition}
+	Let $(M,c)$ be a smooth manifold of dimension $m$ and $p\in M$. We call an $\R$-linear map $\delta:\mathcal{E}_p(M)\to \R$ a \textbf{derivation}, if it satisfies the Leibniz rule:
+	\begin{align*}
+		\delta(f_p\cdot g_p)=\delta(f_p)g_p(p)+f_p(p)\delta(g_p) \quad \text{for all }f_p,g_p\in \mathcal{E}_p(M) \, .
+	\end{align*}
+	We call $\mathrm{Der}_{\R}(\mathcal{E}_p(M),\R)$ the set of derivations and give it a $\R$ vector space structure by pointwise operations. We define the \textbf{tangent space to $M$ at $p$} to be the vector space
+	\begin{align*}
+		TM_p \coloneq \mathrm{Der}_{\R}(\mathcal{E}_p(M),\R) \, .
+	\end{align*}
+\end{definition}
+\begin{corollary}
+	Let $(M,c)$ be a smooth manifold of dimension $m$ and $\phi:U\to V$ be a chart around $p$ with $x_0=\phi(p)$ (where $\phi \in \mathfrak{A}\in c$). Then 
+	\begin{align*}
+		\xi=\frac{\partial}{\partial x^j}\Big|_p : \mathcal{E}_p(M) &\to \R \\
+		f_p & \mapsto \xi(f_p)=\frac{\partial}{\partial x^j}\Big|_{x_0}(f\circ \phi^{-1} )
+	\end{align*} is well-defined and defines a tangent vector. Moreover, the family
+	\begin{align*}
+		\left(\frac{\partial}{\partial x^1}\Big|_p,...,\frac{\partial}{\partial x^m}\Big|_p\right)
+	\end{align*} defines a basis of $TM_p$. Hence, the dimension of $TM_p$ is $m$.
+\end{corollary}
+
+This is a good point to take a break from smooth manifolds and introduce the structure of vector bundles. 
+%----------Vector bundles-------------------
+\subsection{Vector Bundles}
+We start by defining families of vector spaces and similar to the chapter above equip them with increasingly more structure:
+
+\begin{definition}[Family of vector spaces] \label{def: Vector Bundles and Riemannian Geometry-Familiy of vector spaces}
+	Let $X$ be a topological space. A \textbf{family of vector spaces over $X$} is a topological space $E$ equipped with :
+	\begin{enumerate}[(i)]
+		\item a continuous function $\pi: E \to X$,
+		\item a finite dimensional vector space structure on each fiber $E_x:=\pi^{-1}(x)$ that is compatible with the subspace topology on $E_x\subseteq E$.
+	\end{enumerate}
+	We call the map $\pi$ the projection, $E$ the total space and $X$ the base space.
+\end{definition}
+
+
+

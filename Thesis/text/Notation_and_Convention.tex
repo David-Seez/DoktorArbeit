@@ -138,48 +138,7 @@ a \emph{restriction to a subspace}, and a \emph{value/evaluation}.
 \end{longtable}
 
 % ------------------------------------------------------------------
-\subsection*{4. Exterior Derivative, Coboundary, Connecting Homomorphism}
-% ------------------------------------------------------------------
 
-\medskip\noindent
-Three distinct operators share similar notation; use them as follows.
-
-\begin{longtable}{@{} p{2cm} p{3cm} p{9cm} @{}}
-	\toprule
-	\textbf{Symbol} & \textbf{Macro} & \textbf{Use} \\
-	\midrule
-	\endhead
-	
-	$\partial$
-	& \texttt{\textbackslash partial}
-	& \textbf{Boundary operator} in chain complexes (homology direction).
-	Default for singular chains; decorated for other theories
-	(see §5). \\[4pt]
-	
-	$\diff$
-	& \texttt{\textbackslash diff}
-	& \textbf{Exterior derivative} on differential forms:
-	$\diff\omega\in\Omega^{k+1}(M)$ for $\omega\in\Omega^k(M)$.
-	Also the \emph{total derivative} w.r.t.\ one real variable
-	(e.g.\ $\diff f/\diff t$). \textbf{Never} use $\diff$ as a
-	boundary operator in a chain complex. \\[4pt]
-	
-	$\delta$
-	& \texttt{\textbackslash delta}
-	& \textbf{Two uses} (context distinguishes them):
-	(1) \emph{Coboundary operator} in a cochain complex
-	(cohomology direction), e.g.\ in singular cohomology
-	$\delta\colon C^k\to C^{k+1}$.
-	(2) \emph{Connecting homomorphism} in a long exact sequence
-	of a pair or a short exact sequence of complexes,
-	e.g.\ $\delta\colon H_n(X,A)\to H_{n-1}(A)$.
-	Decorate when both appear simultaneously:
-	$\delta^{\mathrm{conn}}$ vs.\ $\delta^{\mathrm{cob}}$.\\[4pt]
-	
-	\bottomrule
-\end{longtable}
-
-% ------------------------------------------------------------------
 \subsection*{5. Chain Complexes and Homology Theories}
 % ------------------------------------------------------------------
 
@@ -192,34 +151,40 @@ Three homology theories appear simultaneously; they are always decorated.
 	\midrule
 	\endhead
 	
-	Singular
-	& $(\ChSing_*(X),\,\partial)$
-	& boundary $\partial$; homology $H_*(X)$.
-	\emph{Default / undecorated.} \\[4pt]
-	
-	CW
-	& $(\ChCW_*(X),\,\bCW)$
-	& boundary $\bCW$; homology $\HCW_*(X)$.
-	Macros: \texttt{\textbackslash ChCW}, \texttt{\textbackslash bCW},
-	\texttt{\textbackslash HCW}. \\[4pt]
-	
-	Morse
-	& $(\ChM_*(f),\,\bM)$
-	& boundary $\bM$; homology $\HM_*(f)$.
-	Macros: \texttt{\textbackslash ChM}, \texttt{\textbackslash bM},
-	\texttt{\textbackslash HM}. \\[4pt]
-	
-	\midrule
-	\multicolumn{3}{@{}l}{%
-		\textbf{Connecting homomorphisms in long exact sequences:} always $\delta$
-		(decorated if needed: $\delta^{\mathrm{M}}, \delta^{\mathrm{CW}}$).}\\[4pt]
-	
-	\multicolumn{3}{@{}l}{%
-		\textbf{Filtration:} $F^p\ChSing_*(X)$ for the filtration of the
-		singular complex; boundary is still $\partial$.}\\[4pt]
-	
-	\bottomrule
-\end{longtable}
+		Singular
+		& $(\ChSing_*(X),\,\bS)$
+		& boundary $\bS$; homology $\HS_*(X)$.
+		Macros: \texttt{\textbackslash ChS}, \texttt{\textbackslash bS},
+			\texttt{\textbackslash HS}. \\[4pt]
+			
+		
+		CW
+		& $(\ChCW_*(X),\,\bCW)$
+		& boundary $\bCW$; homology $\HCW_*(X)$.
+		Macros: \texttt{\textbackslash ChCW}, \texttt{\textbackslash bCW},
+		\texttt{\textbackslash HCW}. \\[4pt]
+		
+		Morse
+		& $(\ChM_*(f),\,\bM)$
+		& boundary $\bM$; homology $\HM_*(f)$.
+		Macros: \texttt{\textbackslash ChM}, \texttt{\textbackslash bM},
+		\texttt{\textbackslash HM}. \\[4pt]
+		
+		\midrule
+		\multicolumn{3}{@{}p{14cm}}{%
+			\textbf{Connecting homomorphisms in long exact sequences:} : $\connM, \connCW, \connS $ with the macros:  \texttt{\textbackslash connM}, \texttt{\textbackslash connCW},
+			\texttt{\textbackslash connS}. }\\[4pt]
+		\multicolumn{3}{@{}p{14cm}}{%
+			\textbf{Co-homology:} : For co-homology we use upper indices on the co-boundary maps: $\cbM, \cbCW,\cbS$ with the macros: \texttt{\textbackslash cbM}, \texttt{\textbackslash cbCW},
+			\texttt{\textbackslash cbS}. And for the co-homology we use the homlogie macros with upper indices.}
+			\\[4pt]
+		
+		\multicolumn{3}{@{}l}{%
+			\textbf{Filtration:} $F^p\ChSing_*(X)$ for the filtration of the
+			singular complex; boundary is still $\partial$.}\\[4pt]
+		
+		\bottomrule
+	\end{longtable}
 
 % ------------------------------------------------------------------
 \subsection*{6. Vector Bundles and K-Theory}

@@ -59,8 +59,12 @@ For $r=\infty$ we call the pair $(M,c)$ a smooth manifold.
     The stalks are also local rings with maximal ideal $\mathfrak{m}_p=\ker(\mathrm{eval}_p)$. Hence, the pair $(M,\mathcal{E})$ gives us a locally ringed space.
 \end{corollary}
 \begin{proof}
-    Here, we only need to prove the statement about the locality of the stalks. This follows from $f_p\in \mathcal{E}_p(M)$ being invertible if and only if $f(p)\neq 0$ which is the same as $f_p\notin \ker(\mathrm{eval}_p)$.
+    We only need to prove the local ring structure of the stalks. An element $f_p\in \mathcal{E}_p(M)$ is invertible if and only if $f(p)\neq 0$, equivalently if $f_p\notin \ker(\mathrm{eval}_p)$.
 \end{proof}
+
+
+
+
 \begin{definition}
     Let $(M,c)$ be a smooth manifold of dimension $m$ and $p\in M$. We call an $\R$-linear map $\delta:\mathcal{E}_p(M)\to \R$ a \textbf{derivation}, if it satisfies the Leibnitz-rule:
     \begin{align*}
@@ -81,6 +85,27 @@ For $r=\infty$ we call the pair $(M,c)$ a smooth manifold.
         \left(\frac{\partial}{\partial x^1}\Big|_p,...,\frac{\partial}{\partial x^m}\Big|_p\right)
     \end{align*} defines a basis of $TM_p$. Hence, the dimension of $TM_p$ is $m$.
 \end{corollary}
+
+
+
+
+
+----------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 \begin{definition}
     For a smooth manifold $(M,c)$ the sum $\sum_pTM_p$ comes with a natural projection 
     \begin{align*}
