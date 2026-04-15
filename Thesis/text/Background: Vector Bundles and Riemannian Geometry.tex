@@ -162,19 +162,21 @@ By locality of the definition, for all open $U\subseteq X$ the restriction $\res
 	Let $X,Y$ be topological spaces. Then the set of continuous maps $C(X,Y)$ can be equipped with the topology that has 
 	\begin{equation*}
 		\{V(K,U)|K\subseteq X \text{ compact }, U\subseteq Y \text{ open}\} \text{ where }V(K,U):=\{f\in C(X,Y) |~f(K)\subseteq U\}
-	\end{equation*} as a subbasis. This coincides with the topology of $\hom(V,W)$ as a subset of $\C^n$ after identification with the corresponding matrix.
+	\end{equation*} as a subbasis. This coincides with the topology of $\Hom(V,W)$ as a subset of $\C^n$ after identification with the corresponding matrix.
 \end{definition}
 
 \begin{definition}[Bundle Homomorphisms]
 	Let $\pi_1:E_1\to X$ and $\pi_2:E_2\to X$ be two vector bundles over the same base space $X$. A \textbf{morphism of vector bundles over the same base space} is a continuous map $f:E_1\to E_2$ such that
 	\begin{enumerate}
-		\item $\pi_2\circ f=\pi$, and hence for each $x\in X$ the restriction to the fibers $f_x:(E_1)_x \to( E_2)_x$ is well defined. 
-		\item For each $x\in X$ $f_x$ is a vector space homomorphism.
+		\item $\pi_2\circ f=\pi_1$, and hence for each $x\in X$ the restriction to the fibers $f_x:(E_1)_x \to( E_2)_x$ is well defined. 
+		\item For each $x\in X$, $f_x$ is a vector space homomorphism.
 	\end{enumerate} 
 \end{definition}
+
 \begin{definition}[Homomorphism Bundle]\label{def: Vector Bundles and Riemannian Geometry-Homomorphism Bundle}
-	Let $W,V$ be vector spaces and $E=V\times X$, $F=W\times X$ the product bundles over $X$. Now any bundle homomorphism $\phi:E\to F$ determines a map $\Phi:X\to \hom(V, W)$ by sending $x\mapsto \phi_x$. With respect to the compact open topology, this $\Phi$ is continuous. Furthermore, a continuous map $\Phi:X \to \hom(V,W)$ determines a bundle homomorphism $\phi:E\to F$.
+	Let $W,V$ be vector spaces and $E=V\times X$, $F=W\times X$ the product bundles over $X$. Now any bundle homomorphism $\phi:E\to F$ determines a map $\Phi:X\to \hom(V, W)$ by sending $x\mapsto \phi_x$. With respect to the compact-open topology, this $\Phi$ is continuous. Furthermore, a continuous map $\Phi:X \to \hom(V,W)$ determines a bundle homomorphism $\phi:E\to F$.
 \end{definition}
+
 \begin{proof}
 	Let $\{e_i\}$ and $\{f_i\}$ be bases of $V$ and $W$. Then each $\Phi(x)$ is a matrix $\Phi_{i,j}(x)$, such that:
 	\begin{equation*}
@@ -186,9 +188,50 @@ By locality of the definition, for all open $U\subseteq X$ the restriction $\res
 \end{lemma}
 \begin{proof}
 	To show that it is an isomorphism we need an continuous inverse, equivalently, we need to show that $\phi$ is a homeomorphism. First of all we can deduce, that $\phi$ is bijective:
-	Assume it wasn't injective, then there would be a fibre in which $\phi_x$ is not injective. Assume that it wasn't surjective. Then there would be a $w\in F$ that has no preimage which tells us that in the fiber containing $w$ there is no isomorphism. Hence there is a unique inverse and it remains to verify that it is continuous, which is a local condition. Therefore we can assume that $E$ and $F$ are product bundles. Then we have a continuous map $\Phi:X\to \Hom(V,W)$. Furthermore, since $\phi_x$ are Isomorphisms we can restrict the image to $\Iso(V,W)$ which is an open subset of $\Hom(V,W)$. Now we can define the map $x\mapsto \Phi(x)^{-1}$ which is continuous since taking inverses is continuous. By the corollary above, we obtain a continuous map $\psi:F\to E$ by sending $(x,w)\mapsto (x,\Phi(x)^{-1}(w))$, which is the inverse. 
+	Assume it wasn't injective, then there would be a fibre in which $\phi_x$ is not injective. Assume that it wasn't surjective. Then there would be a $w\in F$ that has no preimage which means that in the fiber containing $w$ there is no isomorphism. Thus, there is a unique inverse and it remains to verify that it is continuous, which is a local condition. Therefore we can assume that $E$ and $F$ are product bundles. Then we have a continuous map $\Phi:X\to \Hom(V,W)$. Furthermore, since all $\phi_x$ are isomorphisms, we can restrict the image to $\Iso(V,W)$ which is an open subset of $\Hom(V,W)$. Now we can define the map $x\mapsto \Phi(x)^{-1}$ which is continuous since taking inverses is continuous. By the corollary above, we obtain a continuous map $\psi:F\to E$ by sending $(x,w)\mapsto (x,\Phi(x)^{-1}(w))$, which is the inverse. 
 \end{proof}
 \begin{example}
-	Let $M$ be a smooth manifold of dimension $m$, $\phi:U\to V$ a chart and $\tilde{\phi}:TU\to V\times \R^m$ be the corresponding bundle chart. Then it follows from the lemma, that $TU$ is isomorphic to $V\times \R^m$. This follows by observing that $\partial_i(p)$ is a basis of $T_pU$ for all $p\in U$. In this case $\tilde{\phi}\left(\partial_i\right)=e_i$ giving us isomorphisms in each fiber. 
+	Let $M$ be a smooth manifold of dimension $m$, $\phi:U\to V$ a chart and $\tilde{\phi}:TU\to V\times \R^m$ be the corresponding bundle chart. Then it follows from the lemma, that $TU$ is isomorphic to $V\times \R^m$. This is verified by observing that $\partial_i(p)$ is a basis of $T_pU$ for all $p\in U$. In this case $\tilde{\phi}\left(\partial_i\right)=e_i$ giving us isomorphisms in each fiber. 
 \end{example}
+Now we want to construct new bundles from old ones. There are many operations to construct new vector spaces such as the tensor product, direct sum, $\Hom$-Spaces and many more. Instead of individually proving that those operations applied fiberwise yield new bundles, we subsume these operations within the following definition: 
 
+\begin{definition}[Continuous Functor]
+	Let $T$ be a covariant endofunctor in the category of finite-dimensional vector spaces. We call $T$ a \textbf{continuous functor}, if for all $V,W$ the map $T:\hom(V,W)\to \hom(T(V),T(W))$ is continuous. All vector spaces are given the topology induced by their isomorphism to real Euclidean space. If $E$  is a vector bundle we define the set:
+	\begin{equation*}
+		T(E):=\bigcup_{x\in X}T(E_x)\,.
+	\end{equation*} 
+\end{definition}
+Now we want to equip this with a topology such that $T(E)$ is a bundle over the same base space as $E$.
+\begin{definition}[Constructing new bundles]\label{def: Constructing new bundles}
+	We start by assuming that $E = X\times V$. In that case we define the topology on $T(E)$ as the product topology $X\times T(V)$. Now suppose that $F = X \times W$ is another product bundle and $f:E\to F$ is a homomorphism. Let $\Phi: X \to \hom(V,W)$ be the corresponding map. Then $T\Phi: X\to \hom(T(V),T(W))$ is continuous by assumption. Thereby, $T(\phi):X\times T(V)\to X\times T(W)$ is continuous. If $\phi$ is an isomorphism, then $T(\phi)$ is also an isomorphism. That follows because it is continuous and an isomorphism fibrewise.
+	
+	Now assume that $E$ is trivial. Then we can choose an isomorphism $\alpha: E\to X\times V$ and induce a topology on $T(E)$ by pulling it back via $T(\alpha) : T(E) \to X\times T(V)$. This topology does not depend on $\alpha$ by the above. 
+	For general vector bundles we do this construction locally. 
+	
+	If $f:X\to Y$ is continuous, there is a natural isomorphism
+	\begin{equation*}
+		f^*T(E)\cong Tf^*(E)
+	\end{equation*}
+
+\end{definition}
+	This construction is carried out in detail by Atiyah in \cite[Chapter 1.2]{atiyah1989k} and can be generalised for continuous functors with several variables both co- and contravariant. Hence this procedure gives us for vector bundles $E$ and $F$ over the same base space the new bundles:
+	\begin{enumerate}[(i)]
+		\item $E\oplus F $, their direct sum
+		\item $E\otimes F$, their tensor product
+		\item $\Hom(E,F)$
+		\item $E^*$, the dual bundle of $E$ 
+		\item $\Lambda^i(E)$ the $i$-th exterior power
+	\end{enumerate} and by the natural isomorphism we have natural isomorphisms: 
+	\begin{enumerate}[(i)]
+		\item $E\oplus F \cong F\oplus E$
+		\item $E\otimes F\cong F \otimes E$
+		\item $E\otimes (F\oplus F')\cong E\otimes F \oplus E\otimes F'$
+		\item $\Hom(E,F) \cong E^*\otimes F$
+	\end{enumerate}
+	
+	
+	\begin{corollary}\label{cor: sections into hom(E,F) = hom(E,F)}
+		Let $\pi_E:E\to X$ and $\pi_F:F\to X$ be two vector bundles over $X$.
+		 Then, the space $\Gamma \left(\Hom(E,F)\right)$ can be identified with the space of bundle morphisms $\hom(E,F)$ since for any section $s:X\to \Hom(E,F)$ we can define the bundle homomorphism $\tilde{s}:E\to F$ by sending $v\mapsto s_{\pi_E(v)}(v)$. 
+		 This is a homomorphism since $\pi_F\left( \tilde{s}(v)\right)=\pi_E(v)$\,. 
+	\end{corollary}

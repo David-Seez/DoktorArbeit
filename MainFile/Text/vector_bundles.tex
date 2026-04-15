@@ -88,7 +88,7 @@ We follow the book of Atiyah \cite{atiyah1989k}.
 \end{definition}
 Now we want to equip this with a topology this such that $T(E)$ is a bundle over the same base space as $E$.
 \begin{definition}[Constructing new bundles]\label{def: Constructing new bundles}
-	We start by assuming that $E=X\times V$ in that case we define the topology on $T(E)$ as the product topology $X\times T(V)$. Now suppose that $F=X\times W$ is another product bundle and $f:E\to F$ is a homomorphism. Let $\Phi: X \to \hom(V,W)$ be the corresponding map. Now $T\Phi: X\to \hom(T(V),T(W))$ is continuous by assumption. Thereby, $T(\phi):X\times T(V)\to X\times T(W)$ is continuous. If $\phi$ is an isomoprhism, then $T(\phi)$ is also an isomorphism. That is because it is continuous and an isomorphism fiber-wise.
+	We start by assuming that $E=X\times V$ in that case we define the topology on $T(E)$ as the product topology $X\times T(V)$. Now suppose that $F=X\times W$ is another product bundle and $f:E\to F$ is a homomorphism. Let $\Phi: X \to \hom(V,W)$ be the corresponding map. Now $T\Phi: X\to \hom(T(V),T(W))$ is continuous by assumption. Thereby, $T(\phi):X\times T(V)\to X\times T(W)$ is continuous. If $\phi$ is an isomoprhism, then $T(\phi)$ is also an isomorphism. That is because it is continuous and an isomorphism fiberwise.
 	
 	Now assume that $E$ is trivial. Then we can choose an isomophism $E\to X\times V$ and induce a topology on $T(E)$ by pulling it back via $Z(\alpha):T(E)\to X\times T(V)$. This topology does not depend on $\alpha$ by the above. 
 	For general Vector bundles we do this construction locally. 
@@ -98,8 +98,9 @@ Now we want to equip this with a topology this such that $T(E)$ is a bundle over
 		f^*T(E)\cong Tf^*(E)
 	\end{equation*}
 \end{definition}
+
 \begin{corollary}\label{cor: sections into hom(E,F) = hom(E,F)}
-	We can identify $\Gamma \hom(E,F)$ with $\hom(E,F)$ since for any section $s:X\to \hom(E,F)$ we can define the homomophism $\Tilde{s}:E\to F$ by sending $v\mapsto s(v)$. This is a homomorphism since $\Tilde{\pi}s(v)=\pi(v)$. 
+	We can identify $\Gamma \hom(E,F)$ with $\hom(E,F)$ since for any section $s:X\to \hom(E,F)$ we can define the bundle homomophism $\Tilde{s}:E\to F$ by sending $v\mapsto s(v)$. This is a homomorphism since $\Tilde{\pi}s(v)=\pi(v)$. 
 \end{corollary}
 \subsection{Sub-bundles and quotient bundles}
 \begin{definition}[Sub-bundles]\label{def: Sub-bundles}
