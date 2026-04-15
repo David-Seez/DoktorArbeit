@@ -28,9 +28,12 @@ We follow the book of Atiyah \cite{atiyah1989k}.
 	\end{enumerate} In the case that $\phi$ is bijective (and thereby a point-wise vector space isomorphism) and has an continuous inverse we call it an \textbf{isomorphism} and call $E$ and $F$ isomorphic. 
 \end{definition}
 \begin{definition}[Pullback of a family of vector spaces] \label{def: Pullback of a family of vector spaces}
-	If $\pi:E\to Y$ is a family of vector spaces, $X$ a topological space and $f:X\to Y  $ a continuous function. Then we define the induced the pullback of the family $f^*{\pi}:f^*(E) \to X$ as follows: 
-	$f^*(E)$ is the subspace of $(x,e)\in X\times E$ such that $f(x)=\pi(e)$ or in other words: $e$ needs to be in the fiber above $f(x)$ with the obvious projection.
+	If $\pi:E\to Y$ is a family of vector spaces, $X$ a topological space and $f:X\to Y  $ a continuous function. Then we define the induced pullback of the family $f^*{\pi}:f^*(E) \to X$ as follows: 
+	$f^*(E)$ is the subspace of $(x,e)\in X\times E$ such that $f(x)=\pi(e)$, and the map $f^*{\pi}$ is the projection to the second factor reduced th said subspace. 
 \end{definition}
+
+
+
 \begin{corollary} \label{cor: pullback is functoriell}
 	If $g:Z\to Y$ is continuous, there is a natural isomorphism $$g^*f^*(E)\cong (g\circ f)^*(E).$$ 
 \end{corollary}
@@ -40,12 +43,17 @@ We follow the book of Atiyah \cite{atiyah1989k}.
 \begin{definition}[Vector bundle]\label{def: Vector bundle}
 	If for every $x\in X$ there is a neighborhood $U$ containing $x$ such that $E\einsch{Y}:=i^*(E)$, where $i:U\hookrightarrow X$ is the inclusion,is trivial we call the family a \textbf{vector bundle}. Notice that if $f:Y\to X$ we get the induced vector bundle $f^*(E)$.  
 \end{definition}
+
+
+
 \begin{corollary}
 	Notice how the function $x\mapsto \dim(E_x)$ is locally constant.
 \end{corollary}
 \begin{corollary}
 	Since the topology of the bundle needs to be compatible with the vector space we can conclude that the space of global sections denoted by $\Gamma(X)$ is itself a vector space.
 \end{corollary}
+
+
 \begin{definition}[Compact-open topology]
 	Let $X,Y$ be topological spaces. Then the set of continuous maps $C(X,Y)$ can be equipped with the topology that has 
 	\begin{equation*}
@@ -68,6 +76,9 @@ We follow the book of Atiyah \cite{atiyah1989k}.
 	To show that it is an Isomorphism we need an continuous inverse, respectifly we need to show that $f$ is a homeomorphism. First of all we can deduce, that $\phi$ is bijective:
 	Assume it wasn't injective, than there would be a fibre in which $\phi_x$ is not injective. Assume that it wasn't surjective. Then there would be a $w\in F$ that has no preimage which tells us that in the fiber containing $w$ there is no isomorphism. Hence there is a unique inverse and we need to check if it is continuous, which is a local condition. Therefore we can assume that $E$ and $F$ are product bundles. Then we have a continuous map $\Phi:X\to \hom(V,W)$. Furthermore, since $\phi_x$ are Isomorphisms we can restrict the image to $\iso(V,W)$ which is an open subset of $\hom(V,W)$. Now we can define the map $x\mapsto \Phi(x)^{-1}$ which is continuous since taking inverses is continuous. Thereby, we get by the corollary above a continuous map $\psi:F\to W$ by sending $(x,w)\mapsto (x,\Phi(x)^{-1}(W))$, which obviously is the inverse. 
 \end{proof}
+
+
+
 \subsection{Operations on vector bundles}
 \begin{definition}[Continuous functor]
 	Let $T$ be an covariant endofunctor in the category of finite dimensional vector spaces. We call $T$ a \textbf{continuous functor}, if for all $V,W$ the map $T:\hom(V,W)\to \hom(T(V),T(W))$ is continuous. If $E$  is a vector bundle we define the set:

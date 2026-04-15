@@ -81,26 +81,26 @@ We begin by defining a topological manifold. Afterwards, we equip that space wit
 	\begin{align*}
 		\delta(f_p\cdot g_p)=\delta(f_p)g_p(p)+f_p(p)\delta(g_p) \quad \text{for all }f_p,g_p\in \mathcal{E}_p(M) \, .
 	\end{align*}
-	We call $\mathrm{Der}_{\R}(\mathcal{E}_p(M),\R)$ the set of derivations and give it a $\R$ vector space structure by pointwise operations. We define the \textbf{tangent space to $M$ at $p$} to be the vector space
+	We call $\mathrm{Der}_{\R}(\mathcal{E}_p(M),\R)$ the set of derivations and give it an $\R$-vector space structure by pointwise operations. We define the \textbf{tangent space of $M$ at $p$} to be the vector space
 	\begin{align*}
-		TM_p \coloneq \mathrm{Der}_{\R}(\mathcal{E}_p(M),\R) \, .
+		T_pM \coloneq \mathrm{Der}_{\R}(\mathcal{E}_p(M),\R) \, .
 	\end{align*}
 \end{definition}
 \begin{corollary}
-	Let $(M,c)$ be a smooth manifold of dimension $m$ and $\phi:U\to V$ be a chart around $p$ with $x_0=\phi(p)$ (where $\phi \in \mathfrak{A}\in c$). Then 
+	Let $(M,c)$ be a smooth manifold of dimension $m$ and $\phi:U\to V$ be a chart around $p$ with $x_0=\phi(p)$ (where $\phi \in \mathfrak{A}\in c$). Then we define the derivation
 	\begin{align*}
-		\xi=\frac{\partial}{\partial x^j}\Big|_p : \mathcal{E}_p(M) &\to \R \\
-		f_p & \mapsto \xi(f_p)=\frac{\partial}{\partial x^j}\Big|_{x_0}(f\circ \phi^{-1} )
-	\end{align*} is well-defined and defines a tangent vector. Moreover, the family
+		\partial_i(p) : \mathcal{E}_p(M) &\to \R \\
+		f_p & \mapsto \partial_i(p)(f_p)\coloneq \frac{\partial(f\circ \phi^{-1})}{\partial x_i}\big|_{x_0}\,.
+	\end{align*}This is well-defined and hence gives a tangent vector. Moreover, the family
 	\begin{align*}
-		\left(\frac{\partial}{\partial x^1}\Big|_p,...,\frac{\partial}{\partial x^m}\Big|_p\right)
-	\end{align*} defines a basis of $TM_p$. Hence, the dimension of $TM_p$ is $m$.
+		\left(\partial_1(p),\dots,\partial_m(p)\right)
+	\end{align*} defines a basis of $T_pM$. Hence, the dimension of $T_pM$ is $m$.
 \end{corollary}
 
 This is a good point to take a break from smooth manifolds and introduce the structure of vector bundles. 
 %----------Vector bundles-------------------
 \subsection{Vector Bundles}
-We start by defining families of vector spaces and similar to the chapter above equip them with increasingly more structure:
+Analogously to the preceding chapter, we start by defining families of vector spaces and equip them with increasingly more structure:
 
 \begin{definition}[Family of vector spaces] \label{def: Vector Bundles and Riemannian Geometry-Familiy of vector spaces}
 	Let $X$ be a topological space. A \textbf{family of vector spaces over $X$} is a topological space $E$ equipped with :
@@ -108,8 +108,87 @@ We start by defining families of vector spaces and similar to the chapter above 
 		\item a continuous function $\pi: E \to X$,
 		\item a finite dimensional vector space structure on each fiber $E_x:=\pi^{-1}(x)$ that is compatible with the subspace topology on $E_x\subseteq E$.
 	\end{enumerate}
-	We call the map $\pi$ the projection, $E$ the total space and $X$ the base space.
+	We call the map $\pi$ the projection, $E$ the total space and $X$ the base space. 
+\end{definition}
+\begin{definition}[Sections]
+	Let $\pi: E\to X$ be a family of vector spaces. A function $f:X\to E$ such that for all $x\in X$ we have $\pi\circ f (x)=x$ is called a \textbf{section of $E$}. We denote the space of all sections by $\Gamma(E)$. 
+\end{definition}
+\begin{remark} Let $\pi: E\to X$ be a family of vector spaces.
+By locality of the definition, for all open $U\subseteq X$ the restriction $\restr{\pi}{U}:\pi^{-1}(U)\to U$ defines a new family of vector spaces. With this we can also have sections of the restriced bundle and the collection f those is denoted by $\Gamma(U)$
+\end{remark}
+
+
+
+\begin{definition}[Pullback of a family of vector spaces] \label{def: Vector Bundles and Riemannian Geometry-Pullback of a family of vector spaces}
+	Let $\pi:E\to Y$ be a family of vector spaces, $X$ a topological space and $f:X\to Y  $ a continuous function. Then we define the pullback of the family $f^*{\pi}:f^*(E) \to X$ as follows: 
+	The total space $f^*(E)$ is defined as the subspace of $(x,e)\in X\times E$ such that $f(x)=\pi(e)$, and the map $f^*{\pi}$ is the projection to the second factor restricted to said subspace.
+\end{definition}
+\begin{corollary} \label{cor: Vector Bundles and Riemannian Geometry-pullback is functoriell}
+	Let $f: X\to Y$ and  $g:Y\to Z$ be continouos. Then there is a natural isomorphism $$g^*f^*(E)\cong (g\circ f)^*(E).$$ 
+\end{corollary}
+\begin{definition}[Trivial bundle]\label{def: Vector Bundles and Riemannian Geometry-Trivial bundle}
+	If a family $\pi: E \to X$ is isomorphic to a product family $\tilde{\pi}:X\times V\to X$ we call it a \textbf{trivial family}.
+\end{definition}
+\begin{definition}[Vector bundle]\label{def: Vector Bundles and Riemannian Geometry-Vector bundle}
+	If for every $x\in X$ there is a neighborhood $U$ containing $x$ such that $\restr{E}{U}:=i^*(E)$, where $i:U\hookrightarrow X$ is the inclusion, is trivial, we call the family a \textbf{vector bundle}. Moreover, for any continuous map $f:Y\to X$, the pullback $f^*(E)$ is again a vector bundle.  
+\end{definition}
+\begin{remark}
+	Let $\pi:E\to X$ be a vector bundle. Then the space of sections $\Gamma(E)$ is a (in general, infinit-dimensional) $\R$-vector space. Furthermore, and more relevant to the purposes of this thesis, we view $\Gamma(E)$ (and $\Gamma(U)$ for open subsets) as a $C(X)$ (or $C(U)$) module.  The latter denotes the ring of continuous functions from $E$ (or $U$) to $\R$. 
+\end{remark}
+
+\begin{example}
+	For any smooth manifold $M$ of dimension $m$ , we can equip the union 
+	\begin{equation*}
+		TM\coloneq \bigsqcup_{p\in M} T_pM
+	\end{equation*} with a topology, such that $\pi: TM\to M$ defines a vector bundle. For this we first define the trivializations and then equip $TM$ with a topology to make them homeomorphisms: Let $\phi:U\to V$ be a chart on $M$. If we denote the $i$-th coordinate function of $\phi$ by $\phi_i$ we can define the bijection \begin{equation*}
+	\tilde{\phi}:\pi^{-1}(U)\to V\times \R^m,\quad \xi_p\mapsto \left(\phi(p),{\footnotesize
+	\begin{pmatrix}
+		\xi_p(\phi_1)\\
+		\vdots\\
+		\xi_p(\phi_m)
+	\end{pmatrix}
+	}\right)\,.
+	\end{equation*} Now we declare a subset $W\subseteq TM$ to be open, if and only if for all charts $\phi$ the set $\tilde{\phi}(W\cap \pi^{-1}(U)) \subset V\times \R^m$ is open.
+	We can now extend and give meaning to the notation of the local basis vectors $\partial_i(p)\in T_pM$: For any chart $\phi:U\to V$ we have the local sections 
+	\begin{equation*}
+		\partial_i: U\to TU,\quad p\mapsto \partial_i(p)\,.
+	\end{equation*}
+	Notice that the family $\left(\partial_i\right)_i$ is a basis of the $C(U)$-module $\Gamma(U)$. This follows by expressing any section in local coordinates via $\tilde{\phi}$.
+\end{example}
+
+
+
+\begin{definition}[Compact-open topology]
+	Let $X,Y$ be topological spaces. Then the set of continuous maps $C(X,Y)$ can be equipped with the topology that has 
+	\begin{equation*}
+		\{V(K,U)|K\subseteq X \text{ compact }, U\subseteq Y \text{ open}\} \text{ where }V(K,U):=\{f\in C(X,Y) |~f(K)\subseteq U\}
+	\end{equation*} as a subbasis. This coincides with the topology of $\hom(V,W)$ as a subset of $\C^n$ after identification with the corresponding matrix.
 \end{definition}
 
-
+\begin{definition}[Bundle Homomorphisms]
+	Let $\pi_1:E_1\to X$ and $\pi_2:E_2\to X$ be two vector bundles over the same base space $X$. A \textbf{morphism of vector bundles over the same base space} is a continuous map $f:E_1\to E_2$ such that
+	\begin{enumerate}
+		\item $\pi_2\circ f=\pi$, and hence for each $x\in X$ the restriction to the fibers $f_x:(E_1)_x \to( E_2)_x$ is well defined. 
+		\item For each $x\in X$ $f_x$ is a vector space homomorphism.
+	\end{enumerate} 
+\end{definition}
+\begin{definition}[Homomorphism Bundle]\label{def: Vector Bundles and Riemannian Geometry-Homomorphism Bundle}
+	Let $W,V$ be vector spaces and $E=V\times X$, $F=W\times X$ the product bundles over $X$. Now any bundle homomorphism $\phi:E\to F$ determines a map $\Phi:X\to \hom(V, W)$ by sending $x\mapsto \phi_x$. With respect to the compact open topology, this $\Phi$ is continuous. Furthermore, a continuous map $\Phi:X \to \hom(V,W)$ determines a bundle homomorphism $\phi:E\to F$.
+\end{definition}
+\begin{proof}
+	Let $\{e_i\}$ and $\{f_i\}$ be bases of $V$ and $W$. Then each $\Phi(x)$ is a matrix $\Phi_{i,j}(x)$, such that:
+	\begin{equation*}
+		\Phi(x)e_i=\sum_j\Phi(x)_{i,j}f_j\,.
+	\end{equation*} Now $\Phi$ is continuous if and only if $\Phi_{i,j}$ is continuous. Since $\phi(x,v)=(x,\Phi(x)v)$ this is equivalent to $\phi$ being continuous. 
+\end{proof}
+\begin{lemma}[Isomorphic Vector Bundles]\label{thm: Vector Bundles and Riemannian Geometry-Isomorphic vector-bundles}
+	Let $E$ and $F$ be vector bundles and $\phi:E\to F$ be a homomorphism. Then $\phi$ is an isomorphism if and only if all $\phi_x$ are isomorphisms. 
+\end{lemma}
+\begin{proof}
+	To show that it is an isomorphism we need an continuous inverse, equivalently, we need to show that $\phi$ is a homeomorphism. First of all we can deduce, that $\phi$ is bijective:
+	Assume it wasn't injective, then there would be a fibre in which $\phi_x$ is not injective. Assume that it wasn't surjective. Then there would be a $w\in F$ that has no preimage which tells us that in the fiber containing $w$ there is no isomorphism. Hence there is a unique inverse and it remains to verify that it is continuous, which is a local condition. Therefore we can assume that $E$ and $F$ are product bundles. Then we have a continuous map $\Phi:X\to \Hom(V,W)$. Furthermore, since $\phi_x$ are Isomorphisms we can restrict the image to $\Iso(V,W)$ which is an open subset of $\Hom(V,W)$. Now we can define the map $x\mapsto \Phi(x)^{-1}$ which is continuous since taking inverses is continuous. By the corollary above, we obtain a continuous map $\psi:F\to E$ by sending $(x,w)\mapsto (x,\Phi(x)^{-1}(w))$, which is the inverse. 
+\end{proof}
+\begin{example}
+	Let $M$ be a smooth manifold of dimension $m$, $\phi:U\to V$ a chart and $\tilde{\phi}:TU\to V\times \R^m$ be the corresponding bundle chart. Then it follows from the lemma, that $TU$ is isomorphic to $V\times \R^m$. This follows by observing that $\partial_i(p)$ is a basis of $T_pU$ for all $p\in U$. In this case $\tilde{\phi}\left(\partial_i\right)=e_i$ giving us isomorphisms in each fiber. 
+\end{example}
 
