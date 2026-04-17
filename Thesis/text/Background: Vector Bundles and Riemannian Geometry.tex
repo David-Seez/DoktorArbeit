@@ -140,7 +140,7 @@ By locality of the definition, for all open $U\subseteq X$ the restriction $\res
 	For any smooth manifold $M$ of dimension $m$ , we can equip the union 
 	\begin{equation*}
 		TM\coloneq \bigsqcup_{p\in M} T_pM
-	\end{equation*} with a topology, such that $\pi: TM\to M$ defines a vector bundle. For this we first define the trivializations and then equip $TM$ with a topology to make them homeomorphisms: Let $\phi:U\to V$ be a chart on $M$. If we denote the $i$-th coordinate function of $\phi$ by $\phi_i$ we can define the bijection \begin{equation*}
+	\end{equation*} with a topology, such that $\pi: TM\to M$ defines a vector bundle which we call \textbf{tangent bundle}. For this we first define the trivialisations and then equip $TM$ with a topology to make them homeomorphisms: Let $\phi:U\to V$ be a chart on $M$. If we denote the $i$-th coordinate function of $\phi$ by $\phi_i$ we can define the bijection \begin{equation*}
 	\tilde{\phi}:\pi^{-1}(U)\to V\times \R^m,\quad \xi_p\mapsto \left(\phi(p),{\footnotesize
 	\begin{pmatrix}
 		\xi_p(\phi_1)\\
@@ -153,10 +153,53 @@ By locality of the definition, for all open $U\subseteq X$ the restriction $\res
 	\begin{equation*}
 		\partial_i: U\to TU,\quad p\mapsto \partial_i(p)\,.
 	\end{equation*}
+	Furthermore, $TM$ is a $2m$-dimensional manifold. Using a smooth atlas on $M$ yields a smooth atlas on $TM$ making it a smooth manifold.
 	Notice that the family $\left(\partial_i\right)_i$ is a basis of the $C(U)$-module $\Gamma(U)$. This follows by expressing any section in local coordinates via $\tilde{\phi}$.
 \end{example}
+Notice that $TM$ as a bundle satisfies more then just the bundle definition: Taking two different charts induces two different local trivialisations. Transitioning between them is not just fibrewise linear, but also smooth. This is captured in the definition:
+
+Henceforth we suppress the differentiable structure from the notation.
 
 
+
+\begin{definition}[The Derivative]
+	Let $M$ and $M'$ be smooth manifolds. We call a continuous function $f:M \to M'$ \textbf{smooth}, if for all $\phi\in \mathfrak{A}\in c$ and $\phi'\in \mathfrak{A}'\in c'$ the maps
+	\begin{align*}
+		\phi'\circ f\circ  \phi^{-1}:V\to V'
+	\end{align*} are smooth. A given smooth function induces a smooth map between the tangent bundles as manifolds as follows:
+	\begin{align*}
+		\diff f: TM &\to TM' ~,\diff f_p(\xi_p)(g_p)=\xi((g\circ f)_p)
+	\end{align*}Here, $\xi_p\in T_pM$, $g_p\in \mathcal{E}_p(M')$. The function $\diff f$ is called the \textbf{derivative} or \textbf{pushforward} of $f$.
+\end{definition}
+\begin{definition}[Smooth vector bundles]
+	A \textbf{smooth vector bundle of rank $r$ } is a surjection $\pi: E \to M$ where the codomain (or base space) is a smooth manifold together with a family of continuous functions (or local trivialisations )
+\begin{equation*}
+	\Phi_i: \pi{-1}(U_i)\to U_i\times \R^r
+\end{equation*} such that  $\bigcup_i U_i=M$ and for all overlapping $U_i\cap U_j\neq \emptyset$, the transition functions
+\begin{equation*}
+	\Phi_j\circ \Phi_i^{-1}: \pi^{-1}(U_i\cap U_j) \to (U_i\cap U_j)\times \R^r
+\end{equation*} are of the form 
+\begin{equation*}
+	\Phi_j\circ \Phi_i^{-1}(p,v)=(p,g_{i,j}(v)),\quad \text{ where }\quad g_{i,j}: (U_i\cap U_j) \to \GL(r,\R)
+\end{equation*} is smooth.
+\end{definition}
+\begin{corollary}
+A smooth vector bundle is a smooth manifold and also a vector bundle. The latter is ensured by the codomain of $g_{i,j}$ which is also called the \textbf{structure group}. We can enforce structure on the bundle by reducing the structure group. As a preview: reducing it to $\GL^+(k,\R)$ the linear maps with positive determinant means that we can induce the concept of orientations. Reducing it to $O(k)$ lets us equip it with a Riemannian metric. 
+\end{corollary}
+
+\begin{definition}
+Let $\pi:E\to M$ be a smooth vector bundle of rank $r$ and let 
+\begin{equation*}
+	\Phi: \pi^{-1}(U) \to U\times \R^r
+\end{equation*} be a local trivialisation.
+Then a section is called smooth if it is a smooth map of manifolds. A family of smooth local sections $(s_1,\dots, s_r)$ with $s_i\in \Gamma(U)$ is called a \textbf{local frame} if they form a basis of the $C(U)$-module $\Gamma(U)$. Such a family is obtained from $\Phi$ by defining $s_i(p)\coloneq \Phi^{-1}(p,e_i)$. Similar, from a local frame we can obtain a local trivialisations by defining:
+\begin{equation*}
+	\Phi: \pi^{-1}(U) \to U\times \R^r\,,\quad v=\sum_{i=1}^{r} \lambda_i s_i(\pi(v)) \mapsto (\pi(v),\lambda_1,\dots, \lambda_r)\,.
+\end{equation*}
+\end{definition}
+\begin{example}
+The local trivialisations $\partial_i$ of the tangent bundle of a smooth manifold $M$ form a local frame and make the tangend bundle into a smooth vector bundle.
+\end{example}
 
 \begin{definition}[Compact-open topology]
 	Let $X,Y$ be topological spaces. Then the set of continuous maps $C(X,Y)$ can be equipped with the topology that has 
@@ -235,3 +278,69 @@ Now we want to equip this with a topology such that $T(E)$ is a bundle over the 
 		 Then, the space $\Gamma \left(\Hom(E,F)\right)$ can be identified with the space of bundle morphisms $\hom(E,F)$ since for any section $s:X\to \Hom(E,F)$ we can define the bundle homomorphism $\tilde{s}:E\to F$ by sending $v\mapsto s_{\pi_E(v)}(v)$. 
 		 This is a homomorphism since $\pi_F\left( \tilde{s}(v)\right)=\pi_E(v)$\,. 
 	\end{corollary}
+	\begin{example}[Cotangent bundle]
+		Let $M$ be a smooth manifold of dimension $m$. Then we can define the \textbf{cotangent bundle} $T^*M$ to be the dual of the tangent bundle. A local frame of said bundle is given by the fiberwise dual of the frame $(\partial_i) $. Sections into the tangent bundle are called \textbf{vector fields} and sections into the cotangent bundle are called \textbf{one-forms}.  
+	\end{example} 
+	
+	
+	\begin{definition}\label{def: Vector Bundles and Riemannian Geometry- Linear identification}
+	Let $V$ be a linear manifold (i.e. a finite-dimensional vector space). Then for any $v\in V$ we have the canonical maps
+	\begin{align*}
+		R_v:V&\to T_vV\,\\
+		x&\mapsto \left(f_v\mapsto \restr{\frac{\partial }{\partial t}}{t=0}f(v+tx)\right)
+	\end{align*}
+	Let $L:V\to V$ be a linear map viewed as a smooth map between manifolds. Then we have the identity:
+	\begin{equation*}
+		{\diff L}_{v} \circ R_v =R_{L(v)}\circ L\,.
+	\end{equation*} This is proved by a short calculation:
+	\begin{equation*}
+		\Big({\diff L}_{v} \big( R_v(x)\big)\Big)(f_{L(v)})=R_{v}(x)\left(f\circ L\right)=\restr{\frac{\partial }{\partial t}}{t=0}f\circ L(v+tx)=\underbrace{\restr{\frac{\partial }{\partial t}}{t=0}f\big( L(v)+tL(x)\big)}_{=R_{L(v)}\circ L(x)}
+	\end{equation*} Now let $v,v'\in V$. Then we have the translation
+	\begin{equation*}
+		tr_{v,v'}: V\to V;\quad x\mapsto (x+(v'-v))
+	\end{equation*} This allows us to relate $R_v$ and $R_{v'}$ as follows:
+	\begin{equation*}
+		\left(\restr{\diff tr_{v,v'}}{v}(R_v(x))\right)(f_{v'})=\restr{\frac{\partial }{\partial t}}{t=0}\left(f\circ tr_{v,v'}(v+tx)\right)=\restr{\frac{\partial }{\partial t}}{t=0}\left(f(v'+tx)\right)=R_{v'}(x)(f_{v'}) \,.
+	\end{equation*} Hence:
+	\begin{equation*}
+		R_{v'}=\diff tr_{v,v'}\circ R_v\,.
+	\end{equation*} 
+	The \textbf{linear identification } is the map $Q$ given on the whole tangent bundle:
+	\begin{equation*}
+		Q:TV\to V;\quad \xi_p \mapsto R_p^{-1}(\xi_p)\,,
+	\end{equation*} and satisfies for any linear $L : v\to V$ 
+	\begin{equation*}
+		Q\circ \diff L=L\circ Q\,.
+	\end{equation*}
+\end{definition}
+
+	\begin{corollary}
+		Let $f:M\to \R$ be smooth. Then we can interpret $\diff f$ as a one-form. To be precise, let $Q : T\R\to \R$ denote the linear identification with respect to the identity on $\R$. For $v\in \Gamma( TM)$ we have
+		\begin{align*}
+			(Q\circ \diff f)(v)=v(f)
+		\end{align*} Here on the right side, $f$ denotes a map $p\mapsto f_p$ such that $v(f)(p)\coloneq v_p(f_p)$ is well defined. We retain this notation so that vector fields can take functions as an input.
+	\end{corollary}
+
+		\begin{proof}Let $\phi:U \to V$ be a chart of $M$. 
+			We prove this by showing it for the local sections $\partial_i$ and the general case follows by $C(U)$-linearity, since those sections form a local frame. Now let $g_p\in \mathcal{E}_p(\R)$ and $\phi(p)=x_0$. Then
+		\begin{equation*}
+		\diff f _p(\partial_i(p))(g_p)= 
+		\partial_i((g\circ f)_p)=
+		=\restr{\frac{\partial }{\partial x_i}}{x_0}(g\circ f\circ \phi^{-1})
+		=\frac{\partial}{\partial_x}_{f_p(p)}(g_p) \cdot  \partial_i(p)(f_p)
+		\end{equation*}
+		Hence, applying $Q$ to the calculation yields $(Q\circ \diff f)(v)=v(f)$\,.
+	\end{proof}
+	
+	
+\begin{definition}[A Metric]
+	Let $M$ be a smooth manifold.
+	A section $g\in \Gamma(T^*M\otimes T^*M)$ into the tensor product of the dual tangent bundle with itself is a \textbf{Riemannian metric} if the following are satisfied for all $p\in M$:
+	\begin{enumerate}
+		\item $g$ is \textbf{non-degenerate}, meaning if for a $v_p\in T_pM$ we have $g_p(v_p,w_p)=0$ for all $w_p\in T_pM$ then $v_p=0$.
+		\item $g$ is \textbf{symmetric}, meaning $g_p(v_p,w_p)=g_p(w_p,v_p)$ for all $ v_p,w_p\in T_pM$ .
+		\item $g$ is \textbf{positive definite}, meaning that $g_p(v_p,v_p)\geq 0 $ for all $v_p$ with equality only for $v_p=0$.
+	\end{enumerate} We call a tuple $(M,g)$ a \textbf{Riemannian manifold}.
+\end{definition}
+
+	

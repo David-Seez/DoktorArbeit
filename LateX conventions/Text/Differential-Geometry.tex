@@ -118,11 +118,12 @@ This section aims to set the playing field for the thesis. Due to the theory bei
 		q\circ \diff f(v)=v\cdot f
 	\end{align*} Here on the right side, $f$ denotes a map $p\mapsto f_p$ such that $v(f)(p)\coloneq v_p(f_p)$ is well defined. We keep this notations so vector fields can take functions as an input.
 \end{corollary}
-\begin{proof}
-	We proof this by showing it for the section $\frac{\partial}{\partial x_i}$ and thereby for any, since those sections form a basis of the space of sections as a $C^{\infty}(M,\R)$ vector space. Now let $g_p\in \mathcal{E}_p(\R)$ and $\phi(p)=x_0$. Then
-	\begin{align*}
-		\restr{\diff f(\frac{\partial }{\partial x_i}}{p})(g_p)= \restr{\frac{\partial }{\partial x_i}}{p} (g\circ f)_p=\restr{\frac{\partial }{\partial x_i}}{x_0}(g\circ f\circ \phi^{-1})=\restr{\frac{\partial }{\partial x}}{p}(g_p) \cdot \restr{\frac{\partial }{\partial x_i}}{p}(f_p)
-	\end{align*}
+\begin{proof} Let $\phi:U \to V$ be a chart of $M$. 
+	We proof this by showing it for the local sections $\frac{\partial}{\partial x_i}$ and thereby for any, since those sections form a basis of the space of sections as a $C^{\infty}(M,\R)$ vector space. Now let $g_p\in \mathcal{E}_p(\R)$ and $\phi(p)=x_0$. Then
+	\begin{equation*}
+		\diff f _p(\partial_i(p))(g_p)= \partial_i((g\circ f)_p)=
+		=\restr{\frac{\partial }{\partial x_i}}{x_0}(g\circ f\circ \phi^{-1})=\restr{\frac{\partial }{\partial x}}{p}(g_p) \cdot \restr{\frac{\partial }{\partial x_i}}{p}(f_p)
+	\end{equation*}
 	Hence, $\diff f (v)=v(f)\frac{\partial }{\partial x}$ letting us conclude the statement.
 \end{proof}
 
