@@ -98,11 +98,17 @@ We begin by defining a topological manifold. Afterwards, we equip that space wit
 \end{corollary}
 
 This is a good point to take a break from smooth manifolds and introduce the structure of vector bundles. 
-%----------Vector bundles-------------------
-\subsection{Vector Bundles}
-Analogously to the preceding chapter, we start by defining families of vector spaces and equip them with increasingly more structure:
 
-\begin{definition}[Family of vector spaces] \label{def: Vector Bundles and Riemannian Geometry-Familiy of vector spaces}
+
+
+
+
+
+%----------Vector bundles-------------------
+
+Analogously to the definition of a smiith manifold, we start by defining families of vector spaces and equip them with increasingly more structure:
+
+\begin{definition}[Family of Vector Spaces] \label{def: Vector Bundles and Riemannian Geometry-Familiy of vector spaces}
 	Let $X$ be a topological space. A \textbf{family of vector spaces over $X$} is a topological space $E$ equipped with :
 	\begin{enumerate}[(i)]
 		\item a continuous function $\pi: E \to X$,
@@ -119,17 +125,17 @@ By locality of the definition, for all open $U\subseteq X$ the restriction $\res
 
 
 
-\begin{definition}[Pullback of a family of vector spaces] \label{def: Vector Bundles and Riemannian Geometry-Pullback of a family of vector spaces}
+\begin{definition}[Pullback of a Family of Vector Spaces] \label{def: Vector Bundles and Riemannian Geometry-Pullback of a family of vector spaces}
 	Let $\pi:E\to Y$ be a family of vector spaces, $X$ a topological space and $f:X\to Y  $ a continuous function. Then we define the pullback of the family $f^*{\pi}:f^*(E) \to X$ as follows: 
 	The total space $f^*(E)$ is defined as the subspace of $(x,e)\in X\times E$ such that $f(x)=\pi(e)$, and the map $f^*{\pi}$ is the projection to the second factor restricted to said subspace.
 \end{definition}
 \begin{corollary} \label{cor: Vector Bundles and Riemannian Geometry-pullback is functoriell}
 	Let $f: X\to Y$ and  $g:Y\to Z$ be continouos. Then there is a natural isomorphism $$g^*f^*(E)\cong (g\circ f)^*(E).$$ 
 \end{corollary}
-\begin{definition}[Trivial bundle]\label{def: Vector Bundles and Riemannian Geometry-Trivial bundle}
+\begin{definition}[Trivial Bundle]\label{def: Vector Bundles and Riemannian Geometry-Trivial bundle}
 	If a family $\pi: E \to X$ is isomorphic to a product family $\tilde{\pi}:X\times V\to X$ we call it a \textbf{trivial family}.
 \end{definition}
-\begin{definition}[Vector bundle]\label{def: Vector Bundles and Riemannian Geometry-Vector bundle}
+\begin{definition}[Vector Bundle]\label{def: Vector Bundles and Riemannian Geometry-Vector bundle}
 	If for every $x\in X$ there is a neighborhood $U$ containing $x$ such that $\restr{E}{U}:=i^*(E)$, where $i:U\hookrightarrow X$ is the inclusion, is trivial, we call the family a \textbf{vector bundle}. Moreover, for any continuous map $f:Y\to X$, the pullback $f^*(E)$ is again a vector bundle.  
 \end{definition}
 \begin{remark}
@@ -171,7 +177,7 @@ Henceforth we suppress the differentiable structure from the notation.
 		\diff f: TM &\to TM' ~,\diff f_p(\xi_p)(g_p)=\xi((g\circ f)_p)
 	\end{align*}Here, $\xi_p\in T_pM$, $g_p\in \mathcal{E}_p(M')$. The function $\diff f$ is called the \textbf{derivative} or \textbf{pushforward} of $f$.
 \end{definition}
-\begin{definition}[Smooth vector bundles]
+\begin{definition}[Smooth Vector Bundles]
 	A \textbf{smooth vector bundle of rank $r$ } is a surjection $\pi: E \to M$ where the codomain (or base space) is a smooth manifold together with a family of continuous functions (or local trivialisations )
 \begin{equation*}
 	\Phi_i: \pi{-1}(U_i)\to U_i\times \R^r
@@ -184,10 +190,10 @@ Henceforth we suppress the differentiable structure from the notation.
 \end{equation*} is smooth.
 \end{definition}
 \begin{corollary}
-A smooth vector bundle is a smooth manifold and also a vector bundle. The latter is ensured by the codomain of $g_{i,j}$ which is also called the \textbf{structure group}. We can enforce structure on the bundle by reducing the structure group. As a preview: reducing it to $\GL^+(k,\R)$ the linear maps with positive determinant means that we can induce the concept of orientations. Reducing it to $O(k)$ lets us equip it with a Riemannian metric. 
+A smooth vector bundle is a smooth manifold and also a vector bundle. The latter is ensured by the codomain of $g_{i,j}$ which is also called the \textbf{structure group}. We can enforce structure on the bundle by reducing the structure group. As a preview: reducing it to $\GL^+(k,\R)$ the linear maps with positive determinant means that we can induce the concept of orientations. Reducing it to $\O(k)$ lets us equip it with a Riemannian metric. 
 \end{corollary}
 
-\begin{definition}
+\begin{definition}\label{def: Vector Bundles and Riemannian Geometry-Frames from trivialisations}
 Let $\pi:E\to M$ be a smooth vector bundle of rank $r$ and let 
 \begin{equation*}
 	\Phi: \pi^{-1}(U) \to U\times \R^r
@@ -314,7 +320,7 @@ Now we want to equip this with a topology such that $T(E)$ is a bundle over the 
 	\end{equation*}
 \end{definition}
 
-	\begin{corollary}
+	\begin{corollary}\label{cor: Vector Bundles and Riemannian Geometry- vector fields take functions}
 		Let $f:M\to \R$ be smooth. Then we can interpret $\diff f$ as a one-form. To be precise, let $Q : T\R\to \R$ denote the linear identification with respect to the identity on $\R$. For $v\in \Gamma( TM)$ we have
 		\begin{align*}
 			(Q\circ \diff f)(v)=v(f)
@@ -342,5 +348,77 @@ Now we want to equip this with a topology such that $T(E)$ is a bundle over the 
 		\item $g$ is \textbf{positive definite}, meaning that $g_p(v_p,v_p)\geq 0 $ for all $v_p$ with equality only for $v_p=0$.
 	\end{enumerate} We call a tuple $(M,g)$ a \textbf{Riemannian manifold}.
 \end{definition}
+\begin{remark}
+	Equipping a smooth manifold $M$ of dimension $m$ with a Riemannian metric is equivalent to reducing the structure group of the tangent bundle from $\GL(m)$ to $\O(m)\,.$
+	To be precise: A Riemannian metric $g$ lets us canonically choose an atlas with structure group $\O(m)$ and an atlas with such a structure group lets us canonically choose a Riemannian metric. 
+\end{remark}
+\begin{proof}
+	We start by assuming that we have an atlas with structure group $\O(m)$. In Definition \ref{def: Vector Bundles and Riemannian Geometry-Frames from trivialisations} we saw that a covering of local trivializations is equivalent to a covering of smooth frames. Now in a single trivialization 
+	\begin{equation*}
+		\Phi: \pi^{-1}(U)\eqcolon TU \to U\times \R^m
+	\end{equation*} we call the projection to the $\R^m$-part (the second factor) $\pi_2$ and define 
+\begin{align*}
+	g: U &\to T^*U \otimes T^*U \\
+	p&\mapsto  \begin{array}{rl}
+		g_p^\Phi: T_pU\times T_pU &\to \R \\
+		(\nu_p,\xi_p)    &\mapsto g_p^\Phi(\nu_p,\xi_p)\coloneq \pi_2\left(\Phi(\nu_p)\right)~\cdot~ \pi_2 \left(\Phi(\xi_p)\right)\,,
+	\end{array} 
+\end{align*} where $\cdot$ denotes the standart scalar product. This gives us locally a Riemannian metric. If we do this for all trivializations we have to make sure, that the result is well defined. So assume that two trivializations $\Phi$ and $\Psi$ overlap in $V$. The structure group is $\O(m)$, $\Phi=R\Psi$ for some function 
+\begin{equation*}
+	R: V\to \O(m)\,.
+\end{equation*} Let $p$ be in said overlapping and $(\nu_p,\xi_p)$ be from $T_pM\times T_pM$. Then since $R$ is orthogonal we can calculate the independence from the trivialization:
+\begin{equation*}
+	g_p^\Phi(\nu_p,\xi_p)=\pi_2\left(R\Psi(\nu_p)\right)\,\cdot \, \pi_2 \left(R\Psi(\xi_p)\right)=\pi_2\left(\Psi(\nu_p)\right)~\cdot~ \pi_2 \left(\Psi(\xi_p)\right)=	g_p^\Psi(\nu_p,\xi_p)\,.
+\end{equation*}
+
+To get an orthonormal atlas from a smooth one given a Riemannian metric, we start by building a covering of local frames from the trivialisations. We then apply Gram-Schmidt to the local frames to get orthonormal frames. Now a covering of orthonormal frames gives a covering of trivializations, where the structure group consists of basis changes between orthonormal bases and hence is $\O(m)$.
+\end{proof}
+
+\begin{definition}[The Gradient]
+	Assume that $(M,g)$ is a smooth manifold together with a Riemannian metric. Let $f:M\to \R$ be a smooth function and $Q: T\R\to \R$ the linear identification. We define its \textbf{gradient} to be a vector field $\grad(f)\in \Gamma(TM)$ such that for any vector field $V$:
+	\begin{align*}
+		 Q\circ \diff f (V) = g(\grad(f),V) \, .
+	\end{align*} Notice how the non-degeneracy of $g$ ensures existence and uniqueness. 
+\end{definition}
+\begin{definition}\label{def: local description of gradient gij}
+	Let $(M,g)$ be a Riemannian manifold and $\phi:U\to V$ be a chart. We define the smooth functions $g_{ij}:U\to \R$ to be:
+	\begin{align*}
+		g_{ij}(p)=g_p(\partial_i(p),\partial_j(p)) \, .
+	\end{align*}
+	Then if two vector fields $v,w$ over $U$ are given with $v=\sum v_i \partial_i$ and $w=\sum _i w_i \partial_i$ we can calculate the metric locally:
+	\begin{align*}
+		g(v,w)=\sum_{i,j}g_{ij} v_iw_j\, :U\to \R
+	\end{align*} Furthermore, we can invert the matrices $(g_{ij}(p))_{ij}$ for all $p$ (which is a smooth procedure as can be seen by the construction via Cramer's rule) to get smooth functions 
+	\begin{align*}
+		g^{ij}: U&\to \R\\
+		p&\mapsto g^{ij}(p)= \left( \big(g_{kl}(p)\big)_{kl}^{-1} \right)_{ij}
+	\end{align*}
+\end{definition}
+\begin{remark}
+	Due to the rare appearance of big summations with vectors and co-vectors in this work, we omit the Einstein summation convention and assign all coordinate entries lower indices. 
+\end{remark}
+
+
+
+\begin{lemma}[Local Description of the Gradient]\label{lem: Vector Bundles and Riemannian Geometry-Local description of the Gradient}
+	Let $(M,g)$ be a smooth Riemaniannian manifold of dimension $m$ and $\phi:U\to V$ be a chart. Then the gradient has the local form:
+	\begin{align*}
+		\grad(f) =\sum_{i,j}g^{ij}  \left(\partial_i (f) \right)\cdot  \partial_j \, .
+	\end{align*}
+\end{lemma}
+
+\begin{proof} Assume that $v,w\in \Gamma( TU)$ such that $v=\sum_i v_i\partial_i$ and $w=\sum_i w_i\partial _i$ (Here $v_i$ and $w_i$ are smooth functions $U\to \R$). Then  $g(v,w)=\sum_{i,j} g_{ij} v_i w_j$.
+	Suppose that $\grad(f)=\sum_j G^j \partial_j$ and $Q$ is the linear identification $T\R\to \R$ in each tangent space. Then by definition of the gradient and corollary \ref{cor: Vector Bundles and Riemannian Geometry- vector fields take functions} we have:
+	\begin{align*}
+		\partial_j(f)=	Q \circ \diff f (\partial_j)= g(\grad(f),\partial_j)= g(\sum_i G^i \partial_i,\partial_j)=\sum_{i}g_{ij} G^i
+	\end{align*} Reading this as a pointwise matrix product:
+	\begin{align*}
+		&(G^1,\cdots G^m)(g_{ij})=\left(\partial_1 (f),\cdots,\partial_m (f)  \right) \\
+		\text{ which gives } &(G^1,\cdots G^m)=\left(\partial_1 (f),\cdots,\partial_m (f)  \right) (g^{ij})\, .
+	\end{align*}  But then we can conclude that $G^j=\sum_i g^{ij}\partial_i (f)$.
+	
+\end{proof}
+
+
 
 	
