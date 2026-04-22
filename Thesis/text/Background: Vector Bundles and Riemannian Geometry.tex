@@ -419,6 +419,48 @@ To get an orthonormal atlas from a smooth one given a Riemannian metric, we star
 	
 \end{proof}
 
+\begin{definition}[A Dynamical System]
+	Let $M$ be a smooth manifold. A \textbf{dynamical system on $M$} (sometimes allso calld a \textbf{flow on $M$}) is given by a smooth map $\phi:\Omega \to M$ such that:
+	\begin{enumerate}
+		\item $\{0\}\times M \subseteq \Omega \subseteq \R \times M$ open, and for any $p\in M$ the set $I(p)\coloneq \pi_1(\Omega\cap \R\times \{p\})$ is connected. ($\pi_1$ is the projection onto the first factor)
+		\item For all $p\in M$ and $t\in I(p)$ we have that $s\in I(\phi(t,p))$ if and only if $s+t\in I(p)$. Then we have:
+		\begin{align*}
+			\phi(s,(\phi(t,p)))=\phi(s+t,p)
+		\end{align*} 
+		\item For all $p$ we require $\phi(0,p)=p$. 
+	\end{enumerate}
+	We will write $\phi_t(p)\coloneq \phi(t,p)$ to keep the notation manageable. 
+	If for all $p$ $I(p)=\R$ we call the system \textbf{global}. 
+\end{definition}
 
-
+\begin{corollary}
+	For a global dynamical system $\phi$ on a smooth manifold $M$ the map
+	\begin{align*}
+		\rho: \R \to \Diff(M),\quad t\mapsto \phi_t
+	\end{align*}is a homomorphism. To verify well-definedness notice how for all $t\in \R$, $\phi_{-t}$ is an inverse of $\phi_t$. The map $\rho$ is called a \textbf{one-parameter group of diffeomorphisms}.
+\end{corollary}
+\begin{definition}[Vector Field of a Dynamical System]
+	Let $\phi: \Omega \to M$ be a dynamical system on a smooth manifold $M$. For a chart $\psi:U\to V$ of $M$ we have the chart $\id\times \psi$ of $\Omega$. For this chart we denote the associated local frame by $(\partial_t,\partial_1,\dots, \partial_m)$.  Using this we define the mapping
 	
+	\begin{align*}
+		M &\to TM\\
+		p& \mapsto X(p)\coloneq \diff \phi (\partial_t(0,p))
+	\end{align*} and call it the \textbf{associated vector field}. This is in fact a smooth vector field. 
+\end{definition}
+\begin{definition}[Dynamical System of a Vector Field]
+	Let $X\in \Gamma(TM)$ be a global vector field on the smooth manifold $M$. Then we call a dynamical system $\phi$ on $M$ the \textbf{associated dynamical system} to $X$, if for all $t\in \R$ and $x\in M$ 
+	\begin{equation*}
+		\diff \phi \left(\partial_t(t,x )\right)=X(\phi_{t}(x))\,.
+	\end{equation*} 
+\end{definition}
+\begin{remark}
+	Regarding the left-hand side of the definition $\diff \phi \left(\partial_t(t,x )\right)$ we could also differentiate the map 
+	\begin{equation*}
+		t \mapsto \phi_t(x)\,,
+	\end{equation*} for fixed $x$ at $t$ and evaluate this at the constant vector field $t\mapsto R_t(1)\in T_t \R$ from definition \ref{def: Vector Bundles and Riemannian Geometry- Linear identification}. 
+\end{remark}
+These two constructions are mutually inverse, giving the following theorem:
+\begin{theorem}
+	Let $M$ be a smooth manifold. Then there is a one-to-one correspondence between global dynamical systems and vector fields given by the constructions above.
+\end{theorem}
+

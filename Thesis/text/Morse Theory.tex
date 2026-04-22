@@ -1,0 +1,39 @@
+\section{Morse Theory}
+
+For everything concerning Morse theory our main reference will be the wonderful book \cite{banyaga2004lectures}. 
+In Morse theory, we will always deal with a smooth function $f:M\to \R$ from a smooth Riemannian manifold $(M,g)$ that is also compact. We will denote its dimension by $m=\dim (M)$.
+\begin{definition}[Critical Points]
+	A point $p\in M$ at which the smooth map  
+$\diff f _p=0$  is called \textbf{critical}. By $\Crit (f)$ we denote the \textbf{set of critical points}.
+\end{definition}
+
+\begin{definition}[The Hessian]
+	Let $f:M\to \R$ be a smooth function. The \textbf{Hessian} of $f$ at $p\in \Crit(f)$ is a symmetric bilinear form
+	\begin{equation*}
+		\Hess_p(f):T_pM\times T_pM \to \R
+	\end{equation*}  that is defined as follows. Let $\xi_p, \zeta_p\in T_pM$ be two tangent vectors. Now choose two vector fields $\Xi$ and $Z$ in a neighbourhood of $p$ such that $\Xi(p)=\xi_p$ and $Z(p)=\zeta_p$. We then define the Hessian to be: 
+	\begin{equation*}
+		\Hess_p(f)(\xi_p,\zeta_p)=\Xi \left(Z (f)\right)(p)
+	\end{equation*} See \ref{cor: Vector Bundles and Riemannian Geometry- vector fields take functions} for the notation of applying a function to a vector field. In corollary \ref{cor: local form of the Hessian} we will give a local description telling us that this definition is well defined, meaning independent of the Extensions $\Xi$ and $Z$.  
+\end{definition}
+\begin{definition}
+	A smooth function $f: M\to \R$ is called \textbf{Morse}, if for any critical point, the Hessian is a symmetric bilinear and non-degenerate form.
+\end{definition}
+ For such a form there exists the following theorem: 
+ \begin{theorem}[Sylvester's Law of Inertia]
+ 	Let $A\in \Mat(n,\R)$ be symmetric and let $T,T'\in \GL(n,\R)$ and $k,k',l,l'\in \N$ such that:
+ 	\begin{align*}
+ 		T^\top\circ A\circ T=	\begin{pmatrix}
+ 			\Idm_k& 0 &0\\
+ 			0& -\Idm_l&0\\
+ 			0&0&0_{n-k-l}
+ 		\end{pmatrix}\text{ and } 
+ 		T'^\top\circ A \circ T'=
+ 		\begin{pmatrix}
+ 			\Idm_{k'}& 0 &0\\
+ 			0& -\Idm_{l'}&0\\
+ 			0&0&0_{n-k'-l'}
+ 		\end{pmatrix}
+ 	\end{align*}
+ 	then $k=k'$, $l=l'$ and $\rank(A)=k+l.$
+ \end{theorem}
