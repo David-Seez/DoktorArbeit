@@ -5,11 +5,11 @@ In this chapter, we establish the necessary background in the theory of vector b
 \subsection{Differentiable Structures on Topological Manifolds}
 We begin by defining a topological manifold. Afterwards, we equip that space with with increasingly more structure and hence reduce the generality until we arrive at the playground of the thesis: 
 
-\begin{definition}[Topological Manifold] \label{def: Vector Bundles and Riemannian Geometry- Topological Manifold}
+\begin{definition}[Topological Manifold] \label{def:vb-topologicalManifold}
 	A second countable Hausdorff space $M$ is called a \textbf{topological manifold} of dimension $m\in \N$, if it is locally homeomorphic to $\R^m$. To be precise, for all $p\in M$ there exists an open neighbourhood $U\subseteq M$ of $p$, an open set $V\subseteq \R^m$  and a map $\phi:W\to V$ that is a homeomorphism. We call the map $\phi:U\to V$ a \textbf{chart around $p$ on $M$}, and $\phi^{-1}$ a \textbf{local coordinate system around $p$ on $M$}.
 \end{definition}
 
-\begin{definition}[Differentiable Manifold] \label{def: Vector Bundles and Riemannian Geometry- Differentiable Manifold}
+\begin{definition}[Differentiable Manifold] \label{def:vb-differentiableManifold}
 	Let $M$ be a topological manifold of dimension $m$. 
 	\begin{enumerate}
 		\item A \textbf{differentiable atlas of class} $r\in \N\cup\{\infty\}$ is a family of charts $\mathfrak{A}=\left( \phi_i:U_i \to V_i\right)_{i\in I}$ such that
@@ -34,7 +34,7 @@ We begin by defining a topological manifold. Afterwards, we equip that space wit
 	Every transition function $\phi_{ij}$, $i,j\in I^2$ of a differentiable atlas $\mathfrak{A}=(\phi_i)_{i\in I}$ is not merely a homeomorphism but also a diffeomorphism. This follows from the fact that $\phi_{ij}^{-1}=\phi_{ji}$ which provides smooth inverses.
 \end{corollary}
 
-\begin{definition}[Smooth Functions] \label{def: Vector Bundles and Riemannian Geometry-smooth functions}
+\begin{definition}[Smooth Functions] \label{def:vb-smoothFunctions}
 	Let $(M,c)$ be a differentiable manifold of class $r$ and $U\subseteq M$ open. We call a continuous function 
 	\begin{align*}
 		f:U \to \R
@@ -108,7 +108,7 @@ This is a good point to take a break from smooth manifolds and introduce the str
 
 Analogously to the definition of a smiith manifold, we start by defining families of vector spaces and equip them with increasingly more structure:
 
-\begin{definition}[Family of Vector Spaces] \label{def: Vector Bundles and Riemannian Geometry-Familiy of vector spaces}
+\begin{definition}[Family of Vector Spaces] \label{def:vb-familiyOfVectorSpaces}
 	Let $X$ be a topological space. A \textbf{family of vector spaces over $X$} is a topological space $E$ equipped with :
 	\begin{enumerate}[(i)]
 		\item a continuous function $\pi: E \to X$,
@@ -125,17 +125,17 @@ By locality of the definition, for all open $U\subseteq X$ the restriction $\res
 
 
 
-\begin{definition}[Pullback of a Family of Vector Spaces] \label{def: Vector Bundles and Riemannian Geometry-Pullback of a family of vector spaces}
+\begin{definition}[Pullback of a Family of Vector Spaces] \label{def:vb-pullbackOfAFamilyOfVectorSpaces}
 	Let $\pi:E\to Y$ be a family of vector spaces, $X$ a topological space and $f:X\to Y  $ a continuous function. Then we define the pullback of the family $f^*{\pi}:f^*(E) \to X$ as follows: 
 	The total space $f^*(E)$ is defined as the subspace of $(x,e)\in X\times E$ such that $f(x)=\pi(e)$, and the map $f^*{\pi}$ is the projection to the second factor restricted to said subspace.
 \end{definition}
-\begin{corollary} \label{cor: Vector Bundles and Riemannian Geometry-pullback is functoriell}
+\begin{corollary} \label{cor:vb-pullbackIsFunctoriell}
 	Let $f: X\to Y$ and  $g:Y\to Z$ be continouos. Then there is a natural isomorphism $$g^*f^*(E)\cong (g\circ f)^*(E).$$ 
 \end{corollary}
-\begin{definition}[Trivial Bundle]\label{def: Vector Bundles and Riemannian Geometry-Trivial bundle}
+\begin{definition}[Trivial Bundle]\label{def:vb-trivialBundle}
 	If a family $\pi: E \to X$ is isomorphic to a product family $\tilde{\pi}:X\times V\to X$ we call it a \textbf{trivial family}.
 \end{definition}
-\begin{definition}[Vector Bundle]\label{def: Vector Bundles and Riemannian Geometry-Vector bundle}
+\begin{definition}[Vector Bundle]\label{def:vb-vectorBundle}
 	If for every $x\in X$ there is a neighborhood $U$ containing $x$ such that $\restr{E}{U}:=i^*(E)$, where $i:U\hookrightarrow X$ is the inclusion, is trivial, we call the family a \textbf{vector bundle}. Moreover, for any continuous map $f:Y\to X$, the pullback $f^*(E)$ is again a vector bundle.  
 \end{definition}
 \begin{remark}
@@ -193,7 +193,7 @@ Henceforth we suppress the differentiable structure from the notation.
 A smooth vector bundle is a smooth manifold and also a vector bundle. The latter is ensured by the codomain of $g_{i,j}$ which is also called the \textbf{structure group}. We can enforce structure on the bundle by reducing the structure group. As a preview: reducing it to $\GL^+(k,\R)$ the linear maps with positive determinant means that we can induce the concept of orientations. Reducing it to $\O(k)$ lets us equip it with a Riemannian metric. 
 \end{corollary}
 
-\begin{definition}\label{def: Vector Bundles and Riemannian Geometry-Frames from trivialisations}
+\begin{definition}\label{def:vb-framesFromTrivialisations}
 Let $\pi:E\to M$ be a smooth vector bundle of rank $r$ and let 
 \begin{equation*}
 	\Phi: \pi^{-1}(U) \to U\times \R^r
@@ -222,7 +222,7 @@ The local trivialisations $\partial_i$ of the tangent bundle of a smooth manifol
 	\end{enumerate} 
 \end{definition}
 
-\begin{definition}[Homomorphism Bundle]\label{def: Vector Bundles and Riemannian Geometry-Homomorphism Bundle}
+\begin{definition}[Homomorphism Bundle]\label{def:vb-homomorphismBundle}
 	Let $W,V$ be vector spaces and $E=V\times X$, $F=W\times X$ the product bundles over $X$. Now any bundle homomorphism $\phi:E\to F$ determines a map $\Phi:X\to \hom(V, W)$ by sending $x\mapsto \phi_x$. With respect to the compact-open topology, this $\Phi$ is continuous. Furthermore, a continuous map $\Phi:X \to \hom(V,W)$ determines a bundle homomorphism $\phi:E\to F$.
 \end{definition}
 
@@ -232,7 +232,7 @@ The local trivialisations $\partial_i$ of the tangent bundle of a smooth manifol
 		\Phi(x)e_i=\sum_j\Phi(x)_{i,j}f_j\,.
 	\end{equation*} Now $\Phi$ is continuous if and only if $\Phi_{i,j}$ is continuous. Since $\phi(x,v)=(x,\Phi(x)v)$ this is equivalent to $\phi$ being continuous. 
 \end{proof}
-\begin{lemma}[Isomorphic Vector Bundles]\label{thm: Vector Bundles and Riemannian Geometry-Isomorphic vector-bundles}
+\begin{lemma}[Isomorphic Vector Bundles]\label{thm:vb-isomorphicVectorBundles}
 	Let $E$ and $F$ be vector bundles and $\phi:E\to F$ be a homomorphism. Then $\phi$ is an isomorphism if and only if all $\phi_x$ are isomorphisms. 
 \end{lemma}
 \begin{proof}
@@ -251,7 +251,7 @@ Now we want to construct new bundles from old ones. There are many operations to
 	\end{equation*} 
 \end{definition}
 Now we want to equip this with a topology such that $T(E)$ is a bundle over the same base space as $E$.
-\begin{definition}[Constructing new bundles]\label{def: Constructing new bundles}
+\begin{definition}[Constructing new bundles]\label{def:vb-constructingNewBundles}
 	We start by assuming that $E = X\times V$. In that case we define the topology on $T(E)$ as the product topology $X\times T(V)$. Now suppose that $F = X \times W$ is another product bundle and $f:E\to F$ is a homomorphism. Let $\Phi: X \to \hom(V,W)$ be the corresponding map. Then $T\Phi: X\to \hom(T(V),T(W))$ is continuous by assumption. Thereby, $T(\phi):X\times T(V)\to X\times T(W)$ is continuous. If $\phi$ is an isomorphism, then $T(\phi)$ is also an isomorphism. That follows because it is continuous and an isomorphism fibrewise.
 	
 	Now assume that $E$ is trivial. Then we can choose an isomorphism $\alpha: E\to X\times V$ and induce a topology on $T(E)$ by pulling it back via $T(\alpha) : T(E) \to X\times T(V)$. This topology does not depend on $\alpha$ by the above. 
@@ -279,7 +279,7 @@ Now we want to equip this with a topology such that $T(E)$ is a bundle over the 
 	\end{enumerate}
 	
 	
-	\begin{corollary}\label{cor: sections into hom(E,F) = hom(E,F)}
+	\begin{corollary}\label{cor:vb-sectionsIntoHom}
 		Let $\pi_E:E\to X$ and $\pi_F:F\to X$ be two vector bundles over $X$.
 		 Then, the space $\Gamma \left(\Hom(E,F)\right)$ can be identified with the space of bundle morphisms $\hom(E,F)$ since for any section $s:X\to \Hom(E,F)$ we can define the bundle homomorphism $\tilde{s}:E\to F$ by sending $v\mapsto s_{\pi_E(v)}(v)$. 
 		 This is a homomorphism since $\pi_F\left( \tilde{s}(v)\right)=\pi_E(v)$\,. 
@@ -289,7 +289,7 @@ Now we want to equip this with a topology such that $T(E)$ is a bundle over the 
 	\end{example} 
 	
 	
-	\begin{definition}\label{def: Vector Bundles and Riemannian Geometry- Linear identification}
+	\begin{definition}\label{def:vb-linearIdentification}
 	Let $V$ be a linear manifold (i.e. a finite-dimensional vector space). Then for any $v\in V$ we have the canonical maps
 	\begin{align*}
 		R_v:V&\to T_vV\,\\
@@ -320,7 +320,7 @@ Now we want to equip this with a topology such that $T(E)$ is a bundle over the 
 	\end{equation*}
 \end{definition}
 
-	\begin{corollary}\label{cor: Vector Bundles and Riemannian Geometry- vector fields take functions}
+	\begin{corollary}\label{cor:vb-vectorFieldsTakeFunctions}
 		Let $f:M\to \R$ be smooth. Then we can interpret $\diff f$ as a one-form. To be precise, let $Q : T\R\to \R$ denote the linear identification with respect to the identity on $\R$. For $v\in \Gamma( TM)$ we have
 		\begin{align*}
 			(Q\circ \diff f)(v)=v(f)
@@ -353,7 +353,7 @@ Now we want to equip this with a topology such that $T(E)$ is a bundle over the 
 	To be precise: A Riemannian metric $g$ lets us canonically choose an atlas with structure group $\O(m)$ and an atlas with such a structure group lets us canonically choose a Riemannian metric. 
 \end{remark}
 \begin{proof}
-	We start by assuming that we have an atlas with structure group $\O(m)$. In Definition \ref{def: Vector Bundles and Riemannian Geometry-Frames from trivialisations} we saw that a covering of local trivializations is equivalent to a covering of smooth frames. Now in a single trivialization 
+	We start by assuming that we have an atlas with structure group $\O(m)$. In Definition \ref{def:vb-framesFromTrivialisations} we saw that a covering of local trivializations is equivalent to a covering of smooth frames. Now in a single trivialization 
 	\begin{equation*}
 		\Phi: \pi^{-1}(U)\eqcolon TU \to U\times \R^m
 	\end{equation*} we call the projection to the $\R^m$-part (the second factor) $\pi_2$ and define 
@@ -380,7 +380,7 @@ To get an orthonormal atlas from a smooth one given a Riemannian metric, we star
 		 Q\circ \diff f (V) = g(\grad(f),V) \, .
 	\end{align*} Notice how the non-degeneracy of $g$ ensures existence and uniqueness. 
 \end{definition}
-\begin{definition}\label{def: local description of gradient gij}
+\begin{definition}\label{def:vb-localDescriptionOfGradientGij}
 	Let $(M,g)$ be a Riemannian manifold and $\phi:U\to V$ be a chart. We define the smooth functions $g_{ij}:U\to \R$ to be:
 	\begin{align*}
 		g_{ij}(p)=g_p(\partial_i(p),\partial_j(p)) \, .
@@ -400,7 +400,7 @@ To get an orthonormal atlas from a smooth one given a Riemannian metric, we star
 
 
 
-\begin{lemma}[Local Description of the Gradient]\label{lem: Vector Bundles and Riemannian Geometry-Local description of the Gradient}
+\begin{lemma}[Local Description of the Gradient]\label{lem:vb-localDescriptionOfGradient}
 	Let $(M,g)$ be a smooth Riemaniannian manifold of dimension $m$ and $\phi:U\to V$ be a chart. Then the gradient has the local form:
 	\begin{align*}
 		\grad(f) =\sum_{i,j}g^{ij}  \left(\partial_i (f) \right)\cdot  \partial_j \, .
@@ -408,7 +408,7 @@ To get an orthonormal atlas from a smooth one given a Riemannian metric, we star
 \end{lemma}
 
 \begin{proof} Assume that $v,w\in \Gamma( TU)$ such that $v=\sum_i v_i\partial_i$ and $w=\sum_i w_i\partial _i$ (Here $v_i$ and $w_i$ are smooth functions $U\to \R$). Then  $g(v,w)=\sum_{i,j} g_{ij} v_i w_j$.
-	Suppose that $\grad(f)=\sum_j G^j \partial_j$ and $Q$ is the linear identification $T\R\to \R$ in each tangent space. Then by definition of the gradient and corollary \ref{cor: Vector Bundles and Riemannian Geometry- vector fields take functions} we have:
+	Suppose that $\grad(f)=\sum_j G^j \partial_j$ and $Q$ is the linear identification $T\R\to \R$ in each tangent space. Then by definition of the gradient and corollary \ref{cor:vb-vectorFieldsTakeFunctions} we have:
 	\begin{align*}
 		\partial_j(f)=	Q \circ \diff f (\partial_j)= g(\grad(f),\partial_j)= g(\sum_i G^i \partial_i,\partial_j)=\sum_{i}g_{ij} G^i
 	\end{align*} Reading this as a pointwise matrix product:
@@ -457,7 +457,7 @@ To get an orthonormal atlas from a smooth one given a Riemannian metric, we star
 	Regarding the left-hand side of the definition $\diff \phi \left(\partial_t(t,x )\right)$ we could also differentiate the map 
 	\begin{equation*}
 		t \mapsto \phi_t(x)\,,
-	\end{equation*} for fixed $x$ at $t$ and evaluate this at the constant vector field $t\mapsto R_t(1)\in T_t \R$ from definition \ref{def: Vector Bundles and Riemannian Geometry- Linear identification}. 
+	\end{equation*} for fixed $x$ at $t$ and evaluate this at the constant vector field $t\mapsto R_t(1)\in T_t \R$ from definition \ref{def:vb-linearIdentification}. 
 \end{remark}
 These two constructions are mutually inverse, giving the following theorem:
 \begin{theorem}

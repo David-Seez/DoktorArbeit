@@ -14,7 +14,7 @@ $\diff f _p=0$  is called \textbf{critical}. By $\Crit (f)$ we denote the \textb
 	\end{equation*}  that is defined as follows. Let $\xi_p, \zeta_p\in T_pM$ be two tangent vectors. Now choose two vector fields $\Xi$ and $Z$ in a neighbourhood of $p$ such that $\Xi(p)=\xi_p$ and $Z(p)=\zeta_p$. We then define the Hessian to be: 
 	\begin{equation*}
 		\Hess_p(f)(\xi_p,\zeta_p)=\Xi \left(Z (f)\right)(p)
-	\end{equation*} See \ref{cor: Vector Bundles and Riemannian Geometry- vector fields take functions} for the notation of applying a function to a vector field. In corollary \ref{cor: local form of the Hessian} we will give a local description telling us that this definition is well defined, meaning independent of the Extensions $\Xi$ and $Z$.  
+	\end{equation*} See \ref{cor:vb-vectorFieldsTakeFunctions} for the notation of applying a function to a vector field. In corollary \ref{cor:morse-localHessian} we will give a local description telling us that this definition is well defined, meaning independent of the Extensions $\Xi$ and $Z$.  
 \end{definition}
 \begin{definition}
 	A smooth function $f: M\to \R$ is called \textbf{Morse}, if for any critical point, the Hessian is a symmetric bilinear and non-degenerate form.
@@ -23,12 +23,12 @@ $\diff f _p=0$  is called \textbf{critical}. By $\Crit (f)$ we denote the \textb
  \begin{theorem}[Sylvester's Law of Inertia]
  	Let $A\in \Mat(n,\R)$ be symmetric and let $T,T'\in \GL(n,\R)$ and $k,k',l,l'\in \N$ such that:
  	\begin{align*}
- 		T^\top\circ A\circ T=	\begin{pmatrix}
+ 		T^\top \circ A\circ T=	\begin{pmatrix}
  			\Idm_k& 0 &0\\
  			0& -\Idm_l&0\\
  			0&0&0_{n-k-l}
  		\end{pmatrix}\text{ and } 
- 		T'^\top\circ A \circ T'=
+ 		T'^\top \circ A \circ T'=
  		\begin{pmatrix}
  			\Idm_{k'}& 0 &0\\
  			0& -\Idm_{l'}&0\\
@@ -37,3 +37,67 @@ $\diff f _p=0$  is called \textbf{critical}. By $\Crit (f)$ we denote the \textb
  	\end{align*}
  	then $k=k'$, $l=l'$ and $\rank(A)=k+l.$
  \end{theorem}
+ 
+ \begin{proof}
+ 	Since $T,T'$ are invertible we have that
+ 	\begin{align}
+ 		k+l=\rank(T^\top \circ A\circ T)=\rank(A)=\rank(T'^\top \circ A\circ T')=k'+l' \, .
+ 	\end{align} Hence it suffices to show that $k=k'$. Which we will do by proving the claim:
+ 	\begin{equation*}
+ 		k=\max \left\{ \dim(U)|U\subseteq \R^n \text{subspace such that } x^\top Ax>0 ~\forall x\in U\setminus \{0\}  \right\}
+ 	\end{equation*}
+ 	So we start by showing \enquote{$\leq$} :
+ 	Denote the first $k$ columns of $T$ with $x_1,...,x_k$. They form a basis of the subspace $\R^k\subseteq \R^n$ and with $ 0 \neq x=\sum_{i=1}^k\lambda_i x_i$ we have that by bilinearity
+ 	\begin{equation}
+ 		x^\top Ax=\sum_{i=1}^{k}\lambda_i x_i^\top A x=\sum_{i,j=1}^{k}\lambda_i \lambda_j x_i^\top A x_j=\sum_{i=1}^{k}(\lambda_i)^2\geq 0 \,. 
+ 	\end{equation} This concludes the first inequality. 
+ 	
+ 	Now let $U$ be any $k$-dimensional subspace such that for all non zero $x\in U$, $x^\top Ax>0$. By a calculation analogous to the one above we have that for any $x\in W:= \gen (x_{k+1},\dots, x_n)$ the number $x^\top Ax$ is less than or equal to zero. Hence, $W\cap U= \{0\}$ and with this we conclude:
+ 	\begin{equation}
+ 		\dim(U)=\dim(U+W)-\dim(W)+\dim(U\cap W)\leq (k+(n-k))-(n-k)+0=k\, .
+ 	\end{equation} This completes the proof.
+ \end{proof}
+ 
+ \begin{corollary}\label{cor:morse-localHessian}
+ 	Let $\phi:U\to V$ be a  chart around a critical point $p\in M$. Then in said chart the matrix corresponding to the Hessian has the form:
+ 	\begin{equation*}
+ 		M_p(f)=\left(\frac{\partial^2 (f\circ \phi^{-1})}{\partial x_i\partial x_j}\right)_{i,j}
+ 	\end{equation*}
+ \end{corollary}
+ \begin{proof}
+ 	This follows by direct calculation of $\Hess_p(f)\left(\partial_i(p),\partial_j(p)\right)$. Denote $x\coloneq \phi(p)$, then:
+ 	\begin{align*}
+ 		\left(\partial_i(p)\left(\partial_j(f)\right)_p\right)
+ 		&=\left(\partial_i(p)
+ 			\left(
+ 				p\mapsto \restr{\frac{\partial f\circ \phi^{-1}}{\partial  x_j}}{\phi(p)}\right)_p
+ 			\right)\\
+ 		&=\restr{
+ 			\frac{\partial}{\partial x_i}
+ 				\left(
+ 				y \mapsto \restr{\frac{\partial f\circ \phi^{-1}}{\partial  x_j}}{y}
+ 				\right)
+ 			}{x}\\
+ 		&=\frac{\partial^2 (f\circ \phi^{-1})}{\partial x_i\partial x_j}\,.
+ 	\end{align*}
+ \end{proof}
+\begin{remark}
+	 If we have two different charts, then the matrix $M_p(f)$ of the Hessian transforms from one basis to the other via conjugation of the differential of the transition function $\phi_{12}\coloneq \phi_1 \circ \phi_2^{-1}$:
+	\begin{equation*}
+		M_p^1(f)=(\diff \phi_{12})^\top  \cdot   M_p^2(f)   \cdot   \diff \phi_{12}
+	\end{equation*} Hence we can define the following:
+\end{remark}
+
+\begin{definition}
+	By Sylvester's Law of intertia, the number $l$ that denotes the dimension of the maximal subspace on which a matrix is negative definite, is an invariant under conjugation. We call that number the index of said matrix. Now in the setting of Morse theory we assign to each critical point $p$ the index of $M_p(f)$ and call that the \textbf{(Morse-)index} of $p$, denoted by $\lambda_p$. If omitting the function would cause ambiguity, we write $\lambda^f_p$. We denote the set of all critical points of index $k$ by $\Crit_k(f)$.
+\end{definition}
+
+\begin{theorem}[Morse Lemma]\label{thm:morse-morseLemma}
+	Let $p$ be a critical point of index $k$ of the Morse function $f:M\to \R$. There exists a centered chart $\phi:U\to \R^m$ arround $p$ such that 
+	\begin{equation*}
+		(f\circ \phi^{-1})(x_1,\dots, x_m)=f(p)+\sum_{i=1}^{k}-x_i^2+\sum_{i=k+1}^{m}x_i^2 \,.
+	\end{equation*}
+\end{theorem}
+\begin{proof}
+	We refer to Lemma 3.11 in \cite{banyaga2004lectures} for a proof. 
+\end{proof}
