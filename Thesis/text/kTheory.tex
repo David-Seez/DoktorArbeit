@@ -1,0 +1,41 @@
+\section{Complex K Theory}
+\subsection{Mathmatical Goals}
+
+\begin{theorem}[The Theorems and Mathematical Structures]
+	
+	\begin{itemize}
+		\item Definition of The K- Functor 
+		\item Cohomology strucures
+			\begin{itemize}
+				\item Additivity (pointed sum)
+				\item Long exact sequences
+				\item Excision
+			\end{itemize}
+	\end{itemize}
+\end{theorem}
+Bevore we go back to the analytical reals, we will further develop the theory of vector bundles. We start by defining properties of maps between bundles: 
+
+\begin{definition}[Mono- and Epimorphisms]
+	A bundle morphism $\phi: E \to F$ between two bundles over the same base space is called a \textbf{monomorphism} if all $\phi_x:E_x\to F_{x}$ are monomrophisms. Similar, if all $\phi_x$ are epimorphisms, $\phi$ is called an \textbf{epimorphism}.
+\end{definition}
+\begin{definition}[Subbundles]
+	Let $\pi: E\to X$ be a bundle. A subset $F\subseteq E$ is a \textbf{sub-bundle} of $E$, if the restriction of $\pi$ 
+	\begin{equation*}
+		\restr{\pi}{F}:F\to X
+	\end{equation*} together with the subspace topology and the vectorspace structure from $E$ is a vector bundle.
+\end{definition}
+\begin{corollary}
+	If $F$ is a sub-bundle of $E$, then the inclusion $i:E\to F$ is a monomorphism.
+\end{corollary}
+\begin{lemma}
+	If $\phi:E\to F$ is a monomorphism of bundles, then $\phi(E)$ is a subbundle of $E$ and $\phi: E\to \phi(E)$ is an isomorphism of vecor bundles.
+\end{lemma}
+\begin{proof}
+	 $\phi(E)$ is a sub-bundle since the vectorspace structure of $\phi(E)$ induced from $\phi$ and as a subspace are the same. Hence the local trivializations from $E$ desent to tlocal trivializations of $\phi(E)$. 
+\begin{align*}
+	\theta: E\oplus G 	&\to 		F\\
+	(a,b)				&\mapsto	\phi(a)+i(b)\text{ where $i$ denotes the inclusion of $G$ into $F$.}
+\end{align*}	
+	This bundle map is fiberwise an isomorphism and hence a bundle isomorphism. 
+	To show that $\phi$ is an isomorphism by lemma \ref{thm:vb-isomorphicVectorBundles} it suffices to show that $\phi_x$ is a vectorspace isomorphism in all fibers. 
+\end{proof}

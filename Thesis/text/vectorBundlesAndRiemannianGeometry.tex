@@ -123,6 +123,18 @@ Analogously to the definition of a smiith manifold, we start by defining familie
 By locality of the definition, for all open $U\subseteq X$ the restriction $\restr{\pi}{U}:\pi^{-1}(U)\to U$ defines a new family of vector spaces. With this we can also have sections of the restriced bundle and the collection f those is denoted by $\Gamma(U)$
 \end{remark}
 
+\begin{definition}[Homomorphism of families of vector spaces]\label{def:vb-homomorphismOfFamiliesOfVectorSpaces}
+	A \textbf{homomorphism} form one family $\pi:E\to X$ to another family $\Tilde{\pi}:F \to X$ with the same base space is a continuous map $\phi: E\to F$ such that:
+	\begin{enumerate}[(i)]
+		\item $\Tilde{\pi}\phi=\pi$, i.e. 
+		\begin{tikzcd}
+			E \arrow[d, "\pi"] \arrow[r, "\phi"] & F \arrow[ld, "\Tilde{\pi}"] \\
+			x                                    &                            
+		\end{tikzcd}
+		\item for each $x\in X$ $\phi_x:E_x\to F_x$ is linear w.r.t. the vector space structure. 
+	\end{enumerate} In the case that $\phi$ is bijective (and thereby a point-wise vector space isomorphism) and has an continuous inverse we call it an \textbf{isomorphism} and call $E$ and $F$ isomorphic. 
+\end{definition}
+
 
 
 \begin{definition}[Pullback of a Family of Vector Spaces] \label{def:vb-pullbackOfAFamilyOfVectorSpaces}
@@ -133,7 +145,7 @@ By locality of the definition, for all open $U\subseteq X$ the restriction $\res
 	Let $f: X\to Y$ and  $g:Y\to Z$ be continouos. Then there is a natural isomorphism $$g^*f^*(E)\cong (g\circ f)^*(E).$$ 
 \end{corollary}
 \begin{definition}[Trivial Bundle]\label{def:vb-trivialBundle}
-	If a family $\pi: E \to X$ is isomorphic to a product family $\tilde{\pi}:X\times V\to X$ we call it a \textbf{trivial family}.
+	If a family $\pi: E \to X$ is isomorphic to a product family $\tilde{\pi}:X\times V\to X$ (i.e. there exists an invertible homomorphism of families of vector spaces), we call it a \textbf{trivial family}.
 \end{definition}
 \begin{definition}[Vector Bundle]\label{def:vb-vectorBundle}
 	If for every $x\in X$ there is a neighborhood $U$ containing $x$ such that $\restr{E}{U}:=i^*(E)$, where $i:U\hookrightarrow X$ is the inclusion, is trivial, we call the family a \textbf{vector bundle}. Moreover, for any continuous map $f:Y\to X$, the pullback $f^*(E)$ is again a vector bundle.  
