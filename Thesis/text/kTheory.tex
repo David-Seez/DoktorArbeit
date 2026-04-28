@@ -13,29 +13,53 @@
 			\end{itemize}
 	\end{itemize}
 \end{theorem}
-Bevore we go back to the analytical reals, we will further develop the theory of vector bundles. We start by defining properties of maps between bundles: 
-
-\begin{definition}[Mono- and Epimorphisms]
-	A bundle morphism $\phi: E \to F$ between two bundles over the same base space is called a \textbf{monomorphism} if all $\phi_x:E_x\to F_{x}$ are monomrophisms. Similar, if all $\phi_x$ are epimorphisms, $\phi$ is called an \textbf{epimorphism}.
+Before we go back to the analytical reals, we will further develop the theory of vector bundles:
+\begin{definition}
+	For a topological space $X$ we define $\Vect(X)$ to be the set of isomorphism classes of complex vector bundles and by declaring $\Vect(f)=f^*$ to be the pullback we get a contravariant functor $\Vect$ from $\Top$ to $\Set$. We can equip the set $\Vect(X)$ with the direct sum and tensor product operation. It is then easy to see that these operations descend to isomorphism classes and hence we get an abelian semi ring $(\Vect(X),\oplus,\otimes)$ (abelian semigroup with associative and distributive multiplication). In fact we even get a contravariant functor from $\Top$ to the category of abelian semirings.
 \end{definition}
-\begin{definition}[Subbundles]
-	Let $\pi: E\to X$ be a bundle. A subset $F\subseteq E$ is a \textbf{sub-bundle} of $E$, if the restriction of $\pi$ 
+\begin{theorem}[Homotopy Invariance]\label{thm:kTheo-homotopyInvariance}
+	Let $X,Y$ be compact Hausdorff spaces, $I=[0,1]$, and 
 	\begin{equation*}
-		\restr{\pi}{F}:F\to X
-	\end{equation*} together with the subspace topology and the vectorspace structure from $E$ is a vector bundle.
-\end{definition}
-\begin{corollary}
-	If $F$ is a sub-bundle of $E$, then the inclusion $i:E\to F$ is a monomorphism.
-\end{corollary}
-\begin{lemma}
-	If $\phi:E\to F$ is a monomorphism of bundles, then $\phi(E)$ is a subbundle of $E$ and $\phi: E\to \phi(E)$ is an isomorphism of vecor bundles.
-\end{lemma}
+		f: Y\times I\to X
+	\end{equation*} be a homotopy. For a fixed $t\in I$, we define the function $f_t:Y\to X$, $f_t(y)=f(t,y)$. Let $\pi: E\to X$ be a vector bundle. Then 
+	\begin{equation*}
+		f_0^*(E)\cong f_1^*(E)\,.
+	\end{equation*}
+\end{theorem}
 \begin{proof}
-	 $\phi(E)$ is a sub-bundle since the vectorspace structure of $\phi(E)$ induced from $\phi$ and as a subspace are the same. Hence the local trivializations from $E$ desent to tlocal trivializations of $\phi(E)$. 
-\begin{align*}
-	\theta: E\oplus G 	&\to 		F\\
-	(a,b)				&\mapsto	\phi(a)+i(b)\text{ where $i$ denotes the inclusion of $G$ into $F$.}
-\end{align*}	
-	This bundle map is fiberwise an isomorphism and hence a bundle isomorphism. 
-	To show that $\phi$ is an isomorphism by lemma \ref{thm:vb-isomorphicVectorBundles} it suffices to show that $\phi_x$ is a vectorspace isomorphism in all fibers. 
+	Consider the following two vector bundles over $Y\times I$:
+	\begin{equation*}
+		f^*E \quad \text{and} \quad \pi_1^*f_t^*E \,,
+	\end{equation*}where $\pi_1:Y\times I\to Y$ denotes the projection and $t\in I$. 
+Since the restriction is by definition the pullback along the inclusion 
+$	i:Y\times \{t\}\to Y\times I\,.$ The equality of the two maps:
+\begin{equation*}
+	f\circ i = f_t \circ \pi_1 \circ i :Y\times\{t\} \to X\,
+\end{equation*} together with the functoriality gives us an isomorphism 
+\begin{equation*}
+\Phi:	\restr{f^*E}{Y\times\{t\}} \to \restr{\pi_1^*f_t^*E}{Y\times\{t\}}\,.
+\end{equation*}
+By corollary \ref{cor:vb-sectionsIntoHom} we can identify $\Phi$ with a local section over $Y\times\{t\}\subseteq Y\times I$ into the bundle $\Hom(f^*,\pi_1^*f_t^*E)$. By Tietze's extension theorem we can extend this section and with a partition of unity stitch it together to get a global section $\phi \in  \Gamma(\Hom(f^*E,\pi_1^*f_t^*E)) $. Define $U$ to be the subset of $Y\times I$ where $\phi(u)$ is an isomorphism. Notice that $U$ is open since being an isomorphism is an open condition and $U$ contains $Y\times \{t\}$. By the openness we can extend $\Phi$ to be an isomorphism for some open neighbourhood of $Y\times \{t\}$ and by the product topology we can deduce that there exists a $\delta_t$ such that $U$ contains the thickened line $Y\times (t-\delta_t,t+\delta_t) $. The isomorphism class of $\restr{f^*E}{Y\times \{t\}}$ as a bundle over $Y$ is locally constant in $t$: Let $0<\epsilon<\delta$ and $r\in I$. Then define the inclusions
+	\begin{equation*}
+			\begin{array}{rl}
+				i_t: Y&\to Y\times \{t\}\subseteq Y\times I \\
+				y &\mapsto (y,t)
+			\end{array}
+		\quad\quad \text{and}\quad \quad
+			\begin{array}{rl}
+				i_{t+\epsilon}:Y&\to Y\times (t-\delta_t,t+\delta_t)\\
+				y &\mapsto (y,t+\epsilon)
+			\end{array}
+	\end{equation*} Then we have the identities $f_t=f\circ i_t$ and $\pi_1\circ i_{t+\epsilon}=\id_Y$ and we can calculate:
+	\begin{equation*}
+		f^*_{t+\epsilon}E=i_{t+\epsilon}^*f^*E=i_{t+\epsilon}^*\pi_1^*f_t^*E=(f_t\circ \pi_1\circ i_{t+\epsilon})^*E=f_t^*E\,.
+	\end{equation*} Finally, since $I$ is connected, any locally constant map from $I$ is globally constant and therefore $f_0^*E\cong f_1^*E$.
 \end{proof}
+
+\begin{corollary}\label{lem:kTheo-contractibleBundlesAreTivial}
+	\begin{enumerate}
+		\item If $f:X\to Y$ is a homotopy equivalence, $f^*:\vect(Y)\to \vect(X)$ is a semiring isomorphism.
+		\item If $X$ is contractible, every bundle over $X$ is trivial and $\vect(X)\cong \N_0$
+	\end{enumerate}
+\end{corollary}
+
