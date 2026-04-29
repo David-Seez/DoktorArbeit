@@ -13,11 +13,14 @@
 			\end{itemize}
 	\end{itemize}
 \end{theorem}
+\subsection{Classification of Vector Bundles}
+The first goal is to classify all vector bundles over sufficiently nice spaces. The latter refers to spaces admitting partitions of unity for which Tietze's extension theorem holds. For simplicity we just consider compact Hausdorff spaces. Along the way we will discover that the set of isomorphism classes of vector bundles is a homotopy invariance.
+
 Before we go back to the analytical reals, we will further develop the theory of vector bundles:
 \begin{definition}
 	For a topological space $X$ we define $\Vect(X)$ to be the set of isomorphism classes of complex vector bundles and by declaring $\Vect(f)=f^*$ to be the pullback we get a contravariant functor $\Vect$ from $\Top$ to $\Set$. We can equip the set $\Vect(X)$ with the direct sum and tensor product operation. It is then easy to see that these operations descend to isomorphism classes and hence we get an abelian semi ring $(\Vect(X),\oplus,\otimes)$ (abelian semigroup with associative and distributive multiplication). In fact we even get a contravariant functor from $\Top$ to the category of abelian semirings.
 \end{definition}
-\begin{theorem}[Homotopy Invariance]\label{thm:kTheo-homotopyInvariance}
+\begin{theorem}[Homotopy Invariance of the Pullback]\label{thm:kTheo-homotopyInvariance}
 	Let $X,Y$ be compact Hausdorff spaces, $I=[0,1]$, and 
 	\begin{equation*}
 		f: Y\times I\to X
@@ -56,10 +59,94 @@ By corollary \ref{cor:vb-sectionsIntoHom} we can identify $\Phi$ with a local se
 	\end{equation*} Finally, since $I$ is connected, any locally constant map from $I$ is globally constant and therefore $f_0^*E\cong f_1^*E$.
 \end{proof}
 
-\begin{corollary}\label{lem:kTheo-contractibleBundlesAreTivial}
+\begin{corollary}
+		\label{lem:kTheo-contractibleBundlesAreTivial}
 	\begin{enumerate}
 		\item If $f:X\to Y$ is a homotopy equivalence, $f^*:\vect(Y)\to \vect(X)$ is a semiring isomorphism.
 		\item If $X$ is contractible, every bundle over $X$ is trivial and $\vect(X)\cong \N_0$
 	\end{enumerate}
 \end{corollary}
 
+\begin{definition}[Trivialization of a Vector Bundle]
+		\label{def:kTheo-trivialization}
+	Let $Y$ be a closed subspace of $X$, $E$ a vector bundle over $X$ and $\alpha:\restr{E}{Y}\to Y\times V$ be an isomorphism. Then we call $\alpha$ \textbf{trivialisation of $E$ over $Y$}.
+\end{definition} 
+
+
+
+\begin{lemma}\label{lem:kTheo-trivialisationDefinesABundle}
+	A trivialization $\alpha$ of a bundle $E$ over $Y\subseteq X$ defines a bundle $E\big/ \alpha$ over $X\big/ Y$. The isomorphism class of $E\big/ \alpha$ depends only on the homotopy class of $\alpha$. 
+\end{lemma}
+\begin{proof}
+	We define the bundle $E/ \alpha $ as follows: Let $\pi_2: Y \times V \to V$ denote the projection and define an equivalence relation on $\restr{E}{Y}$ by 
+	\begin{equation*}
+		e\sim e' ~ \Leftrightarrow \pi_2 \alpha (e) =\pi_2 \alpha (e') \, .
+	\end{equation*} We extend this relation by the identity on $\restr{E}{X\setminus Y}$ and we define $E\big/\alpha$ to denote the quotient space of $E$ defined by that relation.
+	To see why this is a bundle we need to check the local triviality only around the base point $Y \big/ Y$ of $X \big/ Y$. This follows from the fact that we can extend $\alpha$ to an isomorphism $\Tilde{\alpha}:\restr{E}{U}\to U \times V$ by identifying $\alpha$ with a section into the $\Hom$-bundle. Analogously to the proof of homotopy invariance we can extend said section and since isomorphisms are open in the homomorphisms $\alpha$ extends to an isomorphism on some open neighbourhood $U$ of $Y$ . Then $\Tilde{\alpha}$ induces an isomorphism
+	\begin{equation*}
+		\restr{E \big/ \alpha}{U\slash Y} \cong  (U \big/ Y) \times V
+	\end{equation*}
+	proving the local triviality.
+	Now for the homotopy invariance of said bundle suppose that $\alpha_0$ and $\alpha_1$ are homotopic trivializations of $E$ over $Y$. This means that we have a trivialization $\beta$ of $E \times I$ over $Y \times I\subset X \times I$ that induces the $\alpha_i$ at the endpoints. Let $f: (X \big/ Y)\times I\to (X\times I) \big/ (Y\times I)$ be the natural map. Then $f^*((E \times I) \big/  \beta)$ is a bundle on $(X \big/ Y)\times I$ whose restriction to $(X \big/  Y)\times \{i\}$ is $E \big/  \alpha_i$ ($i=0,1$). Hence by the homotopy invariance of the pullback (Theorem \ref{thm:kTheo-homotopyInvariance}) we have 
+	\begin{equation*}
+		E \big/ \alpha_0 \cong E \big/ \alpha _1\,.
+	\end{equation*}
+\end{proof}
+\begin{lemma}
+	\label{lem:kTheo-collapsingOfContractibleSubspace}
+	Let $Y\subseteq X$ be a closed contractible subspace of a compact Hausforff space $X$. Then 
+	\begin{equation*}
+		f:X\to X\big/ Y \quad \text{induces a semiring isomorphism}\quad f^*: \Vect(X\big/Y) \to \Vect(X)\,.
+	\end{equation*}
+\end{lemma}
+\begin{proof}
+	Since $Y$ is contractible, $\restr{E}{Y}$ is trivial and thereby a trivialization $\alpha:\restr{E}{Y}\to Y\times V$ exists. Two such trivializations only differ by the automorphism  of $Y\times V$ which in turn corresponds to a map $Y\to \GL(V)\cong \GL_{\rank(E)}(\C)$. Now since $Y$ is contracible those two maps factor (up to homotopy) over any one point $y\in Y$ and are thereby homotopically equivalent to the constant map. Finally since $\GL_{\rank(E)}(\C)$ is connected all constant maps are homotopically equivalent. Thereby $\alpha$ is unique up to homotopy. By Lemma \ref{lem:kTheo-trivialisationDefinesABundle} the isomorphism class of $E\big/ \alpha$ only depends on the homotopy class of $\alpha$ we have a well defined map 
+	\begin{equation*}
+		\Vect(X)\to \Vect(X\big/ Y)\,,
+	\end{equation*}which in turn is an inverse of $f^*$ concluding the proof.
+\end{proof}
+\begin{definition}[Gluing and Clutching of Vector Bundles]
+	\label{def:kTheo-gluingAndClutching}
+	Let 
+	\begin{align*}
+		X=X_1 \cup X_2\, , \quad A=X_1 \cap X_2 \, ,
+	\end{align*}
+	and all be compact Hausdorff spaces. 
+	 Assume that $E_i$ is a vector bundle over $X_i$ and $\phi :\restr{E_1}{A} \to \restr{E_2}{A}$ is an isomorphism. Then we define a vector bundle $E_1 \cap_{\phi} E_2$ on $X$ as follows:
+	 We topologize the space $E_1 \cup_{\phi} E_2$ as the quotient of $E_1 + E_2 \slash \sim$, where $\sim$ is the identification of points with their image under $\phi$.
+	 Identifying $X$ with $X_1 +X_2 $ in the quotient space we get the natural projection $p:E_1 \cap_{\phi} E_2 \to X$ and the fibers have a natural vector space structure. It remains to show that this is locally trivial. This is obvious outside of $A$ so let $a\in A$ and $V_1$ be a closed neighbourhood of $a$ in $X_1$ such that $\restr{E_1}{V_1}$ is trivial giving us the isomorphisms
+	 	\begin{align*}
+	 	\theta_1: \restr{E_1}{V_1} &\to V_1 \times \C^n \, \\
+	 	\theta_1^A: \restr{E_1}{V_1\cap A} &\to (V_1\cap A) \times \C^n \,
+	 \end{align*}
+	 	Finally, define
+	 \begin{equation*}
+	 	\theta^A_2: \restr{E_2}{V_1\cap A}\to (V_1\cap A) \times \C^n \,
+	 \end{equation*} by composition $ \theta_1^A \circ \phi^{-1}$. Let $V_2$ be a neighborhood of $a$ in $X_2$ such that 
+	 \begin{align*}
+	 	\theta_2:\restr{E_2}{V_2}\to V_2 \times \C^n
+	 \end{align*} is an extension of $\theta_2^A$. This extension exists again by the extending the section into the homomorphism bundle corresponding to the isomrophism $\theta_2^A$. Finally $\theta_1$ and $\theta_2$  defines a well defined isomorphism 
+	 	\begin{equation*}
+	 	\theta_1 \cap_{\phi} \theta _2: E_1 \cap_{\phi} E_2 \to (V_1 \cap V_2)\times \C^n\, .
+	 \end{equation*} This proves the local triviality.
+\end{definition}
+
+\begin{corollary}[Elementary Properties of the Gluing and Clutching Construction]\label{cor:kTheo-elementaryPropertiesGluingAndClutching}
+	Elementary properties of the gluing and clutching construction are:
+	\begin{enumerate}
+		\item If $E$ is a bundle over $X$, then the identity defines ans isomorphism and 
+		\begin{equation*}
+			E_1 \cup_{\id_A}E_2 \cong E.
+		\end{equation*}
+		\item If $\beta_i:E_i \to E_i'$ are isomorphisms on $X_i$ and $\phi' \beta_1=\beta_2\phi$, then  
+		\begin{equation*}
+			E_1\cup_{\phi}E_2 \cong E'_1\cup_{\phi'}E'_2 \, .
+		\end{equation*}
+		\item If $(E_i,\phi)$ and $(E'_i,\phi')$ are two "clutching data" on $X_i$, then 
+		\begin{align*}
+			(E_1 \cup _{\phi}E_2)\oplus (E'_1 \cup _{\phi'}E'_2)&\cong E_1\oplus E'_1 \bigcup_{\phi \oplus \phi'}E_2\oplus E'_2 \, ,\\
+			(E_1 \cup _{\phi}E_2)\otimes (E'_1 \cup_{\phi'}E'_2)&\cong E_1\otimes E'_1 \bigcup_{\phi \otimes \phi'}E_2\otimes E'_2 \, ,\\
+			(E_1 \cup _{\phi}E_2)^* &\cong E^*_1\bigcup_{(\phi^*)^{-1}}E^*_2 \, .
+		\end{align*} $(-)^*$ denotes the dual here.
+	\end{enumerate}
+\end{corollary}
