@@ -20,6 +20,18 @@ Before we go back to the analytical reals, we will further develop the theory of
 \begin{definition}
 	For a topological space $X$ we define $\Vect(X)$ to be the set of isomorphism classes of complex vector bundles and by declaring $\Vect(f)=f^*$ to be the pullback we get a contravariant functor $\Vect$ from $\Top$ to $\Set$. We can equip the set $\Vect(X)$ with the direct sum and tensor product operation. It is then easy to see that these operations descend to isomorphism classes and hence we get an abelian semi ring $(\Vect(X),\oplus,\otimes)$ (abelian semigroup with associative and distributive multiplication). In fact we even get a contravariant functor from $\Top$ to the category of abelian semirings.
 \end{definition}
+\begin{lemma}\label{lem:kTheo-sectionExtension}
+	Let $X$ be a compact Hausdorff space, $Y\subseteq X$ a closed subspace and $E$ a vector bundle over $X$. Then any section $s:Y\to \restr{E}{Y}$ can be extended to a global section of $X$.
+\end{lemma}
+\begin{proof}
+	For a detailed proof see Chatper 1.4 of \cite{atiyah1989k}. The general argument however is easy to follow: By Tietze's extension theorem we can extend the section to arround every $x\in X$. By compactness we can pick finitely many of those extensions. Now using a partition of unity with respect to their domains we can build the sum of all the extensions to get a well defined global one. 
+\end{proof}
+\begin{corollary}\label{cor:kTheo-isomorphismExtension}
+	Let $Y$ be a closed subspace of a compact Hausdorff space $X$, and let $E,F$ be bundles over $X$. If $f:\restr{E}{Y}\to \restr{F}{Y}$ is an isomorphism, then there is an open neighbourhood $U\supset Y$ and an extension $f:  \restr{E}{U}\to \restr{F}{U}$ which is an isomorphism.
+\end{corollary}
+\begin{proof}
+	By corollary \ref{cor:vb-sectionsIntoHom} we can view $f$ as a section into the bundle $\Hom(\restr{E}{Y},\restr{F}{Y})$, which can be extended to a global one in $\Hom(E,F)$. Let $U$ be the open set for which the section maps to isomorphisms. Since $U$ contains $Y$ this yields the require extension.
+\end{proof}
 \begin{theorem}[Homotopy Invariance of the Pullback]\label{thm:kTheo-homotopyInvariance}
 	Let $X,Y$ be compact Hausdorff spaces, $I=[0,1]$, and 
 	\begin{equation*}
@@ -42,7 +54,7 @@ $	i:Y\times \{t\}\to Y\times I\,.$ The equality of the two maps:
 \begin{equation*}
 \Phi:	\restr{f^*E}{Y\times\{t\}} \to \restr{\pi_1^*f_t^*E}{Y\times\{t\}}\,.
 \end{equation*}
-By corollary \ref{cor:vb-sectionsIntoHom} we can identify $\Phi$ with a local section over $Y\times\{t\}\subseteq Y\times I$ into the bundle $\Hom(f^*,\pi_1^*f_t^*E)$. By Tietze's extension theorem we can extend this section and with a partition of unity stitch it together to get a global section $\phi \in  \Gamma(\Hom(f^*E,\pi_1^*f_t^*E)) $. Define $U$ to be the subset of $Y\times I$ where $\phi(u)$ is an isomorphism. Notice that $U$ is open since being an isomorphism is an open condition and $U$ contains $Y\times \{t\}$. By the openness we can extend $\Phi$ to be an isomorphism for some open neighbourhood of $Y\times \{t\}$ and by the product topology we can deduce that there exists a $\delta_t$ such that $U$ contains the thickened line $Y\times (t-\delta_t,t+\delta_t) $. The isomorphism class of $\restr{f^*E}{Y\times \{t\}}$ as a bundle over $Y$ is locally constant in $t$: Let $0<\epsilon<\delta$ and $r\in I$. Then define the inclusions
+By Corollary \ref{cor:kTheo-isomorphismExtension} we can extend the isomorphism  for some open neighbourhood of $Y\times \{t\}$ and by the product topology we can deduce that there exists a $\delta_t$ such that $U$ contains the thickened line $Y\times (t-\delta_t,t+\delta_t) $. The isomorphism class of $\restr{f^*E}{Y\times \{t\}}$ as a bundle over $Y$ is locally constant in $t$: Let $0<\epsilon<\delta$ and $r\in I$. Then define the inclusions
 	\begin{equation*}
 			\begin{array}{rl}
 				i_t: Y&\to Y\times \{t\}\subseteq Y\times I \\
@@ -82,7 +94,7 @@ By corollary \ref{cor:vb-sectionsIntoHom} we can identify $\Phi$ with a local se
 	\begin{equation*}
 		e\sim e' ~ \Leftrightarrow \pi_2 \alpha (e) =\pi_2 \alpha (e') \, .
 	\end{equation*} We extend this relation by the identity on $\restr{E}{X\setminus Y}$ and we define $E\big/\alpha$ to denote the quotient space of $E$ defined by that relation.
-	To see why this is a bundle we need to check the local triviality only around the base point $Y \big/ Y$ of $X \big/ Y$. This follows from the fact that we can extend $\alpha$ to an isomorphism $\Tilde{\alpha}:\restr{E}{U}\to U \times V$ by identifying $\alpha$ with a section into the $\Hom$-bundle. Analogously to the proof of homotopy invariance we can extend said section and since isomorphisms are open in the homomorphisms $\alpha$ extends to an isomorphism on some open neighbourhood $U$ of $Y$ . Then $\Tilde{\alpha}$ induces an isomorphism
+	To see why this is a bundle we need to check the local triviality only around the base point $Y \big/ Y$ of $X \big/ Y$. This follows from the fact that by Corollary \ref{cor:kTheo-isomorphismExtension} we can extend $\alpha$ to an isomorphism $\Tilde{\alpha}:\restr{E}{U}\to U \times V$. Then $\Tilde{\alpha}$ induces an isomorphism
 	\begin{equation*}
 		\restr{E \big/ \alpha}{U\slash Y} \cong  (U \big/ Y) \times V
 	\end{equation*}
@@ -125,10 +137,12 @@ By corollary \ref{cor:vb-sectionsIntoHom} we can identify $\Phi$ with a local se
 	 \end{equation*} by composition $ \theta_1^A \circ \phi^{-1}$. Let $V_2$ be a neighborhood of $a$ in $X_2$ such that 
 	 \begin{align*}
 	 	\theta_2:\restr{E_2}{V_2}\to V_2 \times \C^n
-	 \end{align*} is an extension of $\theta_2^A$. This extension exists again by the extending the section into the homomorphism bundle corresponding to the isomrophism $\theta_2^A$. Finally $\theta_1$ and $\theta_2$  defines a well defined isomorphism 
+	 \end{align*} is an extension of $\theta_2^A$. This extension exists again by the extending the section into the homomorphism bundle corresponding to the isomorphism $\theta_2^A$. Finally $\theta_1$ and $\theta_2$  defines a well defined isomorphism 
 	 	\begin{equation*}
 	 	\theta_1 \cap_{\phi} \theta _2: E_1 \cap_{\phi} E_2 \to (V_1 \cap V_2)\times \C^n\, .
 	 \end{equation*} This proves the local triviality.
+	 
+	 We call such a triple $(E_1,E_2,\phi)$ a \textbf{clutching datum} and $\phi$ the \textbf{transition funciton}.
 \end{definition}
 
 \begin{corollary}[Elementary Properties of the Gluing and Clutching Construction]\label{cor:kTheo-elementaryPropertiesGluingAndClutching}
@@ -150,3 +164,14 @@ By corollary \ref{cor:vb-sectionsIntoHom} we can identify $\Phi$ with a local se
 		\end{align*} $(-)^*$ denotes the dual here.
 	\end{enumerate}
 \end{corollary}
+
+\begin{lemma}
+	\label{lem:kTheo-homotopyInvarianceClutchingFunction}
+	The isomorphism class of $E_1\bigcup_\phi E_2$ depends only on the homotopy class of the isomorphism $\phi:\restr{E_1}{A}\to \restr{E_2}{A}$\,.
+	\end{lemma}
+\begin{proof}
+	A homotopy of isomorphisms is an isomorphism 
+	\begin{equation*}
+		\Phi:\pi^*\restr{E_1}{A}\times I\to \pi^*\restr{E_2}{A}\times I
+	\end{equation*}
+\end{proof}
