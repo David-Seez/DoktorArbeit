@@ -18,7 +18,7 @@ The first goal is to classify all vector bundles over sufficiently nice spaces. 
 
 Before we go back to the analytical reals, we will further develop the theory of vector bundles:
 \begin{definition}
-	For a topological space $X$ we define $\Vect(X)$ to be the set of isomorphism classes of complex vector bundles and by declaring $\Vect(f)=f^*$ to be the pullback we get a contravariant functor $\Vect$ from $\Top$ to $\Set$. We can equip the set $\Vect(X)$ with the direct sum and tensor product operation. It is then easy to see that these operations descend to isomorphism classes and hence we get an abelian semi ring $(\Vect(X),\oplus,\otimes)$ (abelian semigroup with associative and distributive multiplication). In fact we even get a contravariant functor from $\Top$ to the category of abelian semirings.
+	For a topological space $X$ we define $\Vect_n(X)$ to be the set of isomorphism classes of complex vector bundles with rank $n$ and $Vect_n(X)$ to be the set of isomorphism classes of complex vector bundles. By declaring $\Vect(f)=f^*$ to be the pullback we get a contravariant functor $\Vect$ from $\Top$ to $\Set$. We can equip the set $\Vect(X)$ with the direct sum and tensor product operation. It is then easy to see that these operations descend to isomorphism classes and hence we get an abelian semi ring $(\Vect(X),\oplus,\otimes)$ (abelian semigroup with associative and distributive multiplication). In fact we even get a contravariant functor from $\Top$ to the category of abelian semirings.
 \end{definition}
 \begin{lemma}\label{lem:kTheo-sectionExtension}
 	Let $X$ be a compact Hausdorff space, $Y\subseteq X$ a closed subspace and $E$ a vector bundle over $X$. Then any section $s:Y\to \restr{E}{Y}$ can be extended to a global section of $X$.
@@ -172,6 +172,53 @@ By Corollary \ref{cor:kTheo-isomorphismExtension} we can extend the isomorphism 
 \begin{proof}
 	A homotopy of isomorphisms is an isomorphism 
 	\begin{equation*}
-		\Phi:\pi^*\restr{E_1}{A}\times I\to \pi^*\restr{E_2}{A}\times I
+		\Phi:\restr{(\pi^*E_1)}{A}\to \restr{(\pi^*E_2)}{A}	\,,
+	\end{equation*} where $I$ is the unit intervall and $\pi:X\times I \to X$ is the projection. Define 
+	\begin{equation*}
+		i_t:X\to X\times I,\quad i_t(x)\coloneq (x,t)\,. 
 	\end{equation*}
+
+	Restricting $\pi^*E_1 \cup_{\Phi} \pi^*E_2$ to $X \times \{t\}$, we obtain a bundle
+	constructed by gluing $(\pi^*E_1)|_{X\times\{t\}}$ and $(\pi^*E_2)|_{X\times\{t\}}$
+	along $\Phi|_{A\times\{t\}}$. 
+	
+	Using the canonical identifications
+	$(\pi^*E_i)|_{X\times\{t\}} \cong E_i$ and $\Phi|_{A\times\{t\}} = \phi_t$, the isomorphism 
+		\begin{equation*}
+		E_1\cup_{\phi_t}E_2\cong \restr{\left(\pi^*E_1\bigcup_{\Phi} \pi^*E_2 \right)}{t} \cong i_t^*\left(\pi^*E_1\bigcup_{\Phi} \pi^*E_2 \right)
+	\end{equation*}
+	
+	follows from Corollary~\ref{cor:kTheo-elementaryPropertiesGluingAndClutching}(2).
+	But then by the homotopy invariance of the pullback we are done, as 
+	\begin{equation*}
+		 i_0^*\left(\pi^*E_1\bigcup_{\Phi} \pi^*E_2 \right) \cong  i_1^*\left(\pi^*E_1\bigcup_{\Phi} \pi^*E_2 \right)
+	\end{equation*}
+\end{proof}
+\begin{definition}\label{def:kTheo-homotopyClassOfFunctions}
+	By $[X,Y]$ we denote the set of homotopy classes of maps $f:X\to Y$
+\end{definition}
+\begin{lemma}
+	Let $X=X_1\cup X_2$, $A=X_1\cap X_2$ with closed $X_1$ and $X_2$. Assume that $X_1$ and $X_2$ are contractible. Then there is a canonical bijection
+	\begin{equation*}
+		\Vect_n(X)\overset{\cong}{\to}[A,\GL_n(\C)]\,.
+	\end{equation*}
+\end{lemma}
+\begin{proof}
+	Every such vector bundle $E$ is the gluing of its restrictions to $X_1$ and $X_2$, which both are trivialisable. To be more prezise, $E=\restr{E}{X_1}\bigcup_{\id}\restr{E}{X_2}$ where $\id: \restr{E}{A} \to \restr{E}{A}$ is the identity. Now we can trivialize $ \restr{E}{X_1}$ and $\restr{E}{X_2}$ simpultaniously by $\alpha_i: E\to X_i\times \C^n$ and define $\phi\coloneq \alpha_2\circ \alpha_1^{-1}$. Now since $\phi \circ \alpha_1=\alpha_2$ we have by Corollary \ref{cor: Elementary Properties of the Gluing and Clutching Construction} part two: 
+	\begin{equation*}
+		E \cong \restr{E}{X_1}\bigcup_{\id}\restr{E}{X_2} \cong( X\times \C^n) \bigcup_\phi( X\times \C^n) \,.
+	\end{equation*} Hence, all the information can be pushed into the gluing map. To get a well defined bijection we need to show that isomophic vector bundles or different trivializations give rise to homotopic maps.
+	For this let $E=( X\times \C^n) \bigcup_\phi( X\times \C^n)$ and $F=( X\times \C^n) \bigcup_\psi( X\times \C^n)$ be isomorphic vector bundles with respect to the isomophism $T:E\to F$. Then 
+	\begin{equation*}
+		\begin{array}{rl}
+			\restr{T}{X_1}: X_1 \times \C^n \to X_1 \times \C^n & \text{ is given by a continuous map }T_1:X_1 \to \GL_n(\C)\,,\\ 
+			\restr{T}{X_2}: X_2 \times \C^n \to X_2 \times \C^n & \text{ is given by a continuous map }T_2:X_2 \to \GL_n(\C)\,.
+		\end{array}
+	\end{equation*} And the gluing compatibility of the maps yield for any $a\in A$:
+	\begin{equation*}
+		\psi(a)=T_2(a)\phi(a)T_1(a)^{-1}\,.
+	\end{equation*} Snice $X_1$ is contractible, there is a homotopy $h_t$ such that $h_1=\id_X$ and $h_0=c_{x_0}$ meaning $h_0$ collapses everything to a point $x_0\in X$. Since $GL_n(\C)$ is connected we can combine this with a continuous path from $T_1(x_0)$ to the unit matrix and after reparametrising we get a homotopy $T_{1,t}:A\to \GL_n(\C)$ such that $T_{1,1}=T_1$ and $T_{1,0}=\Idm_n$. Then the map 
+	\begin{equation*}
+		H_t:A\to \GL_n(\C),\quad H_t(a)\coloneq T_{2,t}(a)\phi (a)T_{1,t}(a)
+	\end{equation*} is a homotopy from $\phi=H_0$ to $\psi=H_1$. Hence, two isomophic vector bundles give homotopic gluing maps giving the well defindnes of the map. Obviously this is an bijection as the inverse is given by mapping a gluing function to the corresponding vector bundle.
 \end{proof}
