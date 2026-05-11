@@ -1,0 +1,294 @@
+% ============================================================
+%  NOTATION & CONVENTIONS  (remove before submission)
+% ============================================================
+\section*{Notation \& Conventions}
+\addcontentsline{toc}{section}{Notation \& Conventions}
+
+This page collects all notational conventions used in this thesis.
+It is to be \textbf{removed before submission}.
+
+% ------------------------------------------------------------------
+\subsection*{1. Manifolds, Maps, and the Differential}
+% ------------------------------------------------------------------
+
+\begin{longtable}{@{} p{4cm} p{10cm} @{}}
+	\toprule
+	\textbf{Symbol} & \textbf{Meaning \& Convention} \\
+	\midrule
+	\endhead
+	
+	$M, N$ & smooth manifolds (always assumed without boundary unless stated) \\[4pt]
+	
+	$T_p M,\; T^*_p M$ & tangent / cotangent space at $p \in M$ \\[4pt]
+	
+	$TM,\; T^*M$ & tangent / cotangent bundle \\[4pt]
+	
+	$\diff f$ & exterior differential of $f\colon M\to\R$; a $1$-form on $M$ \\[4pt]
+	
+	$\dat{p} f = (\diff f)_p$ & differential of $f$ \emph{at the point} $p$;
+	a linear map $T_p M \to \R$.
+	\newline
+	\textbf{Rule:} write $\dat{p}f$ (macro \texttt{\textbackslash dat\{p\}f})
+	when evaluating at a specific point.
+	Write $\diff f$ for the full $1$-form / bundle map.\\[4pt]
+	
+	$\dat{p} F$ & for $F\colon M\to N$: the linear map $T_p M\to T_{F(p)}N$.
+	Also written $({\diff F})_p$; never write $\frac{\diff}{\diff x}F$
+	for a map between manifolds. \\[4pt]
+	
+	$\frac{\diff}{\diff t}$
+	& total derivative w.r.t.\ a \emph{single} real variable $t$
+	(roman~$\diff$, macro \texttt{\textbackslash diff}).
+	Use for curves, flows evaluated on a trajectory. \\[4pt]
+	
+	$\frac{\partial}{\partial t}$
+	& partial derivative; use only when \emph{at least two independent}
+	variables/parameters are present.
+	\textbf{Never} write $\partial/\partial t$ for the time-derivative along
+	a flow line. \\[4pt]
+	
+	$\nabla_v f$ & covariant derivative of $f$ in direction $v$
+	(Levi-Civita or chosen connection) \\[4pt]
+	
+	$\grad_g f$ & gradient of $f$ with respect to Riemannian metric $g$;
+	characterised by $g(\grad_g f, -) = \diff f$ \\[4pt]
+	
+	\bottomrule
+\end{longtable}
+
+% ------------------------------------------------------------------
+\subsection*{2. Flows and Dynamical Systems}
+% ------------------------------------------------------------------
+
+\begin{longtable}{@{} p{4cm} p{10cm} @{}}
+	\toprule
+	\textbf{Symbol} & \textbf{Meaning \& Convention} \\
+	\midrule
+	\endhead
+	
+	$\phi_t(x)$
+	& flow of a vector field at time $t$ through initial point $x$.
+	\textbf{Convention:} always write $\phi_t$, not $\phi(t,\cdot)$;
+	think of $\phi_t\in\Diff(M)$ as a one-parameter family of
+	diffeomorphisms.\\[4pt]
+	
+	$\phi_t = \mathrm{e}^{t X}$
+	& flow of the vector field $X$; $\phi_0 = \id$. \\[4pt]
+	
+	$\frac{\diff}{\diff t}\phi_t(x)$
+	& time-derivative of the flow line $t\mapsto\phi_t(x)$;
+	equals $X(\phi_t(x))$. Use roman $\diff$, never $\partial$. \\[4pt]
+	
+	$\Wu{p},\;\Ws{p}$
+	& unstable / stable manifold of a critical (rest) point $p$
+	(macros \texttt{\textbackslash Wu\{p\}}, \texttt{\textbackslash Ws\{p\}}) \\[4pt]
+	
+	$\Mflow{p}{q}$
+	& moduli space of (unparametrised) flow lines from $p$ to $q$
+	(macro \texttt{\textbackslash Mflow\{p\}\{q\}}) \\[4pt]
+	
+	\bottomrule
+\end{longtable}
+
+% ------------------------------------------------------------------
+\subsection*{3. Restrictions and Evaluations}
+% ------------------------------------------------------------------
+
+\medskip\noindent
+\textbf{Core rule:} distinguish carefully between a \emph{fiber},
+a \emph{restriction to a subspace}, and a \emph{value/evaluation}.
+
+\begin{longtable}{@{} p{4.5cm} p{9.5cm} @{}}
+	\toprule
+	\textbf{Symbol} & \textbf{Meaning \& Convention} \\
+	\midrule
+	\endhead
+	
+	$E_p$
+	& \textbf{fiber} of a vector bundle $E\to X$ over $p\in X$.
+	\textbf{Preferred over} $E|_{\{p\}}$ for fibers;
+	use macro \texttt{E\_p}. \\[4pt]
+	
+	$\restr{E}{A}$
+	& \textbf{restriction} of the bundle $E$ to the subspace
+	$A\subseteq X$; this is itself a bundle over $A$.
+	Macro: \texttt{\textbackslash restr\{E\}\{A\}}.\\[4pt]
+	
+	$\restr{\xi}{A}$
+	& section $\xi\in\Gamma(E)$ restricted to $A$;
+	yields $\xi|_A\in\Gamma(\restr{E}{A})$. \\[4pt]
+	
+	$\xi(p)$ or $\xi_p$
+	& \textbf{value} of the section $\xi$ at the point $p$;
+	an element of $E_p$. \textbf{Avoid} $\xi|_p$ for this; use $\xi(p)$.\\[4pt]
+	
+	$\omega_p = \restr{\omega}{p}$
+	& value of a differential $k$-form $\omega$ at $p$;
+	an element of $\Lambda^k T^*_p M$.
+	Acceptable to write $\omega|_p$ only when
+	the point-evaluation is being \emph{emphasised} over the fiber. \\[4pt]
+	
+	\textbf{Summary}
+	& $E_p$ = fiber (bundle); \quad
+	$\restr{E}{A}$ = restricted bundle; \quad
+	$\xi(p)$ = value of section; \quad
+	$\omega_p$ = value of form. \\[4pt]
+	
+	\bottomrule
+\end{longtable}
+
+% ------------------------------------------------------------------
+
+\subsection*{5. Chain Complexes and Homology Theories}
+% ------------------------------------------------------------------
+
+\medskip\noindent
+Three homology theories appear simultaneously; they are always decorated.
+
+\begin{longtable}{@{} p{3.5cm} p{3.5cm} p{7cm} @{}}
+	\toprule
+	\textbf{Theory} & \textbf{Chain complex} & \textbf{Boundary / Homology} \\
+	\midrule
+	\endhead
+	
+	Singular
+	& $(\ChSing_*(X),\,\bS)$
+	& boundary $\bS$; homology $\HS_*(X)$.
+	Macros: \texttt{\textbackslash ChS}, \texttt{\textbackslash bS},
+	\texttt{\textbackslash HS}. \\[4pt]
+	
+	
+	CW
+	& $(\ChCW_*(X),\,\bCW)$
+	& boundary $\bCW$; homology $\HCW_*(X)$.
+	Macros: \texttt{\textbackslash ChCW}, \texttt{\textbackslash bCW},
+	\texttt{\textbackslash HCW}. \\[4pt]
+	
+	Morse
+	& $(\ChM_*(f),\,\bM)$
+	& boundary $\bM$; homology $\HM_*(f)$.
+	Macros: \texttt{\textbackslash ChM}, \texttt{\textbackslash bM},
+	\texttt{\textbackslash HM}. \\[4pt]
+	
+	\midrule
+	\multicolumn{3}{@{}p{14cm}}{%
+		\textbf{Connecting homomorphisms in long exact sequences:} : $\connM, \connCW, \connS $ with the macros:  \texttt{\textbackslash connM}, \texttt{\textbackslash connCW},
+		\texttt{\textbackslash connS}. }\\[4pt]
+	\multicolumn{3}{@{}p{14cm}}{%
+		\textbf{Co-homology:} : For co-homology we use upper indices on the co-boundary maps: $\cbM, \cbCW,\cbS$ with the macros: \texttt{\textbackslash cbM}, \texttt{\textbackslash cbCW},
+		\texttt{\textbackslash cbS}. And for the co-homology we use the homlogie macros with upper indices.}
+	\\[4pt]
+	
+	\multicolumn{3}{@{}l}{%
+		\textbf{Filtration:} $F^p\ChSing_*(X)$ for the filtration of the
+		singular complex; boundary is still $\partial$.}\\[4pt]
+	
+	\bottomrule
+\end{longtable}
+
+% ------------------------------------------------------------------
+\subsection*{6. Vector Bundles and K-Theory}
+% ------------------------------------------------------------------
+
+\begin{longtable}{@{} p{4cm} p{10cm} @{}}
+	\toprule
+	\textbf{Symbol} & \textbf{Meaning} \\
+	\midrule
+	\endhead
+	
+	$\Kvect{X}$
+	& set of isomorphism classes of complex vector bundles over $X$
+	(macro \texttt{\textbackslash Kvect\{X\}}) \\[4pt]
+	
+	$[E]$
+	& stable isomorphism class / element in $\K(X)$ \\[4pt]
+	
+	$\K(X) = \KU(X)$
+	& complex K-theory (default); macro \texttt{\textbackslash K},
+	\texttt{\textbackslash KU} \\[4pt]
+	
+	$\KO(X)$
+	& real K-theory; macro \texttt{\textbackslash KO} \\[4pt]
+	
+	$\tilde{\K}(X)$
+	& reduced complex K-theory \\[4pt]
+	
+	$E\oplus F,\; E\otimes F$
+	& Whitney sum / tensor product of bundles \\[4pt]
+	
+	$\restr{E}{A}$
+	& restriction of bundle $E\to X$ to subspace $A$
+	(same convention as §3) \\[4pt]
+	
+	$E_p$
+	& fiber of $E$ over $p$ (same convention as §3) \\[4pt]
+	
+	\bottomrule
+\end{longtable}
+
+% ------------------------------------------------------------------
+\subsection*{7. Spectral Sequences}
+% ------------------------------------------------------------------
+
+\begin{longtable}{@{} p{4cm} p{10cm} @{}}
+	\toprule
+	\textbf{Symbol} & \textbf{Meaning} \\
+	\midrule
+	\endhead
+	
+	$\Epq{r}{p,q}$
+	& $(p,q)$-entry on the $r$-th page of a spectral sequence;
+	macro \texttt{\textbackslash Epq\{r\}\{p,q\}} \\[4pt]
+	
+	$\drpq{r}$
+	& differential on the $r$-th page;
+	$\drpq{r}\colon \Epq{r}{p,q}\to \Epq{r}{p-r,\,q+r-1}$
+	(cohomological convention);
+	macro \texttt{\textbackslash drpq\{r\}} \\[4pt]
+	
+	AHSS
+	& Atiyah--Hirzebruch spectral sequence:
+	$\Epq{2}{p,q}\cong H^p(X;\,\K^q(\mathrm{pt}))
+	\Rightarrow \K^{p+q}(X)$ \\[4pt]
+	
+	$\Epq{\infty}{p,q}$
+	& abutment / $E_\infty$-page \\[4pt]
+	
+	\bottomrule
+\end{longtable}
+
+% ------------------------------------------------------------------
+\subsection*{8. Frequently Used Macros (Quick Reference)}
+% ------------------------------------------------------------------
+
+\begin{longtable}{@{} p{4cm} p{5cm} p{5cm} @{}}
+	\toprule
+	\textbf{Macro} & \textbf{Output} & \textbf{Use} \\
+	\midrule
+	\endhead
+	
+	\texttt{\textbackslash diff}        & $\diff$           & exterior deriv.\ / total deriv. \\
+	\texttt{\textbackslash dat\{p\}}    & $\dat{p}$         & deriv.\ at point $p$ \\
+	\texttt{\textbackslash restr\{E\}\{A\}} & $\restr{E}{A}$ & restriction \\
+	\texttt{\textbackslash Wu\{p\}}     & $\Wu{p}$          & unstable manifold \\
+	\texttt{\textbackslash Ws\{p\}}     & $\Ws{p}$          & stable manifold \\
+	\texttt{\textbackslash Mflow\{p\}\{q\}} & $\Mflow{p}{q}$ & moduli of flow lines \\
+	\texttt{\textbackslash ChM}         & $\ChM_*$          & Morse chain complex \\
+	\texttt{\textbackslash bM}          & $\bM$             & Morse boundary \\
+	\texttt{\textbackslash HM}          & $\HM_*$           & Morse homology \\
+	\texttt{\textbackslash ChCW}        & $\ChCW_*$         & CW chain complex \\
+	\texttt{\textbackslash bCW}         & $\bCW$            & CW boundary \\
+	\texttt{\textbackslash HCW}         & $\HCW_*$          & CW homology \\
+	\texttt{\textbackslash conn}        & $\conn$           & connecting homom.\ ($\delta$) \\
+	\texttt{\textbackslash K}           & $\K$              & K-theory \\
+	\texttt{\textbackslash KO}          & $\KO$             & real K-theory \\
+	\texttt{\textbackslash KU}          & $\KU$             & complex K-theory \\
+	\texttt{\textbackslash Epq\{r\}\{p,q\}} & $\Epq{r}{p,q}$ & SS entry \\
+	\texttt{\textbackslash drpq\{r\}}   & $\drpq{r}$        & SS differential \\
+	\texttt{\textbackslash Crit}        & $\Crit$           & critical point set \\
+	\texttt{\textbackslash ind}         & $\ind$            & Morse index \\
+	\texttt{\textbackslash grad}        & $\grad$           & gradient \\
+	\texttt{\textbackslash euler}       & $\euler$          & Euler number (roman e) \\
+	\texttt{\textbackslash ii}          & $\ii$             & imaginary unit (roman i) \\
+	\bottomrule
+\end{longtable}
