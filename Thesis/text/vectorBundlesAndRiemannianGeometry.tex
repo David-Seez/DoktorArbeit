@@ -145,7 +145,7 @@ Analogously to the definition of a smiith manifold, we start by defining familie
 	\end{enumerate} 
 \end{definition}
 
-\begin{definition}[Pullback of Vector Bundles]
+\begin{definition}[Pullback of Vector Bundles] \label{def:vb-pullbackOfVerctorBundles}
 	Let $\pi: E\to Y$ be a vector bundle, $X$ be a topological space and $f: X\to Y$ be continuous. Then we define the \textbf{pullback} $f^*{\pi}:f^*(E) \to X$ as follows: 
 	The total space $f^*(E)$ is defined as the subspace of $(x,e)\in X\times E$ such that $f(x)=\pi(e)$, and the map $f^*{\pi}$ is the projection to the second factor restricted to said subspace.
 \end{definition}
@@ -153,8 +153,11 @@ Analogously to the definition of a smiith manifold, we start by defining familie
 	Let $\pi:E\to X$ be a vector bundle. For any $Y\subseteq X$ we have the vector bundle 
 	\begin{equation*}
 		\restr{\pi}{Y}:\pi^{-1}(Y)\to Y\,,
-	\end{equation*} which is defined as the pullback along the inclusion of $Y$ into $X$.
+	\end{equation*} which is defined as the pullback along the inclusion of $Y$ into $X$. 
 \end{example}
+\begin{remark}\label{rem:vb-restrictionOfBundles}
+	We will often omit the notation of the projection and denote a vector bundle by its total space. The restriction $	\restr{\pi}{Y}:\pi^{-1}(Y)\to Y$ is often denoted by $\restr{E}{Y}$. The restriction may equivalently be defined by restricting the domain and codomain of the projection. 
+\end{remark}
 \begin{comment}
 	
 	\begin{definition}[Family of Vector Spaces] \label{def:vb-familiyOfVectorSpaces}

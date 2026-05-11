@@ -18,7 +18,7 @@ The first goal is to classify all vector bundles over sufficiently nice spaces. 
 
 Before we go back to the analytical reals, we will further develop the theory of vector bundles:
 \begin{definition}
-	For a topological space $X$ we define $\Vect(X)$ to be the set of isomorphism classes of complex vector bundles and by declaring $\Vect(f)=f^*$ to be the pullback we get a contravariant functor $\Vect$ from $\Top$ to $\Set$. We can equip the set $\Vect(X)$ with the direct sum and tensor product operation. It is then easy to see that these operations descend to isomorphism classes and hence we get an abelian semi ring $(\Vect(X),\oplus,\otimes)$ (abelian semigroup with associative and distributive multiplication). In fact we even get a contravariant functor from $\Top$ to the category of abelian semirings.
+	For a topological space $X$ we define $\Vect_n$ to be the set of isomorphism classes of complex vector bundles of rank $n$ and  $\Vect(X)$ to be the set of isomorphism classes of complex vector bundles of any rank. By declaring $\Vect(f)=f^*$ to be the pullback we get a contravariant functor $\Vect$ from $\Top$ to $\Set$. We can equip the set $\Vect(X)$ with the direct sum and tensor product operation. It is then easy to see that these operations descend to isomorphism classes and hence we get an abelian semi ring $(\Vect(X),\oplus,\otimes)$ (abelian semigroup with associative and distributive multiplication). In fact we even get a contravariant functor from $\Top$ to the category of abelian semirings.
 \end{definition}
 \begin{lemma}\label{lem:kTheo-sectionExtension}
 	Let $X$ be a compact Hausdorff space, $Y\subseteq X$ a closed subspace and $E$ a vector bundle over $X$. Then any section $s:Y\to \restr{E}{Y}$ can be extended to a global section of $X$.
@@ -167,11 +167,109 @@ By Corollary \ref{cor:kTheo-isomorphismExtension} we can extend the isomorphism 
 
 \begin{lemma}
 	\label{lem:kTheo-homotopyInvarianceClutchingFunction}
-	The isomorphism class of $E_1\bigcup_\phi E_2$ depends only on the homotopy class of the isomorphism $\phi:\restr{E_1}{A}\to \restr{E_2}{A}$\,.
+	The isomorphism class of $E_1\cup_\phi E_2$ depends only on the homotopy class of the isomorphism $\phi:\restr{E_1}{A}\to \restr{E_2}{A}$\,.
 	\end{lemma}
 \begin{proof}
-	A homotopy of isomorphisms is an isomorphism 
+	A homotopy of isomorphisms is a map 
+\begin{equation*}
+	\Phi: \restr{E_1}{A} \times I\to \restr{E_2}{A}\,,
+\end{equation*} such that for all $t$ the map 
+\begin{equation*}
+	\Phi_t: \restr{E_1}{A} \to \restr{E_2}{A}\quad \Phi_t(\xi)\coloneq \Phi(\xi,t)
+\end{equation*} is a bundle isomorphism. We can encode this $\Phi$ into a bundle isomorphism as follows: Let $\pi: X\times I\to X$ be the projection. Then elements $\xi\in \pi^*E_1$ are by definition \ref{def:vb-pullbackOfVerctorBundles} of the form $\xi_{x,t}=((x,t),\xi_x)\in (\pi^*E_1)_{x,t}$. With this notation define the bundle isomorphism: 
+\begin{equation*}
+	\Psi: \restr{\pi^*(E_1)}{A\times I} \to   \restr{\pi^*(E_2)}{A\times I}\,,\quad 	\Psi(\xi_{x,t})\coloneq ((x,t),\Phi_t( \xi_x))
+\end{equation*}
+This is a bundle isomorphism, since $\Phi_t$ is one. Now denote the inclusion 
+\begin{equation*}
+	i_t: X \to X \times I\,,\quad i_t(x)\coloneq (x,t)\,,
+\end{equation*}and notice that the pullback along $i_t$ is the same as restricting to $X\times\{t\}$. 
+
+With those definitions it is clear by the construction of the gluing, that 
+\begin{equation}\label{eq:kTheo-gluingHomotopyInvariant}
+	E_1\,\cup_{\Phi_t}\,E_2\,\cong\, i_t^*\left(\pi^*(E_1)\, \cup_{\Psi}\, \pi^*(E_2)\right)\,.
+\end{equation} The isomorphism can be seen by part (2) of Corollary  \ref{cor:kTheo-elementaryPropertiesGluingAndClutching}. as follows: 
+First notice the isomorphism $\restr{\pi^*(E_i)}{A\times \{t\}}\cong E_i$ for $i=1,2$ and any $t$. By construction of the gluing this leads to the isomorphism 
+\begin{equation*}
+		E_1\,\cup_{\Phi_t}\,E_2\,\cong\,	\restr{\pi^*(E_1)}{A\times \{t\}} \, \cup_{(\Phi_t,\id)} \, \restr{\pi^*(E_2)}{A\times \{t\}}\,.
+\end{equation*} Now again by construction we notice, that gluing restricted spaces is the same as gluing the whole space and then restricting. Furthermore the map $(\Phi_t,\id)$ is the restriction of $\Psi$ to $X\times\{t\}$. Therefore: 
+\begin{equation*}
+	\restr{\pi^*(E_1)}{A\times \{t\}} \, \cup_{(\Phi_t,\id)} \, \restr{\pi^*(E_2)}{A\times \{t\}}\,\cong \, 	\restr{\left(\pi^*(E_1) \cup_{\Psi} \pi^*(E_2)\right)}{X\times\{t\}}
+\end{equation*} Finally, pulling back via $i_t$ is the same as restricting $X\times i$ to $X\times \{t\}$ and identifying $X$ with $X\times \{t\}$. This concludes the chain of arguments:
+\begin{equation*}
+	\restr{\left(\pi^*(E_1) \cup_{\Psi} \pi^*(E_2)\right)}{X\times\{t\}} \, \cong \,
+	i_t^*\left(\pi^*(E_1)\, \cup_{\Psi}\, \pi^*(E_2)\right)\,.
+\end{equation*}
+Since the pullback is homotopy invariant we can conclude by the isomorphism (\ref{eq:kTheo-gluingHomotopyInvariant}):
+\begin{equation*}
+	E_1\,\cup_{\Phi_0}\,E_2\,\cong\,E_1\,\cup_{\Phi_1}\,E_2\,.
+\end{equation*}
+\end{proof}
+\begin{definition}\label{def:kTheo-homotopyClassesOfMaps}
+	Let $X,Y$ be topological spaces. By $[X,Y]$ we denote the set of homotopy classes of maps from $X$ to $Y$.
+\end{definition}
+
+\begin{lemma}\label{lem:kTheo-gluingAndHomotopyClassesToGLn}
+	Let $X=X_1\cup X_2$ with $X_1$ and $X_2$ closed contractible spaces. Then there is a canonical bijection 
 	\begin{equation*}
-		\Phi:\pi^*\restr{E_1}{A}\times I\to \pi^*\restr{E_2}{A}\times I
+		\Vect_n(X) \to [A,\GL_n(\C)]\,.
 	\end{equation*}
+\end{lemma}
+\begin{proof}
+	Let $[E]$ be any vector bundle over $X$ of rank $n$. Then $E$ can be represented by a vector bundle obtained by gluing that is trivial on both $X_i$: Since $X_i$ is contractible we can choose two trivializations
+	\begin{equation*}
+		\alpha_1:\restr{E}{X_1}\to X_1\times \C^n,\quad \text{and}\quad 	\alpha_2:\restr{E}{X_2}\to X_2\times \C^n\,.
+	\end{equation*} With part (2) of Corollary \ref{cor:kTheo-elementaryPropertiesGluingAndClutching} we can conclude:
+	\begin{equation*}
+		E\,\cong\,\restr{E}{X_1}\cup_{\id_A} \restr{E}{X_2}\, \cong\, 
+		X\times \C^n \cup_{\restr{\alpha_2\circ \alpha_1^{-1}}{A}} X\times \C^n
+	\end{equation*} Since a map between the two trivial bundles $A\times \C^n\to A\times \C^n$ can be identified with a map $A\to \GL_n(\C)$ we get an assignment from bundles over $X$ together with the trivializations to maps $A\to \GL_n(\C)$. The next step is to show that two isomorphic vector bundles give homotopic maps: Assume that we are given two vector bundles $E,F$ over $X$ that are isomorphic via $T:E\to F$ and without loss of generality we assume that they are given as the gluing of two trivial bundles: 
+	\begin{equation*}
+		E: X_1\times \C^n \,\cup_{\phi}\, X_2\times \C^n\,,\quad\text{and}\quad  
+		F: X_1\times \C^n \,\cup_{\psi}\, X_2\times \C^n\,.
+	\end{equation*}
+	We now want to define a homotopy between $psi$ and $\phi$. For this we start by splitting the isomorphism $T$ into its two parts over $X_1$ and $X_2$:
+	\begin{equation*}
+		\restr{T}{X_i}: X_i\times \C^n \to X_i\times \C^n\,.
+	\end{equation*} These maps are given by maps 
+	\begin{equation*}
+		T_i: X_i\to \GL_n(\C)\,,
+	\end{equation*} where the gluing compatibility of the $\restr{T}{X_i}$ yield for any $a\in A$:
+	\begin{equation*}
+		\psi(a)T_1(a)=T_2(a)\phi(a)\,,\quad \text{ equivalently }\quad \psi(a)=T_2(a)\phi(a)T_1^{-1}(a)\,.
+	\end{equation*} By the contractibility of $X_i$ we have for any fixed $x_i\in X_i$ a homotopy $h^i_t:X_i\to X_i$ such that $h^i_0=c_{x_i}$ is the collapsing map whilst $h^i_1=\id_{X_i}$. Furthermore, since $\GL_n(\C)$ is connected we have a path $\gamma^i: I\to \GL_n(\C)$ that connects $T_i(x_i)=\gamma^i(1)$ to $\Idm_n=\gamma^i(0)$. With this we can define the homotopies
+	\begin{align*}
+		T_{i,t}: X_i&\to \GL_n(\C)\\
+		x &\mapsto \begin{cases}
+			T_i\circ h^i_{2t}(x)& \text{ if }t\leq \frac{1}{2}\,,\\
+			\gamma^i(2(t-\frac{1}{2}))& \text{ if }t > \frac{1}{2}\,,
+		\end{cases}
+	\end{align*} that satisfy $T_{i,1}=T_i$ and $T_{i,0}(x)=\Idm_n$ for all $x$. Finally we define the homotopy $H_t:A \to \GL_n(\C)$ by
+	\begin{equation*}
+		H_t(a)\coloneq T_{2,t}(a)\phi(a)T_{1,t}^{-1}(a)\,
+	\end{equation*} to get a homotopy from $\phi=H_0$ to $\psi=H_1$. Hence, we get a well defined map from isomorphism classes of bundles over $X$ of rank $n$ to the homotopy classes of maps from $A$ to $\GL_n(\C)$ that is the inverse of the gluing construction and hence is bijective.
+\end{proof}
+\begin{definition}[Metrics on Bundles]\label{def:kTheo-metricsOnBundles}
+	A \textbf{metric} on a complex bundle $E$ is a section $h:X\to \Herm(E)$ such that $h(x)$ is positive definite for all $x$. $\Herm(E)$ denotes the bundle of hermitian forms (conjugate-symmetric sesquilinear) in each fiber. A bundle together with a metric is a \textbf{Hermitian bundle}.
+\end{definition}
+\begin{definition}[Projection Operator]\label{def:kTheo-projectionOperator}
+	A \textbf{projection operator} $P: E\to E$ is a homomorphism such that $P^2=P$. 
+\end{definition}
+\begin{lemma}\label{lem:kTheo-projectionsGiveSumdecomposition}
+	Any projection operator $P:E\to E$ determines a direct sum decomposition $E=PE\oplus (1-P)E$.
+\end{lemma}
+\begin{proof}
+	Observe that fibrewise $1-P$ maps each $\xi$ to the kernel of $P$. Furthermore $\im(P)+\im(1-P)=E$. 
+	That is because $v=P(v)+(v-P(v))$. Hence, $\rank(P_x)+\rank(1-P)=\dim(E_x)$. Furthermore, $\rank(P_x)$ and $\rank(1-P)$ are locally constant. To see this first notice that they are lower semi continuous, meaning that for $y$ from a small enough neighbourhood of $x$ $\rank(P_x)\leq \rank(P_y)$. To see this, pick a $\rank(P_x)_x\times \rank(P_x)_x$ minor with nonzero determinant. The latter is an open condition and hence stable under small pertubation. But now we have the sum of two lower semi continuous functions that give something locally constant and hence, each summand is locally constant. Finally the above shows that $\ker(P)=(1-P)(E)$ we have the decomposition.
+\end{proof}
+\begin{lemma}[Metric Induced Complement] \label{lem:kTheo-metricInducedComplement}
+	Suppose that $F$ is a sub-bundle of $E$. Then a metric provides a canonical complementary sub-bundle.
+\end{lemma}
+\begin{proof}
+	For each $x$ we have the orthonormal projection $P_x:E_x\to F_x$ inducing a map $P:E \to F$. This is continuous: 
+	Assume, that $F$ is trivial with the sections $f_1, \dots ,f_n$ such that $(f_1,\dots,f_n)$ give fibrewise an orthonormal basis. Then, for $v\in F_x$ we have 
+	\begin{equation*}
+		P_x(v)=\sum_i h_x(v,f_i(x))f_i(x)\,.
+	\end{equation*}
+	now $h$ is continuous and thereby $P$. Furthermore $P^2=P$ and hence we get a canonical sum decomposition.
 \end{proof}
