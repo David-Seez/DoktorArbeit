@@ -253,23 +253,54 @@ Since the pullback is homotopy invariant we can conclude by the isomorphism (\re
 	A \textbf{metric} on a complex bundle $E$ is a section $h:X\to \Herm(E)$ such that $h(x)$ is positive definite for all $x$. $\Herm(E)$ denotes the bundle of hermitian forms (conjugate-symmetric sesquilinear) in each fiber. A bundle together with a metric is a \textbf{Hermitian bundle}.
 \end{definition}
 \begin{definition}[Projection Operator]\label{def:kTheo-projectionOperator}
-	A \textbf{projection operator} $P: E\to E$ is a homomorphism such that $P^2=P$. 
+	A \textbf{projection operator} $P: E\to E$ is a bundlehomomorphism in $E$ such that $P^2=P$. 
 \end{definition}
 \begin{lemma}\label{lem:kTheo-projectionsGiveSumdecomposition}
 	Any projection operator $P:E\to E$ determines a direct sum decomposition $E=PE\oplus (1-P)E$.
 \end{lemma}
+
+
+%%%%%%%%%%AB Hier korrigieren!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
+
 \begin{proof}
-	Observe that fibrewise $1-P$ maps each $\xi$ to the kernel of $P$. Furthermore $\im(P)+\im(1-P)=E$. 
-	That is because $v=P(v)+(v-P(v))$. Hence, $\rank(P_x)+\rank(1-P)=\dim(E_x)$. Furthermore, $\rank(P_x)$ and $\rank(1-P)$ are locally constant. To see this first notice that they are lower semi continuous, meaning that for $y$ from a small enough neighbourhood of $x$ $\rank(P_x)\leq \rank(P_y)$. To see this, pick a $\rank(P_x)_x\times \rank(P_x)_x$ minor with nonzero determinant. The latter is an open condition and hence stable under small pertubation. But now we have the sum of two lower semi continuous functions that give something locally constant and hence, each summand is locally constant. Finally the above shows that $\ker(P)=(1-P)(E)$ we have the decomposition.
+	Observe that fibrewise $1-P$ maps each $\xi$ to the kernel of $P$, and hence fiberewise $P(E)$ and $(1-P)(E)$ are disjoint.  Furthermore $\im(P)+\im(1-P)=E$, because $v=P(v)+(v-P(v))$. Therefore in each fibre we have the direct sum $E_x=P(E_x)\oplus (1-P)(E_x)$. Now the question is, if that gives a global splitting, meaning that $P(E)$ and $(1-P)(E)$ are continous as subbundles of $E$. For this to be true, we need local triviality, which is clear as long as the rank of $P$ (and $(1-P)$) is locally constant.In each fiber we know that $\rank(P_x)+\rank(1-P)=\dim(E_x)$. Furthermore, $\rank(P_x)$ and $\rank(1-P)$ are locally constant. To see this first notice that they are lower semi continuous, meaning that for $y$ from a small enough neighbourhood of $x$ $\rank(P_x)\leq \rank(P_y)$. To see this, pick a $\rank(P_x)_x\times \rank(P_x)_x$ minor with nonzero determinant. The latter is an open condition and hence stable under small pertubation. But now we have the sum of two lower semi continuous functions that give something locally constant and hence, each summand is locally constant. Finally the above shows that $\ker(P)=(1-P)(E)$ we have the decomposition.
 \end{proof}
 \begin{lemma}[Metric Induced Complement] \label{lem:kTheo-metricInducedComplement}
 	Suppose that $F$ is a sub-bundle of $E$. Then a metric provides a canonical complementary sub-bundle.
 \end{lemma}
-\begin{proof}
-	For each $x$ we have the orthonormal projection $P_x:E_x\to F_x$ inducing a map $P:E \to F$. This is continuous: 
-	Assume, that $F$ is trivial with the sections $f_1, \dots ,f_n$ such that $(f_1,\dots,f_n)$ give fibrewise an orthonormal basis. Then, for $v\in F_x$ we have 
-	\begin{equation*}
-		P_x(v)=\sum_i h_x(v,f_i(x))f_i(x)\,.
-	\end{equation*}
-	now $h$ is continuous and thereby $P$. Furthermore $P^2=P$ and hence we get a canonical sum decomposition.
+\begin{proof}Let $h$ denote the metric.	For each $x$ we have the orthonormal projection $P_x:E_x\to F_x$ inducing a map $P:E \to F$. Let $(f_1,\dots f_n)$ be an orthonormal frame of $F$. Then fiberwise with $\xi\in E_x$ the orthogonal projection is given by
+		\begin{equation*}
+		P_x(\xi)=\sum_i h_x(\xi,f_i(x))f_i(x)\,.
+	\end{equation*} And since $h$ is continous the whole map $P$ is. Furthermore $P^2=P$ and hence we get a canonical sum decomposition.
 \end{proof}
+\begin{definition}
+	We call a sequence of bundle homomnorphisms
+	\begin{center}
+		\begin{tikzcd}
+			\cdots \arrow[r]&E\arrow[r]&F\arrow[r]&\cdots
+		\end{tikzcd}
+	\end{center} exact, if it is fiberwise exact.
+\end{definition}
+\begin{lemma}[Splitting Prinziple]\label{lem:kTheo-splittingPrinziple}
+	Every short exact sequence of bundles over the same base space splitts.
+\end{lemma}
+\begin{proof}
+	Let $X$ be the base space and assume that the sequence is given as
+	\begin{center}
+		\begin{tikzcd}
+			0 \arrow[r]&E'\arrow[r,"\phi'"]&E \arrow[r,"\phi''"]&E'' \arrow[r]&0
+		\end{tikzcd}
+	\end{center}
+	Now it is well known that any short exact sequence of vector spaces splits. We just need to ensure that this splitting is continuous. For this we give $E$ a metric. Now since $\phi'$ is injective, $\phi'(E')$ is a subbundle. By Lemma \ref{lem:kTheo-metricInducedComplement} we can split $E\cong \phi'(E')\oplus L$. However, $\restr{\phi''}{L}$ is fiberwise (and hence as a bundle map) an isomorphism. This can be seen as $\phi''$ being surjective and trivial on $ \phi'(E')$ hence the restriction is still surjective. The injectivity is also clear as the kernal by the homomorphism theorem of linear maps. But then we clearly have $E=E'\oplus E''$ and the sequence is isomorphic as a short exact sequence to the splitting one:
+	\begin{equation*}
+		\begin{tikzcd}
+				0 \arrow[r]&E'\arrow[r,"i_1"]&E'\oplus E'' \arrow[r,"\pi_2"]&E'' \arrow[r]&0
+		\end{tikzcd}
+	\end{equation*}
+\end{proof}
+\begin{definition}\label{def:kTheo-ampleSubspace}
+	A subspace $V\subseteq \Gamma(E)$, where $\Gamma(E)$ is viewed as a $\C$-vector space is called \textbf{ample}, if 
+	\begin{equation*}
+		\phi: X\times V \to E,\quad \phi(x,s)\coloneq s(x)
+	\end{equation*}is a surjection.
+\end{definition}
