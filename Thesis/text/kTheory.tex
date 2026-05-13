@@ -1,11 +1,11 @@
 \section{Complex K Theory}
-\subsection{Mathmatical Goals}
+\subsection{Mathematical Goals}
 
 \begin{theorem}[The Theorems and Mathematical Structures]
 	
 	\begin{itemize}
 		\item Definition of The K- Functor 
-		\item Cohomology strucures
+		\item Cohomology structures
 			\begin{itemize}
 				\item Additivity (pointed sum)
 				\item Long exact sequences
@@ -24,7 +24,7 @@ Before we go back to the analytical reals, we will further develop the theory of
 	Let $X$ be a compact Hausdorff space, $Y\subseteq X$ a closed subspace and $E$ a vector bundle over $X$. Then any section $s:Y\to \restr{E}{Y}$ can be extended to a global section of $X$.
 \end{lemma}
 \begin{proof}
-	For a detailed proof see Chatper 1.4 of \cite{atiyah1989k}. The general argument however is easy to follow: By Tietze's extension theorem we can extend the section to arround every $x\in X$. By compactness we can pick finitely many of those extensions. Now using a partition of unity with respect to their domains we can build the sum of all the extensions to get a well defined global one. 
+	For a detailed proof see Chapter 1.4 of \cite{atiyah1989k}. The general argument however is easy to follow: By Tietze's extension theorem we can extend the section to around every $x\in X$. By compactness we can pick finitely many of those extensions. Now using a partition of unity with respect to their domains we can build the sum of all the extensions to get a well defined global one. 
 \end{proof}
 \begin{corollary}\label{cor:kTheo-isomorphismExtension}
 	Let $Y$ be a closed subspace of a compact Hausdorff space $X$, and let $E,F$ be bundles over $X$. If $f:\restr{E}{Y}\to \restr{F}{Y}$ is an isomorphism, then there is an open neighbourhood $U\supset Y$ and an extension $f:  \restr{E}{U}\to \restr{F}{U}$ which is an isomorphism.
@@ -106,13 +106,13 @@ By Corollary \ref{cor:kTheo-isomorphismExtension} we can extend the isomorphism 
 \end{proof}
 \begin{lemma}
 	\label{lem:kTheo-collapsingOfContractibleSubspace}
-	Let $Y\subseteq X$ be a closed contractible subspace of a compact Hausforff space $X$. Then 
+	Let $Y\subseteq X$ be a closed contractible subspace of a compact Hausdorff space $X$. Then 
 	\begin{equation*}
 		f:X\to X\big/ Y \quad \text{induces a semiring isomorphism}\quad f^*: \Vect(X\big/Y) \to \Vect(X)\,.
 	\end{equation*}
 \end{lemma}
 \begin{proof}
-	Since $Y$ is contractible, $\restr{E}{Y}$ is trivial and thereby a trivialization $\alpha:\restr{E}{Y}\to Y\times V$ exists. Two such trivializations only differ by the automorphism  of $Y\times V$ which in turn corresponds to a map $Y\to \GL(V)\cong \GL_{\rank(E)}(\C)$. Now since $Y$ is contracible those two maps factor (up to homotopy) over any one point $y\in Y$ and are thereby homotopically equivalent to the constant map. Finally since $\GL_{\rank(E)}(\C)$ is connected all constant maps are homotopically equivalent. Thereby $\alpha$ is unique up to homotopy. By Lemma \ref{lem:kTheo-trivialisationDefinesABundle} the isomorphism class of $E\big/ \alpha$ only depends on the homotopy class of $\alpha$ we have a well defined map 
+	Since $Y$ is contractible, $\restr{E}{Y}$ is trivial and thereby a trivialization $\alpha:\restr{E}{Y}\to Y\times V$ exists. Two such trivializations only differ by the automorphism  of $Y\times V$ which in turn corresponds to a map $Y\to \GL(V)\cong \GL_{\rank(E)}(\C)$. Now since $Y$ is contractible those two maps factor (up to homotopy) over any one point $y\in Y$ and are thereby homotopically equivalent to the constant map. Finally since $\GL_{\rank(E)}(\C)$ is connected all constant maps are homotopically equivalent. Thereby $\alpha$ is unique up to homotopy. By Lemma \ref{lem:kTheo-trivialisationDefinesABundle} the isomorphism class of $E\big/ \alpha$ only depends on the homotopy class of $\alpha$ we have a well defined map 
 	\begin{equation*}
 		\Vect(X)\to \Vect(X\big/ Y)\,,
 	\end{equation*}which in turn is an inverse of $f^*$ concluding the proof.
@@ -142,7 +142,7 @@ By Corollary \ref{cor:kTheo-isomorphismExtension} we can extend the isomorphism 
 	 	\theta_1 \cap_{\phi} \theta _2: E_1 \cap_{\phi} E_2 \to (V_1 \cap V_2)\times \C^n\, .
 	 \end{equation*} This proves the local triviality.
 	 
-	 We call such a triple $(E_1,E_2,\phi)$ a \textbf{clutching datum} and $\phi$ the \textbf{transition funciton}.
+	 We call such a triple $(E_1,E_2,\phi)$ a \textbf{clutching datum} and $\phi$ the \textbf{transition function}.
 \end{definition}
 
 \begin{corollary}[Elementary Properties of the Gluing and Clutching Construction]\label{cor:kTheo-elementaryPropertiesGluingAndClutching}
@@ -263,7 +263,7 @@ Since the pullback is homotopy invariant we can conclude by the isomorphism (\re
 %%%%%%%%%%AB Hier korrigieren!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
 
 \begin{proof}
-	Observe that fibrewise $1-P$ maps each $\xi$ to the kernel of $P$, and hence fiberewise $P(E)$ and $(1-P)(E)$ are disjoint.  Furthermore $\im(P)+\im(1-P)=E$, because $v=P(v)+(v-P(v))$. Therefore in each fibre we have the direct sum $E_x=P(E_x)\oplus (1-P)(E_x)$. Now the question is, if that gives a global splitting, meaning that $P(E)$ and $(1-P)(E)$ are continous as subbundles of $E$. For this to be true, we need local triviality, which is clear as long as the rank of $P$ (and $(1-P)$) is locally constant.In each fiber we know that $\rank(P_x)+\rank(1-P)=\dim(E_x)$. Furthermore, $\rank(P_x)$ and $\rank(1-P)$ are locally constant. To see this first notice that they are lower semi continuous, meaning that for $y$ from a small enough neighbourhood of $x$ $\rank(P_x)\leq \rank(P_y)$. To see this, pick a $\rank(P_x)_x\times \rank(P_x)_x$ minor with nonzero determinant. The latter is an open condition and hence stable under small pertubation. But now we have the sum of two lower semi continuous functions that give something locally constant and hence, each summand is locally constant. Finally the above shows that $\ker(P)=(1-P)(E)$ we have the decomposition.
+	Observe that fibrewise $1-P$ maps each $\xi$ to the kernel of $P$, and hence fiberwise $P(E)$ and $(1-P)(E)$ are disjoint.  Furthermore $\im(P)+\im(1-P)=E$, because $v=P(v)+(v-P(v))$. Therefore in each fibre we have the direct sum $E_x=P(E_x)\oplus (1-P)(E_x)$. Now the question is, if that gives a global splitting, meaning that $P(E)$ and $(1-P)(E)$ are continous as subbundles of $E$. For this to be true, we need local triviality, which is clear as long as the rank of $P$ (and $(1-P)$) is locally constant.In each fiber we know that $\rank(P_x)+\rank(1-P)=\dim(E_x)$. Furthermore, $\rank(P_x)$ and $\rank(1-P)$ are locally constant. To see this first notice that they are lower semi continuous, meaning that for $y$ from a small enough neighbourhood of $x$ $\rank(P_x)\leq \rank(P_y)$. To see this, pick a $\rank(P_x)_x\times \rank(P_x)_x$ minor with nonzero determinant. The latter is an open condition and hence stable under small perturbation. But now we have the sum of two lower semi continuous functions that give something locally constant and hence, each summand is locally constant. Finally the above shows that $\ker(P)=(1-P)(E)$ we have the decomposition.
 \end{proof}
 \begin{lemma}[Metric Induced Complement] \label{lem:kTheo-metricInducedComplement}
 	Suppose that $F$ is a sub-bundle of $E$. Then a metric provides a canonical complementary sub-bundle.
@@ -271,10 +271,10 @@ Since the pullback is homotopy invariant we can conclude by the isomorphism (\re
 \begin{proof}Let $h$ denote the metric.	For each $x$ we have the orthonormal projection $P_x:E_x\to F_x$ inducing a map $P:E \to F$. Let $(f_1,\dots f_n)$ be an orthonormal frame of $F$. Then fiberwise with $\xi\in E_x$ the orthogonal projection is given by
 		\begin{equation*}
 		P_x(\xi)=\sum_i h_x(\xi,f_i(x))f_i(x)\,.
-	\end{equation*} And since $h$ is continous the whole map $P$ is. Furthermore $P^2=P$ and hence we get a canonical sum decomposition.
+	\end{equation*} And since $h$ is continuous the whole map $P$ is. Furthermore $P^2=P$ and hence we get a canonical sum decomposition.
 \end{proof}
 \begin{definition}
-	We call a sequence of bundle homomnorphisms
+	We call a sequence of bundle homomorphisms
 	\begin{center}
 		\begin{tikzcd}
 			\cdots \arrow[r]&E\arrow[r]&F\arrow[r]&\cdots
@@ -282,7 +282,7 @@ Since the pullback is homotopy invariant we can conclude by the isomorphism (\re
 	\end{center} exact, if it is fiberwise exact.
 \end{definition}
 \begin{lemma}[Splitting Prinziple]\label{lem:kTheo-splittingPrinziple}
-	Every short exact sequence of bundles over the same base space splitts.
+	Every short exact sequence of bundles over the same base space splits.
 \end{lemma}
 \begin{proof}
 	Let $X$ be the base space and assume that the sequence is given as
@@ -291,7 +291,7 @@ Since the pullback is homotopy invariant we can conclude by the isomorphism (\re
 			0 \arrow[r]&E'\arrow[r,"\phi'"]&E \arrow[r,"\phi''"]&E'' \arrow[r]&0
 		\end{tikzcd}
 	\end{center}
-	Now it is well known that any short exact sequence of vector spaces splits. We just need to ensure that this splitting is continuous. For this we give $E$ a metric. Now since $\phi'$ is injective, $\phi'(E')$ is a subbundle. By Lemma \ref{lem:kTheo-metricInducedComplement} we can split $E\cong \phi'(E')\oplus L$. However, $\restr{\phi''}{L}$ is fiberwise (and hence as a bundle map) an isomorphism. This can be seen as $\phi''$ being surjective and trivial on $ \phi'(E')$ hence the restriction is still surjective. The injectivity is also clear as the kernal by the homomorphism theorem of linear maps. But then we clearly have $E=E'\oplus E''$ and the sequence is isomorphic as a short exact sequence to the splitting one:
+	Now it is well known that any short exact sequence of vector spaces splits. We just need to ensure that this splitting is continuous. For this we give $E$ a metric. Now since $\phi'$ is injective, $\phi'(E')$ is a subbundle. By Lemma \ref{lem:kTheo-metricInducedComplement} we can split $E\cong \phi'(E')\oplus L$. However, $\restr{\phi''}{L}$ is fiberwise (and hence as a bundle map) an isomorphism. This can be seen as $\phi''$ being surjective and trivial on $ \phi'(E')$ hence the restriction is still surjective. The injectivity is also clear as the kernel by the homomorphism theorem of linear maps. But then we clearly have $E=E'\oplus E''$ and the sequence is isomorphic as a short exact sequence to the splitting one:
 	\begin{equation*}
 		\begin{tikzcd}
 				0 \arrow[r]&E'\arrow[r,"i_1"]&E'\oplus E'' \arrow[r,"\pi_2"]&E'' \arrow[r]&0
@@ -304,3 +304,25 @@ Since the pullback is homotopy invariant we can conclude by the isomorphism (\re
 		\phi: X\times V \to E,\quad \phi(x,s)\coloneq s(x)
 	\end{equation*}is a surjection.
 \end{definition}
+\begin{corollary}
+	If the subspace $V$ is ample and $\dim(V)=\rank(E)$, then $E$ is trivializable.
+\end{corollary}
+\begin{lemma}\label{lem:kTheo-ampleSubspaceExists}
+	For any vector bundle $E$ over a compact Hausdorff space $X$, there exists an finite dimensional ample subspace of $\Gamma(E)$.
+\end{lemma}
+\begin{proof}
+	Let $\{U_\alpha\}$ be a finite open cover of $X$ such that $\restr{E}{U_\alpha}$ is trivial. Let $\{s_{\alpha,i}\}$ be the corresponding local frames, and define $V_\alpha$ to be the finite dimensional ample subspace $V_\alpha\subseteq \Gamma(\restr{E}{U_\alpha})$. Let $\rho_\alpha$ be a partition of unity subordinate to the cover $\{U_\alpha\}$. Define 
+	\begin{equation*}
+		\theta_\alpha: V_\alpha \to \Gamma(E)\,,\quad \theta_\alpha(s_\alpha)(x)=\begin{cases}
+			s_\alpha(x)\cdot \rho_\alpha(x) & \text{ if } x\in U_\alpha\,,\\
+			0 & \text{ else.}
+		\end{cases}
+	\end{equation*} Then the $\theta_\alpha$ give rise to a homomorphism 
+	\begin{equation*}
+		\theta: \Pi_\alpha V_\alpha \to \Gamma(E)\,,
+	\end{equation*} and the image of $\theta$
+	is finite dimensional and ample. The surjectivity is clear, as for any $x$ there exists a $\rho_\alpha(x)>0$ making the map 
+	\begin{equation*}
+		\theta_\alpha(V_\alpha)\to E_x\,
+	\end{equation*} a surjection.
+\end{proof}

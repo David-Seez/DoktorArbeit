@@ -40,7 +40,7 @@ We begin by defining a topological manifold. Afterwards, we equip that space wit
 		f:U \to \R
 	\end{align*} \textbf{differentiable of class $r$}, if for any chart (and hence for all) $(\phi_i)_{i\in I}=\mathfrak{A}\in c$ the compositions $f\circ \phi_i^{-1}$ are differentiable of class $r$. For $r=\infty$ we define:
 	\begin{align*}
-		\mathcal{E}(U)=\{f :  U \to \R \text{ continouos}~|~ f \text{ is differentiable of class }\infty \} . 
+		\mathcal{E}(U)=\{f :  U \to \R \text{ continuous}~|~ f \text{ is differentiable of class }\infty \} .
 	\end{align*}
 \end{definition} 
 
@@ -106,7 +106,7 @@ This is a good point to take a break from smooth manifolds and introduce the str
 
 %----------Vector bundles-------------------
 
-Analogously to the definition of a smiith manifold, we start by defining families of vector spaces and equip them with increasingly more structure:
+Analogously to the definition of a smooth manifold, we start by defining families of vector spaces and equip them with increasingly more structure:
 
 
 \begin{definition}[Vector Bundles]\label{def:vb-vectorBundles}
@@ -173,7 +173,7 @@ Analogously to the definition of a smiith manifold, we start by defining familie
 		Let $\pi: E\to X$ be a family of vector spaces. A function $f:X\to E$ such that for all $x\in X$ we have $\pi\circ f (x)=x$ is called a \textbf{section of $E$}. We denote the space of all sections by $\Gamma(E)$. 
 	\end{definition}
 	\begin{remark} Let $\pi: E\to X$ be a family of vector spaces.
-		By locality of the definition, for all open $U\subseteq X$ the restriction $\restr{\pi}{U}:\pi^{-1}(U)\to U$ defines a new family of vector spaces. With this we can also have sections of the restriced bundle and the collection f those is denoted by $\Gamma(U)$
+		By locality of the definition, for all open $U\subseteq X$ the restriction $\restr{\pi}{U}:\pi^{-1}(U)\to U$ defines a new family of vector spaces. With this we can also have sections of the restricted bundle and the collection f those is denoted by $\Gamma(U)$
 	\end{remark}
 
 
@@ -225,7 +225,7 @@ Analogously to the definition of a smiith manifold, we start by defining familie
 
 
 \begin{remark}
-	Let $\pi:E\to X$ be a vector bundle. Then the space of sections $\Gamma(E)$ is a (in general, infinit-dimensional) $\R$-vector space. Furthermore, and more relevant to the purposes of this thesis, we view $\Gamma(E)$ (and $\Gamma(U)$ for open subsets) as a $C(X)$ (or $C(U)$) module.  The latter denotes the ring of continuous functions from $E$ (or $U$) to $\R$. 
+	Let $\pi:E\to X$ be a vector bundle. Then the space of sections $\Gamma(E)$ is a (in general, infinite-dimensional) $\R$-vector space. Furthermore, and more relevant to the purposes of this thesis, we view $\Gamma(E)$ (and $\Gamma(U)$ for open subsets) as a $C(X)$ (or $C(U)$) module.  The latter denotes the ring of continuous functions from $E$ (or $U$) to $\R$. 
 \end{remark}
 
 \begin{example}
@@ -290,7 +290,7 @@ Then a section is called smooth if it is a smooth map of manifolds. A family of 
 \end{equation*}
 \end{definition}
 \begin{example}
-The local trivialisations $\partial_i$ of the tangent bundle of a smooth manifold $M$ form a local frame and make the tangend bundle into a smooth vector bundle.
+The local trivialisations $\partial_i$ of the tangent bundle of a smooth manifold $M$ form a local frame and make the tangent bundle into a smooth vector bundle.
 \end{example}
 
 \begin{definition}[Compact-open topology]
@@ -442,7 +442,7 @@ Now we want to equip this with a topology such that $T(E)$ is a bundle over the 
 		g_p^\Phi: T_pU\times T_pU &\to \R \\
 		(\nu_p,\xi_p)    &\mapsto g_p^\Phi(\nu_p,\xi_p)\coloneq \pi_2\left(\Phi(\nu_p)\right)~\cdot~ \pi_2 \left(\Phi(\xi_p)\right)\,,
 	\end{array} 
-\end{align*} where $\cdot$ denotes the standart scalar product. This gives us locally a Riemannian metric. If we do this for all trivializations we have to make sure, that the result is well defined. So assume that two trivializations $\Phi$ and $\Psi$ overlap in $V$. The structure group is $\O(m)$, $\Phi=R\Psi$ for some function 
+\end{align*} where $\cdot$ denotes the standard scalar product. This gives us locally a Riemannian metric. If we do this for all trivializations we have to make sure, that the result is well defined. So assume that two trivializations $\Phi$ and $\Psi$ overlap in $V$. The structure group is $\O(m)$, $\Phi=R\Psi$ for some function 
 \begin{equation*}
 	R: V\to \O(m)\,.
 \end{equation*} Let $p$ be in said overlapping and $(\nu_p,\xi_p)$ be from $T_pM\times T_pM$. Then since $R$ is orthogonal we can calculate the independence from the trivialization:
@@ -480,7 +480,7 @@ To get an orthonormal atlas from a smooth one given a Riemannian metric, we star
 
 
 \begin{lemma}[Local Description of the Gradient]\label{lem:vb-localDescriptionOfGradient}
-	Let $(M,g)$ be a smooth Riemaniannian manifold of dimension $m$ and $\phi:U\to V$ be a chart. Then the gradient has the local form:
+	Let $(M,g)$ be a smooth Riemannian manifold of dimension $m$ and $\phi:U\to V$ be a chart. Then the gradient has the local form:
 	\begin{align*}
 		\grad(f) =\sum_{i,j}g^{ij}  \left(\partial_i (f) \right)\cdot  \partial_j \, .
 	\end{align*}
@@ -499,7 +499,7 @@ To get an orthonormal atlas from a smooth one given a Riemannian metric, we star
 \end{proof}
 
 \begin{definition}[A Dynamical System]
-	Let $M$ be a smooth manifold. A \textbf{dynamical system on $M$} (sometimes allso calld a \textbf{flow on $M$}) is given by a smooth map $\phi:\Omega \to M$ such that:
+	Let $M$ be a smooth manifold. A \textbf{dynamical system on $M$} (sometimes also called a \textbf{flow on $M$}) is given by a smooth map $\phi:\Omega \to M$ such that:
 	\begin{enumerate}
 		\item $\{0\}\times M \subseteq \Omega \subseteq \R \times M$ open, and for any $p\in M$ the set $I(p)\coloneq \pi_1(\Omega\cap \R\times \{p\})$ is connected. ($\pi_1$ is the projection onto the first factor)
 		\item For all $p\in M$ and $t\in I(p)$ we have that $s\in I(\phi(t,p))$ if and only if $s+t\in I(p)$. Then we have:
