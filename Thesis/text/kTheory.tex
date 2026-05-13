@@ -326,3 +326,76 @@ Since the pullback is homotopy invariant we can conclude by the isomorphism (\re
 		\theta_\alpha(V_\alpha)\to E_x\,
 	\end{equation*} a surjection.
 \end{proof}
+\begin{corollary}\label{cor:kTheo-epiFromTrivial}
+	If $E$ is any bundle over $X$, there exists an epimorphism $\phi:X\times \C^m \to E$ for some integer $m$.
+\end{corollary}
+\begin{proof}
+	Just take a basis $(s_1,\dots,s_m)$ of an ample subspace $V$ and define $\phi(x,e_i)=s_i(x)$, where $e_i$ is the $i$-th standard basis vector of $\C^m$.
+\end{proof}
+\begin{corollary}\label{cor:kTheo-splittingTrivial}
+	If $E$ is a bundle over $X$, there exists a bundle $F$ such that $E\oplus F$ is trivial.
+\end{corollary}
+\begin{proof}
+	By Corollary \ref{cor:kTheo-epiFromTrivial} there exists an epimorphism $\phi:X\times \C^m \to E$. The kernel of $\phi$ is a subbundle of $X\times \C^m$ and hence by Lemma \ref{lem:kTheo-splittingPrinziple} we have a splitting of the short exact sequence 
+	\begin{center}
+		\begin{tikzcd}
+			0 \arrow[r]&\ker(\phi)\arrow[r]&X\times \C^m \arrow[r,"\phi"]&E \arrow[r]&0
+		\end{tikzcd}
+	\end{center} Hence, the middle term becomes isomorphic to the direct sum of the outer terms and we get
+	$X\times \C^m\cong E\oplus \ker(\phi)$.
+\end{proof}
+\begin{definition}[Grassmann Manifold] \label{def:kTheo-grassmanManifold}
+	Let $V$ be a vector space and $n$ be any integer. The \textbf{Grassmann manifold} $\Gr_n(V)$ is the set of all subspaces of $V$ with \textbf{codimenion} $n$. If $V$ is given a Hermitian metric, we can topologize $\Gr_n(V)$ as a subspace of the set of all projection operators on $V$ and this defines a map 
+	\begin{equation*}
+		P: \Gr_n(V) \to \End(V)\,,
+	\end{equation*} where $\End(V)$ is the space of all endomorphisms of $V$ with the operator norm topology.
+	We give $\Gr_n(V)$ the subspace topology of $\End(V)$.
+\end{definition}
+\begin{definition}\label{def:kTheo-classifyingMap}
+	Suppose that $E$ is a bundle over $X$, $V$ is a vector space and $\phi:X\times V \to E$ is an epimorphism. Then we can define a map $f:X\to \Gr_{\dim(V)}(V)$ by sending $x$ to the kernel of $\phi_x: V\to E_x$. We call $f$ to be induced by $\phi$. This map is continouos for any metric on $V$. To see this notice that the topology on $V$ is metric invariant, as $V$ is finite dimensional. Now the map $f$ is continuous if the map for the map \begin{equation*}
+		P: \Gr_n(V) \to \End(V)
+	\end{equation*} the composition $P\circ f$ is continuous. But $P\circ f$ is given by sending $x$ to the projection onto $\ker(\phi_x)$, which is continuous as $\phi$ is.
+\end{definition}
+\begin{definition}[Classifying Bundle]\label{def:kTheo-classifyingBundle}
+	Let $V$ be a vector space and $F\subseteq \Gr_n(V)\times V$ be the subbundle consisting of all points $(g,v)$ such that $v\in g$. We call $F$ the \textbf{tautological bundle} over $\Gr_n(V)$. Furthermore, if $E=(\Gr_n(V)\times V)/F$ is the quotient bundle, we call $E$ the \textbf{classifying bundle} over $\Gr_n(V)$.
+\end{definition}
+
+\begin{corollary}
+	If $E'$ is a bundle over $X$, and $\phi: X\times V\to E'$ is an epimorphism, then $\phi$ induces a map $f:X\to \Gr_{m}(V)$ such that $E'\cong f^*E$, wehere $E$ is the classifying bundle over $\Gr_{m}(V)$. The isomorphism follows from a fiberwise construction because $E_x\cong V\big/\ker(\phi_x)$. The latter however is exactly the fiber over $\ker(x)$ in the classifying bundle and hence the pullback via the $\phi$ induced map gives an isomorphism. That motivates the name "classifying bundle" for $E$ and "classifying map"for $f$. 
+\end{corollary}
+ \begin{lemma}\label{lem:kTheo-GrassmanTopologyMetricInvariant}
+	The topology on $\Gr_n(V)$ is independent of the choice of the metric on $V$.
+ \end{lemma}
+ \begin{proof}
+	Let $h$ and $h'$ be two metrics on $V$. Then we denote the topological space $\Gr_n(V)$ with the topology induced by $h$  by $\Gr(V_h)$ and the one induced by $h'$ by $\Gr(V_{h'})$. We need to show that the identity map $\id:\Gr(V_h)\to \Gr(V_{h'})$ is a homeomorphism. For this we need to show that $\id$ is continuous.The projection $\Gr_n(V_h)\times V_{h'} \to E$ (where $E$ is the classifying bundle) is an epimorphism and hence induces a classifying map $f:\Gr_n(V_h)\to \Gr_n(V_{h'})$ such that $f^*E\cong E$. However that map is given by the identity on $\Gr_n(V)$ and hence the identity is continuous by Definition \ref{def:kTheo-classifyingMap}. 
+ \end{proof}
+ \begin{corollary}
+	The inverse system given by the projections 
+	\begin{equation*}
+		\pi: \C^m \to \C^{m-1},\quad (x_1,\dots,x_m)\mapsto (x_1,\dots,x_{m-1})\,,
+	\end{equation*}induces an direct system of Grassmann manifolds with the induced continuous maps
+	\begin{equation*}
+		i_{m-1}: \Gr_n(\C^{m-1}) \to \Gr_n(\C^{m})\,,\quad U\mapsto \pi^{-1}(U)\,.
+	\end{equation*} If we denote the classifying bundle over $\Gr_n(\C^m)$ by $E_m$, then the pullback of $E_m$ along $i_{m-1}$ is isomorphic to $E_{m-1}$.
+ \end{corollary}
+ \begin{theorem}
+	\label{thm:kTheory-classifyingSpace}
+	The map 
+	\begin{equation*}
+		\lim_{m\to \infty} [X,\Gr_n(\C^m)] \to \Vect_n(X)\,,
+	\end{equation*} induced by $f\mapsto f^*E_m$ is a bijection for all compact Hausdorff spaces $X$.
+ \end{theorem}
+ \begin{proof}
+	We shall contrstuct and inverse map. If $E$ is a bundle over $X$, then by Corollary \ref{cor:kTheo-epiFromTrivial} there exists an epimorphism $\phi:X\times \C^m \to E$ for some integer $m$. Let $f:X\to \Gr_n(\C^m)$ be the map induced by $\phi$. If we manage to show that the homotopy class of $f$ as a map to $\Gr_n(\C^{m'})$ for some large enough $m'$ is independent of the choice of $\phi$ and $m$, then we get a well defined map from $\Vect_n(X)$ to $\lim_{m\to \infty} [X,\Gr_n(\C^m)]$ that is inverse to the classifying map. 
+
+	Suppose that $\phi_i :X\times C^{m_i}\to E$ for $i=1,2$ are two epimorphisms. Let $g_i:X\to \G_n(C^{m_i})$ be the maps induced by $\phi_i$. We want to show that $g_1$ and $g_2$ are homotopic as maps to $\Gr_n(\C^{m_1+m_2})$. For this we define the map
+	\begin{equation*}
+		\psi_t: X\times \C^{m_1}\times C^{m_2} \to E\,,\quad \psi_t(x,v_1,v_2)=t\phi_1(x,v_1)+(1-t)\phi_2(x,v_2)\,.
+	\end{equation*} Since the $\phi_i$ are epimorphisms, this map is an epimorphism for any $t$. Let 
+	\begin{equation*}
+		f_t:X\to \Gr_n(\C^{m_1+m_2})
+	\end{equation*} be the mapes induced by $\psi_t$. (where we identified $\C^{m_1}\times \C^{m_2}$ with $\C^{m_1+m_2}$ by mapping $(v_1,v_2)$ to $(v_1,v_2)$). Then 
+	\begin{equation*}
+		f_0=j_0\circ g_1\quad \text{and}\quad f_1=T \circ j_1\circ g_2\,,
+	\end{equation*} where $j_i:\Gr_n(\C^{m_i})\to \Gr_n(\C^{m_1+m_2})$ is the map induced by the inclusion $\C^{m_i}\to \C^{m_1+m_2}$ and $T$ is the map induced by the isomorphism $\C^{m_1+m_2}\to \C^{m_1+m_2}$ that sends $(v_1,v_2)$ to $(v_2,v_1)$. Since $T$ is homotopic to the identity, we can conclude that $j_0\circ g_1$ and $j_1\circ g_2$ are homotopic as maps to $\Gr_n(\C^{m_1+m_2})$. Hence, the homotopy class of the map induced by an epimorphism is independent of the choice of the epimorphism and the integer $m$. This concludes the proof.
+ \end{proof}
