@@ -369,6 +369,23 @@ Since the pullback is homotopy invariant we can conclude by the isomorphism (\re
  \begin{proof}
 	Let $h$ and $h'$ be two metrics on $V$. Then we denote the topological space $\Gr_n(V)$ with the topology induced by $h$  by $\Gr(V_h)$ and the one induced by $h'$ by $\Gr(V_{h'})$. We need to show that the identity map $\id:\Gr(V_h)\to \Gr(V_{h'})$ is a homeomorphism. For this we need to show that $\id$ is continuous.The projection $\Gr_n(V_h)\times V_{h'} \to E$ (where $E$ is the classifying bundle) is an epimorphism and hence induces a classifying map $f:\Gr_n(V_h)\to \Gr_n(V_{h'})$ such that $f^*E\cong E$. However that map is given by the identity on $\Gr_n(V)$ and hence the identity is continuous by Definition \ref{def:kTheo-classifyingMap}. 
  \end{proof}
+ \begin{definition}[Direct Limit of Sets]\label{def:kTheo-directLimitOfSets}	Let $X_1\to X_2\to \cdots$ be a sequence of sets and injective maps. Then the \textbf{direct limit} $\lim_{m\to \infty} X_m$ is the union $\bigcup_{m=1}^\infty X_m$ modulo the equivalence relation identifying $x$ with $y$ if there exists an $m$ such that $i_m(x)=i_m(y)$. We call $\lim_{m\to \infty} X_m$ the \textbf{direct limit} of the sequence $X_1\to X_2\to \cdots$.
+ \end{definition}
+ \begin{definition}[Direct Limit of Topological Spaces]\label{def:kTheo-directLimitOfTopologicalSpaces}
+	Let $X_1\to X_2\to \cdots$ be a sequence of topological spaces and continuous injective maps. Then the \textbf{direct limit} $\lim_{m\to \infty} X_m$ is the set theoretic direct limit  with the topology given by the final topology with respect to the maps $X_m\to \lim_{m\to \infty} X_m$. I.e. a subset $U\subseteq \lim_{m\to \infty} X_m$ is open if and only if $U\cap X_m$ is open for all $m$.
+ \end{definition}
+ \begin{lemma}[Universal Property of the Direct Limit]\label{lem:kTheo-universalPropertyOfDirectLimit}
+	Let 
+	\begin{center}
+		\begin{tikzcd}
+			X_1 \arrow[r,"i_1"] & X_2 \arrow[r,"i_2"] & \cdots
+		\end{tikzcd}
+	\end{center} be a sequence of sets (or topological spaces). Then any family of (continuous) maps $f_m:X_m\to Y$ that are compatible with the $i_m$ (i.e. $f_{m+1}\circ i_m=f_m$) factors uniquely through a (continuous) map $f:\lim_{m\to \infty} X_m \to Y$.	
+ \end{lemma}
+ \begin{proof}
+	We start by showing the existence of $f$ by defining $f(x)=f_m(x)$ for $x\in X_m$. This is well defined as the $f_m$ are compatible with the $i_m$. Now we need to show that $f$ is continuous. For this we need to show that $f^{-1}(U)$ is open for any open subset $U\subseteq Y$. But by definition of the topology on the direct limit, it suffices to show that $f^{-1}(U)\cap X_m$ is open for all $m$. 
+	This is clear as $f^{-1}(U)\cap X_m=f_m^{-1}(U)$, which is open as $f_m$ is continuous. Finally, the uniqueness of $f$ follows from the fact that the maps $X_m\to \lim_{m\to \infty} X_m$ are injective and their images cover $\lim_{m\to \infty} X_m$.
+ \end{proof}
  \begin{corollary}
 	The inverse system given by the projections 
 	\begin{equation*}
@@ -399,8 +416,38 @@ Since the pullback is homotopy invariant we can conclude by the isomorphism (\re
 		f_0=j_0\circ g_1\quad \text{and}\quad f_1=T \circ j_1\circ g_2\,,
 	\end{equation*} where $j_i:\Gr_n(\C^{m_i})\to \Gr_n(\C^{m_1+m_2})$ is the map induced by the inclusion $\C^{m_i}\to \C^{m_1+m_2}$ and $T$ is the map induced by the isomorphism $\C^{m_1+m_2}\to \C^{m_1+m_2}$ that sends $(v_1,v_2)$ to $(v_2,v_1)$. Since $T$ is homotopic to the identity, we can conclude that $j_0\circ g_1$ and $j_1\circ g_2$ are homotopic as maps to $\Gr_n(\C^{m_1+m_2})$. Hence, the homotopy class of the map induced by an epimorphism is independent of the choice of the epimorphism and the integer $m$. This concludes the proof.
  \end{proof}
- \begin{lemma}
-\begin{equation*}
-	\lim_{m\to \infty} [X,\Gr_n(\C^m)] \cong [X,\Gr_n(\C^\infty)]\,,
-\end{equation*}
+ \begin{lemma}For any compact $X$ and sequence of injective maps $i_m:X_m\to X_{m+1}$ we have a canonical bijection between the set theoretic direct limit of homotopy classes of maps and the homotopy classes of maps to the topological direct limit:
+\begin{equation*} 
+	\lim_{m\to \infty} [X,\Gr_n(\C^m)] \cong [X,\lim_{m\to \infty}\Gr_n(\C^m)]\,.
+\end{equation*} Here $[X,\Gr_n(\C^m)] \to [X,\Gr_n(\C^{m-1})]$ is the map induced by $i_{m-1}:\Gr_n(\C^{m-1})\to \Gr_n(\C^m)$.
  \end{lemma}
+ \begin{proof}
+Since $X$ is compact, any map $f:X\to \lim_{m\to \infty}\Gr_n(\C^m)$ has image that is also compact and hence contained in some $\Gr_n(\C^m)$ for $m$ big enough (Just cover it with open maps and reduce that cover to a finite one). Hence there exists a $f_m$ such that $f=i\circ f_m$. where $i$ denotes the inclusion of $\Gr_n(\C^m)$ into the direct limit. This assignement is independent of the choosen $m$, once we view $f_m$ as an element of the the direct limit. This assignement is well defined on homotopy classes becuse if $f,s:X\to \lim_{m\to \infty}\Gr_n(\C^m)$ are homotopic, then there exists a homotopy $H:X\times I\to \lim_{m\to \infty}\Gr_n(\C^m)$ between them. By the same argument as before, the image of $H$ is compact and hence contained in some $\Gr_n(\C^m)$. Hence, $f_m$ and $s_m$ are homotopic via $H_m$ as maps to $\Gr_n(\C^m)$. Hence we get a well defined canonical map 
+\begin{equation*}
+	\Phi: [X,\lim_{m\to \infty}\Gr_n(\C^m)] \to \lim_{m\to \infty} [X,\Gr_n(\C^m)]\,.
+\end{equation*} This map is injective, as if $f_m$ and $s_m$ are homotopic as maps to $\Gr_n(\C^m)$, then they are also homotopic as maps to the direct limit. Finally $\Phi$ is surjective, as any element of the direct limit is represented by some $f_m:X\to \Gr_n(\C^m)$ and hence $\Phi([i\circ f_m])=[f_m]$. 
+ \end{proof}
+ \begin{definition}
+	We denote $\lim_{m\to \infty} \Gr_n(\C^m)$ by $\BU(n)$ and call it the \textbf{classifying space} for complex vector bundles of rank $n$. The name origins from the fuctor $\mathrm{B}$ that sends a topological group $G$ to the classifying space of al vector bundles with structure group $G$. 
+ \end{definition}
+ \begin{corollary}
+	For any compact Hausdorff space $X$, there is a canonical bijection between the homotopy classes of maps from $X$ to $\BU(n)$ and the isomorphism classes of vector bundles of rank $n$ over $X$:
+	\begin{equation*}
+		[X,\BU(n)] \cong \Vect_n(X)\,.
+	\end{equation*}
+ \end{corollary}
+ \subsection{K-Theory as a Cohomology Theory}
+  \begin{definition}[Grothendiek Group and Ring]\label{def:kTheo-grothendiekGroupAndRing}
+	Let $A$ be an abelien semigroup. Then the \textbf{Grothendiek group} of $A$ is the abelian group $K(A)$ together with a homomorphism $\phi:A\to K(A)$ such that for any other group $G$ together with a homomorphism $\psi:A\to G$, there exists a unique homomorphism $\psi:K(A)\to G$ such that the following diagram commutes:	
+	\begin{center}
+		\begin{tikzcd}
+			A \arrow[r,"\phi"] \arrow[rd,swap,"\psi"] & K(A) \arrow[d,dashed,"\tilde{\psi}"]\\
+			 & G
+		\end{tikzcd}	
+	\end{center} If $G$ is a semiring, then $K(G)$ inherits a ring structure and we call $K(G)$ the \textbf{Grothendiek ring} of $G$.
+  \end{definition}
+  \begin{corollary}
+	The Grothendiek group exists for any abelian semigroup and is unique up to canonical isomorphism. If $G$ is a semiring, then the Grothendiek ring exists and is unique up to canonical isomorphism.
+  \end{corollary}
+  \begin{proof}Let $A$ be an abelien semigroup and $\Delta:A\to A\times A$ be the diaglinal homomorphism that sends $a$ to $(a,a)$. Let $K(A)\coloneq A\times A\big/ \Delta(A)$ and $\phi:A\to K(A)$ be the homomorphism that sends $a$ to the class of $(a,0)$. Then $K(A)$ together with $\phi$ satisfies the universal property of the Grothendiek group:
+ \end{proof}
