@@ -450,8 +450,9 @@ Since $X$ is compact, any map $f:X\to \lim_{m\to \infty}\Gr_n(\C^m)$ has image t
 		\item $\TopC \to \TopCPair$ by sending $X\mapsto (X,\emptyset)$ again with obvious morphisms.
 		\item $\TopC \to \TopCPoint$ as the composition.
 	\end{itemize}
-	If we decent to the category where the morphisms are homotopy classes of maps, we get the categories $\hTopC$, $\hTopCPoint$ and $\hTopCPair$.
+	If we decent to the category where the morphisms are homotopy classes of maps, we get the categories $\hTopC$, $\hTopCPoint$ and $\hTopCPair$. Furthermore, the construction gives a functor from the categorie of abelien semigroups to the categorie of abelien groups. 
 \end{definition}
+
   \begin{definition}[Grothendiek Group and Ring]\label{def:kTheo-grothendiekGroupAndRing}
 	Let $A$ be an abelien semigroup. Then the \textbf{Grothendiek group} of $A$ is the abelian group $K(A)$ together with a homomorphism $\phi:A\to K(A)$ such that for any other group $G$ together with a homomorphism $\psi:A\to G$, there exists a unique homomorphism $\psi:K(A)\to G$ such that the following diagram commutes:	
 	\begin{center}
@@ -464,10 +465,25 @@ Since $X$ is compact, any map $f:X\to \lim_{m\to \infty}\Gr_n(\C^m)$ has image t
   \begin{corollary}
 	The Grothendiek group exists for any abelian semigroup and is unique up to canonical isomorphism. If $G$ is a semiring, then the Grothendiek ring exists and is unique up to canonical isomorphism.
   \end{corollary}
-  \begin{proof}Let $A$ be an abelien semigroup and $\Delta:A\to A\times A$ be the diaglinal homomorphism that sends $a$ to $(a,a)$. Let $K(A)\coloneq A\times A\big/ \Delta(A)$ . Then $K(A)$ is a priory a abelien semigroup, but for $a,b\in A$ we have
+  \begin{proof}Let $A$ be an abelien semigroup and $\Delta:A\to A\times A$ be the diaglinal homomorphism that sends $a$ to $(a,a)$. Let $K(A)\coloneq A\times A\big/ \Delta(A)$ . Then $K(A)$ is a priori an abelien semigroup, but for $a,b\in A$ we have
 \begin{equation*}
 	(a,b)+(b,a)=(a+b,b+a)\in \Delta(A)\,,
-\end{equation*} and hence $K(A)$ is an abelian group. Together with the homomorphism $\alpha_A:A\to K(a)$ that sends $a$ to the class $(a,0)+\Delta(A)$, we get the folowing property:
+\end{equation*} and hence $K(A)$ is an abelian group. Also we can see that 
+\begin{equation*}
+\overline{(a,b)}=\overline{(a,0)}-\overline{(b,0)}=\alpha_A(a)-\alpha_A(b)
+\end{equation*} Together with the homomorphism $\alpha_A:A\to K(A)$ that sends $a$ to the class $(a,0)+\Delta(A)$, we get the universal property of the Grothendiek group:
+
+Let $G$ be another abelian group and $\psi: A\to G$ a semigroup homomorphism.From this define 
+\begin{equation*}
+	\tilde{\psi}:K(A)\to G\,,\quad (a,b)+\Delta(A)\to \psi(a)-\psi(b)
+\end{equation*} The well definintion of this map can be verified by a calculation. By calculating it also follows that $\tilde{\psi}$ is a group homomorphism and that $\tilde{\psi}\circ \alpha_A=\psi$. Hence for the universal property we only need to verify uniqueness. So assume that $\theta:K(A)\to G$ is another group homomorphism. Then:
+\begin{equation*}
+	\theta\left(\overline{(a,b)}\right)=\underbrace{\theta(\alpha_A(a))}_{\psi(a)}-\underbrace{\theta(\alpha_A(b))}_{\psi(b)}=\tilde{\psi}\left(\overline{(a,b)}\right)
+\end{equation*}
+This concludes the construction of the grothendiek group. To see the functoriality we first need to define what $K(\beta)$ means, when $\beta: A\to B$ defines a semigroub homomorphism between to abelien semigroups. For this we use the universal property and define $K(\beta)$ to be the unique group homomorphism comming from $\alpha_B\circ \beta : A \to K(B)$. Now the uniqueness of said definition shows the equialities $K(\id)=\id$ and $K(f\circ g)=K(f)\circ K(g)$.  
+\end{proof}
+
+\begin{comment}
 Let $\beta:A \to A'$ be another semigroup homomorphism. Then we have the following kommutative diagram:
 ~\vspace{0.3cm}
 
@@ -486,7 +502,7 @@ Let $\beta:A \to A'$ be another semigroup homomorphism. Then we have the followi
 
 \vspace{0.3cm}
 Hence, the assignement $A\mapsto K(A)$ and $\beta\mapsto K(\beta)$ defines a functor from the category of abelian semigroups to the category of abelian groups. To see the universal property of $K(A)$ we first notive that for a group $G$ the group $K(G)$ is naturally isomorphic to $G$ itself, via the map $\alpha_G$, since $(a,b)\mapsto a-b$ is a well defined natural inverse of $\alpha_G$ and of the vertical bottom row  of the diagram $\pi \circ (\id \times 0)$. Hence said inverse together with the unique $K(\beta)$ shows the universal property of $K(A)$ as the grothendiek Group. Uniquenes of $K(A)$ is the classical diagram chase argument. Also it is obvious, that if $G$ is a semiring, then $K(G)$ inherits a ring structure and the same argument as before shows the universal property of $K(G)$ as the Grothendiek ring of $G$.
-\end{proof}
+\end{comment}
 \begin{corollary}
 	In the proof above we have shown that the assignement $K$ is a functor from the category of abelian semigroups to the category of abelian groups. Alternatively, we can view $K$ as a functor from the category of semirings to the category of rings.
 \end{corollary}
@@ -505,7 +521,7 @@ Hence, the assignement $A\mapsto K(A)$ and $\beta\mapsto K(\beta)$ defines a fun
 \begin{definition}[Reduced K-Theory]\label{def:kTheo-reducedKTheory}
 	Let $X$ be a compact Hausdorff space and $x_0\in X$ be a base point. We define the \textbf{reduced K-group} $\tilde{K}(X)$ of $X$ to be the kernel of the map $K(X)\to K(\{x_0\})$ induced by the inclusion $\{x_0\}\to X$.	
 \end{definition}
-\begin{corollary}
+\begin{corollary}\todo{make this prezice "the splitting is natural"}
 	If $c:X\to x_0$ is the collapsing map sending each point to the base-point, then we get a splitting 
 	\begin{align*}
 		K(X)\cong \Tilde{K}(X) \oplus K(x_0) \, .
@@ -527,7 +543,7 @@ Hence, the assignement $A\mapsto K(A)$ and $\beta\mapsto K(\beta)$ defines a fun
 	\end{center}
 	So let $k\in K(y_0)$. Then since $K$ is a contravariant functor we know that $$c_X^*(\restr{f}{x_0})^*(k)=(\restr{f}{x_0}\circ c_x)^*(k)\, .$$ But since pointed maps send basepoints we have that $\restr{f}{x_0}\circ c_x=C_y\circ \restr{f}{x_0}$ and hence we can conclude the commutativity. 
 \end{proof}
-\begin{corollary}
+\begin{corollary}\todo{above i added naturality of the splitting. this schould give an easyer proof here}
 	By the above we can conclude that $\tilde{K}$ is a functor from $\TopCPoint$ to $\Ring$.
 \end{corollary}
 \begin{proof}
