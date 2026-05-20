@@ -512,6 +512,9 @@ Hence, the assignement $A\mapsto K(A)$ and $\beta\mapsto K(\beta)$ defines a fun
 		\TopC \to \Ring\,.
 	\end{eqnarray}
 \end{definition}
+\begin{remark}
+	For a continuous map $f:X\to Y$ we denote the induced map $K(f^*):K(Y)\to K(X)$ by jusst $f^*$.
+\end{remark}
 \begin{theorem}
 	The functor $K:\TopC \to \Ring$ factors over the homotopy category $\hTopC$ of compact Hausdorff spaces together with homotopy classes of maps. 
 \end{theorem}
@@ -521,41 +524,66 @@ Hence, the assignement $A\mapsto K(A)$ and $\beta\mapsto K(\beta)$ defines a fun
 \begin{definition}[Reduced K-Theory]\label{def:kTheo-reducedKTheory}
 	Let $X$ be a compact Hausdorff space and $x_0\in X$ be a base point. We define the \textbf{reduced K-group} $\tilde{K}(X)$ of $X$ to be the kernel of the map $K(X)\to K(\{x_0\})$ induced by the inclusion $\{x_0\}\to X$.	
 \end{definition}
-\begin{corollary}\todo{make this prezice "the splitting is natural"}
-	If $c:X\to x_0$ is the collapsing map sending each point to the base-point, then we get a splitting 
+\begin{corollary}\label{cor:kTheo-splittingReducedGroupNatural}
+	If $c:X\to x_0$ is the collapsing map sending each point to the base-point, then we get a natural splitting 
 	\begin{align*}
 		K(X)\cong \Tilde{K}(X) \oplus K(x_0) \, .
-	\end{align*}  
+	\end{align*}  Naturallity here means, that for any homomorphism of pointes spaces $f:(X,x_0)\to (Y,y_0)$ we have a commuting diagramm:
+	\begin{center}
+		\begin{tikzcd}
+			K(X)\arrow[r]\arrow[d,"f^*"]& \Tilde{K}(X) \oplus K(x_0)\arrow[d,"\tilde{K}(f)\oplus (\{x_0\}\to \{y_0\})^*"]\\
+			K(Y)\arrow[r]& \Tilde{K}(Y) \oplus K(y_0)
+		\end{tikzcd}
+	\end{center}
 \end{corollary}
 \begin{proof}
 	We have the exact sequence of Rings:
 	\begin{center}
 		\begin{tikzcd}
-			0 \arrow[r] & \tilde{K}(X) \arrow[r, "inclusion"] & K(X) \arrow[r, "i^*"] & K(x_0) \arrow[r] & 0
+			0 \arrow[r] & \tilde{K}(X) \arrow[r, "inclusion"] & K(X) \arrow[r, "i_X^*"] & K(x_0) \arrow[r] & 0
 		\end{tikzcd}
-	\end{center} where $c^*:K(x_0)\to K(X)$ is a right inverse of $i^*$, and hence the sequence splits and $K(X)\cong \tilde{K}(X)\oplus K(x_0)$. The splitting is natural with respect to maps in $\TopCPoint$, because for a map of pointed spaces $f:X\to Y$ we get commutativity:
-	\begin{center}
+	\end{center} where $c_X^*:K(x_0)\to K(X)$ is a right inverse of $i_X^*$, and hence the sequence splits and $K(X)\cong \tilde{K}(X)\oplus K(x_0)$.The isomorphism is explicitly given by
+	\begin{equation*}
+		K(X)\to \tilde{K}(X)\oplus K(x_0)\,,\quad \xi \mapsto \left(\xi- c_X^*\circ i_X^*(\xi),i_X^*(\xi)\right)
+	\end{equation*} and its inverse maps $(a,b)\mapsto a+c_X^*(b)$. The splitting is natural with respect to maps in $\TopCPoint$, because for a map of pointed spaces $f:X\to Y$ we get commutativity:
+	\begin{center}\label{diag:kTheo-NaturalSplitting}
 		% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZARgBoAGAXVJADcBDAGwFcYkQAdDvR2YAaQC+ACgAaAShCDS6TLnyEUAJgrU6TVu35jJ02djwEi5VTQYs2iEOSkyQGAwqIBmU+otbhADwD65XXYO8kYoACxu5ppWNnr2coaKyCbEapGW1rb6wYlkKWYa6Vw8fELCAJoBWQlEKnnuUSDaFZlxjiHIrnVpngCefpWt2UThXQXsMWowUADm8ESgAGYAThAAtkgqIDgQSOSxy2u7NNtIZFv0WIzsABYQEADWLQfriGcniK716VgAegBUIBojHoACMYIwAArxJxWJZYabXHBPFYvT7vUL7FFIACsxx2iAAbJjDoS8UgAOzHC5XKy3B7IkmUrb4gAcxJeLLJiAAnOykJzmRSaGCwFAkKFufkPFYAMY+Mr-BkcrmfbpWYRcJbwHBLYALQTAXx7cSKoGg8FQtqKEBwhFIvmIJnvM5qkALRUOtH4s4isWIAC0EqlDTlolNIGBYMh0JCNvhiKklEEQA
 		\begin{tikzcd}
-			0 \arrow[r] & \tilde{K}(X) \arrow[r, hook] & K(X) \arrow[r, "i^*"']          & K(x_0) \arrow[r] \arrow[l, "c_X^*"', bend right=49]                                & 0 \\
-			0 \arrow[r] & \tilde{K}(Y) \arrow[r, hook] & K(Y) \arrow[r] \arrow[u, "f^*"] & K(y_0) \arrow[r] \arrow[l, "c_Y^*", bend left=49] \arrow[u, "(\restr{f}{x_0})^*"'] & 0
+			0 \arrow[r] & \tilde{K}(X) \arrow[r, hook] & K(X) \arrow[r, "i_X^*"']          & K(x_0) \arrow[r] \arrow[l, "c_X^*"', bend right=49]                                & 0 \\
+			0 \arrow[r] & \tilde{K}(Y) \arrow[r, hook] \arrow[u,"\restr{f^*}{\tilde{K}(Y)}"]& K(Y) \arrow[r,"i_Y^*"] \arrow[u, "f^*"] & K(y_0) \arrow[r] \arrow[l, "c_Y^*", bend left=49] \arrow[u, "(\restr{f}{x_0})^*"'] & 0
 		\end{tikzcd}
 	\end{center}
-	So let $k\in K(y_0)$. Then since $K$ is a contravariant functor we know that $$c_X^*(\restr{f}{x_0})^*(k)=(\restr{f}{x_0}\circ c_x)^*(k)\, .$$ But since pointed maps send basepoints we have that $\restr{f}{x_0}\circ c_x=C_y\circ \restr{f}{x_0}$ and hence we can conclude the commutativity. 
+	The well definition of $ \restr{f^*}{\tilde{K}(Y)}$ follows immidiatly from the commutativity. The commutativity itself follows from $K$ beeing a contravariant functor and all topological maps commute. Finally, define $\tilde{K}(f)\coloneq \restr{f^*}{\tilde{K}(Y)}$ and we are done, since  the naturality of the
+splittings, i.e.\ commutativity of the diagram in the corollary, then
+follows from commutativity of each square separately: the left square
+controls the $\tilde{K}$-summand and the right square (together with
+the sections $c_X^*, c_Y^*$) controls the $K(x_0)$-summand.
 \end{proof}
-\begin{corollary}\todo{above i added naturality of the splitting. this schould give an easyer proof here}
-	By the above we can conclude that $\tilde{K}$ is a functor from $\TopCPoint$ to $\Ring$.
+\begin{remark}
+	For a map $f:(X,x_0)\to (Y,y_0)$ we denote $\tilde{K}(f)$ and $K(f)$ by $f^*$. The context will make clear if we work in the reduced theory or not.
+\end{remark}
+\begin{corollary}
+	$\tilde{K}$ is a functor from $\TopCPoint$ to $\Ring$.
 \end{corollary}
 \begin{proof}
-	The proof is somewhat fundamental. First we notice that we have a funcor from $\TopCPoint$ to the category of short exact sequences of rings. Since the right inverse respectifly the splitting is natural by the above, we have a functor to the short exact sequences (ses) together with right inverses. Here we have an endofuncor that sends each such sequence to a splitted one:
-	\begin{center}
-		
-	% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRGJAF9T1Nd9CKMgEYqtRizYduvbHgJFh5MfWatEIAIJceIDHIGLSo6qskbtMvX3mDkAJmWmJ6kACEds-gpSOT4tTZNAB1giDRmOAACAGFPawMfZABmJwDzEDirfW87VP8zVyzdHNsiABY0wql40sMUSoKXGs4xGCgAc3giUAAzACcIAFskRxAcCCRK9Nde+IHhqeoJpAA2Z0CNDvnBkcR18cnEaeqNfpBqACMYMCgkAFpVgHYrBb3Uw6QAVg2M0KwoFFQuFIlFpLo3t9lkcnr9XKE0FgAPr2HaLRCwz6IACcr12SCUWOSePRZCx9hJewOK0QAA5KUhMTSfjMpMCIkxogCLiBrrc1sQGYgxjSPqcQNyhdSYXC2JKIfjjtCoayNKEAAoACywXAonCAA
-	\begin{tikzcd}
-		0 \arrow[r] & A \arrow[r, "f"] \arrow[d, "id"] & B \arrow[r, "g"] \arrow[d, "\Phi"] & C \arrow[l, "r", bend right=67] \arrow[r] \arrow[d, "id"] & 0 &\text{ses with right inverse}\arrow{d}\\
-		0 \arrow[r] & A \arrow[r, "\id \oplus 0"]      & A\oplus C \arrow[r, "\pi_2"]       & C \arrow[r] \arrow[l, "0\oplus id", bend left=60]         & 0&\text{ses with middle term a direct sum}
-	\end{tikzcd}
-	\end{center}
-	Where $\Phi$ is constructed as follows: 
-	first we get a left inverse of $f$ given by $l(b)=f^{-1}(b-r\circ g(b))$ and with this we define $\Phi(b)=l(b)\oplus g(b)$. Finally, we have a functor that sends such a sequence to its middle therm. Hence the direct sum decomposition is functorial and thereby also the reduced K-group.
+	The proof follows imidiatly from the naturality of the splitting in Corollary \ref{cor:kTheo-splittingReducedGroupNatural}.
 \end{proof}
+\begin{corollary}
+	Let $X$ be a compact hausdorff space, and let 
+	\begin{equation*}
+		F:\TopC \to \TopCPoint
+	\end{equation*} be the functor that that sends $X$ to $(X,[\emptyset])$ with obvious homomorphisms. Then there is a natural isomorphism between the functors $\tilde{K}\circ F$ and $K$. 
+\end{corollary}
+\begin{proof}
+	This follows  from the fact that disjoint uninons give rise to direct sums of semi rings: $\Vect[X\sqcup [\emptyset]]\cong \Vect(X)\oplus \Vect([\emptyset])$ and the isomorphism is given by gluing the bundles and hence natural. Furthermore, the Grothendiek ring of a direct sum gives the direkt sum of rings (again in a natural manner). (This can be verified using the universal property). Hence we get the commutatuve diagram
+	\begin{center}
+		\begin{tikzcd}
+			0 \arrow[r]\arrow[d,equal]&\tilde{K}(F(X)) \arrow[r,"inclusion"] & K(F(X)) \arrow[d,"\Phi"]\arrow[r,"i^*"] & K([\emptyset]) \arrow[r] \arrow[d,equal] &0\arrow[d,equal] \\
+			0 \arrow[r]&K(X) \arrow[r,"i_1"] & K(X)\oplus K([\emptyset]) \arrow[r,"\pi_2"]&K([\emptyset]) \arrow[r] &0
+		\end{tikzcd}
+	\end{center}
+ But then we can define the map $\restr{\Phi}{\tilde{K}(F(X))}$ and diagram yoga shows that this is an isomorphism. Furthermore, since $\Phi$ is natural, the new map is also natural and defines a netural transformation between the two functors.
+\end{proof}
+\begin{definition}
+	Let $F:\TopCPair \to \TopCPoint$ be the functor that collapses the second space. Then the composition $\tilde{K}\circ F$ defines a contravariant functor.
+\end{definition}
