@@ -568,7 +568,7 @@ the sections $c_X^*, c_Y^*$) controls the $K(x_0)$-summand.
 \begin{proof}
 	The proof follows imidiatly from the naturality of the splitting in Corollary \ref{cor:kTheo-splittingReducedGroupNatural}.
 \end{proof}
-\begin{corollary}
+\begin{corollary}\label{cor:kTheo-unpointedReducedIsNonReduced}
 	Let $X$ be a compact hausdorff space, and let 
 	\begin{equation*}
 		F:\TopC \to \TopCPoint
@@ -587,3 +587,60 @@ the sections $c_X^*, c_Y^*$) controls the $K(x_0)$-summand.
 \begin{definition}
 	Let $F:\TopCPair \to \TopCPoint$ be the functor that collapses the second space. Then the composition $\tilde{K}\circ F$ defines a contravariant functor.
 \end{definition}
+\begin{definition}
+	Let $(X,x_0)$ and $(Y,y_0)$ be two pointed spaces. Then we define the \textbf{pointed sum} as: 
+	\begin{equation*}
+		X \vee Y \coloneq (X\sqcup Y) \big/ (x_0\sim y_0) \,.
+	\end{equation*} Whith this, we can define the \textbf{smash product} as:
+	\begin{equation*}
+		X\wedge Y \coloneq (X\times Y)\big/ (X\vee Y)
+	\end{equation*}
+\end{definition}
+\begin{definition}
+	For the sake of intuition, I want to give a bit of insight into tensor products without beeing to technical and opening the box of pandora of monoidial categories. We define a tensor product in a caregory simply as the space over which bilinear maps factor uniquely. To capture bilinearity in such a categorie wie define the following. Let $\pi_i:X_0\times X_1 \to X_i$ be the canonical projection for $i=0,1$.  Any resonalble product should come with such surjective maps. Since those are surjective, the $\pi_i$ omitt a family of right inverses $r_i: X_i\to X_0\times X_1$. We call such a right inverse "product preserving" if the compositions $\pi_{2}\circ r_1$ and $\pi_1\circ r_2$ are constant. Hence the right invers maps into just one fiber. Now bilinearity in this general setting states, that for any product preserving right invers of the projections $r_i$, the composition $f\circ r_i$ is structure preserving.
+\end{definition}
+\begin{remark}[What is the Smash Product]
+	We can think of the smash product as the tensor product in the pointed topological spaces as follows. Let $f:(X,x_0)\times (Y,y_0)\to (Z,z_0)$ be bilinear. For any $y\in Y$ we have the product preserving right inverse of $\pi_1$ given by
+	\begin{equation*}
+		r_1^y: (X,x_0)\to (X,x_0)\times (Y,y_0),\quad x \mapsto (x,y)\,.
+	\end{equation*} Analogously we define $r_2^x$ for any $x\in X$ as
+	\begin{equation*}
+		r_2^x: (Y,y_0)\to (X,x_0)\times (Y,y_0),\quad y \mapsto (x,y)\,.
+	\end{equation*}
+	 Now for any $x\in X$ we have $f(x,y_0)=f\circ i^x_Y(y_0)=z_0$ as the composition is said to be basepoint preserving. Similar we see that $f(x_0,y)=z_0$ for any $y\in Y$. Hence $f$ factors over the quotient space \begin{equation*}
+		X\times Y \big/ (X\times \{y_0\} \cup (Y\times \{x_0\})) \,,
+	 \end{equation*} where the nominator is the canonically embedded $X\vee Y$ into the produc. Furtermore by the universal property of quotiens spaces, this factorization is unique.
+\end{remark}
+\begin{example}
+	Let $S^n$ be the $n$-dimensional spere given by all points of norm one in $\R^n{+1}$. Then a general fact is that $S^n\cong I^n\big/ \partial I^n$ and hence for all $n,m>0$ we have $S^n\wedge S^m\cong S^{n+m}$. Later \todo{ref} we wil make this homeomorphism canonical.
+\end{example}
+\begin{definition}
+	Let $(X,x_0)$ be a pointed topological space. We define the \textbf{reduced suspension} of $X$ to be 
+	\begin{equation*}
+		\Sigma X\coloneq S^1\wedge X \,.
+	\end{equation*} 
+	Furtermore, we define inductively $\Sigma^nX\coloneq \Sigma (\Sigma^{n-1}X)\cong S^n\wedge X$ and using the principle of permanence we extend this definition to $\Sigma^0X\coloneq S^0\wedge X\cong X$. The last homeomorphism is canonical.
+\end{definition}
+\begin{corollary}
+	
+\end{corollary}
+\begin{definition}[Lower K-groups] \label{def:kTheo-lowerKGroub}
+	For $n\geq 0$ we define:
+	\begin{align*}
+		\begin{array}{lclll}
+			\Tilde{K}^{-n}(X,x_0)&\coloneq &\Tilde{K}(\Sigma^n\wedge X)& \text{für } &(X,x_0)\in Ob(\TopCPoint),\\
+			K^{-n}(X,Y)&\coloneq &\Tilde{K}^{-n}(X\slash Y,[Y]) &\text{für } &(X,Y)\in Ob(\TopCPair)\\
+			K^{-n}(X) &\coloneq &K^{-n}(X,\emptyset) &\text{für } &X\in Ob(\TopC)~.
+		\end{array}
+	\end{align*}
+	All those definitions give contravariant and homotopically invariant functors into the category of rings.
+\end{definition}
+\begin{corollary}
+	Let $X$ be a topological space. Then we have a natural isomorphism between $K^0(X)\cong K(X)$.
+\end{corollary}
+\begin{proof}
+	When disentangeling the definitions, we see that 
+	\begin{equation*}
+		K^0(X)=\tilde{K}(\Sigma^0(X,[\emptyset]))\cong \tilde{K}(X,[\emptyset])\cong K(X)
+	\end{equation*} where the first isomorphism comes from $\Sigma^0$ beeing canonically isomporphic to the identity and the second isomorphism is given in Corollary \ref{cor:kTheo-unpointedReducedIsNonReduced}.
+\end{proof}
