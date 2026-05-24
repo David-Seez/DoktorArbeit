@@ -1,0 +1,312 @@
+\input{technical/preamble.tex}
+
+% ============================================================
+%  METADATEN
+% ============================================================
+\title{Komplexe Zahlen}
+\subtitle{}
+\author{David Seez}
+\institute{}
+\date{\today}
+
+% ============================================================
+\begin{document}
+% ============================================================
+
+% ---- Titelfolie -----------------------------------------------
+\begin{frame}
+  \titlepage
+\end{frame}
+
+% ---- Inhaltsverzeichnis ---------------------------------------
+\begin{frame}{Übersicht}
+  \tableofcontents
+\end{frame}
+
+% ==============================================================
+\section{Motivation}
+% ==============================================================
+
+
+
+\begin{frame}{Motivation und Geschichte}{Quadratische Gleichungen}
+  \input{text/MotivationUndGeschichte}
+\end{frame}
+
+\begin{frame}{Motivation und Geschichte}{Cubische/Quartische Gleichungen}
+\begin{columns}
+  \begin{column}{0.5\textwidth}
+    \includegraphics[width=0.5\textwidth]{text/images/Summa de Arithmetica geometria proportioni.png}\\[0.2em]
+    {\tiny\sffamily\mdseries  \cite{pacioli1494}
+}
+  \end{column}
+  \begin{column}{0.5\textwidth}
+    \centering
+    \begin{overlayarea}{\textwidth}{0.75\textheight}
+      \vfill
+      \only<1>{\includegraphics[width=\textwidth]{text/images/Original ausschnitt Summa de aritmetica.png}}
+      \only<2>{\includegraphics[width=\textwidth]{text/images/Original ausschnitt Summa de aritmetica übersetzbung 1.png}}
+      \only<3>{\includegraphics[width=\textwidth]{text/images/Original ausschnitt Summa de aritmetica übersetzbung 2.png}}
+      \vfill
+    \end{overlayarea}
+  \end{column}
+\end{columns}
+\end{frame}
+
+
+
+
+
+\begin{frame}{Motivation und Geschichte}{Cubische/Quartische Gleichungen}
+	\begin{columns}
+	\begin{column}{0.3\textwidth}
+		\centering
+		\begin{overlayarea}{\textwidth}{0.75\textheight}
+		\vfill
+		\only<1>{\includegraphics[width=\textwidth]{text/images/Ars_Magna_Cardanische_Formel.png}}
+		\only<2>{\includegraphics[width=\textwidth]{text/images/Ars_Magna_Cardanische_Formel_Übersetzung1.png}}
+		\only<3->{\includegraphics[width=\textwidth]{text/images/Ars_Magna_Cardanische_Formel_Übersetzung2.png}}
+		\end{overlayarea}
+	\end{column}
+	\begin{column}{0.7\textwidth}
+		\centering
+		\onslide<4->{
+			\begin{align*}
+				x^3+px+q &= 0 \\
+				\Leftarrow x &= \sqrt[3]{-\frac{q}{2} + \sqrt{\left(\frac{q}{2}\right)^2+\left(\frac{p}{3}\right)^3}}
+								+ \sqrt[3]{-\frac{q}{2} - \sqrt{\left(\frac{q}{2}\right)^2+\left(\frac{p}{3}\right)^3}}
+			\end{align*}
+					} \\[0.8em]
+
+		\onslide<5->{$
+				x^3-15x-4 = 0 
+				\quad \Leftarrow \quad x = \sqrt[3]{2 + \sqrt{-121}}
+								+ = \sqrt[3]{2 - \sqrt{-121}} $
+					} \\[0.8em]
+		\onslide<6->{ François Viète [1540-1603] Führt Rechnen mit Symbolen ein (+,-,aequabitur) Außerdem eine Formel für eine Nullstelle bei Quartiken.} \\[0.8em]
+		\onslide<7->{René Descart [1596-1650-] rechnet mit negativen Wurzeln!}
+	\end{column}
+
+	\end{columns}
+\end{frame}
+
+% ==============================================================
+\section{Definition und algebraische Struktur}
+% ==============================================================
+
+\begin{frame}{Definition}{Hamiltonsche Konstruktion \cite{hamilton1837}}
+  \begin{definition}[Komplexe Zahlen als $\R^2$]
+    Setze $\C := \R^2$ mit komponentenweiser Addition und
+    \[
+      \mathbf{1} := (1,0), \qquad  \mathbf{1}^2= \mathbf{1},\qquad \ii := (0,1), \qquad \ii^2 = -\mathbf{1}.
+    \]
+    \onslide<2->{
+    Die definition der Multiplikation folgt aus Distributivität:
+    \begin{align*}
+      (a\mathbf{1} + b\ii)(c\mathbf{1} + d\ii)
+        &= ac\,\mathbf{1}^2 + (ad+bc)\,\mathbf{1}\ii + bd\,\ii^2 \\
+        &= ac\,\mathbf{1} + (ad+bc)\,\ii - bd\,\mathbf{1} \\
+        &= (ac-bd)\,\mathbf{1} + (ad+bc)\,\ii.
+    \end{align*}
+    d.\,h.\ $(a , b)\cdot(c , d) := (ac-bd,ad+bc)$.
+    }
+  \end{definition}
+\end{frame}
+
+% ==============================================================
+\section{Geometrie}
+% ==============================================================
+
+\begin{frame}{Die Gauß'sche Zahlenebene}
+  Jede komplexe Zahl $z = a + b\ii$ entspricht einem Punkt $(a,b) \in \R^2$:
+  \begin{columns}
+    \begin{column}{0.5\textwidth}
+      \centering
+      \begin{tikzpicture}[scale=1.1]
+        \draw[->] (-0.4,0) -- (3,0) node[right] {$\Re$};
+        \draw[->] (0,-0.4) -- (0,2.5) node[above] {$\Im$};
+        \coordinate (Z) at (2,1.5);
+        \draw[->, thick, mainblue] (0,0) -- (Z) node[right] {$z = a+b\ii$};
+        \draw[dashed, gray] (2,0) node[below] {$a$} -- (Z) -- (0,1.5) node[left] {$b$};
+        \draw[->] (0.7,0) arc (0:36.87:0.7);
+        \node at (0.95,0.22) {$\phi$};
+        \node[below right, mainblue] at (1,0.75) {$r = \abs{z}$};
+        \fill (Z) circle (2pt);
+      \end{tikzpicture}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      \begin{itemize}
+        \item Realteil: $\Re(z) = a$
+        \item Imaginärteil: $\Im(z) = b$
+        \item Betrag: $\abs{z} = \sqrt{a^2+b^2}$
+        \item Argument: $\phi = \Arg(z)$
+      \end{itemize}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Geometrie der Multiplikation}{Drehstreckung}
+  Multiplikation mit $z$ wirkt auf $w$ als \highlight{Drehstreckung}:
+  \medskip
+  \begin{columns}
+    \begin{column}{0.5\textwidth}
+      \centering
+      \begin{tikzpicture}[scale=1.0]
+        \draw[->] (-0.4,0) -- (3.2,0) node[right] {$\Re$};
+        \draw[->] (0,-0.4) -- (0,3.0) node[above] {$\Im$};
+        % w: Betrag 1.5, Winkel 15°
+        \coordinate (W)  at ({1.5*cos(15)},{1.5*sin(15)});
+        % w': gedreht um phi=55°, gleicher Betrag
+        \coordinate (Wp) at ({1.5*cos(70)},{1.5*sin(70)});
+        % z*w: w' gestreckt um r=1.7
+        \coordinate (ZW) at ({2.55*cos(70)},{2.55*sin(70)});
+        % w-Vektor
+        \draw[->, thick, gray] (0,0) -- (W) node[right] {$w$};
+        % Drehbogen
+        \draw[->, accentred, dashed, thick]
+          ({1.5*cos(15)},{1.5*sin(15)}) arc (15:70:1.5);
+        \node[accentred] at ({0.85*cos(42)},{0.85*sin(42)}) {$\phi$};
+        % w' gestrichelt
+        %\draw[->, thick, gray!50, dashed] (0,0) -- (Wp) node[above right] {$w'$};
+        % z*w
+        \draw[->, thick, mainblue] (0,0) -- (ZW) node[above] {$z\cdot w$};
+        \fill[gray]     (W)  circle (1.8pt);
+        \fill[gray!50]  (Wp) circle (1.8pt);
+        \fill[mainblue] (ZW) circle (1.8pt);
+      \end{tikzpicture}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      \begin{itemize}
+        \item \textbf{Drehung} um $\phi = \Arg(z)$
+        \item \textbf{Streckung} um $r = \abs{z}$
+      \end{itemize}
+      \medskip
+      Formal: $\abs{z \cdot w} = \abs{z}\cdot\abs{w}$,\quad $\Arg(z\cdot w) = \Arg(z)+\Arg(w)$.
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Warum wirkt Multiplikation als Drehstreckung?}
+  \begin{columns}
+    \begin{column}{0.55\textwidth}
+      Schreibe $z = r(\cos\phi + \ii\sin\phi)$, $w = a + b\ii$:
+      \begin{align*}
+        z \cdot w
+        &= r(\cos\phi + \ii\sin\phi)(a + b\ii) \\
+        \pause
+        &= r\bigl[(a\cos\phi - b\sin\phi)\\
+        &\phantom{{}=r\bigl[}+ \ii(a\sin\phi + b\cos\phi)\bigr].
+      \end{align*}
+      \onslide<3->{
+      Als Matrix auf $\R^2$:
+      \[
+        z\cdot w \;\longleftrightarrow\;
+        r\underbrace{\begin{pmatrix}\cos\phi & -\sin\phi \\ \sin\phi & \cos\phi\end{pmatrix}}_{R(\phi)}
+        \begin{pmatrix}a\\b\end{pmatrix}.
+      \]
+      }
+      \onslide<4->{
+      \begin{block}{}
+        $R(\phi)$ = Drehmatrix um $\phi$,\quad $r$ = Streckung.
+      \end{block}
+      }
+    \end{column}
+    \begin{column}{0.45\textwidth}
+      \centering
+      \begin{tikzpicture}[scale=1.7]
+        % Achsen
+        \draw[->] (-0.2,0) -- (1.5,0) node[right] {$\Re$};
+        \draw[->] (0,-0.2) -- (0,1.4) node[above] {$\Im$};
+% z-Vektor
+        \coordinate (Z) at ({cos(50)},{sin(50)});
+        \draw[->, thick, mainblue] (0,0) -- (Z) node[above right] {$z$};
+        % cos-Projektion (Breite)
+        \draw[accentred, very thick] (0,0) -- ({cos(50)},0)
+          node[midway, below] {$r\cos\phi$};
+        % sin-Projektion (Höhe)
+        \draw[accentred!60!black, very thick] ({cos(50)},0) -- (Z)
+          node[midway, right] {$r\sin\phi$};
+        % gestrichelte Hilfslinien
+        \draw[dashed, gray] ({cos(50)},0) -- (Z);
+        \draw[dashed, gray] (0,{sin(50)}) -- (Z);
+        % Winkel
+        \draw[->] (0.28,0) arc (0:50:0.28);
+        \node at (0.38,0.16) {$\phi$};
+        % Punkt z
+        \fill[mainblue] (Z) circle (1.2pt);
+      \end{tikzpicture}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Körperaxiome aus der Geometrie}
+  Drehstreckungen $D_z\colon w \mapsto z\cdot w$ sind \highlight{$\R$-lineare Abbildungen}. Daraus folgen die Körperaxiome direkt:
+  \medskip
+  \begin{description}
+    \item[\normalfont Assoziativität] Siehe nächste Folie. \checkmark
+    \item[\normalfont Kommutativität] Drehungen und Streckungen um den Ursprung vertauschen:
+      $D_z \circ D_w = D_w \circ D_z$. \checkmark
+    \item[\normalfont Neutrales Element] Die Identität $\mathrm{id} = D_1$ (keine Drehung, keine Streckung). \checkmark
+    \item[\normalfont Inverses] Jede Drehstreckung mit $r \neq 0$ ist invertierbar:
+      $D_z^{-1} = D_{1/z}$\,. \checkmark
+    \item[\normalfont Distributivität] $D_z$ ist linear $\Rightarrow$ $z(w_1+w_2) = zw_1 + zw_2$. \checkmark
+  \end{description}
+  \medskip
+  \onslide<2->{
+    \begin{block}{}
+      $(\C, +, \cdot)$ ist ein \textbf{Körper} — und zwar ein \emph{kommutativer},
+      weil Drehstreckungen um denselben Punkt stets vertauschen.
+    \end{block}
+  }
+\end{frame}
+
+\begin{frame}{Assoziativität der Multiplikation}
+  Zu $z = a+b\ii$ definiere die \textbf{Drehstreckungsmatrix}
+  \[
+    \C \to \mathrm{Mat}(2\times 2 ,\R )\, \quad z \mapsto M_z := \begin{pmatrix} a & -b \\ b & a \end{pmatrix}.
+  \]
+  \onslide<2->{
+  \textbf{Schritt 1 — direkte Rechnung:} $M_z \cdot M_w = M_{zw}$
+  \[
+    \begin{pmatrix}a&-b\\b&a\end{pmatrix}
+    \begin{pmatrix}c&-d\\d&c\end{pmatrix}
+    =
+    \begin{pmatrix}ac-bd&-(ad+bc)\\ad+bc&ac-bd\end{pmatrix}
+    = M_{zw}. \quad\checkmark
+  \]
+  }
+  \onslide<3->{
+  \textbf{Schritt 2 — Assoziativität vererbt sich:}
+  Da $z\mapsto M_z$ injektiv ist und $M_{zw}=M_z M_w$ gilt:
+  \[
+    M_{z_1(z_2 z_3)}
+    = M_{z_1}\underbrace{(M_{z_2}M_{z_3})}_{\text{Matrizen: assoz.}}
+    = (M_{z_1}M_{z_2})M_{z_3}
+    = M_{(z_1 z_2)z_3}.
+  \]
+  Also $z_1(z_2 z_3) = (z_1 z_2)z_3$. \checkmark
+  }
+\end{frame}
+
+% ==============================================================
+\section{Polardarstellung}
+% ==============================================================
+
+\begin{frame}{Polardarstellung und Eulersche Formel}
+  % Inhalt hier
+\end{frame}
+
+% ==============================================================
+\section{Ausblick}
+% ==============================================================
+
+\begin{frame}{Ausblick}
+  % Inhalt hier
+\end{frame}
+
+% ---- Literatur ------------------------------------------------
+% \begin{frame}[allowframebreaks]{Literatur}
+%   \printbibliography
+% \end{frame}
+
+\end{document}

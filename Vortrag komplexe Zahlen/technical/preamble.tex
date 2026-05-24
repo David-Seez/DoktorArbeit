@@ -1,0 +1,126 @@
+% ============================================================
+%  PREAMBLE — Beamer-Präsentation
+%  Thema: Komplexe Zahlen
+% ============================================================
+
+% ---- Dokumentklasse --------------------------------------------
+\documentclass[
+  aspectratio=169,
+  10pt
+]{beamer}
+
+% ---- Sprache ---------------------------------------------------
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+% Zeichen aus dem Arabischen Transliterations-Standard (für Bib-Einträge)
+\DeclareUnicodeCharacter{0101}{\={a}}
+\DeclareUnicodeCharacter{0100}{\={A}}
+\DeclareUnicodeCharacter{012B}{\={i}}
+\DeclareUnicodeCharacter{012A}{\={I}}
+\DeclareUnicodeCharacter{016B}{\={u}}
+\DeclareUnicodeCharacter{016A}{\={U}}
+\DeclareUnicodeCharacter{1E25}{\d{h}}
+\DeclareUnicodeCharacter{1E24}{\d{H}}
+\DeclareUnicodeCharacter{1E63}{\d{s}}
+\DeclareUnicodeCharacter{1E62}{\d{S}}
+\DeclareUnicodeCharacter{00E0}{\`{a}}
+
+% ---- Beamer-Theme ----------------------------------------------
+\usetheme{Madrid}
+\usecolortheme{default}
+\usefonttheme{professionalfonts}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{theorems}[numbered]
+
+% Farben anpassen
+\definecolor{mainblue}{RGB}{0,70,127}
+\definecolor{accentred}{RGB}{180,20,20}
+\setbeamercolor{palette primary}{bg=mainblue, fg=white}
+\setbeamercolor{palette secondary}{bg=mainblue!80, fg=white}
+\setbeamercolor{palette tertiary}{bg=mainblue!60, fg=white}
+\setbeamercolor{palette quaternary}{bg=mainblue, fg=white}
+\setbeamercolor{frametitle}{bg=mainblue, fg=white}
+\setbeamercolor{title}{fg=white}
+\setbeamercolor{structure}{fg=mainblue}
+\setbeamercolor{block title}{bg=mainblue!90, fg=white}
+\setbeamercolor{block body}{bg=mainblue!10}
+\setbeamercolor{block title example}{bg=accentred!80, fg=white}
+\setbeamercolor{block body example}{bg=accentred!10}
+\setbeamercolor{alerted text}{fg=accentred}
+
+% ---- Mathematik-Pakete -----------------------------------------
+\usepackage{amsmath, amsfonts, amssymb, amsthm}
+\usepackage{mathtools}
+\usepackage{bbm}
+
+% ---- TikZ & PGF ------------------------------------------------
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+\usetikzlibrary{arrows.meta, calc, angles, quotes, backgrounds, patterns, decorations.pathmorphing, babel}
+\tikzset{>=latex}
+
+% ---- Weitere Pakete --------------------------------------------
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{csquotes}
+\usepackage{xcolor}
+
+% ---- Bibliographie ---------------------------------------------
+\usepackage[backend=biber, style=alphabetic]{biblatex}
+\addbibresource{literatur.bib}
+
+\DeclareCiteCommand{\cite}[\mkbibbrackets]
+  {\usebibmacro{prenote}}
+  {\printnames{labelname},\addspace
+   \printfield{title},\addspace
+   \printfield{year}}
+  {\multicitedelim}
+  {\usebibmacro{postnote}}
+
+% ============================================================
+%  THEOREM-UMGEBUNGEN (Beamer-Stil)
+%  Beamer definiert bereits: theorem, lemma, corollary,
+%  definition, example, examples, fact, proof.
+%  Hier nur deutsche Aliases und neue Umgebungen.
+% ============================================================
+
+\newtheorem{satz}[theorem]{Satz}
+\newtheorem{korollar}[theorem]{Korollar}
+\newtheorem{beispiel}[theorem]{Beispiel}
+\newtheorem{bemerkung}[theorem]{Bemerkung}
+
+% ============================================================
+%  PRETTY SYMBOLS
+% ============================================================
+\let\uglyepsilon\epsilon  \let\epsilon\varepsilon
+\let\uglyphi\phi          \let\phi\varphi
+
+% ============================================================
+%  MAKROS
+% ============================================================
+
+% ---- Zahlkörper -----------------------------------------------
+\providecommand{\R}{\mathbb{R}}
+\providecommand{\N}{\mathbb{N}}
+\providecommand{\Z}{\mathbb{Z}}
+\providecommand{\C}{\mathbb{C}}
+\providecommand{\Q}{\mathbb{Q}}
+
+% ---- Allgemeine Operatoren ------------------------------------
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}
+\providecommand{\norm}[1]{\left\lVert#1\right\rVert}
+\providecommand{\ii}{\mathrm{i}}
+\providecommand{\euler}{\mathrm{e}}
+\providecommand{\diff}{\mathop{}\!\mathrm{d}}
+\renewcommand{\Re}{\operatorname{Re}}
+\renewcommand{\Im}{\operatorname{Im}}
+\providecommand{\Arg}{\operatorname{Arg}}
+\providecommand{\conj}[1]{\overline{#1}}
+
+% ---- Hilfskommandos -------------------------------------------
+\newcommand{\highlight}[1]{\textcolor{accentred}{\textbf{#1}}}
+\newcommand{\emphmath}[1]{\textcolor{mainblue}{#1}}

@@ -1,0 +1,18 @@
+
+\begin{columns}
+  \begin{column}{0.5\textwidth}
+    \includegraphics[width=0.75\textwidth]{text/images/QuadratischeGleichung1.png}\\[0.3em]
+    \includegraphics[width=0.75\textwidth]{text/images/QuadratischeGleichung3.png}\\[0.2em]
+    {\tiny\sffamily\mdseries Wörtlich zitiert und übersetzt in \cite{rosen1831}, S.\,48.\\
+    Original: \cite{alkhwarizmi820}}
+  \end{column}
+  \begin{column}{0.5\textwidth}
+    \centering
+    \onslide<1->{$10 = x + y$}\\[0.8em]
+    \onslide<2->{$y^2 = 81x$}\\[0.8em]
+    \onslide<3->{F\"{u}r uns: $y = 10 - x$}\\[0.8em]
+    \onslide<4->{$(10-x)^2 - 81x = 0$}\\[0.8em]
+    \onslide<5->{Gelöst mit heutiger p-q formel}
+  \end{column}
+\end{columns}
+

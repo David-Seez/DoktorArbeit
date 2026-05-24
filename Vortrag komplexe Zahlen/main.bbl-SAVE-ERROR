@@ -1,0 +1,155 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.2 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{anyt/global//global/global}
+    \entry{alkhwarizmi820}{book}{}
+      \name{author}{1}{}{%
+        {{hash=789fa01178304d5d3fd6380999d59917}{%
+           family={al-Khwārizmī},
+           familyi={K\bibinitperiod},
+           given={Muḥammad\bibnamedelimb ibn\bibnamedelima Mūsā},
+           giveni={M\bibinitperiod\bibinitdelim i\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {arabic}%
+      }
+      \list{publisher}{1}{%
+        {Handschrift, Bagdad}%
+      }
+      \strng{namehash}{789fa01178304d5d3fd6380999d59917}
+      \strng{fullhash}{789fa01178304d5d3fd6380999d59917}
+      \strng{bibnamehash}{789fa01178304d5d3fd6380999d59917}
+      \strng{authorbibnamehash}{789fa01178304d5d3fd6380999d59917}
+      \strng{authornamehash}{789fa01178304d5d3fd6380999d59917}
+      \strng{authorfullhash}{789fa01178304d5d3fd6380999d59917}
+      \field{extraname}{1}
+      \field{labelalpha}{al-20}
+      \field{sortinit}{a}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Ca. 820 n.\,Chr.\ Das Werk begründet die systematische Algebra; der Titel liefert das Wort \emph{Algebra} (aus \textit{al-jabr}). Lateinische Übersetzung: \emph{Liber algebrae et almucabola} (Robert of Chester, ca.\ 1145).}
+      \field{title}{Kitāb al-Mukhtaṣar fī Ḥisāb al-Jabr wa-l-Muqābala}
+      \field{year}{820}
+    \endentry
+    \entry{rosen1831}{book}{}
+      \name{author}{1}{}{%
+        {{hash=789fa01178304d5d3fd6380999d59917}{%
+           family={al-Khwārizmī},
+           familyi={K\bibinitperiod},
+           given={Muḥammad\bibnamedelimb ibn\bibnamedelima Mūsā},
+           giveni={M\bibinitperiod\bibinitdelim i\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+      }
+      \name{editor}{1}{}{%
+        {{hash=8e2bda4cc43fd3db3e6cea37ed1b5391}{%
+           family={Rosen},
+           familyi={R\bibinitperiod},
+           given={Frederic},
+           giveni={F\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {english}%
+      }
+      \list{location}{1}{%
+        {London}%
+      }
+      \list{publisher}{1}{%
+        {Oriental Translation Fund}%
+      }
+      \strng{namehash}{789fa01178304d5d3fd6380999d59917}
+      \strng{fullhash}{789fa01178304d5d3fd6380999d59917}
+      \strng{bibnamehash}{789fa01178304d5d3fd6380999d59917}
+      \strng{authorbibnamehash}{789fa01178304d5d3fd6380999d59917}
+      \strng{authornamehash}{789fa01178304d5d3fd6380999d59917}
+      \strng{authorfullhash}{789fa01178304d5d3fd6380999d59917}
+      \strng{editorbibnamehash}{8e2bda4cc43fd3db3e6cea37ed1b5391}
+      \strng{editornamehash}{8e2bda4cc43fd3db3e6cea37ed1b5391}
+      \strng{editorfullhash}{8e2bda4cc43fd3db3e6cea37ed1b5391}
+      \field{extraname}{2}
+      \field{labelalpha}{al-31}
+      \field{sortinit}{a}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Erste englische Übersetzung und Edition des arabischen Originals. Frei verfügbar: \url{https://archive.org/details/algebraofmohamme00khuwuoft}}
+      \field{title}{The Algebra of Mohammed ben Musa}
+      \field{year}{1831}
+    \endentry
+    \entry{hamilton1837}{article}{}
+      \name{author}{1}{}{%
+        {{hash=669f29d983faa7a666a11ac2f96d3d92}{%
+           family={Hamilton},
+           familyi={H\bibinitperiod},
+           given={William\bibnamedelima Rowan},
+           giveni={W\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+      }
+      \strng{namehash}{669f29d983faa7a666a11ac2f96d3d92}
+      \strng{fullhash}{669f29d983faa7a666a11ac2f96d3d92}
+      \strng{bibnamehash}{669f29d983faa7a666a11ac2f96d3d92}
+      \strng{authorbibnamehash}{669f29d983faa7a666a11ac2f96d3d92}
+      \strng{authornamehash}{669f29d983faa7a666a11ac2f96d3d92}
+      \strng{authorfullhash}{669f29d983faa7a666a11ac2f96d3d92}
+      \field{labelalpha}{Ham37}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Transactions of the Royal Irish Academy}
+      \field{title}{Theory of Conjugate Functions, or Algebraic Couples; with a Preliminary and Elementary Essay on Algebra as the Science of Pure Time}
+      \field{volume}{17}
+      \field{year}{1837}
+      \field{pages}{293\bibrangedash 422}
+      \range{pages}{130}
+    \endentry
+    \entry{pacioli1494}{book}{}
+      \name{author}{1}{}{%
+        {{hash=dfefeab95f13a1c9b426dd040b72dcd1}{%
+           family={Pacioli},
+           familyi={P\bibinitperiod},
+           given={Luca},
+           giveni={L\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {italian}%
+      }
+      \list{location}{1}{%
+        {Venedig}%
+      }
+      \list{publisher}{1}{%
+        {Paganino de Paganini}%
+      }
+      \strng{namehash}{dfefeab95f13a1c9b426dd040b72dcd1}
+      \strng{fullhash}{dfefeab95f13a1c9b426dd040b72dcd1}
+      \strng{bibnamehash}{dfefeab95f13a1c9b426dd040b72dcd1}
+      \strng{authorbibnamehash}{dfefeab95f13a1c9b426dd040b72dcd1}
+      \strng{authornamehash}{dfefeab95f13a1c9b426dd040b72dcd1}
+      \strng{authorfullhash}{dfefeab95f13a1c9b426dd040b72dcd1}
+      \field{labelalpha}{Pac94}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Summa de Arithmetica, Geometria, Proportioni et Proportionalità}
+      \field{year}{1494}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+
