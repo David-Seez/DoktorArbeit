@@ -55,6 +55,9 @@
 \usepackage{mathtools}
 \usepackage{bbm}
 
+\newcommand\scalemath[2]{\scalebox{#1}{\mbox{\ensuremath{\displaystyle #2}}}}
+
+
 % ---- TikZ & PGF ------------------------------------------------
 \usepackage{tikz}
 \usepackage{tikz-cd}
@@ -99,6 +102,7 @@
 \let\uglyepsilon\epsilon  \let\epsilon\varepsilon
 \let\uglyphi\phi          \let\phi\varphi
 
+
 % ============================================================
 %  MAKROS
 % ============================================================
@@ -120,7 +124,10 @@
 \renewcommand{\Im}{\operatorname{Im}}
 \providecommand{\Arg}{\operatorname{Arg}}
 \providecommand{\conj}[1]{\overline{#1}}
+\newcommand{\mapsfrom}{\mathrel{\reflectbox{\ensuremath{\mapsto}}}}
 
 % ---- Hilfskommandos -------------------------------------------
 \newcommand{\highlight}[1]{\textcolor{accentred}{\textbf{#1}}}
 \newcommand{\emphmath}[1]{\textcolor{mainblue}{#1}}
+% Polarkoordinaten-Tupel: farbig unterstrichen zur klaren Unterscheidung
+\newcommand{\polar}[1]{\textcolor{mainblue}{\underline{\left(#1\right)}}}

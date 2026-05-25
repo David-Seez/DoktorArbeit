@@ -20,7 +20,14 @@
 
 % ---- Inhaltsverzeichnis ---------------------------------------
 \begin{frame}{Übersicht}
-  \tableofcontents
+\begin{enumerate}
+  \item Geschichtliche Einordnung 
+  \item Definition nach Hamilton
+  \item Polardarstellung
+  \item Complexe Multiplikation
+  \item Wurzeln
+  \item Eindeutigkeit
+\end{enumerate}
 \end{frame}
 
 % ==============================================================
@@ -44,9 +51,9 @@
     \centering
     \begin{overlayarea}{\textwidth}{0.75\textheight}
       \vfill
-      \only<1>{\includegraphics[width=\textwidth]{text/images/Original ausschnitt Summa de aritmetica.png}}
-      \only<2>{\includegraphics[width=\textwidth]{text/images/Original ausschnitt Summa de aritmetica übersetzbung 1.png}}
-      \only<3>{\includegraphics[width=\textwidth]{text/images/Original ausschnitt Summa de aritmetica übersetzbung 2.png}}
+      \only<2>{\includegraphics[width=\textwidth]{text/images/Original ausschnitt Summa de aritmetica.png}}
+      \only<3>{\includegraphics[width=\textwidth]{text/images/Original ausschnitt Summa de aritmetica übersetzbung 1.png}}
+      \only<4>{\includegraphics[width=\textwidth]{text/images/Original ausschnitt Summa de aritmetica übersetzbung 2.png}}
       \vfill
     \end{overlayarea}
   \end{column}
@@ -63,7 +70,7 @@
 		\centering
 		\begin{overlayarea}{\textwidth}{0.75\textheight}
 		\vfill
-		\only<1>{\includegraphics[width=\textwidth]{text/images/Ars_Magna_Cardanische_Formel.png}}
+		\only<1>{\includegraphics[width=0.8\textwidth]{text/images/Ars_Magna_Cardanische_Formel.png} {\tiny\sffamily\mdseries \cite{cardano1545}, S.\,31.}}
 		\only<2>{\includegraphics[width=\textwidth]{text/images/Ars_Magna_Cardanische_Formel_Übersetzung1.png}}
 		\only<3->{\includegraphics[width=\textwidth]{text/images/Ars_Magna_Cardanische_Formel_Übersetzung2.png}}
 		\end{overlayarea}
@@ -81,10 +88,10 @@
 		\onslide<5->{$
 				x^3-15x-4 = 0 
 				\quad \Leftarrow \quad x = \sqrt[3]{2 + \sqrt{-121}}
-								+ = \sqrt[3]{2 - \sqrt{-121}} $
+								+  \sqrt[3]{2 - \sqrt{-121}} $
 					} \\[0.8em]
 		\onslide<6->{ François Viète [1540-1603] Führt Rechnen mit Symbolen ein (+,-,aequabitur) Außerdem eine Formel für eine Nullstelle bei Quartiken.} \\[0.8em]
-		\onslide<7->{René Descart [1596-1650-] rechnet mit negativen Wurzeln!}
+		\onslide<7->{René Descartes [1596--1650] rechnet mit negativen Wurzeln!}
 	\end{column}
 
 	\end{columns}
@@ -96,19 +103,17 @@
 
 \begin{frame}{Definition}{Hamiltonsche Konstruktion \cite{hamilton1837}}
   \begin{definition}[Komplexe Zahlen als $\R^2$]
-    Setze $\C := \R^2$ mit komponentenweiser Addition und
-    \[
-      \mathbf{1} := (1,0), \qquad  \mathbf{1}^2= \mathbf{1},\qquad \ii := (0,1), \qquad \ii^2 = -\mathbf{1}.
-    \]
-    \onslide<2->{
-    Die definition der Multiplikation folgt aus Distributivität:
+    Setze $\C := \R^2$ mit komponentenweiser Addition. \onslide<2->{ Wir definieren die Basis $ \mathbf{1} := \begin{pmatrix} 1\\0 \end{pmatrix}$ und $\ii := \begin{pmatrix} 0\\1 \end{pmatrix}$.}
+    \onslide<3->{ Die Multiplikation auf dieser Basis: $ \mathbf{1}^2= \mathbf{1}\,,\,  \mathbf{1}\ii= \ii\,,\, \ii^2 = -\mathbf{1}$.}
+    \onslide<4->{
+    Die Definition der allgmeinen Multiplikation folgt aus Distributivität:
     \begin{align*}
       (a\mathbf{1} + b\ii)(c\mathbf{1} + d\ii)
         &= ac\,\mathbf{1}^2 + (ad+bc)\,\mathbf{1}\ii + bd\,\ii^2 \\
         &= ac\,\mathbf{1} + (ad+bc)\,\ii - bd\,\mathbf{1} \\
         &= (ac-bd)\,\mathbf{1} + (ad+bc)\,\ii.
     \end{align*}
-    d.\,h.\ $(a , b)\cdot(c , d) := (ac-bd,ad+bc)$.
+    d.\,h.\ in Koordinaten:$\begin{pmatrix} a\\b\end{pmatrix}+\begin{pmatrix} c\\d\end{pmatrix} \coloneq \begin{pmatrix} a+c\\b+d\end{pmatrix}$ und $\begin{pmatrix} a\\b\end{pmatrix}\cdot\begin{pmatrix} c\\d\end{pmatrix} \coloneq \begin{pmatrix} ac-bd\\ad-bc\end{pmatrix}$.
     }
   \end{definition}
 \end{frame}
@@ -118,7 +123,7 @@
 % ==============================================================
 
 \begin{frame}{Die Gauß'sche Zahlenebene}
-  Jede komplexe Zahl $z = a + b\ii$ entspricht einem Punkt $(a,b) \in \R^2$:
+  Jede komplexe Zahl $z = a + b\ii$ entspricht einem Punkt $\begin{pmatrix} a\\b\end{pmatrix} \in \R^2$:
   \begin{columns}
     \begin{column}{0.5\textwidth}
       \centering
@@ -143,6 +148,32 @@
       \end{itemize}
     \end{column}
   \end{columns}
+\end{frame}
+\begin{frame}{Polarkoordinaten}
+  \begin{equation*}
+    \begin{array}{lll}
+      (\C,+,\cdot) & \quad  \leftrightarrow \quad & \big([0,2\pi) \times \R_{>0}\cup \{(0,0)\},+,\cdot \big) \\
+  \noalign{\vspace{0.3cm}} \hline \noalign{\vspace{0.3cm}} 
+     \onslide<2->{z=x+iy=\begin{pmatrix}x \\ y  \end{pmatrix}}
+        & \onslide<2->{\quad \mapsto \quad}
+        & \onslide<3->{\polar{\Arg(z),|z|} \text{ für }z\neq 0, \text{ sonst }\polar{0,0}}\\[0.2cm]
+      \onslide<5->{\big(r\cdot \cos(\phi),r\sin(\phi) \big)}
+        & \onslide<5->{\quad \mapsfrom \quad}
+        & \onslide<4->{\polar{\phi,r}}\\
+      \onslide<6->{z+w=\begin{pmatrix}z_1 \\ z_2  \end{pmatrix}+\begin{pmatrix}w_1 \\ w_2  \end{pmatrix}=\begin{pmatrix}z_1+w_1 \\ z_2+w_2  \end{pmatrix}}
+        & \onslide<7->{\quad \leftrightarrow \quad}
+        & \onslide<7->{\polar{\phi_1,r_1}+\polar{\phi_2,r_2}}\\
+      & & \onslide<8->{=\scalemath{0.6}{\polar{\underbrace{\arctan_2\!\left(\tfrac{r_1\sin\varphi_1+r_2\sin\varphi_2}
+                        {r_1\cos\varphi_1+r_2\cos\varphi_2}\right)}_{\mod 2\pi }
+   ,\; \sqrt{r_1^2+r_2^2+2r_1 r_2\cos(\varphi_1-\varphi_2)}
+    }}}\\[0.2cm]
+      \onslide<9->{z\cdot w= \begin{pmatrix}z_1 \\ z_2  \end{pmatrix}\cdot \begin{pmatrix}w_1 \\ w_2  \end{pmatrix}=\begin{pmatrix}z_1w_1-z_2w_2 \\ z_1w_2+z_2w_1  \end{pmatrix}}
+        & \onslide<10->{\quad \leftrightarrow \quad}
+        & \onslide<10->{\polar{\phi_1,r_1}\cdot \polar{\phi_2,r_2}= \polar{\phi_1+\phi_2 \bmod 2\pi,\;r_1\cdot r_2}}
+    \end{array}
+  \end{equation*}
+
+
 \end{frame}
 
 \begin{frame}{Geometrie der Multiplikation}{Drehstreckung}
@@ -181,7 +212,7 @@
         \item \textbf{Streckung} um $r = \abs{z}$
       \end{itemize}
       \medskip
-      Formal: $\abs{z \cdot w} = \abs{z}\cdot\abs{w}$,\quad $\Arg(z\cdot w) = \Arg(z)+\Arg(w)$.
+      \onslide<2->{Formal: $\abs{z \cdot w} = \abs{z}\cdot\abs{w}$,\quad $\Arg(z\cdot w) = \Arg(z)+\Arg(w)\mod 2\pi$.}
     \end{column}
   \end{columns}
 \end{frame}
@@ -193,9 +224,8 @@
       \begin{align*}
         z \cdot w
         &= r(\cos\phi + \ii\sin\phi)(a + b\ii) \\
-        \pause
-        &= r\bigl[(a\cos\phi - b\sin\phi)\\
-        &\phantom{{}=r\bigl[}+ \ii(a\sin\phi + b\cos\phi)\bigr].
+        &\onslide<2->{= r\bigl[(a\cos\phi - b\sin\phi)}\\
+        &\onslide<3->{\phantom{{}=r\bigl[}+ \ii(a\sin\phi + b\cos\phi)\bigr].}
       \end{align*}
       \onslide<3->{
       Als Matrix auf $\R^2$:
@@ -240,70 +270,144 @@
 \end{frame}
 
 \begin{frame}{Körperaxiome aus der Geometrie}
-  Drehstreckungen $D_z\colon w \mapsto z\cdot w$ sind \highlight{$\R$-lineare Abbildungen}. Daraus folgen die Körperaxiome direkt:
+Die Körperaxiome folgen direkt aus den beiden Darstellungen:
+\begin{enumerate}
+  \item  Plus ist komonentenweise $\begin{pmatrix} a\\b\end{pmatrix}+\begin{pmatrix} c\\d\end{pmatrix} \coloneq \begin{pmatrix} a+c\\b+d\end{pmatrix}$ .
+  \item  Mal ist komponentenweises $\polar{\phi_1,r_1}\cdot \polar{\phi_2,r_2}= \polar{\phi_1+\phi_2 \bmod 2\pi,\;r_1\cdot r_2}$.
+\end{enumerate}
+
   \medskip
   \begin{description}
-    \item[\normalfont Assoziativität] Siehe nächste Folie. \checkmark
-    \item[\normalfont Kommutativität] Drehungen und Streckungen um den Ursprung vertauschen:
-      $D_z \circ D_w = D_w \circ D_z$. \checkmark
-    \item[\normalfont Neutrales Element] Die Identität $\mathrm{id} = D_1$ (keine Drehung, keine Streckung). \checkmark
-    \item[\normalfont Inverses] Jede Drehstreckung mit $r \neq 0$ ist invertierbar:
-      $D_z^{-1} = D_{1/z}$\,. \checkmark
-    \item[\normalfont Distributivität] $D_z$ ist linear $\Rightarrow$ $z(w_1+w_2) = zw_1 + zw_2$. \checkmark
+    \item<2->[\normalfont Assoziativität bzgl $+,\cdot$] Folgt direkt aus den verschiedenen Darstellungen.
+    \item<3->[\normalfont Kommutativität bzgl $+,\cdot$] Folgt direkt aus den verschiedenen Darstellungen.
+    \item<4->[\normalfont Neutrales Element bzgl $+$] Die Null: $\mathrm{id} = (0,0)$  
+    \item<5->[\normalfont Neutrales Element bzgl $\cdot$] Die Eins: $(1,0)$ bzw. in Polardarstellung $\polar{0,1}$ ist als Drehstreckung die Identität.
+    \item<6->[\normalfont Inverses] Jede Drehstreckung mit $r \neq 0$ ist invertierbar:
+      $\polar{\phi,r}^{-1} =\polar{-\phi,\,\frac{1}{r}}$\,. 
+    \item<7->[\normalfont Distributivität] Die Multiplikation war gerade distributiv definiert.
   \end{description}
   \medskip
-  \onslide<2->{
+  \onslide<8->{
     \begin{block}{}
-      $(\C, +, \cdot)$ ist ein \textbf{Körper} — und zwar ein \emph{kommutativer},
-      weil Drehstreckungen um denselben Punkt stets vertauschen.
+      $(\C, +, \cdot)$ ist ein \textbf{Körper}.
     \end{block}
   }
 \end{frame}
 
-\begin{frame}{Assoziativität der Multiplikation}
-  Zu $z = a+b\ii$ definiere die \textbf{Drehstreckungsmatrix}
-  \[
-    \C \to \mathrm{Mat}(2\times 2 ,\R )\, \quad z \mapsto M_z := \begin{pmatrix} a & -b \\ b & a \end{pmatrix}.
-  \]
+
+
+% ==============================================================
+
+% ==============================================================
+
+\begin{frame}{$n$-te Wurzeln}
+  \begin{definition}
+   Sei $n\in \N$. Wir nennen $z\in \C$ $n$-te Wurzel von $w\in \C$ falls $z^n=w\,$.
+  \end{definition}
+  \begin{theorem}<2->[n-te Wurzeln existieren]
+    Sei $w=\polar{\phi,r}$ eine komplexe Zahl in Polardarstellung. Dann gibt es $n$ viele verschiedene $n-$te Wurzeln.
+  \end{theorem}
+  \begin{proof}<3->
+    Idee: Beim Betrag die $n$-te reelle Wurzel ziehen und das Argument durch $n$ teilen.\\
+    \onslide<4->{Definiere also \onslide<8->{für $l=0,\dots,n-1$} }
+    \onslide<5->{\begin{equation*}
+      w_{\onslide<8->{l}}\coloneq \polar{\frac{\phi}{n}\alt<8->{+l\cdot \frac{2\pi}{n}}{\phantom{+l\cdot \frac{2\pi}{n}}},\sqrt[n]{r}}
+    \end{equation*}
+Dann gilt:
+\begin{equation*}
+  w^n_{\onslide<7->{l}}=\Big(
+    \alt<6->
+      {\underbrace{
+         \alt<7->{(\tfrac{\phi}{n}+\tfrac{l\cdot 2\pi}{n})\cdot n}
+                 {\tfrac{\phi}{n}\cdot n}
+         \bmod 2\pi}_{\overset{!}{=}\phi}}
+      {\tfrac{\phi}{n}\cdot n \bmod 2\pi}
+  \;,\;\sqrt[n]{r}^n\Big)=\polar{\phi,r}
+\end{equation*}
+    }
+  \end{proof}
+ 
+\end{frame}
+
+
+% ==============================================================
+\section{Eindeutigkeit}
+% ==============================================================
+
+\begin{frame}{Eindeutigkeit}
+  \begin{theorem}[Eindeutigkeit von $\C$]
+    Jeder kommutative, nullteilerfreie, 2-dimensionale Oberring $(K,\oplus,\otimes)$ von $\mathbb{R}$ ist zu $\mathbb{C}$ isomorph als Körper. 
+  \end{theorem}\pause
+  \begin{definition}[Was ist ein 2-dimensionaler Oberring von $\mathbb{R}$?]
+    Ein solches Objekt $K\supseteq \R$ vereinigt drei Strukturen:
+    \begin{enumerate}
+      \item<3->{$K$ ist ein zweidimensionaler $\R$-Vektorraum.}
+      \item<4->{$K$ ist ein Ring. D.h. es gibt eine Multiplikation $\otimes:K\times K\to K$, welche assoziativ und distributiv bzgl. $+$ ist.}
+      \item<5->{Die Multiplikation respektiert das mal aus $\R$, d.h. für $\lambda\in \R,$ und $a,b\in K$ gilt:
+      \begin{equation*}
+        (a\;\otimes\; \lambda  b)=(\lambda  a \;\otimes\; b)=\lambda(a\;\otimes\; b)
+      \end{equation*}
+      Die Multiplikation ist also bilinear über $\R$.}
+    \end{enumerate}
+
+  \end{definition}
+\end{frame}
+
+\begin{frame}{Gewisse Eindeutigkeit}
+  \begin{theorem}[Eindeutigkeit von $\C$]
+    Jeder kommutative, nullteilerfreie, 2-dimensionale Oberring $K$ von $\mathbb{R}$ mit Eins ist zu $\mathbb{C}$ isomorph als Körper. 
+  \end{theorem}
   \onslide<2->{
-  \textbf{Schritt 1 — direkte Rechnung:} $M_z \cdot M_w = M_{zw}$
-  \[
-    \begin{pmatrix}a&-b\\b&a\end{pmatrix}
-    \begin{pmatrix}c&-d\\d&c\end{pmatrix}
-    =
-    \begin{pmatrix}ac-bd&-(ad+bc)\\ad+bc&ac-bd\end{pmatrix}
-    = M_{zw}. \quad\checkmark
-  \]
+  \begin{proof}
+    Es sei $j\in K$, $j\notin \R$. O.\,B.\,d.\,A.\ sei $j^2\in \R$.
+    \only<3-6>{
+      Falls $j^2 = c+d\otimes j$ mit $d\neq 0$, ersetze $j$ durch $j-\frac{d}{2}$:
+      $\left(j-\tfrac{d}{2}\right)^2$%
+      \onslide<4-6>{$= j^2 - d\otimes j + \tfrac{d^2}{4}$}%
+      \onslide<5-6>{$= c + \tfrac{d^2}{4}$}%
+      \onslide<6>{$\in \R$.}
+    }\\
+    \onslide<7->{Dann ist $j^2 < 0$.}
+    \only<8-11>{
+      \onslide<8-11>{Denn $j^2=0 \Rightarrow$ $0$-Teiler.}
+      \onslide<9-11>{Falls $j^2>0$, existiert $\sqrt{j^2}\in\R$,}
+      \onslide<10-11>{und $(\sqrt{j^2}+j)\otimes(\sqrt{j^2}-j)=0$.}
+      \onslide<11>{Also wieder $0$-Teiler.}
+    }\\
+    \onslide<12->{O.\,B.\,d.\,A.\ ist $j^2=-1$.}
+    \only<13>{\;Sonst ersetze $j$ durch $\dfrac{j}{\sqrt{-j^2}}$.}\\
+    \onslide<15-20>{
+      Definiere den Körperisomorphismus:
+      \begin{equation*}
+        \Phi\colon \C \to K,\quad x+\ii y \mapsto x \oplus j\otimes y.
+      \end{equation*}
+
+    }
+    \onslide<16-19>{ Bijectiv, }\only<16>{( Da Vektorraumisomorphismus)}
+    \onslide<17-19>{Ringhomomorphismus, }\only<18-19>{(
+      Gruppenhomomorphismus, da Vektorraumisomorphismus. 
+    }\onslide<19>{Verträglichkeit bzgl. mal, da $\ii^2=j^2=-1$)}
+  \end{proof}
   }
-  \onslide<3->{
-  \textbf{Schritt 2 — Assoziativität vererbt sich:}
-  Da $z\mapsto M_z$ injektiv ist und $M_{zw}=M_z M_w$ gilt:
-  \[
-    M_{z_1(z_2 z_3)}
-    = M_{z_1}\underbrace{(M_{z_2}M_{z_3})}_{\text{Matrizen: assoz.}}
-    = (M_{z_1}M_{z_2})M_{z_3}
-    = M_{(z_1 z_2)z_3}.
-  \]
-  Also $z_1(z_2 z_3) = (z_1 z_2)z_3$. \checkmark
-  }
 \end{frame}
 
-% ==============================================================
-\section{Polardarstellung}
-% ==============================================================
-
-\begin{frame}{Polardarstellung und Eulersche Formel}
-  % Inhalt hier
+\begin{frame}{Cartanos Problem}
+  Für die Polynomgleichung $x^3-15x-4=0$ lieferte die Formel von Cardano:
+  \onslide<2->{%
+  \begin{align*}
+    x &= \sqrt[3]{2+\sqrt{-121}}+\sqrt[3]{2-\sqrt{-121}}
+  \end{align*}}
+  \onslide<3->{\vspace{-1em}
+  \begin{align*}
+    &= \underbrace{\sqrt[3]{2+\ii\sqrt{121}}}_{\text{z.\,B.\ }2+\ii}
+     + \underbrace{\sqrt[3]{2-\ii\sqrt{121}}}_{\text{z.\,B.\ }2-\ii}
+  \end{align*}}
+  \onslide<4->{\vspace{-1em}
+  \begin{align*}
+    &= 4
+  \end{align*}}
+  \onslide<5->{$4^3 - 15\cdot 4 - 4 = 64 - 60 - 4 = 0$ \checkmark}
 \end{frame}
-
-% ==============================================================
-\section{Ausblick}
-% ==============================================================
-
-\begin{frame}{Ausblick}
-  % Inhalt hier
-\end{frame}
-
 % ---- Literatur ------------------------------------------------
 % \begin{frame}[allowframebreaks]{Literatur}
 %   \printbibliography

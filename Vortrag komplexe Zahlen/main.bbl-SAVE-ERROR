@@ -92,6 +92,38 @@
       \field{title}{The Algebra of Mohammed ben Musa}
       \field{year}{1831}
     \endentry
+    \entry{cardano1545}{book}{}
+      \name{author}{1}{}{%
+        {{hash=eb78e02f2472aa0f9af834d21956d64b}{%
+           family={Cardano},
+           familyi={C\bibinitperiod},
+           given={Gerolamo},
+           giveni={G\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {latin}%
+      }
+      \list{location}{1}{%
+        {Nürnberg}%
+      }
+      \list{publisher}{1}{%
+        {Johannis Petreii}%
+      }
+      \strng{namehash}{eb78e02f2472aa0f9af834d21956d64b}
+      \strng{fullhash}{eb78e02f2472aa0f9af834d21956d64b}
+      \strng{bibnamehash}{eb78e02f2472aa0f9af834d21956d64b}
+      \strng{authorbibnamehash}{eb78e02f2472aa0f9af834d21956d64b}
+      \strng{authornamehash}{eb78e02f2472aa0f9af834d21956d64b}
+      \strng{authorfullhash}{eb78e02f2472aa0f9af834d21956d64b}
+      \field{labelalpha}{Car45}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Enthält die erste veröffentlichte Lösung der kubischen und quartischen Gleichung.}
+      \field{title}{Artis Magnae, Sive de Regulis Algebraicis}
+      \field{year}{1545}
+    \endentry
     \entry{hamilton1837}{article}{}
       \name{author}{1}{}{%
         {{hash=669f29d983faa7a666a11ac2f96d3d92}{%

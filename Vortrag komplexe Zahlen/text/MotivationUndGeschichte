@@ -8,11 +8,11 @@
   \end{column}
   \begin{column}{0.5\textwidth}
     \centering
-    \onslide<1->{$10 = x + y$}\\[0.8em]
-    \onslide<2->{$y^2 = 81x$}\\[0.8em]
-    \onslide<3->{F\"{u}r uns: $y = 10 - x$}\\[0.8em]
-    \onslide<4->{$(10-x)^2 - 81x = 0$}\\[0.8em]
-    \onslide<5->{Gelöst mit heutiger p-q formel}
+    \onslide<2->{$10 = x + y$}\\[0.8em]
+    \onslide<3->{$y^2 = 81x$}\\[0.8em]
+    \onslide<4->{F\"{u}r uns: $y = 10 - x$}\\[0.8em]
+    \onslide<5->{$(10-x)^2 - 81x = 0$}\\[0.8em]
+    \onslide<6->{Gelöst mit heutiger p-q formel}
   \end{column}
 \end{columns}
 
