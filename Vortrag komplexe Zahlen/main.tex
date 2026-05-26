@@ -103,18 +103,18 @@
 
 \begin{frame}{Definition}{Hamiltonsche Konstruktion \cite{hamilton1837}}
   \begin{definition}[Komplexe Zahlen als $\R^2$]
-    Setze $\C := \R^2$ mit komponentenweiser Addition. \onslide<2->{ Wir definieren die Basis $ \mathbf{1} := \begin{pmatrix} 1\\0 \end{pmatrix}$ und $\ii := \begin{pmatrix} 0\\1 \end{pmatrix}$.}
-    \onslide<3->{ Die Multiplikation auf dieser Basis: $ \mathbf{1}^2= \mathbf{1}\,,\,  \mathbf{1}\ii= \ii\,,\, \ii^2 = -\mathbf{1}$.}
-    \onslide<4->{
+    Setze $\C := \R^2$ mit komponentenweiser Addition. \only<2-5>{ Wir definieren die Basis $ \mathbf{1} := \begin{pmatrix} 1\\0 \end{pmatrix}$ und $\ii := \begin{pmatrix} 0\\1 \end{pmatrix}$.}
+    \only<3->{ Die Multiplikation auf dieser Basis: $ \mathbf{1}^2= \mathbf{1}\,,\,  \mathbf{1}\ii= \ii\,,\, \ii^2 = -\mathbf{1}$.}
+    \onslide<4-5>{
     Die Definition der allgemeinen Multiplikation folgt aus Distributivität:
     \begin{align*}
       (a\mathbf{1} + b\ii)(c\mathbf{1} + d\ii)
-        &= ac\,\mathbf{1}^2 + (ad+bc)\,\mathbf{1}\ii + bd\,\ii^2 \\
+        &\only<5-5>{= ac\,\mathbf{1}^2 + (ad+bc)\,\mathbf{1}\ii + bd\,\ii^2 \\
         &= ac\,\mathbf{1} + (ad+bc)\,\ii - bd\,\mathbf{1} \\
-        &= (ac-bd)\,\mathbf{1} + (ad+bc)\,\ii.
+        &= (ac-bd)\,\mathbf{1} + (ad+bc)\,\ii.}
     \end{align*}}
-    \onslide<5->{
-    d.\,h.\ in Koordinaten:$\begin{pmatrix} a\\b\end{pmatrix}+\begin{pmatrix} c\\d\end{pmatrix} \coloneq \begin{pmatrix} a+c\\b+d\end{pmatrix}$ und $\begin{pmatrix} a\\b\end{pmatrix}\cdot\begin{pmatrix} c\\d\end{pmatrix} \coloneq \begin{pmatrix} ac-bd\\ad+bc\end{pmatrix}$.
+    \onslide<6->{
+    d.\,h.\ wir definieren:$\begin{pmatrix} a\\b\end{pmatrix}+\begin{pmatrix} c\\d\end{pmatrix} \coloneq \begin{pmatrix} a+c\\b+d\end{pmatrix}$ und $\begin{pmatrix} a\\b\end{pmatrix}\cdot\begin{pmatrix} c\\d\end{pmatrix} \coloneq \begin{pmatrix} ac-bd\\ad+bc\end{pmatrix}$.
     }
   \end{definition}
 \end{frame}
