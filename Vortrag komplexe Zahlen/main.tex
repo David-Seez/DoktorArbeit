@@ -336,22 +336,22 @@ Dann gilt:
 % ==============================================================
 
 \begin{frame}{Eindeutigkeit}
-  \begin{theorem}[Eindeutigkeit von $\C$]
+  \only<1-2>{\begin{theorem}[Eindeutigkeit von $\C$]
     Jeder kommutative, nullteilerfreie, 2-dimensionale Oberring $(K,+,\otimes)$ von $\mathbb{R}$ ist zu $\mathbb{C}$ isomorph als Körper. 
-  \end{theorem}\pause
-  \begin{definition}[Was ist ein 2-dimensionaler Oberring von $\mathbb{R}$?]
+  \end{theorem}}   \pause
+  \begin{definition}[Was ist ein 2-dimensionaler kommutatuver Oberring von $\mathbb{R}$ mit 1?]
     Ein solches Objekt $K\supseteq \R$ vereinigt drei Strukturen:
     \begin{enumerate}
-      \item<3->{$K$ ist ein zweidimensionaler $\R$-Vektorraum.}
-      \item<4->{$K$ ist ein Ring. D.h. es gibt eine Multiplikation $\otimes:K\times K\to K$, welche assoziativ und distributiv bzgl. $+$ ist.}
+      \item<3->{$K$ ist ein zweidimensionaler $\R$-Vektorraum mit $+$ und $\cdot_s$.}
+      \item<4->{$K$ ist ein Ring. D.h. es gibt eine Multiplikation $\otimes:K\times K\to K$, welche kommutativ, assoziativ und distributiv bzgl. $+$ ist.}
       \item<5->{Die Multiplikation respektiert das Mal aus $\R$, d.h. für $\lambda\in \R,$ und $a,b\in K$ gilt:
       \begin{equation*}
-        (a\;\otimes\; \lambda  b)=(\lambda  a \;\otimes\; b)=\lambda(a\;\otimes\; b)
+        (a\;\otimes\; \lambda \cdot_s b)=(\lambda \cdot_s a \;\otimes\; b)=\lambda \cdot_s (a\;\otimes\; b)
       \end{equation*}
-      Die Multiplikation ist also bilinear über $\R$.}
+      Außerdem existiert ein neutrales Element $1_K$.}
     \end{enumerate}
-
   \end{definition}
+  \onslide<6->{Das neutrale Element der Multiplikation gibt eine kanonische Einbettung $\R\to K$ als multiplikativ abgeschlossenen Untervectorraum und $\lambda \cdot_s x=\lambda \otimes x$. }
 \end{frame}
 
 \begin{frame}{Gewisse Eindeutigkeit}
@@ -363,10 +363,10 @@ Dann gilt:
   \begin{proof}
     Es sei $j\in K$, $j\notin \R$. O.\,B.\,d.\,A.\ sei $j^2\in \R$.
     \only<3-6>{
-      Falls $j^2 = c\otimes 1+d\otimes j$ mit $d\neq 0$, ersetze $j$ durch $j-\frac{d}{2}$:
+      Falls $j^2 = c\cdot_s 1+d\cdot_s j$ mit $d\neq 0$, ersetze $j$ durch $j-\frac{d}{2}$:
       $\left(j-\tfrac{d}{2}\right)^2$%
       \onslide<4-6>{$= j^2 - d\otimes j + \tfrac{d^2}{4}$}%
-      \onslide<5-6>{$= c + \tfrac{d^2}{4}$}%
+      \onslide<5-6>{$c\cdot_s 1+d\cdot_s j-d\otimes j+\frac{d^2}{4}= c + \tfrac{d^2}{4}$}%
       \onslide<6>{$\in \R$.}
     }\\
     \onslide<7->{Dann ist $j^2 < 0$.}
@@ -378,17 +378,15 @@ Dann gilt:
     }\\
     \onslide<12->{O.\,B.\,d.\,A.\ ist $j^2=-1$.}
     \only<13>{\;Sonst ersetze $j$ durch $\dfrac{j}{\sqrt{-j^2}}$.}\\
-    \onslide<15-20>{
+    \onslide<15-18>{
       Definiere den Körperisomorphismus:
       \begin{equation*}
-        \Phi\colon \C \to K,\quad x+\ii y \mapsto x\otimes 1 + j\otimes y.
+        \Phi\colon \C \to K,\quad x+\ii y \mapsto x\cdot_s 1 \; +\; j\cdot_1 y.
       \end{equation*}
 
     }
-    \onslide<16-19>{ Bijektiv, }\only<16>{( Da Vektorraumisomorphismus)}
-    \onslide<17-19>{Ringhomomorphismus, }\only<18-19>{(
-      Gruppenhomomorphismus, da Vektorraumisomorphismus. 
-    }\onslide<19>{Verträglichkeit bzgl. mal, da $\ii^2=j^2=-1$)}
+    \onslide<16-17>{ Bijektiv, }\only<16>{( Da Vektorraumisomorphismus)}
+    \onslide<17>{Ringhomomorphismus }
   \end{proof}
   }
 \end{frame}
