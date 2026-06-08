@@ -428,7 +428,7 @@ Since $X$ is compact, any map $f:X\to \lim_{m\to \infty}\Gr_n(\C^m)$ has image t
 \end{equation*} This map is injective, as if $f_m$ and $s_m$ are homotopic as maps to $\Gr_n(\C^m)$, then they are also homotopic as maps to the direct limit. Finally $\Phi$ is surjective, as any element of the direct limit is represented by some $f_m:X\to \Gr_n(\C^m)$ and hence $\Phi([i\circ f_m])=[f_m]$. 
  \end{proof}
  \begin{definition}
-	We denote $\lim_{m\to \infty} \Gr_n(\C^m)$ by $\BU(n)$ and call it the \textbf{classifying space} for complex vector bundles of rank $n$. The name origins from the fuctor $\mathrm{B}$ that sends a topological group $G$ to the classifying space of al vector bundles with structure group $G$. 
+	We denote $\lim_{m\to \infty} \Gr_n(\C^m)$ by $\BU(n)$ and call it the \textbf{classifying space} for complex vector bundles of rank $n$. The name origins from the fuctor $\mathrm{B}$ that sends a topological group $G$ to the classifying space of vector bundles with structure group $G$. 
  \end{definition}
  \begin{corollary}
 	For any compact Hausdorff space $X$, there is a canonical bijection between the homotopy classes of maps from $X$ to $\BU(n)$ and the isomorphism classes of vector bundles of rank $n$ over $X$:
@@ -462,7 +462,7 @@ Since $X$ is compact, any map $f:X\to \lim_{m\to \infty}\Gr_n(\C^m)$ has image t
 		\end{tikzcd}	
 	\end{center} If $G$ is a semiring, then $K(G)$ inherits a ring structure and we call $K(G)$ the \textbf{Grothendiek ring} of $G$.
   \end{definition}
-  \begin{corollary}
+  \begin{corollary}\label{cor:kTheo-ConstructionOfGrothendiekGroup}
 	The Grothendiek group exists for any abelian semigroup and is unique up to canonical isomorphism. If $G$ is a semiring, then the Grothendiek ring exists and is unique up to canonical isomorphism.
   \end{corollary}
   \begin{proof}Let $A$ be an abelien semigroup and $\Delta:A\to A\times A$ be the diaglinal homomorphism that sends $a$ to $(a,a)$. Let $K(A)\coloneq A\times A\big/ \Delta(A)$ . Then $K(A)$ is a priori an abelien semigroup, but for $a,b\in A$ we have
@@ -575,7 +575,7 @@ the sections $c_X^*, c_Y^*$) controls the $K(x_0)$-summand.
 	\end{equation*} be the functor that that sends $X$ to $(X,[\emptyset])$ with obvious homomorphisms. Then there is a natural isomorphism between the functors $\tilde{K}\circ F$ and $K$. 
 \end{corollary}
 \begin{proof}
-	This follows  from the fact that disjoint uninons give rise to direct sums of semi rings: $\Vect[X\sqcup [\emptyset]]\cong \Vect(X)\oplus \Vect([\emptyset])$ and the isomorphism is given by gluing the bundles and hence natural. Furthermore, the Grothendiek ring of a direct sum gives the direkt sum of rings (again in a natural manner). (This can be verified using the universal property). Hence we get the commutatuve diagram
+	This follows  from the fact that disjoint uninons give rise to direct sums of semi rings: $\Vect(X\sqcup \{\emptyset\})\cong \Vect(X)\oplus \Vect(\{\emptyset\})$ and the isomorphism is given by gluing the bundles and hence natural. Furthermore, the Grothendiek ring of a direct sum gives the direkt sum of rings (again in a natural manner). (This can be verified using the universal property). Hence we get the commutative diagram
 	\begin{center}
 		\begin{tikzcd}
 			0 \arrow[r]\arrow[d,equal]&\tilde{K}(F(X)) \arrow[r,"inclusion"] & K(F(X)) \arrow[d,"\Phi"]\arrow[r,"i^*"] & K([\emptyset]) \arrow[r] \arrow[d,equal] &0\arrow[d,equal] \\
@@ -636,7 +636,7 @@ the sections $c_X^*, c_Y^*$) controls the $K(x_0)$-summand.
 	All those definitions give contravariant and homotopically invariant functors into the category of rings.
 \end{definition}
 \begin{corollary}
-	Let $X$ be a topological space. Then we have a natural isomorphism between $K^0(X)\cong K(X)$.
+	Let $X$ be a topological space. Then we have a natural isomorphism between the functors $K^0(X)$ and $K(X)$.
 \end{corollary}
 \begin{proof}
 	When disentangeling the definitions, we see that 
@@ -644,3 +644,27 @@ the sections $c_X^*, c_Y^*$) controls the $K(x_0)$-summand.
 		K^0(X)=\tilde{K}(\Sigma^0(X,[\emptyset]))\cong \tilde{K}(X,[\emptyset])\cong K(X)
 	\end{equation*} where the first isomorphism comes from $\Sigma^0$ beeing canonically isomporphic to the identity and the second isomorphism is given in Corollary \ref{cor:kTheo-unpointedReducedIsNonReduced}.
 \end{proof}
+\subsection{Homotopy-Theoretic definition of $K$}
+\begin{definition}
+	for any natural number $n\in \N$ we define $[n]$ to be the $n$-dimensional trivial bundle over a base space $X$. With this we define the inclusions
+	\begin{equation*}
+		\Vect_n(X)\to \vect_{n+1}(X)\,,\quad \xi \mapsto \xi \oplus [1],
+	\end{equation*} and this gives rise to the direct limit $\lim_n \Vect_n(X)$.
+\end{definition}
+\begin{theorem}
+	For a compact connected space $X$ there is a natural isomorphism
+	\begin{equation*}
+		K(X)\cong \Z \times \lim_n \Vect_n(X)\,.
+	\end{equation*}
+\end{theorem}
+\begin{proof}
+	We already saw in Corollary \ref{cor:kTheo-ConstructionOfGrothendiekGroup} that any element of $K(X)$ is given by the difference of two isomorphism classes of vector bundles (included via the natural inclusion). Furthermore, in Corollary \ref{cor:kTheo-splittingTrivial} we have shown that for any vector bundle $E$ there is another one $G$ such that $E\oplus G$ is trivial. Hence in the $K$ group we have $[E]+[G]=[n]$ for some $n$.
+\end{proof}
+\begin{definition}
+	We define the \textbf{unitary group} $U$ to be the direct limit of the unitary goupf of rank $n$ under the standart inclusions
+	\begin{equation*}
+		U(n) \to U(n+1)\,,\quad A \mapsto A \oplus \Idm_1 =  \begin{pmatrix}
+			A&0\\ 0&1
+		\end{pmatrix}\,.
+	\end{equation*}
+\end{definition}
