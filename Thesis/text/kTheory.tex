@@ -480,8 +480,21 @@ Let $G$ be another abelian group and $\psi: A\to G$ a semigroup homomorphism.Fro
 \begin{equation*}
 	\theta\left(\overline{(a,b)}\right)=\underbrace{\theta(\alpha_A(a))}_{\psi(a)}-\underbrace{\theta(\alpha_A(b))}_{\psi(b)}=\tilde{\psi}\left(\overline{(a,b)}\right)
 \end{equation*}
-This concludes the construction of the grothendiek group. To see the functoriality we first need to define what $K(\beta)$ means, when $\beta: A\to B$ defines a semigroub homomorphism between to abelien semigroups. For this we use the universal property and define $K(\beta)$ to be the unique group homomorphism comming from $\alpha_B\circ \beta : A \to K(B)$. Now the uniqueness of said definition shows the equialities $K(\id)=\id$ and $K(f\circ g)=K(f)\circ K(g)$.  
+This concludes the construction of the grothendiek group. To see the functoriality we first need to define what $K(\beta)$ means, when $\beta: A\to B$ defines a semigroub homomorphism between to abelien semigroups. For this we use the universal property and define $K(\beta)$ to be the unique group homomorphism comming from $\alpha_B\circ \beta : A \to K(B)$. Now the uniqueness of said definition shows the equialities $K(\id)=\id$ and $K(f\circ g)=K(f)\circ K(g)$.
 \end{proof}
+
+
+
+\begin{remark}\label{rem:kTheo-grothendieckEquivalence}
+	Concretely, $K(A)=(A\times A)/\Delta(A)$ denotes the quotient of $A\times A$ by the relation
+	\begin{equation*}
+		(a,b)\sim(a',b')\;:\Leftrightarrow\;\exists\, c\in A:\ a+b'+c=a'+b+c\,.
+	\end{equation*}
+	This clearly is an equivalence relation that is compatible with $+$, so $K(A)\coloneq(A\times A)/{\sim}$ is an abelian semigroup. It is in fact a group, since $(a,b)+(b,a)=(a+b,b+a)\sim(0,0)$ for any $a,b$ (take $c=0$ and use $a+b=b+a$). Finally $(d,d)\sim(0,0)$ for all $d\in A$ (take $c=0$), so $\Delta(A)$ is identified with the class $\overline{(0,0)}$, justifying the notation $A\times A/\Delta(A)$.
+\end{remark}
+
+
+
 
 \begin{comment}
 Let $\beta:A \to A'$ be another semigroup homomorphism. Then we have the following kommutative diagram:
@@ -658,6 +671,8 @@ the sections $c_X^*, c_Y^*$) controls the $K(x_0)$-summand.
 		E\oplus \underline{n}\cong F\oplus \underline{n}\,.
 	\end{equation*}
 \end{definition}
+
+
 \begin{theorem}
 	For a compact connected space $X$ there is a natural isomorphism
 	\begin{equation*}
