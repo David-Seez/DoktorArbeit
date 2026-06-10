@@ -466,18 +466,24 @@ Since $X$ is compact, any map $f:X\to \lim_{m\to \infty}\Gr_n(\C^m)$ has image t
   \begin{corollary}\label{cor:kTheo-ConstructionOfGrothendiekGroup}
 	The Grothendiek group exists for any abelian semigroup and is unique up to canonical isomorphism. If $G$ is a semiring, then the Grothendiek ring exists and is unique up to canonical isomorphism.
   \end{corollary}
-  \begin{proof}Let $A$ be an abelien semigroup and $\Delta:A\to A\times A$ be the diaglinal homomorphism that sends $a$ to $(a,a)$. Let $K(A)\coloneq A\times A\big/ \Delta(A)$ . Then $K(A)$ is a priori an abelien semigroup, but for $a,b\in A$ we have
+  \begin{proof}Let $A$ be an abelien semigroup and $\Delta:A\to A\times A$ be the diaglinal homomorphism that sends $a$ to $(a,a)$. Let $K(A)\coloneq A\times A\big/ \Delta(A)$ . Here we need to be careful. This definition does not mean "the set of cosets". What we actually mean here is the following: $\Delta(A)$ acts on $A\times A$ via
+	\begin{equation*}
+		\Delta(A) \times (A\times A ) \to A\times A\,\quad ((a,a),(b,c))\mapsto (a+b,b+c)\,.
+	\end{equation*} With this we have the set of Orbits which gives rise to an relation:
+	\begin{equation*}
+		\mathcal{R}\coloneq \{((a,b),(a+c,b+c))| c\in A\}
+	\end{equation*}Now we take the smallest equivalence relation on $A\times A$ that contains $\mathcal{R}$. We define $K(A)$ to be $A\times A$ module said relation. Then $K(A)$ is a priori an abelien semigroup, but for $a,b\in A$ we have
 \begin{equation*}
 	(a,b)+(b,a)=(a+b,b+a)\in \Delta(A)\,,
 \end{equation*} and hence $K(A)$ is an abelian group. Also we can see that 
 \begin{equation*}
 \overline{(a,b)}=\overline{(a,0)}-\overline{(b,0)}=\alpha_A(a)-\alpha_A(b)
-\end{equation*} Together with the homomorphism $\alpha_A:A\to K(A)$ that sends $a$ to the class $(a,0)+\Delta(A)$, we get the universal property of the Grothendiek group:
+\end{equation*} Together with the homomorphism $\alpha_A:A\to K(A)$ that sends $a$ to the class of $(a,0)$, we get the universal property of the Grothendiek group:
 
-Let $G$ be another abelian group and $\psi: A\to G$ a semigroup homomorphism.From this define 
+Let $G$ be another abelian group and $\psi: A\to G$ a semigroup homomorphism. From this define 
 \begin{equation*}
-	\tilde{\psi}:K(A)\to G\,,\quad (a,b)+\Delta(A)\to \psi(a)-\psi(b)
-\end{equation*} The well definintion of this map can be verified by a calculation. By calculating it also follows that $\tilde{\psi}$ is a group homomorphism and that $\tilde{\psi}\circ \alpha_A=\psi$. Hence for the universal property we only need to verify uniqueness. So assume that $\theta:K(A)\to G$ is another group homomorphism. Then:
+	\tilde{\psi}:K(A)\to G\,,\quad  \overline{(a,b)} \to \psi(a)-\psi(b)
+\end{equation*} The well definintion of this map can be verified by a calculation. By calculating it also follows that $\tilde{\psi}$ is a group homomorphism and that $\tilde{\psi}\circ \alpha_A=\psi$. Hence, for the universal property we only need to verify uniqueness. So assume that $\theta:K(A)\to G$ is another group homomorphism. Then:
 \begin{equation*}
 	\theta\left(\overline{(a,b)}\right)=\underbrace{\theta(\alpha_A(a))}_{\psi(a)}-\underbrace{\theta(\alpha_A(b))}_{\psi(b)}=\tilde{\psi}\left(\overline{(a,b)}\right)
 \end{equation*}
@@ -487,13 +493,19 @@ This concludes the construction of the grothendiek group. To see the functoriali
 
 
 \begin{remark}\label{rem:kTheo-grothendieckEquivalence}
-	Concretely, $K(A)=(A\times A)/\Delta(A)$ denotes the quotient of $A\times A$ by the relation
-	\begin{equation*}
-		(a,b)\sim(a',b')\;:\Leftrightarrow\;\exists\, c\in A:\ a+b'+c=a'+b+c\,.
-	\end{equation*}
-	This clearly is an equivalence relation that is compatible with $+$, so $K(A)\coloneq(A\times A)/{\sim}$ is an abelian semigroup. It is in fact a group, since $(a,b)+(b,a)=(a+b,b+a)\sim(0,0)$ for any $a,b$ (take $c=0$ and use $a+b=b+a$). Finally $(d,d)\sim(0,0)$ for all $d\in A$ (take $c=0$), so $\Delta(A)$ is identified with the class $\overline{(0,0)}$, justifying the notation $A\times A/\Delta(A)$.
+In $K(A)$ we get the following equivalence for any two pairs $[a,b]$ and $[a',b']$:
+\begin{equation*}
+	\overline{(a,b)}=\overline{(a',b')}\,\Leftrightarrow \text{ There exists a } c\in A \text{ such that } (a+b'+c)=(a'+b+c)\,.
+\end{equation*}	
 \end{remark}
-
+\begin{proof}
+	We start by proofing "$\Leftarrow$". This direction follows from the propertys of an equivalence relation, as then, every element of an equivalence class is also a representant:
+	\begin{equation} \label{eq:kTheo-theGrothendiekRelation}
+		\overline{(a,b)}=\overleftarrow{(a+(a'+b+c),b+(a+b'+c))}=\overline{(a'+(a+b+c),b'+(a+b+c))}=\overline{(a',b')}\,.
+	\end{equation} The other direction follows from the minimality of the equivalence relation: To see this notice how the argument above works in every equivalence relation containing the orbits of $\Delta(A)$ and hence works in the smallest one. Furthermore, \begin{equation*}
+		(a,b)\sim(a',b')\Leftrightarrow\text{ There exists a } c\in A \text{ such that } (a+b'+c)=(a'+b+c)
+	\end{equation*}defines an equivalence relation that contains the orbits and hence this is the smallest one.
+\end{proof}
 
 
 
