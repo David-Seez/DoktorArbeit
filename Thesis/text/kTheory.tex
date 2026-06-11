@@ -463,16 +463,16 @@ Since $X$ is compact, any map $f:X\to \lim_{m\to \infty}\Gr_n(\C^m)$ has image t
 		\end{tikzcd}	
 	\end{center} If $G$ is a semiring, then $K(G)$ inherits a ring structure and we call $K(G)$ the \textbf{Grothendiek ring} of $G$.
   \end{definition}
-  \begin{corollary}\label{cor:kTheo-ConstructionOfGrothendiekGroup}
+  \begin{corollary}\label{cor:kTheo-ConstructionOfGrothendiekGroup} 
 	The Grothendiek group exists for any abelian semigroup and is unique up to canonical isomorphism. If $G$ is a semiring, then the Grothendiek ring exists and is unique up to canonical isomorphism.
   \end{corollary}
-  \begin{proof}Let $A$ be an abelien semigroup and $\Delta:A\to A\times A$ be the diaglinal homomorphism that sends $a$ to $(a,a)$. Let $K(A)\coloneq A\times A\big/ \Delta(A)$ . Here we need to be careful. This definition does not mean "the set of cosets". What we actually mean here is the following: $\Delta(A)$ acts on $A\times A$ via
+  \begin{proof}The construction follows the following idea: We define touples in which $(a,b)$ that are to be interpreted as differences "$a-b$". For this constructino to yeald something useful we want to enforce the rule that "$a-b=a+c-(b+c)$" or said differently $(a+c,b+c)=(a,b)$. Finally for the univerall property we want to use the smallest relation that makes a group and satisf yealds $(a+c,b+c)=(a,b)$. This gives us the following construction: Let $A$ be an abelien semigroup and $\Delta:A\to A\times A$ be the diaglinal homomorphism that sends $a$ to $(a,a)$. Let $K(A)\coloneq A\times A\big/ \Delta(A)$ .By this notation we mean: $\Delta(A)$ acts on $A\times A$ via
 	\begin{equation*}
 		\Delta(A) \times (A\times A ) \to A\times A\,\quad ((a,a),(b,c))\mapsto (a+b,b+c)\,.
-	\end{equation*} With this we have the set of Orbits which gives rise to an relation:
+	\end{equation*} With this we have the set of orbits which gives rise to an relation:
 	\begin{equation*}
 		\mathcal{R}\coloneq \{((a,b),(a+c,b+c))| c\in A\}
-	\end{equation*}Now we take the smallest equivalence relation on $A\times A$ that contains $\mathcal{R}$. We define $K(A)$ to be $A\times A$ module said relation. Then $K(A)$ is a priori an abelien semigroup, but for $a,b\in A$ we have
+	\end{equation*}Now we take the smallest equivalence relation on $A\times A$ that contains $\mathcal{R}$ (This relation is made explicit in Remark \ref{rem:kTheo-grothendieckEquivalence}). We define $K(A)$ to be $A\times A$ module said relation. Then $K(A)$ is a priori an abelien semigroup, but for $a,b\in A$ we have
 \begin{equation*}
 	(a,b)+(b,a)=(a+b,b+a)\in \Delta(A)\,,
 \end{equation*} and hence $K(A)$ is an abelian group. Also we can see that 
@@ -493,7 +493,7 @@ This concludes the construction of the grothendiek group. To see the functoriali
 
 
 \begin{remark}\label{rem:kTheo-grothendieckEquivalence}
-In $K(A)$ we get the following equivalence for any two pairs $[a,b]$ and $[a',b']$:
+In $K(A)$ we get the following equivalence for any two pairs $\overline{(a,b)}$ and $\overline{(a',b')}$:
 \begin{equation*}
 	\overline{(a,b)}=\overline{(a',b')}\,\Leftrightarrow \text{ There exists a } c\in A \text{ such that } (a+b'+c)=(a'+b+c)\,.
 \end{equation*}	
@@ -508,7 +508,16 @@ In $K(A)$ we get the following equivalence for any two pairs $[a,b]$ and $[a',b'
 \end{proof}
 
 
+\begin{remark}[A simpler Construction of the Grothendiek Group?]
+	Atiyah defines in Chapter II.1 \cite{atiyah1989k} word for word: 
 
+	\textit{ A slightly different construction of $K(A)$ which is sometimes convinient is the following: Let $\Delta: A\to A$ be the diagonal homomorphism of semi-groups, and let $K(A)$ denote the set of cosets of $\Delta(A)$ in $A\times A$. It is a quotient semi-group, but the interchange of factors in $A\times A$ introduces an inverse in $K(A)$ so that $K(A)$ is a group.}
+	
+	Whilst this definition feels easy to the reader, it carries a lot of baggage. First of all, if one is not familiar with commutative monoid or abelien semigroup theory, one might want to generalice the notion of coset from group theory that states that for a subgroub $A\subseteq G$ of an abelien group $G$ the cosets are of the form $g+A$. Whist this notion can be generaliced to semigroubs, it would yeald something useless. To see this just take $\N$. In the semigroup $\N\times \N \big/ \Delta(\N)$ the cosets $(2,0)+\N$ and $(3,1)+\N$ are different, as $(2,0)$ is not contained in the latter. So Atiyah must have meant something different. However, the literature on semigroups from that time was aware of that problem and defines the notion of qutionts in the setting of semigroubs with the help of \textit{conguence} instead of cosets. The latter refers to an equivalence relation that behaves well with the operation of said semigroup. Compare Chapter 1.5 \cite{CliffordPreston1961}. It was even shown that the notion of congruence and coset are equivalent for groups(Compare for example: Chapter 6.1 \cite{Green1965}). Regardless of what Atiyah meant by his notion of coset, the construction became known and cited. (\cite{Brodzki1996}, \cite{Landweber2005},\cite{Courtney2004}) None of those reference defined coset in semigroubs and hence this little detour into the history should function as a reminder, that we need to be careful.
+\end{remark}
+\begin{remark}
+	We will omitt the incluion maps $\alpha$ from now on and interpret (if not said different) the equivalence class $[E]$ of a vector bundle as an element in $K(X)$.
+\end{remark}
 \begin{comment}
 Let $\beta:A \to A'$ be another semigroup homomorphism. Then we have the following kommutative diagram:
 ~\vspace{0.3cm}
@@ -672,10 +681,10 @@ the sections $c_X^*, c_Y^*$) controls the $K(x_0)$-summand.
 \end{proof}
 \subsection{Homotopy-Theoretic definition of $K$}
 
-\begin{definition}
+\begin{definition}\label{def:kTheo-trivialBundleAndLimitInclusinos}
 	for any natural number $n\in \N$ we define $\underline{n}$ to be the $n$-dimensional trivial bundle over a base space $X$. With this we define the inclusions
 	\begin{equation*}
-		\Vect_n(X)\to \Vect_{n+1}(X)\,,\quad \xi \mapsto \xi \oplus [\underline{1}],
+		i_n: \Vect_n(X)\to \Vect_{n+1}(X)\,,\quad \xi \mapsto \xi \oplus [\underline{1}],
 	\end{equation*} and this gives rise to the direct limit $\lim_n \Vect_n(X)$.
 \end{definition}
 \begin{definition}[Stabely Equivalence]
@@ -685,19 +694,53 @@ the sections $c_X^*, c_Y^*$) controls the $K(x_0)$-summand.
 	\end{equation*}
 \end{definition}
 
-
-\begin{theorem}
-	For a compact connected space $X$ there is a natural isomorphism
+\begin{lemma}
+	In $K(X)$ two equivalence classes $[E]$ and $[F]$ are the same, if and only if $E$ and $F$ are stably equivalent.
+\end{lemma}
+\begin{proof}
+	Assume that two vector bundles satisfy
 	\begin{equation*}
-		K(X)\cong \Z \times \lim_n \Vect_n(X)\,.
+		E\oplus \underline{n}\cong F\oplus \underline{n}\,,
+	\end{equation*} for some $n\in \N$. By abuse of notation we let $E$ (and $\underline{n}$) denote a vectorbundle and its isomorphismclass simultaniously. Then by Remark \ref{rem:kTheo-grothendieckEquivalence}
+	\begin{equation*}
+		[E]=\overline{(E,0)}=\overline{(E+\underline{n},\underline{n})}=\overline{(F+\underline{n},\underline{n})}=\overline{(F,0)}=[F]\,.
+	\end{equation*}
+	On the other hand, if $[E]=[F]$, then by the same Remark we can conclude:
+	\begin{equation*}
+		(E,0)\sim (F,0)\\
+		\Leftrightarrow \text{ there exists } G \text{ such that} E\oplus G=F\oplus G \,.
+	\end{equation*} Now by Corollary \ref{cor:kTheo-splittingTrivial} we can find a vector bundle $G'$ such that $G\oplus G'=\underline{n}$ for some $n$. Then
+	\begin{equation*}
+		E\oplus G\oplus G'=F\oplus G \oplus G' \Rightarrow E\oplus \underline{n}=F\oplus \underline{n}
+	\end{equation*}
+\end{proof}
+\begin{lemma}
+	The set of equivalenc classes using the notion of stably equivalence is the limit 
+	\begin{equation*}
+		\lim_n \Vect_n(X)
+	\end{equation*}
+\end{lemma}
+\begin{proof}Let $\mathrm{SVect}(X)$ be the set of equivalence classes using the notion of stabely equivalence. This satisfies the universal property of the direct limit. To see this let $f_m:\Vect_m(X)\to Y$ be a familiy of maps, that commute with the inclusions $i_n$ from Definition \ref{def:kTheo-trivialBundleAndLimitInclusinos}. From those we define the map 
+	\begin{equation*}
+		f: \mathrm{SVect}(X) \to Y\,, \quad [\xi] \mapsto f_{\rank(\xi)}(\xi)\,.
+	\end{equation*} This map is well defined. To see this assume that $\xi$ and $\zeta$ are stabely equivalent vector bundles and hence for some $n$ we have
+	\begin{equation*}
+		\xi \oplus \underline{n}\cong \zeta \oplus \underline{n}\,. 
+	\end{equation*} Hence, if we include $\xi$ and $\zeta$ into $\Vect_{n+\rank(\xi)}$ they define the same class and since the maps $f_m$ commute with those inclusions, the map $f$ is well defined. The uniquenes of this map follows directly as every element of $\mathrm{SVect}(X)$ is represented in such a way.
+\end{proof}
+\begin{theorem}
+	For a compact connected space $X$ there is a natural bijection
+	\begin{equation*}
+		K(X) \cong \Z \times \lim_n \Vect_n(X)\,.
 	\end{equation*}
 \end{theorem}
 \begin{proof}
-	We already saw in Corollary \ref{cor:kTheo-ConstructionOfGrothendiekGroup} that any element of $K(X)$ is given by the difference of two isomorphism classes of vector bundles (included via the natural inclusion). Now let $K$ be a arbitrary element of $K(X)$ that is represented by the difference of the isomorphism classes of the bundles $E$ and $F$ and let $G$ be a bundle such that  $E\oplus G$ is trivial. The latter exists by Corollary \ref{cor:kTheo-splittingTrivial}. Hence, we have: 
+	We will construct such a map. Let $K\in K(X)$, then by corollary \ref{cor:kTheo-ConstructionOfGrothendiekGroup} we know that $K$ can be represented as the difference of two equivalenc classes of vector bundles $K=[E]-[F]$. Now let $G$ be a bundle such that $F\oplus G=\underline{n}$. Then 
 	\begin{equation*}
-		K=[E]-[F]=([E]+[G])-([F]+[G])=([E]+[G])-[\underline{n}]\,,
-	\end{equation*} for some natural number $n$.
+		K=[\underbrace{E\oplus G}_{\eqcolon H}]-[F\oplus G]=[H]-[\underline{n}]\,.
+	\end{equation*} Obviously, $G$ is not unique, as $G\oplus \underbrace{1}$ would also work. To omit this issue we choose $G$ such that $n$ is minimal. Then $G$ is unique: Assume that $G$ and $G'$ satisfy the minimality condition. Then $F\oplus G=F\oplus G'=\underline{n}$. 
 \end{proof}
+
 \begin{definition}
 	We define the \textbf{unitary group} $U$ to be the direct limit of the unitary goupf of rank $n$ under the standart inclusions
 	\begin{equation*}
