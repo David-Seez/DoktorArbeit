@@ -466,7 +466,7 @@ Since $X$ is compact, any map $f:X\to \lim_{m\to \infty}\Gr_n(\C^m)$ has image t
   \begin{corollary}\label{cor:kTheo-ConstructionOfGrothendiekGroup} 
 	The Grothendiek group exists for any abelian semigroup and is unique up to canonical isomorphism. If $G$ is a semiring, then the Grothendiek ring exists and is unique up to canonical isomorphism.
   \end{corollary}
-  \begin{proof}The construction follows the following idea: We define touples in which $(a,b)$ that are to be interpreted as differences "$a-b$". For this constructino to yeald something useful we want to enforce the rule that "$a-b=a+c-(b+c)$" or said differently $(a+c,b+c)=(a,b)$. Finally for the univerall property we want to use the smallest relation that makes a group and satisf yealds $(a+c,b+c)=(a,b)$. This gives us the following construction: Let $A$ be an abelien semigroup and $\Delta:A\to A\times A$ be the diaglinal homomorphism that sends $a$ to $(a,a)$. Let $K(A)\coloneq A\times A\big/ \Delta(A)$ .By this notation we mean: $\Delta(A)$ acts on $A\times A$ via
+  \begin{proof}The construction follows the following idea: We define touples in which $(a,b)$ that are to be interpreted as differences "$a-b$". For this constructino to yeald something useful we want to enforce the rule that "$a-b=a+c-(b+c)$" or said differently $(a+c,b+c)=(a,b)$. Finally, to accfount for the universal property, we want to use the smallest relation that obeys siad rule. This gives us the following construction: Let $A$ be an abelien semigroup and $\Delta:A\to A\times A$ be the diaglinal homomorphism that sends $a$ to $(a,a)$. Let $K(A)\coloneq A\times A\big/ \Delta(A)$ .By this notation we mean: $\Delta(A)$ acts on $A\times A$ via
 	\begin{equation*}
 		\Delta(A) \times (A\times A ) \to A\times A\,\quad ((a,a),(b,c))\mapsto (a+b,b+c)\,.
 	\end{equation*} With this we have the set of orbits which gives rise to an relation:
@@ -508,12 +508,11 @@ In $K(A)$ we get the following equivalence for any two pairs $\overline{(a,b)}$ 
 \end{proof}
 
 
-\begin{remark}[A simpler Construction of the Grothendiek Group?]
-	Atiyah defines in Chapter II.1 \cite{atiyah1989k} word for word: 
+\begin{remark}[A simpler Construction of the Grothendiek Group?] One might be wondering, why we defined the relation on the pair $A\times A$ as the smallest equivalence relation starting identifying the orbits of the operation of the diagonal, when Remark \ref{rem:kTheo-grothendieckEquivalence} meight look and feel different. The reason for this detour is that I wanted to understand what Atiyah meant when he defined in Chapter II.1 \cite{atiyah1989k} word for word: 
 
 	\textit{ A slightly different construction of $K(A)$ which is sometimes convinient is the following: Let $\Delta: A\to A$ be the diagonal homomorphism of semi-groups, and let $K(A)$ denote the set of cosets of $\Delta(A)$ in $A\times A$. It is a quotient semi-group, but the interchange of factors in $A\times A$ introduces an inverse in $K(A)$ so that $K(A)$ is a group.}
 	
-	Whilst this definition feels easy to the reader, it carries a lot of baggage. First of all, if one is not familiar with commutative monoid or abelien semigroup theory, one might want to generalice the notion of coset from group theory that states that for a subgroub $A\subseteq G$ of an abelien group $G$ the cosets are of the form $g+A$. Whist this notion can be generaliced to semigroubs, it would yeald something useless. To see this just take $\N$. In the semigroup $\N\times \N \big/ \Delta(\N)$ the cosets $(2,0)+\N$ and $(3,1)+\N$ are different, as $(2,0)$ is not contained in the latter. So Atiyah must have meant something different. However, the literature on semigroups from that time was aware of that problem and defines the notion of qutionts in the setting of semigroubs with the help of \textit{conguence} instead of cosets. The latter refers to an equivalence relation that behaves well with the operation of said semigroup. Compare Chapter 1.5 \cite{CliffordPreston1961}. It was even shown that the notion of congruence and coset are equivalent for groups(Compare for example: Chapter 6.1 \cite{Green1965}). Regardless of what Atiyah meant by his notion of coset, the construction became known and cited. (\cite{Brodzki1996}, \cite{Landweber2005},\cite{Courtney2004}) None of those reference defined coset in semigroubs and hence this little detour into the history should function as a reminder, that we need to be careful.
+	Whilst this definition feels easy to the reader, it carries a lot of baggage. First of all, if one is not familiar with commutative monoid or abelien semigroup theory, one might want to generalice the notion of coset from group theory that states that for a subgroub $A\subseteq G$ of an abelien group $G$ the cosets are of the form $g+A$. Whist this notion can be generaliced to semigroubs, it would yeald something useless. To see this just take $\N$. In the semigroup $\N\times \N \big/ \Delta(\N)$ the cosets $(2,0)+\N$ and $(3,1)+\N$ are different, as $(2,0)$ is not contained in the latter. To gice Atiyah the benefit of the dought we could generalice the definition of cosets asn orbits of the rught translation, which is what we did in our construction. However, the literature on semigroups from that time defines the notion of qutionts in the setting of semigroubs with the help of \textit{conguence} instead of cosets. The latter refers to an equivalence relation that behaves well with the operation of said semigroup. Compare Chapter 1.5 \cite{CliffordPreston1961}. It was even shown that the notion of congruence and coset are equivalent for groups(Compare for example: Chapter 6.1 \cite{Green1965}). The language of orbits and group operations that saves Atiyahs aproach was just starting to form in the late 1960s or earls 1970s.  Regardless of what Atiyah meant by his notion of coset, the construction became known and cited. (\cite{Brodzki1996}, \cite{Landweber2005},\cite{Courtney2004}) None of those reference defined coset in semigroubs and hence this little detour into the history should function as a reminder, that we need to be careful when generalizing things from the known categories. We are so used to cosets giving equivalenc relations, that its easy to overlook the needed care. 
 \end{remark}
 \begin{remark}
 	We will omitt the incluion maps $\alpha$ from now on and interpret (if not said different) the equivalence class $[E]$ of a vector bundle as an element in $K(X)$.
@@ -714,31 +713,81 @@ the sections $c_X^*, c_Y^*$) controls the $K(x_0)$-summand.
 		E\oplus G\oplus G'=F\oplus G \oplus G' \Rightarrow E\oplus \underline{n}=F\oplus \underline{n}
 	\end{equation*}
 \end{proof}
+\begin{definition}
+	We call to vector bundles $E,F$ over the same base space \textbf{eventually equivalent}, if there exist $n,m\in \N$ such that $E\oplus n\cong F\oplus m$.
+\end{definition}
 \begin{lemma}
-	The set of equivalenc classes using the notion of stably equivalence is the limit 
+	The set of equivalenc classes using the notion of eventual equivalence is the limit 
 	\begin{equation*}
 		\lim_n \Vect_n(X)
 	\end{equation*}
 \end{lemma}
-\begin{proof}Let $\mathrm{SVect}(X)$ be the set of equivalence classes using the notion of stabely equivalence. This satisfies the universal property of the direct limit. To see this let $f_m:\Vect_m(X)\to Y$ be a familiy of maps, that commute with the inclusions $i_n$ from Definition \ref{def:kTheo-trivialBundleAndLimitInclusinos}. From those we define the map 
+\begin{proof}Let $\mathrm{EVect}(X)$ be the set of equivalence classes using the notion of eventually equivalence. This satisfies the universal property of the direct limit. To see this let $f_m:\Vect_m(X)\to Y$ be a familiy of maps, that commute with the inclusions $i_n$ from Definition \ref{def:kTheo-trivialBundleAndLimitInclusinos}. From those we define the map 
 	\begin{equation*}
-		f: \mathrm{SVect}(X) \to Y\,, \quad [\xi] \mapsto f_{\rank(\xi)}(\xi)\,.
-	\end{equation*} This map is well defined. To see this assume that $\xi$ and $\zeta$ are stabely equivalent vector bundles and hence for some $n$ we have
-	\begin{equation*}
-		\xi \oplus \underline{n}\cong \zeta \oplus \underline{n}\,. 
-	\end{equation*} Hence, if we include $\xi$ and $\zeta$ into $\Vect_{n+\rank(\xi)}$ they define the same class and since the maps $f_m$ commute with those inclusions, the map $f$ is well defined. The uniquenes of this map follows directly as every element of $\mathrm{SVect}(X)$ is represented in such a way.
+		f: \mathrm{EVect}(X) \to Y\,, \quad [\xi] \mapsto f_{\rank(\xi)}(\xi)\,.
+	\end{equation*} This map is well defined, because $f$ commuting with the inclusions $i_n$ is equivalent to $f$ being invariant under eventual equivalence. Uniqueness follows from ever element of $\mathrm{EVect}(X)$ being represented by a vecor bundle.
 \end{proof}
 \begin{theorem}
 	For a compact connected space $X$ there is a natural bijection
 	\begin{equation*}
-		K(X) \cong \Z \times \lim_n \Vect_n(X)\,.
+		K(X) \cong \Z\times \mathrm{SVect}(X) \cong\Z \times \lim_n \Vect_n(X)\,.
 	\end{equation*}
 \end{theorem}
 \begin{proof}
-	We will construct such a map. Let $K\in K(X)$, then by corollary \ref{cor:kTheo-ConstructionOfGrothendiekGroup} we know that $K$ can be represented as the difference of two equivalenc classes of vector bundles $K=[E]-[F]$. Now let $G$ be a bundle such that $F\oplus G=\underline{n}$. Then 
+	Let $K$ be an element of $K(X)$. Then by Corollary \ref{cor:kTheo-ConstructionOfGrothendiekGroup} we can write $K$ as the difference of two classes of vector bundles $K=[E]-[F]$. We abuse the notation of equivalence classes in this proof meaning we wont differenciate between isomorphism classes of vector bundles in $\Vect_n$, stably isomorphism classes in $\mathrm{SVect}$, equivalence classes of naturaly included vector bundles in $K(X)$. The context should aways be clear.  With this we define the funktion
 	\begin{equation*}
-		K=[\underbrace{E\oplus G}_{\eqcolon H}]-[F\oplus G]=[H]-[\underline{n}]\,.
-	\end{equation*} Obviously, $G$ is not unique, as $G\oplus \underbrace{1}$ would also work. To omit this issue we choose $G$ such that $n$ is minimal. Then $G$ is unique: Assume that $G$ and $G'$ satisfy the minimality condition. Then $F\oplus G=F\oplus G'=\underline{n}$. 
+		\rank(K): K(X)\to \Z\,,\quad K=[E]-[F] \mapsto \rank(E)-\rank(F)\,.
+	\end{equation*} This is well defined as if $K=[E]-[F]=[E']-[F']$, then by the relatino in $K(X)$ we know that there is an $n$ such that
+	\begin{equation*}
+		E\oplus F' \oplus \underline{n}\cong E' \oplus F \oplus \underline{n}\,.
+	\end{equation*} and hence:
+	\begin{equation*}
+		\rank(E)-\rank(F)=\rank(E')-\rank(F')
+	\end{equation*} We define another morohism 
+	\begin{equation*}
+		\phi: K(X)\to \mathrm{EVect}(X)
+	\end{equation*} as follows: Let $[E]-[F]$ be an arbitrary element of $K(X)$. Let $G$ be a vector bundle, such that $F\oplus G\cong \underline{n}$ for some $n\in \N$. Then 
+	\begin{equation*}
+		[E]-[F]=[E\oplus G]-[F\oplus G]=[E\oplus G]-[\underline{n}]
+	\end{equation*} Now the summand $E\oplus G$ is neither unique nor unique up to isomorphism. However, up to eventual isomorphism it uniquely depends on the element $[E]-[F]\in K(X)$, meaning it neither depends on the choosen $E,F$ nor on the choosen $G$. We check this in two steps.
+
+	\textit{Independence of $G$.} Assume $G$ and $G'$ both satisfy that summing them with $F$ gives a trivial vector bundle: 
+	\begin{equation*}
+		F\oplus G \cong \underline{n}\quad \text{ and }\quad F\oplus G'\cong \underline{m}
+	\end{equation*}Then $E\oplus G$ and $E\oplus G'$ are eventually isomorphic, since
+	\begin{equation*}
+		E\oplus G\oplus \underline{m}
+		\,\cong \,
+		E\oplus G\oplus( F\oplus G') 
+		\,\cong \,
+		E \oplus G' \oplus (G \oplus F)
+		\,\cong\,
+		E \oplus G' \oplus \underline{n}\,.
+	\end{equation*}
+	\textit{Independence of $E$ and $F$.} Now assume that $E',F'$ are vector bundles such that
+	\begin{equation*}
+		[E]-[F]\,=\,[E']-[F'] \,\in K(X)\,,
+	\end{equation*} and let $G'$ be chosen for $F'$ exactly as $G$ was chosen for $F$, say of minimal rank with $F'\oplus G'\cong \underline{n'}$ for some $n'\in \N$. By Remark \ref{rem:kTheo-grothendieckEquivalence} there is a vector bundle $C$ with
+	\begin{equation*}
+		E\oplus F'\oplus C \,\cong\, E'\oplus F \oplus C\,.
+	\end{equation*} By Corollary \ref{cor:kTheo-splittingTrivial} choose $C'$ with $C\oplus C'\cong \underline{m}$ for some $m\in\N$. Adding $G\oplus G'\oplus C'$ to both sides of the displayed isomorphism and regrouping (using $F\oplus G\cong \underline{n}$, $F'\oplus G'\cong \underline{n'}$ and $C\oplus C'\cong\underline{m}$) gives
+	\begin{align*}
+		(E\oplus G)\oplus \underline{n'+m}
+		&\,\cong\,
+		(E\oplus F'\oplus C)\oplus(G\oplus G'\oplus C')\\
+		&\,\cong\,
+		(E'\oplus F\oplus C)\oplus(G\oplus G'\oplus C')\\
+		&\,\cong\,
+		(E'\oplus G')\oplus \underline{n+m}\,.
+	\end{align*} So the map 
+	\begin{equation*}
+		\phi_ K(X)\to \mathrm{EVect}(X)\,,\quad K=[E]-[F]\mapsto \phi(K)\coloneq [E\oplus G]
+	\end{equation*} is well defined. With this we define 
+	\begin{equation*}
+		\Phi: K(X)\to \Z \times \mathrm{SVect}(X)\,,\quad K\mapsto (\rank(K),\phi(K))\,.
+	\end{equation*} Now we claim that this is a bijection. 
+	For the injectivity we assume $\Phi(K)=\Phi(K')$, which is equivalent to saying that $K=[E]-[\underline{n}]$ and $K'=[E']-[\underline{n'}]$ such that $E$ and $E'$ are eventually equivalent and $\rank(E)-n=\rank(E')-m$. But then there exists $l,l'\in \N$ such that $E\oplus \underline{l}\cong E'\oplus \underline{l'}$. Then we can calculate:
+\todo{Das stimmt so noch nicht}
 \end{proof}
 
 \begin{definition}
