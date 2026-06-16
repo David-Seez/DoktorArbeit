@@ -383,7 +383,7 @@ Since the pullback is homotopy invariant we can conclude by the isomorphism (\re
 \end{definition}
 \begin{definition}[Direkt Limit]
 	Let $\big((A_i)_{i\in I},(f_{ij})_{i\leq j}\big)$ be a direct system in a categorie $\mathcal{C}$.  A pair $\big(X,(\phi_i)_{i\in I}\big)$ where $X$ is an object of $\mathcal{C}$ and $\phi_i:A_i \to X$ are morphisms such that $\phi_j\circ f_{ij}=\phi_i$ for all $i\leq j$ is called a direct limit, if the following universal property holds: 
-	For any family of morphisms $g_i:A_i\to Y$ that satisfies $g_i\circ f_{ji}=g_j$ for all $i\leq j$ there exists a unique morphism $g:X\to Y$ such that $g_i=g\circ \phi_i$. We denote the space $X$ by $\varinjlim_{i}A_i$, where the maps $f_{ij}$ are omitted from the notation.
+	For any family of morphisms $g_i:A_i\to Y$ that satisfies $g_i\circ f_{ji}=g_j$ for all $i\leq j$ there exists a unique morphism $g:X\to Y$ such that $g_i=g\circ \phi_i$. We denote the space $X$ by $\colim_{i}A_i$ (or just $\colim A_i$), where the maps $f_{ij}$ are omitted from the notation.
 \end{definition}
 \begin{corollary}
 	As always, the direct Limit is (if it exists) unique up to unique isomorphism.
@@ -393,12 +393,12 @@ Since the pullback is homotopy invariant we can conclude by the isomorphism (\re
 
 \textit{ In the categorie of sets} we define the direct limit by
 \begin{equation*}
-	\varinjlim_iA_i\coloneq \bigsqcup A_i \Big/ \sim  \,,
-\end{equation*} where $x\sim y$ if there exists $i,j,k\in I$ such that $f_{ik}(x)=f_{jk}(y)$. This gives an equivalence relation. The maps $\phi_i: A_i\to \varinjlim_{i}A_i$ are the composition of the inclusion into the disjoint uninion with the projection onto the quotient space. The universal property is easy to verify. For a familoy of suitable maps $g_i:A_i\to B$ we define the map $g:\varinjlim_{i}A_i\to B$ as $g(x)=g_m(x)$ for $x\in A_m$. This is welldefined since the $g_i$ are compatible with the $f_{ij}$ and unique by definition.
+	\colim_i A_i\coloneq \bigsqcup A_i \Big/ \sim  \,,
+\end{equation*} where $x\sim y$ if there exists $i,j,k\in I$ such that $f_{ik}(x)=f_{jk}(y)$. This gives an equivalence relation. The maps $\phi_i: A_i\to \colim_{i}A_i$ are the composition of the inclusion into the disjoint uninion with the projection onto the quotient space. The universal property is easy to verify. For a familoy of suitable maps $g_i:A_i\to B$ we define the map $g:\colim_{i}A_i\to B$ as $g(x)=g_m(x)$ for $x\in A_m$. This is welldefined since the $g_i$ are compatible with the $f_{ij}$ and unique by definition.
 
-\textit{ In the categorie of topological spaces} we define the direct limit to be the settheoretic direct limit equipped with the final toplogy of the inclusions, i.e. a subset $U\subseteq \varinjlim_i A_i$ is open if and only if $\phi_i^{-1}(U)$ is open for all $m$. Again the universal property is easy to prove by using the construction of the universal map from the settheoretic limit. To show the continuoity we show that $g^{-1}(U)$ is open for any open $U$ which is checked by verifying openes of $\phi_i^{-1}\big(g^{-1}(U)\big)$ for all $i$, which in turn equals $g_i^{-1}(U)$ and is open as the $g_i$ are contiuous. Uniqueness follows from the uniqueness of $g$ esteblished alreadsy in set. 
+\textit{ In the categorie of topological spaces} we define the direct limit to be the settheoretic direct limit equipped with the final toplogy of the inclusions, i.e. a subset $U\subseteq \colim_i A_i$ is open if and only if $\phi_i^{-1}(U)$ is open for all $m$. Again the universal property is easy to prove by using the construction of the universal map from the settheoretic limit. To show the continuoity we show that $g^{-1}(U)$ is open for any open $U$ which is checked by verifying openes of $\phi_i^{-1}\big(g^{-1}(U)\big)$ for all $i$, which in turn equals $g_i^{-1}(U)$ and is open as the $g_i$ are contiuous. Uniqueness follows from the uniqueness of $g$ esteblished alreadsy in set. 
 
-\textit{ In an algebraic categorie like semigroubs, groubs, rings } we define the direct limit again as the settheoretic direct limit, where the algebraic operations are defined such that the $\phi_i$ are homomorphisms meaning for example (if $+$ is an operation in the $A_i$) $a\in A_i$ and $b\in A_j$ we define $a+b$ in $\varinjlim_{i}A_i$ by including the sum $f_{ik}(a)+f_{jk}(b)$ which is defined in $A_k$. Again the universal morphism $g$ is the one from the settheoretic limit which now is a homomorphism by construction.	
+\textit{ In an algebraic categorie like semigroubs, groubs, rings } we define the direct limit again as the settheoretic direct limit, where the algebraic operations are defined such that the $\phi_i$ are homomorphisms meaning for example (if $+$ is an operation in the $A_i$) $a\in A_i$ and $b\in A_j$ we define $a+b$ in $\colim{i}A_i$ by including the sum $f_{ik}(a)+f_{jk}(b)$ which is defined in $A_k$. Again the universal morphism $g$ is the one from the settheoretic limit which now is a homomorphism by construction.	
 \end{remark}
 
 \begin{comment}
@@ -434,11 +434,11 @@ Since the pullback is homotopy invariant we can conclude by the isomorphism (\re
 	\label{thm:kTheory-classifyingSpace}
 	The map 
 	\begin{equation*}
-		\varinjlim_{m\to \infty} [X,\Gr_n(\C^m)] \to \Vect_n(X)\,,
+		\colim_{m} [X,\Gr_n(\C^m)] \to \Vect_n(X)\,,
 	\end{equation*} induced by $f\mapsto f^*E_m$ is a bijection for all compact Hausdorff spaces $X$.
  \end{theorem}
  \begin{proof}
-	We shall contrstuct and inverse map. If $E$ is a bundle over $X$, then by Corollary \ref{cor:kTheo-epiFromTrivial} there exists an epimorphism $\phi:X\times \C^m \to E$ for some integer $m$. Let $f:X\to \Gr_n(\C^m)$ be the map induced by $\phi$. If we manage to show that the homotopy class of $f$ as a map to $\Gr_n(\C^{m'})$ for some large enough $m'$ is independent of the choice of $\phi$ and $m$, then we get a well defined map from $\Vect_n(X)$ to $\varinjlim_{m\to \infty} [X,\Gr_n(\C^m)]$ that is inverse to the classifying map. 
+	We shall contrstuct and inverse map. If $E$ is a bundle over $X$, then by Corollary \ref{cor:kTheo-epiFromTrivial} there exists an epimorphism $\phi:X\times \C^m \to E$ for some integer $m$. Let $f:X\to \Gr_n(\C^m)$ be the map induced by $\phi$. If we manage to show that the homotopy class of $f$ as a map to $\Gr_n(\C^{m'})$ for some large enough $m'$ is independent of the choice of $\phi$ and $m$, then we get a well defined map from $\Vect_n(X)$ to $\colim_m [X,\Gr_n(\C^m)]$ that is inverse to the classifying map. 
 
 	Suppose that $\phi_i :X\times C^{m_i}\to E$ for $i=1,2$ are two epimorphisms. Let $g_i:X\to \G_n(C^{m_i})$ be the maps induced by $\phi_i$. We want to show that $g_1$ and $g_2$ are homotopic as maps to $\Gr_n(\C^{m_1+m_2})$. For this we define the map
 	\begin{equation*}
@@ -453,17 +453,17 @@ Since the pullback is homotopy invariant we can conclude by the isomorphism (\re
  \end{proof}
  \begin{lemma}For any compact $X$ and sequence of injective maps $i_m:X_m\to X_{m+1}$ we have a canonical bijection between the set theoretic direct limit of homotopy classes of maps and the homotopy classes of maps to the topological direct limit:
 \begin{equation*} 
-	\varinjlim_{m\to \infty} [X,\Gr_n(\C^m)] \cong [X,\varinjlim_{m\to \infty}\Gr_n(\C^m)]\,.
+	\colim_m [X,\Gr_n(\C^m)] \cong [X,\colim_m\Gr_n(\C^m)]\,.
 \end{equation*} Here $[X,\Gr_n(\C^m)] \to [X,\Gr_n(\C^{m-1})]$ is the map induced by $i_{m-1}:\Gr_n(\C^{m-1})\to \Gr_n(\C^m)$.
  \end{lemma}
  \begin{proof}
-Since $X$ is compact, any map $f:X\to \varinjlim_{m\to \infty}\Gr_n(\C^m)$ has image that is also compact and hence contained in some $\Gr_n(\C^m)$ for $m$ big enough (Just cover it with open maps and reduce that cover to a finite one). Hence there exists a $f_m$ such that $f=i\circ f_m$. where $i$ denotes the inclusion of $\Gr_n(\C^m)$ into the direct limit. This assignement is independent of the choosen $m$, once we view $f_m$ as an element of the the direct limit. This assignement is well defined on homotopy classes becuse if $f,s:X\to \varinjlim_{m\to \infty}\Gr_n(\C^m)$ are homotopic, then there exists a homotopy $H:X\times I\to \varinjlim_{m\to \infty}\Gr_n(\C^m)$ between them. By the same argument as before, the image of $H$ is compact and hence contained in some $\Gr_n(\C^m)$. Hence, $f_m$ and $s_m$ are homotopic via $H_m$ as maps to $\Gr_n(\C^m)$. Hence we get a well defined canonical map 
+Since $X$ is compact, any map $f:X\to \colim_m\Gr_n(\C^m)$ has image that is also compact and hence contained in some $\Gr_n(\C^m)$ for $m$ big enough (Just cover it with open maps and reduce that cover to a finite one). Hence there exists a $f_m$ such that $f=i\circ f_m$. where $i$ denotes the inclusion of $\Gr_n(\C^m)$ into the direct limit. This assignement is independent of the choosen $m$, once we view $f_m$ as an element of the the direct limit. This assignement is well defined on homotopy classes becuse if $f,s:X\to \colim_m\Gr_n(\C^m)$ are homotopic, then there exists a homotopy $H:X\times I\to \colim_m\Gr_n(\C^m)$ between them. By the same argument as before, the image of $H$ is compact and hence contained in some $\Gr_n(\C^m)$. Hence, $f_m$ and $s_m$ are homotopic via $H_m$ as maps to $\Gr_n(\C^m)$. Hence we get a well defined canonical map 
 \begin{equation*}
-	\Phi: [X,\varinjlim_{m\to \infty}\Gr_n(\C^m)] \to \varinjlim_{m\to \infty} [X,\Gr_n(\C^m)]\,.
+	\Phi: [X,\colim_m\Gr_n(\C^m)] \to \colim_m [X,\Gr_n(\C^m)]\,.
 \end{equation*} This map is injective, as if $f_m$ and $s_m$ are homotopic as maps to $\Gr_n(\C^m)$, then they are also homotopic as maps to the direct limit. Finally $\Phi$ is surjective, as any element of the direct limit is represented by some $f_m:X\to \Gr_n(\C^m)$ and hence $\Phi([i\circ f_m])=[f_m]$. 
  \end{proof}
  \begin{definition}
-	We denote $\varinjlim_{m\to \infty} \Gr_n(\C^m)$ by $\BU(n)$ and call it the \textbf{classifying space} for complex vector bundles of rank $n$. The name origins from the fuctor $\mathrm{B}$ that sends a topological group $G$ to the classifying space of vector bundles with structure group $G$. 
+	We denote $\colim_m \Gr_n(\C^m)$ by $\BU(n)$ and call it the \textbf{classifying space} for complex vector bundles of rank $n$. The name origins from the fuctor $\mathrm{B}$ that sends a topological group $G$ to the classifying space of vector bundles with structure group $G$. 
  \end{definition}
  \begin{corollary}
 	For any compact Hausdorff space $X$, there is a canonical bijection between the homotopy classes of maps from $X$ to $\BU(n)$ and the isomorphism classes of vector bundles of rank $n$ over $X$:
@@ -718,7 +718,7 @@ the sections $c_X^*, c_Y^*$) controls the $K(x_0)$-summand.
 	for any natural number $n\in \N$ we define $\underline{n}$ to be the $n$-dimensional trivial bundle over a base space $X$. With this we define the inclusions
 	\begin{equation*}
 		i_n: \Vect_n(X)\to \Vect_{n+1}(X)\,,\quad \xi \mapsto \xi \oplus [\underline{1}],
-	\end{equation*} and this gives rise to the direct limit $\varinjlim_n \Vect_n(X)$.
+	\end{equation*} and this gives rise to the direct limit $\colim_n \Vect_n(X)$.
 \end{definition}
 \begin{definition}[Stabely Equivalence]
 	Two vector bundles $E,F$ over the same base space are called \textbf{stably equivalent} if there exists an $n$ such that $E$ and $F$ become isomorphic after adding the trivial bundle: 
@@ -753,7 +753,7 @@ the sections $c_X^*, c_Y^*$) controls the $K(x_0)$-summand.
 \begin{lemma}
 	The set of equivalenc classes using the notion of eventual equivalence is the limit 
 	\begin{equation*}
-		\varinjlim_n \Vect_n(X)
+		\colim_n \Vect_n(X)
 	\end{equation*}
 \end{lemma}
 \begin{proof}Let $\mathrm{EVect}(X)$ be the set of equivalence classes using the notion of eventually equivalence. This satisfies the universal property of the direct limit. To see this let $f_m:\Vect_m(X)\to Y$ be a familiy of maps, that commute with the inclusions $i_n$ from Definition \ref{def:kTheo-trivialBundleAndLimitInclusinos}. From those we define the map 
@@ -770,7 +770,7 @@ the sections $c_X^*, c_Y^*$) controls the $K(x_0)$-summand.
 \begin{theorem}
 	For a compact connected space $X$ there is a natural group isomorphism.
 	\begin{equation*}
-		K(X) \cong \Z\times \mathrm{EVect}(X) \cong\Z \times \varinjlim_n \Vect_n(X)\,.
+		K(X) \cong \Z\times \mathrm{EVect}(X) \cong\Z \times \colim_n \Vect_n(X)\,.
 	\end{equation*}
 \end{theorem}
 \begin{proof}
