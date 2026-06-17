@@ -421,8 +421,8 @@ Since the pullback is homotopy invariant we can conclude by the isomorphism (\re
 	This is clear as $f^{-1}(U)\cap X_m=f_m^{-1}(U)$, which is open as $f_m$ is continuous. Finally, the uniqueness of $f$ follows from the fact that the maps $X_m\to \lim_{m\to \infty} X_m$ are injective and their images cover $\lim_{m\to \infty} X_m$.
  \end{proof}
 \end{comment}
- \begin{corollary}
-	The socalled inversej system given by the projections 
+ \begin{corollary} \label{cor:kTheo-directGrassmanSystem}
+	The socalled inverse system given by the projections 
 	\begin{equation*}
 		\pi: \C^m \to \C^{m-1},\quad (x_1,\dots,x_m)\mapsto (x_1,\dots,x_{m-1})\,,
 	\end{equation*}induces an direct system of Grassmann manifolds with the induced continuous maps
@@ -451,17 +451,23 @@ Since the pullback is homotopy invariant we can conclude by the isomorphism (\re
 		f_0=j_0\circ g_1\quad \text{and}\quad f_1=T \circ j_1\circ g_2\,,
 	\end{equation*} where $j_i:\Gr_n(\C^{m_i})\to \Gr_n(\C^{m_1+m_2})$ is the map induced by the inclusion $\C^{m_i}\to \C^{m_1+m_2}$ and $T$ is the map induced by the isomorphism $\C^{m_1+m_2}\to \C^{m_1+m_2}$ that sends $(v_1,v_2)$ to $(v_2,v_1)$. Since $T$ is homotopic to the identity, we can conclude that $j_0\circ g_1$ and $j_1\circ g_2$ are homotopic as maps to $\Gr_n(\C^{m_1+m_2})$. Hence, the homotopy class of the map induced by an epimorphism is independent of the choice of the epimorphism and the integer $m$. This concludes the proof.
  \end{proof}
- \begin{lemma}For any compact $X$ and sequence of injective maps $i_m:X_m\to X_{m+1}$ we have a canonical bijection between the set theoretic direct limit of homotopy classes of maps and the homotopy classes of maps to the topological direct limit:
+ \begin{lemma}\label{lem:kTheo-colimUndHomVertauschen}
+	For any compact $X$ and direct system $\big((Y_m)_{m\in \N},(i_m)_{m\in \N}\big)$ where all $Y_m$ are Hausdorff and all $i_m$ are closed embeddings we have a canonical bijection between the set theoretic direct limit of homotopy classes of maps and the homotopy classes of maps to the topological direct limit:
 \begin{equation*} 
-	\colim_m [X,\Gr_n(\C^m)] \cong [X,\colim_m\Gr_n(\C^m)]\,.
-\end{equation*} Here $[X,\Gr_n(\C^m)] \to [X,\Gr_n(\C^{m-1})]$ is the map induced by $i_{m-1}:\Gr_n(\C^{m-1})\to \Gr_n(\C^m)$.
+	\colim_m [X,X_m] \cong [X,\colim_mX_m]\,.
+\end{equation*}
  \end{lemma}
  \begin{proof}
-Since $X$ is compact, any map $f:X\to \colim_m\Gr_n(\C^m)$ has image that is also compact and hence contained in some $\Gr_n(\C^m)$ for $m$ big enough (Just cover it with open maps and reduce that cover to a finite one). Hence there exists a $f_m$ such that $f=i\circ f_m$. where $i$ denotes the inclusion of $\Gr_n(\C^m)$ into the direct limit. This assignement is independent of the choosen $m$, once we view $f_m$ as an element of the the direct limit. This assignement is well defined on homotopy classes becuse if $f,s:X\to \colim_m\Gr_n(\C^m)$ are homotopic, then there exists a homotopy $H:X\times I\to \colim_m\Gr_n(\C^m)$ between them. By the same argument as before, the image of $H$ is compact and hence contained in some $\Gr_n(\C^m)$. Hence, $f_m$ and $s_m$ are homotopic via $H_m$ as maps to $\Gr_n(\C^m)$. Hence we get a well defined canonical map 
+	We denote $\colim_mY_m=Y$ and the coresponding inclusion $\phi_m:Y_m\to Y$ . Since $X$ is compact, any map $f:X\to Y$ has image that in some $\im(\phi_m)$ for $m$ big enough. Assume that this was not the case, then would exist an increasing series $(j_i)_{i\in \N}$ such that for all $i$ there is an $x_i$ with $f(x_i)\in \im \phi_{j_i}\setminus \im \phi_{j_i-1}$. With this we define the set 
+	\begin{equation*}
+		A\coloneq \{f(x_i)\,|\, i\in \N \}\subseteq \im f \subseteq Y\,.
+	\end{equation*}Then $A$ is closed, since for all $m$ the intersection $\im\phi_m\cap A$ is finite and since $\im(\phi_m)$ is closed, said intersection is closed. By the final topology we can cnclude that the whole $A$ is closed and since it is contained in the image if $f$ it is compact (Here we use that the $Y_i$ are Hausdorff!). Furthermore, the same argument shows that every subset $B\subset A$ is closed, because again $B\cap \im \phi_m$ is finite. This tells us that $A$ as a subset of $Y$ carries the discrete topology: Let $C\subseteq A$ be an arbitrary subset. Then $A\setminus C\subseteq A$ is closed in $Y$ and hence its complement in $Y$ is an open and intersected with $A$ yealds $C$. Hence, $C$ is open in the subspace topology. This however is an contradiction, as $A$ cannot be infinite, compact and carry the discrete topology.
+	Hence any map $f:X\to Y$ has image that in some $\im(\phi_m)$ for $m$ big enough. But then there exists a $f_m$ such that $f=\phi_m\circ f_m$.  This assignement is well defined on homotopy classes becuse if $f,s:X\to Y$ are homotopic, then there exists a homotopy $H:X\times I\to Y$ between them: By the same argument as before, the image of $H$ is compact and hence contained in some $\im \phi_m$. Hence, $f_m$ and $s_m$ are homotopic via $H_m$ as maps to $\im \phi_m$. Hence, we get a well defined canonical map 
 \begin{equation*}
-	\Phi: [X,\colim_m\Gr_n(\C^m)] \to \colim_m [X,\Gr_n(\C^m)]\,.
-\end{equation*} This map is injective, as if $f_m$ and $s_m$ are homotopic as maps to $\Gr_n(\C^m)$, then they are also homotopic as maps to the direct limit. Finally $\Phi$ is surjective, as any element of the direct limit is represented by some $f_m:X\to \Gr_n(\C^m)$ and hence $\Phi([i\circ f_m])=[f_m]$. 
+	\Phi: [X,\colim_m Y_m] \to \colim_m [X,Y_m]\,.
+\end{equation*}This map is injective, as if $f_m$ and $s_m$ are homotopic as maps to $\im\phi_m$, then they are also homotopic as maps to the direct limit. Finally $\Phi$ is surjective, as any element of the direct limit is represented by some $f_m:X\to Y_m$ and hence $\Phi([\phi_m\circ f_m])=[f_m]$. 
  \end{proof}
+ 
  \begin{definition}
 	We denote $\colim_m \Gr_n(\C^m)$ by $\BU(n)$ and call it the \textbf{classifying space} for complex vector bundles of rank $n$. The name origins from the fuctor $\mathrm{B}$ that sends a topological group $G$ to the classifying space of vector bundles with structure group $G$. 
  \end{definition}
@@ -471,6 +477,9 @@ Since $X$ is compact, any map $f:X\to \colim_m\Gr_n(\C^m)$ has image that is als
 		[X,\BU(n)] \cong \Vect_n(X)\,.
 	\end{equation*}
  \end{corollary}
+ \begin{proof}
+	This is a direct application of Lemma \ref{lem:kTheo-colimUndHomVertauschen}.
+ \end{proof}
  \subsection{K-Theory as a Cohomology Theory}
  \begin{definition}
 	We need the following categories of topological spaces:
@@ -845,5 +854,38 @@ the sections $c_X^*, c_Y^*$) controls the $K(x_0)$-summand.
 		U(n) \to U(n+1)\,,\quad A \mapsto A \oplus \Idm_1 =  \begin{pmatrix}
 			A&0\\ 0&1
 		\end{pmatrix}\,.
-	\end{equation*}
+	\end{equation*} 
 \end{definition}
+\begin{definition}
+	We now want to make $BU(n)$ into a direct system. Notationally, this proof will have many maps with two indices. The convention is that lower indices show for which colimit the maps form a directed system. As an example, the maps $i^n_m$ are used for the colimit over $m$. We start with the the inclusion
+	\begin{equation*}
+		j_m: \C^m\to \C^{m+1}\,,\quad (x)\mapsto (x,0)\,,
+	\end{equation*}which gives rise to the maps
+	\begin{equation*}
+		f_n^m:\Gr_n(\C^m) \to \Gr_{n+1}(\C^{m+1})\,,\quad V\mapsto j_m(V)\,.
+	\end{equation*} Those inclusions commute with the maps 
+	\begin{equation*}
+	i_m^n:\Gr_n(\C^m)\to \Gr_n(\C^{m+1})\,,\quad V\mapsto V\oplus \langle e_{m+1} \rangle
+	\end{equation*} from the direct system from corollar \ref{cor:kTheo-directGrassmanSystem}. If we denote the inclusion of $\phi_{m}^{n+1}:\Gr_{n+1}(\C^m)\to \colim_m(\Gr_{n+1}(\C^m))$ we get the following commuting diagram, for all $n\leq m$:
+	\begin{center}
+		\begin{tikzcd}
+			\Gr_n(\C^m) \arrow[d,"i_m"] \arrow[r,"f_n^m"]&\Gr_{n+1}(\C^{m+1}) \arrow[d,"i_m^n"]\arrow[r,"\phi_{m+1}^{n+1}"]&\colim_m(\Gr_{n+1}(\C^m))=BU(n+1)\\
+			\Gr_n(\C^{m+1}) \arrow[r,"f^{m+1}_n"]&    \Gr_{n+1}(\C^{m+2})\arrow[ur,"\phi_{m+2}^{n+1}"]&
+		\end{tikzcd}
+	\end{center} 
+	Now for all $n$ we use the universal property of the direct limit $\colim_m(\Gr_n(\C^m))$ on the family 
+	\begin{equation*}
+		\Big(
+			\phi^n_{m+1}\circ f^m_n: \Gr_n(\C^m) \to BU(n+1)
+		\Big)_m
+	\end{equation*} to induce maps $f_n:BU(n)\to BU(n+1)$. which in turn give us a directed system and lets us define:
+	\begin{equation*}
+		BU\coloneq \colim_nBU(n)=\colim_n\big(\colim_m \Gr_n(\C^m)\big)\,.
+	\end{equation*} 
+\end{definition}
+\begin{lemma}
+	The maps $f_n:BU(n)\to BU(n+1)$ are closed embeddings.
+\end{lemma}
+\begin{proof}
+	Since $\Gr_n(\C^m)$ is kompact and Hausdorf for any $n\leq m$ the maps $f_n^m$ are closed embeddings. Now assume that $f_n(x)=f_n(x')$. Then for $r$ big enough (omitting the inclusions) $f_n^r(x)=f_n^r(x')$ which contradicts the injectivity of the $f_n^r(x)$. Now we want to show that $f_n$ hase a closed image. For this we let $C\coloneq \im f_n \subset BU(n+1)$ and call the natural inclusions $\phi^{n+1}_m: \Gr_{n+1}(\C^m)\to BU(n+1)$. Then $C$ is closed, if and only if $C\cap \im \phi_m^{n+1}$ is. To show this we first show that $C\cap \im \phi_m^{n+1}=\im\, \phi^{n+1}_m\circ f_n^{m-1}$. The first inclusion $\subseteq$ is clear. To see the other inclusion \todo{Nicht so einfach und dann auch noch homeo auf sein Bild! 3}
+\end{proof}
