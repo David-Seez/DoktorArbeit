@@ -394,13 +394,26 @@ Since the pullback is homotopy invariant we can conclude by the isomorphism (\re
 \textit{ In the categorie of sets} we define the direct limit by
 \begin{equation*}
 	\colim_i A_i\coloneq \bigsqcup A_i \Big/ \sim  \,,
-\end{equation*} where $x\sim y$ if there exists $i,j,k\in I$ such that $f_{ik}(x)=f_{jk}(y)$. This gives an equivalence relation. The maps $\phi_i: A_i\to \colim_{i}A_i$ are the composition of the inclusion into the disjoint uninion with the projection onto the quotient space. The universal property is easy to verify. For a familoy of suitable maps $g_i:A_i\to B$ we define the map $g:\colim_{i}A_i\to B$ as $g(x)=g_m(x)$ for $x\in A_m$. This is welldefined since the $g_i$ are compatible with the $f_{ij}$ and unique by definition.
+\end{equation*} where $x\sim y$ if there exists $i,j,k\in I$ such that $f_{ik}(x)=f_{jk}(y)$. This gives an equivalence relation. The maps $\phi_i: A_i\to \colim_{i}A_i$ are the composition of the inclusion into the disjoint uninion with the projection onto the quotient space. The universal property is easy to verify. For a family of suitable maps $g_i:A_i\to B$ we define the map $g:\colim_{i}A_i\to B$ as $g(x)=g_m(x)$ for $x\in A_m$. This is welldefined since the $g_i$ are compatible with the $f_{ij}$ and unique by definition.
 
-\textit{ In the categorie of topological spaces} we define the direct limit to be the settheoretic direct limit equipped with the final toplogy of the inclusions, i.e. a subset $U\subseteq \colim_i A_i$ is open if and only if $\phi_i^{-1}(U)$ is open for all $m$. Again the universal property is easy to prove by using the construction of the universal map from the settheoretic limit. To show the continuoity we show that $g^{-1}(U)$ is open for any open $U$ which is checked by verifying openes of $\phi_i^{-1}\big(g^{-1}(U)\big)$ for all $i$, which in turn equals $g_i^{-1}(U)$ and is open as the $g_i$ are contiuous. Uniqueness follows from the uniqueness of $g$ esteblished alreadsy in set. 
+\textit{ In the categorie of topological spaces} we define the direct limit to be the settheoretic direct limit equipped with the final toplogy of the inclusions, i.e. a subset $U\subseteq \colim_i A_i$ is open if and only if $\phi_i^{-1}(U)$ is open for all $m$. Again the universal property is easy to prove by using the construction of the universal map from the settheoretic limit. To show the continuoity we show that $g^{-1}(U)$ is open for any open $U$ which is checked by verifying openes of $\phi_i^{-1}\big(g^{-1}(U)\big)$ for all $i$, which in turn equals $g_i^{-1}(U)$ and is open as the $g_i$ are contiuous. Uniqueness follows from the uniqueness of $g$ esteblished already in set. 
 
 \textit{ In an algebraic categorie like semigroubs, groubs, rings } we define the direct limit again as the settheoretic direct limit, where the algebraic operations are defined such that the $\phi_i$ are homomorphisms meaning for example (if $+$ is an operation in the $A_i$) $a\in A_i$ and $b\in A_j$ we define $a+b$ in $\colim{i}A_i$ by including the sum $f_{ik}(a)+f_{jk}(b)$ which is defined in $A_k$. Again the universal morphism $g$ is the one from the settheoretic limit which now is a homomorphism by construction.	
 \end{remark}
+\begin{remark}\label{rem:kTheo-staircaseMapsClosedEmbedding}
+If we build the direct limit of sets and all the maps of the direct system are inkjective, then the inclusions into the direct limit are injective. If all the maps of the direct system are closed embeddings, then the inclusions into the direct are also closed embeddings.
+\end{remark}
+\begin{proof}
+	Recall thet the inclusions $\phi_i:A_i\to \colim A_i$ are defined to be the composition of the inclusion into the disjoint union with the projection onto the quotient. Now assume that all maps $f_{ij}$ in the direct system are injective and $\phi_i(x)=\phi_i(y)$. Then $x\sim y$ in the quotient and hence, there exists $i,j,k\in I$ such that $f_{ik}(x)=f_{jk}(y)$ which implies that $x=y$.
 
+	Now assume that all $f_{ij}$ are closed embeddings. Then, the inclusions are injective by the settheoretic argument. Furthermore, the images of $\phi_i:A_i\to \colim A_i$ are closed. That follows from subsets in the final topology being closed, if and only if all their preimages are closed. Hence we check if $\phi_j(\phi(A_i))$ is closed for all $j\in I$:
+	\begin{equation} \label{eq:kTheo-staircaseMapsClosedEmbedding}
+		\begin{array}{llll}
+			\text{ If }j\leq i& \text{then:} & \phi_j^{-1}(\phi_i(A_i))=(\phi_i\circ f_{ji})^{-1}(\phi_i(A_i))=f_{ji}^{-1}(A_i) &\text{which is closed.}\\
+			\text{ If }i<j	 & \text{then:}	&\phi_j^{-1}(\phi_i(A_i)) =\underbrace{\phi_j^{-1}(\phi_j}_{\phi \text{ is injective}} f_{ij}(A_i))=f_{ij}(A_i) &\text{which is closed.}
+		\end{array}
+	\end{equation} To whow that $\phi_i^{-1}: \im(\phi_i)\to A_i$ is continouos we assume that $B\subset A_i$ is open. then $\phi_i(B)$ is open if and only if for any $j$ $\phi_j^{-1}(\phi_i(B))$ is open. This follows from the same calculations as in equation (\ref{eq:kTheo-staircaseMapsClosedEmbedding}) using that the $f_{ij}$ are homeomorphisms onto their image. 
+\end{proof}
 \begin{comment}
 
  \begin{definition}[Direct Limit of Sets]\label{def:kTheo-directLimitOfSets}	Let $X_1\to X_2\to \cdots$ be a sequence of sets and injective maps. Then the \textbf{direct limit} $\varinjlim_{m\to \infty} X_m$ is the union $\bigcup_{m=1}^\infty X_m$ modulo the equivalence relation identifying $x$ with $y$ if there exists an $m$ such that $i_m(x)=i_m(y)$. We call $\varinjlim_{m\to \infty} X_m$ the \textbf{direct limit} of the sequence $X_1\to X_2\to \cdots$.
@@ -471,7 +484,7 @@ Since the pullback is homotopy invariant we can conclude by the isomorphism (\re
  \begin{definition}
 	We denote $\colim_m \Gr_n(\C^m)$ by $\BU(n)$ and call it the \textbf{classifying space} for complex vector bundles of rank $n$. The name origins from the fuctor $\mathrm{B}$ that sends a topological group $G$ to the classifying space of vector bundles with structure group $G$. 
  \end{definition}
- \begin{corollary}
+ \begin{corollary} \label{cor:kTheo-classifyingSpaceVectorBundles}
 	For any compact Hausdorff space $X$, there is a canonical bijection between the homotopy classes of maps from $X$ to $\BU(n)$ and the isomorphism classes of vector bundles of rank $n$ over $X$:
 	\begin{equation*}
 		[X,\BU(n)] \cong \Vect_n(X)\,.
@@ -776,14 +789,18 @@ the sections $c_X^*, c_Y^*$) controls the $K(x_0)$-summand.
 \begin{proof}
 	Everything except inverses is clear. The neutral element is the class of $\underline{0}$. For inverses we take a bundle $E$ and by Corollary \ref{cor:kTheo-splittingTrivial} there exists a $G$ such that $E\oplus G\cong\underline{n}$. Now $[E]+[G]=[\underline{n}]=\underline[0]$. 
 \end{proof}
-\begin{theorem}
+\begin{lemma}\label{lem:kTheo-reducedKisEventually}
 	For a compact connected space $X$ there is a natural group isomorphism.
 	\begin{equation*}
 		K(X) \cong \Z\times \mathrm{EVect}(X) \cong\Z \times \colim_n \Vect_n(X)\,.
 	\end{equation*}
-\end{theorem}
+	Furthermore if $(X,p)$ is pointed, there is a natural group isomorphism 
+	\begin{equation*}
+		\tilde{K}(X)\cong \mathrm{EVect}(X) \cong \colim_n \Vect_n(X)\,.
+	\end{equation*}
+\end{lemma}
 \begin{proof}
-	Let $K$ be an element of $K(X)$. Then by Corollary \ref{cor:kTheo-ConstructionOfGrothendiekGroup} we can write $K$ as the difference of two classes of vector bundles $K=[E]-[F]$. We abuse the notation of equivalence classes in this proof meaning we wont differenciate between isomorphism classes of vector bundles in $\Vect_n$, stably isomorphism classes in $\mathrm{SVect}$, equivalence classes of naturaly included vector bundles in $K(X)$. The context should aways be clear.  With this we define the funktion
+Let $K$ be an element of $K(X)$. Then by Corollary \ref{cor:kTheo-ConstructionOfGrothendiekGroup} we can write $K$ as the difference of two classes of vector bundles $K=[E]-[F]$. We abuse the notation of equivalence classes in this proof meaning we wont differenciate between isomorphism classes of vector bundles in $\Vect_n$, stably isomorphism classes in $\mathrm{SVect}$, equivalence classes of naturaly included vector bundles in $K(X)$. The context should aways be clear.  With this we define the funktion
 	\begin{equation*}
 		\rank(K): K(X)\to \Z\,,\quad K=[E]-[F] \mapsto \rank(E)-\rank(F)\,.
 	\end{equation*} This is well defined as if $K=[E]-[F]=[E']-[F']$, then by the relatino in $K(X)$ we know that there is an $n$ such that
@@ -792,61 +809,52 @@ the sections $c_X^*, c_Y^*$) controls the $K(x_0)$-summand.
 	\end{equation*} and hence:
 	\begin{equation*}
 		\rank(E)-\rank(F)=\rank(E')-\rank(F')
-	\end{equation*} We define another morohism 
+	\end{equation*} Furthermore, $\rank$ has a natural right inverse given by
 	\begin{equation*}
-		\phi: K(X)\to \mathrm{EVect}(X)
-	\end{equation*} as follows: Let $[E]-[F]$ be an arbitrary element of $K(X)$. Let $G$ be a vector bundle, such that $F\oplus G\cong \underline{n}$ for some $n\in \N$. Then 
-	\begin{equation*}
-		[E]-[F]=[E\oplus G]-[F\oplus G]=[E\oplus G]-[\underline{n}]
-	\end{equation*} Now the summand $E\oplus G$ is neither unique nor unique up to isomorphism. However, up to eventual isomorphism it uniquely depends on the element $[E]-[F]\in K(X)$, meaning it neither depends on the choosen $E,F$ nor on the choosen $G$. We check this in two steps.
-
-	\textit{Independence of $G$.} Assume $G$ and $G'$ both satisfy that summing them with $F$ gives a trivial vector bundle: 
-	\begin{equation*}
-		F\oplus G \cong \underline{n}\quad \text{ and }\quad F\oplus G'\cong \underline{m}
-	\end{equation*}Then $E\oplus G$ and $E\oplus G'$ are eventually isomorphic, since
-	\begin{equation*}
-		E\oplus G\oplus \underline{m}
-		\,\cong \,
-		E\oplus G\oplus( F\oplus G') 
-		\,\cong \,
-		E \oplus G' \oplus (G \oplus F)
-		\,\cong\,
-		E \oplus G' \oplus \underline{n}\,.
-	\end{equation*}
-	\textit{Independence of $E$ and $F$.} Now assume that $E',F'$ are vector bundles such that
-	\begin{equation*}
-		[E]-[F]\,=\,[E']-[F'] \,\in K(X)\,,
-	\end{equation*} and let $G'$ be chosen for $F'$ exactly as $G$ was chosen for $F$, say of minimal rank with $F'\oplus G'\cong \underline{n'}$ for some $n'\in \N$. By Remark \ref{rem:kTheo-grothendieckEquivalence} there is a vector bundle $C$ with
-	\begin{equation*}
-		E\oplus F'\oplus C \,\cong\, E'\oplus F \oplus C\,.
-	\end{equation*} By Corollary \ref{cor:kTheo-splittingTrivial} choose $C'$ with $C\oplus C'\cong \underline{m}$ for some $m\in\N$. Adding $G\oplus G'\oplus C'$ to both sides of the displayed isomorphism and regrouping (using $F\oplus G\cong \underline{n}$, $F'\oplus G'\cong \underline{n'}$ and $C\oplus C'\cong\underline{m}$) gives
-	\begin{align*}
-		(E\oplus G)\oplus \underline{n'+m}
-		&\,\cong\,
-		(E\oplus F'\oplus C)\oplus(G\oplus G'\oplus C')\\
-		&\,\cong\,
-		(E'\oplus F\oplus C)\oplus(G\oplus G'\oplus C')\\
-		&\,\cong\,
-		(E'\oplus G')\oplus \underline{n+m}\,.
-	\end{align*} So the map 
-	\begin{equation*}
-		\phi_ K(X)\to \mathrm{EVect}(X)\,,\quad K=[E]-[F]\mapsto \phi(K)\coloneq [E\oplus G]
-	\end{equation*} is a well defined homomorphism of abelian groubs that is surjective. The kernal of said map is given by those elements in $K(X)$ that are given by $K=[E]-[\underline{n}]$ such that $E$ is eventually isomorphic to $\underline{0}$ and hence stably isomorphic to $\underline{m}$ for some $m$. But then $K=[\underline{m}]-[\underline{n'}]$ for some $n'$. Hence the kernal is contained in the subset 
-	\begin{equation*}
-		\{[\underline{m}]-[\underline{n}]\,|\,n,m\in \N\}~=~\{[m]-[0]\,|m\in \N_0\}\cup \{[0]-[m]\,|\,m\in \N\}\,.
-	\end{equation*} On the other hand, any element of said set is obviously in the kernal. Furthermore, there is an obvious group isomorphism :
-	\begin{equation*}
-		\Z\to \{[m]-[0]\,|m\in \N_0\}\cup \{[0]-[m]\,|\,m\in \N\}\,,\quad m\mapsto \begin{cases}
+		r: \Z \to K(X)\,,\quad m\mapsto \begin{cases}
 			[m]-[0]& \text{ if }m\geq 0\\
 			[0]-[-m]& \text{ if }m<0\,.
 		\end{cases}
-	\end{equation*} that hase the $\rank$ map as a left inverse. Hence, we have the naturally splitting short exact sequence:
-	\begin{center}
+	\end{equation*}
+	Now we claim that the kernal $\ker(\rank)\cong \mathrm{EVect}(X)$. For this we define the map 
+	\begin{equation*}
+		\phi: \mathrm{EVect}(X)\to K(X)\,,\quad [E]\mapsto [E] -[\underline{\rank(E)}]
+	\end{equation*}Tho see the well definition we assume that $E$ and $E'$ are eventually isomorphic and hence there are $n,n'\in \N$ such that $E\oplus \underline{n}\cong E'\oplus \underline{n'}$. But then in $K(X)$ we have:
+	\begin{equation*}
+		[E]-[\underline{\rank(E)}]=[E\oplus \underline{n}]-[\underbrace{\underline{\rank(E)}\oplus\underline{n}}_{=\underline{\rank(F)}\oplus \underline{n'}}]=[E'\oplus \underline{n'}]-[\underline{\rank(F)}\oplus \underline{n'}]=[F]-[\underline{\rank(F)}]\,.
+	\end{equation*}
+	Obviously $\rank\circ \phi =0$. To get the other inclusion we first notice the following: Let $K\in K(X)=[E]-[F]$ be arbitrary. By Corollary \ref{cor:kTheo-splittingTrivial} there exists a $G$ such that $F\oplus G\cong \underline{n}$ for some $n\in \N$. Hence if $K$ is in the kernal of $\rank$ we have:
+	\begin{equation*}
+		K=[E]-[F]=[E \oplus G]-[\underline{n}]=[E\oplus G]-[\underline{\rank(E\oplus G)}]= \phi([E \oplus G])
+	\end{equation*}
+	This leads to the naturally splitting short exact sequence
+\begin{center}
 		\begin{tikzcd}
-			0\arrow[r] &\Z \arrow[r]& K(X) \arrow[l,bend right,"\rank"'{pos=0.37}] \arrow[r,"\phi"]&\mathrm{EVect}(X) \arrow[r]&0
+			0 \arrow[r]& \mathrm{SVect}(X)\arrow[r,"\phi"]&K(X)\arrow[r,"\rank"']&\Z \arrow[r] \arrow[l,bend right,"r"']& 0
 		\end{tikzcd}
-	\end{center} That gives us the desired group isomorphism. 
-\end{proof}
+\end{center}
+This already proofs the isomorphisms \begin{equation*}
+		K(X) \cong \Z\times \mathrm{EVect}(X) \cong\Z \times \colim_n \Vect_n(X)\,.
+	\end{equation*}
+Now we define the group isomorphism 
+\begin{equation*}
+	l:\Z \to K(p)\,,\quad m\mapsto \begin{cases}
+			[m]-[0]& \text{ if }m\geq 0\\
+			[0]-[-m]& \text{ if }m<0\,.
+		\end{cases}
+\end{equation*}
+This gives the commutative diagramm:
+\begin{center}
+	\begin{tikzcd}
+			0 \arrow[r]& \mathrm{SVect}(X)\arrow[r,"\phi"]&K(X)\arrow[d,"\id"]\arrow[r,"\rank"']&\Z \arrow[d,"l"] \arrow[r] \arrow[l,bend right,"r"']& 0 \\
+			0 \arrow[r]& \tilde{K}(X)\arrow[r,"inclusion"]&K(X)\arrow[r,"i^*"]&K(p) \arrow[r] \arrow[l,bend left,"c_p^*"]& 0
+		\end{tikzcd}
+\end{center}
+Where $i$ is the inclusion $\{p\}\to X$ and $c_p$ is the collaps $X\to \{p\}$. Then by some diagram chasing the map 
+\begin{equation*}
+	\tilde{\phi}: \mathrm{SVect}(X)\to \tilde{K}(X) 
+\end{equation*} is well defined and by the five lemma (add zeros the short sequences on the left) it is an isomorphism.
+\end{proof} 
 
 \begin{definition}
 	We define the \textbf{unitary group} $U$ to be the direct limit of the unitary goupf of rank $n$ under the standart inclusions
@@ -876,7 +884,7 @@ the sections $c_X^*, c_Y^*$) controls the $K(x_0)$-summand.
 	Now for all $n$ we use the universal property of the direct limit $\colim_m(\Gr_n(\C^m))$ on the family 
 	\begin{equation*}
 		\Big(
-			\phi^n_{m+1}\circ f^m_n: \Gr_n(\C^m) \to BU(n+1)
+			\phi^{n+1}_{m+1}\circ f^m_n: \Gr_n(\C^m) \to BU(n+1)
 		\Big)_m
 	\end{equation*} to induce maps $f_n:BU(n)\to BU(n+1)$. which in turn give us a directed system and lets us define:
 	\begin{equation*}
@@ -887,5 +895,22 @@ the sections $c_X^*, c_Y^*$) controls the $K(x_0)$-summand.
 	The maps $f_n:BU(n)\to BU(n+1)$ are closed embeddings.
 \end{lemma}
 \begin{proof}
-	Since $\Gr_n(\C^m)$ is kompact and Hausdorf for any $n\leq m$ the maps $f_n^m$ are closed embeddings. Now assume that $f_n(x)=f_n(x')$. Then for $r$ big enough (omitting the inclusions) $f_n^r(x)=f_n^r(x')$ which contradicts the injectivity of the $f_n^r(x)$. Now we want to show that $f_n$ hase a closed image. For this we let $C\coloneq \im f_n \subset BU(n+1)$ and call the natural inclusions $\phi^{n+1}_m: \Gr_{n+1}(\C^m)\to BU(n+1)$. Then $C$ is closed, if and only if $C\cap \im \phi_m^{n+1}$ is. To show this we first show that $C\cap \im \phi_m^{n+1}=\im\, \phi^{n+1}_m\circ f_n^{m-1}$. The first inclusion $\subseteq$ is clear. To see the other inclusion \todo{Nicht so einfach und dann auch noch homeo auf sein Bild! 3}
+	Since $\Gr_n(\C^m)$ is kompact and Hausdorf for any $n\leq m$ the maps $f_n^m$ are closed embeddings. Furthermore, the natural maps $\phi^n_m:\Gr_n(\C^m)\to BU(n)$ are also closed embeddings. Now assume that $f_n(x)=f_n(x')$. Then for $r$ big enough (omitting the inclusions) $f_n^r(x)=f_n^r(x')$ which contradicts the injectivity of the $f_n^r(x)$. Now we want to show that $f_n$ hase a closed image. For this we let $C\coloneq \im f_n \subset BU(n+1)$ and call the natural inclusions $\phi^{n+1}_m: \Gr_{n+1}(\C^m)\to BU(n+1)$. Then $C$ is closed, if and only if $C\cap \im \phi_m^{n+1}$ is closed for all $m>n$. To show this we first show that $C\cap \im \phi_m^{n+1}=\im\, \phi^{n+1}_m\circ f_n^{m-1}$. The first inclusion $\subseteq$ is clear. The other inclusion follows directly from the constructino of $f_n$ that satisfies $f_n\circ \phi^n_{m-1}=\phi^{n+1}_m\circ f^{m-1}_n$. By Remark \ref{rem:kTheo-staircaseMapsClosedEmbedding} we know that $\phi^{n+1}_m \circ f^{m-1}_n$ is a closed embedding hence $C\cap \im \phi_m^{n+1}$ is closed for all $m>n$ and hence $C$ is closed. Now finally we need to show that $f_n$ are homeomorphisms onto their image. For this we show that they are closed maps, meaning they map closed sets to closed sets. This property together with injectivity implies the closed embedding property.
+	Let $U\subset BU(n)$ be closed. By construction of the direkt limit we can wirte $U=\bigcup_m (\im(\phi^n_m)\cap U)=\bigcup_m (\phi^n_m(U_m))$, where $U_m\coloneq (\phi^n_m)^{-1}(U)$. Now by the same argument as befor we have the equiality $f_n(U)\cap \im\phi^{n+1}_{m+1}= \phi^{n+1}_{m+1}\circ f^m_n(U_m)$. This is closed for all $m$ because the maps $\phi^{n+1}_{m+1}$ and $f_n^m$ are closed embeddings and hence closed. But then $f^n(U)$ is closed in the final topology and hence $f_n$ is an closed embedding.
+\end{proof}
+\begin{theorem}
+	For a connected pointed space $X$ we have a natural homomorphism
+	\begin{equation*}
+		\tilde{K}(X)\cong [X,BU]
+	\end{equation*}
+\end{theorem}
+\begin{proof}
+	We can now interchange the homotopy classes of maps and the limit by Lemma \ref{lem:kTheo-colimUndHomVertauschen}: 
+	\begin{equation*}
+		\begin{array}{llr}
+			[X,BU]	&=[X,\colim_n\big(BU(n))] &	\\
+					&\cong\colim_n \Vect_n(X) & \quad \text{ by Corollary \ref{cor:kTheo-classifyingSpaceVectorBundles},}\\
+					&\cong \tilde{K}(X) 	  & \quad \text{ by Lemma \ref{lem:kTheo-reducedKisEventually}.}
+		\end{array}
+	\end{equation*}
 \end{proof}
