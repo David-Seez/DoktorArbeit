@@ -1,0 +1,22 @@
+\section{Topological Preliminaries}
+This section aims to set the playing ground of the thesis. Since Morse theory needs the topological spaces to be rather restricted and the goal is to relate Morse Homology to toplogical K-Theory, there is an urge to just not worry about topological nuances. However, for proofing things we still need the vocabulary of topological notions. This chapter serves to provide the notions and theorems with references whilst omitting the technical proofs. Steenrod itselfs writes in his article "A convenient category of topological spaces" \cite{Steenrod1967}:
+
+\begin{quote}
+"Our need is to be able to make a variety of constructions and to know that the results have goof properties without the tedious spelling out at each step of lengthy hypotheses such as countably paracompactm normal, completely regular, first axiom of countability, metrizable, and so forth. It may be good research technique and an enjoyable exercise to analyse the precise circumstances for which an argument works; but id a developing theory is to be handy for research workers and attractive to students, then simplicity of the fundamentals must be the goal."
+\end{quote}
+Whilst Steenrod argues for the category of \textit{compactly generated Hausdorff spaces} the standart nowdays is the category of \textit{compactly generated weekly Hausdorff spaces}. The latter has direct limits, whilst Steenrods doesn't. But enough of the preamble. Lets start constructing that convinient categorie. I will assume that all topological constructions that are tought in the compulsory section of a university are known. We will follow a blog post  
+\subsection{Compactly Generated Weekly Hausdorff Spaces}
+\begin{definition}[Compactly Generated]\label{def:topPre-compactlyGenerated}
+    A topological space $X$ is \textbf{compactly generated}, if a subset $A\subseteq X$ is closed, if and only if for all compact $K\subseteq X$ $A\cap K$ is closed. 
+\end{definition}
+\begin{definition}[Weak Hausdorff]\label{def:topPre-weakHausdorff}
+    A topological space $X$ is called \text{weak Hausdoff}, if for all compakt Hausdorff spaces $K$ and continuous map $f:K\to X$ the image $\im(K)$ is compact in $X$. 
+\end{definition}
+\begin{definition}
+    We call the category of compactly generated weak Hausforff spaces together with continuous functions as morphisms $\CGWH$. 
+\end{definition}
+Since we dont want to be too technical the next proposition is menat to be ionterpreted as all standart constructions of new spaces exist.
+\begin{proposition}
+    The category $\mathsf{CGWH}$ is complete and cocomplete; i.e., it admits all (small) limits and colimits (in particular, all products and coproducts).
+\end{proposition}
+There is another caveat and reason for the usage of $\CGWH$. If we view two CW-complexes as topological spaces, their product might not be a CW-complex. However as objects in $\CGWH$ their product is a CW-complex. The reason behind this is that the general product doesn't produce the final topology. That happens if the product topology is not compactly generated.(Such an example is found in \cite{BrookeTaylor2018}) If we enforce the latter (which happens with products in $\CGWH$) the product of CW-complexes is again a CW-complex.

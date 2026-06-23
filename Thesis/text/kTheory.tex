@@ -34,7 +34,7 @@ Before we go back to the analytical reals, we will further develop the theory of
 	By corollary \ref{cor:vb-sectionsIntoHom} we can view $f$ as a section into the bundle $\Hom(\restr{E}{Y},\restr{F}{Y})$, which can be extended to a global one in $\Hom(E,F)$. Let $U$ be the open set for which the section maps to isomorphisms. Since $U$ contains $Y$ this yields the require extension.
 \end{proof}
 \begin{theorem}[Homotopy Invariance of the Pullback]\label{thm:kTheo-homotopyInvariance}
-	Let $X,Y$ be compact Hausdorff spaces, $I=[0,1]$, and 
+	Let $X,Y$ be two compact Hausdorff spaces, $I=[0,1]$, and 
 	\begin{equation*}
 		f: Y\times I\to X
 	\end{equation*} be a homotopy. For a fixed $t\in I$, we define the function $f_t:Y\to X$, $f_t(y)=f(t,y)$. Let $\pi: E\to X$ be a vector bundle. Then 
@@ -718,6 +718,11 @@ the sections $c_X^*, c_Y^*$) controls the $K(x_0)$-summand.
 	\end{eqnarray} where $(x,t)\sim(x',t')$ is $t=1$ or $t=0$. Here we identify the top to a point and the bottom to a different point. ($(x,1)\nsim (0,0)$). We view $(S(X),(x,1))$ as a pointed space.
 \end{definition}
 In general the reduced and unreduced suspension dffer. However, under the following condition there will be a natural homootpy equivalence:
+\begin{figure}
+	\centering
+	\includegraphics[width=0.7\textwidth]{text/images/homotopyExternsionProperty.pdf}
+		\caption{ The homotopy extension property for the pair $(X,F)$, where $F$ gets rotated.}
+\end{figure}
 \begin{definition}[Homotopy Extension Property]
 	Let $(x,A)$ be a topological pair, i,e, $A\subseteq X$. The pair satisfies the homotopy extension property if for any map $f:X\to Y$ and any homotopy $f_t:A\to Y$ with $f_0=\restr{f}{A}$ there exists an extension $\tilde{f}_t:X\to Y$ with $ \restr{\tilde{f}_t}{A}=f_t$ and $\tilde{f}_0=f$. The inclusiuon $i:A\to X$ of such a pair is called a \textbf{cofibration}.
 \end{definition}
@@ -745,7 +750,7 @@ In general the reduced and unreduced suspension dffer. However, under the follow
 		\end{tikzcd}
 	\end{center} This concludes the proof, since $g\circ q=f_1 \simeq f_0=\id$ and $q\circ g = \overline{f_1}\simeq \overline{f_0}=\id$.
 \end{proof} 
-\begin{corollary}
+\begin{corollary} \label{cor:kTheo-reducedSuspensionIsSuspension}
 	If $(S(X),{x_0}\times I)$ satisfies the homotopy extension property, then $S(X)$ is homomtopically equivalent to $\Sigma(X)$. 
 \end{corollary}
 \begin{proof}
@@ -945,7 +950,7 @@ Where $i$ is the inclusion $\{p\}\to X$ and $c_p$ is the collaps $X\to \{p\}$. T
 	Since $\Gr_n(\C^m)$ is kompact and Hausdorf for any $n\leq m$ the maps $f_n^m$ are closed embeddings. Furthermore, the natural maps $\phi^n_m:\Gr_n(\C^m)\to BU(n)$ are also closed embeddings. Now assume that $f_n(x)=f_n(x')$. Then for $r$ big enough (omitting the inclusions) $f_n^r(x)=f_n^r(x')$ which contradicts the injectivity of the $f_n^r(x)$. Now we want to show that $f_n$ hase a closed image. For this we let $C\coloneq \im f_n \subset BU(n+1)$ and call the natural inclusions $\phi^{n+1}_m: \Gr_{n+1}(\C^m)\to BU(n+1)$. Then $C$ is closed, if and only if $C\cap \im \phi_m^{n+1}$ is closed for all $m>n$. To show this we first show that $C\cap \im \phi_m^{n+1}=\im\, \phi^{n+1}_m\circ f_n^{m-1}$. The first inclusion $\subseteq$ is clear. The other inclusion follows directly from the constructino of $f_n$ that satisfies $f_n\circ \phi^n_{m-1}=\phi^{n+1}_m\circ f^{m-1}_n$. By Remark \ref{rem:kTheo-staircaseMapsClosedEmbedding} we know that $\phi^{n+1}_m \circ f^{m-1}_n$ is a closed embedding hence $C\cap \im \phi_m^{n+1}$ is closed for all $m>n$ and hence $C$ is closed. Now finally we need to show that $f_n$ are homeomorphisms onto their image. For this we show that they are closed maps, meaning they map closed sets to closed sets. This property together with injectivity implies the closed embedding property.
 	Let $U\subset BU(n)$ be closed. By construction of the direkt limit we can wirte $U=\bigcup_m (\im(\phi^n_m)\cap U)=\bigcup_m (\phi^n_m(U_m))$, where $U_m\coloneq (\phi^n_m)^{-1}(U)$. Now by the same argument as befor we have the equiality $f_n(U)\cap \im\phi^{n+1}_{m+1}= \phi^{n+1}_{m+1}\circ f^m_n(U_m)$. This is closed for all $m$ because the maps $\phi^{n+1}_{m+1}$ and $f_n^m$ are closed embeddings and hence closed. But then $f^n(U)$ is closed in the final topology and hence $f_n$ is an closed embedding.
 \end{proof}
-\begin{theorem}
+\begin{theorem}\label{thm:kTheo-reducedKgroupAsHomotopy}
 	For a connected pointed space $X$ we have a natural homomorphism
 	\begin{equation*}
 		\tilde{K}(X)\cong [X,BU]
@@ -961,10 +966,76 @@ Where $i$ is the inclusion $\{p\}\to X$ and $c_p$ is the collaps $X\to \{p\}$. T
 		\end{array}
 	\end{equation*}
 \end{proof}
+\begin{lemma}\label{lemma:kTheo-generalGroupContractsToUnitary}
+	The general linear Goup $\GL_n(\C)$ retracts onto the unitary Group $U(n)$ and the retraction commutes with the inclusions $A\mapsto \begin{pmatrix}
+		A&0\\
+		0&1
+	\end{pmatrix}\,.$
+\end{lemma}
+\begin{proof}
+	Let $A\in \GL_n(\C)$. Then $A^*A$ is a positive-definite Hermitian matrix, since for $v \in \C^n$:
+	\begin{equation*}
+		v^*A^*Av=(Av)^*(Av)=\norm{Av}^2\geq 0\,.
+	\end{equation*}  Hence, it is diagonalizable with real non negative eigenvalues $\lambda_1,\cdot \lambda_n>0$. We define $P_1\coloneq \sqrt{A^*A}$ to be the matrix, that scales all eigenspaces by $\sqrt{\lambda_i}$. Then $P^2 =A^*A$, and $\sqrt{A^*A}$ is also positive definite Hermitian, as all eigenvalues are positive and hence, it is invertable. Notice, that 
+	\begin{equation*}
+		\sqrt{
+		\begin{pmatrix}
+			A&0\\0&1
+		\end{pmatrix}^* 
+				\begin{pmatrix}
+			A&0\\0&1
+		\end{pmatrix}
+		}=
+				\begin{pmatrix}
+			\sqrt{A^*A}&0\\0&1
+		\end{pmatrix}\,.
+	\end{equation*}
+	We then define $U_A\coloneq A  (P_A)^{-1}$. By definition $A=U_A P_A$, and since $P_A$ is Hermitian, $P_A^{-1}$ is also hermitan letting us conclude that $U_A$ is unitary.
+	\begin{equation*}
+		U_A^*U_A=((P_A)^{-1})^*\underbrace{A^*A}_{P_A^2}  (P_A)^{-1}=\Idm\,.
+	\end{equation*} Notice again, that for $\tilde{A}=A\oplus \Idm_1\in GL_{n+1}(\C)$, we have $U_{\tilde{A}}=U_A\oplus \Idm_1\in U(n+1)$. Now the space of positive-definite Hermitian matrizies is convex. This is just a calculation of all the axioms for the matricies on the connecting line of two positive-definit Hermitian matricies. But as a convex space, it is contractible.
+\end{proof}
 \begin{lemma}
 	For a connected pointed space $X$ where the basepoints sits in \textit{well}, we have a natural homomorphism
 	\begin{equation*}
 		\tilde{K}(\Sigma X)\cong [X,U]
-	\end{equation*} By well sitting basepoint we mean that $(S(X),\{x_0\}\times I$ is an NDR-pair.
+	\end{equation*} By "well sitting basepoint" we mean that $(S(X),\{x_0\}\times I$ is an NDR-pair.
 \end{lemma}
+
+\begin{proof}
+	If the base point is well sitting, we can apply Corollary \ref{cor:kTheo-reducedSuspensionIsSuspension}, which gives us the homotopy equivalence
+	\begin{equation*}
+		\Sigma X \simeq S(X)\,.
+	\end{equation*} Now $S(X)$ itself can be cut into two contractible cones 
+	\begin{equation*}
+		\begin{array}{ll}
+			C_+(X) \coloneq & \{(x,t)\in S(X) \,|\, t\geq \frac{1}{2} \}\\
+			C_-(X) \coloneq & \{(x,t)\in S(X) \,|\, t\leq \frac{1}{2} \} \,.	
+		\end{array} 
+	\end{equation*}
+	Those cones intersect in $\C_+\cap C_-= X\times \{\frac{1}{2}\}\cong X$.
+	Hence we can make use of Lemma \ref{lem:kTheo-gluingAndHomotopyClassesToGLn} to deduce that $\Vect_n(\Sigma(X))\cong [X,\GL_n(\C)]$ and Lemma \ref{lem:kTheo-reducedKisEventually} gives us 
+	\begin{equation*}
+		\tilde{K}(X)\cong \colim_n [X,\GL_n(\C)]\cong [X,\colim_n\GL_n(\C)]\,.
+	\end{equation*} Tha latter bjectino follows from Lemma \ref{lem:kTheo-colimUndHomVertauschen}.
+	Finally, Lemma \ref{lemma:kTheo-generalGroupContractsToUnitary} gives us a retraction $\GL_n(\C) \to U(n)$ that commutes with the inclusions and hence we get the same direct limit.
+	\begin{equation*}
+		[X,\colim_n\GL_n(\C)]\cong [X,\colim_nU(n)]=[X,U]
+	\end{equation*} concluding the proof.
+\end{proof}
+\begin{proposition}
+	For compactly generated pointed Hausdoff spaces $(X,x_0),(Y,y_0)$ there is a natural bijection
+	\begin{equation*}
+		[\Sigma X,Y]\to [X,\Omega Y]\,,
+	\end{equation*} where $\Omega$ denotes the loop space
+	\begin{equation*}
+		\Omega Y \coloneq\{f:S^1\to Y\,| \, f \text{ continuous and }f(1)=y_0\}\,.
+	\end{equation*} together with the compact open topology.
+\end{proposition}
+\begin{remark}
+	By Theorem \ref{thm:kTheo-reducedKgroupAsHomotopy} we know that for a connnected pointed compact space we have
+	\begin{equation*}
+		\tilde{K}(SX)\cong[SX,BU]
+	\end{equation*}
+\end{remark}
 
