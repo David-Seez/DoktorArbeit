@@ -718,46 +718,22 @@ the sections $c_X^*, c_Y^*$) controls the $K(x_0)$-summand.
 	\end{eqnarray} where $(x,t)\sim(x',t')$ is $t=1$ or $t=0$. Here we identify the top to a point and the bottom to a different point. ($(x,1)\nsim (0,0)$). We view $(S(X),(x,1))$ as a pointed space.
 \end{definition}
 In general the reduced and unreduced suspension dffer. However, under the following condition there will be a natural homootpy equivalence:
-\begin{figure}
-	\centering
-	\includegraphics[width=0.7\textwidth]{text/images/homotopyExternsionProperty.pdf}
-		\caption{ The homotopy extension property for the pair $(X,F)$, where $F$ gets rotated.}
-\end{figure}
-\begin{definition}[Homotopy Extension Property]
-	Let $(x,A)$ be a topological pair, i,e, $A\subseteq X$. The pair satisfies the homotopy extension property if for any map $f:X\to Y$ and any homotopy $f_t:A\to Y$ with $f_0=\restr{f}{A}$ there exists an extension $\tilde{f}_t:X\to Y$ with $ \restr{\tilde{f}_t}{A}=f_t$ and $\tilde{f}_0=f$. The inclusiuon $i:A\to X$ of such a pair is called a \textbf{cofibration}.
-\end{definition}
-\begin{lemma}
-	If the pair $(X,A)$ satisfies the homotopy extension property and $A$ is contractivle, then the quotient map 
-	\begin{equation*}
-		q: X\to X\big/ A
-	\end{equation*} is an homotopy equivalence.
+\begin{lemma}\label{lem:kTheo-wellpointedImpliesCylinderCofibration}
+If $(X,x_0)$ is well-pointed, then the inclusion 
+$\{x_0\}\times I \hookrightarrow S(X)$ is a cofibration.
 \end{lemma}
 \begin{proof}
-	Let $f_t:X\to X$ be a homtopy extending the conreaction of $A$ with $f_0=\id$. Then the composition $q\circ f_t$ maps $A$ to a point and hence factors over $X\big/A$ giving us the commutative diagram
-	\begin{center}
-		\begin{tikzcd}
-			X \arrow[r,"f_t"] \arrow[d,"q"]& x \arrow[d,"q"]\\ 
-			X\big/ A \arrow[r,"\overline{f_t}"']&X\big/ A
-		\end{tikzcd}
-	\end{center} Here, $\overline{f_t}$ dentoes the quotient map. Now $f_1(A)=pt$ where $pt$ is a point in $A$. So $f_1$ factors over $X\big/A$ and denote the induced map by $g:X\big/A \to X$. Now $g\circ q=f_1$ and hence 
-	\begin{equation*}
-		q\circ g(\overline{x})=q\circ g \circ q (x)=q\circ f_1 =\overline{f_1}(\overline{x})\,.
-	\end{equation*} In other words we have the commutative diagram
-	\begin{center}
-		\begin{tikzcd}
-			X \arrow[r,"f_1"] \arrow[d,"q"]& x \arrow[d,"q"]\\ 
-			X\big/ A \arrow[r,"\overline{f_1}"']\arrow[ur,"g"] &X\big/ A
-		\end{tikzcd}
-	\end{center} This concludes the proof, since $g\circ q=f_1 \simeq f_0=\id$ and $q\circ g = \overline{f_1}\simeq \overline{f_0}=\id$.
-\end{proof} 
+This proof is omitted but is Proposition 5.1.16 in \cite{tomdieck2008algebraic}.
+\end{proof}
 \begin{corollary} \label{cor:kTheo-reducedSuspensionIsSuspension}
-	If $(S(X),{x_0}\times I)$ satisfies the homotopy extension property, then $S(X)$ is homomtopically equivalent to $\Sigma(X)$. 
+	If $(X,x_0)$ is well pointed, then $S(X)$ is homomtopically equivalent to $\Sigma(X)$. 
 \end{corollary}
 \begin{proof}
-	This follows direftly from the homeomorphism
+	By lemma \ref{lem:kTheo-wellpointedImpliesCylinderCofibration} we conclude that $(S(X),{x_0}\times I)$ satisfies the homotopy extension property. Hence, by Lemma \ref{lem:topPre-hepImpliescontractingisHomotopicalInvariant} we know that 
+	$S(X)\simeq S(X)\big/ {x_0}\times I$ and the homeomorphism
 	\begin{equation*}
 		S(X)\big/{x_0}\times I \cong \Sigma(X)
-	\end{equation*}
+	\end{equation*} concludes the proof.
 \end{proof}
 
 
