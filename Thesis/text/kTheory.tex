@@ -967,7 +967,7 @@ Where $i$ is the inclusion $\{p\}\to X$ and $c_p$ is the collaps $X\to \{p\}$. T
 		U_A^*U_A=((P_A)^{-1})^*\underbrace{A^*A}_{P_A^2}  (P_A)^{-1}=\Idm\,.
 	\end{equation*} Notice again, that for $\tilde{A}=A\oplus \Idm_1\in GL_{n+1}(\C)$, we have $U_{\tilde{A}}=U_A\oplus \Idm_1\in U(n+1)$. Now the space of positive-definite Hermitian matrizies is convex. This is just a calculation of all the axioms for the matricies on the connecting line of two positive-definit Hermitian matricies. But as a convex space, it is contractible.
 \end{proof}
-\begin{lemma}
+\begin{lemma}\label{lem:kTheo-reducedSuspendedKGroupHomotopically}
 	For a connected pointed space $X$ where the basepoints sits in \textit{well}, we have a natural homomorphism
 	\begin{equation*}
 		\tilde{K}(\Sigma X)\cong [X,U]
@@ -998,16 +998,33 @@ Where $i$ is the inclusion $\{p\}\to X$ and $c_p$ is the collaps $X\to \{p\}$. T
 \begin{proposition}
 	For compactly generated pointed Hausdoff spaces $(X,x_0),(Y,y_0)$ there is a natural bijection
 	\begin{equation*}
-		[\Sigma X,Y]\to [X,\Omega Y]\,,
+		[SX,Y]\to [X,\Omega Y]\,,
 	\end{equation*} where $\Omega$ denotes the loop space
 	\begin{equation*}
 		\Omega Y \coloneq\{f:S^1\to Y\,| \, f \text{ continuous and }f(1)=y_0\}\,.
 	\end{equation*} together with the compact open topology.
 \end{proposition}
+\begin{proof}
+ For any three $(X,x_0),(Y,y_0),(Z,z_0)$ we have that a basepoint preserving map 
+ $f:X\wedge Y\to Z$ can be lifted to a map $\tilde{f}:X \times Y \to Z;f(z)=\tilde{f}(\overline{z})$ that maps the whole $X\vee Y$ to $z_0$. This map is continuous by the universal property of the quotient topology. Hence we get a bijection
+ \begin{equation*}
+	C(X\wedge Y,Z)\to \{f\in C(X\times Y,Z)\,|\, \restr{f}{X\vee Y} \equiv z_0\}
+ \end{equation*} its inverse is given by the quotient induced maps. 
+ We can compose this map with the natural currying map $C(X\times Y,Z)\to C(X,C(Y,Z))$. For $Y=S$ we gain a map 
+ \begin{equation*}
+	C(SX,Z)\to C(X,\Omega Z)
+ \end{equation*} that is again a bijection, since any $f:X\to \Omega Z$ gives a map $\tilde{f}:X\times S\to Z$ $\tilde{f}(x,s)\mapsto f(x)(s)$. If $(x,s)\in X\vee S\subseteq X\times S$, then either $x=x_0$ or $s=1$. In the first case. $f(x_0)$ is the constant loop and hence $f(x_0)(s)=z_0$ and in the second case we evaluate a based loop at its base and hence $f(x)(1)=z_0$. Hence, the $\tilde{f}$ factors over $X\vee S$ giving a well defined element in $C(SX,Z)$. This is its inverse. 
+
+ The continuouty of said map and its inverse falls into the realm of technical pointset topology and can be seen in Proposition A.14.\cite{hatcher2002algebraic}. 
+\end{proof}
 \begin{remark}
-	By Theorem \ref{thm:kTheo-reducedKgroupAsHomotopy} we know that for a connnected pointed compact space we have
+	By Theorem \ref{thm:kTheo-reducedKgroupAsHomotopy}, and the Proposition above we know that for a connnected pointed compact space we have
 	\begin{equation*}
-		\tilde{K}(SX)\cong[SX,BU]
-	\end{equation*}
+		\tilde{K}(SX)\cong[SX,BU] \cong [X,\Omega B U]
+	\end{equation*} On the other hand we have Lemma $lem:kTheo-reducedSuspendedKGroupHomotopically$ which tells us that 
+	\begin{equation*}
+		\tilde{K}(SX) \cong [X,U]\,.
+	\end{equation*}This hints at a deeper connection that states that 
+$\Omega B U$is homotopically equivalent to $ U$.
 \end{remark}
 
