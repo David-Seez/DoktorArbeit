@@ -770,14 +770,23 @@ This proof is omitted but is Proposition 5.1.16 in \cite{tomdieck2008algebraic}.
 	Two vector bundles $E,F$ over the same base space are called \textbf{stably equivalent} if there exists an $n$ such that $E$ and $F$ become isomorphic after adding the trivial bundle: 
 	\begin{equation*}
 		E\oplus \underline{n}\cong F\oplus \underline{n}\,.
-	\end{equation*}
+	\end{equation*} We denote the set of stable equivalence classes (i.e. equivalence classes with respect to the notion of stable equivalence) of vector bundles over $X$, by $\mathrm{SVect}_n(X)$.
 \end{definition}
-
 \begin{lemma}
-	In $K(X)$ two equivalence classes $[E]$ and $[F]$ are the same, if and only if $E$ and $F$ are stably equivalent.
+	The sets $\mathrm{SVect}_n(X)$ and $\lim_n \Vect_n(X)$ omitt a natural bijection.
 \end{lemma}
 \begin{proof}
-	Assume that two vector bundles satisfy
+	We proof this by showing that $\mathrm{SVect}_n(X)$ satisfies the universal property of the direct limit. For this we take any familiy of maps $f_m: \Vect_n\to Y$ that commutes with the inclusions $i_n:\Vect_n(X) \to \Vect_{n+1}(X)$. Then we define the map 
+\begin{equation*}
+	f: \mathrm{SVect}_n(X) \to Y\,,\quad [\xi]\mapsto f_{\rank(\xi)}(\xi).
+\end{equation*} The main goal now is to show that this is well defined. For this we assume that $\xi$ and $\zeta$ are stably equivalent. Let $n=\rank(\xi)=\rank(\zeta)$ (Stable equivalence trivialiy implies equiality of the rank). Now we have an $m$ such that $\xi \oplus \underline{m}\cong \zeta \oplus \underline{m}$. And hence:
+\begin{equation*}
+	f_n(\xi)=f_{n+m}(\xi \oplus \underline{m})=f_{n+m}(\zeta \oplus \underline{m})=f_n(\zeta)\,.
+\end{equation*}
+This prooves the well-definition. Now the uniquenes follows directly as any element in $\mathrm{SVect}_n(X)$ is represented by a vector bundle.
+\end{proof}
+\begin{theorem}
+	For a compact connected space $X$ there is a natural isomorphism
 	\begin{equation*}
 		E\oplus \underline{n}\cong F\oplus \underline{n}\,,
 	\end{equation*} for some $n\in \N$. By abuse of notation we let $E$ (and $\underline{n}$) denote a vectorbundle and its isomorphismclass simultaniously. Then by Remark \ref{rem:kTheo-grothendieckEquivalence}
