@@ -250,6 +250,33 @@ Since the pullback is homotopy invariant we can conclude by the isomorphism (\re
 		H_t(a)\coloneq T_{2,t}(a)\phi(a)T_{1,t}^{-1}(a)\,
 	\end{equation*} to get a homotopy from $\phi=H_0$ to $\psi=H_1$. Hence, we get a well defined map from isomorphism classes of bundles over $X$ of rank $n$ to the homotopy classes of maps from $A$ to $\GL_n(\C)$ that is the inverse of the gluing construction and hence is bijective.
 \end{proof}
+\begin{example}
+	We now want to analyze the tautological line bundle $l$ over $\C\PP^1$. For this we cut $\C\PP^1$ into the two pices whic are contractible as they come with homeomorphisms into the unit disc in $\C$:
+	\begin{align*}
+		H^+&\coloneq \{[x:y]\in \C\PP^1\,|\, \abs{x}\geq \abs{y}\}\, \to D\subset \C\,,\quad [x:y]\mapsto \frac{y}{x}\\
+		H^-&\coloneq \{[x:y] \in \C\PP^1\,|\, \abs{x}\leq \abs{y}\}\,\to D\subset \C\,,\quad [x:y]\mapsto \frac{x}{y}
+	\end{align*} Those maps give us unique representations of elements in $H^+$ and $H^-$. We now want to evaluate the bijection $\Vect_1(\C\PP^1)\to [H^+\cap H^-,\GL_1(\C)]$ at $[l]$. 
+	The image of the intersection $H^+\cap H^-$ under the two maps is the bundary of the Disk and hence a circle. Furthermore, $\GL_1(\C)\cong C^*$. Hence, we know that the image is isomorphic tp $[S^1,\C^*]\cong \pi(S^1)\cong \Z$. This tells us, that there must be nontrivial vector bundles on $\C\PP^1$. By the proof of \ref{lem:kTheo-gluingAndHomotopyClassesToGLn} we know that $[l]$ gets mapped to the function gluing together trivializations over $H^+$ and $H^-$ alog their intersection. To define the trivializations we need define local frames over $H^+$ and $H^-$. Those frames are given by a single section defines as:
+	\begin{align*}
+		s_+:H^+\to l\,,\quad [x:y]\mapsto (1,\frac{y}{x})\,,\\
+		s_-:H^-\to l\,,\quad [x:y]\mapsto (\frac{x}{y},1)\,.
+	\end{align*} With those we define the trivializations:
+	\begin{align*}
+		t_+:\,\restr{l}{H^+}\to H^+\times \C\,,\quad ([x:y],\lambda\cdot s_+[x:y])\mapsto ([x:y],\lambda)\\
+		t_-:\,\restr{l}{H^-}\to H^-\times \C\,,\quad ([x:y],\mu\cdot s_-[x:y])\mapsto ([x:y],\mu)
+	\end{align*}in each fiber over the intersection we have
+	\begin{equation*}
+		\lambda\cdot s_+([x:y])=\lambda(1,\frac{y}{x})=\lambda \cdot \frac{y}{x}(\frac{x}{y},1)=\lambda\cdot \frac{y}{x}s_-([x:y])
+	\end{equation*}
+Hence in each fibre over $[x:y]\in H^+\cap H^-$ the gluing function can be calculated:
+\begin{equation*}
+	\lambda\mapsto \restr{t_-}{[x:y]}\circ \restr{t_+}{[x:y]}^{-1}(\lambda)=\restr{t_-}{[x:y]}(\lambda \cdot s_+([x:y]))=\restr{t_-}{[x:y]}(\lambda\cdot \frac{y}{x} \cdot s_-([x:y]))=\lambda \cdot \frac{y}{x}
+\end{equation*}
+Hence, as a map from $H^+\cap H^-\to GL_1(\C)\equiv \C^*$ this map reads:
+\begin{equation*}
+	H^+\cap H^-\to \C^*\,\quad [x:y]\mapsto \frac{y}{x}
+\end{equation*} viewing this as an element of $\pi(S^1)$ by identifying the intersection with a circle via the homeomorphism from $H^+\to D\subseteq \C$ we notice that the gluing map corresponds to the identity in $\pi(S^1)$. If the bundle $l$ would be trivial, the gluing functinon would be homotopically equivalent to the constant one-function $H^+\cap H^-\to \C^*$ that maps all $[x:y]\mapsto 1$. This cannot be, because interpreted as elements in $\pi(S)$ they are different.
+\end{example}
 \begin{definition}[Metrics on Bundles]\label{def:kTheo-metricsOnBundles}
 	A \textbf{metric} on a complex bundle $E$ is a section $h:X\to \Herm(E)$ such that $h(x)$ is positive definite for all $x$. $\Herm(E)$ denotes the bundle of hermitian forms (conjugate-symmetric sesquilinear) in each fiber. A bundle together with a metric is a \textbf{Hermitian bundle}.
 \end{definition}
@@ -353,7 +380,7 @@ Since the pullback is homotopy invariant we can conclude by the isomorphism (\re
 	We give $\Gr_n(V)$ the subspace topology of $\End(V)$.
 \end{definition}
 \begin{definition}\label{def:kTheo-classifyingMap}
-	Suppose that $E$ is a bundle over $X$, $V$ is a vector space and $\phi:X\times V \to E$ is an epimorphism. Then we can define a map $f:X\to \Gr_{\dim(V)}(V)$ by sending $x$ to the kernel of $\phi_x: V\to E_x$. We call $f$ to be induced by $\phi$. This map is continouos for any metric on $V$. To see this notice that the topology on $V$ is metric invariant, as $V$ is finite dimensional. Now the map $f$ is continuous if the map for the map \begin{equation*}
+	Suppose that $E$ is a bundle over $X$, $V$ is a vector space and $\phi:X\times V \to E$ is an epimorphism. Then we can define a map $f:X\to \Gr_{\dim(V)}(V)$ by sending $x$ to the kernel of $\phi_x: V\to E_x$. We call $f$ to be \textbf{induced by $\phi$}. This map is continouos for any metric on $V$. To see this notice that the topology on $V$ is metric invariant, as $V$ is finite dimensional. Now the map $f$ is continuous if the map for the map \begin{equation*}
 		P: \Gr_n(V) \to \End(V)
 	\end{equation*} the composition $P\circ f$ is continuous. But $P\circ f$ is given by sending $x$ to the projection onto $\ker(\phi_x)$, which is continuous as $\phi$ is.
 \end{definition}
@@ -824,7 +851,7 @@ This proof is omitted but is Proposition 5.1.16 in \cite{tomdieck2008algebraic}.
 	\end{equation*}
 \end{lemma}
 \begin{proof}
-Let $K$ be an element of $K(X)$. Then by Corollary \ref{cor:kTheo-ConstructionOfGrothendiekGroup} we can write $K$ as the difference of two classes of vector bundles $K=[E]-[F]$. We abuse the notation of equivalence classes in this proof meaning we wont differenciate between isomorphism classes of vector bundles in $\Vect_n$, stably isomorphism classes in $\mathrm{SVect}$, equivalence classes of naturaly included vector bundles in $K(X)$. The context should aways be clear.  With this we define the funktion
+Let $K$ be an element of $K(X)$. Then by Corollary \ref{cor:kTheo-ConstructionOfGrothendiekGroup} we can write $K$ as the difference of two classes of vector bundles $K=[E]-[F]$. We abuse the notation of equivalence classes in this proof meaning we won't differenciate between isomorphism classes of vector bundles in $\Vect_n$, eventually or stable isomorphism classes or equivalence classes of naturaly included vector bundles in $K(X)$. The context should aways be clear.  With this we define the funktion
 	\begin{equation*}
 		\rank(K): K(X)\to \Z\,,\quad K=[E]-[F] \mapsto \rank(E)-\rank(F)\,.
 	\end{equation*} This is well defined as if $K=[E]-[F]=[E']-[F']$, then by the relatino in $K(X)$ we know that there is an $n$ such that
@@ -847,14 +874,14 @@ Let $K$ be an element of $K(X)$. Then by Corollary \ref{cor:kTheo-ConstructionOf
 	\begin{equation*}
 		[E]-[\underline{\rank(E)}]=[E\oplus \underline{n}]-[\underbrace{\underline{\rank(E)}\oplus\underline{n}}_{=\underline{\rank(F)}\oplus \underline{n'}}]=[E'\oplus \underline{n'}]-[\underline{\rank(F)}\oplus \underline{n'}]=[F]-[\underline{\rank(F)}]\,.
 	\end{equation*}
-	Obviously $\rank\circ \phi =0$. To get the other inclusion we first notice the following: Let $K\in K(X)=[E]-[F]$ be arbitrary. By Corollary \ref{cor:kTheo-splittingTrivial} there exists a $G$ such that $F\oplus G\cong \underline{n}$ for some $n\in \N$. Hence if $K$ is in the kernal of $\rank$ we have:
+	Obviously $\rank\circ \phi \equiv 0$. To get the other inclusion we first notice the following: Let $K\in K(X)=[E]-[F]$ be arbitrary. By Corollary \ref{cor:kTheo-splittingTrivial} there exists a $G$ such that $F\oplus G\cong \underline{n}$ for some $n\in \N$. Hence if $K$ is in the kernal of $\rank$ we have:
 	\begin{equation*}
 		K=[E]-[F]=[E \oplus G]-[\underline{n}]=[E\oplus G]-[\underline{\rank(E\oplus G)}]= \phi([E \oplus G])
 	\end{equation*}
 	This leads to the naturally splitting short exact sequence
 \begin{center}
 		\begin{tikzcd}
-			0 \arrow[r]& \mathrm{SVect}(X)\arrow[r,"\phi"]&K(X)\arrow[r,"\rank"']&\Z \arrow[r] \arrow[l,bend right,"r"']& 0
+			0 \arrow[r]& \mathrm{EVect}(X)\arrow[r,"\phi"]&K(X)\arrow[r,"\rank"']&\Z \arrow[r] \arrow[l,bend right,"r"']& 0
 		\end{tikzcd}
 \end{center}
 This already proofs the isomorphisms \begin{equation*}
@@ -1015,7 +1042,7 @@ Where $i$ is the inclusion $\{p\}\to X$ and $c_p$ is the collaps $X\to \{p\}$. T
 	C(SX,Z)\to C(X,\Omega Z)
  \end{equation*} that is again a bijection, since any $f:X\to \Omega Z$ gives a map $\tilde{f}:X\times S\to Z$ $\tilde{f}(x,s)\mapsto f(x)(s)$. If $(x,s)\in X\vee S\subseteq X\times S$, then either $x=x_0$ or $s=1$. In the first case. $f(x_0)$ is the constant loop and hence $f(x_0)(s)=z_0$ and in the second case we evaluate a based loop at its base and hence $f(x)(1)=z_0$. Hence, the $\tilde{f}$ factors over $X\vee S$ giving a well defined element in $C(SX,Z)$. This is its inverse. 
 
- The continuouty of said map and its inverse falls into the realm of technical pointset topology and can be seen in Proposition A.14.\cite{hatcher2002algebraic}. 
+ The continuouity of said map and its inverse falls into the realm of technical pointset topology and can be seen in Proposition A.14.\cite{hatcher2002algebraic}. 
 \end{proof}
 \begin{remark}
 	By Theorem \ref{thm:kTheo-reducedKgroupAsHomotopy}, and the Proposition above we know that for a connnected pointed compact space we have
@@ -1025,6 +1052,6 @@ Where $i$ is the inclusion $\{p\}\to X$ and $c_p$ is the collaps $X\to \{p\}$. T
 	\begin{equation*}
 		\tilde{K}(SX) \cong [X,U]\,.
 	\end{equation*}This hints at a deeper connection that states that 
-$\Omega B U$is homotopically equivalent to $ U$.
+$\Omega B U$ is homotopically equivalent to $ U$.
 \end{remark}
 
