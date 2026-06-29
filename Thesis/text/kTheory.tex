@@ -15,26 +15,26 @@
 	\end{itemize}
 \end{theorem}
 \subsection{Classification of Vector Bundles}
-The first goal is to classify all vector bundles over sufficiently nice spaces. The latter refers to spaces admitting partitions of unity for which Tietze's extension theorem holds. For simplicity we just consider compact Hausdorff spaces. Along the way we will discover that the set of isomorphism classes of vector bundles is a homotopy invariance.
+The first goal is to classify all vector bundles over sufficiently nice spaces. The latter refers to spaces admitting partitions of unity for which Tietze's extension theorem holds. For simplicity we just consider compact spaces. Along the way we will discover that the set of isomorphism classes of vector bundles is a homotopy invariance.
 
 Before we go back to the analytical reals, we will further develop the theory of vector bundles:
 \begin{definition}
 	For a topological space $X$ we define $\Vect_n$ to be the set of isomorphism classes of complex vector bundles of rank $n$ and  $\Vect(X)$ to be the set of isomorphism classes of complex vector bundles of any rank. By declaring $\Vect(f)=f^*$ to be the pullback we get a contravariant functor $\Vect$ from $\Top$ to $\Set$. We can equip the set $\Vect(X)$ with the direct sum and tensor product operation. It is then easy to see that these operations descend to isomorphism classes and hence we get an abelian semi ring $(\Vect(X),\oplus,\otimes)$ (abelian semigroup with associative and distributive multiplication). In fact we even get a contravariant functor from $\Top$ to the category of abelian semirings.
 \end{definition}
 \begin{lemma}\label{lem:kTheo-sectionExtension}
-	Let $X$ be a compact Hausdorff space, $Y\subseteq X$ a closed subspace and $E$ a vector bundle over $X$. Then any section $s:Y\to \restr{E}{Y}$ can be extended to a global section of $X$.
+	Let $X$ be a compact space, $Y\subseteq X$ a closed subspace and $E$ a vector bundle over $X$. Then any section $s:Y\to \restr{E}{Y}$ can be extended to a global section of $X$.
 \end{lemma}
 \begin{proof}
 	For a detailed proof see Chapter 1.4 of \cite{atiyah1989k}. The general argument however is easy to follow: By Tietze's extension theorem we can extend the section to around every $x\in X$. By compactness we can pick finitely many of those extensions. Now using a partition of unity with respect to their domains we can build the sum of all the extensions to get a well defined global one. 
 \end{proof}
 \begin{corollary}\label{cor:kTheo-isomorphismExtension}
-	Let $Y$ be a closed subspace of a compact Hausdorff space $X$, and let $E,F$ be bundles over $X$. If $f:\restr{E}{Y}\to \restr{F}{Y}$ is an isomorphism, then there is an open neighbourhood $U\supset Y$ and an extension $f:  \restr{E}{U}\to \restr{F}{U}$ which is an isomorphism.
+	Let $Y$ be a closed subspace of a compact space $X$, and let $E,F$ be bundles over $X$. If $f:\restr{E}{Y}\to \restr{F}{Y}$ is an isomorphism, then there is an open neighbourhood $U\supset Y$ and an extension $f:  \restr{E}{U}\to \restr{F}{U}$ which is an isomorphism.
 \end{corollary}
 \begin{proof}
 	By corollary \ref{cor:vb-sectionsIntoHom} we can view $f$ as a section into the bundle $\Hom(\restr{E}{Y},\restr{F}{Y})$, which can be extended to a global one in $\Hom(E,F)$. Let $U$ be the open set for which the section maps to isomorphisms. Since $U$ contains $Y$ this yields the require extension.
 \end{proof}
 \begin{theorem}[Homotopy Invariance of the Pullback]\label{thm:kTheo-homotopyInvariance}
-	Let $X,Y$ be two compact Hausdorff spaces, $I=[0,1]$, and 
+	Let $X,Y$ be two compact spaces, $I=[0,1]$, and 
 	\begin{equation*}
 		f: Y\times I\to X
 	\end{equation*} be a homotopy. For a fixed $t\in I$, we define the function $f_t:Y\to X$, $f_t(y)=f(t,y)$. Let $\pi: E\to X$ be a vector bundle. Then 
@@ -107,7 +107,7 @@ By Corollary \ref{cor:kTheo-isomorphismExtension} we can extend the isomorphism 
 \end{proof}
 \begin{lemma}
 	\label{lem:kTheo-collapsingOfContractibleSubspace}
-	Let $Y\subseteq X$ be a closed contractible subspace of a compact Hausdorff space $X$. Then 
+	Let $Y\subseteq X$ be a closed contractible subspace of a compact space $X$. Then 
 	\begin{equation*}
 		f:X\to X\big/ Y \quad \text{induces a semiring isomorphism}\quad f^*: \Vect(X\big/Y) \to \Vect(X)\,.
 	\end{equation*}
@@ -124,7 +124,7 @@ By Corollary \ref{cor:kTheo-isomorphismExtension} we can extend the isomorphism 
 	\begin{align*}
 		X=X_1 \cup X_2\, , \quad A=X_1 \cap X_2 \, ,
 	\end{align*}
-	and all be compact Hausdorff spaces. 
+	and all be compact spaces. 
 	 Assume that $E_i$ is a vector bundle over $X_i$ and $\phi :\restr{E_1}{A} \to \restr{E_2}{A}$ is an isomorphism. Then we define a vector bundle $E_1 \cap_{\phi} E_2$ on $X$ as follows:
 	 We topologize the space $E_1 \cup_{\phi} E_2$ as the quotient of $E_1 + E_2 \slash \sim$, where $\sim$ is the identification of points with their image under $\phi$.
 	 Identifying $X$ with $X_1 +X_2 $ in the quotient space we get the natural projection $p:E_1 \cap_{\phi} E_2 \to X$ and the fibers have a natural vector space structure. It remains to show that this is locally trivial. This is obvious outside of $A$ so let $a\in A$ and $V_1$ be a closed neighbourhood of $a$ in $X_1$ such that $\restr{E_1}{V_1}$ is trivial giving us the isomorphisms
@@ -336,7 +336,7 @@ Hence, as a map from $H^+\cap H^-\to GL_1(\C)\equiv \C^*$ this map reads:
 	If the subspace $V$ is ample and $\dim(V)=\rank(E)$, then $E$ is trivializable.
 \end{corollary}
 \begin{lemma}\label{lem:kTheo-ampleSubspaceExists}
-	For any vector bundle $E$ over a compact Hausdorff space $X$, there exists an finite dimensional ample subspace of $\Gamma(E)$.
+	For any vector bundle $E$ over a compact space $X$, there exists an finite dimensional ample subspace of $\Gamma(E)$.
 \end{lemma}
 \begin{proof}
 	Let $\{U_\alpha\}$ be a finite open cover of $X$ such that $\restr{E}{U_\alpha}$ is trivial. Let $\{s_{\alpha,i}\}$ be the corresponding local frames, and define $V_\alpha$ to be the finite dimensional ample subspace $V_\alpha\subseteq \Gamma(\restr{E}{U_\alpha})$. Let $\rho_\alpha$ be a partition of unity subordinate to the cover $\{U_\alpha\}$. Define 
@@ -475,7 +475,7 @@ If we build the direct limit of sets and all the maps of the direct system are i
 	The map 
 	\begin{equation*}
 		\colim_{m} [X,\Gr_n(\C^m)] \to \Vect_n(X)\,,
-	\end{equation*} induced by $f\mapsto f^*E_m$ is a bijection for all compact Hausdorff spaces $X$.
+	\end{equation*} induced by $f\mapsto f^*E_m$ is a bijection for all compact spaces $X$.
  \end{theorem}
  \begin{proof}
 	We shall contrstuct and inverse map. If $E$ is a bundle over $X$, then by Corollary \ref{cor:kTheo-epiFromTrivial} there exists an epimorphism $\phi:X\times \C^m \to E$ for some integer $m$. Let $f:X\to \Gr_n(\C^m)$ be the map induced by $\phi$. If we manage to show that the homotopy class of $f$ as a map to $\Gr_n(\C^{m'})$ for some large enough $m'$ is independent of the choice of $\phi$ and $m$, then we get a well defined map from $\Vect_n(X)$ to $\colim_m [X,\Gr_n(\C^m)]$ that is inverse to the classifying map. 
@@ -512,7 +512,7 @@ If we build the direct limit of sets and all the maps of the direct system are i
 	We denote $\colim_m \Gr_n(\C^m)$ by $\BU(n)$ and call it the \textbf{classifying space} for complex vector bundles of rank $n$. The name origins from the fuctor $\mathrm{B}$ that sends a topological group $G$ to the classifying space of vector bundles with structure group $G$. 
  \end{definition}
  \begin{corollary} \label{cor:kTheo-classifyingSpaceVectorBundles}
-	For any compact Hausdorff space $X$, there is a canonical bijection between the homotopy classes of maps from $X$ to $\BU(n)$ and the isomorphism classes of vector bundles of rank $n$ over $X$:
+	For any compact space $X$, there is a canonical bijection between the homotopy classes of maps from $X$ to $\BU(n)$ and the isomorphism classes of vector bundles of rank $n$ over $X$:
 	\begin{equation*}
 		[X,\BU(n)] \cong \Vect_n(X)\,.
 	\end{equation*}
@@ -524,15 +524,15 @@ If we build the direct limit of sets and all the maps of the direct system are i
  \begin{definition}
 	We need the following categories of topological spaces:
 	\begin{itemize}
-		\item $\TopC$ is the category of compact Hausdorff spaces.
-		\item $\TopCPoint$ is the category of pointed compact Hausdorff spaces.
-		\item $\TopCPair$ is the category of pairs of compact Hausdorff spaces.
+		\item $\TopC$ is the category of compact spaces.
+		\item $\TopCPoint$ is the category of well-pointed compact spaces.
+		\item $\TopCPair$ is the category of pairs of compact spaces, where the inclusions are cofibrations.
 	\end{itemize}
 	Here, we have the natural functors:
 	\begin{itemize}
 		\item $\TopCPair \to \TopCPoint$ by sending a pair $(X,Y)\mapsto (X/Y,[Y])$ with obvious morphisms. If $Y=\emptyset$ this is the disjoint union of $X$ with a point.
-		\item $\TopC \to \TopCPair$ by sending $X\mapsto (X,\emptyset)$ again with obvious morphisms.
-		\item $\TopC \to \TopCPoint$ as the composition.
+		\item $\TopC \to \TopCPair$ by sending $X\mapsto (X,\emptyset)$ again with obvious morphisms. the inclusion of $\setminus$ into $X$ is a cofibration, as the empty set itself is a open neighbourhood and hence the pair is a NDR pair.
+		\item $\TopC \to \TopCPoint$ as the composition. Again, the inclusion of $[\emptyset]$ into the disjoint union $X \sqcup [\emptyset]$ is a cofibration, as $\{[\emptyset]\}$ is an open neighbourhood of itself.
 	\end{itemize}
 	If we decent to the category where the morphisms are homotopy classes of maps, we get the categories $\hTopC$, $\hTopCPoint$ and $\hTopCPair$. Furthermore, the construction gives a functor from the categorie of abelien semigroups to the categorie of abelien groups. 
 \end{definition}
@@ -1040,18 +1040,24 @@ Where $i$ is the inclusion $\{p\}\to X$ and $c_p$ is the collaps $X\to \{p\}$. T
  We can compose this map with the natural currying map $C(X\times Y,Z)\to C(X,C(Y,Z))$. For $Y=S$ we gain a map 
  \begin{equation*}
 	C(SX,Z)\to C(X,\Omega Z)
- \end{equation*} that is again a bijection, since any $f:X\to \Omega Z$ gives a map $\tilde{f}:X\times S\to Z$ $\tilde{f}(x,s)\mapsto f(x)(s)$. If $(x,s)\in X\vee S\subseteq X\times S$, then either $x=x_0$ or $s=1$. In the first case. $f(x_0)$ is the constant loop and hence $f(x_0)(s)=z_0$ and in the second case we evaluate a based loop at its base and hence $f(x)(1)=z_0$. Hence, the $\tilde{f}$ factors over $X\vee S$ giving a well defined element in $C(SX,Z)$. This is its inverse. 
-
- The continuouity of said map and its inverse falls into the realm of technical pointset topology and can be seen in Proposition A.14.\cite{hatcher2002algebraic}. 
+ \end{equation*} that is again a bijection, since any $f:X\to \Omega Z$ gives a map $\tilde{f}:X\times S\to Z$ $\tilde{f}(x,s)\mapsto f(x)(s)$. If $(x,s)\in X\vee S\subseteq X\times S$, then either $x=x_0$ or $s=1$. In the first case. $f(x_0)$ is the constant loop and hence $f(x_0)(s)=z_0$ and in the second case we evaluate a based loop at its base and hence $f(x)(1)=z_0$. Hence, the $\tilde{f}$ factors over $X\vee S$ giving a well defined element in $C(SX,Z)$. This is its inverse. The continuoty part of the argument follows from Proposition \ref{prop:kTheo-curryingIsContinuous}.
 \end{proof}
 \begin{remark}
 	By Theorem \ref{thm:kTheo-reducedKgroupAsHomotopy}, and the Proposition above we know that for a connnected pointed compact space we have
 	\begin{equation*}
 		\tilde{K}(SX)\cong[SX,BU] \cong [X,\Omega B U]
-	\end{equation*} On the other hand we have Lemma $lem:kTheo-reducedSuspendedKGroupHomotopically$ which tells us that 
+	\end{equation*} On the other hand we have Lemma \ref{lem:kTheo-reducedSuspendedKGroupHomotopically} which tells us that 
 	\begin{equation*}
 		\tilde{K}(SX) \cong [X,U]\,.
-	\end{equation*}This hints at a deeper connection that states that 
-$\Omega B U$ is homotopically equivalent to $ U$.
+	\end{equation*}This hints at a connection that states that 
+$\Omega B U$ is homotopically equivalent to $ U$:
 \end{remark}
-
+\begin{theorem}[Homotopical Bott Periodicity]
+	hier die beiden homotopieaussagen reinbuttern mit quellen
+	\begin{equation*}
+		\pi_i(U)\simeq \pi_{i+1}(U)
+	\end{equation*}
+\end{theorem}
+\begin{corollary}
+	Let $X$ be a well pointed topological space. then 
+\end{corollary}

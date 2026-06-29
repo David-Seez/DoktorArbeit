@@ -26,7 +26,7 @@ Whilst Steenrod argues for the category of \textit{compactly generated Hausdorff
     We call the category of compactly generated weak Hausdorff spaces together with continuous functions as morphisms $\CGWH$. 
 \end{definition}
 
-\begin{proposition}
+\begin{proposition}\label{prop:topPre-spacesThatAreCGWH}
 \begin{enumerate}
     \item Every closed subset of a compactly generated weak Hausdorff space is compactly generated weak Hausdorff in the subspace topology.
     \item Every locally compact Hausdorff space, and hence every compact space, is compactly generated weak Hausdorff.
@@ -40,7 +40,7 @@ Whilst Steenrod argues for the category of \textit{compactly generated Hausdorff
 \end{proposition}
 There is another caveat and reason for the usage of $\CGWH$. If we view two CW-complexes as topological spaces, their product might not be a CW-complex. However as objects in $\CGWH$ their product is a CW-complex. The reason behind this is that the general product doesn't produce the final topology; when it fails to be compactly generated it is strictly coarser than the CW-topology. Passing to the product in $\CGWH$ (hence making the topologgy finer to become compactly generated) repairs this, and the product of CW-complexes is again a CW-complex.
 \begin{remark}
-    From now on all topological spaces will be compactly generated weak Hausdorff. For such spaces the product $X\times Y$ always means the product in $\CGWH$.
+    From now on all topological spaces will be compactly generated weak Hausdorff. For such spaces the product $X\times Y$ always means the product in $\CGWH$.Proposition \ref{prop:topPre-spacesThatAreCGWH} (6) tells us: If one of the factors is also locally compact Hausdorff, the product in $\CGWH$ agrees with the classsical product.
 \end{remark}
 
 For the construction of topological K-Theory we will heavily rely on the two theorems from pointset topology:
@@ -109,7 +109,7 @@ If we encounter an NDR pair in this thesis that lives in a manifold, we will oft
 \begin{proposition}
 	If $X$ is compactly generated and $Y$ compactly generated weak Hausdorff, then $C(X,Y)$ is compactly generated weak Hausdorff. 
 \end{proposition}
-\begin{proposition}
+\begin{proposition}\label{prop:kTheo-curryingIsContinuous}
 	Let $X,Y,Z$ be objects in $\Top$. The natural map
 	\begin{equation*}
 		C(X,C(Y,Z))\to C(X\times Y,Z)
