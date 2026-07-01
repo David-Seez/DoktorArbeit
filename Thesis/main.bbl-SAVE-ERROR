@@ -1,0 +1,368 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.2 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{anyt/global//global/global}
+    \entry{atiyah1989k}{book}{}
+      \name{author}{1}{}{%
+        {{hash=feb3593a7d423b4961148cc3cc6c0231}{%
+           family={Atiyah},
+           familyi={A\bibinitperiod},
+           given={M.\bibnamedelimi F.},
+           giveni={M\bibinitperiod\bibinitdelim F\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Redwood City, CA}%
+      }
+      \list{publisher}{1}{%
+        {Addison-Wesley Publishing Company Advanced Book Program}%
+      }
+      \strng{namehash}{feb3593a7d423b4961148cc3cc6c0231}
+      \strng{fullhash}{feb3593a7d423b4961148cc3cc6c0231}
+      \strng{bibnamehash}{feb3593a7d423b4961148cc3cc6c0231}
+      \strng{authorbibnamehash}{feb3593a7d423b4961148cc3cc6c0231}
+      \strng{authornamehash}{feb3593a7d423b4961148cc3cc6c0231}
+      \strng{authorfullhash}{feb3593a7d423b4961148cc3cc6c0231}
+      \field{labelalpha}{Ati89}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{Second}
+      \field{isbn}{0-201-09394-4}
+      \field{note}{Notes by D. W. Anderson}
+      \field{series}{Advanced Book Classics}
+      \field{title}{{$K$}-theory}
+      \field{year}{1989}
+      \field{pages}{xx+216}
+      \range{pages}{-1}
+    \endentry
+    \entry{banyaga2004lectures}{book}{}
+      \name{author}{2}{}{%
+        {{hash=71b1b62eaa7b8805e5582243ea133693}{%
+           family={Banyaga},
+           familyi={B\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+        {{hash=d802bf97488cdea9748ee8ba7b03a9c5}{%
+           family={Hurtubise},
+           familyi={H\bibinitperiod},
+           given={D.},
+           giveni={D\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer Netherlands}%
+      }
+      \strng{namehash}{efaed3a79a10e81b7c3d6ae9d550aa60}
+      \strng{fullhash}{efaed3a79a10e81b7c3d6ae9d550aa60}
+      \strng{bibnamehash}{efaed3a79a10e81b7c3d6ae9d550aa60}
+      \strng{authorbibnamehash}{efaed3a79a10e81b7c3d6ae9d550aa60}
+      \strng{authornamehash}{efaed3a79a10e81b7c3d6ae9d550aa60}
+      \strng{authorfullhash}{efaed3a79a10e81b7c3d6ae9d550aa60}
+      \field{labelalpha}{BH04}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{9781402026959}
+      \field{series}{Texts in the Mathematical Sciences}
+      \field{title}{Lectures on Morse Homology}
+      \field{year}{2004}
+      \verb{urlraw}
+      \verb https://books.google.de/books?id=AX-_sbMjOK4C
+      \endverb
+      \verb{url}
+      \verb https://books.google.de/books?id=AX-_sbMjOK4C
+      \endverb
+    \endentry
+    \entry{Brodzki1996}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=085706e0d25ea9c857bb24cf4135f059}{%
+           family={Brodzki},
+           familyi={B\bibinitperiod},
+           given={Jacek},
+           giveni={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{085706e0d25ea9c857bb24cf4135f059}
+      \strng{fullhash}{085706e0d25ea9c857bb24cf4135f059}
+      \strng{bibnamehash}{085706e0d25ea9c857bb24cf4135f059}
+      \strng{authorbibnamehash}{085706e0d25ea9c857bb24cf4135f059}
+      \strng{authornamehash}{085706e0d25ea9c857bb24cf4135f059}
+      \strng{authorfullhash}{085706e0d25ea9c857bb24cf4135f059}
+      \field{labelalpha}{Bro96}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprinttype}{arXiv}
+      \field{title}{An Introduction to K-theory and Cyclic Cohomology}
+      \field{year}{1996}
+      \verb{eprint}
+      \verb funct-an/9606001
+      \endverb
+      \verb{urlraw}
+      \verb https://arxiv.org/abs/funct-an/9606001
+      \endverb
+      \verb{url}
+      \verb https://arxiv.org/abs/funct-an/9606001
+      \endverb
+    \endentry
+    \entry{Courtney2004}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=b0a4764d5b2a2b13e1e7a46a77f496a1}{%
+           family={Courtney},
+           familyi={C\bibinitperiod},
+           given={Dennis},
+           giveni={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{b0a4764d5b2a2b13e1e7a46a77f496a1}
+      \strng{fullhash}{b0a4764d5b2a2b13e1e7a46a77f496a1}
+      \strng{bibnamehash}{b0a4764d5b2a2b13e1e7a46a77f496a1}
+      \strng{authorbibnamehash}{b0a4764d5b2a2b13e1e7a46a77f496a1}
+      \strng{authornamehash}{b0a4764d5b2a2b13e1e7a46a77f496a1}
+      \strng{authorfullhash}{b0a4764d5b2a2b13e1e7a46a77f496a1}
+      \field{labelalpha}{Cou04}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{A Brief Glance at K-theory}
+      \field{year}{2004}
+      \verb{urlraw}
+      \verb https://math.berkeley.edu/~hutching/teach/215b-2004/courtney.pdf
+      \endverb
+      \verb{url}
+      \verb https://math.berkeley.edu/~hutching/teach/215b-2004/courtney.pdf
+      \endverb
+    \endentry
+    \entry{CliffordPreston1961}{book}{}
+      \name{author}{2}{}{%
+        {{hash=03416d33d71ca5842305cc75740a5aab}{%
+           family={Clifford},
+           familyi={C\bibinitperiod},
+           given={A.\bibnamedelimi H.},
+           giveni={A\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+        {{hash=50b362e76fe25f62c0967866fcc3eb5a}{%
+           family={Preston},
+           familyi={P\bibinitperiod},
+           given={G.\bibnamedelimi B.},
+           giveni={G\bibinitperiod\bibinitdelim B\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Providence, R.I.}%
+      }
+      \list{publisher}{1}{%
+        {American Mathematical Society}%
+      }
+      \strng{namehash}{60ae3b564d1414c1ce9b2e6d251283f9}
+      \strng{fullhash}{60ae3b564d1414c1ce9b2e6d251283f9}
+      \strng{bibnamehash}{60ae3b564d1414c1ce9b2e6d251283f9}
+      \strng{authorbibnamehash}{60ae3b564d1414c1ce9b2e6d251283f9}
+      \strng{authornamehash}{60ae3b564d1414c1ce9b2e6d251283f9}
+      \strng{authorfullhash}{60ae3b564d1414c1ce9b2e6d251283f9}
+      \field{labelalpha}{CP61}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{number}{7}
+      \field{series}{Mathematical Surveys}
+      \field{title}{The Algebraic Theory of Semigroups}
+      \field{volume}{I}
+      \field{year}{1961}
+    \endentry
+    \entry{Green1965}{book}{}
+      \name{author}{1}{}{%
+        {{hash=0e19f021aba27c9ec623165f9da4d6a7}{%
+           family={Green},
+           familyi={G\bibinitperiod},
+           given={J.\bibnamedelimi A.},
+           giveni={J\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {London}%
+      }
+      \list{publisher}{1}{%
+        {Routledge \& Kegan Paul}%
+      }
+      \strng{namehash}{0e19f021aba27c9ec623165f9da4d6a7}
+      \strng{fullhash}{0e19f021aba27c9ec623165f9da4d6a7}
+      \strng{bibnamehash}{0e19f021aba27c9ec623165f9da4d6a7}
+      \strng{authorbibnamehash}{0e19f021aba27c9ec623165f9da4d6a7}
+      \strng{authornamehash}{0e19f021aba27c9ec623165f9da4d6a7}
+      \strng{authorfullhash}{0e19f021aba27c9ec623165f9da4d6a7}
+      \field{labelalpha}{Gre65}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Sets and Groups}
+      \field{year}{1965}
+    \endentry
+    \entry{hatcher2002algebraic}{book}{}
+      \name{author}{1}{}{%
+        {{hash=0a94eadf86d8b878d4c37bc5640e53e3}{%
+           family={Hatcher},
+           familyi={H\bibinitperiod},
+           given={Allen},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Cambridge}%
+      }
+      \list{publisher}{1}{%
+        {Cambridge University Press}%
+      }
+      \strng{namehash}{0a94eadf86d8b878d4c37bc5640e53e3}
+      \strng{fullhash}{0a94eadf86d8b878d4c37bc5640e53e3}
+      \strng{bibnamehash}{0a94eadf86d8b878d4c37bc5640e53e3}
+      \strng{authorbibnamehash}{0a94eadf86d8b878d4c37bc5640e53e3}
+      \strng{authornamehash}{0a94eadf86d8b878d4c37bc5640e53e3}
+      \strng{authorfullhash}{0a94eadf86d8b878d4c37bc5640e53e3}
+      \field{labelalpha}{Hat02}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{978-0-521-79540-1}
+      \field{title}{Algebraic Topology}
+      \field{year}{2002}
+    \endentry
+    \entry{Landweber2005}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=0a6685421ec45d8420d45a45af97a23e}{%
+           family={Landweber},
+           familyi={L\bibinitperiod},
+           given={Gregory\bibnamedelima D.},
+           giveni={G\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+      }
+      \strng{namehash}{0a6685421ec45d8420d45a45af97a23e}
+      \strng{fullhash}{0a6685421ec45d8420d45a45af97a23e}
+      \strng{bibnamehash}{0a6685421ec45d8420d45a45af97a23e}
+      \strng{authorbibnamehash}{0a6685421ec45d8420d45a45af97a23e}
+      \strng{authornamehash}{0a6685421ec45d8420d45a45af97a23e}
+      \strng{authorfullhash}{0a6685421ec45d8420d45a45af97a23e}
+      \field{labelalpha}{Lan05}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprinttype}{arXiv}
+      \field{title}{K-Theory and Elliptic Operators}
+      \field{year}{2005}
+      \verb{eprint}
+      \verb math/0504555
+      \endverb
+      \verb{urlraw}
+      \verb https://arxiv.org/abs/math/0504555
+      \endverb
+      \verb{url}
+      \verb https://arxiv.org/abs/math/0504555
+      \endverb
+    \endentry
+    \entry{Steenrod1967}{article}{}
+      \name{author}{1}{}{%
+        {{hash=ed2ec7ecef08adf709948d768edd95c1}{%
+           family={Steenrod},
+           familyi={S\bibinitperiod},
+           given={N.\bibnamedelimi E.},
+           giveni={N\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {University of Michigan, Department of Mathematics}%
+      }
+      \strng{namehash}{ed2ec7ecef08adf709948d768edd95c1}
+      \strng{fullhash}{ed2ec7ecef08adf709948d768edd95c1}
+      \strng{bibnamehash}{ed2ec7ecef08adf709948d768edd95c1}
+      \strng{authorbibnamehash}{ed2ec7ecef08adf709948d768edd95c1}
+      \strng{authornamehash}{ed2ec7ecef08adf709948d768edd95c1}
+      \strng{authorfullhash}{ed2ec7ecef08adf709948d768edd95c1}
+      \field{labelalpha}{Ste67}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Michigan Mathematical Journal}
+      \field{number}{2}
+      \field{title}{A convenient category of topological spaces}
+      \field{volume}{14}
+      \field{year}{1967}
+      \field{pages}{133\bibrangedash 152}
+      \range{pages}{20}
+      \verb{doi}
+      \verb 10.1307/mmj/1028999711
+      \endverb
+    \endentry
+    \entry{strickland_cgwh}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=b1625380a6ace09f6090438d612ba2b5}{%
+           family={Strickland},
+           familyi={S\bibinitperiod},
+           given={Neil\bibnamedelima P.},
+           giveni={N\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
+      }
+      \strng{namehash}{b1625380a6ace09f6090438d612ba2b5}
+      \strng{fullhash}{b1625380a6ace09f6090438d612ba2b5}
+      \strng{bibnamehash}{b1625380a6ace09f6090438d612ba2b5}
+      \strng{authorbibnamehash}{b1625380a6ace09f6090438d612ba2b5}
+      \strng{authornamehash}{b1625380a6ace09f6090438d612ba2b5}
+      \strng{authorfullhash}{b1625380a6ace09f6090438d612ba2b5}
+      \field{labelalpha}{Str}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{Unpublished note, \url{https://ncatlab.org/nlab/files/StricklandCGWHSpaces.pdf}}
+      \field{note}{abgerufen am 25.\ Juni 2026}
+      \field{title}{The Category of {CGWH} Spaces}
+    \endentry
+    \entry{tomdieck2008algebraic}{book}{}
+      \name{author}{1}{}{%
+        {{hash=b94062694640341ff7681aac676f4cee}{%
+           family={{tom Dieck}},
+           familyi={t\bibinitperiod},
+           given={Tammo},
+           giveni={T\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {European Mathematical Society (EMS), Zürich}%
+      }
+      \strng{namehash}{b94062694640341ff7681aac676f4cee}
+      \strng{fullhash}{b94062694640341ff7681aac676f4cee}
+      \strng{bibnamehash}{b94062694640341ff7681aac676f4cee}
+      \strng{authorbibnamehash}{b94062694640341ff7681aac676f4cee}
+      \strng{authornamehash}{b94062694640341ff7681aac676f4cee}
+      \strng{authorfullhash}{b94062694640341ff7681aac676f4cee}
+      \field{labelalpha}{tom08}
+      \field{sortinit}{t}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{978-3-03719-048-7}
+      \field{series}{EMS Textbooks in Mathematics}
+      \field{title}{Algebraic Topology}
+      \field{year}{2008}
+      \verb{doi}
+      \verb 10.4171/048
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

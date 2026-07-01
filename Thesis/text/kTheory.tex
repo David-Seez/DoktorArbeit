@@ -126,7 +126,7 @@ By Corollary \ref{cor:kTheo-isomorphismExtension} we can extend the isomorphism 
 	\end{align*}
 	and all be compact spaces. 
 	 Assume that $E_i$ is a vector bundle over $X_i$ and $\phi :\restr{E_1}{A} \to \restr{E_2}{A}$ is an isomorphism. Then we define a vector bundle $E_1 \cap_{\phi} E_2$ on $X$ as follows:
-	 We topologize the space $E_1 \cup_{\phi} E_2$ as the quotient of $E_1 + E_2 \slash \sim$, where $\sim$ is the identification of points with their image under $\phi$.
+	 We topologize the space $E_1 \glue{\phi} E_2$ as the quotient of $E_1 + E_2 \slash \sim$, where $\sim$ is the identification of points with their image under $\phi$.
 	 Identifying $X$ with $X_1 +X_2 $ in the quotient space we get the natural projection $p:E_1 \cap_{\phi} E_2 \to X$ and the fibers have a natural vector space structure. It remains to show that this is locally trivial. This is obvious outside of $A$ so let $a\in A$ and $V_1$ be a closed neighbourhood of $a$ in $X_1$ such that $\restr{E_1}{V_1}$ is trivial giving us the isomorphisms
 	 	\begin{align*}
 	 	\theta_1: \restr{E_1}{V_1} &\to V_1 \times \C^n \, \\
@@ -151,24 +151,24 @@ By Corollary \ref{cor:kTheo-isomorphismExtension} we can extend the isomorphism 
 	\begin{enumerate}
 		\item If $E$ is a bundle over $X$, then the identity defines ans isomorphism and 
 		\begin{equation*}
-			E_1 \cup_{\id_A}E_2 \cong E.
+			E_1 \glue{\id_A}E_2 \cong E.
 		\end{equation*}
 		\item If $\beta_i:E_i \to E_i'$ are isomorphisms on $X_i$ and $\phi' \beta_1=\beta_2\phi$, then  
 		\begin{equation*}
-			E_1\cup_{\phi}E_2 \cong E'_1\cup_{\phi'}E'_2 \, .
+			E_1\glue{\phi}E_2 \cong E'_1\glue{\phi'}E'_2 \, .
 		\end{equation*}
 		\item If $(E_i,\phi)$ and $(E'_i,\phi')$ are two "clutching data" on $X_i$, then 
 		\begin{align*}
-			(E_1 \cup _{\phi}E_2)\oplus (E'_1 \cup _{\phi'}E'_2)&\cong E_1\oplus E'_1 \bigcup_{\phi \oplus \phi'}E_2\oplus E'_2 \, ,\\
-			(E_1 \cup _{\phi}E_2)\otimes (E'_1 \cup_{\phi'}E'_2)&\cong E_1\otimes E'_1 \bigcup_{\phi \otimes \phi'}E_2\otimes E'_2 \, ,\\
-			(E_1 \cup _{\phi}E_2)^* &\cong E^*_1\bigcup_{(\phi^*)^{-1}}E^*_2 \, .
+			(E_1 \cup _{\phi}E_2)\oplus (E'_1 \cup _{\phi'}E'_2)&\cong E_1\oplus E'_1 \Glue{\phi \oplus \phi'}E_2\oplus E'_2 \, ,\\
+			(E_1 \cup _{\phi}E_2)\otimes (E'_1 \glue{\phi'}E'_2)&\cong E_1\otimes E'_1 \Glue{\phi \otimes \phi'}E_2\otimes E'_2 \, ,\\
+			(E_1 \cup _{\phi}E_2)^* &\cong E^*_1\Glue{(\phi^*)^{-1}}E^*_2 \, .
 		\end{align*} $(-)^*$ denotes the dual here.
 	\end{enumerate}
 \end{corollary}
 
 \begin{lemma}
 	\label{lem:kTheo-homotopyInvarianceClutchingFunction}
-	The isomorphism class of $E_1\cup_\phi E_2$ depends only on the homotopy class of the isomorphism $\phi:\restr{E_1}{A}\to \restr{E_2}{A}$\,.
+	The isomorphism class of $E_1\glue\phi E_2$ depends only on the homotopy class of the isomorphism $\phi:\restr{E_1}{A}\to \restr{E_2}{A}$\,.
 	\end{lemma}
 \begin{proof}
 	A homotopy of isomorphisms is a map 
@@ -188,22 +188,22 @@ This is a bundle isomorphism, since $\Phi_t$ is one. Now denote the inclusion
 
 With those definitions it is clear by the construction of the gluing, that 
 \begin{equation}\label{eq:kTheo-gluingHomotopyInvariant}
-	E_1\,\cup_{\Phi_t}\,E_2\,\cong\, i_t^*\left(\pi^*(E_1)\, \cup_{\Psi}\, \pi^*(E_2)\right)\,.
+	E_1\glue{\Phi_t} E_2\,\cong\, i_t^*\left(\pi^*(E_1) \glue{\Psi} \pi^*(E_2)\right)\,.
 \end{equation} The isomorphism can be seen by part (2) of Corollary  \ref{cor:kTheo-elementaryPropertiesGluingAndClutching}. as follows: 
 First notice the isomorphism $\restr{\pi^*(E_i)}{A\times \{t\}}\cong E_i$ for $i=1,2$ and any $t$. By construction of the gluing this leads to the isomorphism 
 \begin{equation*}
-		E_1\,\cup_{\Phi_t}\,E_2\,\cong\,	\restr{\pi^*(E_1)}{A\times \{t\}} \, \cup_{(\Phi_t,\id)} \, \restr{\pi^*(E_2)}{A\times \{t\}}\,.
+		E_1 \glue{\Phi_t} E_2\,\cong\,	\restr{\pi^*(E_1)}{A\times \{t\}}  \glue{(\Phi_t,\id)} \restr{\pi^*(E_2)}{A\times \{t\}}\,.
 \end{equation*} Now again by construction we notice, that gluing restricted spaces is the same as gluing the whole space and then restricting. Furthermore the map $(\Phi_t,\id)$ is the restriction of $\Psi$ to $X\times\{t\}$. Therefore: 
 \begin{equation*}
-	\restr{\pi^*(E_1)}{A\times \{t\}} \, \cup_{(\Phi_t,\id)} \, \restr{\pi^*(E_2)}{A\times \{t\}}\,\cong \, 	\restr{\left(\pi^*(E_1) \cup_{\Psi} \pi^*(E_2)\right)}{X\times\{t\}}
+	\restr{\pi^*(E_1)}{A\times \{t\}}  \glue{(\Phi_t,\id)}  \restr{\pi^*(E_2)}{A\times \{t\}}\,\cong \, 	\restr{\left(\pi^*(E_1) \glue{\Psi} \pi^*(E_2)\right)}{X\times\{t\}}
 \end{equation*} Finally, pulling back via $i_t$ is the same as restricting $X\times i$ to $X\times \{t\}$ and identifying $X$ with $X\times \{t\}$. This concludes the chain of arguments:
 \begin{equation*}
-	\restr{\left(\pi^*(E_1) \cup_{\Psi} \pi^*(E_2)\right)}{X\times\{t\}} \, \cong \,
-	i_t^*\left(\pi^*(E_1)\, \cup_{\Psi}\, \pi^*(E_2)\right)\,.
+	\restr{\left(\pi^*(E_1) \glue{\Psi} \pi^*(E_2)\right)}{X\times\{t\}} \, \cong \,
+	i_t^*\left(\pi^*(E_1)   \glue{\Psi} \pi^*(E_2)\right)\,.
 \end{equation*}
 Since the pullback is homotopy invariant we can conclude by the isomorphism (\ref{eq:kTheo-gluingHomotopyInvariant}):
 \begin{equation*}
-	E_1\,\cup_{\Phi_0}\,E_2\,\cong\,E_1\,\cup_{\Phi_1}\,E_2\,.
+	E_1 \glue{\Phi_0} E_2\,\cong\,E_1 \glue{\Phi_1} E_2\,.
 \end{equation*}
 \end{proof}
 \begin{definition}\label{def:kTheo-homotopyClassesOfMaps}
@@ -222,12 +222,12 @@ Since the pullback is homotopy invariant we can conclude by the isomorphism (\re
 		\alpha_1:\restr{E}{X_1}\to X_1\times \C^n,\quad \text{and}\quad 	\alpha_2:\restr{E}{X_2}\to X_2\times \C^n\,.
 	\end{equation*} With part (2) of Corollary \ref{cor:kTheo-elementaryPropertiesGluingAndClutching} we can conclude:
 	\begin{equation*}
-		E\,\cong\,\restr{E}{X_1}\cup_{\id_A} \restr{E}{X_2}\, \cong\, 
-		X\times \C^n \cup_{\restr{\alpha_2\circ \alpha_1^{-1}}{A}} X\times \C^n
+		E\,\cong\,\restr{E}{X_1}\glue{\id_A} \restr{E}{X_2}\, \cong\, 
+		X\times \C^n \glue{\restr{\alpha_2\circ \alpha_1^{-1}}{A}} X\times \C^n
 	\end{equation*} Since a map between the two trivial bundles $A\times \C^n\to A\times \C^n$ can be identified with a map $A\to \GL_n(\C)$ we get an assignment from bundles over $X$ together with the trivializations to maps $A\to \GL_n(\C)$. The next step is to show that two isomorphic vector bundles give homotopic maps: Assume that we are given two vector bundles $E,F$ over $X$ that are isomorphic via $T:E\to F$ and without loss of generality we assume that they are given as the gluing of two trivial bundles: 
 	\begin{equation*}
-		E: X_1\times \C^n \,\cup_{\phi}\, X_2\times \C^n\,,\quad\text{and}\quad  
-		F: X_1\times \C^n \,\cup_{\psi}\, X_2\times \C^n\,.
+		E: X_1\times \C^n \glue{\phi} X_2\times \C^n\,,\quad\text{and}\quad  
+		F: X_1\times \C^n \glue{\psi} X_2\times \C^n\,.
 	\end{equation*}
 	We now want to define a homotopy between $psi$ and $\phi$. For this we start by splitting the isomorphism $T$ into its two parts over $X_1$ and $X_2$:
 	\begin{equation*}
@@ -250,7 +250,7 @@ Since the pullback is homotopy invariant we can conclude by the isomorphism (\re
 		H_t(a)\coloneq T_{2,t}(a)\phi(a)T_{1,t}^{-1}(a)\,
 	\end{equation*} to get a homotopy from $\phi=H_0$ to $\psi=H_1$. Hence, we get a well defined map from isomorphism classes of bundles over $X$ of rank $n$ to the homotopy classes of maps from $A$ to $\GL_n(\C)$ that is the inverse of the gluing construction and hence is bijective.
 \end{proof}
-\begin{example}
+\begin{example} \label{ex:kTheo-tautopogicalLineBundleOverCP1}
 	We now want to analyze the tautological line bundle $l$ over $\C\PP^1$. For this we cut $\C\PP^1$ into the two pices whic are contractible as they come with homeomorphisms into the unit disc in $\C$:
 	\begin{align*}
 		H^+&\coloneq \{[x:y]\in \C\PP^1\,|\, \abs{x}\geq \abs{y}\}\, \to D\subset \C\,,\quad [x:y]\mapsto \frac{y}{x}\\
@@ -776,7 +776,7 @@ This proof is omitted but is Proposition 5.1.16 in \cite{tomdieck2008algebraic}.
 	\end{align*}
 	All those definitions give contravariant and homotopically invariant functors into the category of rings.
 \end{definition}
-\begin{corollary}
+\begin{corollary}\label{cor:kTheo-K(X)istK(X,nix)}
 	Let $X$ be a topological space. Then we have a natural isomorphism between the functors $K^0(X)$ and $K(X)$.
 \end{corollary}
 \begin{proof}
@@ -785,6 +785,9 @@ This proof is omitted but is Proposition 5.1.16 in \cite{tomdieck2008algebraic}.
 		K^0(X)=\tilde{K}(\Sigma^0(X,[\emptyset]))\cong \tilde{K}(X,[\emptyset])\cong K(X)
 	\end{equation*} where the first isomorphism comes from $\Sigma^0$ beeing canonically isomporphic to the identity and the second isomorphism is given in Corollary \ref{cor:kTheo-unpointedReducedIsNonReduced}.
 \end{proof}
+\begin{remark}
+	If we have pointed topological spaces $(X,x_0)$ or pairs $(X,A)$ and want to denote $K^0(X,pt)$ or $K^0(X,A)$ we will often omitt the exponent and just write $K(X,x_0)$ and $K(X,A)$.
+\end{remark}
 \subsection{Homotopy-Theoretic definition of $K$}
 
 \begin{definition}\label{def:kTheo-trivialBundleAndLimitInclusinos}
@@ -906,7 +909,10 @@ Where $i$ is the inclusion $\{p\}\to X$ and $c_p$ is the collaps $X\to \{p\}$. T
 	\tilde{\phi}: \mathrm{SVect}(X)\to \tilde{K}(X) 
 \end{equation*} is well defined and by the five lemma (add zeros the short sequences on the left) it is an isomorphism.
 \end{proof} 
-
+\begin{remark}\label{rem:kTheo-elementsInReducedKtheoryAreGivenByEMionusN}
+	In the proof above we have seen that every element of $k\in K(X)$ is given as the difference of a vector bundle and a trivial bundle $k=[\xi]-[\underline{n}]$ for some vector bundle $\xi$ and $n\in \N$. We also saw that 
+	$\tilde{K}(X)$ is in the kernal of $\rank$ and hence any $k\in \tilde{K}(X)$ is given by $k=[\xi]-[\underline{\rank(xi)}]$ where $\xi$ is a vector bundle.
+\end{remark}
 \begin{definition}
 	We define the \textbf{unitary group} $U$ to be the direct limit of the unitary goupf of rank $n$ under the standart inclusions
 	\begin{equation*}
@@ -995,10 +1001,10 @@ Where $i$ is the inclusion $\{p\}\to X$ and $c_p$ is the collaps $X\to \{p\}$. T
 	\end{equation*} Notice again, that for $\tilde{A}=A\oplus \Idm_1\in GL_{n+1}(\C)$, we have $U_{\tilde{A}}=U_A\oplus \Idm_1\in U(n+1)$. Now the space of positive-definite Hermitian matrizies is convex. This is just a calculation of all the axioms for the matricies on the connecting line of two positive-definit Hermitian matricies. But as a convex space, it is contractible.
 \end{proof}
 \begin{lemma}\label{lem:kTheo-reducedSuspendedKGroupHomotopically}
-	For a connected pointed space $X$ where the basepoints sits in \textit{well}, we have a natural homomorphism
+	For a connected pointed space $X$ with well sitting basepoint, we have a natural homomorphism
 	\begin{equation*}
 		\tilde{K}(\Sigma X)\cong [X,U]
-	\end{equation*} By "well sitting basepoint" we mean that $(S(X),\{x_0\}\times I$ is an NDR-pair.
+	\end{equation*} The group structure in $[X,U]$ comes from viewing $[X,U]$ as the direct limit of abelien groups $\colim[X,\GL_n(\C)]$, where the group structure is derived from the one in $\GL_n(\C)$.
 \end{lemma}
 
 \begin{proof}
@@ -1012,16 +1018,78 @@ Where $i$ is the inclusion $\{p\}\to X$ and $c_p$ is the collaps $X\to \{p\}$. T
 			C_-(X) \coloneq & \{(x,t)\in S(X) \,|\, t\leq \frac{1}{2} \} \,.	
 		\end{array} 
 	\end{equation*}
-	Those cones intersect in $\C_+\cap C_-= X\times \{\frac{1}{2}\}\cong X$.
-	Hence we can make use of Lemma \ref{lem:kTheo-gluingAndHomotopyClassesToGLn} to deduce that $\Vect_n(\Sigma(X))\cong [X,\GL_n(\C)]$ and Lemma \ref{lem:kTheo-reducedKisEventually} gives us 
+	Those cones intersect in $\C_+\cap C_-= X\times \{\frac{1}{2}\}\cong X$. Now denote the trivial $n$ bundle over $C_+(X)$ by $\underline{n}_+$ and over $C_-(X)$ by $\underline{n}_-$. With this notation we know by the proof of Lemma \ref{lem:kTheo-gluingAndHomotopyClassesToGLn} that the map
+	\begin{align}\label{eq:kTheo-SXtoHomotoy}
+		\phi_n: [X,\GL_n(\C)]&\to \Vect_n(\Sigma X)\\
+		f&\mapsto \underline{n}_+ \Glue{f} \underline{n}_- \nonumber
+	\end{align} in an bijection for all $n$. Furthermore, the inclusion of $\GL_n(\C)$ into $\GL_{n+1}(\C)$ gives an inclsion $[X,\GL_n(\C)]$  into $[X,\GL_n(\C)]$ which commutes with the inclusion $\Vect_n(\Sigma X)$ into $\Vect_{n+1}(\Sigma X)$ unter the bijection (\ref{eq:kTheo-SXtoHomotoy})meaning that for any $n\leq m$ the diagram 
+	\begin{center}
+        \begin{tikzcd}
+            {[X,\GL_n(\C)]} \arrow[r,"\phi_n"] \arrow[d,"i_{nm}"] &\Vect_n(\Sigma X) \arrow[d,"i_{nm}"]\\
+            {[X,\GL_m(\C)]} \arrow[r,"\phi_m"]           &\Vect_m(\Sigma X)
+\end{tikzcd}
+\end{center}commutes. Lemma \ref{lem:kTheo-reducedKisEventually} gives us 
 	\begin{equation*}
 		\tilde{K}(X)\cong \colim_n [X,\GL_n(\C)]\cong [X,\colim_n\GL_n(\C)]\,.
 	\end{equation*} Tha latter bjectino follows from Lemma \ref{lem:kTheo-colimUndHomVertauschen}.
 	Finally, Lemma \ref{lemma:kTheo-generalGroupContractsToUnitary} gives us a retraction $\GL_n(\C) \to U(n)$ that commutes with the inclusions and hence we get the same direct limit.
 	\begin{equation*}
 		[X,\colim_n\GL_n(\C)]\cong [X,\colim_nU(n)]=[X,U]
-	\end{equation*} concluding the proof.
+	\end{equation*} concluding that we have a natural bijection. To get the group strucure we need to look into said mapping. For this we inspect the mapping (\ref{eq:kTheo-SXtoHomotoy}) closer. Let 
+	\begin{equation*}
+		\Phi_n:[X,\GL_n(\C)]\to \colim \Vect_n(\Sigma X)
+	\end{equation*} be the composition of $\phi_n$ with the inclusion $\Vect_n(\Sigma X) \to \colim \Vect_n(\Sigma X)$ By the commutative diagramm above, the maps $\phi_n$ induce a map from $\colim [X,\GL_n(\C)]$ which is a group homomorphism, if all $\Phi_n$ are one. Hence take two functions $f,g:X\to \GL_n(\C)$. then by definition 
+	\begin{equation*}
+		f\oplus g: X \to GL_n(\C)\,,\quad x\mapsto f(x)\times g(x)
+	\end{equation*} Now $f\oplus g$ can be included into $[X,\GL_{2n}(\C)]$:
+	\begin{equation*}
+		f\oplus g: X \to GL_{2n}(\C)\,,\quad x\mapsto \begin{pmatrix}
+			f(x)\times g(x) & 0 \\
+			0& \Idm_n\
+		\end{pmatrix}\,.
+	\end{equation*}
+	Now we have that $f\oplus g$ is homotopic to 
+	\begin{equation*}
+		\widetilde{f\oplus g}:X\to X \to GL_{2n}(\C)\,, \quad 		x \mapsto\begin{pmatrix}
+			f(x) & 0 \\
+			0& g(x)
+		\end{pmatrix} 
+	\end{equation*} via the homotopy $\rho_t(x)$ for $t\in (0,\frac{\pi}{2})$:
+	\begin{equation} \label{eq:kTHeo-homotopyBetweendirectSumAndProduct}
+		\rho_t(x)=
+		\begin{pmatrix}	f(x)&0		   \\0&\Idm_n 		  \end{pmatrix}
+		\begin{pmatrix}	\cos(t)&\sin(t)\\ \sin(t)&\cos(t) \end{pmatrix}
+		\begin{pmatrix} \Idm_n &0	   \\0&g(x)			  \end{pmatrix}
+		\begin{pmatrix}	\cos(t)&\sin(t)\\ \sin(t)&\cos(t) \end{pmatrix}
+	\end{equation} Finally we can look at the image of $[f\oplus g]=[\widetilde{f\oplus g}]$ under $\Phi_{2n}$ which is given by inclusion of
+	\begin{equation*}
+		\phi_n([\widetilde{f\oplus g}])=\underline{n}_+\oplus \underline{n}_+ \Glue{\widetilde{f\oplus g}} \underline{n}_-\oplus \underline{n}_-=[\phi_n(f)\oplus \phi_n(g)]
+	\end{equation*} into the colimit, where the equation
+	\begin{equation*}
+	[\phi_n(f)\oplus \phi_n(g)]=[\phi_n(f)]\oplus [\phi_n(g)]
+	\end{equation*} holds. The second last equiality follows from the properties of the gluing construction given in Corollary \ref{cor:kTheo-elementaryPropertiesGluingAndClutching}.
 \end{proof}
+\begin{remark}
+	The proof of Lemma \ref{lem:kTheo-reducedSuspendedKGroupHomotopically} gives a slightly more general statement:
+	For a connected well pointed topological space $(X,x_0)$ with a splitting into two contractivle parts $X^+$ and $x^-$ with $x_0\in A\coloneq X^+\cap X^-$ and $X^+\cup X^-=X$ and the inclusion of $A$ into the two contractible parts are cofibrations, there is a natural group isomorphism
+	\begin{equation*}
+		[A,U]\cong \tilde{K}(X)
+	\end{equation*} 
+\end{remark}
+
+\begin{example}\label{ex:kTheo-LineBundlesSatlquadequalslPlusl}
+	Let $l$ and $l'$ be line bundles over $S^2$. Then the clutching functino for the vector bundle $l\otimes l'$ is given by the tensor product of clutching functions. So let $f$ and $f'$ be two clutching functions
+	\begin{equation*}
+		f,f':S \to 	  \GL_1(\C)
+	\end{equation*} Then the product bundle $l\otimes l'$ is given by the clutching function 
+	\begin{equation*}
+		f\otimes f': S\to \GL(\C\otimes \C)\cong \GL_1(\C)\,,\quad x\mapsto f(x)f'(x)
+		\end{equation*}
+	Hence, the product in $\tilde{K}(S^2)$ is given by  $f\otimes f'=f\cdot f'$.
+	Now, the homotopy (\ref{eq:kTHeo-homotopyBetweendirectSumAndProduct}) of the proof above shows that 
+$f\cdot f'\oplus \id_1\simeq f \oplus f'$ and hence $l\otimes l'\oplus \underline{1}\cong l\oplus l'$.
+\end{example}
+
 \begin{proposition}
 	For compactly generated pointed Hausdoff spaces $(X,x_0),(Y,y_0)$ there is a natural bijection
 	\begin{equation*}
@@ -1052,12 +1120,95 @@ Where $i$ is the inclusion $\{p\}\to X$ and $c_p$ is the collaps $X\to \{p\}$. T
 	\end{equation*}This hints at a connection that states that 
 $\Omega B U$ is homotopically equivalent to $ U$:
 \end{remark}
-\begin{theorem}[Homotopical Bott Periodicity]
-	hier die beiden homotopieaussagen reinbuttern mit quellen
+ 
+
+\subsection{K-Theory as a Cohomology Theory}
+This chapter aims to give the definitionions and theorems that makes K theory an axiomatic cohomology theory as defined by Eilenberg and Steenrod.
+For this we start trying to find a long exact sequence and on the way we well proof the additivity:
+
+\begin{lemma} \label{lem: Exact part for pairs}
+	Let $(X,Y)\in ob(\TopCPair)$ and define $i:(Y,\emptyset) \to (X,\emptyset)$ and $j:(X,\emptyset)\to(X,Y)$ to be the inclusions. Then we have an exact sequence:
+	\begin{center}
+		\begin{tikzcd}
+			{K(X,Y)} \arrow[r, "j^*"] & K(X) \arrow[r, "i^*"] & K(Y)
+		\end{tikzcd}
+	\end{center}
+	Here, we identify $K(X)=K(X,\emptyset)$ and the same with $K(Y)=K(Y,\emptyset)$ such that we have well defined induced functions from the same functor in the sequence. This is just a formall note, as $K(X,\emptyset)\cong K(X)$ by Corollary \ref{cor:kTheo-K(X)istK(X,nix)}.
+\end{lemma}
+\begin{proof}
+	First, we show that $\im(i^*)\subseteq \ker(j^*)$. To see this, notice that $i^*\circ j^*=(j\circ i)^*$, and $j\circ i$ factors over $(Y,Y)$:
+	\begin{center}
+		\begin{tikzcd}
+			{(Y,\emptyset)} \arrow[r, "i"] \arrow[d] & {(X,\emptyset)} \arrow[d, "j"] \\
+			{(Y,Y)} \arrow[r]                        & {(X,Y)}                       
+		\end{tikzcd}
+	\end{center}
+	Hence, $j^*\circ i^*$ factors over the trivial ring $K(Y,Y)$ and thereby is trivial.
+	Now suppose $k\in \ker(i^*)$. 
+	The intuition now is that if we have a vector bundle that gets mapped to $0$ this means that it is trivial over $Y$ which lets us define a vector bundle over the quotient $X\slash Y$ by a trivialization: 
+	We write $k=[\xi]-[\underline{n}]$ for $\xi$ being a vector bundle over $X$. (Compare Remark \ref{rem:kTheo-elementsInReducedKtheoryAreGivenByEMionusN}) Since $i^*\xi=0$ it follows that $i^*([\xi]-[n])=[\restr{\xi}{Y}]-[\restr{\underline{n}}{Y}]=0$ and hence $E$ and $n$ are stably equivalent over $Y$ giving us an $m$ such that 
 	\begin{equation*}
-		\pi_i(U)\simeq \pi_{i+1}(U)
+		\restr{\left(\xi\oplus \underline{m}\right)}{Y}\cong \restr{\xi}{Y}\oplus\underline{m}\cong \underline{n}\oplus \underline{m}
 	\end{equation*}
+	Hence, there is a trivialization $\alpha: \restr{\left(\xi\oplus \underline{m}\right)}{Y} \to Y\times \C^{\rank(\xi)+m}$ that defines a bundle $\restr{\left(\xi\oplus \underline{m}\right)}{Y} \big/\alpha$ over $X\big/Y$. Now we define 
+	\begin{equation*}
+		\eta=[\restr{\left(\xi\oplus \underline{m}\right)}{Y} \big/\alpha]-[\underline{nm}]\in \tilde{K}(X\big/Y)=K(X,Y)
+	\end{equation*} and 
+	\begin{equation*}
+		j^*(\eta)=[\xi \oplus \underline{m}]-[\underline{nm}]=k\,.
+	\end{equation*} This last equiality is \todo{hier gehts weiter}
+\end{proof}
+
+
+Bevor we start constructing a Cohomology theory, we extend the K groups to be defined not oly over the negativs, but over the whole $\Z$ which is done via an extension. The extension relies on periodic behaviour. Socalled Bott periodicity.
+\begin{definition}[External Product]
+	The \textbf{external product } $\mu:K(X)\otimes K(Y)\to K(X\times Y)$ is defined via the two projections $\pi_X:X\times Y\to X$ and $\pi_Y:X\times Y\to Y$ by:
+	\begin{align*}
+		\mu:K(X)\otimes K(Y)&\to K(X\times Y)\\
+		(a\otimes b)&\mapsto (\pi_X)^*(a)\cdot (\pi_Y)^*(b) \, ,
+	\end{align*} where $\cdot$ denotes the multiplication in the K-group, which was induced by the tensor Product. This $\mu$ is a ring homomorphism, since:
+	\begin{align*}
+		\mu((a \otimes b)(c \otimes d)) &= \mu(ac \otimes bd) \\
+		&= \pi_X^*(ac)\pi_Y^*(bd) \\
+		&= \pi_X^*(a)\pi_X^*(c)\pi_Y^*(b)\pi_Y^*(d) \\
+		&= \pi_X^*(a)\pi_Y^*(b)\pi_X^*(c)\pi_Y^*(d) \\
+		&= \mu(a \otimes b)\mu(c \otimes d)
+	\end{align*}
+\end{definition}
+By example \ref{ex:kTheo-LineBundlesSatlquadequalslPlusl} we know that for any line bundle $l$, $[l\otimes l \oplus \underline{1}]=[l]^2+[\underline{1}]=[l]+[l]$ which is equivalent to $([l]-1)^2=[l^2]-[l]+[l]+[\underline{1}]=0$. Now $\{[\underline{1}],[l]\}$ is an addative basis of $\Z\big/([l]^2-[\underline{1}])$. The mapping that is defined on a basis of the tensor product as follows
+	\begin{align*}
+		K(X)\otimes \Big(\Z([l])\Big/ ([l]^2-[\underline{1}])\Big)&\to K(X\times S^2)\\
+		[\xi]\otimes [\underline{1}] &\mapsto \mu([\xi], [\underline{1}])\\
+		[\xi]\otimes [l] &\mapsto \mu([\xi], [l])
+	\end{align*} is well defined. 
+\begin{theorem}[The Fundamental Product Theorem]\label{thm:kTheo-fundamentalProductTheorem}
+	For any compact $X$, and the tautological line bundle $l$ on $\C\PP^1\cong S^2$, the mapping 
+	\begin{equation*}
+		K(X)\otimes \Big(\Z([l])\Big/ ([l]^2-[\underline{1}])\Big)\to K(X\times S^2)
+	\end{equation*}is an isomorphism of rings. 
 \end{theorem}
+\begin{proof}
+	The proof is omitted here. There are elementary prooves given in Chapter 2.1 \cite{hatcher2002algebraic} or Chapter 2.3 \cite{atiyah1989k}. 
+\end{proof}
 \begin{corollary}
-	Let $X$ be a well pointed topological space. then 
+	If we take $X$ to be a point, then Theorem \ref{thm:kTheo-fundamentalProductTheorem} implies that
+	\begin{equation*}
+		\Phi: \Big(\Z([l])\Big/ ([l]^2-[\underline{1}])\Big)\to K(S^2)
+	\end{equation*} is an isomorphism. Hence, $K(S^2)$ is generated by $\{[\underline{1}],[l]\}$. Furtermore together with the map 
+	\begin{equation*}
+		\rank: \Big(\Z([l])\Big/ ([l]^2-[\underline{1}])\Big)\to \Z
+	\end{equation*} that maps the generatort to their rank, and 
+	\begin{equation*}
+		\nu: \Z \to K(pt);\,,\quad n \mapsto [\underline{n}]
+	\end{equation*} we get the commutative diagramm:
+	\begin{center}
+	\begin{tikzcd}
+		{\Z([l])\Big/ ([l]^2-[\underline{1}]) }\arrow[r,"\rank"] \arrow[d,"\Phi"] & \Z\arrow[d,"\nu"]\\
+ 		K(S^2) \arrow[r,"i_{pt}^*"] & K(pt) 	
+	\end{tikzcd}
+	\end{center}
+	By the commutativity, we get a isomoprhism induced by $\Phi$: 
+	\begin{equation*}
+		\tilde{K}(S^2)=\ker(i_{pt}^*) \cong \ker(rank)=\mathrm{span}([H]-[\underline{1}])
+	\end{equation*}
 \end{corollary}
