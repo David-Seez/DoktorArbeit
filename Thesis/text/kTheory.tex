@@ -87,9 +87,11 @@ By Corollary \ref{cor:kTheo-isomorphismExtension} we can extend the isomorphism 
 
 
 
+
 \begin{lemma}\label{lem:kTheo-trivialisationDefinesABundle}
 	A trivialization $\alpha$ of a bundle $E$ over $Y\subseteq X$ defines a bundle $E\big/ \alpha$ over $X\big/ Y$. The isomorphism class of $E\big/ \alpha$ depends only on the homotopy class of $\alpha$. 
 \end{lemma}
+
 \begin{proof}
 	We define the bundle $E/ \alpha $ as follows: Let $\pi_2: Y \times V \to V$ denote the projection and define an equivalence relation on $\restr{E}{Y}$ by 
 	\begin{equation*}
@@ -105,6 +107,37 @@ By Corollary \ref{cor:kTheo-isomorphismExtension} we can extend the isomorphism 
 		E \big/ \alpha_0 \cong E \big/ \alpha _1\,.
 	\end{equation*}
 \end{proof}
+
+\begin{corollary} \label{cor:kTheo-trivializationIsRightInverse}
+	The trivialization acts as a right inverse of the pullback along the collaps: If we call $f: X\to X\big/Y$ the collaps, and $fE$ can be trivialized over $Y$ via $\alpha$, then 
+	\begin{equation*}
+		f^*(E\big/ \alpha)\, \cong\, E\,.
+	\end{equation*}
+\end{corollary}
+\begin{proof}
+	Intuituvely this is clear, as the pullback along the collaps builds a bundle, that is trivial over $Y$ and agrees with $E$ outside of $Y$. To proof the statement we will construct a bundle map, that is an isomorphism in each fibre: 
+	Let $q:E\to E\big/\alpha$ denote the quotient map from the construction and let $\pi_E:E\to X$, $\pi_{E/\alpha}:E\big/\alpha\to X\big/Y$ be the bundle projections. By construction of $E\big/\alpha$ we have $\pi_{E/\alpha}\circ q = f\circ \pi_E$, so
+    \begin{equation*}
+        \Phi:E\to f^*\big(E\big/\alpha\big)\,,\qquad
+        \Phi(e) = \big(\pi_E(e),\, q(e)\big)
+    \end{equation*}
+    is a well-defined bundle morphism. We show $\Phi$ is a fiberwise linear isomorphism, and hence a bundle isomorphism by Lemma \ref{thm:vb-isomorphicVectorBundles}.
+
+    \emph{Case $x\notin Y$:} Here the equivalence relation defining $E/\alpha$ restricts to the identity on $E_x$, so
+    \begin{equation*}
+        q_{x}:E_x \;\xrightarrow{\ \cong\ }\; (E\big/\alpha)_{f(x)}=(E\big/\alpha)_x
+    \end{equation*}
+    is a linear isomorphism.
+
+    \emph{Case $x\in Y$:} By definition of the equivalence relation, two points $e,e'\in E_x$ are identified with $\pi_2\alpha(e)=\pi_2\alpha(e')\in V$, and all fibers $E_x$ ($x\in Y$) are glued to the single fiber $(E/\alpha)_{y_0}\cong V$ over the basepoint $y_0=Y\big/Y$. Hence
+    \begin{equation*}
+        q_{x} = \pi_2\circ\alpha_x : E_x \rightarrow V = (E\big/\alpha)_{y_0}\,,
+    \end{equation*}
+    where $\alpha_x:E_x\to V$ is the (linear) restriction of $\alpha$ to the fiber over $x$. Since $\alpha_x$ is a linear isomorphism, so is $q_{x}$.
+
+    Thus $\Phi$ is a bundle morphism which is a linear isomorphism on every fiber.
+\end{proof}
+
 \begin{lemma}
 	\label{lem:kTheo-collapsingOfContractibleSubspace}
 	Let $Y\subseteq X$ be a closed contractible subspace of a compact space $X$. Then 
@@ -118,6 +151,22 @@ By Corollary \ref{cor:kTheo-isomorphismExtension} we can extend the isomorphism 
 		\Vect(X)\to \Vect(X\big/ Y)\,,
 	\end{equation*}which in turn is an inverse of $f^*$ concluding the proof.
 \end{proof}
+
+\begin{lemma}
+	\label{lem:kTheo-collapsingOfContractibleSubspace}
+	Let $Y\subseteq X$ be a closed contractible subspace of a compact space $X$. Then 
+	\begin{equation*}
+		f:X\to X\big/ Y \quad \text{induces a semiring isomorphism}\quad f^*: \Vect(X\big/Y) \to \Vect(X)\,.
+	\end{equation*}
+\end{lemma}
+\begin{proof}
+	Since $Y$ is contractible, $\restr{E}{Y}$ is trivial and thereby a trivialization $\alpha:\restr{E}{Y}\to Y\times V$ exists. Two such trivializations only differ by the automorphism  of $Y\times V$ which in turn corresponds to a map $Y\to \GL(V)\cong \GL_{\rank(E)}(\C)$. Now since $Y$ is contractible those two maps factor (up to homotopy) over any one point $y\in Y$ and are thereby homotopically equivalent to the constant map. Finally since $\GL_{\rank(E)}(\C)$ is connected all constant maps are homotopically equivalent. Thereby $\alpha$ is unique up to homotopy. By Lemma \ref{lem:kTheo-trivialisationDefinesABundle} the isomorphism class of $E\big/ \alpha$ only depends on the homotopy class of $\alpha$ we have a well defined map 
+	\begin{equation*}
+		\Vect(X)\to \Vect(X\big/ Y)\,,
+	\end{equation*}which in turn is an inverse of $f^*$ concluding the proof.
+\end{proof}
+
+
 \begin{definition}[Gluing and Clutching of Vector Bundles]
 	\label{def:kTheo-gluingAndClutching}
 	Let 
@@ -1150,13 +1199,13 @@ For this we start trying to find a long exact sequence and on the way we well pr
 	\begin{equation*}
 		\restr{\left(\xi\oplus \underline{m}\right)}{Y}\cong \restr{\xi}{Y}\oplus\underline{m}\cong \underline{n}\oplus \underline{m}
 	\end{equation*}
-	Hence, there is a trivialization $\alpha: \restr{\left(\xi\oplus \underline{m}\right)}{Y} \to Y\times \C^{\rank(\xi)+m}$ that defines a bundle $\restr{\left(\xi\oplus \underline{m}\right)}{Y} \big/\alpha$ over $X\big/Y$. Now we define 
+	Hence, there is a trivialization $\alpha: \restr{\left(\xi\oplus \underline{m}\right)}{Y} \to Y\times \C^{\rank(\xi)+m}$ that defines a bundle $\restr{\left(\xi\oplus \underline{m}\right)}{Y} \big/\alpha$ as shown in the proof of Lemma \ref{lem:kTheo-trivialisationDefinesABundle} over $X\big/Y$. Now we define 
 	\begin{equation*}
-		\eta=[\restr{\left(\xi\oplus \underline{m}\right)}{Y} \big/\alpha]-[\underline{nm}]\in \tilde{K}(X\big/Y)=K(X,Y)
-	\end{equation*} and 
+		\eta=[\restr{\left(\xi\oplus \underline{m}\right)}{Y} \big/\alpha]-[\underline{n+m}]\in \tilde{K}(X\big/Y)=K(X,Y)
+	\end{equation*} and sine the trivialization acts as a right inverse of the pullback of the restriction (compare Corollary \ref{cor:kTheo-trivializationIsRightInverse})
 	\begin{equation*}
-		j^*(\eta)=[\xi \oplus \underline{m}]-[\underline{nm}]=k\,.
-	\end{equation*} This last equiality is \todo{hier gehts weiter}
+		j^*(\eta)=[\xi \oplus \underline{m}]-[\underline{n+m}]=k\,.
+	\end{equation*} 
 \end{proof}
 
 
