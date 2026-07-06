@@ -532,3 +532,87 @@ Bevore we start proving this we need the lemma:
 		\end{equation*}
 		Furthermore: $\Delta(\alpha_p)=\delta^2_{triple}(\alpha_p)=\sum_{\gamma \in \mathcal{q,p}} n_\gamma(\alpha_q)$. This concludes the prove. 
 	\end{proof}
+	\begin{lemma}[Sign of the double-cone collapse]\label{lem:kTheo-doubleConeFlip}
+Let $Y$ be a well-pointed compact space and set
+\[
+  CY \coloneq (I\times Y)\big/(\{0\}\times Y),
+  \qquad
+  \Sigma Y \coloneq (I\times Y)\big/\bigl(\{0\}\times Y,\ \{1\}\times Y\bigr),
+\]
+with points written $(x,t)$, so $CY$ has apex $\{0\}\times Y$ and base $\{1\}\times Y\cong Y$. Let
+\[
+  D \coloneq C_1Y\cup C_2Y
+     = \bigl(C_1Y \sqcup C_2Y\bigr)\big/\bigl((x,1)_1\sim(x,1)_2\bigr)
+\]
+be the double cone, glued along the common base. Denote by
+\[
+  c_i\colon D \twoheadrightarrow C_iY\big/Y
+  \quad(\text{collapse of the complementary cone }C_jY\supset Y,\ j\neq i),
+\]
+by
+\[
+  \overline{\pi}_i\colon C_iY\big/Y \xrightarrow{\ \cong\ } \Sigma Y,
+  \qquad [(x,t)]\longmapsto (x,t)
+\]
+the common cone projection (\emph{the same formula} for $i=1,2$), and put
+$p_i \coloneq \overline{\pi}_i\circ c_i\colon D\to\Sigma Y$. Let
+\[
+  R\colon D\xrightarrow{\ \cong\ } D,\qquad (x,t)_1\longleftrightarrow (x,t)_2
+\]
+be the cone swap, and $\Sigma T\colon\Sigma Y\to\Sigma Y$, $(x,s)\mapsto(x,1-s)$, the suspension flip
+(inducing $T\wedge\id$ on the reduced quotient $SY$). Then, with the canonical homeomorphism
+\[
+  \Phi\colon D\xrightarrow{\ \cong\ }\Sigma Y,\qquad
+  (x,t)_1\mapsto\bigl(x,1-\tfrac t2\bigr),\quad (x,t)_2\mapsto\bigl(x,\tfrac t2\bigr),
+\]
+one has
+\[
+  p_2 = p_1\circ R
+  \qquad\text{and}\qquad
+  \Phi\circ R = \Sigma T\circ\Phi ,
+\]
+so that $p_2\simeq \Sigma T\circ p_1$. Consequently, in reduced $K$-theory,
+\[
+  p_1^{*} = -\,p_2^{*}\colon \tilde K(\Sigma Y)\longrightarrow \tilde K(D).
+\]
+\end{lemma}
+
+\begin{proof}
+Transport everything to $\Sigma Y$ along $\Phi$ and write points of $\Sigma Y$ as $(x,s)$,
+$s\in[0,1]$, with $\{s=0\}$ and $\{s=1\}$ collapsed. Under $\Phi$ the upper half
+$\{s\ge\frac12\}$ is $C_1Y$, the lower half $\{s\le\frac12\}$ is $C_2Y$, and the equator
+$\{s=\frac12\}$ is the common base $Y$. A point of $C_1Y$ has cone coordinate $t=2-2s$, one of
+$C_2Y$ has $t=2s$; reading off $p_i=\overline\pi_i\circ c_i$ gives the based maps
+\[
+  p_1(x,s)=\begin{cases}(x,\,2-2s), & s\ge\tfrac12,\\ \ast, & s\le\tfrac12,\end{cases}
+  \qquad
+  p_2(x,s)=\begin{cases}\ast, & s\ge\tfrac12,\\ (x,\,2s), & s\le\tfrac12,\end{cases}
+\]
+each trivial on the collapsed cone and an affine rescaling of the surviving cone onto all of
+$\Sigma Y$ (continuous at $s=\tfrac12$, where $2-2s=2s=1$ and $(x,1)=\ast$).
+
+Since $R(x,s)=(x,1-s)$ in this coordinate,
+\[
+  (p_1\circ R)(x,s)=p_1(x,1-s)
+  =\begin{cases}\ast, & s\ge\tfrac12,\\ (x,\,2s), & s\le\tfrac12,\end{cases}
+  =p_2(x,s),
+\]
+which is the first identity; the second, $\Phi\circ R=\Sigma T\circ\Phi$, is immediate from
+$R(x,s)=(x,1-s)=\Sigma T(x,s)$. In particular $R=\Phi^{-1}\circ\Sigma T\circ\Phi$, so
+$R^{*}=(\Sigma T)^{*}=-\id$ on $\tilde K(D)$ by
+Lemma~\ref{lem:kTheo-inversesInKGivenByHomotopicallyMethods} (using $\Sigma Y\simeq SY$).
+Applying $\tilde K$ to $p_2=p_1\circ R$ therefore yields
+$p_2^{*}=R^{*}p_1^{*}=-p_1^{*}$.
+
+Finally $p_2\simeq\Sigma T\circ p_1$: slide the active interval by
+$H_\theta(x,s)=(x,\psi_\theta(s))$, where $\psi_\theta$ is the affine orientation-preserving
+rescaling of $\bigl[\tfrac{1-\theta}{2},\,1-\tfrac{\theta}{2}\bigr]$ onto $[0,1]$ and $\ast$
+outside it; then $H_0=\Sigma T\circ p_1$ and $H_1=p_2$.
+\end{proof}
+
+\begin{remark}
+Taking $Y=S^{k-1}$ recovers the hemisphere statement: $\Sigma Y=S^{k}$,
+$C_iY$ are the two hemispheres, $\overline\pi_i$ is the common projection $S^k\supset H_\pm\to D^k/\partial D^k$,
+and $\Sigma T$ is a reflection, i.e. a self-map of $S^k$ of degree $-1$. The equality $p_2=p_1\circ R$
+is the precise reason the two legs differ only by that reflection.
+\end{remark}

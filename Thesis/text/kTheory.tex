@@ -1125,7 +1125,27 @@ Where $i$ is the inclusion $\{p\}\to X$ and $c_p$ is the collaps $X\to \{p\}$. T
 		[A,U]\cong \tilde{K}(X)
 	\end{equation*} 
 \end{remark}
-
+\begin{lemma}\label{lem:kTheo-inversesInKGivenByHomotopicallyMethods}
+		Let $Y$ be a pointed space. Define
+		\begin{align*}
+			T:S^1 &\to S^1 \\
+			t     &\mapsto 1-t
+		\end{align*} and let $\Sigma T:SY\to SY$ be the map induced by $T$ on $S^1$ and the identity on $Y$. Then:
+		\begin{align*}
+			(\Sigma T)^*:\tilde{K}(SY)   &\to \tilde{K}(SY)\\
+			y                           &\mapsto -y
+		\end{align*}
+\end{lemma}
+\begin{proof}
+	We have the following commutative diagramm: 
+	\begin{center}
+		\begin{tikzcd}
+			\tilde{K}(SX) \arrow[d, "(\Sigma T)^*"'] & {\colim[Y,\GL(n,\C)]} \arrow[d, "f\mapsto f^{-1} (pointwise)"] \arrow[l] \\
+			\tilde{K}(SX)                             & {\colim[Y,\GL(n,\C)]} \arrow[l]                                         
+		\end{tikzcd}
+	\end{center} To see why this commutes, notice how we defined the map by gluing via $f$, where $\Sigma T$ changes the place of the upper and lower vector bundle. Hence the gluing function needed is now the inverse. 
+	The horizontal maps are natural group homomorphisms and on the right side the inverse is taken. Thereby the commutativity tells us that the left side is also the same as taking the inverse.
+\end{proof}
 \begin{example}\label{ex:kTheo-LineBundlesSatlquadequalslPlusl}
 	Let $l$ and $l'$ be line bundles over $S^2$. Then the clutching functino for the vector bundle $l\otimes l'$ is given by the tensor product of clutching functions. So let $f$ and $f'$ be two clutching functions
 	\begin{equation*}
@@ -1246,7 +1266,25 @@ For this we start trying to find a long exact sequence and on the way we well pr
 \begin{proof}
 	This follows from $K(A)\cong \tilde{K}(A,[\emptyset])$ for all topological spaces. Furthermore, $(X\sqcup Y,[\emptyset])\cong ((X,[\emptyset])\vee (Y,[\emptyset]))$. Hence, using those isomorphisms, the statement is a direct consequence of the pointed additivity.
 \end{proof}
-
+\begin{corollary}\label{cor:kTheo-exactnesOfTheReducedInclusionSequence}
+	If $(X,Y)\in ob(\TopCPair)$ and $Y\in ob(\TopCPoint)$ such that $X$ is pointed by using the base point $y_0$ from $Y$. Then the sequence 
+	\begin{center}
+		% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAGkAKADVIE0AlCAC+pdJlz5CKAIzkqtRizYAdFXgaxg7YTyGjx2PASIAmedXrNWiEGo1adnQSIUwoAc3hFQAMwBOEAC2SGQgOBBIcorWbABWAHoAVCJiIAHBUdQRSOYxyrZYya7CQA
+		\begin{tikzcd}
+			{K(X,Y)} \arrow[r, "j^*"] & \tilde{K}(X) \arrow[r, "i^*"] & \tilde{K}(Y)
+		\end{tikzcd}
+	\end{center} is exact.
+\end{corollary}
+\begin{proof}
+	We have the commutative diagram with exact top row:
+	\begin{equation*}
+		\begin{tikzcd}
+			{K(X,Y)} \arrow[r] \arrow[rdd] & K(X) \arrow[r] \arrow[d, "\cong"]                        & K(Y) \arrow[d, "\cong"]             \\
+			& \tilde{K}(X)\oplus K(y_0) \arrow[d, two heads] \arrow[r] & \tilde{K}(Y)\oplus K(y_0) \arrow[d] \\
+			& \tilde{K}(X) \arrow[r]                                   & \tilde{K}(Y)                       
+		\end{tikzcd}
+	\end{equation*} The middle horizontal map is a map that respects the grading, since we have the same base point. With this we can do a bit of diagram yoga concluding the statement.
+\end{proof}
 \begin{definition}\label{def:kTheo-coneOverSubspace}
 	Let $X$ be a topological space and $I=[0,1]$ be the unit intervall. We define the cone over $X$ to be the space
 	\begin{equation*}
@@ -1275,7 +1313,7 @@ For this we start trying to find a long exact sequence and on the way we well pr
 	\end{equation*}
 \end{corollary}
 
-\begin{definition}[Connecting Homomorphism]
+\begin{definition}[Connecting Homomorphism]\label{def:kTheo-connectingHomomorphism}
 Let $(X,Y)$ be a topological pair of compact spaces and $Y$ be pointed. Define the two maps
 \begin{align}
 	m: (X \cup CY,\emptyset)&\to (X\cup CY,X)\\
@@ -1297,9 +1335,7 @@ Let $(X,Y)$ be a topological pair of compact spaces and $Y$ be pointed. Define t
 			\cdots \arrow[r] & K^{-2}(Y) \arrow[r, "\delta"]           & {K^{-1}(X,Y)} \arrow[r, "j^*"] & K^{-1}(X) \arrow[r, "i^*"] & K^{-1}(Y) \\
 			& \phantom{K^{-2}(Y)} \arrow[r, "\delta"] & {K^0(X,Y)} \arrow[r, "j^*"]    & K^0(X) \arrow[r, "i^*"]    & K^0(Y)   
 		\end{tikzcd}
-\end{center}
-
-	
+\end{center} The maps $i^*$ are induced by the inclusion $i:Y\to X$, $j^*$ are induced by the inclusion $j: (X,\emptyset)\to (X,Y)$ and $\delta$ is the connecting homomorphism. For the lover degrees, $\delta$ is the connecting homomorphism where $X$ and $Y$ are replaced by the redused suspensions of $X$ and $Y$. 	
 \end{theorem}
 \begin{proof}
 	We will proof the pointed version of the theorem, that states that for a compact pair $(X,Y)$ such that $Y$ is itself compact pointed (and $X$ is pointed with the same basepoint) we have the exact sequence (infinite to the left):
@@ -1310,6 +1346,119 @@ Let $(X,Y)$ be a topological pair of compact spaces and $Y$ be pointed. Define t
 		\end{tikzcd}
 	\end{center}
 	The pointed sequence induced the statement for unpointed spaces because for any topological space $A$ we have a natural isomorhism $\tilde{K}(A,[\emptyset])\cong K(A)$.
+
+	We will furthermore just proof the exactnes of the segment:
+	\begin{equation}
+		\begin{tikzcd}
+			\tilde{K}^{-1}(X) \arrow[r, "i^*"] & \tilde{K}^{-1}(Y) \arrow[r, "\delta"] & {K^0(X,Y)} \arrow[r, "j^*"] & \tilde{K}^{0}(X) \arrow[r, "i^*"] & \tilde{K}^{0}(Y)
+		\end{tikzcd} \label{eq:kTheo-proofSesShortAndreducedSequence}
+	\end{equation} From this we reegain the long sequence by replacing $(X)$ and $Y$ with $S^n(X)$ and $S^nY$.
+	
+	In $\tilde{K}^0(X)$, the exactnes was shown in Corollary \ref{cor:kTheo-exactnesOfTheReducedInclusionSequence}.
+	To get the exactnes at the other spots we apply the same corollary to the pairs:
+	\begin{itemize}
+		\item $(X\cup CY,X)$
+		\item $((X\cup CY)\cup CX,X\cup CY)$
+	\end{itemize}
+	For the middle part we have the commutative diagram where the naming of the maps is the same as in the definition of the connecting homomorphims (Definition \ref{def:kTheo-connectingHomomorphism}).
+	\begin{center}
+		\begin{tikzcd}
+			{K(X\cup CY,X)} \arrow[d, "\theta"] \arrow[r, "m^*"] & \tilde{K}(X\cup CY) \arrow[r, "k^*"]         & \tilde{K}(X) \arrow[d, "\id"] \\
+			K^{-1}(Y) \arrow[r, "\delta"]                        & {K(X,Y)} \arrow[u, "\pi^*"] \arrow[r, "j^*"] & \tilde{K}(X)                 
+	\end{tikzcd}    \end{center}
+	The commutativity in the left square is the definition of $\delta$ and in the right square follows from $\pi\circ k=j:X\to X\big/Y$.Since all vertical maps are isomorphisms, Corollary \ref{cor:kTheo-exactnesOfTheReducedInclusionSequence} implies exactnes in the bottom row $K(X,Y)$. Now only the exactness in the first three terms is missing. For this we look at the pair $((X\cup C_1Y)\cup C_2X,X\cup C_1Y)$ , where the  $C_i$ are cones and denoted with the index to distinguish the cones. First we get again an exact sequence:
+	\begin{center}
+		\begin{tikzcd}
+			{K\big((X\cup C_1Y)\cup C_2X,X\cup C_1Y\big)} \arrow[r, "l^*"] & \tilde{K}\big((X\cup C_1Y)\cup C_2X\big) \arrow[r, "s^*"] & \tilde{K}(X\cup C_1Y)
+		\end{tikzcd}
+	\end{center}
+	Our goals is now to show that we commute with the start of the exact sequence (\ref{eq:kTheo-proofSesShortAndreducedSequence}), hence to finde vertical maps between the top rows (denoted with "?" in the diagram below) such that the diagram commutes:
+	\begin{center}
+		\begin{tikzcd}
+			{K\big((X\cup C_1Y)\cup C_2X,X\cup C_1Y\big)} \arrow[r, "l^*"] \arrow[d, "?"] & \tilde{K}\big((X\cup C_1Y)\cup C_2X\big) \arrow[r, "s^*"] \arrow[d, "?"] & \tilde{K}(X\cup C_1Y) \arrow[d, "?"] \\
+			\tilde{K}^{-1}(X) \arrow[r, "i^*"]                                            & \tilde{K}^{-1}(Y) \arrow[r, "\delta"]                                    & {K(X,Y)}                             \\                                 
+		\end{tikzcd}
+	\end{center} \todo{The bottom row is added for clearification on what inclusion induces $i^*$.. besser erklähren} 
+	We start with the right square and notice that by definition we get a commutative diagramm:
+	\begin{center}
+		% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBoAmAXVJADcBDAGwFcYkQBpAPWAFoBGAL4AKAJoBKEINLpMufIRRl+1Ok1bsOwgBoAdXQGNmaAAQBhAPr9RpbZOmzseAkX6kVNBizaIQ+vIywwBwieobG5lYSUjIgGE4KrhSqXhq+Wtqk0Q5xcs6KJKTEKeo+nDr6RqaW1pURluR2MY7yLihuxZ6l7P5YgTDBoXXVUfaqMFAA5vBEoABmAE4QALZIZCA4EEgAzF3ePbqwjDj0zSCLK0huG1uI66ll-gAWMCcgNCd97JBgbDQv9CgSDAzEYjByF1WiGumyQ5D2aRAyy4ACozpCkAAWD63a4PdjCXr9YD6NBYQSo8Q8ASCdFLKEAVhxcIRj10WCBEPpLJuO1ZBNJWEpXAEdMuiGxvMQTLU+18cFRUkogiAA
+		\begin{tikzcd}
+			K(X\cup C_1Y\cup C_2X) \arrow[d, "(\tilde{\pi}^*)^{-1}"] \arrow[r, "s^*"] & \tilde{K}(X\cup C_1Y) \arrow[d, "\id"]        \\
+			{K(X\cup C_1Y,X)} \arrow[d, "\theta"] \arrow[r, "m^*"]                    & \tilde{K}(X\cup C_1Y) \arrow[d, "(\pi^*)^-1"] \\
+			K^{-1}(Y) \arrow[r, "\delta"]                                             & {K(X,Y)}                                     
+		\end{tikzcd}
+	\end{center}
+	The bottom square commutes by definition. In the top square, the map $\tilde{\pi}$ denotes the collapsing map $X\cup C_1Y\cup C_2X\to (X\cup C_1Y)\big/X$. To see the commutativity in the top square notice how $\tilde{\pi}^*\circ s^*=(s\circ \tilde{\pi})^*$ and the maps $m$ and $s\circ \tilde{\pi}$ coincide and hence the top square commutes.
+	For the left square, a natural choice is the homotopicall equivalence given by quotiening second space of the pair $\big(X\cup C_1Y)\cup C_2X,X\cup C_1Y\big)$ to get:
+	\begin{equation*}
+		\Big((X\cup C_1Y)\cup C_2X\Big/X\cup C_1Y\Big)\cong (C_2X\big/X)\simeq S(Y)\,.
+	\end{equation*} We now have all thrr unnown maps, but
+	we run into a Problem, since the map $l^*$ induces a map $\lambda$ by the “wrong” inclusions (compared to $i^*$ which is induced by the inclusion $C_2Y\to C_2X$, wherees we have $C_1Y$). This is depicted in the non-commutative diagram:
+	\begin{center}
+		\begin{tikzcd}
+			{K\big((X\cup C_1Y)\cup C_2X,X\cup C_1Y\big)} \arrow[r, "l^*"] \arrow[d] & \tilde{K}\big((X\cup C_1Y)\cup C_2X\big) \arrow[d] \\
+			\tilde{K}(C_2X\big/ X \big) \cong \tilde{K}^{-1}(X) \arrow[r, "\lambda"] & \tilde{K}(C_1 Y\big/ Y)\cong \tilde{K}^{-1}(Y)    \\
+						{K(C_2X,X)} \arrow[u] \arrow[r, "i^*"]                                        & {K(C_2Y,Y)} \arrow[u] 
+		\end{tikzcd}
+	\end{center}
+	To resolve that problem we introduce the double cone on $Y$ namely $C_1Y\cup C_2Y$, that fits into the commutative diagram where all unnamed maps are the natural ones:
+	\begin{center}
+		\begin{tikzcd}
+			X\cup C_1Y\cup C_2 X \arrow[rr, Rightarrow] \arrow[dd] &                                                                                               & C_1Y\slash Y \arrow[r, Rightarrow]            & \Sigma Y  \arrow[dd,dotted,"\Sigma T"]\\
+			& C_1Y\cup C_2Y \arrow[ru, Rightarrow] \arrow[rd, Rightarrow] \arrow[ld] \arrow[lu, Rightarrow] &                                               &    \\
+			C_2X \slash X                                          &                                                                                               & C_2Y\slash Y \arrow[ll] \arrow[r, Rightarrow] & \Sigma Y
+		\end{tikzcd}
+	\end{center} The double arrows always induce isomorphisms in the $K-$Rings and the map $\Sigma T$ is one we want to construct. For said construction we formulate the following Lemma: 
+	\begin{lemma}\label{lem:kTheo-doubleConeFlip}
+		Let $Y$ be a wellpointed space and denote the points of $CY$ and $\Sigma Y$ by $(x,t)$ such that $CY$ has the apex $[\{0\}\times Y]$ and base $\{1\}\times Y\cong Y$. Let 
+		\begin{equation*}
+			D\coloneq C_1Y \cup C_2Y = \big(C_1Y \sqcup C_2 Y\big) \Big/ \big((x,1)_1\sim (x,1)_2\big)
+		\end{equation*} denote the double cone glued along a common base. Now define the maps
+		\begin{itemize}
+			\item $c_i:D \to C_i Y \big/Y$ the collaps of the complemantary cone $C_jY$ $j\neq i$.
+			\item $\overline{\pi_1}:C_iY\big/Y \to \Sigma Y\,\quad [(x,t)]\mapsto (x,t)$.
+			\item $p_i\coloneq \overline{\pi_1}\circ c_i: D\to \Sigma Y$.
+			\item $R:D\to D\,\quad (x,t)_i\mapsto (x,t)_j$ where $j\neq i$, the cone swap.
+			\item $\Sigma T: \Sigma Y \to \Sigma Y\,,\quad (x,t)\mapsto (x,1-t)$ the suspension flip.
+			\item $\Phi: D\to \Sigma Y\,,\quad (x,t)_1\mapsto (x,1-\frac{t}{2}),\quad (x,t)_2\mapsto (x,\frac{t}{2})$.
+		\end{itemize} Then we have have that 
+		\begin{equation*}
+			p_2=p_1\circ R\quad \text{and}\quad \Phi\circ R=\Sigma T\circ \Phi\,.
+		\end{equation*}
+	\end{lemma}
+	\begin{proof}[Proof of Lemma \ref{lem:kTheo-doubleConeFlip}]
+		The first statement $p_2=p_1\circ R$ is clear, as:
+		\begin{align*}
+			p_2(x,t)_2&=[(x,t)]=p_1(x,t)_1=p_1\circ R (x,t)_2\,,\quad \text{ and }\\
+			p_2(x,t)_1&=[\{1\} \times Y]=p_1(x,t)_2=p_1 \circ R (x,t)_1\,.
+		\end{align*}
+Similar, the second statement is also just a calculation:
+\begin{align*}
+	\Sigma T\circ \Phi (x,t)_1&=\Sigma T (x,1-\frac{t}{2})=(x,\frac{t}{2})=\Phi(x,t)_2=\phi \circ R (x,t)_1 \\
+	\Sigma T\circ \Phi (x,t)_2&=\Sigma T (x,\frac{t}{2})=(x,1-\frac{t}{2})=\Phi(x,t)_1=\phi \circ R (x,t)_2\,.
+\end{align*}
+\end{proof}
+By the lemma above, we know that $\Sigma T$ makes the diagramm commute and by Lemma \ref{lem:kTheo-inversesInKGivenByHomotopicallyMethods} we know that 
+\begin{equation*}
+	(\Sigma T)^* :\tilde{K}(SY)\to \tilde{K}(SY)
+\end{equation*} is multiplication by minus one. Hence, the diagramm 
+	\begin{center}
+		\begin{tikzcd}
+			X\cup C_1Y\cup C_2 X \arrow[rd] \arrow[rr]&& K(C_1Y\slash Y) \arrow[ld] & \tilde{K}(SY) \arrow[l] \\
+			&K(C_1Y\cup C_2Y) &                            &                                                         \\
+			& & K(C_2Y\slash Y) \arrow[lu] & \tilde{K}(SY) \arrow[l]     \arrow[uu, equal, Rightarrow,"(-1)^*"]                            
+		\end{tikzcd}
+	\end{center} is commutative and recall that all maps are isomorphisms. That tells us, that the two maps 
+	\begin{align*}
+	r_1^*	:\tilde{K}(C_1Y \big/Y)\cong \tilde{K}^{-1}(Y) \to \tilde{K}\big((X\cup C_1Y)\cup C_2X\big) \\
+	r_2^*	:\tilde{K}(C_2Y \big/Y)\cong \tilde{K}^{-1}(Y) \to \tilde{K}\big((X\cup C_1Y)\cup C_2X\big) 
+	\end{align*} commute up to sign. But then the diagramm commutes up to sign for any $i=1,2$
+	\begin{center}
+		\begin{tikzcd}
+			{K\big((X\cup C_1Y)\cup C_2X,X\cup C_1Y\big)} \arrow[r, "l^*"] \arrow[d] & \tilde{K}\big((X\cup C_1Y)\cup C_2X\big) \arrow[r, "s^*"] \arrow[d,"(r_i^*)^{-1}"] & \tilde{K}(X\cup C_1Y) \arrow[d] \\
+			\tilde{K}^{-1}(X) \arrow[r, "i^*"]                                      & \tilde{K}^{-1}(Y) \arrow[r, "\delta"]                               & {K(X,Y)}                       
+		\end{tikzcd}
+	\end{center} And the exactnes in the top row now prooves exactnes in the bottom.
 \end{proof}
 
 
