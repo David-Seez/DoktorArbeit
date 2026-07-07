@@ -1372,13 +1372,14 @@ Let $(X,Y)$ be a topological pair of compact spaces and $Y$ be pointed. Define t
 			{K\big((X\cup C_1Y)\cup C_2X,X\cup C_1Y\big)} \arrow[r, "l^*"] & \tilde{K}\big((X\cup C_1Y)\cup C_2X\big) \arrow[r, "s^*"] & \tilde{K}(X\cup C_1Y)
 		\end{tikzcd}
 	\end{center}
-	Our goals is now to show that we commute with the start of the exact sequence (\ref{eq:kTheo-proofSesShortAndreducedSequence}), hence to finde vertical maps between the top rows (denoted with "?" in the diagram below) such that the diagram commutes:
-	\begin{center}
-		\begin{tikzcd}
-			{K\big((X\cup C_1Y)\cup C_2X,X\cup C_1Y\big)} \arrow[r, "l^*"] \arrow[d, "?"] & \tilde{K}\big((X\cup C_1Y)\cup C_2X\big) \arrow[r, "s^*"] \arrow[d, "?"] & \tilde{K}(X\cup C_1Y) \arrow[d, "?"] \\
+	Our goals is now to show that we commute with the start of the exact sequence (\ref{eq:kTheo-proofSesShortAndreducedSequence}), hence to finde vertical maps between the top rows (denoted with ${\psi}$ in the diagram below) such that the diagram commutes:
+	\begin{fdiagram} \label{diag:kTheo-proofConnectingHomo}
+	\begin{tikzcd}
+			{K\big((X\cup C_1Y)\cup C_2X,X\cup C_1Y\big)} \arrow[r, "l^*"] \arrow[d, "{\psi}_1"] & \tilde{K}\big((X\cup C_1Y)\cup C_2X\big) \arrow[r, "s^*"] \arrow[d, "{\psi}_2"] & \tilde{K}(X\cup C_1Y) \arrow[d, "{\psi}_3"] \\
 			\tilde{K}^{-1}(X) \arrow[r, "i^*"]                                            & \tilde{K}^{-1}(Y) \arrow[r, "\delta"]                                    & {K(X,Y)}                             \\                                 
 		\end{tikzcd}
-	\end{center} \todo{The bottom row is added for clearification on what inclusion induces $i^*$.. besser erklähren} 
+	\end{fdiagram}
+	 \todo{The bottom row is added for clearification on what inclusion induces $i^*$.. besser erklähren} 
 	We start with the right square and notice that by definition we get a commutative diagramm:
 	\begin{center}
 		% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBoAmAXVJADcBDAGwFcYkQBpAPWAFoBGAL4AKAJoBKEINLpMufIRRl+1Ok1bsOwgBoAdXQGNmaAAQBhAPr9RpbZOmzseAkX6kVNBizaIQ+vIywwBwieobG5lYSUjIgGE4KrhSqXhq+Wtqk0Q5xcs6KJKTEKeo+nDr6RqaW1pURluR2MY7yLihuxZ6l7P5YgTDBoXXVUfaqMFAA5vBEoABmAE4QALZIZCA4EEgAzF3ePbqwjDj0zSCLK0huG1uI66ll-gAWMCcgNCd97JBgbDQv9CgSDAzEYjByF1WiGumyQ5D2aRAyy4ACozpCkAAWD63a4PdjCXr9YD6NBYQSo8Q8ASCdFLKEAVhxcIRj10WCBEPpLJuO1ZBNJWEpXAEdMuiGxvMQTLU+18cFRUkogiAA
@@ -1388,27 +1389,29 @@ Let $(X,Y)$ be a topological pair of compact spaces and $Y$ be pointed. Define t
 			K^{-1}(Y) \arrow[r, "\delta"]                                             & {K(X,Y)}                                     
 		\end{tikzcd}
 	\end{center}
-	The bottom square commutes by definition. In the top square, the map $\tilde{\pi}$ denotes the collapsing map $X\cup C_1Y\cup C_2X\to (X\cup C_1Y)\big/X$. To see the commutativity in the top square notice how $\tilde{\pi}^*\circ s^*=(s\circ \tilde{\pi})^*$ and the maps $m$ and $s\circ \tilde{\pi}$ coincide and hence the top square commutes.
+	The bottom square commutes by definition. In the top square, the map $\tilde{\pi}$ denotes the collapsing map $X\cup C_1Y\cup C_2X\to (X\cup C_1Y)\big/X$ which is invertible, as the quotiented out space $C_2X$ is contractible. To see the commutativity in the top square notice how $\tilde{\pi}^*\circ s^*=(s\circ \tilde{\pi})^*$ and the maps $m$ and $s\circ \tilde{\pi}$ coincide and hence the top square commutes. With ${\psi}_2\coloneq \theta \circ (\tilde{\pi}^*)^{-1}$ and ${\psi}_3\coloneq (\pi^*)^{-1}\circ \id$.
 	For the left square, a natural choice is the homotopicall equivalence given by quotiening second space of the pair $\big(X\cup C_1Y)\cup C_2X,X\cup C_1Y\big)$ to get:
 	\begin{equation*}
-		\Big((X\cup C_1Y)\cup C_2X\Big/X\cup C_1Y\Big)\cong (C_2X\big/X)\simeq S(Y)\,.
-	\end{equation*} We now have all thrr unnown maps, but
+		\Big((X\cup C_1Y)\cup C_2X\Big/X\cup C_1Y\Big)\cong (C_2X\big/X)\simeq S(X)\,.
+	\end{equation*} We now have all the unnown maps, but
 	we run into a Problem, since the map $l^*$ induces a map $\lambda$ by the “wrong” inclusions (compared to $i^*$ which is induced by the inclusion $C_2Y\to C_2X$, wherees we have $C_1Y$). This is depicted in the non-commutative diagram:
 	\begin{center}
 		\begin{tikzcd}
-			{K\big((X\cup C_1Y)\cup C_2X,X\cup C_1Y\big)} \arrow[r, "l^*"] \arrow[d] & \tilde{K}\big((X\cup C_1Y)\cup C_2X\big) \arrow[d] \\
+			{K\big((X\cup C_1Y)\cup C_2X,X\cup C_1Y\big)} \arrow[r, "l^*"] \arrow[d,"{\psi}_1"] & \tilde{K}\big((X\cup C_1Y)\cup C_2X\big) \arrow[d,"{\psi}_2"] \\
 			\tilde{K}(C_2X\big/ X \big) \cong \tilde{K}^{-1}(X) \arrow[r, "\lambda"] & \tilde{K}(C_1 Y\big/ Y)\cong \tilde{K}^{-1}(Y)    \\
 						{K(C_2X,X)} \arrow[u] \arrow[r, "i^*"]                                        & {K(C_2Y,Y)} \arrow[u] 
 		\end{tikzcd}
 	\end{center}
+	
+
 	To resolve that problem we introduce the double cone on $Y$ namely $C_1Y\cup C_2Y$, that fits into the commutative diagram where all unnamed maps are the natural ones:
 	\begin{center}
 		\begin{tikzcd}
 			X\cup C_1Y\cup C_2 X \arrow[rr, Rightarrow] \arrow[dd] &                                                                                               & C_1Y\slash Y \arrow[r, Rightarrow]            & \Sigma Y  \arrow[dd,dotted,"\Sigma T"]\\
 			& C_1Y\cup C_2Y \arrow[ru, Rightarrow] \arrow[rd, Rightarrow] \arrow[ld] \arrow[lu, Rightarrow] &                                               &    \\
-			C_2X \slash X                                          &                                                                                               & C_2Y\slash Y \arrow[ll] \arrow[r, Rightarrow] & \Sigma Y
+			C_2X \slash X                                          &                                                                                               & C_2Y\slash Y \arrow[ll,"i"] \arrow[r, Rightarrow] & \Sigma Y
 		\end{tikzcd}
-	\end{center} The double arrows always induce isomorphisms in the $K-$Rings and the map $\Sigma T$ is one we want to construct. For said construction we formulate the following Lemma: 
+	\end{center} The inclusion induced map $i$ is the one, that induces the bottom left map in Dirgram \ref{diag:kTheo-proofConnectingHomo}. The double arrows always induce isomorphisms in the $K-$Rings. To see that all those maps induce isomorphism we note that we always ,with one exception, collaps something contractibe. The exeption is the map $C_1Y\cup C_2Y \to X \cup C_1Y \cup C_2X$. Here, we get that the induced map is invertible, by noticing the commutative triangle one on the top, where 2 maps induce isomorphisms and thereby also the third. The map $\Sigma T$ is one we want to construct below.  For said construction we formulate the following Lemma: 
 	\begin{lemma}\label{lem:kTheo-doubleConeFlip}
 		Let $Y$ be a wellpointed space and denote the points of $CY$ and $\Sigma Y$ by $(x,t)$ such that $CY$ has the apex $[\{0\}\times Y]$ and base $\{1\}\times Y\cong Y$. Let 
 		\begin{equation*}
@@ -1441,24 +1444,27 @@ Similar, the second statement is also just a calculation:
 By the lemma above, we know that $\Sigma T$ makes the diagramm commute and by Lemma \ref{lem:kTheo-inversesInKGivenByHomotopicallyMethods} we know that 
 \begin{equation*}
 	(\Sigma T)^* :\tilde{K}(SY)\to \tilde{K}(SY)
-\end{equation*} is multiplication by minus one. Hence, the diagramm 
+\end{equation*} is multiplication by minus one. Hence, the diagramm where all maps are either topologically induced or topologically induced and inverted:
 	\begin{center}
 		\begin{tikzcd}
-			X\cup C_1Y\cup C_2 X \arrow[rd] \arrow[rr]&& K(C_1Y\slash Y) \arrow[ld] & \tilde{K}(SY) \arrow[l] \\
-			&K(C_1Y\cup C_2Y) &                            &                                                         \\
-			& & K(C_2Y\slash Y) \arrow[lu] & \tilde{K}(SY) \arrow[l]     \arrow[uu, equal, Rightarrow,"(-1)^*"]                            
+			\tilde{K}(X\cup C_1Y\cup C_2 X) \arrow[rd]\arrow[rr,"{\psi}_2"]&& \tilde{K}(C_1Y\slash Y) \arrow[r] & \tilde{K}^{-1}(Y)  \\
+			&\tilde{K}(C_1Y\cup C_2Y) \arrow[dr]&                            &                                                         \\
+			\tilde{K}^{-1}(X) \arrow[uu,"\rho"] \arrow[rr,"i^*"]& & \tilde{K}(C_2Y\slash Y) \arrow[r] & \tilde{K}^{-1}(Y)      \arrow[uu, equal, Rightarrow,"(-1)^*"]                            
 		\end{tikzcd}
-	\end{center} is commutative and recall that all maps are isomorphisms. That tells us, that the two maps 
-	\begin{align*}
-	r_1^*	:\tilde{K}(C_1Y \big/Y)\cong \tilde{K}^{-1}(Y) \to \tilde{K}\big((X\cup C_1Y)\cup C_2X\big) \\
-	r_2^*	:\tilde{K}(C_2Y \big/Y)\cong \tilde{K}^{-1}(Y) \to \tilde{K}\big((X\cup C_1Y)\cup C_2X\big) 
-	\end{align*} commute up to sign. But then the diagramm commutes up to sign for any $i=1,2$
+	\end{center} is commutative. By construction (just composition of collapsing maps) we have that 
+	\begin{equation*}
+		l^*=\rho \circ {\psi}_1\,,\quad  \text{ and by the diagram } \quad {\psi}_2\circ \rho  =- i^*\,.
+	\end{equation*}
+	 Which gives us in total:
+	 \begin{equation*}
+		i_*\circ {\psi}_1=-{\psi}_2 \circ \rho \circ {\psi}_1=-{\psi}_2 \circ l^* 
+	 \end{equation*} and thereby the diagramm commutes up to sign:
 	\begin{center}
 		\begin{tikzcd}
-			{K\big((X\cup C_1Y)\cup C_2X,X\cup C_1Y\big)} \arrow[r, "l^*"] \arrow[d] & \tilde{K}\big((X\cup C_1Y)\cup C_2X\big) \arrow[r, "s^*"] \arrow[d,"(r_i^*)^{-1}"] & \tilde{K}(X\cup C_1Y) \arrow[d] \\
+			{K\big((X\cup C_1Y)\cup C_2X,X\cup C_1Y\big)} \arrow[r, "l^*"] \arrow[d,"{\psi}_1"] & \tilde{K}\big((X\cup C_1Y)\cup C_2X\big) \arrow[r, "s^*"] \arrow[d,"{\psi}_2"] & \tilde{K}(X\cup C_1Y) \arrow[d,"{\psi}_3"] \\
 			\tilde{K}^{-1}(X) \arrow[r, "i^*"]                                      & \tilde{K}^{-1}(Y) \arrow[r, "\delta"]                               & {K(X,Y)}                       
 		\end{tikzcd}
-	\end{center} And the exactnes in the top row now prooves exactnes in the bottom.
+	\end{center} The exactnes in the top row now prooves exactnes in the bottom.
 \end{proof}
 
 
