@@ -837,6 +837,22 @@ This proof is omitted but is Proposition 5.1.16 in \cite{tomdieck2008algebraic}.
 \begin{remark}
 	If we have pointed topological spaces $(X,x_0)$ or pairs $(X,A)$ and want to denote $K^0(X,pt)$ or $K^0(X,A)$ we will often omitt the exponent and just write $K(X,x_0)$ and $K(X,A)$.
 \end{remark}
+\begin{theorem}[Excision]
+	For any pair $(X,A)$ and $U\subseteq A$ open such that $\bar{U}\subseteq \mathring{A}$ the inclusion 
+	\begin{equation*}
+		i: (X\setminus U,A\setminus U) \to (X,A)
+	\end{equation*} induces an isomorphism
+	\begin{equation*}
+		i^*:  K^{-n}(X,A)\to K^{-n}(X\setminus U,A\setminus U)
+	\end{equation*}
+\end{theorem}
+\begin{proof}
+	Since $U$ is open and $A$ is closed, $(X\setminus U,A\setminus U)$ is a compact pair. The inclusion $i$ induces a continuous bijection 
+	\begin{equation*}
+		\phi:(X\setminus U)\Big/(A\setminus U)\to X\big/ A
+	\end{equation*} which is a homeomorphism as a continuous bijection from a compact space to a Hausdorff space. Hence $i^*$ is an isomorphism.
+\end{proof}
+
 \subsection{Homotopy-Theoretic definition of $K$}
 
 \begin{definition}\label{def:kTheo-trivialBundleAndLimitInclusinos}
@@ -1467,6 +1483,74 @@ By the lemma above, we know that $\Sigma T$ makes the diagramm commute and by Le
 	\end{center} The exactnes in the top row now prooves exactnes in the bottom.
 \end{proof}
 
+\begin{corollary}\label{cor:kTheo-retractionsInduceSplittingSequences}
+	If $(X,Y$) is a compact pair such that $Y\subseteq X$ is a retract, i.e. the inclusion has a continuous up to homotopy left inverse. Then for all $n\geq 0$, the sequence 
+	\begin{center}
+		\begin{tikzcd}
+			{K^{-n}(X,Y)} \arrow[r, "j^*"] & K^{-n}(X) \arrow[r, "i^*"] & K^{-n}(Y)
+		\end{tikzcd}
+	\end{center} is a splitting short exact sequence giving us an isomorphism
+	\begin{equation*}
+		K^{-n}(X)\cong K^{-n}(X,Y)\oplus K^{-n}(Y)\,.
+	\end{equation*} This splitting is naturally dependent on the retraction map. 
+\end{corollary}
+
+\begin{corollary}
+	Let $X,Y$ be objects in $\TopCPoint$. Then we have the projection maps 
+	\begin{align*}
+		\pi_X:X\times Y\to Y \, , \quad \pi_Y:X\times Y\to Y\, .
+	\end{align*} Those maps induce isomorphisms for all $n\geq0:$
+	\begin{align*}
+		\tilde{K}^{-n}(X\times Y)\cong \tilde{K}^{-n}(X\wedge Y)\oplus \tilde{K}^{-n}(X)\oplus \tilde{K}^{-n}(Y)
+	\end{align*}
+\end{corollary}
+\begin{proof}
+	$X$ is a retract of $X\times Y$ as the projection yealds a continuous left inverse of the natural inclusion, and $Y$ is a retract of $(X\times Y)\slash X$ (for the quotient to be natural, we include $X$ at the base point of $Y$). With this we apply corollary \ref{cor:kTheo-retractionsInduceSplittingSequences} twice:
+	\begin{equation*}
+		\begin{array}{lll}
+			\tilde{K}^{-n}(X\times Y)&\cong \tilde{K}^{-n}(X\times Y \slash X) & \oplus \tilde{K}^{-n}(X) \\
+			&\cong \tilde{K}^{-n}(Y) \oplus \underbrace{\tilde{K}^{-n}((X\times Y \slash X )\slash Y)}_{\tilde{K}^{-n}(X\wedge Y)}&\oplus\tilde{K}^{-n}(X)  
+			    \end{array}
+	\end{equation*}
+\end{proof}
+
+\begin{corollary}\label{cor:kTheo-splittingAndConnectionWedgeAndProduct}
+	Let's inspect the isomorphism induced by the splitting:  Since we apply the splitting twice, we know that the final isomorphism 
+	\begin{equation*}
+		\Phi: \tilde{K}^{-n}(X\times Y) \to \underbrace{\tilde{K}^{-n}((X\times Y \slash X )\slash Y)}_{\tilde{K}^{-n}(X\wedge Y)}\oplus\tilde{K}^{-n}(X) \oplus \tilde{K}^{-n}(Y)
+	\end{equation*} is of the form 
+	\begin{equation*}
+		\Phi=(\,g\circ l\,,\,\tilde{i_Y}^* \circ l\,,\, {i_X}^*\,)\,,
+	\end{equation*} where:
+	\begin{itemize}
+		\item $i_Y:Y\to X\times Y$
+		\item $\tilde{i}_Y:Y\to (X\times Y\slash X)$.
+		\item $j:(X\times Y)\to (X\times Y\slash X)$.
+		\item $l:\tilde{K}^{-n}(X\times Y) \to \tilde{K}^{-n}(X\times Y\slash X)$ is the unique left inverse of $j^*$ such that $j^*\circ l=\id-\pi_X^* \circ i_X^*$.
+		\item $g: \tilde{K}^{-n}(X\times Y\big/ X)\to K(X\times y\big/ X,Y)$ is a left inverse of the map $ K(X\times Y\big/ X,Y)\to \tilde{K}^{-n}(X\times Y\big/ X)$.
+	\end{itemize}
+
+
+
+	We now want to show that $\tilde{i_Y}^* \circ l$ is induced by the inclusion of $Y$ into $X\times Y$.
+
+	We have that $\tilde{i}_Y=j\circ i_Y$ and with this we can deduce:
+	\begin{equation*}
+		\tilde{i_Y}^* \circ l={i_Y}^*\circ j^* \circ l ={i_Y}^*\big(id-\pi_X^* \circ i_X^*\big)=i_Y^*-{i_Y}^*\circ \pi_X^* \circ i_X^*=i_Y^*-(\underbrace{\pi_X\circ i_Y}_{\text{constant}})^*\circ {i_X}^*=i_Y^*
+	\end{equation*}
+	Hence, in the proof above the isomorphism has the form:
+	\begin{align*}
+		\Phi: \tilde{K}^{-n}(X\times X)\to \tilde{K}^{-n}(X\wedge Y)\oplus \tilde{K}^{-n}(Y)\oplus \tilde{K}^{-n}(X) \\ 
+		\Phi=g\oplus i_Y^*\oplus i_X^*
+	\end{align*}or said differently, the short exact sequence that splits looks like: 
+	\begin{center}
+	
+		\begin{tikzcd}
+			0 \arrow[r] & \tilde{K}^{-n}(X \wedge Y) \arrow[r, "q^*"] & \tilde{K}^{-n}(X\times Y) \arrow[r, "(i_X)^*\oplus (i_Y)^*"] & \tilde{K}^{-n}(X)\oplus \tilde{K}^{-n}(Y) \arrow[r] & 0
+		\end{tikzcd}
+	\end{center}
+\end{corollary}
+
 
 
 
@@ -1485,16 +1569,30 @@ Bevor we start constructing a Cohomology theory, we extend the K groups to be de
 		&= \mu(a \otimes b)\mu(c \otimes d)
 	\end{align*}
 \end{definition}
+
+
+
 By example \ref{ex:kTheo-LineBundlesSatlquadequalslPlusl} we know that for any line bundle $l$, $[l\otimes l \oplus \underline{1}]=[l]^2+[\underline{1}]=[l]+[l]$ which is equivalent to $([l]-1)^2=[l^2]-[l]+[l]+[\underline{1}]=0$. Now $\{[\underline{1}],[l]\}$ is an addative basis of $\Z\big/([l]^2-[\underline{1}])$. The mapping that is defined on a basis of the tensor product as follows
 	\begin{align*}
 		K(X)\otimes \Big(\Z([l])\Big/ ([l]^2-[\underline{1}])\Big)&\to K(X\times S^2)\\
 		[\xi]\otimes [\underline{1}] &\mapsto \mu([\xi], [\underline{1}])\\
 		[\xi]\otimes [l] &\mapsto \mu([\xi], [l])
 	\end{align*} is well defined. 
-\begin{theorem}[The Fundamental Product Theorem]\label{thm:kTheo-fundamentalProductTheorem}
-	For any compact $X$, and the tautological line bundle $l$ on $\C\PP^1\cong S^2$, the mapping 
+
+\begin{corollary}
+	Let $(X,x_0)$ and $(Y,y_0)$ be wellpointed compact spaces. And assume that $a\in \tilde{K}(X)\subseteq K(X)$ and $b\in \tilde{K}(Y)\subseteq K(Y)$. Let $i_{X}:X\to X\times Y$ and $i_Y:Y\to X\times Y$ be the inclusions. Then 
 	\begin{equation*}
-		K(X)\otimes \Big(\Z([l])\Big/ ([l]^2-[\underline{1}])\Big)\to K(X\times S^2)
+		i_X^*(a\otimes b)=i_X^*(\pi_X^*(a)\cdot \pi_X^*(b))=i_X^*\circ \pi_X^*(a)\cdot (\underbrace{\pi_X\circ i_Y}_{=\text{ constant }})^*(b)=0
+	\end{equation*} because $b$ is in the kernal of the inclusion $i_{y_0}:\{y_0\}\to Y$ and the constant map $X\to \{y_0\}\subseteq Y$ factors over the inclusion. Analogously $i_Y^*(a\otimes b)=0$. But then we know that $a\otimes b\in \ker(i_X^*)\oplus (i_Y)^*\cong \tilde{K}(X\wedge Y)$. With this we get the reduced external product
+	\begin{equation*}
+		\tilde{\mu}:\tilde{K}(X)\otimes \tilde{K}(Y)\to \tilde{K}(X\wedge Y)
+	\end{equation*} 
+\end{corollary}
+
+\begin{theorem}[The Fundamental Product Theorem]\label{thm:kTheo-fundamentalProductTheorem}
+	For any compact $X$, and the tautological line bundle $H$ on $\C\PP^1\cong S^2$, the mapping 
+	\begin{equation*}
+		K(X)\otimes \Big(\Z([H])\Big/ ([H]^2-[\underline{1}])\Big)\to K(X\times S^2)
 	\end{equation*}is an isomorphism of rings. 
 \end{theorem}
 \begin{proof}
@@ -1503,17 +1601,17 @@ By example \ref{ex:kTheo-LineBundlesSatlquadequalslPlusl} we know that for any l
 \begin{corollary}
 	If we take $X$ to be a point, then Theorem \ref{thm:kTheo-fundamentalProductTheorem} implies that
 	\begin{equation*}
-		\Phi: \Big(\Z([l])\Big/ ([l]^2-[\underline{1}])\Big)\to K(S^2)
-	\end{equation*} is an isomorphism. Hence, $K(S^2)$ is generated by $\{[\underline{1}],[l]\}$. Furtermore together with the map 
+		\Phi: \Big(\Z([H])\Big/ ([H]^2-[\underline{1}])\Big)\to K(S^2)
+	\end{equation*} is an isomorphism. Hence, $K(S^2)$ is generated by $\{[\underline{1}],[H]\}$. Furtermore together with the map 
 	\begin{equation*}
-		\rank: \Big(\Z([l])\Big/ ([l]^2-[\underline{1}])\Big)\to \Z
+		\rank: \Big(\Z([H])\Big/ ([H]^2-[\underline{1}])\Big)\to \Z
 	\end{equation*} that maps the generatort to their rank, and 
 	\begin{equation*}
 		\nu: \Z \to K(pt);\,,\quad n \mapsto [\underline{n}]
 	\end{equation*} we get the commutative diagramm:
 	\begin{center}
 	\begin{tikzcd}
-		{\Z([l])\Big/ ([l]^2-[\underline{1}]) }\arrow[r,"\rank"] \arrow[d,"\Phi"] & \Z\arrow[d,"\nu"]\\
+		{\Z([H])\Big/ ([H]^2-[\underline{1}]) }\arrow[r,"\rank"] \arrow[d,"\Phi"] & \Z\arrow[d,"\nu"]\\
  		K(S^2) \arrow[r,"i_{pt}^*"] & K(pt) 	
 	\end{tikzcd}
 	\end{center}
@@ -1521,4 +1619,8 @@ By example \ref{ex:kTheo-LineBundlesSatlquadequalslPlusl} we know that for any l
 	\begin{equation*}
 		\tilde{K}(S^2)=\ker(i_{pt}^*) \cong \ker(rank)=\mathrm{span}([H]-[\underline{1}])
 	\end{equation*}
+\end{corollary}
+
+\begin{corollary}
+	Let $X$ be pointed compact space and $H$ be the tautological line bundle on $\C\PP^1\cong S^2$. 
 \end{corollary}
