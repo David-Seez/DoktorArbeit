@@ -111,6 +111,7 @@ The integral curve $\gamma_x:(a,b)\to M$ given by
 	\gamma_x(t)=\phi_t(x)
 \end{equation*} is called a gradient \textbf{flow line}.
 \end{definition}
+
 Next we will deepen our \textbf{local} understanding of said vector field. Notice how the Morse lemma is a statement about smooth manifolds no metric needed nor mentioned. In fact there are many Morse charts and we can find one, where the Riemannian metric in $p$ is diagonal with non-zero. To proof such a statement we first need a somewhat obvious lemma:
 
 \begin{lemma} \label{lem: linear chart change and tangend basis change}
@@ -179,6 +180,8 @@ Now we can proof that a Morse chart exists where the gradient is of particular e
 	We call a Morse chart where the Matrix corresponding to the gradient in the critical point is of diagonal form a \textbf{refined Morse chart}.
 \end{definition} 
 Using such a chart, we can start looking at the flow itself and try to find easy local formulars around critical points. For this we start by looking at the Jacobian of the gradient in a critical point: 
+
+
 \begin{definition}[Jacobian of the Gradient]
 	The gradient is a section into the tangent bundle, $\grad(f):M\to TM$.
 	Let $\psi: M\supseteq U\to V \subseteq \mathbb{R}^m$ be a chart. The coordinate map $q_{\psi}$ on $TU$ assigns to a vector $v \in T_pM$ (where $p \in U$ with $\psi(p) = x$) its components with respect to the basis $\left(\frac{\partial}{\partial x_i}\big|_p\right)$, i.e., $q_{\psi}(v) = (v_1, \ldots, v_m)$ if $v = \sum_{i=1}^m v_i \frac{\partial}{\partial x_i}\big|_p$.
@@ -258,6 +261,8 @@ Hence in a refind Morse chart we have:
 	&=\diag\left(e^{2\mu_1 t},\dots,e^{2\mu_{\lambda_p} t},-e^{2\mu_{\lambda_p+1} t},\dots ,-e^{2\mu_m t} \right)
 	\end{align*}
 \end{remark}
+
+
 In a refined Morse chart we have that the (un-)stable Manifold embedding: 
 \begin{definition}[Stable and Unstable Manifold] 
 	Let $p\in M$ be a critical point of $f:M\to \R$. Then we define:
@@ -302,6 +307,8 @@ We want to refine the unstable embedding $E^u_q:T^u_qM\to W(q\to)$. For this we 
 \end{theorem}
 \begin{proof}Compare chapter 2.8 in \cite{Perko2001}.
 \end{proof}
+
+
 \begin{theorem}[Refined Stable Embdeding]
 	In the setting of the stable manifold theorem, we can refine the embedding
 \begin{equation*}
@@ -356,6 +363,21 @@ We want to refine the unstable embedding $E^u_q:T^u_qM\to W(q\to)$. For this we 
 		&=\phi_{-n}\circ \circ A_n(A_t(y))
 	\end{align*}
 \end{proof}
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Bis Hier bin ich bis jetzt gekommen!!!!!!!!!
+
+
+
+
+
+
+
+
 
 Now we want to understand the flow in an unstable set and analyze two maps: 
 \begin{remark}
@@ -421,6 +443,11 @@ Let $q$ be a critical point and $c<f(q)$ such that no other critical point lies 
 		\diff_x \tau(\mathfrak{b}_i)=-\frac{\diff f \left( \diff_x\phi_{\tilde{t}=\tau(x)}(\mathfrak{b}_i) \right)}{-\norm{\grad(f)^2}}=-\frac{\diff f \left( w_i \right)}{-\norm{\grad(f)^2}}=0\quad \text{ for all }i>1\,.
 	\end{equation*}
 \end{remark}
+
+
+
+
+
 \begin{definition}
 	Let $q$ be a critical point and $c$ such that $c<f(q)$ and $f{-1}[c,f(q)]=q$. Then we define the map
 	\begin{align*}
@@ -428,6 +455,8 @@ Let $q$ be a critical point and $c<f(q)$ such that no other critical point lies 
 		x\mapsto \phi_{\tau(x)}(x)\,.
 	\end{align*} 
 \end{definition}
+
+
 
 \begin{lemma}\label{lem: Rho and Tau induces a Morse boundary orientation}
 	Assume that $\mathfrak{d}=(\mathfrak{d}_i)$ is a basis of $T^u_qM$. Let $y\coloneq{E^u_q}^{-1}(x_j)$ and $y'\in (\rho\circ E^u_q)^{-1}(x_j)$. Then the map
