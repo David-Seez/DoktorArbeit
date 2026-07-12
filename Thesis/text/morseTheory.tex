@@ -410,25 +410,36 @@ Let $q$ be a critical point and $c<f(q)$ such that no other critical point lies 
 	\end{align*}
 	Now the partial derivative reads
 	\begin{equation*}
-		\frac{\partial}{\partial t}G\big|{x,t}=\diff f\big|_{\phi_t(x)}\circ \frac{\partial}{\partial t} \phi_t(x)\big|_t
+		\frac{\partial}{\partial t}G\big|_{x,t}=\diff f\big|_{\phi_t(x)}\circ \frac{\partial}{\partial t} \phi_t(x)\big|_t
 		=  \diff f\big|_{\phi_t(x)}\circ \left(-\grad_{\phi_t(x)}(f)\right) \,.
-	\end{equation*} For $\phi_{\tau(x)}$ we have that $T_{\phi_{\tau(x)}(x)}f^{-1}(c)=  \ker\diff f \big|_{\phi_{\tau(x)}(x)}$. Since the flow line is transversal to the level set or said differently, the gradient is orthogonal to level sets, we have that the latter does not live in the kernal and hence
+	\end{equation*} Since the flow line is transversal to the level set or in our case, the gradient is even orthogonal to the level sets, it is not contaied in $T_{\phi_{\tau(x)}(x)}f^{-1}(c)=  \ker\diff f \big|_{\phi_{\tau(x)}(x)}$ and hence:
 	\begin{equation*}
 		\frac{\partial}{\partial t}G\big|{x,\tau(x)}=\diff f \big|_{\phi_{\tau(x)}(x)}\left(-\grad_{\phi_{\tau(x)}(x)}(f)\right)\neq 0 \, .
 	\end{equation*} This lets us use the implicit function theorem to deduce that the level set $G=c$ is locally the graph of a function $\tau: U_x\to \R$ where $U_x$ is a neighbourhood of $x$. Hence, the function $\tau$ is globally smooth since this argument can be done everywhere.
 \end{proof}
+\begin{definition}
+	We say that a flow line $\gamma$ with respect to the negative gradient flow of a Morse function $f$ starts in $q$, if $\lim_{t\to -\infty} \gamma(t)=q$, and ends in $p$, if $\lim_{t\to \infty}\gamma(t)=p$. We denote the space of flow lines starting in $q$ by $\mathcal{M}(q \to)$, the ones ending in $p$ by $\mathcal{M}(\to p)$ and the flow lines from $q$ to $p$ $\mathcal{M}(q\to p)$.
+\end{definition}
+\begin{lemma} Let $\gamma_j\in \mathcal{M}(q\to)$ and let $x_j=\gamma_j\cap f^{-1}(c)$ denote the intersection of the image of $\gamma_j$ with the levelset $f^{-1}(c)$. Then there exists a frame $(l_1,\dots, l_m)$ of the restricted bundle $\restr{T W(q\to)}{\gamma_j}$ such that for all $x\in \gamma_j$ $l_1(x)=-\grad_x(f)$ and 
+	\begin{equation*}
+		\diff \restr{\tau}{x}(-\grad_x(f))=-1\,,
+	\end{equation*} and for any $i>1$ we have that
+\begin{equation*}
+		\diff \restr{\tau}{x}(l_i(x))=0\,.
+	\end{equation*}
+\end{lemma}
 
-\begin{remark} \todo{als aussage formulieren, dass $\diff \tau (-\grad)=-1$ und  eine basis existiert (ein frame) sodass $\diff \tau(\xi)=0$ ist wenn $xi \neq -\grad$}
-	Now we care for the differential of $\tau$ in a point $x_j\in W(q\to)\cap f^{-1}(c)$. For this we choose a chart of $W(q\to)$ arround $x_j$ such that the induced bases of $T_{x_j}W(q\to)=\langle -\grad_{x_j}(f)\rangle \oplus T_{x_j}V_j$ that respects the splitting. for example $\frac{\partial}{ \partial x^1}\big|_{x_j}= -\grad_{x_j}(f) $ and $\frac{\partial}{ \partial x^i}\big|_{x_j}\in T_{x_j}V_j$ for $i$ bigger than one. With this we can start our calculations:
-	Notice how $x\mapsto f\circ \phi_{\tau(x)}(x)$ is a constant function and hence its differential is $0$.
+\begin{proof} We denote the connected component of $f^{-1}(c)$ that containes $x_j$ by $V_j$. Now we choose a chart of $W(q\to)$ arround $x_j\in W(q\to)\cap V_j$ such that the induced bases of $T_{x_j}W(q\to)=\langle -\grad_{x_j}(f)\rangle \oplus T_{x_j}V_j$ respects that splitting by setting $\frac{\partial}{ \partial x^1}\big|_{x_j}= -\grad_{x_j}(f) $ and $\frac{\partial}{ \partial x^i}\big|_{x_j}\in T_{x_j}V_j$ for $i$ bigger than one. With this we can start our calculations:
+
+	Notice how $x\mapsto f\circ \phi_{\tau(x)}(x)$ is a constant function for all $x\in W(q\to)$ and hence its differential is $0$. For the next calculations we denote the derivative in $x$ by $\diff_x$ and in $t$ by $\diff _t$:
 	\begin{align*}
 		0=\diff_x\left(f\circ \phi_{\tau}\right)&=\overbrace{\diff f }^{1\text{-form}}\left( \diff\phi_\tau\right)=\diff f \left( \diff_t \phi_t \circ\diff_x\tau(x)+\diff_x\phi_{\tilde{t}=\tau(x)}\right)\\
 		&=\diff f \left( \diff_t \phi_t\circ \diff_x\tau(x)\right)+\diff f \left( \diff_x\phi_{\tilde{t}=\tau(x)}\right)\\
-		&=\diff_t \left(f \circ\phi_t \right) \circ\diff_x\tau(x)\circ  +\diff f \left( \diff_x\phi_{\tilde{t}=\tau(x)} \right)
+		&=\diff_t \left(f \circ\phi_t \right) \circ\diff_x\tau +\diff f \left( \diff_x\phi_{\tilde{t}=\tau(x)} \right)
 	\end{align*}
 	Hence we know that
 	\begin{equation}\label{eq: differential of tau}
-		\diff_x \tau =-\frac{\diff f \left( \diff_x\phi_{\tilde{t}=\tau(x)} \right)}{\diff_t \left(f \circ\phi_t \right)}=-\frac{\diff f \left( \diff_x\phi_{\tilde{t}=\tau(x)} \right)}{-\norm{\grad(f)^2}}
+		\diff_x \tau =-\frac{\diff f \left( \diff_x\phi_{\tilde{t}=\tau(x)} \right)}{\diff_t \left(f \circ\phi_t \right)}=-\frac{\diff f \left( \diff_x\phi_{\tilde{t}=\tau(x)} \right)}{-\norm{\grad_x(f)^2}}
 	\end{equation}  Now we can calculate in $x_j$ where $\tau(x_j)=0$
 	\begin{align*}
 		\diff_x \tau \big|_{x_j}\frac{\partial}{ \partial x^i}\big|_{x_j}
@@ -436,7 +447,7 @@ Let $q$ be a critical point and $c<f(q)$ such that no other critical point lies 
 			\diff f \big|_{x_j} \frac{\partial}{ \partial x^i}\big|_{x_j}}
 		{\norm{\grad(f)^2}}
 		=\frac{
-			g\left(\grad_{x_i}(f), \frac{\partial}{ \partial x^1}\big|_{x_j}\right)}
+			g\left(\grad_{x_i}(f), \frac{\partial}{ \partial x^i}\big|_{x_j}\right)}
 		{\norm{\grad(f)^2}}=
 		\begin{cases}
 			-1 & \text{ if }i=1\\
@@ -446,18 +457,21 @@ Let $q$ be a critical point and $c<f(q)$ such that no other critical point lies 
 	This result can be extended to also work outside of $x_j$ as follows: Notice the identity for all $s\in \R$ and $x\in W(q\to)\setminus \{q\}$:
 	\begin{equation*}
 		\tau(\phi_s(x))=\tau(x)-s\,.
-	\end{equation*} Differentiating this in the variable $s$ and in for $s'$ yealds
-	\begin{equation*}
-		\restr{\diff \tau}{\phi_{s'}(x)}\circ \underbrace{\restr{\diff \phi_s(x)}{s=s'}}_{=-\grad_{\phi_s(x)}(f)}~=~\restr{\diff \tau(\phi_{s'}(x))}{s'}~=~\restr{\diff \tau(x)-s}{s'}=-1\,.
-	\end{equation*} And hence in $s'=0$ we have for all $x\in W(q\to)\setminus \{q\}$:
+	\end{equation*} Differentiating this in the variable $s$ in the point $s'$ yealds:
+	\begin{align*}
+		\restr{\diff \tau(\phi_{s}(x))}{s'}\,&=\,\restr{\diff (\tau(x)-s)}{s'}=-1 \\
+		\text{ and }\quad 		\restr{\diff \tau(\phi_{s}(x))}{s'}\,&=\, \restr{\diff \tau}{\phi_{s'}(x)}\circ \underbrace{\restr{\diff \phi_s(x)}{s=s'}}_{=-\grad_{\phi_s(x)}(f)}
+	\end{align*}
+	 And hence in $s'=0$ we have for all $x\in W(q\to)\setminus \{q\}$:
 	\begin{equation*}
 		\restr{\diff \tau }{x}(-\grad(x)(f))=-1\,.
 	\end{equation*}
-	We can furthermore define a basis of $T_yW(q\to)$ with $\mathfrak{b}_1\coloneq -\grad_y(f)$ and $\mathfrak{b}_i=\restr{\diff \phi_{\tau(y)}}{y}^{-1}({w_i})$ where $(w_i)$ denotes a basis of $T_{x_j}V_j$. Hence $w_i$ is orthogonal on $-\grad_{x_j}(f)$ for all $i>1$. Hence by the equation (\ref{eq: differential of tau}) we can caluclate:
+	We can furthermore define a basis of $T_x W(q\to)$ with $\mathfrak{b}_1\coloneq -\grad_x(f)$ and $\mathfrak{b}_i=\big(\restr{\diff \phi_{\tau(x)}}{x}\big)^{-1}({w_i})$ where $(w_i)$ denotes a basis of $T_{x_j}V_j$. Hence $w_i$ is orthogonal on $-\grad_{x_j}(f)$ for all $i>1$. Hence by the equation (\ref{eq: differential of tau}) we can caluclate:
 	\begin{equation*}
 		\diff_x \tau(\mathfrak{b}_i)=-\frac{\diff f \left( \diff_x\phi_{\tilde{t}=\tau(x)}(\mathfrak{b}_i) \right)}{-\norm{\grad(f)^2}}=-\frac{\diff f \left( w_i \right)}{-\norm{\grad(f)^2}}=0\quad \text{ for all }i>1\,.
 	\end{equation*}
-\end{remark}
+	Finally after choosing a basis $(w_i)$, the map $x\mapsto \mathfrak{b}_i$ is smooth for all $i$ and any $x\in W(q\to)\setminus \{q\}$ and hence alltogether we get the desired frame.
+\end{proof}
 
 
 \begin{definition}
@@ -467,3 +481,58 @@ Let $q$ be a critical point and $c<f(q)$ such that no other critical point lies 
 		x\mapsto \phi_{\tau(x)}(x)\,.
 	\end{align*} 
 \end{definition}
+
+\todo{hier muss $x$ vs $x_j$ nochmal angeschaut wertden und was woraus kommet. auch sollte $Q$ nochmal genannt werden und $E^u_q$}
+
+\begin{lemma}\label{lem: Rho and Tau induces a Morse boundary orientation}
+	Assume that $\mathfrak{d}=(\mathfrak{d}_i)$ is a basis of $T^u_qM$. Let $y\coloneq{E^u_q}^{-1}(x_j)$ and $y'\in (\rho\circ E^u_q)^{-1}(x_j)$. Then the map
+	\begin{align*}
+		\restr{\diff E^u_q}{y}^{-1}\circ \diff \rho \circ \restr{\diff E^u_q}{y'}\circ Q_{y'}\circ B_{\mathfrak{d}}&: \R^{\lambda_q}\to T_yT^u_qM
+	\end{align*} can be written as
+	\begin{align*}
+		\pi_{-\grad_{x_j}(f)^\top}\circ(B_{\mathfrak{b}^q_{x_j}}):
+		\R^{\lambda_q}&     \to T_{x_j}V_j\\
+		e_i           & \mapsto
+		\begin{cases}
+			0                                       & \text{ for }i=1\\
+			({\mathfrak{b}^q_{x_j}})_i & \text{ for }i\neq 1\,.
+		\end{cases}
+	\end{align*} where $({\mathfrak{b}^q_{x_j}})_j$ is basis of $T_{x_j}W(q\to)$ that is induced from $\mathfrak{d}$ and $({\mathfrak{b}^q_{x_j}})_i=-\grad_{x_j}(f)$. In other words, this is a basis compatible with the one used in the counting of flow lines in the Morse boundary operator.
+\end{lemma}
+
+\begin{Iprove}
+	To proove this, we first remined ourself how the basis $({\mathfrak{b}^q_{x_j}})_{j>1}$ is constructed. It is a basis that when extendet with $-\grad_{x_j}(f)$ as the first vector is compatible with $\mathfrak{d}$. Hence, we can construct it from $\mathfrak{d}$, by assuming that $\restr{\diff E^u_q}{y}\circ Q_y\circ \mathfrak{d}_1=-\grad_y(f)$. Then, if we push $\mathfrak{d}$ to $T_{x_j}W(q\to)$ via $\restr{\diff E^u_q}{y}\circ Q_y$ and delete the first vector, we get the Basis we wanted. So what we need to check in order to proof this lemma is, if the maps
+	\begin{align*}
+		\restr{\diff E^u_q}{y}\circ Q_y\circ B_{\mathfrak{d}}: &\R^{\lambda_q-1}\to \left(-\grad_{x_j}(f)\right)^\top\\
+		\restr{\diff E^u_q}{y}^{-1}\circ \diff \rho \circ \restr{\diff E^u_q}{y'}\circ Q_{y'}\circ B_{\mathfrak{d}}: &\R^{\lambda_q-1}\to \left(-\grad_{x_j}(f)\right)^\top
+	\end{align*} induce the same orientation when restricted to the same domain such that they become vector space isomorphisms. 
+	To proof this we will work from the bottom up: We adapt the basis $\mathfrak{d}$ to work with the lower map and show, later, that the adapted basis fits the requirements above:
+\end{Iprove}
+
+
+\begin{proof}
+	
+	We start by defining the space $\left(\tau\circ E^u_q\right)^{-1}(\tilde t)$, where $\tilde{t}\coloneq \tau\circ E^u_q(y')$. As a level set, this is a submanifold of $T^u_qM$ and its tangend space in $y'$ is given by the basis $\restr{E^u_q}{y'}^{-1}(\mathfrak{b_i})$ for $i>1$, where $\mathfrak{b}_i=\restr{\diff \phi_{\tilde{t}}}{y'}^{-1}({w_i})$ where $(w_i)$ denotes a basis of $T_{x_j}V_j$. Now we have the equality of maps:
+	\begin{align*}
+		\restr{A_{\tilde{t}}}{\left(\tau\circ E^u_q\right)^{-1}(\tilde t)}=\restr{\left({E^u_q}^{-1}\circ \rho \circ E^u_q\right)}{\left(\tau\circ E^u_q\right)^{-1}(\tilde t)}
+	\end{align*} Hence for a basis $\mathfrak{d}_i$ of $T^u_qM$ such that $\restr{\diff E^u_q}{y'}\circ Q_{y'}(\mathfrak{d_i})$ is $-\grad_{y'}(f)$ for $i=1$ and $\mathfrak{b_i}$ else, we have:
+	\begin{equation*}
+		\restr{\diff \left({E^u_q}^{-1}\circ \rho \circ E^u_q\right)}{y'}\circ Q_{y'}(\mathfrak{d}_i)=Q_y\circ A_{\tilde{t}}(\mathfrak{d}_i).
+	\end{equation*} For $i=1$, the left side maps to $0$, and the right side:
+	\begin{align*}
+		Q_y\circ A_{\tilde{t}}(\mathfrak{d}_1)
+		&=\restr{\diff A_{\tilde{t}}}{y'}\circ Q_{y'}(\mathfrak{d}_1)\\
+		&=\restr{\diff A_{\tilde{t}}}{y'} \circ {\restr{\diff E^u_q}{y'}}^{-1}(-\grad_{y'}(f))\\
+		&=\restr{\diff A_{\tilde{t}} \circ \diff E^u_q}{y'}^{-1}(-\grad_{y'}(f))\\
+		&=\restr{ \diff (E^u_q)^{-1} \circ \phi_{\tilde{t}}}{y'}^{-1}(-\grad_{y'}(f))\\
+		&=\restr{ \diff E^u_q}{x_j}^{-1} \circ \restr{\diff \phi_{\tilde{t}}}{y'}^{-1}(-\grad_{y'}(f))\\
+		&=\restr{ \diff E^u_q}{x_j}^{-1} \left(-\grad_{x_j}(f)\right)
+	\end{align*} The last equation is the general fact prooven in remark \ref{rem: jacobian of the flow in refined Morse chart}, that for fixed $t$ the identity holds:
+	\begin{equation*}
+		\restr{\diff_x \phi_t}{y} (-\grad_y(f))=-\grad_{\phi_t(y)}(f)
+	\end{equation*} Hence if $\pi$ denotes the projection onto the complement of $ \restr{ \diff E^u_q}{x_j}^{-1} \left(-\grad_{x_j}(f)\right)$ we have an equality of maps
+	\begin{equation*}
+		\restr{\diff \left({E^u_q}^{-1}\circ \rho \circ E^u_q\right)}{y'}\circ Q_{y'}=\pi \circ Q_y\circ A_{\tilde{t}}.
+	\end{equation*} Or by the above calculation, we can throw out $\pi$, if we exclude $\mathfrak{d}_1$. Furthermore, the equation shows that our requirement $\restr{\diff E^u_q}{y'}\circ Q_{y'}(\mathfrak{d_1})=-\grad_{y'}(f)$ implies that $\mathfrak{d}$ is compatible with a basis where $\restr{\diff E^u_q}{y}\circ Q_y\circ \mathfrak{d}_1=-\grad_y(f)$, since the sign of the determinant of $A_{\tilde{t}}$ is always positive.
+	This concludes the prove!
+\end{proof}
