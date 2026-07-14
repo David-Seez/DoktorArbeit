@@ -398,13 +398,41 @@ We want to refine the unstable embedding $E^u_q:T^u_qM\to W(q\to)$. For this we 
 	We say that a flow line $\gamma$ with respect to the negative gradient flow of a Morse function $f$ starts in $q$, if $\lim_{t\to -\infty} \gamma(t)=q$, and ends in $p$, if $\lim_{t\to \infty}\gamma(t)=p$. We denote the space of flow lines starting in $q$ by $\mathcal{M}(q \to)$, the ones ending in $p$ by $\mathcal{M}(\to p)$ and the flow lines from $q$ to $p$ $\mathcal{M}(q\to p)$.
 \end{definition}
 
-\todo{Umbedingt Orientierungen Sortieren! Hier geht einiges schief aktuell}
+
+\subsection{Signed flow lines}
+The idea of Morse homology is now to find an invariant under manipulations of the Morse Smale function. Obviously neither the number of flow critical points nor the number of flow lines stays invariant. However certain linearcombinations stay invariant, when wone establishes a sophisticated way to count flow lines. For this count we want to introduces signes to the flow lines between critical point with index one apart.
 
 \begin{definition}[Morse-Smale]
 	A Morse function $f:M\to \R$ such that all stable and unstable manifolds intersect transversally is called a \textbf{Morse-Smale} function. 
 \end{definition}
+
+\begin{definition}
+	Let $f:M\to \R$ be a Morse-Smale function on a Riemannian manifold $(M,g)$. Furthermore let $\mathfrak{o}$ be an choice of orientations for all unstable Tangendspaces ($T_q^uM$ for all $q\in \Crit(f)$). The tuple $\mathfrak{A}\coloneq (g,f,\mathfrak{o})$ is a \textbf{Morse datum}.
+\end{definition}
+\begin{remark}[Notiz für Mich]
+	Given a Morse datum $\mathfrak{A}\coloneq (g,f,\mathfrak{o})$, there are multiple ways to inflict a sign to a flow line $\gamma\in \mathcal{M}(q\to p)$ between two critical points with index one apart. All of them introduce two different orientations  (meaning basis of $T_xW(q\to)$) in a point $x\in \gamma$ the first notion depends on the oprientation $T^u_q$ and is introduced either via the embedding of the unstable manifold of $q$ $E^u_p$, or by trivializing the bundle $TW(q\to)$ which is possibel by contractability of $W(q\to)$. Both ways yeald the same, as they introduce the same orientation in the fibre $T_qW(q\to)$. 
+	Now the difficulty appears when introducing a basis of $T_xW(q\to)$ that depends on $T^u_pM$. 
+	For this we can build the quotient bundle $TM\Big/ \big( TW(\to p) \big)$. 
+	The fiber above $p$ should be naturally isomophic to $T^u_pM$ by the direct sum decomposition and contractibility of $W(\to p)$ then gives us a trivialization and hence lets us induce an orientation over $T_xM\big/ T_xW(\to p)$. By transversality we get the short exact sequence of vector spaces that introduces a basis in the middle. 
+	\begin{center}
+		 \begin{tikzcd}
+			0\arrow[r]&\arrow[r]T_x\gamma &\arrow[r]T_xW(q\to ) & T_xM\big/ T_xW(\to p) \arrow[r]&0
+		 \end{tikzcd}
+	\end{center}
+	Anotherway to get the orientation in $T_xW(q\to)$ from $T^u_pM$ is by transporting the orthogonal complemenmt of $-\gamma_x(f)$ in $T_xW(q\to)$ towards $p$ along the curve $\gamma$. Here we have the problem, that we will never reach $T_pM$ as $p\notin \gamma$. To introduce an orientation that way we need to show that the tanged spaces converge into one another which is a corollary of the inclination or $\lambda$ lemma. 
+\end{remark}
+
+\begin{definition}
+	Let $f:M\to \R$ be a morse function and $q,p$ two critical and assume that $\ind(q)-1=\ind(p)$. 
+	Now take a point $x\in \gamma \in \mathcal{M}(q\to p)$ that lifes on a flow line between those points. 
+	Then we define the quotient bundle $\nu W(\to p)$ over the stable set of $p$ as $\restr{TM}{W(\to p)}\Big/ T(W\to p)$. 
+\end{definition}
+
+\todo{Umbedingt Orientierungen Sortieren! Hier geht einiges schief aktuell}
+
+
 \begin{definition}[Morse Homology]\label{def: Morse homology}
-	Let $f:M\to \R$ be a Morse-Smale function on a Riemannian manifold $(M,g)$. Furthermore let $\mathfrak{o}$ be an choice of orientations for all unstable Tangendspaces ($T_q^uM$ for all $q\in \Crit(f)$). The tuple $\mathfrak{A}\coloneq (g,f,\mathfrak{o})$ is a \textbf{Morse datum}. With this we define now the \textbf{Morse chain groups} for a given commutative ring with one ($\Lambda$): 
+	Let  $\mathfrak{A}\coloneq (g,f,\mathfrak{o})$ be a Morse datum. With this we define now the \textbf{Morse chain groups} for a given commutative ring with one ($\Lambda$): 
 	\begin{equation*}
 		C_k(M,\mathfrak{A},\Lambda)\coloneq \bigoplus_{\Crit(f)}\Lambda
 	\end{equation*} 
