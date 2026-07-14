@@ -406,9 +406,50 @@ The idea of Morse homology is now to find an invariant under manipulations of th
 	A Morse function $f:M\to \R$ such that all stable and unstable manifolds intersect transversally is called a \textbf{Morse-Smale} function. 
 \end{definition}
 
-\begin{definition}
+\begin{definition}\todo{das muss NACH die definition von Orientierung}
 	Let $f:M\to \R$ be a Morse-Smale function on a Riemannian manifold $(M,g)$. Furthermore let $\mathfrak{o}$ be an choice of orientations for all unstable Tangendspaces ($T_q^uM$ for all $q\in \Crit(f)$). The tuple $\mathfrak{A}\coloneq (g,f,\mathfrak{o})$ is a \textbf{Morse datum}.
 \end{definition}
+\begin{definition}[Orientation]
+	Let $V$ be a finite dimensional $\R$ vector space and $\det(V)\coloneq \Lambda^{\dim(V)}$ the maximal exterior Algebra (or Grassman Algebra).  by the principle of permanence we define $\Lambda^0(V)=\R$. An orientation of $V$ is a choice of one of the two connected component of $\dim(V)\setminus \{0\}$. 
+\end{definition}
+\begin{remark}
+	Classically, an orientation of a vector space $V$ of dimension $m$ is given by an ordered basis $\mathfrak{b}=(b_1,\dots b_m)$ of $V$ and hence the produkt $b_1\wedge \dots \wedge b_m$ is an element of the maximal exterior product $\det(V)=\Lambda^mV$. Two ordered bases define different elements in $\det(V)$ and their difference is given by the determinant of the base change matrix. (This is just a calculation using multilinearity and the alternating property). Hence an choice of equivalence class of bases modulo basechange matrix of positive determinant is the same as a choice of one connected component of $\det(V)\setminus \{0\}$.
+\end{remark}
+\begin{definition}[Orientation and Exact Sequences]\todo{FIX}
+A short exact sequence of vector spaces 
+\begin{center}
+
+	\begin{tikzcd}
+		0 \arrow[r] & A \arrow[r, "f"] & B \arrow[r, "g"] & C \arrow[r] & 0
+	\end{tikzcd}
+\end{center}
+induces a canonical isomorphism 
+	\begin{align*}
+		 \det(A)\otimes \det(C)& \to \det(B)\\
+		 (a_1\wedge \dots\wedge a_l) \otimes (c_1\wedge \dots \wedge c_k) &\mapsto (f(a_1)\wedge \dots f(a_l)\wedge \tilde{c_1}\wedge \dots \wedge \tilde{c_k})\, ,
+	\end{align*} where $\tilde{c_j}\in g^{-1}(c_j)$ . The well definition of this map (invariance under choosen lift of $c$) can be calculated, since two different choices differ in an element in the kernal of $g$ which equals the image of $f$ and hence the different choices vanisch in the wedge produkt. By this isomorphism we get a orientation induced in the middle from the outside. Notice the convention, that the basis from $A$ is placed in front of the basis from $C$. 
+	Notice how the definition is consistend with the edge cases of trivial vector spaces $A$ or $C$. If $A=0$ we get an isomorphism $B\cong C$ and a basis from $C$ induced to $B$, that is either the induced one from $g$, or exactly the opposite one, if the trivial vectorspace $A$ is negatively oriented.
+\end{definition}
+\begin{remark}
+	Let 
+	\begin{center}
+		\begin{tikzcd}
+		0 \arrow[r] & A \arrow[r, "f"] & B \arrow[r, "g"] & C \arrow[r] & 0
+	\end{tikzcd}
+	\end{center}
+
+be a short exact sequence of vector spaces and $\mathfrak{a}$ be a bases of $A$ , $\mathfrak{c}$ be a basis of $C$ and $\tilde{\mathfrak{c}}$ be a lift of $\mathfrak{c}$ via $g$. Replacing the basis $\mathfrak{a}$ with $\P\mathfrak{a}$ and $\mathfrak{c}$ with $Q\mathfrak{c}$ where $P,Q$ are invertible matricies,gives us a new induced basis on $B$, which differes from the original one by a martix $\begin{pmatrix}
+	P&*\\
+	0&Q
+\end{pmatrix}$, where $*$ depends on the choosen lift. Hence the corresponding elements in $\det(B)$ differ by the product $\det(P)\det(Q)$. 
+\end{remark}
+\begin{lemma}[Orientation comparison in bundles]
+	
+\end{lemma}
+\begin{lemma}[]
+	
+\end{lemma}
+
 \begin{remark}[Notiz für Mich]
 	Given a Morse datum $\mathfrak{A}\coloneq (g,f,\mathfrak{o})$, there are multiple ways to inflict a sign to a flow line $\gamma\in \mathcal{M}(q\to p)$ between two critical points with index one apart. All of them introduce two different orientations  (meaning basis of $T_xW(q\to)$) in a point $x\in \gamma$ the first notion depends on the oprientation $T^u_q$ and is introduced either via the embedding of the unstable manifold of $q$ $E^u_p$, or by trivializing the bundle $TW(q\to)$ which is possibel by contractability of $W(q\to)$. Both ways yeald the same, as they introduce the same orientation in the fibre $T_qW(q\to)$. 
 	Now the difficulty appears when introducing a basis of $T_xW(q\to)$ that depends on $T^u_pM$. 
@@ -460,8 +501,17 @@ induces a canonical isomorphism
 	\begin{align*}
 		 \det(A)\otimes \det(C)& \to \det(B)\\
 		 (a_1\wedge \dots\wedge a_l) \otimes (c_1\wedge \dots \wedge c_k) &\mapsto (f(a_1)\wedge \dots f(a_l)\wedge \tilde{c_1}\wedge \dots \wedge \tilde{c_k})\, ,
-	\end{align*} where $\tilde{c_j}\in g^{-1}(c_j)$ . The well definition of this map (invariance under choosen lift of $c$) can be calculated, since two different choices differ in an element in the kernal of $g$ which equals the image of $f$ and hence the different choices vanisch in the wedge produkt. By this isomorphism we get a orientation induced in the middle from the outside.
+	\end{align*} where $\tilde{c_j}\in g^{-1}(c_j)$ . The well definition of this map (invariance under choosen lift of $c$) can be calculated, since two different choices differ in an element in the kernel of $g$ which equals the image of $f$ and hence the different choices vanish in the wedge product. By this isomorphism we get a orientation induced in the middle from the outside.
 \end{definition}
+\begin{remark}
+	Let 
+	\begin{center}
+		\begin{tikzcd}
+		0 \arrow[r] & A \arrow[r, "f"] & B \arrow[r, "g"] & C \arrow[r] & 0
+	\end{tikzcd}
+	\end{center}
+	be an exact sequence of vector spaces and $\mathfrak{a}$ be a baseis of 
+\end{remark}
 \begin{remark}[The Counting of Flow Lines]
 There are several ways to formulate the counting of flow lines that happens in the boundary operator.Let $\gamma\in \mathcal{M}(q\to p)$ and $x\in \gamma$ Instead of using the parallel transport, we can introduce two different ordered bases in $T_{x}W(q\to)$. We use the following notation: 
 Let $\gamma\in \mathcal{M}(q\to p)$. We extend $\gamma$ to also contain the $q$ and $p$ by compactifying the flow line. Now assume that $x\in \gamma\setminus \{q,p\}$. For this we define $N_{x}^{W(q\to)}{\gamma}$ be the normal bundle of $\gamma$ as a submanifold of $W(q\to)$. Since $\gamma$ is contractible we can trivialize said normal bundle to get an bundle isomorphism: 
