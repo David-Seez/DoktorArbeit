@@ -3,10 +3,10 @@
 Due to differential geometry and the theory of vector bundles being areas of mathematics used by pure mathematicians interested in analytical aspects like curvature, by topologists interested in invariants like Euler characteristics, physicists using the spaces as playgrounds for general relativity theories, and many others, there are numerous competing notational conventions. This thesis lies at the tripoint of differential geometry, dynamical systems, and algebraic topology. Hence, there is no a priori preferred notational convention.
 In this chapter, we establish the necessary background in the theory of vector bundles and Riemannian manifolds whilst not proving all the basics; we establish the notation used throughout this thesis. We establish manifolds and vector bundles in parallel, as they are interdependent on one another.
 \subsection{Differentiable Structures on Topological Manifolds}
-We begin by defining a topological manifold. Afterwards, we equip that space with with increasingly more structure and hence reduce the generality until we arrive at the playground of the thesis: 
+We begin by defining a topological manifold. Afterwards, we equip that space with increasingly more structure and hence reduce the generality until we arrive at the playground of the thesis: 
 
 \begin{definition}[Topological Manifold] \label{def:vb-topologicalManifold}
-	A second countable Hausdorff space $M$ is called a \textbf{topological manifold} of dimension $m\in \N$, if it is locally homeomorphic to $\R^m$. To be precise, for all $p\in M$ there exists an open neighbourhood $U\subseteq M$ of $p$, an open set $V\subseteq \R^m$  and a map $\phi:W\to V$ that is a homeomorphism. We call the map $\phi:U\to V$ a \textbf{chart around $p$ on $M$}, and $\phi^{-1}$ a \textbf{local coordinate system around $p$ on $M$}.
+	A second countable Hausdorff space $M$ is called a \textbf{topological manifold} of dimension $m\in \N$, if it is locally homeomorphic to $\R^m$. To be precise, for all $p\in M$ there exists an open neighbourhood $U\subseteq M$ of $p$, an open set $V\subseteq \R^m$  and a map $\phi:U\to V$ that is a homeomorphism. We call the map $\phi:U\to V$ a \textbf{chart around $p$ on $M$}, and $\phi^{-1}$ a \textbf{local coordinate system around $p$ on $M$}.
 \end{definition}
 
 \begin{definition}[Differentiable Manifold] \label{def:vb-differentiableManifold}
@@ -56,7 +56,7 @@ We begin by defining a topological manifold. Afterwards, we equip that space wit
 	\end{align*} The required properties of a presheaf are trivial. Furthermore, this gives a sheaf as the requirement of locality is trivial for functions and the property of gluing is also trivial for functions, since differentiability is a local property.
 \end{proof}
 \begin{definition}
-	If $p\in M$ is fix, $f\in \mathcal{E}(U)$ and $g\in \mathcal{E}(U')$ such that $p\in U\cap U'$ we say that $f$ and $g$ have the same \textbf{germ in $p$}, if there is another open neighborhood $W\subseteq U\cap U'$ of $p$ such that $\restr{f}{W}=\restr{g}{W}$. This defines an equivalence relation $\sim_p$. An equivalence class $s$ of local functions around $p$ is called a \textbf{germ in $p$}. We write $s=f_p$, if $s=[f]$ with $f\in \mathcal{E}(U)$. 
+	If $p\in M$ is fix, $f\in \mathcal{E}(U)$ and $g\in \mathcal{E}(U')$ such that $p\in U\cap U'$ we say that $f$ and $g$ have the same \textbf{germ in $p$}, if there is another open neighbourhood $W\subseteq U\cap U'$ of $p$ such that $\restr{f}{W}=\restr{g}{W}$. This defines an equivalence relation $\sim_p$. An equivalence class $s$ of local functions around $p$ is called a \textbf{germ in $p$}. We write $s=f_p$, if $s=[f]$ with $f\in \mathcal{E}(U)$. 
 	We write 
 	\begin{align*}
 		\mathcal{E}_p(M)=\left. \left( \sum_{U \text{open},p\in U }\mathcal{E}(U)\right)\middle/ \sim_p \right. \, 
@@ -128,7 +128,7 @@ Analogously to the definition of a smooth manifold, we start by defining familie
 		 		\psi_x: E_x\coloneq \pi^{-1}(x)\to \{x\}\times \C^m 
 		 	\end{equation*} is a vector space isomorphism. 
 	 \end{enumerate}
-	 We call $E$ the \textbf{total space}, $X$ the \textbf{base space}, $E_x$ the \textbf{fibre over $x$} and $\psi$ a \textbf{local trivialization}. 
+	 We call $E$ the \textbf{total space}, $X$ the \textbf{base space}, $E_x$ the \textbf{fibre over $x$} and $\psi$ a \textbf{local trivialisation}.
 \end{definition}
 \begin{definition}
 	Let $\pi: E \to X$ be a vector bundle. A continuous function $s: X\to E$ such that $\pi\circ s=\id_X$ is called a (global) \textbf{section} (if $s:U\subseteq X \to E$ we call it a local section). We denote the space of global sections by $\Gamma(E)$ and by $\Gamma(U)$ the space of local sections over an open subset $U\subseteq X$. 
@@ -164,7 +164,7 @@ Analogously to the definition of a smooth manifold, we start by defining familie
 		Let $X$ be a topological space. A \textbf{family of vector spaces over $X$} is a topological space $E$ equipped with :
 		\begin{enumerate}[(i)]
 			\item a continuous function $\pi: E \to X$,
-			\item a finite dimensional vector space structure on each fiber $E_x:=\pi^{-1}(x)$ that is compatible with the subspace topology on $E_x\subseteq E$.
+			\item a finite dimensional vector space structure on each fibre $E_x:=\pi^{-1}(x)$ that is compatible with the subspace topology on $E_x\subseteq E$.
 		\end{enumerate}
 		We call the map $\pi$ the projection, $E$ the total space and $X$ the base space. 
 	\end{definition}
@@ -173,7 +173,7 @@ Analogously to the definition of a smooth manifold, we start by defining familie
 		Let $\pi: E\to X$ be a family of vector spaces. A function $f:X\to E$ such that for all $x\in X$ we have $\pi\circ f (x)=x$ is called a \textbf{section of $E$}. We denote the space of all sections by $\Gamma(E)$. 
 	\end{definition}
 	\begin{remark} Let $\pi: E\to X$ be a family of vector spaces.
-		By locality of the definition, for all open $U\subseteq X$ the restriction $\restr{\pi}{U}:\pi^{-1}(U)\to U$ defines a new family of vector spaces. With this we can also have sections of the restricted bundle and the collection f those is denoted by $\Gamma(U)$
+		By locality of the definition, for all open $U\subseteq X$ the restriction $\restr{\pi}{U}:\pi^{-1}(U)\to U$ defines a new family of vector spaces. With this we can also have sections of the restricted bundle and the collection of those is denoted by $\Gamma(U)$.
 	\end{remark}
 
 
@@ -191,7 +191,7 @@ Analogously to the definition of a smooth manifold, we start by defining familie
 
 
 \begin{definition}[Homomorphism of families of vector spaces]\label{def:vb-homomorphismOfFamiliesOfVectorSpaces}
-	A \textbf{homomorphism} form one family $\pi:E\to X$ to another family $\Tilde{\pi}:F \to X$ with the same base space is a continuous map $\phi: E\to F$ such that:
+	A \textbf{homomorphism} from one family $\pi:E\to X$ to another family $\Tilde{\pi}:F \to X$ with the same base space is a continuous map $\phi: E\to F$ such that:
 	\begin{enumerate}[(i)]
 		\item $\Tilde{\pi}\phi=\pi$, i.e. 
 		\begin{tikzcd}
@@ -199,7 +199,7 @@ Analogously to the definition of a smooth manifold, we start by defining familie
 			x                                    &                            
 		\end{tikzcd}
 		\item for each $x\in X$ $\phi_x:E_x\to F_x$ is linear w.r.t. the vector space structure. 
-	\end{enumerate} In the case that $\phi$ is bijective (and thereby a point-wise vector space isomorphism) and has an continuous inverse we call it an \textbf{isomorphism} and call $E$ and $F$ isomorphic. 
+	\end{enumerate} In the case that $\phi$ is bijective (and thereby a point-wise vector space isomorphism) and has a continuous inverse we call it an \textbf{isomorphism} and call $E$ and $F$ isomorphic. 
 \end{definition}
 \end{comment}
 
@@ -248,7 +248,7 @@ Analogously to the definition of a smooth manifold, we start by defining familie
 	Furthermore, $TM$ is a $2m$-dimensional manifold. Using a smooth atlas on $M$ yields a smooth atlas on $TM$ making it a smooth manifold.
 	Notice that the family $\left(\partial_i\right)_i$ is a basis of the $C(U)$-module $\Gamma(U)$. This follows by expressing any section in local coordinates via $\tilde{\phi}$.
 \end{example}
-Notice that $TM$ as a bundle satisfies more then just the bundle definition: Taking two different charts induces two different local trivialisations. Transitioning between them is not just fibrewise linear, but also smooth. This is captured in the definition:
+Notice that $TM$ as a bundle satisfies more than just the bundle definition: Taking two different charts induces two different local trivialisations. Transitioning between them is not just fibrewise linear, but also smooth. This is captured in the definition:
 
 Henceforth we suppress the differentiable structure from the notation.
 
@@ -284,7 +284,7 @@ Let $\pi:E\to M$ be a smooth vector bundle of rank $r$ and let
 \begin{equation*}
 	\Phi: \pi^{-1}(U) \to U\times \R^r
 \end{equation*} be a local trivialisation.
-Then a section is called smooth if it is a smooth map of manifolds. A family of smooth local sections $(s_1,\dots, s_r)$ with $s_i\in \Gamma(U)$ is called a \textbf{local frame} if they form a basis of the $C(U)$-module $\Gamma(U)$. Such a family is obtained from $\Phi$ by defining $s_i(p)\coloneq \Phi^{-1}(p,e_i)$. Similar, from a local frame we can obtain a local trivialisations by defining:
+Then a section is called smooth if it is a smooth map of manifolds. A family of smooth local sections $(s_1,\dots, s_r)$ with $s_i\in \Gamma(U)$ is called a \textbf{local frame} if they form a basis of the $C(U)$-module $\Gamma(U)$. Such a family is obtained from $\Phi$ by defining $s_i(p)\coloneq \Phi^{-1}(p,e_i)$. Similarly, from a local frame we can obtain a local trivialisation by defining:
 \begin{equation*}
 	\Phi: \pi^{-1}(U) \to U\times \R^r\,,\quad v=\sum_{i=1}^{r} \lambda_i s_i(\pi(v)) \mapsto (\pi(v),\lambda_1,\dots, \lambda_r)\,.
 \end{equation*}
@@ -310,13 +310,13 @@ The local trivialisations $\partial_i$ of the tangent bundle of a smooth manifol
 	Let $E$ and $F$ be vector bundles and $\phi:E\to F$ be a homomorphism. Then $\phi$ is an isomorphism if and only if all $\phi_x$ are isomorphisms. 
 \end{lemma}
 \begin{proof}
-	To show that it is an isomorphism we need an continuous inverse, equivalently, we need to show that $\phi$ is a homeomorphism. First of all we can deduce, that $\phi$ is bijective:
-	Assume it wasn't injective, then there would be a fibre in which $\phi_x$ is not injective. Assume that it wasn't surjective. Then there would be a $w\in F$ that has no preimage which means that in the fiber containing $w$ there is no isomorphism. Thus, there is a unique inverse and it remains to verify that it is continuous, which is a local condition. Therefore we can assume that $E$ and $F$ are product bundles. Then we have a continuous map $\Phi:X\to \Hom(V,W)$. Furthermore, since all $\phi_x$ are isomorphisms, we can restrict the image to $\Iso(V,W)$ which is an open subset of $\Hom(V,W)$. Now we can define the map $x\mapsto \Phi(x)^{-1}$ which is continuous since taking inverses is continuous. By the corollary above, we obtain a continuous map $\psi:F\to E$ by sending $(x,w)\mapsto (x,\Phi(x)^{-1}(w))$, which is the inverse. 
+	To show that it is an isomorphism we need a continuous inverse, equivalently, we need to show that $\phi$ is a homeomorphism. First of all we can deduce, that $\phi$ is bijective:
+	Assume it wasn't injective, then there would be a fibre in which $\phi_x$ is not injective. Assume that it wasn't surjective. Then there would be a $w\in F$ that has no preimage which means that in the fibre containing $w$ there is no isomorphism. Thus, there is a unique inverse and it remains to verify that it is continuous, which is a local condition. Therefore we can assume that $E$ and $F$ are product bundles. Then we have a continuous map $\Phi:X\to \Hom(V,W)$. Furthermore, since all $\phi_x$ are isomorphisms, we can restrict the image to $\Iso(V,W)$ which is an open subset of $\Hom(V,W)$. Now we can define the map $x\mapsto \Phi(x)^{-1}$ which is continuous since taking inverses is continuous. By the corollary above, we obtain a continuous map $\psi:F\to E$ by sending $(x,w)\mapsto (x,\Phi(x)^{-1}(w))$, which is the inverse. 
 \end{proof}
 \begin{example}
-	Let $M$ be a smooth manifold of dimension $m$, $\phi:U\to V$ a chart and $\tilde{\phi}:TU\to V\times \R^m$ be the corresponding bundle chart. Then it follows from the lemma, that $TU$ is isomorphic to $V\times \R^m$. This is verified by observing that $\partial_i(p)$ is a basis of $T_pU$ for all $p\in U$. In this case $\tilde{\phi}\left(\partial_i\right)=e_i$ giving us isomorphisms in each fiber. 
+	Let $M$ be a smooth manifold of dimension $m$, $\phi:U\to V$ a chart and $\tilde{\phi}:TU\to V\times \R^m$ be the corresponding bundle chart. Then it follows from the lemma, that $TU$ is isomorphic to $V\times \R^m$. This is verified by observing that $\partial_i(p)$ is a basis of $T_pU$ for all $p\in U$. In this case $\tilde{\phi}\left(\partial_i\right)=e_i$ giving us isomorphisms in each fibre.
 \end{example}
-Now we want to construct new bundles from old ones. There are many operations to construct new vector spaces such as the tensor product, direct sum, $\Hom$-Spaces and many more. Instead of individually proving that those operations applied fiberwise yield new bundles, we subsume these operations within the following definition: 
+Now we want to construct new bundles from old ones. There are many operations to construct new vector spaces such as the tensor product, direct sum, $\Hom$-Spaces and many more. Instead of individually proving that those operations applied fibrewise yield new bundles, we subsume these operations within the following definition: 
 
 \begin{definition}[Continuous Functor]
 	Let $T$ be a covariant endofunctor in the category of finite-dimensional vector spaces. We call $T$ a \textbf{continuous functor}, if for all $V,W$ the map $T:\hom(V,W)\to \hom(T(V),T(W))$ is continuous. All vector spaces are given the topology induced by their isomorphism to real Euclidean space. If $E$  is a vector bundle we define the set:
@@ -359,7 +359,7 @@ Now we want to equip this with a topology such that $T(E)$ is a bundle over the 
 		 This is a homomorphism since $\pi_F\left( \tilde{s}(v)\right)=\pi_E(v)$\,. 
 	\end{corollary}
 	\begin{example}[Cotangent bundle]
-		Let $M$ be a smooth manifold of dimension $m$. Then we can define the \textbf{cotangent bundle} $T^*M$ to be the dual of the tangent bundle. A local frame of said bundle is given by the fiberwise dual of the frame $(\partial_i) $. Sections into the tangent bundle are called \textbf{vector fields} and sections into the cotangent bundle are called \textbf{one-forms}.  
+		Let $M$ be a smooth manifold of dimension $m$. Then we can define the \textbf{cotangent bundle} $T^*M$ to be the dual of the tangent bundle. A local frame of said bundle is given by the fibrewise dual of the frame $(\partial_i) $. Sections into the tangent bundle are called \textbf{vector fields} and sections into the cotangent bundle are called \textbf{one-forms}.  
 	\end{example} 
 	
 	
@@ -388,7 +388,7 @@ Now we want to equip this with a topology such that $T(E)$ is a bundle over the 
 	The \textbf{linear identification } is the map $Q$ given on the whole tangent bundle:
 	\begin{equation*}
 		Q:TV\to V;\quad \xi_p \mapsto R_p^{-1}(\xi_p)\,,
-	\end{equation*} and satisfies for any linear $L : v\to V$ 
+	\end{equation*} and satisfies for any linear $L : V\to V$ 
 	\begin{equation*}
 		Q\circ \diff L=L\circ Q\,.
 	\end{equation*}
@@ -405,7 +405,7 @@ Now we want to equip this with a topology such that $T(E)$ is a bundle over the 
 			We prove this by showing it for the local sections $\partial_i$ and the general case follows by $C(U)$-linearity, since those sections form a local frame. Now let $g_p\in \mathcal{E}_p(\R)$ and $\phi(p)=x_0$. Then
 		\begin{equation*}
 		\diff f _p(\partial_i(p))(g_p)= 
-		\partial_i((g\circ f)_p)=
+		\partial_i((g\circ f)_p)
 		=\restr{\frac{\partial }{\partial x_i}}{x_0}(g\circ f\circ \phi^{-1})
 		=\frac{\partial}{\partial_x}_{f_p(p)}(g_p) \cdot  \partial_i(p)(f_p)
 		\end{equation*}
@@ -427,7 +427,7 @@ Now we want to equip this with a topology such that $T(E)$ is a bundle over the 
 	To be precise: A Riemannian metric $g$ lets us canonically choose an atlas with structure group $\O(m)$ and an atlas with such a structure group lets us canonically choose a Riemannian metric. 
 \end{remark}
 \begin{proof}
-	We start by assuming that we have an atlas with structure group $\O(m)$. In Definition \ref{def:vb-framesFromTrivialisations} we saw that a covering of local trivializations is equivalent to a covering of smooth frames. Now in a single trivialization 
+	We start by assuming that we have an atlas with structure group $\O(m)$. In Definition \ref{def:vb-framesFromTrivialisations} we saw that a covering of local trivialisations is equivalent to a covering of smooth frames. Now in a single trivialisation
 	\begin{equation*}
 		\Phi: \pi^{-1}(U)\eqcolon TU \to U\times \R^m
 	\end{equation*} we call the projection to the $\R^m$-part (the second factor) $\pi_2$ and define 
@@ -437,15 +437,15 @@ Now we want to equip this with a topology such that $T(E)$ is a bundle over the 
 		g_p^\Phi: T_pU\times T_pU &\to \R \\
 		(\nu_p,\xi_p)    &\mapsto g_p^\Phi(\nu_p,\xi_p)\coloneq \pi_2\left(\Phi(\nu_p)\right)~\cdot~ \pi_2 \left(\Phi(\xi_p)\right)\,,
 	\end{array} 
-\end{align*} where $\cdot$ denotes the standard scalar product. This gives us locally a Riemannian metric. If we do this for all trivializations we have to make sure, that the result is well defined. So assume that two trivializations $\Phi$ and $\Psi$ overlap in $V$. The structure group is $\O(m)$, $\Phi=R\Psi$ for some function 
+\end{align*} where $\cdot$ denotes the standard scalar product. This gives us locally a Riemannian metric. If we do this for all trivialisations we have to make sure, that the result is well defined. So assume that two trivialisations $\Phi$ and $\Psi$ overlap in $V$. The structure group is $\O(m)$, $\Phi=R\Psi$ for some function 
 \begin{equation*}
 	R: V\to \O(m)\,.
-\end{equation*} Let $p$ be in said overlapping and $(\nu_p,\xi_p)$ be from $T_pM\times T_pM$. Then since $R$ is orthogonal we can calculate the independence from the trivialization:
+\end{equation*} Let $p$ be in said overlapping and $(\nu_p,\xi_p)$ be from $T_pM\times T_pM$. Then since $R$ is orthogonal we can calculate the independence from the trivialisation:
 \begin{equation*}
 	g_p^\Phi(\nu_p,\xi_p)=\pi_2\left(R\Psi(\nu_p)\right)\,\cdot \, \pi_2 \left(R\Psi(\xi_p)\right)=\pi_2\left(\Psi(\nu_p)\right)~\cdot~ \pi_2 \left(\Psi(\xi_p)\right)=	g_p^\Psi(\nu_p,\xi_p)\,.
 \end{equation*}
 
-To get an orthonormal atlas from a smooth one given a Riemannian metric, we start by building a covering of local frames from the trivialisations. We then apply Gram-Schmidt to the local frames to get orthonormal frames. Now a covering of orthonormal frames gives a covering of trivializations, where the structure group consists of basis changes between orthonormal bases and hence is $\O(m)$.
+To get an orthonormal atlas from a smooth one given a Riemannian metric, we start by building a covering of local frames from the trivialisations. We then apply Gram--Schmidt to the local frames to get orthonormal frames. Now a covering of orthonormal frames gives a covering of trivialisations, where the structure group consists of basis changes between orthonormal bases and hence is $\O(m)$.
 \end{proof}
 
 \begin{definition}[The Gradient]

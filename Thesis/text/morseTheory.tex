@@ -14,7 +14,7 @@ $\diff f _p=0$  is called \textbf{critical}. By $\Crit (f)$ we denote the \textb
 	\end{equation*}  that is defined as follows. Let $\xi_p, \zeta_p\in T_pM$ be two tangent vectors. Now choose two vector fields $\Xi$ and $Z$ in a neighbourhood of $p$ such that $\Xi(p)=\xi_p$ and $Z(p)=\zeta_p$. We then define the Hessian to be: 
 	\begin{equation*}
 		\Hess_p(f)(\xi_p,\zeta_p)=\Xi \left(Z (f)\right)(p)
-	\end{equation*} See \ref{cor:vb-vectorFieldsTakeFunctions} for the notation of applying a function to a vector field. In corollary \ref{cor:morse-localHessian} we will give a local description telling us that this definition is well defined, meaning independent of the Extensions $\Xi$ and $Z$.  
+	\end{equation*} See \ref{cor:vb-vectorFieldsTakeFunctions} for the notation of applying a function to a vector field. In corollary \ref{cor:morse-localHessian} we will give a local description telling us that this definition is well defined, meaning independent of the extensions $\Xi$ and $Z$.  
 \end{definition}
 \begin{definition}
 	A smooth function $f: M\to \R$ is called \textbf{Morse}, if for any critical point, the Hessian is a symmetric bilinear and non-degenerate form.
@@ -93,7 +93,7 @@ $\diff f _p=0$  is called \textbf{critical}. By $\Crit (f)$ we denote the \textb
 \end{definition}
 
 \begin{theorem}[Morse Lemma]\label{thm:morse-morseLemma}
-	Let $p$ be a critical point of index $k$ of the Morse function $f:M\to \R$. There exists a centered chart $\phi:U\to \R^m$ around $p$ such that 
+	Let $p$ be a critical point of index $k$ of the Morse function $f:M\to \R$. There exists a centred chart $\phi:U\to \R^m$ around $p$ such that 
 	\begin{equation*}
 		(f\circ \phi^{-1})(x_1,\dots, x_m)=f(p)+\sum_{i=1}^{k}-x_i^2+\sum_{i=k+1}^{m}x_i^2 \,.
 	\end{equation*}
@@ -116,11 +116,11 @@ The integral curve $\gamma_x:(a,b)\to M$ given by
 \end{equation*} is called a gradient \textbf{flow line}.
 \end{definition}
 
-Next we will deepen our \textbf{local} understanding of the negative gradient. Notice how the Morse lemma is a statement about smooth manifolds no metric needed nor mentioned. In fact there are many Morse charts and we can find one, where the Riemannian metric in $p$ is diagonal with non-zero. To proof such a statement we first need a somewhat obvious lemma:
+Next we will deepen our \textbf{local} understanding of the negative gradient. Notice how the Morse lemma is a statement about smooth manifolds, no metric needed nor mentioned. In fact there are many Morse charts and we can find one where the Riemannian metric in $p$ is diagonal with non-zero entries. To prove such a statement we first need a somewhat obvious lemma:
 
 \begin{lemma} \label{lem:morse-linearChartChangeAndTangendBasisChange}
 Assume that $\psi:U\to V$ is a chart and $L:R^m\to R^m$ a linear function. Denote the local coordinate maps of the tangent bundle in a point $p$ that come from a basis in said point induced from a chart $\chi$ by $q_{\chi}$.
-Then the diagramm \begin{center}
+Then the diagram \begin{center}
 	\begin{tikzcd}
 		T_pM \arrow[r, "q_{\psi}|_p"] \arrow[rd, "q_{L\circ \psi}|_p"'] & \R^m \arrow[d, "L"] \\
 		& \R^m               
@@ -143,27 +143,27 @@ We show this by showing the inverse: For any $v\in \R^m$ we have the two $(q_{\p
 This concludes the proof.
 \end{proof}
 
-Now we can proof that a Morse chart exists where the gradient is of particular easy form: 
+Now we can prove that a Morse chart exists where the gradient is of a particularly easy form:
 
 
 \begin{theorem}[Simultaneous Diagonalisation of Quadratic Forms]\label{thm:morse-simultaneousDiagonalisationOfQuadraticForms}
-	Let $p$ be a critical point of a Morse function $f$ on a manifold $M$ and let $g(p)$ be the Riemannian metric on $T_pM$. Then there exists a Morse chart $\psi$ arround $p$ such that the representation of $g(p)$ in the basis induced by the Morse chart is given by a a diagonal matrix $diag(\mu_1,\dots \mu_m)$ with $\mu_i>0$ for all $i$ .
+	Let $p$ be a critical point of a Morse function $f$ on a manifold $M$ and let $g(p)$ be the Riemannian metric on $T_pM$. Then there exists a Morse chart $\psi$ around $p$ such that the representation of $g(p)$ in the basis induced by the Morse chart is given by a diagonal matrix $\diag(\mu_1,\dots \mu_m)$ with $\mu_i>0$ for all $i$.
 \end{theorem}
 \begin{proof}
 	The quadratic form of $f \circ \psi^{-1} - f(p)$ in the coordinates of any Morse chart $\psi$ is $q_H(v) = v^T H v$. The quadratic form induced by the Riemannian metric $g(p)$ is $q_G(v) = v^T G v$, where $v \in \mathbb{R}^m$ are the coordinate vectors with respect to the Morse chart. 
-	To be precice this means for $v,w\in \R^m$:
+	To be precise this means for $v,w\in \R^m$:
 	\begin{align*}
 		g\circ ( q_{\psi}\big|_p\oplus q_{\psi}\big|_p ) (v,w)=v^TG w \text{ and } f\circ \psi^{-1} (v)=f(p)+v^T H v \, .
 	\end{align*} We now aim to manipulate $\psi$ such that $G$ becomes diagonal:
 	Since $g(p)$ is positive definite, $G$ is also positive definite, and $H$ is symmetric.
 	
-	Consider the generalized eigenvalue problem $Hv = \lambda G v$. Since $H$ and $G$ are real symmetric matrices and $G$ is positive definite, this problem has $m$ real eigenvalues $\lambda_1, \dots, \lambda_m$ and corresponding eigenvectors $v_1, \dots, v_m$, which can be chosen to be orthogonal with respect to the bilinear form defined by $G$, such that $v_i^T G v_j = \delta_{ij}$, since if $v_i$ and $v_j$ are different eigenvectors with respect to different eigenvalues, we can calculate:
+	Consider the generalised eigenvalue problem $Hv = \lambda G v$. Since $H$ and $G$ are real symmetric matrices and $G$ is positive definite, this problem has $m$ real eigenvalues $\lambda_1, \dots, \lambda_m$ and corresponding eigenvectors $v_1, \dots, v_m$, which can be chosen to be orthogonal with respect to the bilinear form defined by $G$, such that $v_i^T G v_j = \delta_{ij}$, since if $v_i$ and $v_j$ are different eigenvectors with respect to different eigenvalues, we can calculate:
 	\begin{align*}
 		v_j^THv_i=(Hv_j)^Tv_i=\lambda _j(Gv_j)^Tv_i=\lambda _j v_j^T G(v_i)  \quad \text{and}\quad 	v_j^THv_i= v_j^T \lambda_i G(v_i)=\lambda_i v_j^TG(v_i) \, .
 	\end{align*} Hence we have the equality
 	\begin{align*}
 		\lambda _j(Gv_j)^Tv_i=\lambda_i v_j^TG(v_i) \Leftrightarrow \underbrace{(\lambda_j-\lambda_i)}_{\neq 0}v_j^T G(v_i)=0
-	\end{align*} Hence all eigenspaces are orthogonal and we can use Gram Schmitt to make the bases of the eigenspaces orthogonal and by rescaling orthonormal.
+	\end{align*} Hence all eigenspaces are orthogonal and we can use Gram--Schmidt to make the bases of the eigenspaces orthogonal and, by rescaling, orthonormal.
 	
 	Let $L = [v_1 | \dots | v_m]$ be the matrix whose columns are these $G$-orthonormal eigenvectors. The linear change of coordinates 
 	$y = Lz$ leads to new coordinates $z$. In these new coordinates, the quadratic forms transform as follows:
@@ -171,7 +171,7 @@ Now we can proof that a Morse chart exists where the gradient is of particular e
 		q_G(y) &= y^T G y = (Lz)^T G (Lz) = z^T L^T G L z = z^T I z = \sum_{i=1}^m z_i^2 \\
 		q_H(y) &= y^T H y = (Lz)^T H (Lz) = z^T L^T H L z
 	\end{align*}
-	Since $H v_i = \lambda_i G v_i$, we have $L^T H L = \text{diag}(\lambda_1, \dots, \lambda_m)$. The eigenvalues $\lambda_i$ are real and have the same signature as the eigenvalues of $H$ ($l$ negative, $m-l$ positive).This is true to sysvesters law of inertia.  By a further scaling of the $v_i$ and a reordering the matrix $L^T H L$ can be brought into the form $\text{diag}(-1, \dots, -1, 1, \dots, 1)$. (by doing this however, the matrix $L^TGL$ becomes $L^TGL=\diag(\mu_1,\dots \mu_m)$ with $\mu_j>0~\forall j$). If $\psi$ is the Morse chart we started with, then $L^{-1} \circ \psi$ is the new Morse chart: 
+	Since $H v_i = \lambda_i G v_i$, we have $L^T H L = \text{diag}(\lambda_1, \dots, \lambda_m)$. The eigenvalues $\lambda_i$ are real and have the same signature as the eigenvalues of $H$ ($l$ negative, $m-l$ positive). This is true by Sylvester's law of inertia. By a further scaling of the $v_i$ and a reordering the matrix $L^T H L$ can be brought into the form $\text{diag}(-1, \dots, -1, 1, \dots, 1)$. (by doing this however, the matrix $L^TGL$ becomes $L^TGL=\diag(\mu_1,\dots \mu_m)$ with $\mu_j>0~\forall j$). If $\psi$ is the Morse chart we started with, then $L^{-1} \circ \psi$ is the new Morse chart: 
 	\begin{equation*}
 		f\circ (\psi^{-1}\circ L)(y)=f\circ \psi^{-1}(L(y))=q_H(L(y)=\sum_{i=1}^l-y_i^2+\sum_{i=l+1}^my_i^1
 	\end{equation*}
@@ -182,10 +182,10 @@ Now we can proof that a Morse chart exists where the gradient is of particular e
 \end{proof}
 
 \begin{definition}
-	We call a Morse chart where the Matrix corresponding to the gradient in the critical point is of diagonal form a \textbf{refined Morse chart}.
+	We call a Morse chart where the matrix corresponding to the gradient in the critical point is of diagonal form a \textbf{refined Morse chart}.
 \end{definition} 
 
-Using such a chart, we can start looking at the flow itself and try to find easy local formulars around critical points. For this we start by looking at the Jacobian of the gradient in a critical point: 
+Using such a chart, we can start looking at the flow itself and try to find easy local formulas around critical points. For this we start by looking at the Jacobian of the gradient in a critical point: 
 \begin{definition}[Jacobian of the Gradient]
 	The gradient is a section into the tangent bundle, $\grad(f):M\to TM$.
 	Let $\psi: M\supseteq U\to V \subseteq \mathbb{R}^m$ be a chart. The coordinate map $q_{\psi}$ on $TU$ assigns to a vector $v \in T_pM$ (where $p \in U$ with $\psi(p) = x$) its components with respect to the basis $\left(\frac{\partial}{\partial x_i}\big|_p\right)$, i.e., $q_{\psi}(v) = (v_1, \ldots, v_m)$ if $v = \sum_{i=1}^m v_i \frac{\partial}{\partial x_i}\big|_p$.
@@ -200,10 +200,10 @@ Using such a chart, we can start looking at the flow itself and try to find easy
 	Let $\psi$ be a coordinate system around a critical point $p$. I.e. $\psi: p\in U\to V$ with $\psi(p)=0$ and let $\left( \frac{\partial}{\partial x_1}\big|_x,\dots ,\frac{\partial}{\partial x_m}\big|_x\right)$ be the induced basis of $T_xM$. Then the Jacobian of the gradient reads
 	\begin{equation}
 		J(\grad(f))_\psi(0)= \left(\sum_{k}g^{ki}(0)\frac{\partial ^2 f\circ \psi^{-1} }{\partial x_j \partial x_k} \right)_{ij}\, ,
-	\end{equation}where $g^{ij}$ is defines as in definition \ref{def:vb-localDescriptionOfGradientGij}.
+	\end{equation}where $g^{ij}$ is defined as in definition \ref{def:vb-localDescriptionOfGradientGij}.
 \end{lemma}
 \begin{proof}
-	Let $q_{\psi}$ denote the coordinate funktion $TU\to R^m$ induced from the basis $\left( \frac{\partial}{\partial x_1}\big|_x,\dots ,\frac{\partial}{\partial x_m}\big|_x\right)$. then the gradient in $\psi$ reads:
+	Let $q_{\psi}$ denote the coordinate function $TU\to R^m$ induced from the basis $\left( \frac{\partial}{\partial x_1}\big|_x,\dots ,\frac{\partial}{\partial x_m}\big|_x\right)$. Then the gradient in $\psi$ reads:
 	\begin{align*}
 		q_{\psi}\circ \grad(f)=\left(\sum_kg^{k1  }\frac{\partial f	}{\partial x_k},\dots, \sum_kg^{k m }\frac{\partial f	}{\partial x_k}\right)
 	\end{align*}
@@ -221,7 +221,7 @@ Using such a chart, we can start looking at the flow itself and try to find easy
 		g^{ki}(0)\frac{\partial^2 f \circ \psi^{-1}}{\partial x_j ~\partial x_k}
 		\right]\right)_{ij} \, .
 	\end{align*}
-\end{proof} Now that we now how the gradient locally looks like its reasonable to assume, that the flow locally looks like its exponential:
+\end{proof} Now that we know how the gradient locally looks, it is reasonable to assume that the flow locally looks like its exponential:
 
 \begin{lemma}\label{lem:morse-differentialOfTheFlowInCriticalPoint}
 Let $t\in \mathbb{R}$ be small enough and $\phi_t: M\to M$ be the flow map corresponding to the negative gradient. Assume that $U$ is the domain of a chart $\psi$ and $p\in U$ is a critical point. Then the linear map $\mathrm{d} \phi_t \big|_p: T_pM\to T_{\phi_t(p)}M$ has a local representation in the coordinates induced by $\psi$ given by:
@@ -250,7 +250,7 @@ Hence by the theory of linear differential equation with $\frac{\partial}{\parti
 \end{proof}
 
 
-Hence in a refind Morse chart we have: 
+Hence in a refined Morse chart we have:
 \begin{remark}\label{rem:morse-jacobianOfTheFlowInRefinedMorsechart}
 	Let $\psi$ be a refined Morse chart, and hence:
 	\begin{enumerate}[(a)]
@@ -266,7 +266,7 @@ Hence in a refind Morse chart we have:
 \end{remark}
 
 
-In a refined Morse chart we have that the (un-)stable Manifold embedding: 
+In a refined Morse chart we have that the (un-)stable manifold embedding:
 \begin{definition}[Stable and Unstable Manifold] 
 	Let $p\in M$ be a critical point of $f:M\to \R$. Then we define:
 	\begin{enumerate}
@@ -294,7 +294,7 @@ In a refined Morse chart we have that the (un-)stable Manifold embedding:
 	\end{align*}
 \end{theorem}
 \begin{proof}
-	I will summarize the proof given in Chapter 4.3 \cite{banyaga2004lectures}.  We work in the discrete setting meaning that we take the negative gradient flow $\phi_t$ for a fixed positive $t$ and the limit-behaviour of the flow is captured by $\lim_{n\to \infty}\phi_t^n$ instead of the $t$-limit. First, on shows the splitting of spaces locally in a small neighbourhood $U$ arround a critical point $p$ and then extends the splitting globally. Arround $U$ we already know by remark \ref{rem:morse-jacobianOfTheFlowInRefinedMorsechart} that the tanged space $T_pM$ splits into $T^s_pM\oplus T^u_pM$ such that the differential of the flow is a contraction arround $T^s_pM$ and a expansion in $T^u_pM$. We can now map a small neighbourhood $U$ arround $p$ into $T^pM$ using the map $\Psi:U\to T_pM$ given by a refined morse chart and the identification of $\R^n$ with $T_pM$ via $e_i\mapsto \partial_i(p)$, where tha latter uses the same refined morse chart. Now inspect the image of the stable manifold $W(\to p)$ under said map. This looks to be a small pertubation of the subspace $T^s_pM$ and the local stable manifold theorem supports that intuition: 
+	I will summarise the proof given in Chapter 4.3 \cite{banyaga2004lectures}.  We work in the discrete setting meaning that we take the negative gradient flow $\phi_t$ for a fixed positive $t$ and the limit-behaviour of the flow is captured by $\lim_{n\to \infty}\phi_t^n$ instead of the $t$-limit. First, one shows the splitting of spaces locally in a small neighbourhood $U$ around a critical point $p$ and then extends the splitting globally. Around $U$ we already know by remark \ref{rem:morse-jacobianOfTheFlowInRefinedMorsechart} that the tangent space $T_pM$ splits into $T^s_pM\oplus T^u_pM$ such that the differential of the flow is a contraction around $T^s_pM$ and an expansion in $T^u_pM$. We can now map a small neighbourhood $U$ around $p$ into $T^pM$ using the map $\Psi:U\to T_pM$ given by a refined Morse chart and the identification of $\R^n$ with $T_pM$ via $e_i\mapsto \partial_i(p)$, where the latter uses the same refined Morse chart. Now inspect the image of the stable manifold $W(\to p)$ under said map. This looks to be a small perturbation of the subspace $T^s_pM$ and the local stable manifold theorem supports that intuition: 
 	\begin{lemma}[Local (Un-)stable Manifold Theorem] \label{lem:morse-localUnStableManifoldTheorem}
 	We define:
 	\begin{align*}
@@ -304,39 +304,39 @@ In a refined Morse chart we have that the (un-)stable Manifold embedding:
 		\Lip(\theta-T)<\epsilon , \text{ and }\norm{\theta(0)}<\delta.
 	\end{equation*}In this setting, 
 	\begin{equation*}
-	W^s_r(\theta)\coloneq \{x\in T_pM\,|\, \forall n\geq 0, \theta^n(X) \text{ is defined and } \norm{\theta^n(x)\leq r}\}
+	W^s_r(\theta)\coloneq \{x\in T_pM\,|\, \forall n\geq 0, \theta^n(X) \text{ is defined and } \norm{\theta^n(x)}\leq r\}
 	\end{equation*} is the graph of a Lipschitz function $g:T^s_pM\to T^u_pM$ with $ \text{Lip}(g)\leq 1$ and:
 	\begin{enumerate}
-		\item If $\theta$ is $C^k$ ($k$- times smooth differentiable), then so is $g$.
-		\item If $\theta$ is smoothly differentiable ,$\theta(0)=0$ and $\diff \theta\big|_0=T$, then $g(0)=0$ and $\diff g |_0=0$. Hence, $T _pW^s_r(\theta)=T^s_pM$.
+		\item If $\theta$ is $C^k$ ($k$-times continuously differentiable), then so is $g$.
+		\item If $\theta$ is smoothly differentiable, $\theta(0)=0$ and $\diff \theta\big|_0=T$, then $g(0)=0$ and $\diff g |_0=0$. Hence, $T _pW^s_r(\theta)=T^s_pM$.
 	\end{enumerate}
 	\end{lemma}
 	\begin{proof}
 		For a proof we refer to Chapter 4.2 \cite{banyaga2004lectures}.
 	\end{proof}
-	We can now define $\theta \coloneq \Psi \circ \phi \circ \Psi^{-1}$. The local (un-)stable manifold theorem now tells us that $W^s_r(\theta)=\Psi(W(\to p)\cap U)$ is the graph of a smooth function $g: T^s_pM\to T^u_pM$. Hence the projection $\pi$ of said graph to its domain gives us a chart of the stable manifold arround $p$. A whole atlass of $W(\to p)$ is obtained by $U^n\coloneq \phi^{-n}(U)$ which covers the whole $W(\to p)$ and with this  the maps $\chi^n:\pi\circ \Psi \circ \phi^n$ give us an atlass. 
-	The smooth embeddings ar obtained as follows: We define $h\coloneq \chi \circ \phi \circ \chi^{-1}$ and $B\coloneq W(\to p)\cap U$. Now $\diff \big(\restr{\phi_p}{T^s_pM}\big)$ having an operator norm less then one translates to $\diff h_p$ as they are similar as matricies. Let $0<\alpha<1$ and $B_0\subseteq B$ be a ball centered at $p$ such that $\norm{\diff h_x}\leq \alpha$ for all $x\in B_0$. Then $\restr{h}{B_0}h$ is a contraction, which can be extendet to a global contraction $\tilde{h}:T^s_pM\to T^s_pM$. Now we define the embedding:
+	We can now define $\theta \coloneq \Psi \circ \phi \circ \Psi^{-1}$. The local (un-)stable manifold theorem now tells us that $W^s_r(\theta)=\Psi(W(\to p)\cap U)$ is the graph of a smooth function $g: T^s_pM\to T^u_pM$. Hence the projection $\pi$ of said graph to its domain gives us a chart of the stable manifold around $p$. A whole atlas of $W(\to p)$ is obtained by $U^n\coloneq \phi^{-n}(U)$ which covers the whole $W(\to p)$ and with this  the maps $\chi^n:\pi\circ \Psi \circ \phi^n$ give us an atlas.
+	The smooth embeddings are obtained as follows: We define $h\coloneq \chi \circ \phi \circ \chi^{-1}$ and $B\coloneq W(\to p)\cap U$. Now $\diff \big(\restr{\phi_p}{T^s_pM}\big)$ having an operator norm less than one translates to $\diff h_p$ as they are similar as matrices. Let $0<\alpha<1$ and $B_0\subseteq B$ be a ball centred at $p$ such that $\norm{\diff h_x}\leq \alpha$ for all $x\in B_0$. Then $\restr{h}{B_0}$ is a contraction, which can be extended to a global contraction $\tilde{h}:T^s_pM\to T^s_pM$. Now we define the embedding:
 	\begin{align*}
 		E^s:T^s_pM&\to W(\to p) \\
 		x\mapsto \phi^{-n}\circ \chi^{-1}\circ \tilde{h}^n(x)\quad n \text{such that }\tilde{h}^n(x)\in B_0 \,.
-	\end{align*} All required properties and the well definition of $E^s$ is now standart calculations. The stable manifold theorem follows from the unstable one by replacing $f$ with $-f$. 
+	\end{align*} All required properties and the well-definedness of $E^s$ are now standard calculations. The stable manifold theorem follows from the unstable one by replacing $f$ with $-f$. 
 \end{proof}
 
-We want to refine the unstable embedding $E^u_q:T^u_qM\to W(q\to)$. For this we will make use of the  Grobman-Hartman conjugation theorem:
+We want to refine the unstable embedding $E^u_q:T^u_qM\to W(q\to)$. For this we will make use of the Hartman--Grobman conjugation theorem:
 \begin{theorem}[Hartman-Grobman Theorem]
-	Let $E$ be an open subset of $R^n$ cobtaining the origin, let $f\in \mathcal{C}$, and let $\phi_t$ be a flow given by $f$. (i.e. $\frac{\partial}{\partial t} (\phi_t(x))=f(x)$). Assume that $f(0)=0$, i.e. that $0$ is a fixpoint of $\phi_t$ and furthermore assume that fixpoint to be hyperbolic, i.e. $Df$ has no eigenvalue with zero real part. Then there exists a homeomorphism $H$ of an open set $U$ containing the origin onto an open set $V$ containing the origin such that for each $x_0\in I$, there is an open Interval $I_0\subseteq  \R$ containing zeri such that for all $x_0\in U$ and $t\in I_0$ the diagram
+	Let $E$ be an open subset of $R^n$ containing the origin, let $f\in \mathcal{C}$, and let $\phi_t$ be a flow given by $f$. (i.e. $\frac{\partial}{\partial t} (\phi_t(x))=f(x)$). Assume that $f(0)=0$, i.e. that $0$ is a fixed point of $\phi_t$ and furthermore assume that fixed point to be hyperbolic, i.e. $Df$ has no eigenvalue with zero real part. Then there exists a homeomorphism $H$ of an open set $U$ containing the origin onto an open set $V$ containing the origin such that for each $x_0\in I$, there is an open interval $I_0\subseteq  \R$ containing zero such that for all $x_0\in U$ and $t\in I_0$ the diagram
 	\begin{center}
 		\begin{tikzcd}
 			U \arrow[r, "H"] \arrow[d, "\phi_t"] & V \arrow[d, "\euler^{At}"] \\
 			U \arrow[r, "H"]                     & V
 		\end{tikzcd}
-	\end{center}  commutes ,meaning tha locally the flow is a topological conjugate to its linearisation.
+	\end{center}  commutes, meaning that locally the flow is topologically conjugate to its linearisation.
 \end{theorem}
-\begin{proof}A proove is given in chapter 2.8 in \cite{Perko2001}.
+\begin{proof}A proof is given in chapter 2.8 in \cite{Perko2001}.
 \end{proof}
 
 
-\begin{theorem}[Refined Stable Embdeding]
+\begin{theorem}[Refined Stable Embedding]
 	In the setting of the stable manifold theorem, we can refine the embedding
 \begin{equation*}
 	E^u_q:T^u_q M \to W(q\to )\,, 
@@ -346,16 +346,16 @@ We want to refine the unstable embedding $E^u_q:T^u_qM\to W(q\to)$. For this we 
 	\begin{equation*}
 		\phi_t(x)=E^s_p(A_tv)\, ,
 	\end{equation*} where $A_t$ is a linear map defined as:
-	$A_t=B_{\mathfrak{b}}\circ \diag\left(e^{-2\mu_{1} t},\dots,e^{-2\mu_{\lambda_p} t} \right)\circ B_{\mathfrak{b}}^{-1}$, where $\mathfrak{b}$ is the bases of $T^u_qM$ that comes from the basis of $T_qM$ which is induced by a refined Morse chart. The diagonal matrix is the stable part of the jacobean of the flow in said refined Morse chart $\psi$.
+	$A_t=B_{\mathfrak{b}}\circ \diag\left(e^{-2\mu_{1} t},\dots,e^{-2\mu_{\lambda_p} t} \right)\circ B_{\mathfrak{b}}^{-1}$, where $\mathfrak{b}$ is the basis of $T^u_qM$ that comes from the basis of $T_qM$ which is induced by a refined Morse chart. The diagonal matrix is the stable part of the Jacobian of the flow in said refined Morse chart $\psi$.
 \end{theorem}
 \begin{proof} 
-	In the proof of the unstable manifold theorem from \cite{banyaga2004lectures} which was summarized above, we started with a local map $\rho': U\to V$, where $U\subseteq W(q\to)$ is an neighbourhood of $q$ and $V\supseteq T^u_q$. (This was a refined Morse chart together with a projection once realized that the stable part gets mapped to the graph of a smooth funktion). Now we define
+	In the proof of the unstable manifold theorem from \cite{banyaga2004lectures} which was summarised above, we started with a local map $\rho': U\to V$, where $U\subseteq W(q\to)$ is a neighbourhood of $q$ and $V\supseteq T^u_q$. (This was a refined Morse chart together with a projection once realised that the stable part gets mapped to the graph of a smooth function). Now we define
 	\begin{align*}
 		\theta_t:V&\to V\\
 		v&\mapsto \rho' \circ \phi_t \circ \rho'^{-1}(v)
-	\end{align*} for all $t$ such that the map is well defined. Now with a basis $\mathfrak{b}^s_p$ of $T^s_pM$ we can push these considerations into $\R^n$ and by abuse of notation assume that $\rho$ maps to $\R^n$ and hence $\theta$ is a flow arround the origin of $\R^n$. Now by the Hartman-Grobman Theorem we find a homeomorphism $H$ arround the origin, such that $H\circ \theta_t= e^{At} \circ H$, where $A=\diff \theta_t=$ To calculate said differential we look into the map $\rho'$ again. For this we give names to the funktions:
+	\end{align*} for all $t$ such that the map is well defined. Now with a basis $\mathfrak{b}^s_p$ of $T^s_pM$ we can push these considerations into $\R^n$ and by abuse of notation assume that $\rho$ maps to $\R^n$ and hence $\theta$ is a flow around the origin of $\R^n$. Now by the Hartman--Grobman Theorem we find a homeomorphism $H$ around the origin, such that $H\circ \theta_t= e^{At} \circ H$, where $A=\diff \theta_t=$ To calculate said differential we look into the map $\rho'$ again. For this we give names to the functions:
 	\begin{itemize}
-		\item $\psi: U \to V$ is the refined morse chart arround $q$.
+		\item $\psi: U \to V$ is the refined Morse chart around $q$.
 		\item $g: T^s_pM\to T^u_pM$ is the map that defines the image of the stable part under $\psi$ to be a graph. I.e. $\psi\left(W(\to p)\right)=\Gamma_{g}$. We know that $g(0)=0$ and $\diff g\big|_0=0$.
 		\item $\pi: \Gamma_g\to T^s_pM$ is the projection. Its inverse is obviously $\id\times g$.
 	\end{itemize}
@@ -369,7 +369,7 @@ We want to refine the unstable embedding $E^u_q:T^u_qM\to W(q\to)$. For this we 
 	\end{align*} Now define for a small neighbourhood $V\subseteq \R^{m-\lambda_p}$ the map
 	\begin{equation*}
 		\rho\coloneq \rho'\circ H: V \to U\, .
-	\end{equation*} $U$ is choosen such that the map is onto. Then we have that $\phi_t\circ \rho^{-1}=\rho^{-1} \circ \euler^{At}$, in a that small neighbourhood of $p$. Now finally we can extend this property to be true for the whole stable set:
+	\end{equation*} $U$ is chosen such that the map is onto. Then we have that $\phi_t\circ \rho^{-1}=\rho^{-1} \circ \euler^{At}$, in that small neighbourhood of $p$. Now finally we can extend this property to be true for the whole stable set:
 	For this we define the embedding
 	\begin{align*}
 		E^s_p: T^s_pM &\to W(\to p)\\
@@ -389,7 +389,7 @@ We want to refine the unstable embedding $E^u_q:T^u_qM\to W(q\to)$. For this we 
 		&=\phi_{-n}\circ \phi_t\circ \rho^{-1}\circ A_n(y) \\
 		&=\phi_{-n}\circ \circ A_n(A_t(y))
 	\end{align*}
-	The details of the proof are exactly the same as the standart (un-)stable manifold theorem.
+	The details of the proof are exactly the same as in the standard (un-)stable manifold theorem.
 \end{proof}
 
 
@@ -399,21 +399,19 @@ We want to refine the unstable embedding $E^u_q:T^u_qM\to W(q\to)$. For this we 
 \end{definition}
 
 
-\subsection{Signed flow lines}
-The idea of Morse homology is now to find an invariant under manipulations of the Morse Smale function. Obviously neither the number of flow critical points nor the number of flow lines stays invariant. However certain linearcombinations stay invariant, when wone establishes a sophisticated way to count flow lines. For this count we want to introduces signes to the flow lines between critical point with index one apart.
+\subsection{Orientations}
+The idea of Morse homology is now to find an invariant under manipulations of the Morse--Smale function. Obviously neither the number of critical points nor the number of flow lines stays invariant. However certain linear combinations stay invariant, when one establishes a sophisticated way to count flow lines. For this count we want to introduce signs to the flow lines between critical points with index one apart.
 
 \begin{definition}[Morse-Smale]
 	A Morse function $f:M\to \R$ such that all stable and unstable manifolds intersect transversally is called a \textbf{Morse-Smale} function. 
 \end{definition}
 
-\begin{definition}\todo{das muss NACH die definition von Orientierung}
-	Let $f:M\to \R$ be a Morse-Smale function on a Riemannian manifold $(M,g)$. Furthermore let $\mathfrak{o}$ be an choice of orientations for all unstable Tangendspaces ($T_q^uM$ for all $q\in \Crit(f)$). The tuple $\mathfrak{A}\coloneq (g,f,\mathfrak{o})$ is a \textbf{Morse datum}.
-\end{definition}
+
 \begin{definition}[Orientation]
-	Let $V$ be a finite dimensional $\R$ vector space and $\det(V)\coloneq \Lambda^{\dim(V)}$ the maximal exterior Algebra (or Grassman Algebra).  by the principle of permanence we define $\Lambda^0(V)=\R$. An orientation of $V$ is a choice of one of the two connected component of $\dim(V)\setminus \{0\}$. 
+	Let $V$ be a finite dimensional $\R$ vector space and $\det(V)\coloneq \Lambda^{\dim(V)}$ the maximal exterior algebra (or Grassmann algebra). By the principle of permanence we define $\Lambda^0(V)=\R$. An orientation of $V$ is a choice of one of the two connected components of $\det(V)\setminus \{0\}$.
 \end{definition}
 \begin{remark}
-	Classically, an orientation of a vector space $V$ of dimension $m$ is given by an ordered basis $\mathfrak{b}=(b_1,\dots b_m)$ of $V$ and hence the produkt $b_1\wedge \dots \wedge b_m$ is an element of the maximal exterior product $\det(V)=\Lambda^mV$. Two ordered bases define different elements in $\det(V)$ and their difference is given by the determinant of the base change matrix. (This is just a calculation using multilinearity and the alternating property). Hence an choice of equivalence class of bases modulo basechange matrix of positive determinant is the same as a choice of one connected component of $\det(V)\setminus \{0\}$.
+	Classically, an orientation of a vector space $V$ of dimension $m$ is given by an ordered basis $\mathfrak{b}=(b_1,\dots b_m)$ of $V$ and hence the product $b_1\wedge \dots \wedge b_m$ is an element of the maximal exterior product $\det(V)=\Lambda^mV$. Two ordered bases define different elements in $\det(V)$ and their difference is given by the determinant of the base change matrix. (This is just a calculation using multilinearity and the alternating property). Hence a choice of equivalence class of bases modulo base change matrix of positive determinant is the same as a choice of one connected component of $\det(V)\setminus \{0\}$.
 \end{remark}
 \begin{definition}[Orientation and Exact Sequences]\todo{FIX}
 A short exact sequence of vector spaces 
@@ -427,8 +425,8 @@ induces a canonical isomorphism
 	\begin{align*}
 		 \det(A)\otimes \det(C)& \to \det(B)\\
 		 (a_1\wedge \dots\wedge a_l) \otimes (c_1\wedge \dots \wedge c_k) &\mapsto (f(a_1)\wedge \dots f(a_l)\wedge \tilde{c_1}\wedge \dots \wedge \tilde{c_k})\, ,
-	\end{align*} where $\tilde{c_j}\in g^{-1}(c_j)$ . The well definition of this map (invariance under choosen lift of $c$) can be calculated, since two different choices differ in an element in the kernal of $g$ which equals the image of $f$ and hence the different choices vanisch in the wedge produkt. By this isomorphism we get a orientation induced in the middle from the outside. Notice the convention, that the basis from $A$ is placed in front of the basis from $C$. 
-	Notice how the definition is consistend with the edge cases of trivial vector spaces $A$ or $C$. If $A=0$ we get an isomorphism $B\cong C$ and a basis from $C$ induced to $B$, that is either the induced one from $g$, or exactly the opposite one, if the trivial vectorspace $A$ is negatively oriented.
+	\end{align*} where $\tilde{c_j}\in g^{-1}(c_j)$ . The well-definedness of this map (invariance under chosen lift of $c$) can be calculated, since two different choices differ in an element in the kernel of $g$ which equals the image of $f$ and hence the different choices vanish in the wedge product. By this isomorphism we get an orientation induced in the middle from the outside. Notice the convention, that the basis from $A$ is placed in front of the basis from $C$. 
+	Notice how the definition is consistent with the edge cases of trivial vector spaces $A$ or $C$. If $A=0$ we get an isomorphism $B\cong C$ and a basis from $C$ induced to $B$, that is either the induced one from $g$, or exactly the opposite one, if the trivial vector space $A$ is negatively oriented.
 \end{definition}
 \begin{remark}
 	Let 
@@ -438,34 +436,78 @@ induces a canonical isomorphism
 	\end{tikzcd}
 	\end{center}
 
-be a short exact sequence of vector spaces and $\mathfrak{a}$ be a bases of $A$ , $\mathfrak{c}$ be a basis of $C$ and $\tilde{\mathfrak{c}}$ be a lift of $\mathfrak{c}$ via $g$. Replacing the basis $\mathfrak{a}$ with $\P\mathfrak{a}$ and $\mathfrak{c}$ with $Q\mathfrak{c}$ where $P,Q$ are invertible matricies,gives us a new induced basis on $B$, which differes from the original one by a martix $\begin{pmatrix}
+be a short exact sequence of vector spaces and $\mathfrak{a}$ be a basis of $A$, $\mathfrak{c}$ be a basis of $C$ and $\tilde{\mathfrak{c}}$ be a lift of $\mathfrak{c}$ via $g$. Replacing the basis $\mathfrak{a}$ with $P\mathfrak{a}$ and $\mathfrak{c}$ with $Q\mathfrak{c}$ where $P,Q$ are invertible matrices, gives us a new induced basis on $B$, which differs from the original one by a matrix $\begin{pmatrix}
 	P&*\\
 	0&Q
-\end{pmatrix}$, where $*$ depends on the choosen lift. Hence the corresponding elements in $\det(B)$ differ by the product $\det(P)\det(Q)$. 
+\end{pmatrix}$, where $*$ depends on the chosen lift. Hence the corresponding elements in $\det(B)$ differ by the product $\det(P)\det(Q)$. 
 \end{remark}
-\begin{lemma}[Orientation comparison in bundles]
-	
-\end{lemma}
-\begin{lemma}[]
-	
+\begin{lemma}
+	For a rank $r$ vector bundle $E\to X$ we set $\det(E)\coloneq \Lambda^r(E)$. An orientation is an equivalence class of a non-vanishing section into the determinant bundle, where two sections are equivalent if they differ by multiplication of a positive scalar valued function. $E$ is orientable if such a section exists, i.e. if $\det(E)$ is trivial. An orientation of a bundle restricts to an orientation in each fibre.
 \end{lemma}
 
+\begin{lemma}\label{lem:morse-OrientationsInAPointInduceOrientationsOfBundle}
+	Let $E\to X$ be an orientable vector bundle and $X$ be connected. For each $x\in X$ we get the bijection induced from the restriction to the fibre:
+	\begin{equation*}
+		\{\text{Orientation on }E\} \to \{\text{Orientation on } E_x\}\,.
+	\end{equation*} Hence, an orientation in one fibre can introduce an orientation in every other fibre.
+\end{lemma}
+\begin{definition}
+	We call a manifold orientable, if its tangent bundle is orientable.
+\end{definition}
+\begin{proof}
+	Two orientations over $E$ are given as nowhere-vanishing sections $s,s'$. The quotient $x\mapsto \frac{s}{s'}$ is continuous and its image is contained in $\R\setminus \{0\}$. Hence the sign of the quotient is a continuous function into $\{-1,1\}$. Since $X$ is connected we conclude that the sign of said quotient is a constant function. Thereby, if the sections induce the same orientation, they differ by multiplication of the positive number $\frac{s(x)}{s'(x)}$ and then the sign of $\frac{s}{s'}$ is globally one. The surjectivity is clear by mapping the sections $s$ and $-s$.
+\end{proof}
+\subsection{Signed Flow Lines}
+
+\begin{definition}
+	Let $f:M\to \R$ be a Morse-Smale function on a Riemannian manifold $(M,g)$. Furthermore let $\mathfrak{o}$ be a choice of orientations for all unstable tangent spaces ($T_q^uM$ for all $q\in \Crit(f)$). The tuple $\mathfrak{A}\coloneq (g,f,\mathfrak{o})$ is a \textbf{Morse datum}.
+\end{definition}
+
+\begin{lemma}[Oriented Unstable Manifolds]\label{lem:morse-OrientedUnstableSpaces}All unstable manifolds of a manifold with Morse function are orientable which can be deduced from the (un-)stable embedding theorem. Hence, the orientations from a Morse datum $\mathfrak{A}\coloneq (g,f,\mathfrak{o})$ induce orientations in all unstable manifolds by enforcing Lemma \ref{lem:morse-OrientationsInAPointInduceOrientationsOfBundle}.
+\end{lemma}
+
+\begin{lemma}
+	Let $M,N$ be smooth manifolds and $f:N\to M$ be a smooth embedding. Then the tangent bundle $T(f(N))$ of the smooth submanifold $f(N)$ is a smooth subbundle of $\restr{TM}{f(N)}$.
+\end{lemma}
+\begin{proof}
+    Write $S \coloneqq f(N)$, and let $n = \dim N$ and $m = \dim M$. Since $f$ 
+    is an embedding, $S$ satisfies the local slice condition: around every 
+    $p \in S$ there is a chart $\phi \colon U \to \mathbb{R}^m$ of $M$ with 
+    $\phi(S \cap U) = \phi(U) \cap (\mathbb{R}^n \times \{0\})$, and the 
+    restriction $\restr{\phi}{S \cap U} \colon S \cap U \to \mathbb{R}^n 
+    \times \{0\} \cong \mathbb{R}^n$ is a chart for $S$. With respect to these 
+    two charts, the inclusion $S \cap U \hookrightarrow U$ has the coordinate 
+    representation $v \mapsto (v,0)$, hence for every $q \in S \cap U$ we have
+    \begin{equation*}
+        T_q S \;=\; \operatorname{span}\big(\partial_1(q),
+        \dots, \partial_n(q) \big) \;\subset\; T_q M,
+    \end{equation*}
+    where $\partial_1,\dots,\partial_m$ denotes the coordinate frame of $\phi$.
+    Hence the trivialisation of $\restr{TM}{U}$ induced by $\phi$ maps
+    $\restr{TS}{S \cap U}$ onto $(S \cap U) \times (\mathbb{R}^n \times \{0\})$, 
+    i.e.\ $TS$ is locally the standard subbundle. Moreover, any transition map 
+    between two slice charts sends slices to slices, so its Jacobian along $S$ 
+    is block upper triangular; the transition functions of $TS$ are the smooth 
+    upper-left $n \times n$ blocks. Thus $TS$ is a smooth subbundle of 
+    $\restr{TM}{S}$.
+\end{proof}
+\begin{comment}
 \begin{remark}[Notiz für Mich]
-	Given a Morse datum $\mathfrak{A}\coloneq (g,f,\mathfrak{o})$, there are multiple ways to inflict a sign to a flow line $\gamma\in \mathcal{M}(q\to p)$ between two critical points with index one apart. All of them introduce two different orientations  (meaning basis of $T_xW(q\to)$) in a point $x\in \gamma$ the first notion depends on the oprientation $T^u_q$ and is introduced either via the embedding of the unstable manifold of $q$ $E^u_p$, or by trivializing the bundle $TW(q\to)$ which is possibel by contractability of $W(q\to)$. Both ways yeald the same, as they introduce the same orientation in the fibre $T_qW(q\to)$. 
+	Given a Morse datum $\mathfrak{A}\coloneq (g,f,\mathfrak{o})$, there are multiple ways to inflict a sign to a flow line $\gamma\in \mathcal{M}(q\to p)$ between two critical points with index one apart. All of them introduce two different orientations  (meaning basis of $T_xW(q\to)$) in a point $x\in \gamma$ the first notion depends on the orientation $T^u_q$ and is introduced either via the embedding of the unstable manifold of $q$ $E^u_p$, or by trivialising the bundle $TW(q\to)$ which is possible by contractibility of $W(q\to)$. Both ways yield the same, as they introduce the same orientation in the fibre $T_qW(q\to)$.
 	Now the difficulty appears when introducing a basis of $T_xW(q\to)$ that depends on $T^u_pM$. 
 	For this we can build the quotient bundle $TM\Big/ \big( TW(\to p) \big)$. 
-	The fiber above $p$ should be naturally isomophic to $T^u_pM$ by the direct sum decomposition and contractibility of $W(\to p)$ then gives us a trivialization and hence lets us induce an orientation over $T_xM\big/ T_xW(\to p)$. By transversality we get the short exact sequence of vector spaces that introduces a basis in the middle. 
+	The fibre above $p$ should be naturally isomorphic to $T^u_pM$ by the direct sum decomposition and contractibility of $W(\to p)$ then gives us a trivialisation and hence lets us induce an orientation over $T_xM\big/ T_xW(\to p)$. By transversality we get the short exact sequence of vector spaces that introduces a basis in the middle. 
 	\begin{center}
 		 \begin{tikzcd}
 			0\arrow[r]&\arrow[r]T_x\gamma &\arrow[r]T_xW(q\to ) & T_xM\big/ T_xW(\to p) \arrow[r]&0
 		 \end{tikzcd}
 	\end{center}
-	Anotherway to get the orientation in $T_xW(q\to)$ from $T^u_pM$ is by transporting the orthogonal complemenmt of $-\gamma_x(f)$ in $T_xW(q\to)$ towards $p$ along the curve $\gamma$. Here we have the problem, that we will never reach $T_pM$ as $p\notin \gamma$. To introduce an orientation that way we need to show that the tanged spaces converge into one another which is a corollary of the inclination or $\lambda$ lemma. 
+	Another way to get the orientation in $T_xW(q\to)$ from $T^u_pM$ is by transporting the orthogonal complement of $-\gamma_x(f)$ in $T_xW(q\to)$ towards $p$ along the curve $\gamma$. Here we have the problem, that we will never reach $T_pM$ as $p\notin \gamma$. To introduce an orientation that way we need to show that the tangent spaces converge into one another which is a corollary of the inclination or $\lambda$ lemma.
 \end{remark}
 
 \begin{definition}
-	Let $f:M\to \R$ be a morse function and $q,p$ two critical and assume that $\ind(q)-1=\ind(p)$. 
-	Now take a point $x\in \gamma \in \mathcal{M}(q\to p)$ that lifes on a flow line between those points. 
+	Let $f:M\to \R$ be a Morse function and $q,p$ two critical points and assume that $\ind(q)-1=\ind(p)$.
+	Now take a point $x\in \gamma \in \mathcal{M}(q\to p)$ that lives on a flow line between those points.
 	Then we define the quotient bundle $\nu W(\to p)$ over the stable set of $p$ as $\restr{TM}{W(\to p)}\Big/ T(W\to p)$. 
 \end{definition}
 
@@ -478,19 +520,19 @@ be a short exact sequence of vector spaces and $\mathfrak{a}$ be a bases of $A$ 
 		C_k(M,\mathfrak{A},\Lambda)\coloneq \bigoplus_{\Crit(f)}\Lambda
 	\end{equation*} 
 	To define a boundary operator between the chain groups on the generators we count flow lines between them.
-	Lets say that $p$ is a critical point of index $k$ and $q$ one of index $k+1$. Then we have the set of flow lines from $q$ to $p$ denoted by $\mathcal{M}(q\to p)$. For each $\gamma\in \mathcal{M}(q\to p)$ we assign a sign $n_\gamma\in \{\pm 1\}$. Let $x\in \gamma$. Then the tangent space in $x$ splits $T_xW(q\to)=N_x(\gamma)\oplus \langle -\grad(f)(x)\rangle$. Furthermore, we can parallel transport $N_x(\gamma)$ to $T^u_pM$.(To be prezice, we transport alingside the compactification of $\gamma$ such that it contains $p$. This compactified version of $\gamma$ has $T^u_pM$ as the fibre above $p$ which can be seen by inspecting it locally and applying the refined unstable embedding.) Hence, the orientation in $T_q^uM$ can be compared to the one in $T^u_pM$ and the sign $n_\gamma$ can be chosen accordingly.The \textbf{boundary operator} on a generator is defined as:
+	Lets say that $p$ is a critical point of index $k$ and $q$ one of index $k+1$. Then we have the set of flow lines from $q$ to $p$ denoted by $\mathcal{M}(q\to p)$. For each $\gamma\in \mathcal{M}(q\to p)$ we assign a sign $n_\gamma\in \{\pm 1\}$. Let $x\in \gamma$. Then the tangent space in $x$ splits $T_xW(q\to)=N_x(\gamma)\oplus \langle -\grad(f)(x)\rangle$. Furthermore, we can parallel transport $N_x(\gamma)$ to $T^u_pM$. (To be precise, we transport alongside the compactification of $\gamma$ such that it contains $p$. This compactified version of $\gamma$ has $T^u_pM$ as the fibre above $p$ which can be seen by inspecting it locally and applying the refined unstable embedding.) Hence, the orientation in $T_q^uM$ can be compared to the one in $T^u_pM$ and the sign $n_\gamma$ can be chosen accordingly. The \textbf{boundary operator} on a generator is defined as:
 	\begin{equation*}
 		\partial_{k+1}(q)\coloneq \sum_{p\in \Crit_k(f)} \sum_{\gamma\in \mathcal{M}(q\to p)} n_\gamma
 	\end{equation*}
 \end{definition}
 \begin{theorem}
-	The Morse chain groubs build a chain complex, meaning that $\partial^2=0$. 
+	The Morse chain groups form a chain complex, meaning that $\partial^2=0$.
 \end{theorem}
 \begin{proof}
-	This will be an corollary of theorem \todo{reference zu commuting boundary homomorphisms einfügen}.
+	This will be a corollary of theorem \todo{reference zu commuting boundary homomorphisms einfügen}.
 \end{proof}
 \begin{definition}[Orientation and Exact Sequences]
-	An orientation of a vector space $V$ of dimension $m$ is given by an ordered basis $\mathfrak{b}=(b_1,\dots b_m)$ of $V$ and hence the produkt $b_1\wedge \dots \wedge b_m$ is an element of the maximal exterior product $\det(V)=\Lambda^mV$. Two ordered bases define different elements in $\det(V)$ where there difference is given by the determinant of the base change matrix. (This is just a calculation using multilinearity and the alternating property). Hence an orientation is a choice of one connected component of $\det(V)\setminus \{0\}$. Now a short exact sequence of vector spaces 
+	An orientation of a vector space $V$ of dimension $m$ is given by an ordered basis $\mathfrak{b}=(b_1,\dots b_m)$ of $V$ and hence the product $b_1\wedge \dots \wedge b_m$ is an element of the maximal exterior product $\det(V)=\Lambda^mV$. Two ordered bases define different elements in $\det(V)$ where their difference is given by the determinant of the base change matrix. (This is just a calculation using multilinearity and the alternating property). Hence an orientation is a choice of one connected component of $\det(V)\setminus \{0\}$. Now a short exact sequence of vector spaces 
 \begin{center}
 	% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRGJAF9T1Nd9CKAIzkqtRizYBBLjxAZseAkQBMo6vWatEIAEKzeigUQDM68VrYBhA-L5LByACznNknR05iYUAObwiUAAzACcIAFskMhAcCCQhbmCwyMQRGLjENQt3ECDbUIikLNikM2ztEF985NLqEsQnL04gA
 	\begin{tikzcd}
@@ -501,7 +543,7 @@ induces a canonical isomorphism
 	\begin{align*}
 		 \det(A)\otimes \det(C)& \to \det(B)\\
 		 (a_1\wedge \dots\wedge a_l) \otimes (c_1\wedge \dots \wedge c_k) &\mapsto (f(a_1)\wedge \dots f(a_l)\wedge \tilde{c_1}\wedge \dots \wedge \tilde{c_k})\, ,
-	\end{align*} where $\tilde{c_j}\in g^{-1}(c_j)$ . The well definition of this map (invariance under choosen lift of $c$) can be calculated, since two different choices differ in an element in the kernel of $g$ which equals the image of $f$ and hence the different choices vanish in the wedge product. By this isomorphism we get a orientation induced in the middle from the outside.
+	\end{align*} where $\tilde{c_j}\in g^{-1}(c_j)$ . The well-definedness of this map (invariance under chosen lift of $c$) can be calculated, since two different choices differ in an element in the kernel of $g$ which equals the image of $f$ and hence the different choices vanish in the wedge product. By this isomorphism we get an orientation induced in the middle from the outside.
 \end{definition}
 \begin{remark}
 	Let 
@@ -510,34 +552,34 @@ induces a canonical isomorphism
 		0 \arrow[r] & A \arrow[r, "f"] & B \arrow[r, "g"] & C \arrow[r] & 0
 	\end{tikzcd}
 	\end{center}
-	be an exact sequence of vector spaces and $\mathfrak{a}$ be a baseis of 
+	be an exact sequence of vector spaces and $\mathfrak{a}$ be a basis of
 \end{remark}
 \begin{remark}[The Counting of Flow Lines]
-There are several ways to formulate the counting of flow lines that happens in the boundary operator.Let $\gamma\in \mathcal{M}(q\to p)$ and $x\in \gamma$ Instead of using the parallel transport, we can introduce two different ordered bases in $T_{x}W(q\to)$. We use the following notation: 
-Let $\gamma\in \mathcal{M}(q\to p)$. We extend $\gamma$ to also contain the $q$ and $p$ by compactifying the flow line. Now assume that $x\in \gamma\setminus \{q,p\}$. For this we define $N_{x}^{W(q\to)}{\gamma}$ be the normal bundle of $\gamma$ as a submanifold of $W(q\to)$. Since $\gamma$ is contractible we can trivialize said normal bundle to get an bundle isomorphism: 
+There are several ways to formulate the counting of flow lines that happens in the boundary operator. Let $\gamma\in \mathcal{M}(q\to p)$ and $x\in \gamma$. Instead of using the parallel transport, we can introduce two different ordered bases in $T_{x}W(q\to)$. We use the following notation: 
+Let $\gamma\in \mathcal{M}(q\to p)$. We extend $\gamma$ to also contain the $q$ and $p$ by compactifying the flow line. Now assume that $x\in \gamma\setminus \{q,p\}$. For this we define $N_{x}^{W(q\to)}{\gamma}$ be the normal bundle of $\gamma$ as a submanifold of $W(q\to)$. Since $\gamma$ is contractible we can trivialise said normal bundle to get a bundle isomorphism:
 \begin{equation*}
 	\nu:N^{W(q\to)}{\gamma} \to \gamma \times T^u_pM \, .
-\end{equation*} Let $\nu\big|_{x}$ denote the isomorphism $N_{x}^{W(q\to)}{\gamma}\to  T^u_pM $. An orientation of $T^u_pM$ induces then one on $N_{x}^{W(q\to)}{\gamma}$ and if we define the bases $(-\grad_{x}(f))$ of its own span to be positive, we get the exact sequence
+\end{equation*} Let $\nu\big|_{x}$ denote the isomorphism $N_{x}^{W(q\to)}{\gamma}\to  T^u_pM $. An orientation of $T^u_pM$ induces then one on $N_{x}^{W(q\to)}{\gamma}$ and if we define the basis $(-\grad_{x}(f))$ of its own span to be positive, we get the exact sequence
 \begin{center}
 % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRGJAF9T1Nd9CKAIzkqtRizYAdKQzpgA5gxgACALQyFAJzpQA+sAAenABQAzAJQydi5Vx4gM2PASIAmUdXrNWiEABUDYwB1EwBHGRwIC3teZwEiAGZPcR82ADkAPWBQiKkoi04gzk06AFsyuljHPhdBZAAWFO9JPw5uOP5XFGShMRbfAMymPTQAWS4xGCgFeCJQMy0IMqQyECikIQ6QReXN6g3EN23dlaODiCREk6Wz5PXLxAabvcQAVgurrwlBkxkwEZGTgWbJqLYgahyABGMAYAAVagk-FosAoABY4SacIA
 \begin{tikzcd}
 	0 \arrow[r] & \langle -\grad_{x}(f)\rangle \arrow[r] & T_{x}W(q\to) \arrow[r] & N^{W(q\to)}_{x}\gamma \arrow[r]     & 0 \\
 	&                                        &                        & T^u_pM \arrow[u, "(\nu_{x})^{-1}"'] &  
 \end{tikzcd}
-\end{center} That introduces an orientation in the middle that can be represented by the basis $\left(-\grad_x(f),i\circ \restr{\nu}{x}\right)(\mathfrak{b}^p)$, where $i$ is the inclusion $N_{x}^{W(q\to)}{\gamma}\to T_xW(q\to)$  and $(\mathfrak{b}^p)$ is a ordered basis ot $T^u_pM$. 
-Another way to get an orientation there is to trivialize the bundle $TW(q\to)$ via the isomorphism:
+\end{center} That introduces an orientation in the middle that can be represented by the basis $\left(-\grad_x(f),i\circ \restr{\nu}{x}\right)(\mathfrak{b}^p)$, where $i$ is the inclusion $N_{x}^{W(q\to)}{\gamma}\to T_xW(q\to)$  and $(\mathfrak{b}^p)$ is an ordered basis of $T^u_pM$.
+Another way to get an orientation there is to trivialise the bundle $TW(q\to)$ via the isomorphism:
 \begin{equation*}
 	\mu: TW(q\to)\to W(q\to)\times T^u_qM\,; \xi_y\mapsto \left( y, Q_{{E^u_q}^{-1}(y)}^{-1}\circ \restr{\diff {E^u_q}^{-1}}{y}(\xi_y)\right)\,.
 \end{equation*}
- The map $Q_p$ is the map from $\R^n\to T_p\R^n$ from definition \ref{def:vb-linearIdentification} and the map $E^u_q$ is an embedding from the refined unstablle manifold theorem.
- This trivialization together with an orientation on $T^u_qM$ orients the middle in the above exact sequence. Now the deciding factor that gives $\gamma$ its sign is weather the two orientations agree. This can by checked by calculating the determinant of a mcertain map. To formulate the map somewhat readible, we assume that $\mathfrak{b}^q$ is a basis of $T^u_qM$ such that for $y={E^u_q}^{-1}(x)$ we have $\restr{\diff {E^u_q}}{y}\circ Q_y(\mathfrak{b}^q_i)=-\grad_x(f)$ for $i=1$, and for all $i>1$ the image lives in the orthogonal complement of $-\grad_x(f)$ and hence in the domain of $\nu_x$. Then we can define the map 
+ The map $Q_p$ is the map from $\R^n\to T_p\R^n$ from definition \ref{def:vb-linearIdentification} and the map $E^u_q$ is an embedding from the refined unstable manifold theorem.
+ This trivialisation together with an orientation on $T^u_qM$ orients the middle in the above exact sequence. Now the deciding factor that gives $\gamma$ its sign is whether the two orientations agree. This can be checked by calculating the determinant of a certain map. To formulate the map somewhat readably, we assume that $\mathfrak{b}^q$ is a basis of $T^u_qM$ such that for $y={E^u_q}^{-1}(x)$ we have $\restr{\diff {E^u_q}}{y}\circ Q_y(\mathfrak{b}^q_i)=-\grad_x(f)$ for $i=1$, and for all $i>1$ the image lives in the orthogonal complement of $-\grad_x(f)$ and hence in the domain of $\nu_x$. Then we can define the map 
  \begin{align*}
  B_{\mathfrak{b}^p}^{-1}\circ \nu_x	\circ\mu_x^{-1}\circ B_{\mathcal{b}^q}: \R^{\lambda_q}\supseteq \R^{\lambda_q-1}=\langle e_2,\dots e_{\lambda_q}\rangle &\to \R^{\lambda_q-1}\\
  e_i &\mapsto B_{\mathfrak{b}^p}^{-1} \circ \nu_x \circ \restr{\diff E^u_q}{y}\circ Q_y (\mathfrak{b}^q_i)\,,
  \end{align*} and the determinant of said map gives us $n_\gamma$.
 \end{remark}
 
-Now we want to understand the flow in an unstable set and analyze two maps: 
+Now we want to understand the flow in an unstable set and analyse two maps:
 \begin{remark}\label{rem:morse-theMapTau}\todo{Bild malen!}
 Let $q$ be a critical point and $c<f(q)$ such that no other critical point lies in $f^{-1}[c,f(q)]$ then, the map
 	\begin{align*}
@@ -556,7 +598,7 @@ Let $q$ be a critical point and $c<f(q)$ such that no other critical point lies 
 	\begin{equation*}
 		\frac{\partial}{\partial t}G\big|_{x,t}=\diff f\big|_{\phi_t(x)}\circ \frac{\partial}{\partial t} \phi_t(x)\big|_t
 		=  \diff f\big|_{\phi_t(x)}\circ \left(-\grad_{\phi_t(x)}(f)\right) \,.
-	\end{equation*} Since the flow line is transversal to the level set or in our case, the gradient is even orthogonal to the level sets, it is not contaied in $T_{\phi_{\tau(x)}(x)}f^{-1}(c)=  \ker\diff f \big|_{\phi_{\tau(x)}(x)}$ and hence:
+	\end{equation*} Since the flow line is transversal to the level set or in our case, the gradient is even orthogonal to the level sets, it is not contained in $T_{\phi_{\tau(x)}(x)}f^{-1}(c)=  \ker\diff f \big|_{\phi_{\tau(x)}(x)}$ and hence:
 	\begin{equation*}
 		\frac{\partial}{\partial t}G\big|{x,\tau(x)}=\diff f \big|_{\phi_{\tau(x)}(x)}\left(-\grad_{\phi_{\tau(x)}(x)}(f)\right)\neq 0 \, .
 	\end{equation*} This lets us use the implicit function theorem to deduce that the level set $G=c$ is locally the graph of a function $\tau: U_x\to \R$ where $U_x$ is a neighbourhood of $x$. Hence, the function $\tau$ is globally smooth since this argument can be done everywhere.
@@ -571,7 +613,7 @@ Let $q$ be a critical point and $c<f(q)$ such that no other critical point lies 
 	\end{equation*}
 \end{lemma}
 
-\begin{proof} We denote the connected component of $f^{-1}(c)$ that containes $x_j$ by $V_j$. Now we choose a chart of $W(q\to)$ arround $x_j\in W(q\to)\cap V_j$ such that the induced bases of $T_{x_j}W(q\to)=\langle -\grad_{x_j}(f)\rangle \oplus T_{x_j}V_j$ respects that splitting by setting $\frac{\partial}{ \partial x^1}\big|_{x_j}= -\grad_{x_j}(f) $ and $\frac{\partial}{ \partial x^i}\big|_{x_j}\in T_{x_j}V_j$ for $i$ bigger than one. With this we can start our calculations:
+\begin{proof} We denote the connected component of $f^{-1}(c)$ that contains $x_j$ by $V_j$. Now we choose a chart of $W(q\to)$ around $x_j\in W(q\to)\cap V_j$ such that the induced basis of $T_{x_j}W(q\to)=\langle -\grad_{x_j}(f)\rangle \oplus T_{x_j}V_j$ respects that splitting by setting $\frac{\partial}{ \partial x^1}\big|_{x_j}= -\grad_{x_j}(f) $ and $\frac{\partial}{ \partial x^i}\big|_{x_j}\in T_{x_j}V_j$ for $i$ bigger than one. With this we can start our calculations:
 
 	Notice how $x\mapsto f\circ \phi_{\tau(x)}(x)$ is a constant function for all $x\in W(q\to)$ and hence its differential is $0$. For the next calculations we denote the derivative in $x$ by $\diff_x$ and in $t$ by $\diff _t$:
 	\begin{align*}
@@ -599,7 +641,7 @@ Let $q$ be a critical point and $c<f(q)$ such that no other critical point lies 
 	This result can be extended to also work outside of $x_j$ as follows: Notice the identity for all $s\in \R$ and $x\in W(q\to)\setminus \{q\}$:
 	\begin{equation*}
 		\tau(\phi_s(x))=\tau(x)-s\,.
-	\end{equation*} Differentiating this in the variable $s$ in the point $s'$ yealds:
+	\end{equation*} Differentiating this in the variable $s$ in the point $s'$ yields:
 	\begin{align*}
 		\restr{\diff \tau(\phi_{s}(x))}{s'}\,&=\,\restr{\diff (\tau(x)-s)}{s'}=-1 \\
 		\text{ and }\quad 		\restr{\diff \tau(\phi_{s}(x))}{s'}\,&=\, \restr{\diff \tau}{\phi_{s'}(x)}\circ \underbrace{\restr{\diff \phi_s(x)}{s=s'}}_{=-\grad_{\phi_s(x)}(f)}
@@ -608,16 +650,16 @@ Let $q$ be a critical point and $c<f(q)$ such that no other critical point lies 
 	\begin{equation*}
 		\restr{\diff \tau }{x}(-\grad(x)(f))=-1\,.
 	\end{equation*}
-	We can furthermore define a basis of $T_x W(q\to)$ with $\mathfrak{b}_1\coloneq -\grad_x(f)$ and $\mathfrak{b}_i=\big(\restr{\diff \phi_{\tau(x)}}{x}\big)^{-1}({w_i})$ where $(w_i)$ denotes a basis of $T_{x_j}V_j$. Hence $w_i$ is orthogonal on $-\grad_{x_j}(f)$ for all $i>1$. Hence by the equation (\ref{eq: differential of tau}) we can caluclate:
+	We can furthermore define a basis of $T_x W(q\to)$ with $\mathfrak{b}_1\coloneq -\grad_x(f)$ and $\mathfrak{b}_i=\big(\restr{\diff \phi_{\tau(x)}}{x}\big)^{-1}({w_i})$ where $(w_i)$ denotes a basis of $T_{x_j}V_j$. Hence $w_i$ is orthogonal on $-\grad_{x_j}(f)$ for all $i>1$. Hence by the equation (\ref{eq: differential of tau}) we can calculate:
 	\begin{equation*}
 		\diff_x \tau(\mathfrak{b}_i)=-\frac{\diff f \left( \diff_x\phi_{\tilde{t}=\tau(x)}(\mathfrak{b}_i) \right)}{-\norm{\grad(f)^2}}=-\frac{\diff f \left( w_i \right)}{-\norm{\grad(f)^2}}=0\quad \text{ for all }i>1\,.
 	\end{equation*}
-	Finally after choosing a basis $(w_i)$, the map $x\mapsto \mathfrak{b}_i$ is smooth for all $i$ and any $x\in W(q\to)\setminus \{q\}$ and hence alltogether we get the desired frame.
+	Finally after choosing a basis $(w_i)$, the map $x\mapsto \mathfrak{b}_i$ is smooth for all $i$ and any $x\in W(q\to)\setminus \{q\}$ and hence altogether we get the desired frame.
 \end{proof}
 
 
 \begin{definition}
-	Let $q$ be a critical point and $c$ such that $c<f(q)$ and $f{-1}[c,f(q)]=q$. Then we define the map
+	Let $q$ be a critical point and $c$ such that $c<f(q)$ and $f^{-1}[c,f(q)]=q$. Then we define the map
 	\begin{align*}
 		\rho: W(q\to)\setminus \{q\}&\to W(q\to)\cap f^{-1}(c)\\
 		x\mapsto \phi_{\tau(x)}(x)\,.
@@ -651,18 +693,18 @@ Let $q$ be a critical point and $c<f(q)$ such that no other critical point lies 
 \end{lemma}
 
 \begin{Iprove}
-	To proove this, we first remined ourself how the basis $({\mathfrak{b}^q_{x_j}})_{j>1}$ is constructed. It is a basis that when extendet with $-\grad_{x_j}(f)$ as the first vector is compatible with $\mathfrak{d}$. Hence, we can construct it from $\mathfrak{d}$, by assuming that $\restr{\diff E^u_q}{y}\circ Q_y\circ \mathfrak{d}_1=-\grad_y(f)$. Then, if we push $\mathfrak{d}$ to $T_{x_j}W(q\to)$ via $\restr{\diff E^u_q}{y}\circ Q_y$ and delete the first vector, we get the Basis we wanted. So what we need to check in order to proof this lemma is, if the maps
+	To prove this, we first remind ourselves how the basis $({\mathfrak{b}^q_{x_j}})_{j>1}$ is constructed. It is a basis that when extended with $-\grad_{x_j}(f)$ as the first vector is compatible with $\mathfrak{d}$. Hence, we can construct it from $\mathfrak{d}$, by assuming that $\restr{\diff E^u_q}{y}\circ Q_y\circ \mathfrak{d}_1=-\grad_y(f)$. Then, if we push $\mathfrak{d}$ to $T_{x_j}W(q\to)$ via $\restr{\diff E^u_q}{y}\circ Q_y$ and delete the first vector, we get the basis we wanted. So what we need to check in order to prove this lemma is, if the maps
 	\begin{align*}
 		\restr{\diff E^u_q}{y}\circ Q_y\circ B_{\mathfrak{d}}: &\R^{\lambda_q-1}\to \left(-\grad_{x_j}(f)\right)^\top\\
 		\restr{\diff E^u_q}{y}^{-1}\circ \diff \rho \circ \restr{\diff E^u_q}{y'}\circ Q_{y'}\circ B_{\mathfrak{d}}: &\R^{\lambda_q-1}\to \left(-\grad_{x_j}(f)\right)^\top
 	\end{align*} induce the same orientation when restricted to the same domain such that they become vector space isomorphisms. 
-	To proof this we will work from the bottom up: We adapt the basis $\mathfrak{d}$ to work with the lower map and show, later, that the adapted basis fits the requirements above:
+	To prove this we will work from the bottom up: We adapt the basis $\mathfrak{d}$ to work with the lower map and show, later, that the adapted basis fits the requirements above:
 \end{Iprove}
 
 
 \begin{proof}
 	
-	We start by defining the space $\left(\tau\circ E^u_q\right)^{-1}(\tilde t)$, where $\tilde{t}\coloneq \tau\circ E^u_q(y')$. As a level set, this is a submanifold of $T^u_qM$ and its tangend space in $y'$ is given by the basis $\restr{E^u_q}{y'}^{-1}(\mathfrak{b_i})$ for $i>1$, where $\mathfrak{b}_i=\restr{\diff \phi_{\tilde{t}}}{y'}^{-1}({w_i})$ where $(w_i)$ denotes a basis of $T_{x_j}V_j$. Now we have the equality of maps:
+	We start by defining the space $\left(\tau\circ E^u_q\right)^{-1}(\tilde t)$, where $\tilde{t}\coloneq \tau\circ E^u_q(y')$. As a level set, this is a submanifold of $T^u_qM$ and its tangent space in $y'$ is given by the basis $\restr{E^u_q}{y'}^{-1}(\mathfrak{b_i})$ for $i>1$, where $\mathfrak{b}_i=\restr{\diff \phi_{\tilde{t}}}{y'}^{-1}({w_i})$ where $(w_i)$ denotes a basis of $T_{x_j}V_j$. Now we have the equality of maps:
 	\begin{align*}
 		\restr{A_{\tilde{t}}}{\left(\tau\circ E^u_q\right)^{-1}(\tilde t)}=\restr{\left({E^u_q}^{-1}\circ \rho \circ E^u_q\right)}{\left(\tau\circ E^u_q\right)^{-1}(\tilde t)}
 	\end{align*} Hence for a basis $\mathfrak{d}_i$ of $T^u_qM$ such that $\restr{\diff E^u_q}{y'}\circ Q_{y'}(\mathfrak{d_i})$ is $-\grad_{y'}(f)$ for $i=1$ and $\mathfrak{b_i}$ else, we have:
@@ -677,12 +719,13 @@ Let $q$ be a critical point and $c<f(q)$ such that no other critical point lies 
 		&=\restr{ \diff (E^u_q)^{-1} \circ \phi_{\tilde{t}}}{y'}^{-1}(-\grad_{y'}(f))\\
 		&=\restr{ \diff E^u_q}{x_j}^{-1} \circ \restr{\diff \phi_{\tilde{t}}}{y'}^{-1}(-\grad_{y'}(f))\\
 		&=\restr{ \diff E^u_q}{x_j}^{-1} \left(-\grad_{x_j}(f)\right)
-	\end{align*} The last equation is the general fact prooven in remark \ref{rem: jacobian of the flow in refined Morse chart}, that for fixed $t$ the identity holds:
+	\end{align*} The last equation is the general fact proven in remark \ref{rem: jacobian of the flow in refined Morse chart}, that for fixed $t$ the identity holds:
 	\begin{equation*}
 		\restr{\diff_x \phi_t}{y} (-\grad_y(f))=-\grad_{\phi_t(y)}(f)
 	\end{equation*} Hence if $\pi$ denotes the projection onto the complement of $ \restr{ \diff E^u_q}{x_j}^{-1} \left(-\grad_{x_j}(f)\right)$ we have an equality of maps
 	\begin{equation*}
 		\restr{\diff \left({E^u_q}^{-1}\circ \rho \circ E^u_q\right)}{y'}\circ Q_{y'}=\pi \circ Q_y\circ A_{\tilde{t}}.
 	\end{equation*} Or by the above calculation, we can throw out $\pi$, if we exclude $\mathfrak{d}_1$. Furthermore, the equation shows that our requirement $\restr{\diff E^u_q}{y'}\circ Q_{y'}(\mathfrak{d_1})=-\grad_{y'}(f)$ implies that $\mathfrak{d}$ is compatible with a basis where $\restr{\diff E^u_q}{y}\circ Q_y\circ \mathfrak{d}_1=-\grad_y(f)$, since the sign of the determinant of $A_{\tilde{t}}$ is always positive.
-	This concludes the prove!
+	This concludes the proof!
 \end{proof}
+\end{comment}

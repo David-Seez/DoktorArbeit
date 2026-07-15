@@ -19,7 +19,7 @@ The first goal is to classify all vector bundles over sufficiently nice spaces. 
 
 Before we go back to the analytical reals, we will further develop the theory of vector bundles:
 \begin{definition}
-	For a topological space $X$ we define $\Vect_n$ to be the set of isomorphism classes of complex vector bundles of rank $n$ and  $\Vect(X)$ to be the set of isomorphism classes of complex vector bundles of any rank. By declaring $\Vect(f)=f^*$ to be the pullback we get a contravariant functor $\Vect$ from $\Top$ to $\Set$. We can equip the set $\Vect(X)$ with the direct sum and tensor product operation. It is then easy to see that these operations descend to isomorphism classes and hence we get an abelian semi ring $(\Vect(X),\oplus,\otimes)$ (abelian semigroup with associative and distributive multiplication). In fact we even get a contravariant functor from $\Top$ to the category of abelian semirings.
+	For a topological space $X$ we define $\Vect_n$ to be the set of isomorphism classes of complex vector bundles of rank $n$ and  $\Vect(X)$ to be the set of isomorphism classes of complex vector bundles of any rank. By declaring $\Vect(f)=f^*$ to be the pullback we get a contravariant functor $\Vect$ from $\Top$ to $\Set$. We can equip the set $\Vect(X)$ with the direct sum and tensor product operation. It is then easy to see that these operations descend to isomorphism classes and hence we get an abelian semiring $(\Vect(X),\oplus,\otimes)$ (abelian semigroup with associative and distributive multiplication). In fact we even get a contravariant functor from $\Top$ to the category of abelian semirings.
 \end{definition}
 \begin{lemma}\label{lem:kTheo-sectionExtension}
 	Let $X$ be a compact space, $Y\subseteq X$ a closed subspace and $E$ a vector bundle over $X$. Then any section $s:Y\to \restr{E}{Y}$ can be extended to a global section of $X$.
@@ -31,7 +31,7 @@ Before we go back to the analytical reals, we will further develop the theory of
 	Let $Y$ be a closed subspace of a compact space $X$, and let $E,F$ be bundles over $X$. If $f:\restr{E}{Y}\to \restr{F}{Y}$ is an isomorphism, then there is an open neighbourhood $U\supset Y$ and an extension $f:  \restr{E}{U}\to \restr{F}{U}$ which is an isomorphism.
 \end{corollary}
 \begin{proof}
-	By corollary \ref{cor:vb-sectionsIntoHom} we can view $f$ as a section into the bundle $\Hom(\restr{E}{Y},\restr{F}{Y})$, which can be extended to a global one in $\Hom(E,F)$. Let $U$ be the open set for which the section maps to isomorphisms. Since $U$ contains $Y$ this yields the require extension.
+	By corollary \ref{cor:vb-sectionsIntoHom} we can view $f$ as a section into the bundle $\Hom(\restr{E}{Y},\restr{F}{Y})$, which can be extended to a global one in $\Hom(E,F)$. Let $U$ be the open set for which the section maps to isomorphisms. Since $U$ contains $Y$ this yields the required extension.
 \end{proof}
 \begin{theorem}[Homotopy Invariance of the Pullback]\label{thm:kTheo-homotopyInvariance}
 	Let $X,Y$ be two compact spaces, $I=[0,1]$, and 
@@ -173,7 +173,7 @@ By Corollary \ref{cor:kTheo-isomorphismExtension} we can extend the isomorphism 
 	 \end{equation*} by composition $ \theta_1^A \circ \phi^{-1}$. Let $V_2$ be a neighbourhood of $a$ in $X_2$ such that 
 	 \begin{align*}
 	 	\theta_2:\restr{E_2}{V_2}\to V_2 \times \C^n
-	 \end{align*} is an extension of $\theta_2^A$. This extension exists again by the extending the section into the homomorphism bundle corresponding to the isomorphism $\theta_2^A$. Finally $\theta_1$ and $\theta_2$  defines a well defined isomorphism 
+	 \end{align*} is an extension of $\theta_2^A$. This extension exists again by extending the section into the homomorphism bundle corresponding to the isomorphism $\theta_2^A$. Finally $\theta_1$ and $\theta_2$  define a well defined isomorphism
 	 	\begin{equation*}
 	 	\theta_1 \cap_{\phi} \theta _2: E_1 \cap_{\phi} E_2 \to (V_1 \cap V_2)\times \C^n\, .
 	 \end{equation*} This proves the local triviality.
@@ -192,7 +192,7 @@ By Corollary \ref{cor:kTheo-isomorphismExtension} we can extend the isomorphism 
 		\begin{equation*}
 			E_1\glue{\phi}E_2 \cong E'_1\glue{\phi'}E'_2 \, .
 		\end{equation*}
-		\item If $(E_i,\phi)$ and $(E'_i,\phi')$ are two "clutching data" on $X_i$, then 
+		\item If $(E_i,\phi)$ and $(E'_i,\phi')$ are two \enquote{clutching data} on $X_i$, then
 		\begin{align*}
 			(E_1 \cup _{\phi}E_2)\oplus (E'_1 \cup _{\phi'}E'_2)&\cong E_1\oplus E'_1 \Glue{\phi \oplus \phi'}E_2\oplus E'_2 \, ,\\
 			(E_1 \cup _{\phi}E_2)\otimes (E'_1 \glue{\phi'}E'_2)&\cong E_1\otimes E'_1 \Glue{\phi \otimes \phi'}E_2\otimes E'_2 \, ,\\
@@ -224,7 +224,7 @@ This is a bundle isomorphism, since $\Phi_t$ is one. Now denote the inclusion
 With those definitions it is clear by the construction of the gluing, that 
 \begin{equation}\label{eq:kTheo-gluingHomotopyInvariant}
 	E_1\glue{\Phi_t} E_2\,\cong\, i_t^*\left(\pi^*(E_1) \glue{\Psi} \pi^*(E_2)\right)\,.
-\end{equation} The isomorphism can be seen by part (2) of Corollary  \ref{cor:kTheo-elementaryPropertiesGluingAndClutching}. as follows: 
+\end{equation} The isomorphism can be seen by part (2) of Corollary  \ref{cor:kTheo-elementaryPropertiesGluingAndClutching} as follows:
 First notice the isomorphism $\restr{\pi^*(E_i)}{A\times \{t\}}\cong E_i$ for $i=1,2$ and any $t$. By construction of the gluing this leads to the isomorphism 
 \begin{equation*}
 		E_1 \glue{\Phi_t} E_2\,\cong\,	\restr{\pi^*(E_1)}{A\times \{t\}}  \glue{(\Phi_t,\id)} \restr{\pi^*(E_2)}{A\times \{t\}}\,.
@@ -264,7 +264,7 @@ Since the pullback is homotopy invariant we can conclude by the isomorphism (\re
 		E: X_1\times \C^n \glue{\phi} X_2\times \C^n\,,\quad\text{and}\quad  
 		F: X_1\times \C^n \glue{\psi} X_2\times \C^n\,.
 	\end{equation*}
-	We now want to define a homotopy between $psi$ and $\phi$. For this we start by splitting the isomorphism $T$ into its two parts over $X_1$ and $X_2$:
+	We now want to define a homotopy between $\psi$ and $\phi$. For this we start by splitting the isomorphism $T$ into its two parts over $X_1$ and $X_2$:
 	\begin{equation*}
 		\restr{T}{X_i}: X_i\times \C^n \to X_i\times \C^n\,.
 	\end{equation*} These maps are given by maps 
@@ -291,7 +291,7 @@ Since the pullback is homotopy invariant we can conclude by the isomorphism (\re
 		H^+&\coloneq \{[x:y]\in \C\PP^1\,|\, \abs{x}\geq \abs{y}\}\, \to D\subset \C\,,\quad [x:y]\mapsto \frac{y}{x}\\
 		H^-&\coloneq \{[x:y] \in \C\PP^1\,|\, \abs{x}\leq \abs{y}\}\,\to D\subset \C\,,\quad [x:y]\mapsto \frac{x}{y}
 	\end{align*} Those maps give us unique representations of elements in $H^+$ and $H^-$. We now want to evaluate the bijection $\Vect_1(\C\PP^1)\to [H^+\cap H^-,\GL_1(\C)]$ at $[l]$. 
-	The image of the intersection $H^+\cap H^-$ under the two maps is the boundary of the Disk and hence a circle. Furthermore, $\GL_1(\C)\cong C^*$. Hence, we know that the image is isomorphic to $[S^1,\C^*]\cong \pi(S^1)\cong \Z$. This tells us, that there must be nontrivial vector bundles on $\C\PP^1$. By the proof of \ref{lem:kTheo-gluingAndHomotopyClassesToGLn} we know that $[l]$ gets mapped to the function gluing together trivialisations over $H^+$ and $H^-$ along their intersection. To define the trivialisations we need define local frames over $H^+$ and $H^-$. Those frames are given by a single section defined as:
+	The image of the intersection $H^+\cap H^-$ under the two maps is the boundary of the disc and hence a circle. Furthermore, $\GL_1(\C)\cong C^*$. Hence, we know that the image is isomorphic to $[S^1,\C^*]\cong \pi_1(S^1)\cong \Z$. This tells us, that there must be nontrivial vector bundles on $\C\PP^1$. By the proof of \ref{lem:kTheo-gluingAndHomotopyClassesToGLn} we know that $[l]$ gets mapped to the function gluing together trivialisations over $H^+$ and $H^-$ along their intersection. To define the trivialisations we need to define local frames over $H^+$ and $H^-$. Those frames are given by a single section defined as:
 	\begin{align*}
 		s_+:H^+\to l\,,\quad [x:y]\mapsto (1,\frac{y}{x})\,,\\
 		s_-:H^-\to l\,,\quad [x:y]\mapsto (\frac{x}{y},1)\,.
@@ -310,7 +310,7 @@ Hence in each fibre over $[x:y]\in H^+\cap H^-$ the gluing function can be calcu
 Hence, as a map from $H^+\cap H^-\to GL_1(\C)\equiv \C^*$ this map reads:
 \begin{equation*}
 	H^+\cap H^-\to \C^*\,\quad [x:y]\mapsto \frac{y}{x}
-\end{equation*} viewing this as an element of $\pi(S^1)$ by identifying the intersection with a circle via the homeomorphism from $H^+\to D\subseteq \C$ we notice that the gluing map corresponds to the identity in $\pi(S^1)$. If the bundle $l$ would be trivial, the gluing function would be homotopically equivalent to the constant one-function $H^+\cap H^-\to \C^*$ that maps all $[x:y]\mapsto 1$. This cannot be, because interpreted as elements in $\pi(S)$ they are different.
+\end{equation*} viewing this as an element of $\pi(S^1)$ by identifying the intersection with a circle via the homeomorphism from $H^+\to D\subseteq \C$ we notice that the gluing map corresponds to the identity in $\pi_1(S^1)$. If the bundle $l$ would be trivial, the gluing function would be homotopically equivalent to the constant one-function $H^+\cap H^-\to \C^*$ that maps all $[x:y]\mapsto 1$. This cannot be, because interpreted as elements in $\pi(S)$ they are different.
 \end{example}
 \begin{definition}[Metrics on Bundles]\label{def:kTheo-metricsOnBundles}
 	A \textbf{metric} on a complex bundle $E$ is a section $h:X\to \Herm(E)$ such that $h(x)$ is positive definite for all $x$. $\Herm(E)$ denotes the bundle of hermitian forms (conjugate-symmetric sesquilinear) in each fibre. A bundle together with a metric is a \textbf{Hermitian bundle}.
@@ -326,7 +326,7 @@ Hence, as a map from $H^+\cap H^-\to GL_1(\C)\equiv \C^*$ this map reads:
 %%%%%%%%%%AB Hier korrigieren!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
 
 \begin{proof}
-	Observe that fibrewise $1-P$ maps each $\xi$ to the kernel of $P$, and hence fibrewise $P(E)$ and $(1-P)(E)$ are disjoint.  Furthermore $\im(P)+\im(1-P)=E$, because $v=P(v)+(v-P(v))$. Therefore in each fibre we have the direct sum $E_x=P(E_x)\oplus (1-P)(E_x)$. Now the question is, if that gives a global splitting, meaning that $P(E)$ and $(1-P)(E)$ are continuous as subbundles of $E$. For this to be true, we need local triviality, which is clear as long as the rank of $P$ (and $(1-P)$) is locally constant. In each fibre we know that $\rank(P_x)+\rank(1-P)=\dim(E_x)$. Furthermore, $\rank(P_x)$ and $\rank(1-P)$ are locally constant. To see this first notice that they are lower semi continuous, meaning that for $y$ from a small enough neighbourhood of $x$ $\rank(P_x)\leq \rank(P_y)$. To see this, pick a $\rank(P_x)_x\times \rank(P_x)_x$ minor with nonzero determinant. The latter is an open condition and hence stable under small perturbation. But now we have the sum of two lower semi continuous functions that give something locally constant and hence, each summand is locally constant. Finally the above shows that $\ker(P)=(1-P)(E)$ we have the decomposition.
+	Observe that fibrewise $1-P$ maps each $\xi$ to the kernel of $P$, and hence fibrewise $P(E)$ and $(1-P)(E)$ are disjoint.  Furthermore $\im(P)+\im(1-P)=E$, because $v=P(v)+(v-P(v))$. Therefore in each fibre we have the direct sum $E_x=P(E_x)\oplus (1-P)(E_x)$. Now the question is, if that gives a global splitting, meaning that $P(E)$ and $(1-P)(E)$ are continuous as subbundles of $E$. For this to be true, we need local triviality, which is clear as long as the rank of $P$ (and $(1-P)$) is locally constant. In each fibre we know that $\rank(P_x)+\rank(1-P)=\dim(E_x)$. Furthermore, $\rank(P_x)$ and $\rank(1-P)$ are locally constant. To see this first notice that they are lower semi-continuous, meaning that for $y$ from a small enough neighbourhood of $x$ $\rank(P_x)\leq \rank(P_y)$. To see this, pick a $\rank(P_x)_x\times \rank(P_x)_x$ minor with nonzero determinant. The latter is an open condition and hence stable under small perturbation. But now we have the sum of two lower semi-continuous functions that give something locally constant and hence, each summand is locally constant. Finally the above shows that $\ker(P)=(1-P)(E)$ we have the decomposition.
 \end{proof}
 \begin{lemma}[Metric Induced Complement] \label{lem:kTheo-metricInducedComplement}
 	Suppose that $F$ is a sub-bundle of $E$. Then a metric provides a canonical complementary sub-bundle.
@@ -371,7 +371,7 @@ Hence, as a map from $H^+\cap H^-\to GL_1(\C)\equiv \C^*$ this map reads:
 	If the subspace $V$ is ample and $\dim(V)=\rank(E)$, then $E$ is trivialisable.
 \end{corollary}
 \begin{lemma}\label{lem:kTheo-ampleSubspaceExists}
-	For any vector bundle $E$ over a compact space $X$, there exists an finite dimensional ample subspace of $\Gamma(E)$.
+	For any vector bundle $E$ over a compact space $X$, there exists a finite dimensional ample subspace of $\Gamma(E)$.
 \end{lemma}
 \begin{proof}
 	Let $\{U_\alpha\}$ be a finite open cover of $X$ such that $\restr{E}{U_\alpha}$ is trivial. Let $\{s_{\alpha,i}\}$ be the corresponding local frames, and define $V_\alpha$ to be the finite dimensional ample subspace $V_\alpha\subseteq \Gamma(\restr{E}{U_\alpha})$. Let $\rho_\alpha$ be a partition of unity subordinate to the cover $\{U_\alpha\}$. Define 
@@ -415,7 +415,7 @@ Hence, as a map from $H^+\cap H^-\to GL_1(\C)\equiv \C^*$ this map reads:
 	We give $\Gr_n(V)$ the subspace topology of $\End(V)$.
 \end{definition}
 \begin{definition}\label{def:kTheo-classifyingMap}
-	Suppose that $E$ is a bundle over $X$, $V$ is a vector space and $\phi:X\times V \to E$ is an epimorphism. Then we can define a map $f:X\to \Gr_{\dim(V)}(V)$ by sending $x$ to the kernel of $\phi_x: V\to E_x$. We call $f$ to be \textbf{induced by $\phi$}. This map is continuous for any metric on $V$. To see this notice that the topology on $V$ is metric invariant, as $V$ is finite dimensional. Now the map $f$ is continuous if the map for the map \begin{equation*}
+	Suppose that $E$ is a bundle over $X$, $V$ is a vector space and $\phi:X\times V \to E$ is an epimorphism. Then we can define a map $f:X\to \Gr_{\dim(V)}(V)$ by sending $x$ to the kernel of $\phi_x: V\to E_x$. We call $f$ \textbf{induced by $\phi$}. This map is continuous for any metric on $V$. To see this notice that the topology on $V$ is metric invariant, as $V$ is finite dimensional. Now the map $f$ is continuous if for the map \begin{equation*}
 		P: \Gr_n(V) \to \End(V)
 	\end{equation*} the composition $P\circ f$ is continuous. But $P\circ f$ is given by sending $x$ to the projection onto $\ker(\phi_x)$, which is continuous as $\phi$ is.
 \end{definition}
@@ -424,13 +424,13 @@ Hence, as a map from $H^+\cap H^-\to GL_1(\C)\equiv \C^*$ this map reads:
 \end{definition}
 
 \begin{corollary}
-	If $E'$ is a bundle over $X$, and $\phi: X\times V\to E'$ is an epimorphism, then $\phi$ induces a map $f:X\to \Gr_{m}(V)$ such that $E'\cong f^*E$, where $E$ is the classifying bundle over $\Gr_{m}(V)$. The isomorphism follows from a fibrewise construction because $E_x\cong V\big/\ker(\phi_x)$. The latter however is exactly the fibre over $\ker(x)$ in the classifying bundle and hence the pullback via the $\phi$ induced map gives an isomorphism. That motivates the name "classifying bundle" for $E$ and "classifying map"for $f$. 
+	If $E'$ is a bundle over $X$, and $\phi: X\times V\to E'$ is an epimorphism, then $\phi$ induces a map $f:X\to \Gr_{m}(V)$ such that $E'\cong f^*E$, where $E$ is the classifying bundle over $\Gr_{m}(V)$. The isomorphism follows from a fibrewise construction because $E_x\cong V\big/\ker(\phi_x)$. The latter however is exactly the fibre over $\ker(x)$ in the classifying bundle and hence the pullback via the $\phi$ induced map gives an isomorphism. That motivates the name \enquote{classifying bundle} for $E$ and \enquote{classifying map} for $f$.
 \end{corollary}
  \begin{lemma}\label{lem:kTheo-GrassmanTopologyMetricInvariant}
 	The topology on $\Gr_n(V)$ is independent of the choice of the metric on $V$.
  \end{lemma}
  \begin{proof}
-	Let $h$ and $h'$ be two metrics on $V$. Then we denote the topological space $\Gr_n(V)$ with the topology induced by $h$  by $\Gr(V_h)$ and the one induced by $h'$ by $\Gr(V_{h'})$. We need to show that the identity map $\id:\Gr(V_h)\to \Gr(V_{h'})$ is a homeomorphism. For this we need to show that $\id$ is continuous.The projection $\Gr_n(V_h)\times V_{h'} \to E$ (where $E$ is the classifying bundle) is an epimorphism and hence induces a classifying map $f:\Gr_n(V_h)\to \Gr_n(V_{h'})$ such that $f^*E\cong E$. However that map is given by the identity on $\Gr_n(V)$ and hence the identity is continuous by Definition \ref{def:kTheo-classifyingMap}. 
+	Let $h$ and $h'$ be two metrics on $V$. Then we denote the topological space $\Gr_n(V)$ with the topology induced by $h$  by $\Gr(V_h)$ and the one induced by $h'$ by $\Gr(V_{h'})$. We need to show that the identity map $\id:\Gr(V_h)\to \Gr(V_{h'})$ is a homeomorphism. For this we need to show that $\id$ is continuous. The projection $\Gr_n(V_h)\times V_{h'} \to E$ (where $E$ is the classifying bundle) is an epimorphism and hence induces a classifying map $f:\Gr_n(V_h)\to \Gr_n(V_{h'})$ such that $f^*E\cong E$. However that map is given by the identity on $\Gr_n(V)$ and hence the identity is continuous by Definition \ref{def:kTheo-classifyingMap}. 
  \end{proof}
 \begin{remark}
 	To continue further we need direct limits of directed systems to construct general Grassmannians. However we will also need said construction for topological spaces and groups. Hence, we will give the definitions for arbitrary categories.
@@ -448,7 +448,7 @@ Hence, as a map from $H^+\cap H^-\to GL_1(\C)\equiv \C^*$ this map reads:
 	For any family of morphisms $g_i:A_i\to Y$ that satisfies $g_i\circ f_{ji}=g_j$ for all $i\leq j$ there exists a unique morphism $g:X\to Y$ such that $g_i=g\circ \phi_i$. We denote the space $X$ by $\colim_{i}A_i$ (or just $\colim A_i$), where the maps $f_{ij}$ are omitted from the notation.
 \end{definition}
 \begin{corollary}
-	As always, the direct Limit is (if it exists) unique up to unique isomorphism.
+	As always, the direct limit is (if it exists) unique up to unique isomorphism.
 \end{corollary}
 \begin{remark}[Construction of Direct Limits]
 	We will now see three constructions of direct limits. Let $\big((A_i)_{i\in I},(f_{ij})_{i\leq j}\big)$ denote a directed system in the noted category. 
@@ -468,13 +468,13 @@ If we build the direct limit of sets and all the maps of the direct system are i
 \begin{proof}
 	Recall that the inclusions $\phi_i:A_i\to \colim A_i$ are defined to be the composition of the inclusion into the disjoint union with the projection onto the quotient. Now assume that all maps $f_{ij}$ in the direct system are injective and $\phi_i(x)=\phi_i(y)$. Then $x\sim y$ in the quotient and hence, there exists $i,j,k\in I$ such that $f_{ik}(x)=f_{jk}(y)$ which implies that $x=y$.
 
-	Now assume that all $f_{ij}$ are closed embeddings. Then, the inclusions are injective by the set-theoretic argument. Furthermore, the images of $\phi_i:A_i\to \colim A_i$ are closed. That follows from subsets in the final topology being closed, if and only if all their preimages are closed. Hence we check if $\phi_j(\phi(A_i))$ is closed for all $j\in I$:
+	Now assume that all $f_{ij}$ are closed embeddings. Then, the inclusions are injective by the set-theoretic argument. Furthermore, the images of $\phi_i:A_i\to \colim A_i$ are closed. That follows from subsets in the final topology being closed, if and only if all their preimages are closed. Hence we check if $\phi_j^{-1}(\phi(A_i))$ is closed for all $j\in I$:
 	\begin{equation} \label{eq:kTheo-staircaseMapsClosedEmbedding}
 		\begin{array}{llll}
 			\text{ If }j\leq i& \text{then:} & \phi_j^{-1}(\phi_i(A_i))=(\phi_i\circ f_{ji})^{-1}(\phi_i(A_i))=f_{ji}^{-1}(A_i) &\text{which is closed.}\\
 			\text{ If }i<j	 & \text{then:}	&\phi_j^{-1}(\phi_i(A_i)) =\underbrace{\phi_j^{-1}(\phi_j}_{\phi \text{ is injective}} f_{ij}(A_i))=f_{ij}(A_i) &\text{which is closed.}
 		\end{array}
-	\end{equation} To show that $\phi_i^{-1}: \im(\phi_i)\to A_i$ is continuous we assume that $B\subset A_i$ is open. then $\phi_i(B)$ is open if and only if for any $j$ $\phi_j^{-1}(\phi_i(B))$ is open. This follows from the same calculations as in equation (\ref{eq:kTheo-staircaseMapsClosedEmbedding}) using that the $f_{ij}$ are homeomorphisms onto their image. 
+	\end{equation} To show that $\phi_i^{-1}: \im(\phi_i)\to A_i$ is continuous we assume that $B\subset A_i$ is open. Then $\phi_i(B)$ is open if and only if for any $j$ $\phi_j^{-1}(\phi_i(B))$ is open. This follows from the same calculations as in equation (\ref{eq:kTheo-staircaseMapsClosedEmbedding}) using that the $f_{ij}$ are homeomorphisms onto their image. 
 \end{proof}
 \begin{comment}
 
@@ -515,7 +515,7 @@ If we build the direct limit of sets and all the maps of the direct system are i
  \begin{proof}
 	We shall construct an inverse map. If $E$ is a bundle over $X$, then by Corollary \ref{cor:kTheo-epiFromTrivial} there exists an epimorphism $\phi:X\times \C^m \to E$ for some integer $m$. Let $f:X\to \Gr_n(\C^m)$ be the map induced by $\phi$. If we manage to show that the homotopy class of $f$ as a map to $\Gr_n(\C^{m'})$ for some large enough $m'$ is independent of the choice of $\phi$ and $m$, then we get a well defined map from $\Vect_n(X)$ to $\colim_m [X,\Gr_n(\C^m)]$ that is inverse to the classifying map. 
 
-	Suppose that $\phi_i :X\times C^{m_i}\to E$ for $i=1,2$ are two epimorphisms. Let $g_i:X\to \G_n(C^{m_i})$ be the maps induced by $\phi_i$. We want to show that $g_1$ and $g_2$ are homotopic as maps to $\Gr_n(\C^{m_1+m_2})$. For this we define the map
+	Suppose that $\phi_i :X\times \C^{m_i}\to E$ for $i=1,2$ are two epimorphisms. Let $g_i:X\to \Gr_n(C^{m_i})$ be the maps induced by $\phi_i$. We want to show that $g_1$ and $g_2$ are homotopic as maps to $\Gr_n(\C^{m_1+m_2})$. For this we define the map
 	\begin{equation*}
 		\psi_t: X\times \C^{m_1}\times C^{m_2} \to E\,,\quad \psi_t(x,v_1,v_2)=t\phi_1(x,v_1)+(1-t)\phi_2(x,v_2)\,.
 	\end{equation*} Since the $\phi_i$ are epimorphisms, this map is an epimorphism for any $t$. Let 
@@ -533,11 +533,11 @@ If we build the direct limit of sets and all the maps of the direct system are i
 \end{equation*}
  \end{lemma}
  \begin{proof}
-	We denote $\colim_mY_m=Y$ and the corresponding inclusion $\phi_m:Y_m\to Y$ . Since $X$ is compact, any map $f:X\to Y$ has image that in some $\im(\phi_m)$ for $m$ big enough. Assume that this was not the case, then would exist an increasing series $(j_i)_{i\in \N}$ such that for all $i$ there is an $x_i$ with $f(x_i)\in \im \phi_{j_i}\setminus \im \phi_{j_i-1}$. With this we define the set 
+	We denote $\colim_mY_m=Y$ and the corresponding inclusion $\phi_m:Y_m\to Y$ . Since $X$ is compact, any map $f:X\to Y$ has image that lies in some $\im(\phi_m)$ for $m$ big enough. Assume that this was not the case, then there would exist an increasing sequence $(j_i)_{i\in \N}$ such that for all $i$ there is an $x_i$ with $f(x_i)\in \im \phi_{j_i}\setminus \im \phi_{j_i-1}$. With this we define the set 
 	\begin{equation*}
 		A\coloneq \{f(x_i)\,|\, i\in \N \}\subseteq \im f \subseteq Y\,.
-	\end{equation*}Then $A$ is closed, since for all $m$ the intersection $\im\phi_m\cap A$ is finite and since $\im(\phi_m)$ is closed, said intersection is closed. By the final topology we can conclude that the whole $A$ is closed and since it is contained in the image if $f$ it is compact (Here we use that the $Y_i$ are Hausdorff!). Furthermore, the same argument shows that every subset $B\subset A$ is closed, because again $B\cap \im \phi_m$ is finite. This tells us that $A$ as a subset of $Y$ carries the discrete topology: Let $C\subseteq A$ be an arbitrary subset. Then $A\setminus C\subseteq A$ is closed in $Y$ and hence its complement in $Y$ is an open and intersected with $A$ yields $C$. Hence, $C$ is open in the subspace topology. This however is a contradiction, as $A$ cannot be infinite, compact and carry the discrete topology.
-	Hence any map $f:X\to Y$ has image that in some $\im(\phi_m)$ for $m$ big enough. But then there exists a $f_m$ such that $f=\phi_m\circ f_m$.  This assignment is well defined on homotopy classes because if $f,s:X\to Y$ are homotopic, then there exists a homotopy $H:X\times I\to Y$ between them: By the same argument as before, the image of $H$ is compact and hence contained in some $\im \phi_m$. Hence, $f_m$ and $s_m$ are homotopic via $H_m$ as maps to $\im \phi_m$. Hence, we get a well defined canonical map 
+	\end{equation*}Then $A$ is closed, since for all $m$ the intersection $\im\phi_m\cap A$ is finite and since $\im(\phi_m)$ is closed, said intersection is closed. By the final topology we can conclude that the whole $A$ is closed and since it is contained in the image of $f$ it is compact (Here we use that the $Y_i$ are Hausdorff!). Furthermore, the same argument shows that every subset $B\subset A$ is closed, because again $B\cap \im \phi_m$ is finite. This tells us that $A$ as a subset of $Y$ carries the discrete topology: Let $C\subseteq A$ be an arbitrary subset. Then $A\setminus C\subseteq A$ is closed in $Y$ and hence its complement in $Y$ is open and intersected with $A$ yields $C$. Hence, $C$ is open in the subspace topology. This however is a contradiction, as $A$ cannot be infinite, compact and carry the discrete topology.
+	Hence any map $f:X\to Y$ has image that lies in some $\im(\phi_m)$ for $m$ big enough. But then there exists a $f_m$ such that $f=\phi_m\circ f_m$.  This assignment is well defined on homotopy classes because if $f,s:X\to Y$ are homotopic, then there exists a homotopy $H:X\times I\to Y$ between them: By the same argument as before, the image of $H$ is compact and hence contained in some $\im \phi_m$. Hence, $f_m$ and $s_m$ are homotopic via $H_m$ as maps to $\im \phi_m$. Hence, we get a well defined canonical map 
 \begin{equation*}
 	\Phi: [X,\colim_m Y_m] \to \colim_m [X,Y_m]\,.
 \end{equation*}This map is injective, as if $f_m$ and $s_m$ are homotopic as maps to $\im\phi_m$, then they are also homotopic as maps to the direct limit. Finally $\Phi$ is surjective, as any element of the direct limit is represented by some $f_m:X\to Y_m$ and hence $\Phi([\phi_m\circ f_m])=[f_m]$. 
@@ -566,7 +566,7 @@ If we build the direct limit of sets and all the maps of the direct system are i
 	Here, we have the natural functors:
 	\begin{itemize}
 		\item $\TopCPair \to \TopCPoint$ by sending a pair $(X,Y)\mapsto (X/Y,[Y])$ with obvious morphisms. If $Y=\emptyset$ this is the disjoint union of $X$ with a point.
-		\item $\TopC \to \TopCPair$ by sending $X\mapsto (X,\emptyset)$ again with obvious morphisms. the inclusion of $\emptyset$ into $X$ is a cofibration, as the empty set itself is a open neighbourhood and hence the pair is a NDR pair.
+		\item $\TopC \to \TopCPair$ by sending $X\mapsto (X,\emptyset)$ again with obvious morphisms. The inclusion of $\emptyset$ into $X$ is a cofibration, as the empty set itself is an open neighbourhood and hence the pair is a NDR pair.
 		\item $\TopC \to \TopCPoint$ as the composition. Again, the inclusion of $[\emptyset]$ into the disjoint union $X \sqcup [\emptyset]$ is a cofibration, as $\{[\emptyset]\}$ is an open neighbourhood of itself.
 	\end{itemize}
 	If we descend to the category where the morphisms are homotopy classes of maps, we get the categories $\hTopC$, $\hTopCPoint$ and $\hTopCPair$. Furthermore, the construction gives a functor from the category of abelian semigroups to the category of abelian groups. 
@@ -584,10 +584,10 @@ If we build the direct limit of sets and all the maps of the direct system are i
   \begin{corollary}\label{cor:kTheo-ConstructionOfGrothendiekGroup} 
 	The Grothendieck group exists for any abelian semigroup and is unique up to canonical isomorphism. If $G$ is a semiring, then the Grothendieck ring exists and is unique up to canonical isomorphism.
   \end{corollary}
-  \begin{proof}The construction follows the following idea: We define tuples in which $(a,b)$ that are to be interpreted as differences "$a-b$". For this construction to yield something useful we want to enforce the rule that "$a-b=a+c-(b+c)$" or said differently $(a+c,b+c)=(a,b)$. Finally, to account for the universal property, we want to use the smallest relation that obeys said rule. This gives us the following construction: Let $A$ be an abelian semigroup and $\Delta:A\to A\times A$ be the diagonal homomorphism that sends $a$ to $(a,a)$. Let $K(A)\coloneq A\times A\big/ \Delta(A)$ .By this notation we mean: $\Delta(A)$ acts on $A\times A$ via
+  \begin{proof}The construction follows the following idea: We define tuples $(a,b)$ that are to be interpreted as differences \enquote{$a-b$}. For this construction to yield something useful we want to enforce the rule that \enquote{$a-b=a+c-(b+c)$} or said differently $(a+c,b+c)=(a,b)$. Finally, to account for the universal property, we want to use the smallest relation that obeys said rule. This gives us the following construction: Let $A$ be an abelian semigroup and $\Delta:A\to A\times A$ be the diagonal homomorphism that sends $a$ to $(a,a)$. Let $K(A)\coloneq A\times A\big/ \Delta(A)$. By this notation we mean: $\Delta(A)$ acts on $A\times A$ via
 	\begin{equation*}
 		\Delta(A) \times (A\times A ) \to A\times A\,\quad ((a,a),(b,c))\mapsto (a+b,a+c)\,.
-	\end{equation*} With this we have the set of orbits which gives rise to an relation:
+	\end{equation*} With this we have the set of orbits which gives rise to a relation:
 	\begin{equation*}
 		\mathcal{R}\coloneq \{((a,b),(a+c,b+c))| c\in A\}
 	\end{equation*}Now we take the smallest equivalence relation on $A\times A$ that contains $\mathcal{R}$ (This relation is made explicit in Remark \ref{rem:kTheo-grothendieckEquivalence}). We define $K(A)$ to be $A\times A$ modulo said relation. Then $K(A)$ is a priori an abelian semigroup, but for $a,b\in A$ we have
@@ -605,7 +605,7 @@ Let $G$ be another abelian group and $\psi: A\to G$ a semigroup homomorphism. Fr
 \begin{equation*}
 	\theta\left(\overline{(a,b)}\right)=\underbrace{\theta(\alpha_A(a))}_{\psi(a)}-\underbrace{\theta(\alpha_A(b))}_{\psi(b)}=\tilde{\psi}\left(\overline{(a,b)}\right)
 \end{equation*}
-This concludes the construction of the grothendieck group. To see the functoriality we first need to define what $K(\beta)$ means, when $\beta: A\to B$ defines a semigroup homomorphism between to abelian semigroups. For this we use the universal property and define $K(\beta)$ to be the unique group homomorphism coming from $\alpha_B\circ \beta : A \to K(B)$. Now the uniqueness of said definition shows the equalities $K(\id)=\id$ and $K(f\circ g)=K(f)\circ K(g)$.
+This concludes the construction of the Grothendieck group. To see the functoriality we first need to define what $K(\beta)$ means, when $\beta: A\to B$ defines a semigroup homomorphism between two abelian semigroups. For this we use the universal property and define $K(\beta)$ to be the unique group homomorphism coming from $\alpha_B\circ \beta : A \to K(B)$. Now the uniqueness of said definition shows the equalities $K(\id)=\id$ and $K(f\circ g)=K(f)\circ K(g)$.
 \end{proof}
 
 
@@ -617,7 +617,7 @@ In $K(A)$ we get the following equivalence for any two pairs $\overline{(a,b)}$ 
 \end{equation*}	
 \end{remark}
 \begin{proof}
-	We start by proving "$\Leftarrow$". This direction follows from the properties of an equivalence relation, as then, every element of an equivalence class is also a representative:
+	We start by proving \enquote{$\Leftarrow$}. This direction follows from the properties of an equivalence relation, as then, every element of an equivalence class is also a representative:
 	\begin{equation} \label{eq:kTheo-theGrothendiekRelation}
 		\overline{(a,b)}=\overline{(a+(a'+b+c),b+(a+b'+c))}=\overline{(a'+(a+b+c),b'+(a+b+c))}=\overline{(a',b')}\,.
 	\end{equation} The other direction follows from the minimality of the equivalence relation: To see this notice how the argument above works in every equivalence relation containing the orbits of $\Delta(A)$ and hence works in the smallest one. Furthermore, \begin{equation*}
@@ -626,11 +626,11 @@ In $K(A)$ we get the following equivalence for any two pairs $\overline{(a,b)}$ 
 \end{proof}
 
 
-\begin{remark}[A simpler Construction of the Grothendieck Group?] One might be wondering, why we defined the relation on the pair $A\times A$ as the smallest equivalence relation starting identifying the orbits of the operation of the diagonal, when Remark \ref{rem:kTheo-grothendieckEquivalence} might look and feel different. The reason for this detour is that I wanted to understand what Atiyah meant when he defined in Chapter II.1 \cite{atiyah1989k} word for word: 
+\begin{remark}[A simpler Construction of the Grothendieck Group?] One might be wondering, why we defined the relation on the pair $A\times A$ as the smallest equivalence relation starting by identifying the orbits of the operation of the diagonal, when Remark \ref{rem:kTheo-grothendieckEquivalence} might look and feel different. The reason for this detour is that I wanted to understand what Atiyah meant when he defined in Chapter II.1 \cite{atiyah1989k} word for word: 
 
 	\textit{ A slightly different construction of $K(A)$ which is sometimes convenient is the following: Let $\Delta: A\to A$ be the diagonal homomorphism of semi-groups, and let $K(A)$ denote the set of cosets of $\Delta(A)$ in $A\times A$. It is a quotient semi-group, but the interchange of factors in $A\times A$ introduces an inverse in $K(A)$ so that $K(A)$ is a group.}
 	
-	Whilst this definition feels easy to the reader, it carries a lot of baggage. First of all, if one is not familiar with commutative monoid or abelian semigroup theory, one might want to generalise the notion of coset from group theory that states that for a subgroup $A\subseteq G$ of an abelian group $G$ the cosets are of the form $g+A$. Whilst this notion can be generalised to semigroups, it would yield something useless. To see this just take $\N$. In the semigroup $\N\times \N \big/ \Delta(\N)$ the cosets $(2,0)+\N$ and $(3,1)+\N$ are different, as $(2,0)$ is not contained in the latter. To give Atiyah the benefit of the doubt we could generalise the definition of cosets as orbits of the right translation, which is what we did in our construction. However, the literature on semigroups from that time defines the notion of quotients in the setting of semigroups with the help of \textit{congruence} instead of cosets. The latter refers to an equivalence relation that behaves well with the operation of said semigroup. Compare Chapter 1.5 \cite{CliffordPreston1961}. It was even shown that the notion of congruence and coset are equivalent for groups(Compare for example: Chapter 6.1 \cite{Green1965}). Regardless of what Atiyah meant by his notion of coset, the construction became known and cited. (\cite{Brodzki1996}, \cite{Landweber2005},\cite{Courtney2004}) None of those reference defined coset in semigroups and hence this little detour into the history should function as a reminder, that we need to be careful when generalising things from the known categories. We are so used to cosets giving equivalence relations, that it's easy to overlook the needed care. 
+	Whilst this definition feels easy to the reader, it carries a lot of baggage. First of all, if one is not familiar with commutative monoid or abelian semigroup theory, one might want to generalise the notion of coset from group theory that states that for a subgroup $A\subseteq G$ of an abelian group $G$ the cosets are of the form $g+A$. Whilst this notion can be generalised to semigroups, it would yield something useless. To see this just take $\N$. In the semigroup $\N\times \N \big/ \Delta(\N)$ the cosets $(2,0)+\N$ and $(3,1)+\N$ are different, as $(2,0)$ is not contained in the latter. To give Atiyah the benefit of the doubt we could generalise the definition of cosets as orbits of the right translation, which is what we did in our construction. However, the literature on semigroups from that time defines the notion of quotients in the setting of semigroups with the help of \textit{congruence} instead of cosets. The latter refers to an equivalence relation that behaves well with the operation of said semigroup. Compare Chapter 1.5 \cite{CliffordPreston1961}. It was even shown that the notion of congruence and coset are equivalent for groups (compare for example: Chapter 6.1 \cite{Green1965}). Regardless of what Atiyah meant by his notion of coset, the construction became known and cited. (\cite{Brodzki1996}, \cite{Landweber2005}, \cite{Courtney2004}) None of those references define coset in semigroups and hence this little detour into the history should function as a reminder, that we need to be careful when generalising things from the known categories. We are so used to cosets giving equivalence relations, that it's easy to overlook the needed care. 
 \end{remark}
 \begin{remark}
 	We will omit the inclusion maps $\alpha$ from now on and interpret (if not said different) the equivalence class $[E]$ of a vector bundle as an element in $K(X)$.
@@ -653,7 +653,7 @@ Let $\beta:A \to A'$ be another semigroup homomorphism. Then we have the followi
 \end{minipage}
 
 \vspace{0.3cm}
-Hence, the assignment $A\mapsto K(A)$ and $\beta\mapsto K(\beta)$ defines a functor from the category of abelian semigroups to the category of abelian groups. To see the universal property of $K(A)$ we first notice that for a group $G$ the group $K(G)$ is naturally isomorphic to $G$ itself, via the map $\alpha_G$, since $(a,b)\mapsto a-b$ is a well defined natural inverse of $\alpha_G$ and of the vertical bottom row  of the diagram $\pi \circ (\id \times 0)$. Hence said inverse together with the unique $K(\beta)$ shows the universal property of $K(A)$ as the grothendieck Group. Uniqueness of $K(A)$ is the classical diagram chase argument. Also it is obvious, that if $G$ is a semiring, then $K(G)$ inherits a ring structure and the same argument as before shows the universal property of $K(G)$ as the Grothendieck ring of $G$.
+Hence, the assignment $A\mapsto K(A)$ and $\beta\mapsto K(\beta)$ defines a functor from the category of abelian semigroups to the category of abelian groups. To see the universal property of $K(A)$ we first notice that for a group $G$ the group $K(G)$ is naturally isomorphic to $G$ itself, via the map $\alpha_G$, since $(a,b)\mapsto a-b$ is a well defined natural inverse of $\alpha_G$ and of the vertical bottom row  of the diagram $\pi \circ (\id \times 0)$. Hence said inverse together with the unique $K(\beta)$ shows the universal property of $K(A)$ as the Grothendieck group. Uniqueness of $K(A)$ is the classical diagram chase argument. Also it is obvious, that if $G$ is a semiring, then $K(G)$ inherits a ring structure and the same argument as before shows the universal property of $K(G)$ as the Grothendieck ring of $G$.
 \end{comment}
 \begin{corollary}
 	In the proof above we have shown that the assignment $K$ is a functor from the category of abelian semigroups to the category of abelian groups. Alternatively, we can view $K$ as a functor from the category of semirings to the category of rings.
@@ -689,12 +689,12 @@ Hence, the assignment $A\mapsto K(A)$ and $\beta\mapsto K(\beta)$ defines a func
 	\end{center}
 \end{corollary}
 \begin{proof}
-	We have the exact sequence of Rings:
+	We have the exact sequence of rings:
 	\begin{center}
 		\begin{tikzcd}
 			0 \arrow[r] & \tilde{K}(X) \arrow[r, "inclusion"] & K(X) \arrow[r, "i_X^*"] & K(x_0) \arrow[r] & 0
 		\end{tikzcd}
-	\end{center} where $c_X^*:K(x_0)\to K(X)$ is a right inverse of $i_X^*$, and hence the sequence splits and $K(X)\cong \tilde{K}(X)\oplus K(x_0)$.The isomorphism is explicitly given by
+	\end{center} where $c_X^*:K(x_0)\to K(X)$ is a right inverse of $i_X^*$, and hence the sequence splits and $K(X)\cong \tilde{K}(X)\oplus K(x_0)$. The isomorphism is explicitly given by
 	\begin{equation*}
 		K(X)\to \tilde{K}(X)\oplus K(x_0)\,,\quad \xi \mapsto \left(\xi- c_X^*\circ i_X^*(\xi),i_X^*(\xi)\right)
 	\end{equation*} and its inverse maps $(a,b)\mapsto a+c_X^*(b)$. The splitting is natural with respect to maps in $\TopCPoint$, because for a map of pointed spaces $f:X\to Y$ we get commutativity:
@@ -727,7 +727,7 @@ the sections $c_X^*, c_Y^*$) controls the $K(x_0)$-summand.
 	\end{equation*} be the functor that sends $X$ to $(X,[\emptyset])$ with obvious homomorphisms. Then there is a natural isomorphism between the functors $\tilde{K}\circ F$ and $K$. 
 \end{corollary}
 \begin{proof}
-	This follows  from the fact that disjoint unions give rise to direct sums of semi rings: $\Vect(X\sqcup \{\emptyset\})\cong \Vect(X)\oplus \Vect(\{\emptyset\})$ and the isomorphism is given by gluing the bundles and hence natural. Furthermore, the Grothendieck ring of a direct sum gives the direct sum of rings (again in a natural manner). (This can be verified using the universal property). Hence we get the commutative diagram
+	This follows  from the fact that disjoint unions give rise to direct sums of semirings: $\Vect(X\sqcup \{\emptyset\})\cong \Vect(X)\oplus \Vect(\{\emptyset\})$ and the isomorphism is given by gluing the bundles and hence natural. Furthermore, the Grothendieck ring of a direct sum gives the direct sum of rings (again in a natural manner). (This can be verified using the universal property). Hence we get the commutative diagram
 	\begin{center}
 		\begin{tikzcd}
 			0 \arrow[r]\arrow[d,equal]&\tilde{K}(F(X)) \arrow[r,"inclusion"] & K(F(X)) \arrow[d,"\Phi"]\arrow[r,"i^*"] & K([\emptyset]) \arrow[r] \arrow[d,equal] &0\arrow[d,equal] \\
@@ -749,7 +749,7 @@ the sections $c_X^*, c_Y^*$) controls the $K(x_0)$-summand.
 	\end{equation*}
 \end{definition}
 \begin{definition}
-	For the sake of intuition, I want to give a bit of insight into tensor products without being to technical and opening the box of Pandora of monoidal categories. We define a tensor product in a category simply as the space over which bilinear maps factor uniquely. To capture bilinearity in such a category we define the following. Let $\pi_i:X_0\times X_1 \to X_i$ be the canonical projection for $i=0,1$.  Any reasonable product should come with such surjective maps. Since those are surjective, the $\pi_i$ omit a family of right inverses $r_i: X_i\to X_0\times X_1$. We call such a right inverse "product preserving" if the compositions $\pi_{2}\circ r_1$ and $\pi_1\circ r_2$ are constant. Hence the right inverse maps into just one fibre. Now bilinearity in this general setting states, that for any product preserving right inverse of the projections $r_i$, the composition $f\circ r_i$ is structure preserving.
+	For the sake of intuition, I want to give a bit of insight into tensor products without being too technical and opening Pandora's box of monoidal categories. We define a tensor product in a category simply as the space over which bilinear maps factor uniquely. To capture bilinearity in such a category we define the following. Let $\pi_i:X_0\times X_1 \to X_i$ be the canonical projection for $i=0,1$.  Any reasonable product should come with such surjective maps. Since those are surjective, the $\pi_i$ admit a family of right inverses $r_i: X_i\to X_0\times X_1$. We call such a right inverse \enquote{product preserving} if the compositions $\pi_{2}\circ r_1$ and $\pi_1\circ r_2$ are constant. Hence the right inverse maps into just one fibre. Now bilinearity in this general setting states, that for any product preserving right inverse of the projections $r_i$, the composition $f\circ r_i$ is structure preserving.
 \end{definition}
 \begin{remark}[What is the Smash Product]
 	We can think of the smash product as the tensor product in the pointed topological spaces as follows. Let $f:(X,x_0)\times (Y,y_0)\to (Z,z_0)$ be bilinear. For any $y\in Y$ we have the product preserving right inverse of $\pi_1$ given by
@@ -777,7 +777,7 @@ the sections $c_X^*, c_Y^*$) controls the $K(x_0)$-summand.
 	Let $(X,x_0)$ be a pointed topological space. We define the \textbf{suspension} of $X$ to be the space
 	\begin{eqnarray}
 		S(X)\coloneq X\times I \big/ \sim
-	\end{eqnarray} where $(x,t)\sim(x',t')$ is $t=1$ or $t=0$. Here we identify the top to a point and the bottom to a different point. ($(x,1)\nsim (0,0)$). We view $(S(X),(x,1))$ as a pointed space.
+	\end{eqnarray} where $(x,t)\sim(x',t')$ if $t=1$ or $t=0$. Here we identify the top to a point and the bottom to a different point. ($(x,1)\nsim (0,0)$). We view $(S(X),(x,1))$ as a pointed space.
 \end{definition}
 In general the reduced and unreduced suspension differ. However, under the following condition there will be a natural homotopy equivalence:
 \begin{lemma}\label{lem:kTheo-wellpointedImpliesCylinderCofibration}
@@ -804,7 +804,7 @@ This proof is omitted but is Proposition 5.1.16 in \cite{tomdieck2008algebraic}.
 	For $n\geq 0$ we define:
 	\begin{align*}
 		\begin{array}{lclll}
-			\Tilde{K}^{-n}(X,x_0)&\coloneq &\Tilde{K}(\Sigma^n\wedge X)& \text{for } &(X,x_0)\in Ob(\TopCPoint),\\
+			\Tilde{K}^{-n}(X,x_0)&\coloneq &\Tilde{K}(\Sigma^n X)& \text{for } &(X,x_0)\in Ob(\TopCPoint),\\
 			K^{-n}(X,Y)&\coloneq &\Tilde{K}^{-n}(X\slash Y,[Y]) &\text{for } &(X,Y)\in Ob(\TopCPair)\\
 			K^{-n}(X) &\coloneq &K^{-n}(X,\emptyset) &\text{for } &X\in Ob(\TopC)~.
 		\end{array}
@@ -842,7 +842,7 @@ This proof is omitted but is Proposition 5.1.16 in \cite{tomdieck2008algebraic}.
 \subsection{Homotopy-Theoretic definition of $K$}
 
 \begin{definition}\label{def:kTheo-trivialBundleAndLimitInclusinos}
-	for any natural number $n\in \N$ we define $\underline{n}$ to be the $n$-dimensional trivial bundle over a base space $X$. With this we define the inclusions
+	For any natural number $n\in \N$ we define $\underline{n}$ to be the $n$-dimensional trivial bundle over a base space $X$. With this we define the inclusions
 	\begin{equation*}
 		i_n: \Vect_n(X)\to \Vect_{n+1}(X)\,,\quad \xi \mapsto \xi \oplus [\underline{1}],
 	\end{equation*} and this gives rise to the direct limit $\colim_n \Vect_n(X)$.
@@ -875,7 +875,7 @@ This proof is omitted but is Proposition 5.1.16 in \cite{tomdieck2008algebraic}.
 	\end{equation*}
 \end{proof}
 \begin{definition}
-	We call two vector bundles $E,F$ over the same base space \textbf{eventually equivalent}, if there exist $n,m\in \N$ such that $E\oplus n\cong F\oplus m$.
+	We call two vector bundles $E,F$ over the same base space \textbf{eventually equivalent}, if there exist $n,m\in \N$ such that $E\oplus \underline{n}\cong F\oplus \underline{m}$.
 \end{definition}
 \begin{lemma}
 	The set of equivalence classes using the notion of eventual equivalence is the limit 
@@ -883,16 +883,16 @@ This proof is omitted but is Proposition 5.1.16 in \cite{tomdieck2008algebraic}.
 		\colim_n \Vect_n(X)
 	\end{equation*}
 \end{lemma}
-\begin{proof}Let $\mathrm{EVect}(X)$ be the set of equivalence classes using the notion of eventually equivalence. This satisfies the universal property of the direct limit. To see this let $f_m:\Vect_m(X)\to Y$ be a family of maps, that commute with the inclusions $i_n$ from Definition \ref{def:kTheo-trivialBundleAndLimitInclusinos}. From those we define the map 
+\begin{proof}Let $\mathrm{EVect}(X)$ be the set of equivalence classes using the notion of eventual equivalence. This satisfies the universal property of the direct limit. To see this let $f_m:\Vect_m(X)\to Y$ be a family of maps, that commute with the inclusions $i_n$ from Definition \ref{def:kTheo-trivialBundleAndLimitInclusinos}. From those we define the map 
 	\begin{equation*}
 		f: \mathrm{EVect}(X) \to Y\,, \quad [\xi] \mapsto f_{\rank(\xi)}(\xi)\,.
-	\end{equation*} This map is well defined, because $f$ commuting with the inclusions $i_n$ is equivalent to $f$ being invariant under eventual equivalence. Uniqueness follows from ever element of $\mathrm{EVect}(X)$ being represented by a vector bundle.
+	\end{equation*} This map is well defined, because $f$ commuting with the inclusions $i_n$ is equivalent to $f$ being invariant under eventual equivalence. Uniqueness follows from every element of $\mathrm{EVect}(X)$ being represented by a vector bundle.
 \end{proof}
 \begin{lemma}
 	The set of equivalence classes using the notion of eventual equivalence  together with the direct sum is an abelian group
 \end{lemma}
 \begin{proof}
-	Everything except inverses is clear. The neutral element is the class of $\underline{0}$. For inverses we take a bundle $E$ and by Corollary \ref{cor:kTheo-splittingTrivial} there exists a $G$ such that $E\oplus G\cong\underline{n}$. Now $[E]+[G]=[\underline{n}]=\underline[0]$. 
+	Everything except inverses is clear. The neutral element is the class of $\underline{0}$. For inverses we take a bundle $E$ and by Corollary \ref{cor:kTheo-splittingTrivial} there exists a $G$ such that $E\oplus G\cong\underline{n}$. Now $[E]+[G]=[\underline{n}]=[\underline{0}]$.
 \end{proof}
 \begin{lemma}\label{lem:kTheo-reducedKisEventually}
 	For a compact connected space $X$ there is a natural group isomorphism.
@@ -924,7 +924,7 @@ Let $K$ be an element of $K(X)$. Then by Corollary \ref{cor:kTheo-ConstructionOf
 	Now we claim that the kernel $\ker(\rank)\cong \mathrm{EVect}(X)$. For this we define the map 
 	\begin{equation*}
 		\phi: \mathrm{EVect}(X)\to K(X)\,,\quad [E]\mapsto [E] -[\underline{\rank(E)}]
-	\end{equation*}To see the well definition we assume that $E$ and $E'$ are eventually isomorphic and hence there are $n,n'\in \N$ such that $E\oplus \underline{n}\cong E'\oplus \underline{n'}$. But then in $K(X)$ we have:
+	\end{equation*}To see the well-definedness we assume that $E$ and $E'$ are eventually isomorphic and hence there are $n,n'\in \N$ such that $E\oplus \underline{n}\cong E'\oplus \underline{n'}$. But then in $K(X)$ we have:
 	\begin{equation*}
 		[E]-[\underline{\rank(E)}]=[E\oplus \underline{n}]-[\underbrace{\underline{\rank(E)}\oplus\underline{n}}_{=\underline{\rank(F)}\oplus \underline{n'}}]=[E'\oplus \underline{n'}]-[\underline{\rank(F)}\oplus \underline{n'}]=[F]-[\underline{\rank(F)}]\,.
 	\end{equation*}
@@ -932,7 +932,7 @@ Let $K$ be an element of $K(X)$. Then by Corollary \ref{cor:kTheo-ConstructionOf
 	\begin{equation*}
 		K=[E]-[F]=[E \oplus G]-[\underline{n}]=[E\oplus G]-[\underline{\rank(E\oplus G)}]= \phi([E \oplus G])
 	\end{equation*}
-	This leads to the naturally splitting short exact sequence
+	This leads to the naturally split short exact sequence
 \begin{center}
 		\begin{tikzcd}
 			0 \arrow[r]& \mathrm{EVect}(X)\arrow[r,"\phi"]&K(X)\arrow[r,"\rank"']&\Z \arrow[r] \arrow[l,bend right,"r"']& 0
@@ -958,10 +958,10 @@ This gives the commutative diagram:
 Where $i$ is the inclusion $\{p\}\to X$ and $c_p$ is the collapse $X\to \{p\}$. Then by some diagram chasing the map 
 \begin{equation*}
 	\tilde{\phi}: \mathrm{SVect}(X)\to \tilde{K}(X) 
-\end{equation*} is well defined and by the five lemma (add zeros the short sequences on the left) it is an isomorphism.
+\end{equation*} is well defined and by the five lemma (add zeros to the short sequences on the left) it is an isomorphism.
 \end{proof} 
 \begin{remark}\label{rem:kTheo-elementsInReducedKtheoryAreGivenByEMionusN}
-	In the proof above we have seen that every element of $k\in K(X)$ is given as the difference of a vector bundle and a trivial bundle $k=[\xi]-[\underline{n}]$ for some vector bundle $\xi$ and $n\in \N$. We also saw that 
+	In the proof above we have seen that every element $k\in K(X)$ is given as the difference of a vector bundle and a trivial bundle $k=[\xi]-[\underline{n}]$ for some vector bundle $\xi$ and $n\in \N$. We also saw that 
 	$\tilde{K}(X)$ is in the kernel of $\rank$ and hence any $k\in \tilde{K}(X)$ is given by $k=[\xi]-[\underline{\rank(\xi)}]$ where $\xi$ is a vector bundle.
 \end{remark}
 \begin{definition}
@@ -982,7 +982,7 @@ Where $i$ is the inclusion $\{p\}\to X$ and $c_p$ is the collapse $X\to \{p\}$. 
 	\end{equation*} Those inclusions commute with the maps 
 	\begin{equation*}
 	i_m^n:\Gr_n(\C^m)\to \Gr_n(\C^{m+1})\,,\quad V\mapsto V\oplus \langle e_{m+1} \rangle
-	\end{equation*} from the direct system from Corollary \ref{cor:kTheo-directGrassmanSystem}. If we denote the inclusion of $\phi_{m}^{n+1}:\Gr_{n+1}(\C^m)\to \colim_m(\Gr_{n+1}(\C^m))$ we get the following commuting diagram, for all $n\leq m$:
+	\end{equation*} from the direct system from Corollary \ref{cor:kTheo-directGrassmanSystem}. If we denote the inclusion by $\phi_{m}^{n+1}:\Gr_{n+1}(\C^m)\to \colim_m(\Gr_{n+1}(\C^m))$ we get the following commuting diagram, for all $n\leq m$:
 	\begin{center}
 		\begin{tikzcd}
 			\Gr_n(\C^m) \arrow[d,"i_m"] \arrow[r,"f_n^m"]&\Gr_{n+1}(\C^{m+1}) \arrow[d,"i_m^n"]\arrow[r,"\phi_{m+1}^{n+1}"]&\colim_m(\Gr_{n+1}(\C^m))=BU(n+1)\\
@@ -994,7 +994,7 @@ Where $i$ is the inclusion $\{p\}\to X$ and $c_p$ is the collapse $X\to \{p\}$. 
 		\Big(
 			\phi^{n+1}_{m+1}\circ f^m_n: \Gr_n(\C^m) \to BU(n+1)
 		\Big)_m
-	\end{equation*} to induce maps $f_n:BU(n)\to BU(n+1)$. which in turn give us a directed system and lets us define:
+	\end{equation*} to induce maps $f_n:BU(n)\to BU(n+1)$, which in turn give us a directed system and let us define:
 	\begin{equation*}
 		BU\coloneq \colim_nBU(n)=\colim_n\big(\colim_m \Gr_n(\C^m)\big)\,.
 	\end{equation*} 
@@ -1003,8 +1003,8 @@ Where $i$ is the inclusion $\{p\}\to X$ and $c_p$ is the collapse $X\to \{p\}$. 
 	The maps $f_n:BU(n)\to BU(n+1)$ are closed embeddings.
 \end{lemma}
 \begin{proof}
-	Since $\Gr_n(\C^m)$ is compact and Hausdorff for any $n\leq m$ the maps $f_n^m$ are closed embeddings. Furthermore, the natural maps $\phi^n_m:\Gr_n(\C^m)\to BU(n)$ are also closed embeddings. Now assume that $f_n(x)=f_n(x')$. Then for $r$ big enough (omitting the inclusions) $f_n^r(x)=f_n^r(x')$ which contradicts the injectivity of the $f_n^r(x)$. Now we want to show that $f_n$ has a closed image. For this we let $C\coloneq \im f_n \subset BU(n+1)$ and call the natural inclusions $\phi^{n+1}_m: \Gr_{n+1}(\C^m)\to BU(n+1)$. Then $C$ is closed, if and only if $C\cap \im \phi_m^{n+1}$ is closed for all $m>n$. To show this we first show that $C\cap \im \phi_m^{n+1}=\im\, \phi^{n+1}_m\circ f_n^{m-1}$. The first inclusion $\subseteq$ is clear. The other inclusion follows directly from the construction of $f_n$ that satisfies $f_n\circ \phi^n_{m-1}=\phi^{n+1}_m\circ f^{m-1}_n$. By Remark \ref{rem:kTheo-staircaseMapsClosedEmbedding} we know that $\phi^{n+1}_m \circ f^{m-1}_n$ is a closed embedding hence $C\cap \im \phi_m^{n+1}$ is closed for all $m>n$ and hence $C$ is closed. Now finally we need to show that $f_n$ are homeomorphisms onto their image. For this we show that they are closed maps, meaning they map closed sets to closed sets. This property together with injectivity implies the closed embedding property.
-	Let $U\subset BU(n)$ be closed. By construction of the direct limit we can write $U=\bigcup_m (\im(\phi^n_m)\cap U)=\bigcup_m (\phi^n_m(U_m))$, where $U_m\coloneq (\phi^n_m)^{-1}(U)$. Now by the same argument as before we have the equality $f_n(U)\cap \im\phi^{n+1}_{m+1}= \phi^{n+1}_{m+1}\circ f^m_n(U_m)$. This is closed for all $m$ because the maps $\phi^{n+1}_{m+1}$ and $f_n^m$ are closed embeddings and hence closed. But then $f^n(U)$ is closed in the final topology and hence $f_n$ is a closed embedding.
+	Since $\Gr_n(\C^m)$ is compact and Hausdorff for any $n\leq m$ the maps $f_n^m$ are closed embeddings. Furthermore, the natural maps $\phi^n_m:\Gr_n(\C^m)\to BU(n)$ are also closed embeddings. Now assume that $f_n(x)=f_n(x')$. Then for $r$ big enough (omitting the inclusions) $f_n^r(x)=f_n^r(x')$ which contradicts the injectivity of the $f_n^r$. Now we want to show that $f_n$ has a closed image. For this we let $C\coloneq \im f_n \subset BU(n+1)$ and call the natural inclusions $\phi^{n+1}_m: \Gr_{n+1}(\C^m)\to BU(n+1)$. Then $C$ is closed, if and only if $C\cap \im \phi_m^{n+1}$ is closed for all $m>n$. To show this we first show that $C\cap \im \phi_m^{n+1}=\im\, \phi^{n+1}_m\circ f_n^{m-1}$. The first inclusion $\subseteq$ is clear. The other inclusion follows directly from the construction of $f_n$ that satisfies $f_n\circ \phi^n_{m-1}=\phi^{n+1}_m\circ f^{m-1}_n$. By Remark \ref{rem:kTheo-staircaseMapsClosedEmbedding} we know that $\phi^{n+1}_m \circ f^{m-1}_n$ is a closed embedding hence $C\cap \im \phi_m^{n+1}$ is closed for all $m>n$ and hence $C$ is closed. Now finally we need to show that $f_n$ are homeomorphisms onto their image. For this we show that they are closed maps, meaning they map closed sets to closed sets. This property together with injectivity implies the closed embedding property.
+	Let $U\subset BU(n)$ be closed. By construction of the direct limit we can write $U=\bigcup_m (\im(\phi^n_m)\cap U)=\bigcup_m (\phi^n_m(U_m))$, where $U_m\coloneq (\phi^n_m)^{-1}(U)$. Now by the same argument as before we have the equality $f_n(U)\cap \im\phi^{n+1}_{m+1}= \phi^{n+1}_{m+1}\circ f^m_n(U_m)$. This is closed for all $m$ because the maps $\phi^{n+1}_{m+1}$ and $f_n^m$ are closed embeddings and hence closed. But then $f_n(U)$ is closed in the final topology and hence $f_n$ is a closed embedding.
 \end{proof}
 \begin{theorem}\label{thm:kTheo-reducedKgroupAsHomotopy}
 	For a connected pointed space $X$ we have a natural homomorphism
@@ -1023,7 +1023,7 @@ Where $i$ is the inclusion $\{p\}\to X$ and $c_p$ is the collapse $X\to \{p\}$. 
 	\end{equation*}
 \end{proof}
 \begin{lemma}\label{lemma:kTheo-generalGroupContractsToUnitary}
-	The general linear Group $\GL_n(\C)$ retracts onto the unitary Group $U(n)$ and the retraction commutes with the inclusions $A\mapsto \begin{pmatrix}
+	The general linear group $\GL_n(\C)$ retracts onto the unitary group $U(n)$ and the retraction commutes with the inclusions $A\mapsto \begin{pmatrix}
 		A&0\\
 		0&1
 	\end{pmatrix}\,.$
@@ -1032,7 +1032,7 @@ Where $i$ is the inclusion $\{p\}\to X$ and $c_p$ is the collapse $X\to \{p\}$. 
 	Let $A\in \GL_n(\C)$. Then $A^*A$ is a positive-definite Hermitian matrix, since for $v \in \C^n$:
 	\begin{equation*}
 		v^*A^*Av=(Av)^*(Av)=\norm{Av}^2\geq 0\,.
-	\end{equation*}  Hence, it is diagonalisable with real non negative eigenvalues $\lambda_1,\cdot \lambda_n>0$. We define $P_1\coloneq \sqrt{A^*A}$ to be the matrix, that scales all eigenspaces by $\sqrt{\lambda_i}$. Then $P^2 =A^*A$, and $\sqrt{A^*A}$ is also positive definite Hermitian, as all eigenvalues are positive and hence, it is invertible. Notice, that 
+	\end{equation*}  Hence, it is diagonalisable with real non-negative eigenvalues $\lambda_1,\dots \lambda_n>0$. We define $P_A\coloneq \sqrt{A^*A}$ to be the matrix, that scales all eigenspaces by $\sqrt{\lambda_i}$. Then $P_A^2 =A^*A$, and $\sqrt{A^*A}$ is also positive definite Hermitian, as all eigenvalues are positive and hence, it is invertible. Notice, that 
 	\begin{equation*}
 		\sqrt{
 		\begin{pmatrix}
@@ -1069,11 +1069,11 @@ Where $i$ is the inclusion $\{p\}\to X$ and $c_p$ is the collapse $X\to \{p\}$. 
 			C_-(X) \coloneq & \{(x,t)\in S(X) \,|\, t\leq \frac{1}{2} \} \,.	
 		\end{array} 
 	\end{equation*}
-	Those cones intersect in $\C_+\cap C_-= X\times \{\frac{1}{2}\}\cong X$. Now denote the trivial $n$ bundle over $C_+(X)$ by $\underline{n}_+$ and over $C_-(X)$ by $\underline{n}_-$. With this notation we know by the proof of Lemma \ref{lem:kTheo-gluingAndHomotopyClassesToGLn} that the map
+	Those cones intersect in $C_+\cap C_-= X\times \{\frac{1}{2}\}\cong X$. Now denote the trivial $n$ bundle over $C_+(X)$ by $\underline{n}_+$ and over $C_-(X)$ by $\underline{n}_-$. With this notation we know by the proof of Lemma \ref{lem:kTheo-gluingAndHomotopyClassesToGLn} that the map
 	\begin{align}\label{eq:kTheo-SXtoHomotoy}
 		\phi_n: [X,\GL_n(\C)]&\to \Vect_n(\Sigma X)\\
 		f&\mapsto \underline{n}_+ \Glue{f} \underline{n}_- \nonumber
-	\end{align} in an bijection for all $n$. Furthermore, the inclusion of $\GL_n(\C)$ into $\GL_{n+1}(\C)$ gives an inclusion $[X,\GL_n(\C)]$  into $[X,\GL_{n+1}(\C)]$ which commutes with the inclusion $\Vect_n(\Sigma X)$ into $\Vect_{n+1}(\Sigma X)$ under the bijection (\ref{eq:kTheo-SXtoHomotoy})meaning that for any $n\leq m$ the diagram 
+	\end{align} is a bijection for all $n$. Furthermore, the inclusion of $\GL_n(\C)$ into $\GL_{n+1}(\C)$ gives an inclusion $[X,\GL_n(\C)]$  into $[X,\GL_{n+1}(\C)]$ which commutes with the inclusion $\Vect_n(\Sigma X)$ into $\Vect_{n+1}(\Sigma X)$ under the bijection (\ref{eq:kTheo-SXtoHomotoy}) meaning that for any $n\leq m$ the diagram
 	\begin{center}
         \begin{tikzcd}
             {[X,\GL_n(\C)]} \arrow[r,"\phi_n"] \arrow[d,"i_{nm}"] &\Vect_n(\Sigma X) \arrow[d,"i_{nm}"]\\
@@ -1089,7 +1089,7 @@ Where $i$ is the inclusion $\{p\}\to X$ and $c_p$ is the collapse $X\to \{p\}$. 
 	\end{equation*} concluding that we have a natural bijection. To get the group structure we need to look into said mapping. For this we inspect the mapping (\ref{eq:kTheo-SXtoHomotoy}) closer. Let 
 	\begin{equation*}
 		\Phi_n:[X,\GL_n(\C)]\to \colim \Vect_n(\Sigma X)
-	\end{equation*} be the composition of $\phi_n$ with the inclusion $\Vect_n(\Sigma X) \to \colim \Vect_n(\Sigma X)$ By the commutative diagram above, the maps $\phi_n$ induce a map from $\colim [X,\GL_n(\C)]$ which is a group homomorphism, if all $\Phi_n$ are one. Hence take two functions $f,g:X\to \GL_n(\C)$. then by definition 
+	\end{equation*} be the composition of $\phi_n$ with the inclusion $\Vect_n(\Sigma X) \to \colim \Vect_n(\Sigma X)$. By the commutative diagram above, the maps $\phi_n$ induce a map from $\colim [X,\GL_n(\C)]$ which is a group homomorphism, if all $\Phi_n$ are one. Hence take two functions $f,g:X\to \GL_n(\C)$. Then by definition
 	\begin{equation*}
 		f\oplus g: X \to GL_n(\C)\,,\quad x\mapsto f(x)\times g(x)
 	\end{equation*} Now $f\oplus g$ can be included into $[X,\GL_{2n}(\C)]$:
@@ -1122,7 +1122,7 @@ Where $i$ is the inclusion $\{p\}\to X$ and $c_p$ is the collapse $X\to \{p\}$. 
 \end{proof}
 \begin{remark}
 	The proof of Lemma \ref{lem:kTheo-reducedSuspendedKGroupHomotopically} gives a slightly more general statement:
-	For a connected well pointed topological space $(X,x_0)$ with a splitting into two contractible parts $X^+$ and $x^-$ with $x_0\in A\coloneq X^+\cap X^-$ and $X^+\cup X^-=X$ and the inclusion of $A$ into the two contractible parts are cofibrations, there is a natural group isomorphism
+	For a connected well pointed topological space $(X,x_0)$ with a splitting into two contractible parts $X^+$ and $X^-$ with $x_0\in A\coloneq X^+\cap X^-$ and $X^+\cup X^-=X$ and the inclusion of $A$ into the two contractible parts are cofibrations, there is a natural group isomorphism
 	\begin{equation*}
 		[A,U]\cong \tilde{K}(X)
 	\end{equation*} 
@@ -1151,10 +1151,10 @@ Where $i$ is the inclusion $\{p\}\to X$ and $c_p$ is the collapse $X\to \{p\}$. 
 \begin{example}\label{ex:kTheo-LineBundlesSatlquadequalslPlusl}
 	Let $l$ and $l'$ be line bundles over $S^2$. Then the clutching function for the vector bundle $l\otimes l'$ is given by the tensor product of clutching functions. So let $f$ and $f'$ be two clutching functions
 	\begin{equation*}
-		f,f':S \to 	  \GL_1(\C)
+		f,f':S^1 \to 	  \GL_1(\C)
 	\end{equation*} Then the product bundle $l\otimes l'$ is given by the clutching function 
 	\begin{equation*}
-		f\otimes f': S\to \GL(\C\otimes \C)\cong \GL_1(\C)\,,\quad x\mapsto f(x)f'(x)
+		f\otimes f': S^1\to \GL(\C\otimes \C)\cong \GL_1(\C)\,,\quad x\mapsto f(x)f'(x)
 		\end{equation*}
 	Hence, the product in $\tilde{K}(S^2)$ is given by  $f\otimes f'=f\cdot f'$.
 	Now, the homotopy (\ref{eq:kTHeo-homotopyBetweendirectSumAndProduct}) of the proof above shows that 
@@ -1171,15 +1171,15 @@ $f\cdot f'\oplus \id_1\simeq f \oplus f'$ and hence $l\otimes l'\oplus \underlin
 	\end{equation*} together with the compact open topology.
 \end{proposition}
 \begin{proof}
- For any three $(X,x_0),(Y,y_0),(Z,z_0)$ we have that a basepoint preserving map 
+ For any three spaces $(X,x_0),(Y,y_0),(Z,z_0)$ we have that a basepoint preserving map
  $f:X\wedge Y\to Z$ can be lifted to a map $\tilde{f}:X \times Y \to Z;f(z)=\tilde{f}(\overline{z})$ that maps the whole $X\vee Y$ to $z_0$. This map is continuous by the universal property of the quotient topology. Hence we get a bijection
  \begin{equation*}
 	C(X\wedge Y,Z)\to \{f\in C(X\times Y,Z)\,|\, \restr{f}{X\vee Y} \equiv z_0\}
  \end{equation*} its inverse is given by the quotient induced maps. 
- We can compose this map with the natural currying map $C(X\times Y,Z)\to C(X,C(Y,Z))$. For $Y=S$ we gain a map 
+ We can compose this map with the natural currying map $C(X\times Y,Z)\to C(X,C(Y,Z))$. For $Y=S^1$ we gain a map 
  \begin{equation*}
 	C(SX,Z)\to C(X,\Omega Z)
- \end{equation*} that is again a bijection, since any $f:X\to \Omega Z$ gives a map $\tilde{f}:X\times S\to Z$ $\tilde{f}(x,s)\mapsto f(x)(s)$. If $(x,s)\in X\vee S\subseteq X\times S$, then either $x=x_0$ or $s=1$. In the first case. $f(x_0)$ is the constant loop and hence $f(x_0)(s)=z_0$ and in the second case we evaluate a based loop at its base and hence $f(x)(1)=z_0$. Hence, the $\tilde{f}$ factors over $X\vee S$ giving a well defined element in $C(SX,Z)$. This is its inverse. The continuity part of the argument follows from Proposition \ref{prop:kTheo-curryingIsContinuous}.
+ \end{equation*} that is again a bijection, since any $f:X\to \Omega Z$ gives a map $\tilde{f}:X\times S\to Z$ $\tilde{f}(x,s)\mapsto f(x)(s)$. If $(x,s)\in X\vee S\subseteq X\times S$, then either $x=x_0$ or $s=1$. In the first case, $f(x_0)$ is the constant loop and hence $f(x_0)(s)=z_0$ and in the second case we evaluate a based loop at its base and hence $f(x)(1)=z_0$. Hence, the $\tilde{f}$ factors over $X\vee S$ giving a well defined element in $C(SX,Z)$. This is its inverse. The continuity part of the argument follows from Proposition \ref{prop:kTheo-curryingIsContinuous}.
 \end{proof}
 \begin{remark}
 	By Theorem \ref{thm:kTheo-reducedKgroupAsHomotopy}, and the Proposition above we know that for a connected pointed compact space we have
@@ -1217,14 +1217,14 @@ For this we start trying to find a long exact sequence and on the way we will pr
 	Hence, $j^*\circ i^*$ factors over the trivial ring $K(Y,Y)$ and thereby is trivial.
 	Now suppose $k\in \ker(i^*)$. 
 	The intuition now is that if we have a vector bundle that gets mapped to $0$ this means that it is trivial over $Y$ which lets us define a vector bundle over the quotient $X\slash Y$ by a trivialisation: 
-	We write $k=[\xi]-[\underline{n}]$ for $\xi$ being a vector bundle over $X$. (Compare Remark \ref{rem:kTheo-elementsInReducedKtheoryAreGivenByEMionusN}) Since $i^*\xi=0$ it follows that $i^*([\xi]-[n])=[\restr{\xi}{Y}]-[\restr{\underline{n}}{Y}]=0$ and hence $E$ and $n$ are stably equivalent over $Y$ giving us an $m$ such that 
+	We write $k=[\xi]-[\underline{n}]$ for $\xi$ being a vector bundle over $X$. (Compare Remark \ref{rem:kTheo-elementsInReducedKtheoryAreGivenByEMionusN}) Since $i^*\xi=0$ it follows that $i^*([\xi]-[\underline{n}])=[\restr{\xi}{Y}]-[\restr{\underline{n}}{Y}]=0$ and hence $\xi$ and $\underline{n}$ are stably equivalent over $Y$ giving us an $m$ such that 
 	\begin{equation*}
 		\restr{\left(\xi\oplus \underline{m}\right)}{Y}\cong \restr{\xi}{Y}\oplus\underline{m}\cong \underline{n}\oplus \underline{m}
 	\end{equation*}
 	Hence, there is a trivialisation $\alpha: \restr{\left(\xi\oplus \underline{m}\right)}{Y} \to Y\times \C^{\rank(\xi)+m}$ that defines a bundle $\restr{\left(\xi\oplus \underline{m}\right)}{Y} \big/\alpha$ as shown in the proof of Lemma \ref{lem:kTheo-trivialisationDefinesABundle} over $X\big/Y$. Now we define 
 	\begin{equation*}
 		\eta=[\restr{\left(\xi\oplus \underline{m}\right)}{Y} \big/\alpha]-[\underline{n+m}]\in \tilde{K}(X\big/Y)=K(X,Y)
-	\end{equation*} and sine the trivialisation acts as a right inverse of the pullback of the restriction (compare Corollary \ref{cor:kTheo-trivializationIsRightInverse})
+	\end{equation*} and since the trivialisation acts as a right inverse of the pullback of the restriction (compare Corollary \ref{cor:kTheo-trivializationIsRightInverse})
 	\begin{equation*}
 		j^*(\eta)=[\xi \oplus \underline{m}]-[\underline{n+m}]=k\,.
 	\end{equation*} 
@@ -1245,10 +1245,10 @@ For this we start trying to find a long exact sequence and on the way we will pr
 	$is the collapse.
 \end{lemma}
 \begin{proof}
-	Notice how there is a natural homeomorphism $X\cong (X\vee Y)\big/ Y$.  Hence, Lemma \ref{lem:kTheo-exactShortPartForThePair} provides the exactness at $K(X\vee Y)$. Now the map $q$ is a left inverse of $j$ as continuous maps, and hence $q^*$ is a right inverse of $j^*$ in the K group, proving the injectivity of $j^*$. now only the surjectivity of $i^*$ is missing. However the inclusion $l:Y\to X\vee Y$ is a topological right inverse of $i$ and thereby $l^*$ is a left inverse of $i^*$ giving us the injectivity and hence proving the exactness and splitting of the short exact sequence.
+	Notice how there is a natural homeomorphism $X\cong (X\vee Y)\big/ Y$.  Hence, Lemma \ref{lem:kTheo-exactShortPartForThePair} provides the exactness at $K(X\vee Y)$. Now the map $q$ is a left inverse of $j$ as continuous maps, and hence $q^*$ is a right inverse of $j^*$ in the K group, proving the injectivity of $j^*$. Now only the surjectivity of $i^*$ is missing. However the inclusion $l:Y\to X\vee Y$ is a topological right inverse of $i$ and thereby $l^*$ is a left inverse of $i^*$ giving us the injectivity and hence proving the exactness and splitting of the short exact sequence.
 \end{proof}
 \begin{theorem}[Pointed Additivity] \label{thm:kTheo-pointedAdditivity}
-	Let $X,Y$ be pointed topological spaces and denote the inclusions of $X$ (resp. $Y$) into $X\vee Y$ by $i_x$ (resp. $i_Y$). Then the map 
+	Let $X,Y$ be pointed topological spaces and denote the inclusions of $X$ (resp. $Y$) into $X\vee Y$ by $i_X$ (resp. $i_Y$). Then the map 
 	\begin{equation*}
 		i_X^*\oplus  i_Y^*:\tilde{K}(X\vee Y)\to \tilde{K}(X)\oplus \tilde{K}(Y)
 	\end{equation*} is a natural isomorphism with inverse 
@@ -1306,7 +1306,7 @@ For this we start trying to find a long exact sequence and on the way we will pr
 	There is a natural isomorphism:
 	\begin{equation*}
 		T:(X\cup CY)\big/ X \to CY\big/Y
-	\end{equation*} Here, the left and right hand side both define Functors from $\mathbf{CGWH}^2_{\mathbf{cof}}$ to $\TopP$ with the obvious morphisms. Furthermore, we have that $CY\big/Y$ is homotopically equivalent to $\Sigma Y$ which is homotopically equivalent to $SY$ as long as $(Y,y_0)$ is well pointed. All the equivalences are natural up to homotopy.  
+	\end{equation*} Here, the left and right hand side both define functors from $\mathbf{CGWH}^2_{\mathbf{cof}}$ to $\TopP$ with the obvious morphisms. Furthermore, we have that $CY\big/Y$ is homotopically equivalent to $\Sigma Y$ which is homotopically equivalent to $SY$ as long as $(Y,y_0)$ is well pointed. All the equivalences are natural up to homotopy.  
 \end{proposition}
 \begin{corollary}
 	From the considerations above we get a natural isomorphism 
@@ -1337,7 +1337,7 @@ Let $(X,Y)$ be a topological pair of compact spaces and $Y$ be pointed. Define t
 	\end{itemize}
 \end{remark}
 \begin{proof}
-	Let $f:(X,A)\to (Y,B)$ be a map of pairs. then we need to check if the diagram 
+	Let $f:(X,A)\to (Y,B)$ be a map of pairs. Then we need to check if the diagram 
 	\begin{center}
 		\begin{tikzcd}
 			{(X,A)} \arrow[d, "f"]  & {K^{-n}(A,\emptyset)}  \arrow[r, "\delta"]    & {K^{-n+1}(X,A)}                                           \\
@@ -1384,7 +1384,7 @@ Let $(X,Y)$ be a topological pair of compact spaces and $Y$ be pointed. Define t
 			{K(X\cup CY,X)} \arrow[d, "\theta"] \arrow[r, "m^*"] & \tilde{K}(X\cup CY) \arrow[r, "k^*"]         & \tilde{K}(X) \arrow[d, "\id"] \\
 			K^{-1}(Y) \arrow[r, "\delta"]                        & {K(X,Y)} \arrow[u, "\pi^*"] \arrow[r, "j^*"] & \tilde{K}(X)                 
 	\end{tikzcd}    \end{center}
-	The commutativity in the left square is the definition of $\delta$ and in the right square follows from $\pi\circ k=j:X\to X\big/Y$.Since all vertical maps are isomorphisms, Corollary \ref{cor:kTheo-exactnesOfTheReducedInclusionSequence} implies exactness in the bottom row $K(X,Y)$. Now only the exactness in the first three terms is missing. For this we look at the pair $((X\cup C_1Y)\cup C_2X,X\cup C_1Y)$ , where the  $C_i$ are cones and denoted with the index to distinguish the cones. First we get again an exact sequence:
+	The commutativity in the left square is the definition of $\delta$ and in the right square follows from $\pi\circ k=j:X\to X\big/Y$. Since all vertical maps are isomorphisms, Corollary \ref{cor:kTheo-exactnesOfTheReducedInclusionSequence} implies exactness in the bottom row $K(X,Y)$. Now only the exactness in the first three terms is missing. For this we look at the pair $((X\cup C_1Y)\cup C_2X,X\cup C_1Y)$ , where the  $C_i$ are cones and denoted with the index to distinguish the cones. First we get again an exact sequence:
 	\begin{center}
 		\begin{tikzcd}
 			{K\big((X\cup C_1Y)\cup C_2X,X\cup C_1Y\big)} \arrow[r, "l^*"] & \tilde{K}\big((X\cup C_1Y)\cup C_2X\big) \arrow[r, "s^*"] & \tilde{K}(X\cup C_1Y)
@@ -1408,11 +1408,11 @@ Let $(X,Y)$ be a topological pair of compact spaces and $Y$ be pointed. Define t
 		\end{tikzcd}
 	\end{center}
 	The bottom square commutes by definition. In the top square, the map $\tilde{\pi}$ denotes the collapsing map $X\cup C_1Y\cup C_2X\to (X\cup C_1Y)\big/X$ which is invertible, as the quotiented out space $C_2X$ is contractible. To see the commutativity in the top square notice how $\tilde{\pi}^*\circ s^*=(s\circ \tilde{\pi})^*$ and the maps $m$ and $s\circ \tilde{\pi}$ coincide and hence the top square commutes. With ${\psi}_2\coloneq \theta \circ (\tilde{\pi}^*)^{-1}$ and ${\psi}_3\coloneq (\pi^*)^{-1}\circ \id$.
-	For the left square, a natural choice is the homotopical equivalence given by quotienting second space of the pair $\big(X\cup C_1Y)\cup C_2X,X\cup C_1Y\big)$ to get:
+	For the left square, a natural choice is the homotopical equivalence given by quotienting the second space of the pair $\big((X\cup C_1Y)\cup C_2X,X\cup C_1Y\big)$ to get:
 	\begin{equation*}
 		\Big((X\cup C_1Y)\cup C_2X\Big/X\cup C_1Y\Big)\cong (C_2X\big/X)\simeq S(X)\,.
 	\end{equation*} We now have all the unknown maps, but
-	we run into a Problem, since the map $l^*$ induces a map $\lambda$ by the “wrong” inclusions (compared to $i^*$ which is induced by the inclusion $C_2Y\to C_2X$, whereas we have $C_1Y$). This is depicted in the non-commutative diagram:
+	we run into a problem, since the map $l^*$ induces a map $\lambda$ by the “wrong” inclusions (compared to $i^*$ which is induced by the inclusion $C_2Y\to C_2X$, whereas we have $C_1Y$). This is depicted in the non-commutative diagram:
 	\begin{center}
 		\begin{tikzcd}
 			{K\big((X\cup C_1Y)\cup C_2X,X\cup C_1Y\big)} \arrow[r, "l^*"] \arrow[d,"{\psi}_1"] & \tilde{K}\big((X\cup C_1Y)\cup C_2X\big) \arrow[d,"{\psi}_2"] \\
@@ -1429,7 +1429,7 @@ Let $(X,Y)$ be a topological pair of compact spaces and $Y$ be pointed. Define t
 			& C_1Y\cup C_2Y \arrow[ru, Rightarrow] \arrow[rd, Rightarrow] \arrow[ld] \arrow[lu, Rightarrow] &                                               &    \\
 			C_2X \slash X                                          &                                                                                               & C_2Y\slash Y \arrow[ll,"i"] \arrow[r, Rightarrow] & \Sigma Y
 		\end{tikzcd}
-	\end{center} The inclusion induced map $i$ is the one, that induces the bottom left map in Diagram \ref{diag:kTheo-proofConnectingHomo}. The double arrows always induce isomorphisms in the $K-$Rings. To see that all those maps induce isomorphism we note that we always ,with one exception, collapse something contractible. The exception is the map $C_1Y\cup C_2Y \to X \cup C_1Y \cup C_2X$. Here, we get that the induced map is invertible, by noticing the commutative triangle one on the top, where 2 maps induce isomorphisms and thereby also the third. The map $\Sigma T$ is one we want to construct below.  For said construction we formulate the following Lemma: 
+	\end{center} The inclusion induced map $i$ is the one, that induces the bottom left map in Diagram \ref{diag:kTheo-proofConnectingHomo}. The double arrows always induce isomorphisms in the $K$-rings. To see that all those maps induce isomorphism we note that we always, with one exception, collapse something contractible. The exception is the map $C_1Y\cup C_2Y \to X \cup C_1Y \cup C_2X$. Here, we get that the induced map is invertible, by noticing the commutative triangle on the top, where two maps induce isomorphisms and thereby also the third. The map $\Sigma T$ is one we want to construct below.  For said construction we formulate the following Lemma: 
 	\begin{lemma}\label{lem:kTheo-doubleConeFlip}
 		Let $Y$ be a well-pointed space and denote the points of $CY$ and $\Sigma Y$ by $(x,t)$ such that $CY$ has the apex $[\{0\}\times Y]$ and base $\{1\}\times Y\cong Y$. Let 
 		\begin{equation*}
@@ -1453,7 +1453,7 @@ Let $(X,Y)$ be a topological pair of compact spaces and $Y$ be pointed. Define t
 			p_2(x,t)_2&=[(x,t)]=p_1(x,t)_1=p_1\circ R (x,t)_2\,,\quad \text{ and }\\
 			p_2(x,t)_1&=[\{1\} \times Y]=p_1(x,t)_2=p_1 \circ R (x,t)_1\,.
 		\end{align*}
-Similar, the second statement is also just a calculation:
+Similarly, the second statement is also just a calculation:
 \begin{align*}
 	\Sigma T\circ \Phi (x,t)_1&=\Sigma T (x,1-\frac{t}{2})=(x,\frac{t}{2})=\Phi(x,t)_2=\Phi \circ R (x,t)_1 \\
 	\Sigma T\circ \Phi (x,t)_2&=\Sigma T (x,\frac{t}{2})=(x,1-\frac{t}{2})=\Phi(x,t)_1=\Phi \circ R (x,t)_2\,.
@@ -1475,7 +1475,7 @@ By the lemma above, we know that $\Sigma T$ makes the diagram commute and by Lem
 	\end{equation*}
 	 Which gives us in total:
 	 \begin{equation*}
-		i_*\circ {\psi}_1=-{\psi}_2 \circ \rho \circ {\psi}_1=-{\psi}_2 \circ l^* 
+		i^*\circ {\psi}_1=-{\psi}_2 \circ \rho \circ {\psi}_1=-{\psi}_2 \circ l^* 
 	 \end{equation*} and thereby the diagram commutes up to sign:
 	\begin{center}
 		\begin{tikzcd}
@@ -1486,7 +1486,7 @@ By the lemma above, we know that $\Sigma T$ makes the diagram commute and by Lem
 \end{proof}
 
 \begin{corollary}\label{cor:kTheo-retractionsInduceSplittingSequences}
-	If $(X,Y$) is a compact pair such that $Y\subseteq X$ is a retract, i.e. the inclusion has a continuous up to homotopy left inverse. Then for all $n\geq 0$, the sequence 
+	If $(X,Y)$ is a compact pair such that $Y\subseteq X$ is a retract, i.e. the inclusion has a continuous up to homotopy left inverse. Then for all $n\geq 0$, the sequence 
 	\begin{center}
 		\begin{tikzcd}
 			{K^{-n}(X,Y)} \arrow[r, "j^*"] & K^{-n}(X) \arrow[r, "i^*"] & K^{-n}(Y)
@@ -1500,7 +1500,7 @@ By the lemma above, we know that $\Sigma T$ makes the diagram commute and by Lem
 \begin{corollary}
 	Let $X,Y$ be objects in $\TopCPoint$. Then we have the projection maps 
 	\begin{align*}
-		\pi_X:X\times Y\to Y \, , \quad \pi_Y:X\times Y\to Y\, .
+		\pi_X:X\times Y\to X \, , \quad \pi_Y:X\times Y\to Y\, .
 	\end{align*} Those maps induce isomorphisms for all $n\geq0:$
 	\begin{align*}
 		\tilde{K}^{-n}(X\times Y)\cong \tilde{K}^{-n}(X\wedge Y)\oplus \tilde{K}^{-n}(X)\oplus \tilde{K}^{-n}(Y)
@@ -1538,11 +1538,11 @@ By the lemma above, we know that $\Sigma T$ makes the diagram commute and by Lem
 
 	We have that $\tilde{i}_Y=j\circ i_Y$ and with this we can deduce:
 	\begin{equation*}
-		\tilde{i_Y}^* \circ l={i_Y}^*\circ j^* \circ l ={i_Y}^*\big(id-\pi_X^* \circ i_X^*\big)=i_Y^*-{i_Y}^*\circ \pi_X^* \circ i_X^*=i_Y^*-(\underbrace{\pi_X\circ i_Y}_{\text{constant}})^*\circ {i_X}^*=i_Y^*
+		\tilde{i_Y}^* \circ l={i_Y}^*\circ j^* \circ l ={i_Y}^*\big(\id-\pi_X^* \circ i_X^*\big)=i_Y^*-{i_Y}^*\circ \pi_X^* \circ i_X^*=i_Y^*-(\underbrace{\pi_X\circ i_Y}_{\text{constant}})^*\circ {i_X}^*=i_Y^*
 	\end{equation*}
 	Hence, in the proof above the isomorphism has the form:
 	\begin{align*}
-		\Phi: \tilde{K}^{-n}(X\times X)\to \tilde{K}^{-n}(X\wedge Y)\oplus \tilde{K}^{-n}(Y)\oplus \tilde{K}^{-n}(X) \\ 
+		\Phi: \tilde{K}^{-n}(X\times Y)\to \tilde{K}^{-n}(X\wedge Y)\oplus \tilde{K}^{-n}(Y)\oplus \tilde{K}^{-n}(X) \\ 
 		\Phi=g\oplus i_Y^*\oplus i_X^*
 	\end{align*}or said differently, the short exact sequence that splits looks like: 
 	\begin{center}
@@ -1556,13 +1556,13 @@ By the lemma above, we know that $\Sigma T$ makes the diagram commute and by Lem
 
 
 
-Before we start constructing a Cohomology theory, we extend the K groups to be defined not only over the negatives, but over the whole $\Z$ which is done via an extension. The extension relies on periodic behaviour. So-called Bott periodicity.
+Before we start constructing a cohomology theory, we extend the K groups to be defined not only over the negatives, but over the whole $\Z$ which is done via an extension. The extension relies on periodic behaviour. So-called Bott periodicity.
 \begin{definition}[External Product]
 	The \textbf{external product } $\mu:K(X)\otimes K(Y)\to K(X\times Y)$ is defined via the two projections $\pi_X:X\times Y\to X$ and $\pi_Y:X\times Y\to Y$ by:
 	\begin{align*}
 		\mu:K(X)\otimes K(Y)&\to K(X\times Y)\\
 		(a\otimes b)&\mapsto (\pi_X)^*(a)\cdot (\pi_Y)^*(b) \, ,
-	\end{align*} where $\cdot$ denotes the multiplication in the K-group, which was induced by the tensor Product. This $\mu$ is a ring homomorphism, since:
+	\end{align*} where $\cdot$ denotes the multiplication in the K-group, which was induced by the tensor product. This $\mu$ is a ring homomorphism, since:
 	\begin{align*}
 		\mu((a \otimes b)(c \otimes d)) &= \mu(ac \otimes bd) \\
 		&= \pi_X^*(ac)\pi_Y^*(bd) \\
@@ -1672,7 +1672,7 @@ By example \ref{ex:kTheo-LineBundlesSatlquadequalslPlusl} we know that for any l
 	\end{center}
 	By the commutativity, we get an isomorphism induced by $\Phi$: 
 	\begin{equation*}
-		\tilde{K}(S^2)=\ker(i_{pt}^*) \cong \ker(rank)=\mathrm{span}_{\Z}([H]-[\underline{1}])
+		\tilde{K}(S^2)=\ker(i_{pt}^*) \cong \ker(\rank)=\mathrm{span}_{\Z}([H]-[\underline{1}])
 	\end{equation*}
 \end{corollary}
 
@@ -1689,10 +1689,10 @@ By example \ref{ex:kTheo-LineBundlesSatlquadequalslPlusl} we know that for any l
 	\end{equation*} is an isomorphism. And since $\tilde{K}(X)\cong \Z([H]-[\underline{1}])\otimes \tilde{K}(X)$ via $[\xi]\mapsto ([H]-[\underline{1}]) \otimes [\xi]$ we have the isomorphism
 	\begin{equation*}
 		\beta_X: \tilde{K}^{-2}(X) \otimes \tilde{K}(X) \,,\quad [\xi] \mapsto \tilde{\mu}([H]-[\underline{1}],[\xi])\,.
-	\end{equation*}Naturality follows from $\mu$ being natural, $q^*$ being natural (and thereby its inverse) and $\tilde{\mu}$ being the composition of both of them. Furthermore, for \todo{natürlich im zweiten faktor mit festem ersten} Replacing $X$ with $S^nX$ proofs the lower degree.
+	\end{equation*}Naturality follows from $\mu$ being natural, $q^*$ being natural (and thereby its inverse) and $\tilde{\mu}$ being the composition of both of them. Furthermore, for \todo{natürlich im zweiten faktor mit festem ersten} Replacing $X$ with $S^nX$ proves the lower degree.
 \end{proof}
 \begin{definition}
-	The Bott periodicity mapping $\beta_X$ is natural and hence commutes with all maps in the long exact sequence. With this map we can expand the notion inductively via $K^{-n}(X)=K^{-n-2}$. Said differently, we define $K^n(X)$ to be $K(X)$ for even $n$ and $K^{-1}(X)$ for odd $n$. With this we have the exact sequence of six terms  (in the top row we identified $K^0\equiv K^{-2}$ and the vertical map on the left is $\beta \circ \delta$):
+	The Bott periodicity mapping $\beta_X$ is natural and hence commutes with all maps in the long exact sequence. With this map we can expand the notion inductively via $K^{-n}(X)=K^{-n-2}(X)$. Said differently, we define $K^n(X)$ to be $K(X)$ for even $n$ and $K^{-1}(X)$ for odd $n$. With this we have the exact sequence of six terms  (in the top row we identified $K^0\equiv K^{-2}$ and the vertical map on the left is $\beta \circ \delta$):
 	\begin{center}
 		\begin{tikzcd}
 			K^0(X,Y) \arrow[r] & K^0(X) \arrow[r] & K^0(Y)\arrow[d]\\
