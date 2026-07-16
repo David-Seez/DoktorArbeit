@@ -314,13 +314,24 @@ In a refined Morse chart we have that the (un-)stable manifold embedding:
 	\begin{proof}
 		For a proof we refer to Chapter 4.2 \cite{banyaga2004lectures}.
 	\end{proof}
-	We can now define $\theta \coloneq \Psi \circ \phi \circ \Psi^{-1}$. The local (un-)stable manifold theorem now tells us that $W^s_r(\theta)=\Psi(W(\to p)\cap U)$ is the graph of a smooth function $g: T^s_pM\to T^u_pM$. Hence the projection $\pi$ of said graph to its domain gives us a chart of the stable manifold around $p$. A whole atlas of $W(\to p)$ is obtained by $U^n\coloneq \phi^{-n}(U)$ which covers the whole $W(\to p)$ and with this  the maps $\chi^n:\pi\circ \Psi \circ \phi^n$ give us an atlas.
+	We can now define $\theta \coloneq \Psi \circ \phi \circ \Psi^{-1}$. The local (un-)stable manifold theorem now tells us that $W^s_r(\theta)$ is the graph of a smooth function $g: T^s_pM\to T^u_pM$. Furthermore, it is easy to see that in a small neighbourhood of the origin we have the the equiality of $W^s_r(\theta)$ and $Psi(W(\to p)\cap U)$. Hence the projection $\pi$ of said graph to its domain gives us a chart of the stable manifold around $p$. A whole atlas of $W(\to p)$ is obtained by $U^n\coloneq \phi^{-n}(U)$ which covers the whole $W(\to p)$ and with this  the maps $\chi^n:\pi\circ \Psi \circ \phi^n$ give us an atlas.
 	The smooth embeddings are obtained as follows: We define $h\coloneq \chi \circ \phi \circ \chi^{-1}$ and $B\coloneq W(\to p)\cap U$. Now $\diff \big(\restr{\phi_p}{T^s_pM}\big)$ having an operator norm less than one translates to $\diff h_p$ as they are similar as matrices. Let $0<\alpha<1$ and $B_0\subseteq B$ be a ball centred at $p$ such that $\norm{\diff h_x}\leq \alpha$ for all $x\in B_0$. Then $\restr{h}{B_0}$ is a contraction, which can be extended to a global contraction $\tilde{h}:T^s_pM\to T^s_pM$. Now we define the embedding:
 	\begin{align*}
 		E^s:T^s_pM&\to W(\to p) \\
 		x\mapsto \phi^{-n}\circ \chi^{-1}\circ \tilde{h}^n(x)\quad n \text{such that }\tilde{h}^n(x)\in B_0 \,.
 	\end{align*} All required properties and the well-definedness of $E^s$ are now standard calculations. The stable manifold theorem follows from the unstable one by replacing $f$ with $-f$. 
 \end{proof}
+
+
+\begin{remark}\label{rem:morse-tangendspaceOfStableManifold}
+    The proof also gives us the equality $T_pW(\to p)=T^s_pM$: near
+    $p$, the stable manifold agrees with $\Psi^{-1}(W^s_r(\theta))$,
+    and by part 2 of Lemma
+    \ref{lem:morse-localUnStableManifoldTheorem} (applicable since
+    $\theta(0)=0$ and $\diff\theta|_0=T$) the set $W^s_r(\theta)$ is
+    the graph of a function $g$ with $g(0)=0$ and $\restr{\diff g}{0}=0$,
+    hence has tangent space $T^s_pM$ at the origin.
+\end{remark}
 
 We want to refine the unstable embedding $E^u_q:T^u_qM\to W(q\to)$. For this we will make use of the Hartman--Grobman conjugation theorem:
 \begin{theorem}[Hartman-Grobman Theorem]
@@ -394,6 +405,7 @@ We want to refine the unstable embedding $E^u_q:T^u_qM\to W(q\to)$. For this we 
 
 
 
+
 \begin{definition}
 	We say that a flow line $\gamma$ with respect to the negative gradient flow of a Morse function $f$ starts in $q$, if $\lim_{t\to -\infty} \gamma(t)=q$, and ends in $p$, if $\lim_{t\to \infty}\gamma(t)=p$. We denote the space of flow lines starting in $q$ by $\mathcal{M}(q \to)$, the ones ending in $p$ by $\mathcal{M}(\to p)$ and the flow lines from $q$ to $p$ $\mathcal{M}(q\to p)$.
 \end{definition}
@@ -451,22 +463,55 @@ be a short exact sequence of vector spaces and $\mathfrak{a}$ be a basis of $A$,
 		\{\text{Orientation on }E\} \to \{\text{Orientation on } E_x\}\,.
 	\end{equation*} Hence, an orientation in one fibre can introduce an orientation in every other fibre.
 \end{lemma}
-\begin{definition}
-	We call a manifold orientable, if its tangent bundle is orientable.
-\end{definition}
 \begin{proof}
 	Two orientations over $E$ are given as nowhere-vanishing sections $s,s'$. The quotient $x\mapsto \frac{s}{s'}$ is continuous and its image is contained in $\R\setminus \{0\}$. Hence the sign of the quotient is a continuous function into $\{-1,1\}$. Since $X$ is connected we conclude that the sign of said quotient is a constant function. Thereby, if the sections induce the same orientation, they differ by multiplication of the positive number $\frac{s(x)}{s'(x)}$ and then the sign of $\frac{s}{s'}$ is globally one. The surjectivity is clear by mapping the sections $s$ and $-s$.
 \end{proof}
+\begin{proposition}
+	Let 
+	\begin{center}
+    \begin{tikzcd}
+        0\arrow[r] & E'\arrow[r,"f"] & E \arrow[r,"g"] & E''\arrow[r] & 0
+    \end{tikzcd}
+	\end{center} be a short exact sequence of orientable vector bundles. Then the fibrewise
+    isomorphisms $\det(E'_p)\otimes\det(E''_p)\to\det(E_p)$ from the
+    vector space case assemble into an isomorphism of line bundles
+    \[
+        \det(E')\otimes\det(E'')\;\xrightarrow{\;\cong\;}\;\det(E)\,.
+    \]
+    In particular, orientations of $E'$ and $E''$ induce a canonical
+    orientation of $E$.
+\end{proposition}
+\begin{proof}
+	Fibrewise the map is the canonical isomorphism from the vector
+    space case: a lift $\tilde c\in g_p^{-1}(c)$ exists since $g_p$ is
+    surjective, and the resulting element
+    $f(a_1)\wedge\dots\wedge f(a_l)\wedge\tilde c_1\wedge\dots\wedge
+    \tilde c_k$ is independent of the choice of lift.
+
+	 It remains to
+    check that this bundle map is continuous (resp.\ smooth) to ensure that it maps sections smoothly into sections, which is
+    a local statement: locally choose a frame $(a_1,\dots,a_l)$ of $E'$
+    and a frame $(c_1,\dots,c_k)$ of $E''$; since $g$ is an epimorphism
+    it admits local sections, so we may choose local lifts
+    $\tilde c_j$ of the $c_j$ which are (smooth) local sections of $E$.
+    Then the map is given in the induced local frames of the
+    determinant bundles by wedging these sections, hence continuous
+    (resp.\ smooth). By this, two non-vanishing sections get mapped to a non-vanishing section and hence, orientations on $E'$ and $E''$ which are represented by sections give a orientation over $E$. 
+\end{proof}
+\begin{definition}
+	We call a manifold orientable, if its tangent bundle is orientable.
+\end{definition}
+
 \subsection{Signed Flow Lines}
 
 \begin{definition}
 	Let $f:M\to \R$ be a Morse-Smale function on a Riemannian manifold $(M,g)$. Furthermore let $\mathfrak{o}$ be a choice of orientations for all unstable tangent spaces ($T_q^uM$ for all $q\in \Crit(f)$). The tuple $\mathfrak{A}\coloneq (g,f,\mathfrak{o})$ is a \textbf{Morse datum}.
 \end{definition}
 
-\begin{lemma}[Oriented Unstable Manifolds]\label{lem:morse-OrientedUnstableSpaces}All unstable manifolds of a manifold with Morse function are orientable which can be deduced from the (un-)stable embedding theorem. Hence, the orientations from a Morse datum $\mathfrak{A}\coloneq (g,f,\mathfrak{o})$ induce orientations in all unstable manifolds by enforcing Lemma \ref{lem:morse-OrientationsInAPointInduceOrientationsOfBundle}.
-\end{lemma}
+\begin{proposition}[Oriented Unstable Manifolds]\label{prop:morse-OrientedUnstableSpaces}All unstable manifolds of a manifold with Morse function are orientable which can be deduced from the (un-)stable embedding theorem. Hence, the orientations from a Morse datum $\mathfrak{A}\coloneq (g,f,\mathfrak{o})$ induce orientations in all unstable manifolds by enforcing Lemma \ref{lem:morse-OrientationsInAPointInduceOrientationsOfBundle}.
+\end{proposition}
 
-\begin{lemma}
+\begin{lemma}\label{lem:morse-tangendBundleSMoothEmbeddingIsSmooth}
 	Let $M,N$ be smooth manifolds and $f:N\to M$ be a smooth embedding. Then the tangent bundle $T(f(N))$ of the smooth submanifold $f(N)$ is a smooth subbundle of $\restr{TM}{f(N)}$.
 \end{lemma}
 \begin{proof}
@@ -491,7 +536,25 @@ be a short exact sequence of vector spaces and $\mathfrak{a}$ be a basis of $A$,
     upper-left $n \times n$ blocks. Thus $TS$ is a smooth subbundle of 
     $\restr{TM}{S}$.
 \end{proof}
-\begin{comment}
+
+\begin{proposition}\label{prop:morse-orientTheQuotient}
+	Let $\mathfrak{A}\coloneq (g,f,\mathfrak{o})$ be a Morse Datum. Then for all critical points $p$ the quotient bundles $\restr{TM}{W(\to p)}\big/ TW(\to p)$ inherit canonical orientations from $\mathcal{o}$.
+\end{proposition}
+\begin{proof}
+	By lemma \ref{lem:morse-tangendBundleSMoothEmbeddingIsSmooth} we know that the bundel $TW(\to p)$ is a smooth subbundle of $\restr{TM}{W(\to p)}$ and by Lemma \ref{lem:vb-quotiendBundlesOfSmoothSubbundlesAreSmooth} we know that the quotient bundle $\restr{TM}{W(\to p)}\big/ TW(\to p)$ is smooth. Finally, we have a natural vectorspace isomorphism 
+	\begin{equation*}
+	\Big(\restr{TM}{W(\to p)}\big/ TW(\to p)\Big)_p={T_pM}\big/ T_pW(\to p)\cong T^u_pM\,,
+	\end{equation*} beacuse $T_pM\cong T^u_pM\oplus T^s_pM$ and by Remark \ref{rem:morse-tangendspaceOfStableManifold} $ T^s_pM= T_pW(\to p)$. This lets us induce an orientation in the quotient bundle over $p$ and by Lemma \ref{lem:morse-OrientationsInAPointInduceOrientationsOfBundle} this orientation orients the whole bundle.
+\end{proof}
+\begin{definition}
+	Let $\mathfrak{A}\coloneq (g,f,\mathfrak{o})$ be a Morse Datum. Let $q,p$ be two critical points with $\ind(q)-1=\lambda(p)$. Then we have for all $\gamma\in \mathcal{M}(q\to p$ the exact sequence of bundles
+	\begin{center}
+\begin{tikzcd}
+			0\arrow[r]&T\gamma \arrow[r,"i"]& \restr{TW(q\to )}{\gamma}\arrow[r,"p"] & \restr{TM\big/ TW(\to p)}{\gamma} \arrow[r]&0
+		 \end{tikzcd}
+	\end{center} where the surjectivity of $p$ follows from the smale condition. Let $T\gamma$ be oriented by the section $x\mapsto -\grad_x(f)$, and the quotient be oriented as in Propostion \ref{prop:morse-orientTheQuotient}. Then the short exact sequence orients $TW(q\to)$ from the orientation in $T^u_pM$ and on the other hand we can orient $TW(q\to)$ from $T^u_qM$ by Proposition \ref{prop:morse-OrientedUnstableSpaces}.  
+\end{definition}
+
 \begin{remark}[Notiz für Mich]
 	Given a Morse datum $\mathfrak{A}\coloneq (g,f,\mathfrak{o})$, there are multiple ways to inflict a sign to a flow line $\gamma\in \mathcal{M}(q\to p)$ between two critical points with index one apart. All of them introduce two different orientations  (meaning basis of $T_xW(q\to)$) in a point $x\in \gamma$ the first notion depends on the orientation $T^u_q$ and is introduced either via the embedding of the unstable manifold of $q$ $E^u_p$, or by trivialising the bundle $TW(q\to)$ which is possible by contractibility of $W(q\to)$. Both ways yield the same, as they introduce the same orientation in the fibre $T_qW(q\to)$.
 	Now the difficulty appears when introducing a basis of $T_xW(q\to)$ that depends on $T^u_pM$. 
@@ -728,4 +791,3 @@ Let $q$ be a critical point and $c<f(q)$ such that no other critical point lies 
 	\end{equation*} Or by the above calculation, we can throw out $\pi$, if we exclude $\mathfrak{d}_1$. Furthermore, the equation shows that our requirement $\restr{\diff E^u_q}{y'}\circ Q_{y'}(\mathfrak{d_1})=-\grad_{y'}(f)$ implies that $\mathfrak{d}$ is compatible with a basis where $\restr{\diff E^u_q}{y}\circ Q_y\circ \mathfrak{d}_1=-\grad_y(f)$, since the sign of the determinant of $A_{\tilde{t}}$ is always positive.
 	This concludes the proof!
 \end{proof}
-\end{comment}

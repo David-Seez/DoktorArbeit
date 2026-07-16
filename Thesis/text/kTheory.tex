@@ -354,7 +354,7 @@ Hence, as a map from $H^+\cap H^-\to GL_1(\C)\equiv \C^*$ this map reads:
 			0 \arrow[r]&E'\arrow[r,"\phi'"]&E \arrow[r,"\phi''"]&E'' \arrow[r]&0
 		\end{tikzcd}
 	\end{center}
-	Now it is well known that any short exact sequence of vector spaces splits. We just need to ensure that this splitting is continuous. For this we give $E$ a metric. Now since $\phi'$ is injective, $\phi'(E')$ is a subbundle. By Lemma \ref{lem:kTheo-metricInducedComplement} we can split $E\cong \phi'(E')\oplus L$. However, $\restr{\phi''}{L}$ is fibrewise (and hence as a bundle map) an isomorphism. This can be seen as $\phi''$ being surjective and trivial on $ \phi'(E')$ hence the restriction is still surjective. The injectivity is also clear as the kernel by the homomorphism theorem of linear maps. But then we clearly have $E=E'\oplus E''$ and the sequence is isomorphic as a short exact sequence to the splitting one:
+	Now it is well known that any short exact sequence of vector spaces splits. We just need to ensure that this splitting is continuous. For this we give $E$ a metric. Now since $\phi'$ is injective, it is a monomorphism and $\phi'(E')$ is a subbundle by Lemma \ref{lem:vb-monosInduceSubBundles}. By Lemma \ref{lem:kTheo-metricInducedComplement} we can split $E\cong \phi'(E')\oplus L$. However, $\restr{\phi''}{L}$ is fibrewise (and hence as a bundle map) an isomorphism. This can be seen as $\phi''$ being surjective and trivial on $ \phi'(E')$ hence the restriction is still surjective. The injectivity is also clear as the kernel by the homomorphism theorem of linear maps. But then we clearly have $E=E'\oplus E''$ and the sequence is isomorphic as a short exact sequence to the splitting one:
 	\begin{equation*}
 		\begin{tikzcd}
 				0 \arrow[r]&E'\arrow[r,"i_1"]&E'\oplus E'' \arrow[r,"\pi_2"]&E'' \arrow[r]&0
@@ -399,7 +399,7 @@ Hence, as a map from $H^+\cap H^-\to GL_1(\C)\equiv \C^*$ this map reads:
 	If $E$ is a bundle over $X$, there exists a bundle $F$ such that $E\oplus F$ is trivial.
 \end{corollary}
 \begin{proof}
-	By Corollary \ref{cor:kTheo-epiFromTrivial} there exists an epimorphism $\phi:X\times \C^m \to E$. The kernel of $\phi$ is a subbundle of $X\times \C^m$ and hence by Lemma \ref{lem:kTheo-splittingPrinziple} we have a splitting of the short exact sequence 
+	By Corollary \ref{cor:kTheo-epiFromTrivial} there exists an epimorphism $\phi:X\times \C^m \to E$. The kernel of $\phi$ is a subbundle of $X\times \C^m$ \todo{Begründung ergänzen, z.B.: Metriken auf $X\times\C^m$ und $E$ wählen; dann ist $P\coloneq \phi^*(\phi\phi^*)^{-1}\phi$ ein stetiger Projektionsoperator mit $(1-P)(X\times \C^m)=\ker(\phi)$, und Lemma \ref{lem:kTheo-projectionsGiveSumdecomposition} liefert die Zerlegung. ($\phi\phi^*$ ist invertierbar, da $\phi$ Epimorphismus.)} and hence by Lemma \ref{lem:kTheo-splittingPrinziple} we have a splitting of the short exact sequence
 	\begin{center}
 		\begin{tikzcd}
 			0 \arrow[r]&\ker(\phi)\arrow[r]&X\times \C^m \arrow[r,"\phi"]&E \arrow[r]&0

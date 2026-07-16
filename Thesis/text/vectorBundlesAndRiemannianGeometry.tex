@@ -109,27 +109,30 @@ This is a good point to take a break from smooth manifolds and introduce the str
 Analogously to the definition of a smooth manifold, we start by defining families of vector spaces and equip them with increasingly more structure:
 
 
-\begin{definition}[Vector Bundles]\label{def:vb-vectorBundles}
-	A \textbf{complex vector bundle} of rank $m$ is a surjection 
+\begin{definition}[Vector Bundles]\label{def:vb-vectorBundles} Let $\mathbb{K}$ be a field.
+	A \textbf{$\mathbb{K}$ vector bundle} of rank $m$ is a surjection 
 	\begin{equation*}
 		\pi: E\to X
 	\end{equation*}such that $E$ and $X$ are topological spaces and $\pi$ is continuous. Furthermore $\pi$ satisfies:
 	 \begin{enumerate}
-	 	\item For all $x\in X$, $\pi^{-1}(x)$ carries the structure of an $m$-dimensional $\C$-vector space.
+	 	\item For all $x\in X$, $\pi^{-1}(x)$ carries the structure of an $m$-dimensional $\mathbb{K}$-vector space.
 	 	\item For all $x\in X$, there exist a neighbourhood $U\subseteq X$ and a homeomorphism 
 		 	\begin{equation*}
-		 		\psi: \restr{E}{U}\coloneq \pi^{-1}(U) \to U\times \C^m \,,
+		 		\psi: \restr{E}{U}\coloneq \pi^{-1}(U) \to U\times \mathbb{K}^m \,,
 		 	\end{equation*}
-		 	that is compatible in the following sense: Let $\pi_1$ denote the projection $ U\times \C^m \to U$ onto the first factor. Then 
+		 	that is compatible in the following sense: Let $\pi_1$ denote the projection $ U\times \mathbb{K}^m \to U$ onto the first factor. Then 
 		 	\begin{equation*}
 		 		\pi_1 \circ \psi=\pi  
 		 	\end{equation*} and 
 		 	\begin{equation*}
-		 		\psi_x: E_x\coloneq \pi^{-1}(x)\to \{x\}\times \C^m 
+		 		\psi_x: E_x\coloneq \pi^{-1}(x)\to \{x\}\times \mathbb{K}^m 
 		 	\end{equation*} is a vector space isomorphism. 
 	 \end{enumerate}
 	 We call $E$ the \textbf{total space}, $X$ the \textbf{base space}, $E_x$ the \textbf{fibre over $x$} and $\psi$ a \textbf{local trivialisation}.
 \end{definition}
+\begin{remark}
+	In the context of differential geometry we will mostly consider $\R$ vector bundles. However, the K-theory that we will develop will depend on $\C$ vector bundles.
+\end{remark}
 \begin{definition}
 	Let $\pi: E \to X$ be a vector bundle. A continuous function $s: X\to E$ such that $\pi\circ s=\id_X$ is called a (global) \textbf{section} (if $s:U\subseteq X \to E$ we call it a local section). We denote the space of global sections by $\Gamma(E)$ and by $\Gamma(U)$ the space of local sections over an open subset $U\subseteq X$. 
 \end{definition}
@@ -316,6 +319,64 @@ The local trivialisations $\partial_i$ of the tangent bundle of a smooth manifol
 \begin{example}
 	Let $M$ be a smooth manifold of dimension $m$, $\phi:U\to V$ a chart and $\tilde{\phi}:TU\to V\times \R^m$ be the corresponding bundle chart. Then it follows from the lemma, that $TU$ is isomorphic to $V\times \R^m$. This is verified by observing that $\partial_i(p)$ is a basis of $T_pU$ for all $p\in U$. In this case $\tilde{\phi}\left(\partial_i\right)=e_i$ giving us isomorphisms in each fibre.
 \end{example}
+\begin{definition}[Sub-bundles]\label{def:vb-subBundles}
+	Let $\pi:E\to X$ be a vector bundle. A \textbf{sub-bundle} is a subset of $E$ which is a vector bundle in the induced topology and fibrewise vector space structure.
+\end{definition}
+\begin{definition}[Mono- and Epimorphisms]\label{def:vb-monoAndEpimorphisms}
+	A homomorphism $\phi: E\to F$ is a \textbf{monomorphism} if all $\phi_x$ are monomorphisms (i.e. injective). Respectively, it is called an \textbf{epimorphism} if all $\phi_x$ are epimorphisms (i.e. surjective).
+\end{definition}
+\begin{corollary}
+	If $F$ is a sub-bundle of $E$, then the inclusion $\phi:F\to E$ is a monomorphism.
+\end{corollary}
+\begin{lemma} \label{lem:vb-monosInduceSubBundles}
+	If $\phi:E \to F$ is a monomorphism, then $\phi(E)$ is a sub-bundle and $\phi:E\to \phi(E)$ is an isomorphism.
+\end{lemma}
+\begin{proof}
+	Once we know that $\phi(E)$ is a sub-bundle, the map $\phi:E\to \phi(E)$ is a bijective homomorphism and fibrewise an isomorphism, hence an isomorphism by Lemma \ref{thm:vb-isomorphicVectorBundles}. So we need to check that $\phi(E)$ is a sub-bundle, which is a local property. Thereby we can assume that $E$ and $F$ are product bundles $E=X\times V$ and $F=X\times W$. Let $x\in X$ and let $W_x\subseteq W$ be a subspace complementary to $\phi_x(V)$. Then $G\coloneq X\times W_x\subseteq F$ and we define
+	\begin{align*}
+		\theta:E\oplus G &\to F\\
+		(a,b)&\mapsto \phi(a)+i(b)\quad \text{ where $i$ denotes the inclusion }G\hookrightarrow F \, .
+	\end{align*} In the fibre over $x$, the map $\theta_x$ is an isomorphism and thereby there exists an open neighbourhood $U$ of $x$ such that $\restr{\theta}{U}$ is an isomorphism. That is because $\Iso(V\oplus W_x,W)$ is open in $\Hom(V\oplus W_x,W)$. Since $E$ is a sub-bundle of $E\oplus G$ we have that $\restr{\theta(E)}{U}=\restr{\phi(E)}{U}$ is a sub-bundle of $\restr{F}{U}$.
+\end{proof}
+\begin{corollary}\label{cor:vb-subBundlesAreLocalSummands}
+	In the proof, we have shown more: locally a sub-bundle is a direct summand. Furthermore, we have shown that the set of points $x$ where $\phi_x$ is a monomorphism, is open.
+\end{corollary}
+\begin{definition}[Quotient Bundle]\label{def:vb-quotientBundle}
+	If $F$ is a sub-bundle of $E$ we define the \textbf{quotient bundle} $E\slash F$ as the union of the spaces $E_x\slash F_x$ equipped with the quotient topology.
+\end{definition}
+
+\begin{corollary}
+	The quotient bundle is a vector bundle, because locally $F$ is a direct summand and thereby $E\slash F$ is locally trivial.
+\end{corollary}
+\begin{lemma}\label{lem:vb-quotiendBundlesOfSmoothSubbundlesAreSmooth}
+	Quotiend bundles of smooth subbundles are smooth.
+\end{lemma}
+\begin{proof}
+Let $F \subseteq E$ be a smooth subbundle of rank $k$, where $E$ has rank $n$ and $M$ is the base manifold. We need to check that the transition functions consist of smooth maps into the structure group. First, we will show that there are smooth local frames of $E$ that restricts to a smooth local frame of $F$:
+
+Let $p\in M$. Since $F$ is smooth there exists a local frame $(s_1,\dots ,s_k)$ of $F$ arround $p$. In particular, the $s_i$ are smooth local sections into $E$ arround $p$. Let $(t_1,\dots, t_k)$ be a smooth local frame of $F$ near $p$. (without restrictions over the same domain as the sections $s_i$) Now we make use of steinitz exchange lemma to choos $n-k$ many $t_i$ (Without restrictions $t_{k+1},\dots,t_n$) such that 
+\begin{equation*}
+	\big(s_1(p),\dots s_k(p),t_{k+1}(x),\dots,t_n(p))
+\end{equation*} is a basis of $E_p$. Being a basis over a point $q\in M$ near $p$ is equivalent to the invertability of the matrix where the columns are the sections at $q$, and since invertability (or rather nonzero determinant) is an open condition, there exists a neighbourhood, such that the family 
+\begin{equation*}
+	\big(s_1,\dots s_k,t_{k+1},\dots,t_n)
+\end{equation*} is a local frame, whose first $k$ sections span $F$.  By Definition
+    \ref{def:vb-framesFromTrivialisations} it induces a smooth
+    trivialisation $\Phi_U$ of $E$ with
+    $\Phi_U\big(\restr{F}{U}\big)=U\times\R^k\times\{0\}$, and
+    fibrewise passing to the quotient
+    $\R^n/(\R^k\times\{0\})\cong\R^{n-k}$ yields a trivialisation
+    $\bar\Phi_U$ of $\restr{(E/F)}{U}$.
+
+	Now we can cover $M$ by such adapted trivializations. Their transition functions  $g_{i,j}:U_i\cap U_j\to\GL(n,\R)$ are smooth and pointwise preserve $\R^k\times\{0\}$: for $v\in\R^k\times\{0\}$ we have
+$\Phi_i^{-1}(p,v)\in F_p$ since $\Phi_i$ is adapted, and hence
+$\Phi_j(\Phi_i^{-1}(p,v))\in\{p\}\times\R^k\times\{0\}$ since $\Phi_j$
+is adapted. Hence they have block form
+\begin{equation*}
+	g_{i,j}=\begin{pmatrix} A_{i,j} & B_{i,j}\\ 0 & C_{i,j}\end{pmatrix}\,,
+\end{equation*}where all coordniate entries and hence all blocks smoothly depend on the basepoint. Finally, the transition functions of the quotient with respect to the trivialization $\bar\Phi_U$ of $\restr{(E/F)}{U}$ consist of the smooth maps $p\mapsto C(p)=(C_{i,j})_{i,j}(p)$ into the structure group $\GL(n-k,\R)$.
+\end{proof}
+
 Now we want to construct new bundles from old ones. There are many operations to construct new vector spaces such as the tensor product, direct sum, $\Hom$-Spaces and many more. Instead of individually proving that those operations applied fibrewise yield new bundles, we subsume these operations within the following definition: 
 
 \begin{definition}[Continuous Functor]
