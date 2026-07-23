@@ -347,7 +347,7 @@ We want to refine the unstable embedding $E^u_q:T^u_qM\to W(q\to)$. For this we 
 \end{proof}
 
 
-\begin{theorem}[Refined Stable Embedding]
+\begin{theorem}[Refined Stable Embedding]\label{thm:morse-refinedUnstableEmbedding}
 	In the setting of the stable manifold theorem, we can refine the embedding
 \begin{equation*}
 	E^u_q:T^u_q M \to W(q\to )\,, 
@@ -411,96 +411,7 @@ We want to refine the unstable embedding $E^u_q:T^u_qM\to W(q\to)$. For this we 
 \end{definition}
 
 
-\subsection{Orientations}
-The idea of Morse homology is now to find an invariant under manipulations of the Morse--Smale function. Obviously neither the number of critical points nor the number of flow lines stays invariant. However certain linear combinations stay invariant, when one establishes a sophisticated way to count flow lines. For this count we want to introduce signs to the flow lines between critical points with index one apart.
 
-\begin{definition}[Morse-Smale]
-	A Morse function $f:M\to \R$ such that all stable and unstable manifolds intersect transversally is called a \textbf{Morse-Smale} function. 
-\end{definition}
-
-
-\begin{definition}[Orientation]
-	Let $V$ be a finite dimensional $\R$ vector space and $\det(V)\coloneq \Lambda^{\dim(V)}$ the maximal exterior algebra (or Grassmann algebra). By the principle of permanence we define $\Lambda^0(V)=\R$. An orientation of $V$ is a choice of one of the two connected components of $\det(V)\setminus \{0\}$.
-\end{definition}
-\begin{remark}
-	Classically, an orientation of a vector space $V$ of dimension $m$ is given by an ordered basis $\mathfrak{b}=(b_1,\dots b_m)$ of $V$ and hence the product $b_1\wedge \dots \wedge b_m$ is an element of the maximal exterior product $\det(V)=\Lambda^mV$. Two ordered bases define different elements in $\det(V)$ and their difference is given by the determinant of the base change matrix. (This is just a calculation using multilinearity and the alternating property). Hence a choice of equivalence class of bases modulo base change matrix of positive determinant is the same as a choice of one connected component of $\det(V)\setminus \{0\}$.
-\end{remark}
-\begin{definition}[Orientation and Exact Sequences]\todo{FIX}
-A short exact sequence of vector spaces 
-\begin{center}
-
-	\begin{tikzcd}
-		0 \arrow[r] & A \arrow[r, "f"] & B \arrow[r, "g"] & C \arrow[r] & 0
-	\end{tikzcd}
-\end{center}
-induces a canonical isomorphism 
-	\begin{align*}
-		 \det(A)\otimes \det(C)& \to \det(B)\\
-		 (a_1\wedge \dots\wedge a_l) \otimes (c_1\wedge \dots \wedge c_k) &\mapsto (f(a_1)\wedge \dots f(a_l)\wedge \tilde{c_1}\wedge \dots \wedge \tilde{c_k})\, ,
-	\end{align*} where $\tilde{c_j}\in g^{-1}(c_j)$ . The well-definedness of this map (invariance under chosen lift of $c$) can be calculated, since two different choices differ in an element in the kernel of $g$ which equals the image of $f$ and hence the different choices vanish in the wedge product. By this isomorphism we get an orientation induced in the middle from the outside. Notice the convention, that the basis from $A$ is placed in front of the basis from $C$. 
-	Notice how the definition is consistent with the edge cases of trivial vector spaces $A$ or $C$. If $A=0$ we get an isomorphism $B\cong C$ and a basis from $C$ induced to $B$, that is either the induced one from $g$, or exactly the opposite one, if the trivial vector space $A$ is negatively oriented.
-\end{definition}
-\begin{remark}
-	Let 
-	\begin{center}
-		\begin{tikzcd}
-		0 \arrow[r] & A \arrow[r, "f"] & B \arrow[r, "g"] & C \arrow[r] & 0
-	\end{tikzcd}
-	\end{center}
-
-be a short exact sequence of vector spaces and $\mathfrak{a}$ be a basis of $A$, $\mathfrak{c}$ be a basis of $C$ and $\tilde{\mathfrak{c}}$ be a lift of $\mathfrak{c}$ via $g$. Replacing the basis $\mathfrak{a}$ with $P\mathfrak{a}$ and $\mathfrak{c}$ with $Q\mathfrak{c}$ where $P,Q$ are invertible matrices, gives us a new induced basis on $B$, which differs from the original one by a matrix $\begin{pmatrix}
-	P&*\\
-	0&Q
-\end{pmatrix}$, where $*$ depends on the chosen lift. Hence the corresponding elements in $\det(B)$ differ by the product $\det(P)\det(Q)$. 
-\end{remark}
-\begin{lemma}
-	For a rank $r$ vector bundle $E\to X$ we set $\det(E)\coloneq \Lambda^r(E)$. An orientation is an equivalence class of a non-vanishing section into the determinant bundle, where two sections are equivalent if they differ by multiplication of a positive scalar valued function. $E$ is orientable if such a section exists, i.e. if $\det(E)$ is trivial. An orientation of a bundle restricts to an orientation in each fibre.
-\end{lemma}
-
-\begin{lemma}\label{lem:morse-OrientationsInAPointInduceOrientationsOfBundle}
-	Let $E\to X$ be an orientable vector bundle and $X$ be connected. For each $x\in X$ we get the bijection induced from the restriction to the fibre:
-	\begin{equation*}
-		\{\text{Orientation on }E\} \to \{\text{Orientation on } E_x\}\,.
-	\end{equation*} Hence, an orientation in one fibre can introduce an orientation in every other fibre.
-\end{lemma}
-\begin{proof}
-	Two orientations over $E$ are given as nowhere-vanishing sections $s,s'$. The quotient $x\mapsto \frac{s}{s'}$ is continuous and its image is contained in $\R\setminus \{0\}$. Hence the sign of the quotient is a continuous function into $\{-1,1\}$. Since $X$ is connected we conclude that the sign of said quotient is a constant function. Thereby, if the sections induce the same orientation, they differ by multiplication of the positive number $\frac{s(x)}{s'(x)}$ and then the sign of $\frac{s}{s'}$ is globally one. The surjectivity is clear by mapping the sections $s$ and $-s$.
-\end{proof}
-\begin{proposition}
-	Let 
-	\begin{center}
-    \begin{tikzcd}
-        0\arrow[r] & E'\arrow[r,"f"] & E \arrow[r,"g"] & E''\arrow[r] & 0
-    \end{tikzcd}
-	\end{center} be a short exact sequence of orientable vector bundles. Then the fibrewise
-    isomorphisms $\det(E'_p)\otimes\det(E''_p)\to\det(E_p)$ from the
-    vector space case assemble into an isomorphism of line bundles
-    \[
-        \det(E')\otimes\det(E'')\;\xrightarrow{\;\cong\;}\;\det(E)\,.
-    \]
-    In particular, orientations of $E'$ and $E''$ induce a canonical
-    orientation of $E$.
-\end{proposition}
-\begin{proof}
-	Fibrewise the map is the canonical isomorphism from the vector
-    space case: a lift $\tilde c\in g_p^{-1}(c)$ exists since $g_p$ is
-    surjective, and the resulting element
-    $f(a_1)\wedge\dots\wedge f(a_l)\wedge\tilde c_1\wedge\dots\wedge
-    \tilde c_k$ is independent of the choice of lift.
-
-	 It remains to
-    check that this bundle map is continuous (resp.\ smooth) to ensure that it maps sections smoothly into sections, which is
-    a local statement: locally choose a frame $(a_1,\dots,a_l)$ of $E'$
-    and a frame $(c_1,\dots,c_k)$ of $E''$; since $g$ is an epimorphism
-    it admits local sections, so we may choose local lifts
-    $\tilde c_j$ of the $c_j$ which are (smooth) local sections of $E$.
-    Then the map is given in the induced local frames of the
-    determinant bundles by wedging these sections, hence continuous
-    (resp.\ smooth). By this, two non-vanishing sections get mapped to a non-vanishing section and hence, orientations on $E'$ and $E''$ which are represented by sections give a orientation over $E$. 
-\end{proof}
-\begin{definition}
-	We call a manifold orientable, if its tangent bundle is orientable.
-\end{definition}
 
 \subsection{Signed Flow Lines}
 
@@ -589,7 +500,7 @@ Furthermore, we define the counting of signed flow lines:
 \end{proof}
 
 
-
+\begin{comment}
 
 
 
@@ -743,3 +654,5 @@ Let $q$ be a critical point and $c<f(q)$ such that no other critical point lies 
 	\end{equation*} Or by the above calculation, we can throw out $\pi$, if we exclude $\mathfrak{d}_1$. Furthermore, the equation shows that our requirement $\restr{\diff E^u_q}{y'}\circ Q_{y'}(\mathfrak{d_1})=-\grad_{y'}(f)$ implies that $\mathfrak{d}$ is compatible with a basis where $\restr{\diff E^u_q}{y}\circ Q_y\circ \mathfrak{d}_1=-\grad_y(f)$, since the sign of the determinant of $A_{\tilde{t}}$ is always positive.
 	This concludes the proof!
 \end{proof}
+
+ \end{comment}
