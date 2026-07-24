@@ -1,4 +1,4 @@
-\subsection{Orientations}
+\section{Orientations}
 The idea of Morse homology is now to find an invariant under manipulations of the Morse--Smale function. Obviously neither the number of critical points nor the number of flow lines stays invariant. However certain linear combinations stay invariant, when one establishes a sophisticated way to count flow lines. For this count we want to introduce signs to the flow lines between critical points with index one apart where the signs rely on orientations of over the flow lines.
 \subsection{Oriented Vector Spaces and Bundles}
 
@@ -142,38 +142,107 @@ This concludes the calculation of $\pi_S^{-1}\circ \pi_s=\id$ and $\pi_s\circ\pi
 
 \begin{definition}[K-theoretic orientations]
      We define a \textbf{K-theoretic orientation} of a finite dimensional real vector space $V$ to be a generator of the group $\tilde{K}^m(\overline{V})$. As a sainity check we can confirm: since $\overline{V}\cong S^m$ we are looking at a generator of a group isomorphic to $\tilde{K}(S^{2m})\cong \Z$, which has two possible generators.
-
-     Now $V$ is congruent to $\R^m$ via the coordinate map $B_v$ and that depends on an ordered basis $v$ of $V$. So the idea is as follows: 
-     We have a canonical generator of $K^m(S^m)$ and a map:
+\end{definition}
+Now $V$ is homeomoprhic to $\R^m$ via the coordinate map $\kappa_v$ that maps each vector to its coordinate representation. With this we can introduce a K-theoretic orientation from an ordered basis via the composition: 
    \begin{center}
 \begin{tikzcd}
-K^n(S^n) \arrow[r, "(\pi_S^{-1})^*"] & K^n(\overline{\R^m}) \arrow[r, "B_v^*"] & K^m(\overline{V})
+\tilde{K}^n(S^n) \arrow[r, "(\pi_S^{-1})^*"] & \tilde{K}^n(\overline{\R^m}) \arrow[r, "B_v^*"] & \tilde{K}^m(\overline{V})
 \end{tikzcd}
-   \end{center}
-     This induces a generator in $K^m(\overline{V})$ that depends on the ordered basis. 
-\end{definition}
-
+   \end{center} Now we can map the bott generator \todo{reference } to a generator in $\tilde{K}^m(\overline{V})$ that depends on the ordered basis. 
 \begin{remark} \label{rem:orient-OrientationsInducesKOrientation}
 An orientation of $V$ induces a K-theoretic orientation.
 \end{remark}
 \begin{proof}
-Let $v$ and $v'$ be two equivalent orientations over $V$. Then $M^v_{v'}\simeq \id_V$, since $\GL_{\R}(V)$ has exactly two connected components seperated by the sign of the determinant. (This is a standart theorem for the isomorphic $\GL_m(\R)$). Let $H$ be a homotopy from $M^v_{v'}\simeq \id_V$ and define $\overline{H}$ to be the extension of the homotopy:
+Let $v$ and $v'$ be two equivalent orientations over $V$. Then $M^v_{v'}\simeq \id_V$, since $\GL_{\R}(V)$ has exactly two connected components seperated by the sign of the determinant. (This is a standart theorem for the isomorphic $\GL_m(\R)$). Let $H$ be a homotopy from $M^v_{v'}\simeq \id_V$ given by a continouos path $A:I\to \GL(V)$ with $A(0)=\id$ and $A(1)=M^v_{v'}$.I.e.\ $H:V\times I \to V$ is of the form $H(x,t)=A(t)(x)$. Now extend this homotopy to the following:
 \begin{equation*}
-	\overline{H}:\overline{V}\times I \to \overline{V}\,.
-\end{equation*}
-We have that $H$ is proper for all $t$  and thereby our extended map $\overline{H}$ is continuos for all $t$ \todo{continuouity over $t$ needed!!}, giving us a continuous homotopy. Let $Q_v: \overline{V}\to \overline{\R^m}$ be the coordinate map  With this we can conclude, that the diagramm commutes up to homotopy:
+	\overline{H}:\overline{V}\times I \to \overline{V}\,,\quad (\infty,t)\mapsto \infty\,.
+\end{equation*} Now $H$ is a proper homomorphism into a locally compact space and hence the extension $\tilde{H}:\overleftarrow{V\times I}\to \overline{V}$ is continuous. Let $q:\overline{V}\times I\to \overline{V\times I}$ be the collaps of $\{\infty\}\times I$ to $\infty$. Then we have that $\overline{H}=\tilde{H}\circ q$ and hence $\overline{H}$ is continuous. Now let $\kappa_v$ be the coordinate map $V \to \R^m$ that maps each vector to its coordinate representation. Then we have the up to homotopy commutative diagram:
 \begin{center}
 \begin{tikzcd}
-\overline{V} \arrow[r, "\id"] \arrow[d, "B_v"']                                  & \overline{V} \arrow[d, "B_{v'}"] \\
+\overline{V} \arrow[r, "\id"] \arrow[d, "\kappa_v"']                                  & \overline{V} \arrow[d, "\kappa_{v'}"] \\
 \overline{\R^m} \arrow[r, "M^v_{v'}", bend left] \arrow[r, "\id", bend right=49] & \overline{\R^m}                 
 \end{tikzcd}
 \end{center}
 Hence, the diagram commutes, 
 \begin{center}
 \begin{tikzcd}
-K^m(S^m) \arrow[r, "(\pi_S^{-1})^*"] & K^n(\overline{\R^m}) \arrow[r, "B_v^*"] \arrow[d, "\id"] & K^m(\overline{V}) \arrow[d, "\id"] \\
-K^m(S^m) \arrow[r, "(\pi_S^{-1})^*"] & K^n(\overline{\R^m}) \arrow[r, "B^*_{v'}"]               & K^m(\overline{V})                 
+\tilde{K}^m(S^m) \arrow[r, "(\pi_S^{-1})^*"] & \tilde{K}^n(\overline{\R^m}) \arrow[r, "\kappa_v^*"] \arrow[d, "\id"] & \tilde{K}^m(\overline{V}) \arrow[d, "\id"] \\
+\tilde{K}^m(S^m) \arrow[r, "(\pi_S^{-1})^*"] & \tilde{K}^n(\overline{\R^m}) \arrow[r, "\kappa^*_{v'}"]               & \tilde{K}^m(\overline{V})                 
 \end{tikzcd}
 \end{center}
 Thereby the induced generators agree.
 \end{proof}
+\begin{lemma}[K-Theoretic Orientations Detect Orientations]
+    Assume, that $v'$ and $v$ are non-equivalent orientations. Hence, $\det(M^v_{v'})<0$. Then they induce different generators.
+\end{lemma}
+\begin{proof}
+    With a similar argument to above we can conclude, that $M^v_{v'}\simeq \Big(x_1,\dots x_m)\mapsto (x_1,\dots x_{m-1},-x_m)\big)$ and again there extensions to the one point compactifications are homotypic.
+    Now we define two maps: 
+    \begin{align*}
+        T: S^m &\to S^m \\
+        (x_1,\dots,x_{m+1})&  \mapsto (-x_1,\dots,x_{m+1})
+    \end{align*}
+    and
+    \begin{align*}
+        S:\overline{R^m} & \to \overline{R^m} \\
+        (x_1,\dots x_m)  &\mapsto (-x_1,\dots x_m)
+    \end{align*}
+    With those maps we have the commutative diagram: 
+    \begin{center}
+        % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAGUA9AWxAF9S6TLnyEUZAIxVajFmy68BQ7HgJEJ5afWatEIADr6INGACcGWMDGCGASjz79BIDCtHrSU6trl7DxswsrG317bkc+aRgoAHN4IlAAM1MIXkQAJmocCCQyGR02QzQsAH04TmAAWgkI52TUpABmLJzEDXzfA31isorq2qSUtPbs3O9ZXRAAFSdBhsRmkFGM8YK9dn4KPiA
+\begin{tikzcd}
+S^m                & \overline{\R^m} \arrow[l, "\pi_s^{-1}"]                \\
+S^m \arrow[u, "T"] & \overline{\R^m} \arrow[l, "\pi_s^{-1}"] \arrow[u, "S"]
+\end{tikzcd}
+    \end{center}
+    And hence since $S\simeq \overline{M^v_{v'}}$ we get the diagram, is commutative up to homotopy:
+\begin{center}
+\begin{tikzcd}
+S^m                & \overline{\R^m} \arrow[l, "\pi_s^{-1}"]                & \overline{V} \arrow[l, "\kappa_{v'}"]                 \\
+S^m \arrow[u, "T"] & \overline{\R^m} \arrow[l, "\pi_s^{-1}"] \arrow[u, "S"] & \overline{V} \arrow[u, "\id"] \arrow[l, "\kappa_{v}"]
+\end{tikzcd}
+\end{center}
+    This induces the commutative diagramm 
+\begin{equation} \label{eq: Comutativ diagramm -1 is orientation change}
+\begin{tikzcd}
+\tilde{K}^m(S^m) \arrow[d, "T^*"'] \arrow[r, "(\pi_S^{-1})^*"] & \tilde{K}^m(\overline{\R^m}) \arrow[d, "S^*"] \arrow[r, "\kappa_{v'}^*"] & \tilde{K}^m(\overline{V}) \arrow[d, "\id"] \\
+\tilde{K}^m(S^m) \arrow[r, "(\pi_S^{-1})^*"']                  & \tilde{K}^m(\overline{\R^m}) \arrow[r, "\kappa_v^*"']                & \tilde{K}^m(\overline{V})                 
+\end{tikzcd}
+    \end{equation}
+Now we want to see that $T^*=-\id$.
+For this, we start by looking at $K^m(S^m)=K(S^{2m})$. In this case we define 
+\begin{align*}
+    T': S^m\wedge S^m =S^{2m}       & \to S^{2m}\\
+    (x_1,\dots x_m,y_1,\dots, y_m)  & \mapsto (x_1,\dots x_m,-y_1,\dots, y_m)
+\end{align*} By definition $T^*=(T')^*$ and we have a homotopy between $T'$ and 
+\begin{align*}
+    R\wedge \id :S^{2m} & \to       S^{2m}\\
+    (x_1,\dots x_{2m})  & \mapsto   (-x_1,\dots x_{2m})
+\end{align*} that is given by the rotation $\rho_t$ in the $x_1,y_1$ plane by $t$ degree. This rotation for 90 degree maps $x_1\mapsto y_1$ and $y_1 \mapsto -x_1$, and thereby conjugating $R\wedge \id$ with $\rho$ (for 90 degree) gives $T'$. The homotopy is then given by $\rho_t\circ  R\wedge \id\circ \rho_t^{-1}$. Now the way we defined $S^{2m}\subseteq \R^{2m+1}$ the map $ R\wedge \id$ really is the wedge product of the identity on $S^{2m-1}$ with the map $R$, that exchanges the south and north pole. Hence by the lemma \ref{lem:kTheo-doubleConeFlip} this agrees with the multiplication with $-1$, and hence the map $T^*$ is the multiplication with $-1$. 
+Finally, we can compare the induced generators: for this we denote $\beta_v\coloneq (\kappa_v)^*\circ (\pi^{-1}_S)^*(\beta)$ to be the generator given by the oriented basis $v$ and $\beta_{v'}\coloneq (\kappa_{v'})^*\circ (\pi^{-1}_S)^*(\beta)$ given by $v'$. Now we have that 
+\begin{align*}
+     -\beta_{v'} =\id \circ (\kappa_{v'})^*\circ \underbrace{(\pi^{-1}_S)^*}_{(S^*)^{-1}\circ (\pi^{-1}_S)^*\circ T^*}(-\beta)=\underbrace{\id \circ (\kappa_{v'})^*\circ (S^*)^{-1}}_{=\kappa_v^*}\circ (\pi^{-1}_S)^*\circ \underbrace{T^*(-\beta)}_{=\beta}
+    =\beta_v
+\end{align*}
+\end{proof}
+
+
+
+
+
+\begin{definition}[Local K-theoretic Orientation]
+	We start again in the vector space $\R^n$ and define a \textbf{local K-theoretic orientation in }$x\in \R^n$ to be a generator of the group $K^{-n}(\R^n,\R^n\setminus \{x\})\cong \Z$. The isomorphism here is from the long exact sequence.  
+\end{definition}
+\todo{local equiv global}
+\todo{jacobean sign calculates local orientation}
+\begin{lemma}[test1]\label{lem: single regular preimage}
+  Let $\xi\colon S^n\to S^n$ be continuous and suppose there are $y,z\in S^n$ with
+  $\xi^{-1}(z)=\{y\}$ such that $\xi$ is smooth near $y$ and $\diff\xi_y$ is invertible.
+  Fix an orientation of $S^n$ and compute $\det(\diff\xi_y)$ in oriented charts. Then
+  \[
+    \xi\simeq\id_{S^n}\ \text{ if }\ \det(\diff\xi_y)>0,\qquad
+    \xi\simeq\rho\ \text{ if }\ \det(\diff\xi_y)<0,
+  \]
+  where $\rho$ is a reflection. In particular $\xi^*=\sign\det(\diff\xi_y)\cdot\id$
+  on $\widetilde K^n(S^n)$.
+\end{lemma}

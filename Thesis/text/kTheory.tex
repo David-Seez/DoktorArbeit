@@ -1127,17 +1127,7 @@ Where $i$ is the inclusion $\{p\}\to X$ and $c_p$ is the collapse $X\to \{p\}$. 
 		[A,U]\cong \tilde{K}(X)
 	\end{equation*} 
 \end{remark}
-\begin{lemma}\label{lem:kTheo-inversesInKGivenByHomotopicallyMethods}
-		Let $Y$ be a pointed space. Define
-		\begin{align*}
-			T:S^1 &\to S^1 \\
-			t     &\mapsto 1-t
-		\end{align*} and let $\Sigma T:SY\to SY$ be the map induced by $T$ on $S^1$ and the identity on $Y$. Then:
-		\begin{align*}
-			(\Sigma T)^*:\tilde{K}(SY)   &\to \tilde{K}(SY)\\
-			y                           &\mapsto -y
-		\end{align*}
-\end{lemma}
+
 \begin{proof}
 	We have the following commutative diagram: 
 	\begin{center}
@@ -1675,20 +1665,23 @@ By example \ref{ex:kTheo-LineBundlesSatlquadequalslPlusl} we know that for any l
 		\tilde{K}(S^2)=\ker(i_{pt}^*) \cong \ker(\rank)=\mathrm{span}_{\Z}([H]-[\underline{1}])
 	\end{equation*}
 \end{corollary}
+\begin{definition}
+	We call the generator $([H]-[\underline{1}])$ that generates $\tilde{K}(S^2)$ the \textbf{Bott generator} denoted by $\bottg$.
+\end{definition}
 
 \begin{theorem}[Bott periodicity]Let $X$ be a well-pointed compact space.
 	The isomorphism from the fundamental product theorem applied in its reduced form gives a natural isomorphism:
 	\begin{equation*}
-		\beta_X: \tilde{K}^{-n}(X)\to \tilde{K}^{-n}(S^2\wedge X)\cong \tilde{K}^{-n-2}( X)
+		\bottmap: \tilde{K}^{-n}(X)\to \tilde{K}^{-n}(S^2\wedge X)\cong \tilde{K}^{-n-2}( X)
 	\end{equation*}
 \end{theorem}
 \begin{proof} We start with $n=0$.
 	By Proposition \ref{prop:kTheo-reducedExternalProduct} we know that the reduced external product applied to the spaces $\tilde{K}(S^2)\cong \mathrm{span}_{\Z}([H]-[\underline{1}]) $ and $\tilde{K}(X)$ is an isomorphism due to the non-reduced external product being one, by the fundamental product theorem. Hence we have that
 	\begin{equation*}
 		\Z([H]-[\underline{1}])\otimes \tilde{K}(X)\to \tilde{K}^{-2}(X)
-	\end{equation*} is an isomorphism. And since $\tilde{K}(X)\cong \Z([H]-[\underline{1}])\otimes \tilde{K}(X)$ via $[\xi]\mapsto ([H]-[\underline{1}]) \otimes [\xi]$ we have the isomorphism
+	\end{equation*} is an isomorphism. And since $\tilde{K}(X)\cong \Z(\bottg)\otimes \tilde{K}(X)$ via $[\xi]\mapsto (\bottg) \otimes [\xi]$ we have the isomorphism
 	\begin{equation*}
-		\beta_X: \tilde{K}^{-2}(X) \otimes \tilde{K}(X) \,,\quad [\xi] \mapsto \tilde{\mu}([H]-[\underline{1}],[\xi])\,.
+		\bottmap: \tilde{K}^{-2}(X) \otimes \tilde{K}(X) \,,\quad [\xi] \mapsto \tilde{\mu}(\bottg,[\xi])\,.
 	\end{equation*}Naturality follows from $\mu$ being natural, $q^*$ being natural (and thereby its inverse) and $\tilde{\mu}$ being the composition of both of them. Furthermore, for \todo{natürlich im zweiten faktor mit festem ersten} Replacing $X$ with $S^nX$ proves the lower degree.
 \end{proof}
 \begin{definition}
