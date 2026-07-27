@@ -141,14 +141,14 @@ This concludes the calculation of $\pi_S^{-1}\circ \pi_s=\id$ and $\pi_s\circ\pi
 \end{definition}
 
 \begin{definition}[K-theoretic orientations]
-     We define a \textbf{K-theoretic orientation} of a finite dimensional real vector space $V$ to be a generator of the group $\tilde{K}^m(\overline{V})$. As a sainity check we can confirm: since $\overline{V}\cong S^m$ we are looking at a generator of a group isomorphic to $\tilde{K}(S^{2m})\cong \Z$, which has two possible generators.
+     We define a \textbf{K-theoretic orientation} of a finite dimensional real vector space $V$ to be a generator of the group $\tilde{K}^{-m}(\overline{V})$. As a sainity check we can confirm: since $\overline{V}\cong S^m$ we are looking at a generator of a group isomorphic to $\tilde{K}(S^{2m})\cong \Z$, which has two possible generators.
 \end{definition}
 Now $V$ is homeomoprhic to $\R^m$ via the coordinate map $\kappa_v$ that maps each vector to its coordinate representation. With this we can introduce a K-theoretic orientation from an ordered basis via the composition: 
    \begin{center}
 \begin{tikzcd}
-\tilde{K}^n(S^n) \arrow[r, "(\pi_S^{-1})^*"] & \tilde{K}^n(\overline{\R^m}) \arrow[r, "B_v^*"] & \tilde{K}^m(\overline{V})
+\tilde{K}^{-m}(S^n) \arrow[r, "(\pi_S^{-1})^*"] & \tilde{K}^{-m}(\overline{\R^m}) \arrow[r, "B_v^*"] & \tilde{K}^{-m}(\overline{V})
 \end{tikzcd}
-   \end{center} Now we can map the bott generator \todo{reference } to a generator in $\tilde{K}^m(\overline{V})$ that depends on the ordered basis. 
+   \end{center} Now we can map the bott generator \todo{reference } to a generator in $\tilde{K}^{-m}(\overline{V})$ that depends on the ordered basis. 
 \begin{remark} \label{rem:orient-OrientationsInducesKOrientation}
 An orientation of $V$ induces a K-theoretic orientation.
 \end{remark}
@@ -166,8 +166,8 @@ Let $v$ and $v'$ be two equivalent orientations over $V$. Then $M^v_{v'}\simeq \
 Hence, the diagram commutes, 
 \begin{center}
 \begin{tikzcd}
-\tilde{K}^m(S^m) \arrow[r, "(\pi_S^{-1})^*"] & \tilde{K}^n(\overline{\R^m}) \arrow[r, "\kappa_v^*"] \arrow[d, "\id"] & \tilde{K}^m(\overline{V}) \arrow[d, "\id"] \\
-\tilde{K}^m(S^m) \arrow[r, "(\pi_S^{-1})^*"] & \tilde{K}^n(\overline{\R^m}) \arrow[r, "\kappa^*_{v'}"]               & \tilde{K}^m(\overline{V})                 
+\tilde{K}^{-m}(S^m) \arrow[r, "(\pi_S^{-1})^*"] & \tilde{K}^{-m}(\overline{\R^m}) \arrow[r, "\kappa_v^*"] \arrow[d, "\id"] & \tilde{K}^{-m}(\overline{V}) \arrow[d, "\id"] \\
+\tilde{K}^{-m}(S^m) \arrow[r, "(\pi_S^{-1})^*"] & \tilde{K}^{-m}(\overline{\R^m}) \arrow[r, "\kappa^*_{v'}"]               & \tilde{K}^{-m}(\overline{V})                 
 \end{tikzcd}
 \end{center}
 Thereby the induced generators agree.
@@ -205,12 +205,12 @@ S^m \arrow[u, "T"] & \overline{\R^m} \arrow[l, "\pi_s^{-1}"] \arrow[u, "S"] & \o
     This induces the commutative diagramm 
 \begin{equation} \label{eq: Comutativ diagramm -1 is orientation change}
 \begin{tikzcd}
-\tilde{K}^m(S^m) \arrow[d, "T^*"'] \arrow[r, "(\pi_S^{-1})^*"] & \tilde{K}^m(\overline{\R^m}) \arrow[d, "S^*"] \arrow[r, "\kappa_{v'}^*"] & \tilde{K}^m(\overline{V}) \arrow[d, "\id"] \\
-\tilde{K}^m(S^m) \arrow[r, "(\pi_S^{-1})^*"']                  & \tilde{K}^m(\overline{\R^m}) \arrow[r, "\kappa_v^*"']                & \tilde{K}^m(\overline{V})                 
+\tilde{K}^{-m}(S^m) \arrow[d, "T^*"'] \arrow[r, "(\pi_S^{-1})^*"] & \tilde{K}^{-m}(\overline{\R^m}) \arrow[d, "S^*"] \arrow[r, "\kappa_{v'}^*"] & \tilde{K}^{-m}(\overline{V}) \arrow[d, "\id"] \\
+\tilde{K}^{-m}(S^m) \arrow[r, "(\pi_S^{-1})^*"']                  & \tilde{K}^{-m}(\overline{\R^m}) \arrow[r, "\kappa_v^*"']                & \tilde{K}^{-m}(\overline{V})                 
 \end{tikzcd}
     \end{equation}
 Now we want to see that $T^*=-\id$.
-For this, we start by looking at $K^m(S^m)=K(S^{2m})$. In this case we define 
+For this, we start by looking at $K^{-m}(S^m)=K(S^{2m})$. In this case we define 
 \begin{align*}
     T': S^m\wedge S^m =S^{2m}       & \to S^{2m}\\
     (x_1,\dots x_m,y_1,\dots, y_m)  & \mapsto (x_1,\dots x_m,-y_1,\dots, y_m)
@@ -224,6 +224,32 @@ Finally, we can compare the induced generators: for this we denote $\beta_v\colo
      -\beta_{v'} =\id \circ (\kappa_{v'})^*\circ \underbrace{(\pi^{-1}_S)^*}_{(S^*)^{-1}\circ (\pi^{-1}_S)^*\circ T^*}(-\beta)=\underbrace{\id \circ (\kappa_{v'})^*\circ (S^*)^{-1}}_{=\kappa_v^*}\circ (\pi^{-1}_S)^*\circ \underbrace{T^*(-\beta)}_{=\beta}
     =\beta_v
 \end{align*}
+\end{proof}
+
+
+
+\begin{lemma}[Minkowsky Gauge]
+    Let $V$ be a finite dimensional real vector space with a norm $\norm{\cdot}$ and let $U\subseteq V$ be open, bounded, convex and contain the origin of $V$. Choose $\epsilon,r>0$ such that
+    $\{\norm{v}< \epsilon\}\subseteq U\subseteq \{\norm{v}<r\}$
+    and define the Minkowsky gauge
+\begin{equation*}
+        \mu: V \to [0,\infty]\,,\quad \mu(v)\coloneq \inf\{s>0\,|\, s^{-1}v\in U\}\,.
+    \end{equation*} 
+    Then:
+    \begin{enumerate}[(a)]
+        \item $\lambda U \subseteq U$ for $\lambda \in [0,1]$, and $s^{-1}v\in U$ for every $s>\mu(v)$.
+        \item $\mu(\lambda v)=\lambda(\mu(v))$ for all $\lambda>0$.
+        \item $\frac{\norm{v}}{r}\leq \mu(v)\leq \frac{\norm(v)}{\epsilon}$. In particular $\mu(v)>0$ for $v\neq 0$.
+        \item $\mu(v+w)\leq \mu(v)+\mu(w)$.
+        \item $\abs{\mu(v)-\mu(w)}\leq \frac{\norm{v-w}}{\epsilon}$, so $\mu$ us Lipschitz and hence continuous;
+        \item $U=\{\mu(v)< 1\}$ and $\overline{U}=\{\mu(v)\leq 1 \}$.
+    \end{enumerate}
+    
+\end{lemma}
+\begin{proof}
+(a) For $x\in U$ and $\lambda\in [0,1]$ we have $\lambda x=\lambda x+(1-\lambda)0\in U$ by convexity and since $0\in U$. Now let $s>\mu(v)$. By definition of the infimum there exists a $s_0\in ( \mu(v),s]$ with 
+
+
 \end{proof}
 
 
