@@ -64,8 +64,15 @@ Such a collection $\{f_i\}$ is called a \textbf{partition of unity}.
 	Let $(X,A)$ be a topological pair, i.e. $A\subseteq X$. The pair satisfies the homotopy extension property if for any map $f:X\to Y$ and any homotopy $f_t:A\to Y$ with $f_0=\restr{f}{A}$ there exists an extension $\tilde{f}_t:X\to Y$ with $ \restr{\tilde{f}_t}{A}=f_t$ and $\tilde{f}_0=f$. The inclusion $i:A\to X$ of such a pair is called a \textbf{cofibration}.
 	We denote the category of pairs of compactly generated weak Hausdorff spaces where the inclusion is a cofibration by $\mathbf{CGWH}^2_{\mathbf{cof}}$.
 \end{definition} A more intuitive but (for $A$ closed in $X$) equivalent definition is:
-\begin{definition}
-	 If $(X,A)$ is a topological pair, $A$ is closed in $X$  and there is an  neighbourhood $U\supseteq A$ such that $U$ deformation retracts onto $A$. Such a pair is called an \textbf{NDR}-pair which stands for neighbourhood deformation retract-pair.
+\begin{definition} \todo{Falsche Definition !!}
+	 If $(X,A)$ is a topological pair, $A$ is closed in $X$  and there is a continuous function $u:X\to I$ and a Homotopy $H:X\times I\to X$ such that 
+	 \begin{enumerate}
+		\item $H(x,0)=x$ for all $x\in X$.
+		\item $H(a,t)=a$ for all $a\in A$ and $t\in I$.
+		\item $H(x,1)\in A$ for all $x\in X$ with $u(x)<1$.
+		\item $u^{-1}(0) = A$.
+	 \end{enumerate}
+	Such a pair is called an \textbf{NDR}-pair which stands for neighbourhood deformation retract-pair. The name comes from the interpretation of $u^{-1}[0,1)$ being a neighbourhood that deforms onto $A$ under the global homotopy $H$.
 \end{definition}
 \begin{remark}
 If we encounter an NDR pair in this thesis that lives in a manifold, we will often omit proving the property. A proof would mostly consist of applying the tubular neighbourhood theorem and the collar neighbourhood theorem.

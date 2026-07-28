@@ -228,9 +228,9 @@ Finally, we can compare the induced generators: for this we denote $\beta_v\colo
 
 
 
-\begin{lemma}[Minkowsky Gauge]
+\begin{lemma}[Minkowsky Gauge]\label{lem:orient-MinkowskyGauge}
     Let $V$ be a finite dimensional real vector space with a norm $\norm{\cdot}$ and let $U\subseteq V$ be open, bounded, convex and contain the origin of $V$. Choose $\epsilon,r>0$ such that
-    $\{\norm{v}< \epsilon\}\subseteq U\subseteq \{\norm{v}<r\}$
+    $\{v\in V\,|\, \norm{v}< \epsilon\}\subseteq U\subseteq \{v\in V\,|\,\norm{v}<r\}$
     and define the Minkowsky gauge
 \begin{equation*}
         \mu: V \to [0,\infty]\,,\quad \mu(v)\coloneq \inf\{s>0\,|\, s^{-1}v\in U\}\,.
@@ -242,19 +242,76 @@ Finally, we can compare the induced generators: for this we denote $\beta_v\colo
         \item $\frac{\norm{v}}{r}\leq \mu(v)\leq \frac{\norm(v)}{\epsilon}$. In particular $\mu(v)>0$ for $v\neq 0$.
         \item $\mu(v+w)\leq \mu(v)+\mu(w)$.
         \item $\abs{\mu(v)-\mu(w)}\leq \frac{\norm{v-w}}{\epsilon}$, so $\mu$ us Lipschitz and hence continuous;
-        \item $U=\{\mu(v)< 1\}$ and $\overline{U}=\{\mu(v)\leq 1 \}$.
+        \item $U=\{v\in V\,|\,\mu(v)< 1\}$ and $\overline{U}=\{v\in V\,|\,\mu(v)\leq 1 \}$.
     \end{enumerate}
     
 \end{lemma}
 \begin{proof}
-(a) For $x\in U$ and $\lambda\in [0,1]$ we have $\lambda x=\lambda x+(1-\lambda)0\in U$ by convexity and since $0\in U$. Now let $s>\mu(v)$. By definition of the infimum there exists a $s_0\in ( \mu(v),s]$ with 
+(a) For $x\in U$ and $\lambda\in [0,1]$ we have $\lambda x=\lambda x+(1-\lambda)0\in U$ by convexity and since $0\in U$. Now let $s>\mu(v)$. 
+By definition of the infimum there exists a $s_0\in ( \mu(v),s]$ with $s_0^{-1}v\in U$ and $s^{-1}v=\frac{s_0}{s}s_0^{-1}v\in U$ by the first oriperty (since $\frac{s_0}{s}\in [0,1]$).
 
+(b) Follows directly from the definition if one substitutes $s\mapsto \lambda s$.
 
+(c) If $s^{-1}v\in U\subseteq \{v\in V\,|\,\norm{v}\leq r\}$ then $\norm{v}<sr$,i.e.\ $s>\norm{v}r^{-1}$. After the infimum the reads $\mu(v)\geq \norm{v}r^{-1}$. Conversly, if $s>\norm{v}\epsilon^{-1}$ then $\norm{s^{-1}v}<\epsilon$, and hence $s^{-1}v\in U$. Thereby, $\mu(v)\leq \norm{v}\epsilon^{-1}$.
+
+(d) Let $s>\mu(v)$ and $t>\mu(w)$. Then by (a) both $s^{-1}v$ and $t^{-1}w$ lie in $U$, hence by convexity
+\begin{equation*}
+    \frac{v+w}{s+t}\,=\,\frac{s}{s+t}\cdot \underbrace{\frac{v}{s}}_{\in U}+\underbrace{\frac{w}{t}}_{\in U}\,\in U\,.
+\end{equation*} So $\mu(v+w)\leq{s+t}$ and letting $s$ approach $\mu(v)$ and $t$ approach $\mu(w)$ gives the claim.
+
+(e) By (b) and (c), for all $v,w\in V$ we have: $\mu(v)\leq \mu(w)+\mu(v-w)\leq \mu(w)+\norm{v-w}\epsilon^{-1}$. Hence, $\mu(v)-\mu(w)\leq \norm{v-w}\epsilon^{-1}$. Interchangeing $v$ and $w$ gives the symetric statement for $-(\mu(v)-\mu(w))=\mu(w)-\mu(v)\leq \norm{v-w}\epsilon^{-1}$ proofing the statement.
+
+(f) If $v\in U$, then $s^{-1}v \in U$ for some $s<1$, because $U$ is open and $s\mapsto s^{-1}v$ is continuous at $s=1$. Hence $\mu(v)<1$. The other inclusion follows directly from (a): if $\mu(v)<1$ then $1^{-1}(v)\in U$. Thus $U=\{v\in V\,|\, \mu(v) <1\}$. Now, by continuity of $\mu$ the set $\{v\in V|\mu(v)\leq 1\}$ is closed and containes $U$ and thereby also contains $\overline{U}$. conversely if $\mu(v) \leq 1$ then $\mu(tv)=t\mu(v)$ for $t\in(0,1)$ by (b), so $tv\in U$ and if $t$ approaches one, $tv$ approaches $v$. Hence $v$ is in the closure of $U$.
+\end{proof}
+\begin{lemma}\label{lem:orient-admissableNeighbourhoodsGiveCompactPairs}
+    Let $V$ be a finite dimensional real vector space and let $U\subseteq V$ be open, bounded , convex and non empty. Then $\overline{V}\setminus U$ is compact and homeommorphic to the closure $\overline{U}\subseteq V$. In pasrticular $\overline{V}\setminus U $ is contractible and contains $\infty$.
+\end{lemma}
+\begin{proof}
+    The compactnes dolloes from $U$ being open and $\overline{V}$ being comapct. After a translation we may assume that $U$ is open , bounded convex neighbourhood of the origin and hence we can deffine the Minkowsky gauge with resoect to $U$ and after fixing a norm, we may use all properties from Lemma \ref{lem:orient-MinkowskyGauge} (and denote them with just (a)-(f) ). Now we define
+    \begin{equation*}
+        \iota:\overline{V}\setminus U \to \overline{U}\,,\quad \iota (v)\coloneq \frac{v}{\mu(v)^2}\, (v\neq \infty), \quad \iota(\infty)\coloneq 0. 
+    \end{equation*} The well-definition as a map follows from $\mu(v)\geq 1$ if $v\in V\setminus U$ and thereby $\mu(\iota(v))=\mu(v)\mu(v)^2=\mu(v)^{-1}\leq 1$ which concludes the well definition by (f). The map $w\mapsto w\mu(w)^{-2}$ ($0\mapsto \infty$)is a two sided inverse of $\iota$ which can be seen by computation and realizing that $\iota$ maps $\infty$ to zero {lem:orient-MinkowskyGauge} (c). Finally, continuity of $\iota$ in $V\setminus U$ follows from $\mu$ beeing continuous and in $\infty$ the continuity follows from (c):
+    \begin{equation*}
+        \norm{\iota(v)}=\frac{\norm{v}}{\mu(v)^2} \xrightarrow[\ \norm{v}\to \infty \ ]{} 0\,.
+    \end{equation*} The same argument gives us continuouty of our inverse function. Alternitively we can argue that $\iota$ is a continouos bijection from a compact space to a Hausdorr space and thereby a homeomorphism. Finally, $\overline{U}$ is convex and compact and thereby contractible.
 \end{proof}
 
+\begin{definition}[Admissible Neighbourhoods]
+    Let $V$ be a real finite dimensional vector space. For $x\in V$ let
+    \begin{equation*}
+        \mathcal{U}(x)\coloneq \{U\subset V \,|\, U \text{ open, bounded, convex neighbourhood of }x \},
+    \end{equation*}
+    and for $U\in \mathcal{U}(x)$ put $L(U)\coloneq \overline{V}\setminus U$. By Lemma \ref{lem:orient-admissableNeighbourhoodsGiveCompactPairs} $(\overline{V},L(U))$ is a compact pair with $L(U)$ contractible. Furthermore, $(\overline{V},L(U))$ is an NDR pair. To see this, note that in therms of the gauge $\mu$ of $U$ centered at $x$, the space subspace $L(U)$ consists of the points of "radius" greater than or equal to one, together with $\infty$. A radial push towards $L(U)$, damped across a clolor so as to match the identity on $\{v\in V\,|\, \mu(v)\leq 0.5 \}$ and on $\{\infty\}$, gives the required homotopy. The function $u$ from the definition of an NDR pair is adapted to said damping. Notice, how $\mathcal{U}$ is a directed system with respeect to inclusion.
+\end{definition}
+\begin{definition}[Local K-theoretic orientation] \label{def:orient-localKtheoreticOrientation}
+        For $U\in \mathcal{U}(x)$ we call  $K^{-n}(\overline{V},L(U))$ the local group of $V$ at $x$ of size $U$. A \textbf{local K-theoretic orientation of $V$ at $x$} is a generator of this group.
+\end{definition}
+Next we want to make sure that the naming of said generator is deserved,i.e.\ the generator is induced and detects orientations, and that the size $U$ is irrelevant.
 
-
-
+\begin{lemma}[Comparison of Sizes]\label{lem:orient-comparisonOfSizes}
+Let $U\subseteq U'$ in $\mathcal{U}(x)$. Then $\id_{\overline{V}}$ gives a map of pairs $(\overline{V},L(U'))\to (\overline{V},L(U))$ and the induced map $\lambda_{U'\,U}:K^{-n}(\overline{V},L(U)) \to K^{-n}(\overline{V},L(U'))$ is an isomorphis. Furthermore let $j$ and $j'$ denote the inclusion of the pair $(\overline{V},\emptyset)$ into $(\overline{V},L(U))$ and $(\overline{V},L(U'))$. Then, the triangle 
+\begin{center}
+    \begin{tikzcd}
+        K^{-n}(\overline{V},L(U)) \arrow[rd,swap,"j^*"]\arrow[rr,"\lambda_{U'\,U}"]&&K^{-n}(\overline{V},L(U')) \arrow[ld,"j'^*"]\\
+        &\tilde{K}^{-n}(\overline{V})
+    \end{tikzcd}
+\end{center} commutes, and all maps are isomorphisms and all groups are isomorphic to $\Z$.
+\end{lemma}
+\begin{proof}
+    The commutation follows from the topological commutation of the maps that induce the diagram. The maps $j$ and $j^*$ induce isomorphisms by Lemma \ref{lem:kTheo-collapsingOfContractibleSubspace}, as they are induced by collapsing contractible spaces where contractability follows from Lemma \ref{lem:orient-admissableNeighbourhoodsGiveCompactPairs}. Hence $\lambda_{U'\, U}$ is also an isomorphism. Finally $K^{-\dim(V)}(\overline{V})\cong \Z$ gets a generator as a K-theoretic orientation.
+\end{proof}
+\begin{definition}
+    For $x\in V$ and $U\in \mathcal{U}(x)$ define the isomorphism
+    \begin{equation*}
+        \Theta_{x,U}:\tilde{K}^{-n}(\overline{V}) \to K^{-n}(\overline{V},L(U))
+    \end{equation*} to be the inverse of the map induced by the pair inclusion $(\overline{V},\emptyset)\to (\overline{V},L(U))$.
+\end{definition}
+\begin{proposition}[A K-theoretic Orientation Induces a Local Orientation]
+    Let $\beta$ be a K-theoretic orientation ov $V$, i.e.\ a generator of $\tilde{K}^{-n}(\overline{V})$. Then for every $x\in V$ and every $U\in \mathcal{U}(x)$ the element $\Theta_{x,U}(\beta)$ is a local K-theoretic orientation of $V$ at $X$ and these are compatible: $\lambda_{U'\,U}\Theta_{x,U}(\beta)=\Theta_{x,U'}(\beta)$ for $U'\subseteq U$.  
+\end{proposition}
+\begin{proof}
+    All statements follow from Lemme \ref{lem:orient-comparisonOfSizes}, as $\Theta_x,U$ is an isomorphism and thereby maps generators to generators and the compatibility statement follows from the commutatuve triangle.
+\end{proof}
 
 \begin{definition}[Local K-theoretic Orientation]
 	We start again in the vector space $\R^n$ and define a \textbf{local K-theoretic orientation in }$x\in \R^n$ to be a generator of the group $K^{-n}(\R^n,\R^n\setminus \{x\})\cong \Z$. The isomorphism here is from the long exact sequence.  
