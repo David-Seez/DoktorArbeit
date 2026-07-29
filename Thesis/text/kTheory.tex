@@ -798,6 +798,10 @@ This proof is omitted but is Proposition 5.1.16 in \cite{tomdieck2008algebraic}.
 	\end{equation*} concludes the proof.
 \end{proof}
 
+\begin{proposition}
+	
+\end{proposition}
+
 
 
 \begin{definition}[Lower K-groups] \label{def:kTheo-lowerKGroub}
@@ -1127,7 +1131,17 @@ Where $i$ is the inclusion $\{p\}\to X$ and $c_p$ is the collapse $X\to \{p\}$. 
 		[A,U]\cong \tilde{K}(X)
 	\end{equation*} 
 \end{remark}
-
+\begin{corollary}\label{lem:kTheo-inversesInKGivenByHomotopicallyMethods}
+		Let $Y$ be a pointed space. Define
+		\begin{align*}
+			T:S^1 &\to S^1 \\
+			t     &\mapsto 1-t
+		\end{align*} and let $T\wedge1:SY\to SY$ be the map induced by $T$ on $S^1$ and the identity on $Y$. Then:
+		\begin{align*}
+			(T\wedge1)^*:\tilde{K}(SY)   &\to \tilde{K}(SY)\\
+			y                           &\mapsto -y
+		\end{align*}
+\end{corollary}
 \begin{proof}
 	We have the following commutative diagram: 
 	\begin{center}
@@ -1665,7 +1679,7 @@ By example \ref{ex:kTheo-LineBundlesSatlquadequalslPlusl} we know that for any l
 		\tilde{K}(S^2)=\ker(i_{pt}^*) \cong \ker(\rank)=\mathrm{span}_{\Z}([H]-[\underline{1}])
 	\end{equation*}
 \end{corollary}
-\begin{definition}
+\begin{definition}\label{def:kTheo-BottGenerator}
 	We call the generator $([H]-[\underline{1}])$ that generates $\tilde{K}(S^2)$ the \textbf{Bott generator} denoted by $\bottg$.
 \end{definition}
 
@@ -1685,11 +1699,11 @@ By example \ref{ex:kTheo-LineBundlesSatlquadequalslPlusl} we know that for any l
 	\end{equation*}Naturality follows from $\mu$ being natural, $q^*$ being natural (and thereby its inverse) and $\tilde{\mu}$ being the composition of both of them. Furthermore, for \todo{natürlich im zweiten faktor mit festem ersten} Replacing $X$ with $S^nX$ proves the lower degree.
 \end{proof}
 \begin{definition}
-	The Bott periodicity mapping $\beta_X$ is natural and hence commutes with all maps in the long exact sequence. With this map we can expand the notion inductively via $K^{-n}(X)=K^{-n-2}(X)$. Said differently, we define $K^n(X)$ to be $K(X)$ for even $n$ and $K^{-1}(X)$ for odd $n$. With this we have the exact sequence of six terms  (in the top row we identified $K^0\equiv K^{-2}$ and the vertical map on the left is $\beta \circ \delta$):
+	The Bott periodicity mapping $\bottmap$ is natural and hence commutes with all maps in the long exact sequence. With this map we can expand the notion inductively via $K^{-n}(X)=K^{-n-2}(X)$. Said differently, we define $K^n(X)$ to be $K(X)$ for even $n$ and $K^{-1}(X)$ for odd $n$. With this we have the exact sequence of six terms  (in the top row we identified $K^0\equiv K^{-2}$ and the vertical map on the left is $\beta \circ \delta$):
 	\begin{center}
 		\begin{tikzcd}
 			K^0(X,Y) \arrow[r] & K^0(X) \arrow[r] & K^0(Y)\arrow[d]\\
 			K^1(Y)\arrow[u] & K^1(X) \arrow[l]&K^1(X,Y)\arrow[l]
 		\end{tikzcd}
-	\end{center} We now define the whole long exact sequence to be the one from Theorem \ref{thm:kTheo-longExactSequence} for negative indices and the sequence of six terms above, for positive indices. With this we have gained a cohomology theory over all whole numbers.
+	\end{center} We now define the whole long exact sequence to be the one from Theorem \ref{thm:kTheo-longExactSequence} for negative indices and the sequence of six terms above, for positive indices. With this we have gained a cohomology theory over all whole numbers.\todo{sauberer definieren}
 \end{definition}

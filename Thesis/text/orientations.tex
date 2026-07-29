@@ -20,8 +20,8 @@ The idea of Morse homology is now to find an invariant under manipulations of th
 v_1\wedge \dots \wedge v_{\dim(V)}&\mapsto f(v_1)\wedge \dots \wedge f(v_{\dim(V)})\,.
 	\end{align} Since $\dim(\det(V))=1$, the function $\Lambda^{\dim(V)}(f)$ is given by a scaler multiplication with a nonzero element $\lambda \in \R$. We define the determinant $\det(f)\coloneq \lambda$  to be said scalar. Obviously, if $\det(V)$ is positive, then $f$ is orientation preserving in the sence, that $f$ applied to the ordered basis gives again an ordered basis that is compatible.
 \end{definition}
-\begin{remark}
-	From linear algebra we know, that we can calculate $\det(f)=\det(M^{\mathfrak{b}}_\mathfrak{b}(f))$, where $\mathfrak{b}$ is an ordered basis of $V$. 
+\begin{remark}\label{rem:orient-calculateDeterminatViaMatrixDeterminant}
+	From linear algebra we know, that we can calculate $\det(f)=\det(M^{\mathfrak{b}}_\mathfrak{b}(f))$, where $\mathfrak{b}$ is an ordered basis of $V$. Since the determinant of a matrix commutes with taking products, we have that the determinant is invariant under conjugation of linear endomorphisms.
 \end{remark}
 \begin{definition}[Orientation and Exact Sequences]\todo{FIX}
 A short exact sequence of vector spaces 
@@ -99,6 +99,95 @@ be a short exact sequence of vector spaces and $\mathfrak{a}$ be a basis of $A$,
 \begin{definition}
 	We call a manifold orientable, if its tangent bundle is orientable.
 \end{definition}
+\subsection{Noch Durcharbeiten!!!}
+\begin{definition}[Orientation preserving charts and maps]
+	Let $M$ be an oriented $n$-manifold with orientation given by the nowhere-vanishing
+	section $\omega$ of $\det(TM)$, and let $\varphi:U\to \R^n$ be a chart. We call
+	$\varphi$ \textbf{orientation preserving} if for every $x\in U$ the elements
+	$\omega_x$ and $\omega^\varphi_x$ lie in the same connected component of
+	$\det(T_xM)\setminus\{0\}$, where $\omega^\varphi$ denotes the coordinate frame
+	section $\partial_1\wedge\dots\wedge\partial_n$ of $\varphi$.
+
+	More generally, let $N$ be an oriented $n$-manifold with orientation $\eta$ and
+	let $h:M\to N$ be differentiable at $x$ with $\diff h_x$ invertible. We set
+	\begin{equation*}
+		\sign\det(\diff h_x)\coloneq
+		\begin{cases*}
+			+1 & if $\Lambda^n(\diff h_x)(\omega_x)$ and $\eta_{h(x)}$ lie in the same component of $\det(T_{h(x)}N)\setminus\{0\}$,\\
+			-1 & otherwise.
+		\end{cases*}
+	\end{equation*}
+\end{definition}
+
+\begin{remark}
+	The sign is well defined: replacing $\omega$ by $\lambda\omega$ with $\lambda>0$
+	rescales $\Lambda^n(\diff h_x)(\omega_x)$ by the positive number $\lambda(x)$, and
+	replacing $\eta$ by $\mu\eta$ rescales the comparison element by $\mu(h(x))>0$;
+	neither changes the component. Moreover, reversing \emph{both} orientations
+	replaces $\Lambda^n(\diff h_x)(\omega_x)$ by its negative and $\eta_{h(x)}$ by
+	its negative, so the sign is unchanged. In particular, for $M=N=S^n$ the number
+	$\sign\det(\diff h_x)$ does not depend on which of the two orientations of $S^n$
+	we choose --- only on orientability.
+\end{remark}
+
+\begin{lemma}[Computing the sign in charts]\label{lem:orient-signInCharts}
+	In the situation above let $\varphi$ be an orientation preserving chart around $x$
+	and $\psi$ one around $h(x)$. Then
+	\begin{equation*}
+		\sign\det(\diff h_x)=\sign\det\left(\restr{\diff\left(\psi\circ h\circ \varphi^{-1}\right)}{\varphi(x)}\right)\,,
+	\end{equation*}
+	the right hand side being the determinant of a matrix in $\GL_n(\R)$.
+\end{lemma}
+\begin{proof}
+	Put $A\coloneq \restr{\diff(\psi\circ h\circ\varphi^{-1})}{\varphi(x)}
+	=\diff\psi_{h(x)}\circ \diff h_x\circ (\diff\varphi_x)^{-1}$ and write
+	$e\coloneq e_1\wedge\dots\wedge e_n$. Since $\varphi$ is orientation preserving and
+	$\Lambda^n(\diff\varphi_x)(\omega^\varphi_x)=e$, we have
+	$\Lambda^n(\diff\varphi_x)(\omega_x)=a\cdot e$ with $a>0$, and likewise
+	$\Lambda^n(\diff\psi_{h(x)})(\eta_{h(x)})=b\cdot e$ with $b>0$. Now
+	\begin{equation*}
+		\Lambda^n(\diff\psi_{h(x)})\circ\Lambda^n(\diff h_x)(\omega_x)
+		=\Lambda^n(A)\circ \Lambda^n(\diff\varphi_x)(\omega_x)
+		=a\det(A)\cdot e\,,
+	\end{equation*}
+	while the comparison element is sent to $b\cdot e$. As
+	$\Lambda^n(\diff\psi_{h(x)})$ is an isomorphism it preserves the relation of lying
+	in a common component, so the two agree precisely when $a\det(A)$ and $b$ have the
+	same sign, i.e.\ when $\det(A)>0$.
+\end{proof}
+
+\begin{remark}[Orientation convention]\label{conv:orient-orientationOfTheSphere}
+	Let $n\geq 1$. The bundle $\det(TS^n)$ is trivialisable, and $S^n$ is connected,
+	so by Lemma \ref{lem:morse-OrientationsInAPointInduceOrientationsOfBundle} there
+	are exactly two orientations of $S^n$, each determined by its restriction to a
+	single fibre. We fix the one whose restriction to $\det(T_NS^n)$ is the component
+	containing $\Lambda^n\left(\restr{\diff \pi_S}{N}\right)^{-1}(e_1\wedge\dots\wedge e_n)$,
+	where $\pi_S$ is the stereographic projection from the south pole of Definition
+	\ref{def:orient-fromRelaSpaceToTheSphere} and $N$ is the north pole.
+\end{remark}
+
+\begin{remark}
+	With this choice $\pi_S$ is an orientation preserving chart on all of
+	$S^n\setminus\{S\}$. Indeed, $\omega^{\pi_S}$ and $\restr{\omega}{S^n\setminus\{S\}}$
+	are both nowhere-vanishing sections over the connected space $S^n\setminus\{S\}$,
+	so the sign of their quotient is constant by the argument in the proof of Lemma
+	\ref{lem:morse-OrientationsInAPointInduceOrientationsOfBundle}, and it is positive
+	at $N$ by construction.
+\end{remark}
+
+\begin{lemma}\label{lem:orient-rotationsPreserveOrientation}
+	Every $C\in\SO(n+1)$ acts on $S^n$ as an orientation preserving diffeomorphism,
+	and $\pi_S\circ C$ is an orientation preserving chart on $C^{-1}(S^n\setminus\{S\})$.
+\end{lemma}
+\begin{proof}
+	Choose a path $\gamma:[0,1]\to\SO(n+1)$ with $\gamma(0)=\id$ and $\gamma(1)=C$,
+	which exists since $\SO(n+1)$ is path-connected. Fix $x\in S^n$. The map
+	$t\mapsto \sign\det\left(\restr{\diff \gamma(t)}{x}\right)$ takes values in
+	$\{-1,1\}$ and is continuous, because in charts it is the sign of the determinant
+	of a matrix depending continuously on $t$, which never vanishes. Hence it is
+	constant, and at $t=0$ it equals $+1$. The second claim follows from the chain
+	rule together with Lemma \ref{lem:orient-signInCharts}.
+\end{proof}
 \subsection{K-theoretic Orientation}
 K theoretic orientation relies on bases induced generators of the K group of the sphere. Hence, we want to fix a canonical map from $R^n$ to $S^n$:
 
@@ -140,15 +229,135 @@ K theoretic orientation relies on bases induced generators of the K group of the
 This concludes the calculation of $\pi_S^{-1}\circ \pi_s=\id$ and $\pi_s\circ\pi_S^{-1}=\id$ can be calculated in a similar manner.
 \end{definition}
 
+\begin{lemma}[Open subspaces of compact spaces]\label{lem:orient-quotientIsCompactification}
+	Let $Z$ be a compact Hausdorff space and $U\subseteq Z$ open. Then the map
+	\begin{equation*}
+		Z\big/ (Z\setminus U)\to \overline{U}\,,\quad [z]\mapsto z \text{ for } z\in U\,,\quad [Z\setminus U]\mapsto \infty
+	\end{equation*}
+	is a homeomorphism.
+\end{lemma}
+\begin{proof}
+    The map is the quotient of the function $\phi:Z\to \overline{U}$ that is the identity on $U$ and sends $Z\setminus U$ constant to $\infty$. Hence, we only need to prove continuity for $\phi$. Nor $O\subseteq \overline{U}$ is open, if it is open in $U$, or the complement of a compact set $C\subset U$ in $\overline{U}$. In both cases, $\phi^{-1}(U)$ is open and hence $\phi$ is continuous. Since the quotiont map is now a continuouos bijection from a compact space to a Hausdorff space, it is a homeomorphism.
+\end{proof}
+
+\begin{lemma}[Compactification of a product]\label{lem:orient-compactificationOfProduct}
+	Let $X$ and $Y$ be locally compact Hausdorff spaces, and point $\overline{X}$ and
+	$\overline{Y}$ at their respective points at infinity. Then there is a
+	homeomorphism
+	\begin{equation*}
+		\Xi_{X,Y}:\overline{X\times Y}\xrightarrow{\ \cong\ } \overline{X}\wedge \overline{Y}
+	\end{equation*}
+	which is the identity on $X\times Y$ and sends $\infty$ to the base point.
+	It is natural in the sense that for proper maps $f:X\to X'$ and $g:Y\to Y'$ the
+	square
+	\begin{center}
+		\begin{tikzcd}
+			\overline{X\times Y} \arrow[r, "\Xi_{X,Y}"] \arrow[d, "\overline{f\times g}"'] & \overline{X}\wedge\overline{Y} \arrow[d, "\overline{f}\wedge\overline{g}"] \\
+			\overline{X'\times Y'} \arrow[r, "\Xi_{X',Y'}"']                               & \overline{X'}\wedge\overline{Y'}
+		\end{tikzcd}
+	\end{center}
+	commutes.
+\end{lemma}
+\begin{proof}
+    Let $Z\coloneq \overline{X}\times \overline{Y}$. Then $Z$ is a compact Hausdorfspace that contains $U\coloneq X\times Y$ as an open subset. The complement of $U$ consists of those points where one of the coordinates is infinit and hence
+    \begin{equation*}
+        Z\setminus U\,=\,(\{\infty\}\times \overline{Y})\cup (\overline{X}\times \{\infty\})\,=\, \overline{X}\vee \overline{Y}\,.
+    \end{equation*}Therefore, by definition of the smash product, $Z\big/(S\setminus U)=\overline{X}\wedge \overline{Y}$ and by Lemma \ref{lem:orient-quotientIsCompactification} we can conculde that 
+    \begin{equation*}
+        \overline{X\times Y} \cong (Z\big/ (Z\setminus U)=\overline{X}\wedge \overline{Y}\,.
+    \end{equation*}
+    For the naturality notice that the product of proper maps is propper and hence all maps are continouos. The commmutation then comes done to checking where infinity gets mapped which is always the basepoint of the wedge product.
+\end{proof}
+
+\begin{lemma}[Reflection in one variable]\label{lem:reflection-is-minus-one}
+	Let $R_1:\R\to\R,\ x\mapsto -x$, and let $Z$ be a pointed compact Hausdorff
+	space. Then
+	\begin{equation*}
+		\left(\overline{R_1}\wedge \id_Z\right)^*=-\id \quad\text{ on } \tilde{K}\left(\overline{\R}\wedge Z\right)\,.
+	\end{equation*}
+\end{lemma}
+\begin{proof}
+	Realise $S^1$ as $\R\big/\Z$ with base point $[0]$, so that the map $T$ of
+	Corollary \ref{lem:kTheo-inversesInKGivenByHomotopicallyMethods} is
+	$T([t])=[-t]$. Define
+	\begin{equation*}
+		h:\overline{\R}\to \R\big/\Z\,,\quad h(x)=\left[\tfrac{1}{2}+\tfrac{1}{\pi}\arctan(x)\right]\,,\quad h(\infty)=[0]\,.
+	\end{equation*}
+	Since $x\mapsto \tfrac12+\tfrac1\pi\arctan(x)$ is a strictly increasing bijection
+	onto $(0,1)$, the map $h$ is bijective; it is continuous on $\R$ and also at
+	$\infty$, because $\arctan(x)\to\pm\tfrac{\pi}{2}$ gives $h(x)\to[1]=[0]$ resp.\
+	$h(x)\to[0]$. Being a continuous bijection from a compact space to a Hausdorff
+	space, $h$ is a pointed homeomorphism. It intertwines the two reflections:
+	\begin{equation*}
+		h(-x)=\left[\tfrac12-\tfrac{1}{\pi}\arctan(x)\right]=\left[-\tfrac12-\tfrac{1}{\pi}\arctan(x)\right]=T(h(x))\,,
+	\end{equation*}
+	using $[-\tfrac12]=[\tfrac12]$, and $h(\overline{R_1}(\infty))=[0]=T(h(\infty))$.
+	Hence $h\wedge \id_Z$ is a pointed homeomorphism with
+	\begin{equation*}
+		(h\wedge\id_Z)\circ\left(\overline{R_1}\wedge\id_Z\right)=(T\wedge 1)\circ (h\wedge \id_Z)\,.
+	\end{equation*}
+	Applying $\tilde{K}$ and Corollary
+	\ref{lem:kTheo-inversesInKGivenByHomotopicallyMethods} gives
+	\begin{equation*}
+		\left(\overline{R_1}\wedge\id_Z\right)^*=(h\wedge\id_Z)^*\circ (T\wedge1)^*\circ\left((h\wedge\id_Z)^*\right)^{-1}=-\id\,,
+	\end{equation*}
+	as all maps are ring homomorphisms and thereby commute with multiplicatino by minus one.
+\end{proof}
+
+
+
+
 \begin{definition}[K-theoretic orientations]
      We define a \textbf{K-theoretic orientation} of a finite dimensional real vector space $V$ to be a generator of the group $\tilde{K}^{-m}(\overline{V})$. As a sainity check we can confirm: since $\overline{V}\cong S^m$ we are looking at a generator of a group isomorphic to $\tilde{K}(S^{2m})\cong \Z$, which has two possible generators.
 \end{definition}
-Now $V$ is homeomoprhic to $\R^m$ via the coordinate map $\kappa_v$ that maps each vector to its coordinate representation. With this we can introduce a K-theoretic orientation from an ordered basis via the composition: 
-   \begin{center}
-\begin{tikzcd}
-\tilde{K}^{-m}(S^n) \arrow[r, "(\pi_S^{-1})^*"] & \tilde{K}^{-m}(\overline{\R^m}) \arrow[r, "B_v^*"] & \tilde{K}^{-m}(\overline{V})
-\end{tikzcd}
-   \end{center} Now we can map the bott generator \todo{reference } to a generator in $\tilde{K}^{-m}(\overline{V})$ that depends on the ordered basis. 
+
+
+
+
+
+
+
+
+\begin{proposition}\label{prop:linearyTheDeterminandDertermines}
+    Let $V$ be an $n$-dimensinoal real vector space and $A\in \GL(V)$. Then 
+    \begin{equation*}
+        \overline{A}^*=\sign \det(A)\cdot \id \quad \text{ on }\tilde{K}^{-n}(\overline{V})\,.
+    \end{equation*}
+\end{proposition}
+\begin{proof}
+    Since the determinant of an endomorphism is invariant under conjugation we can choose a basis and assume that $V=\R^n$. The group $\GL_n(\R)$ as exactly two path components, seperated by the sign of the determinant. Hence, there is a contiuous path $A_{\bullet}:[0,1]\to \GL_n(\R)$  with $A_0=A$ and $A_1=\id$ if $\det(A)>0$ and $R$ if $\det(A)<0$ with $R$ being the reflection $(x_1,\dots,x_m)\mapsto (-x_1,x_2\dots,x_m)$. The map 
+    \begin{equation*}
+        H:\R^n\times[0,1]\to \R^n\,,\quad H(v,t)\coloneq A_tv
+    \end{equation*} is a proper homomorphism into a locally compact space: If $K\subseteq \R^n$ is compact and $A_tv\in K$, then by definition of the operatir norm we have that $\norm{v}\leq (\sup_t\norm{A^{-1}_t})\cdot \max_{k\in K}\norm{k}$. Hence $H^{-1}(K)$ is bounded and closed by continuity. Thereby the the extension $\tilde{H}:\overline{V\times I}\to \overline{V}$ is continuous. Let $q:\overline{V}\times I\to \overline{V\times I}$ be the collaps of $\{\infty\}\times I$ to $\infty$. Then we have that $\overline{H}=\tilde{H}\circ q$ and hence $\overline{H}$ is continuous. If $\det(A)>0$, we are done. Let $\overline{R}$ denote the extension of $R$ to the compactifications. What is left to show is that $\overline{R}^*$ is given by multiplication with minus one.
+    For this we write $R=R_1\times \id_{\R^{n-1}}$ where $R_1$ denotes the reflection $x\mapsto -x$ on $\R$. Let $\Xi:\overline{R^n}\to \overline{R}\times \overline{R^{n-1}}$ be the natural homeomorphism from Lemma \ref{lem:orient-compactificationOfProduct}. By the naturality for proper maps we have that
+    \begin{equation*}
+        \Xi\circ (\overline{R})=(\overline{R_1}\wedge \overline{\id_{\R^{n-1}}})\circ \Xi\,.
+    \end{equation*}
+    Now $\tilde{K}^{-n}(\overline{R^n})=\tilde{K}(S^n\wedge \overline{R^n})$ and the map $\overline{R}^*$ is induced by the homeomorphism $\id_{S^n}\wedge \overline{R}$. By Lemma \todo{hier lemma, dass wedge kommutative für compakte räume} we have associativity and commutativity in the wedge product letting us define a reordering 
+    \begin{equation*} 
+        \mathcal{O}:
+         S^n\wedge \overline{R^n}
+         = S^n\wedge \overline{\R\times \R^{n-1}}
+         =S^n\wedge \overline{\R}\wedge \overline{\R^{n-1}} 
+         \to 
+         \overline{\R}\wedge \underbrace{\big(S^n\wedge \overline{\R^{n-1}}\big)}_{\coloneq Z} 
+    \end{equation*} Such that 
+    \begin{align*}
+        \mathcal{O}\circ (\id_{S^n}\wedge \Xi)(\overline{R})
+        &=\mathcal{O}\circ (\id_{S^n}\wedge (\overline{R_1}\wedge \overline{\id_{\R^{n-1}}})\circ \Xi)\\
+        &=\mathcal{O}\circ (\id_{S^n}\wedge (\overline{R_1}\wedge \overline{\id_{\R^{n-1}}})) \circ (\id_{S^n}\wedge \Xi) \\
+        &=(\overline{R_1}\wedge \id_{S^n}\wedge \overline{\id_{\R^{n-1}}}) \circ \mathcal{O}\circ (\id_{S^n}\wedge \Xi) \\
+        &=(\overline{R_1}\wedge \id_Z) \circ \mathcal{O}\circ (\id_{S^n}\wedge \Xi) 
+    \end{align*}
+    Finally, we define $\Theta\coloneq   \mathcal{O}\circ (\id_{S^n}\wedge \Xi)$ then we can apply Corollary \ref{lem:kTheo-inversesInKGivenByHomotopicallyMethods} to deduce:
+    \begin{equation*}
+        \overline{R}^*=\Theta^*\circ \underbrace{(\overline{R_1}\wedge \id_Z)}_{=-\id }\circ (\Theta^{-1})^*=-\id\,.
+    \end{equation*}
+\end{proof}
+
+
+\begin{comment}
+
 \begin{remark} \label{rem:orient-OrientationsInducesKOrientation}
 An orientation of $V$ induces a K-theoretic orientation.
 \end{remark}
@@ -156,7 +365,7 @@ An orientation of $V$ induces a K-theoretic orientation.
 Let $v$ and $v'$ be two equivalent orientations over $V$. Then $M^v_{v'}\simeq \id_V$, since $\GL_{\R}(V)$ has exactly two connected components seperated by the sign of the determinant. (This is a standart theorem for the isomorphic $\GL_m(\R)$). Let $H$ be a homotopy from $M^v_{v'}\simeq \id_V$ given by a continouos path $A:I\to \GL(V)$ with $A(0)=\id$ and $A(1)=M^v_{v'}$.I.e.\ $H:V\times I \to V$ is of the form $H(x,t)=A(t)(x)$. Now extend this homotopy to the following:
 \begin{equation*}
 	\overline{H}:\overline{V}\times I \to \overline{V}\,,\quad (\infty,t)\mapsto \infty\,.
-\end{equation*} Now $H$ is a proper homomorphism into a locally compact space and hence the extension $\tilde{H}:\overleftarrow{V\times I}\to \overline{V}$ is continuous. Let $q:\overline{V}\times I\to \overline{V\times I}$ be the collaps of $\{\infty\}\times I$ to $\infty$. Then we have that $\overline{H}=\tilde{H}\circ q$ and hence $\overline{H}$ is continuous. Now let $\kappa_v$ be the coordinate map $V \to \R^m$ that maps each vector to its coordinate representation. Then we have the up to homotopy commutative diagram:
+\end{equation*} Now $H$ is a proper homomorphism into a locally compact space and hence the extension $\tilde{H}:\overline{V\times I}\to \overline{V}$ is continuous. Let $q:\overline{V}\times I\to \overline{V\times I}$ be the collaps of $\{\infty\}\times I$ to $\infty$. Then we have that $\overline{H}=\tilde{H}\circ q$ and hence $\overline{H}$ is continuous. Now let $\kappa_v$ be the coordinate map $V \to \R^m$ that maps each vector to its coordinate representation. Then we have the up to homotopy commutative diagram:
 \begin{center}
 \begin{tikzcd}
 \overline{V} \arrow[r, "\id"] \arrow[d, "\kappa_v"']                                  & \overline{V} \arrow[d, "\kappa_{v'}"] \\
@@ -172,7 +381,13 @@ Hence, the diagram commutes,
 \end{center}
 Thereby the induced generators agree.
 \end{proof}
-\begin{lemma}[K-Theoretic Orientations Detect Orientations]
+
+
+
+
+
+
+\begin{lemma}[K-Theoretic Orientations Detect Orientations]\label{lem:orient-kTheoreticOrientationDetecsOrientation}
     Assume, that $v'$ and $v$ are non-equivalent orientations. Hence, $\det(M^v_{v'})<0$. Then they induce different generators.
 \end{lemma}
 \begin{proof}
@@ -225,8 +440,20 @@ Finally, we can compare the induced generators: for this we denote $\beta_v\colo
     =\beta_v
 \end{align*}
 \end{proof}
+\end{comment}
 
-
+\begin{corollary}\label{cor:orient-vectorspaceOrientationInducesKtheoreticOrientation}
+Any finite dimensional real vector space $V$ is homeomoprhic to $\R^m$ via the coordinate map $\kappa_v$ that maps each vector to its coordinate representation. With this we can introduce a K-theoretic orientation from an ordered basis via the composition: 
+   \begin{center}
+\begin{tikzcd}
+\tilde{K}^{-n}(S^n) \arrow[r, "(\pi_S^{-1})^*"] & \tilde{K}^{-n}(\overline{\R^n}) \arrow[r, "B_v^*"] & \tilde{K}^{-n}(\overline{V})
+\end{tikzcd}
+   \end{center} With this we can map the bott generator $\beta$ from Definition \ref{def:kTheo-BottGenerator} to a generator of $\tilde{K}^{-n}(\overline{V})$ and hence induce a K-Theoretic orientation. This orientation only depends on the orientation of $V$ and two different orientations induce different K-theoretic orientations
+\end{corollary}
+\begin{proof}
+    The statement follows imidiatly from Proposition \ref{prop:linearyTheDeterminandDertermines}.
+\end{proof}
+\subsection{Local K-Theoric Orientation}
 
 \begin{lemma}[Minkowsky Gauge]\label{lem:orient-MinkowskyGauge}
     Let $V$ be a finite dimensional real vector space with a norm $\norm{\cdot}$ and let $U\subseteq V$ be open, bounded, convex and contain the origin of $V$. Choose $\epsilon,r>0$ such that
@@ -310,22 +537,102 @@ Let $U\subseteq U'$ in $\mathcal{U}(x)$. Then $\id_{\overline{V}}$ gives a map o
     Let $\beta$ be a K-theoretic orientation ov $V$, i.e.\ a generator of $\tilde{K}^{-n}(\overline{V})$. Then for every $x\in V$ and every $U\in \mathcal{U}(x)$ the element $\Theta_{x,U}(\beta)$ is a local K-theoretic orientation of $V$ at $X$ and these are compatible: $\lambda_{U'\,U}\Theta_{x,U}(\beta)=\Theta_{x,U'}(\beta)$ for $U'\subseteq U$.  
 \end{proposition}
 \begin{proof}
-    All statements follow from Lemme \ref{lem:orient-comparisonOfSizes}, as $\Theta_x,U$ is an isomorphism and thereby maps generators to generators and the compatibility statement follows from the commutatuve triangle.
+    All statements follow from Lemme \ref{lem:orient-comparisonOfSizes}, as $\Theta_{x,U}$ is an isomorphism and thereby maps generators to generators and the compatibility statement follows from the commutatuve triangle.
+\end{proof}
+\begin{corollary}
+    An orientation of $V$ (i.e.\ an equivalence class of ordered bases) induce via Corollary \ref{cor:orient-vectorspaceOrientationInducesKtheoreticOrientation} a K-theoretic orientation which in turn induces a local K-Theoretic orientation at every $x\in V$.
+\end{corollary}
+
+\begin{proposition}[Naturality]\label{prop:orient-localKOrientationIsNatural}
+    Let $A:V\to W$ be an isomorphism of $n$-dimenisonal real vector spaces, $x\in V$ and $U\in \mathcal{U}(x)$. Then $A(U)\in \mathcal{U}(Ax)$, the extension $\overline{A}:\overline{V} \to \overline{W}$ is a homeomorphism with $\overline{A}(LU)=L(AU)$, and the square
+    \begin{center}
+       \begin{tikzcd}
+           \tilde{K}^{-n}(\overline{W})  \arrow[r,"\overline{A}^*"]   \arrow[d,"\Theta_{Ax,AU}"] 
+         & \tilde{K}^{-n}(\overline{V})  \arrow[d,"\Theta_{x,U}"]                                \\
+           K^{-n}(\overline{W},L(AU))    \arrow[r,"\overline{A}^*"]
+         & K^{-n}(\overline{V},L(U))
+       \end{tikzcd}
+    \end{center} commutes. The same holds for affine isomorphisms.
+\end{proposition}
+\begin{proof}
+    A linear isomorphism carries open bounded convex sets to open bounded convex sets, so $A(U)\in \mathcal{U}(AX)$. $A$ is proper, so $\overline{A}$ is a homeomorphism that maps $L(U)$ onto $L(AU)$. If we replace the maps $\Theta$ with the inverses, the corresponding wquare commutes, as its inducing topological square commutes, and thereby our square also commutes.
 \end{proof}
 
-\begin{definition}[Local K-theoretic Orientation]
-	We start again in the vector space $\R^n$ and define a \textbf{local K-theoretic orientation in }$x\in \R^n$ to be a generator of the group $K^{-n}(\R^n,\R^n\setminus \{x\})\cong \Z$. The isomorphism here is from the long exact sequence.  
-\end{definition}
-\todo{local equiv global}
-\todo{jacobean sign calculates local orientation}
-\begin{lemma}[test1]\label{lem: single regular preimage}
-  Let $\xi\colon S^n\to S^n$ be continuous and suppose there are $y,z\in S^n$ with
-  $\xi^{-1}(z)=\{y\}$ such that $\xi$ is smooth near $y$ and $\diff\xi_y$ is invertible.
-  Fix an orientation of $S^n$ and compute $\det(\diff\xi_y)$ in oriented charts. Then
-  \[
-    \xi\simeq\id_{S^n}\ \text{ if }\ \det(\diff\xi_y)>0,\qquad
-    \xi\simeq\rho\ \text{ if }\ \det(\diff\xi_y)<0,
-  \]
-  where $\rho$ is a reflection. In particular $\xi^*=\sign\det(\diff\xi_y)\cdot\id$
-  on $\widetilde K^n(S^n)$.
+\begin{corollary}
+    For $A\in \GL(V)$, $x\in V$ and $U\in \mathcal{U}(x)$ the induced map $\overline{A}^*:K^{-n}(\overline{V},L(AU))\to K^{-n}(\overline{V},L(Q))$ equals $\sign \det(A)$ after the canonical identification $\Theta_{x,U}\circ \Theta_{Ax,AU}^{-1}$.
+\end{corollary}
+\begin{proof}
+    This follows directly from Propositions \ref{prop:linearyTheDeterminandDertermines} and \ref{prop:orient-localKOrientationIsNatural}.
+\end{proof}
+\subsection{Orientations Calculated by a Jacobean Sign}
+We now write $B_r \coloneq \{v\in \R^n\,|\, \norm{v}<r\}$ and $D_r\coloneq \overline{B_r}$ for the euclidean balls around $0$, and $L_r\coloneq \overline{R^n}\setminus B_r=L(B_r)$.
+\begin{lemma}[Linearisation] \label{lem:orient-Linearisation}
+Let $\Omega\subseteq \R^n$ be open with $0\in \Omega$ and let $0\in \Omega$ and let $g:\Omega \to \R^n$ be $C^1$ with 
+\begin{equation*}
+    g(0)=0\,,\quad g(w)\neq 0 \text{ for }w\in \omega\setminus \{0\}\,,\quad A\coloneq \diff g_0 \in \GL_n(\R)\,.
+\end{equation*} Choose $\delta>0$ with $D_\delta\in \Omega$ and let $\rho\in(0,\delta)$. Then there are $c>0$ and $R>c$ such that both $\restr{g}{D_{\delta}}$ and $\restr{A}{D_{\delta}}$ are maps of pairs
+\begin{equation*}
+    (D_{\delta},D_{\delta}\setminus B_\rho) \to (D_R,D_r\setminus B_c)
+\end{equation*} are homotopic as such. In particular $(\restr{g}{D_{\delta}})^*=(\restr{A}{D_{\delta}})^*$ on $K^{-n}(D_R,D_R\setminus B_c)$. Moreover c may be taken arbitrarily small and $R$ arbitrarily large.
 \end{lemma}
+\begin{proof}
+First we define the map 
+    \begin{equation*}
+        M:D_\delta \to \Mat_n(\R)\,,\quad M(w)\coloneq \int_0^1\restr{\diff g}{s\cdot w}\diff s\,.
+    \end{equation*} Then $M$ is continuous, $M(0)=A$ and 
+    \begin{equation*}
+        g(w)=g(w)-g(0)=\int_0^1 \frac{\diff}{\diff s}(g(s\cdot w))\diff s=M(w)w
+    \end{equation*} With this we define the mapping
+    \begin{equation*}
+        H:D_\delta \times [0,1] \to \R^n\,,\quad H(v,t)\coloneq M(tv)v\,,
+    \end{equation*}which is continuous, whith $H(\cdot,1)=\restr{g}{D_\delta}$ and $H(\cdot,0)=\restr{A}{D_\delta}$. For $v\neq 0$ and $t\in (0,1]$ we can calculate
+    \begin{equation*}
+        H(v,t)=\frac{M(tv)(tv)}{t}=\frac{g(tv)}{t}\neq 0
+    \end{equation*} because $g$ only vanishes at the origin. At $t=0$ we have $H(v,0)=Av\neq 0$. Hence, the set $\{H(v,t)\,|\, \rho\leq \norm{v}\leq \delta,\, t\in [0,1]\}$ is compact and does not contain $0$. Thereby the number
+    \begin{equation*}
+        c_0\coloneq \min\{\norm{H(v,t)}\,|\, \rho\leq \norm{v}\leq \delta,\, t\in [0,1]\}
+    \end{equation*} is greater then zero. Now let $c\in (0,c_0]$. Since $H(D_\delta\times [0,1])$ is bounded we may choose $R$ big enough such that $H(D_\delta\times [0,1]) \subseteq B_R$.
+    With those constants we can conclude that $H(v,t)\in D_R$ for all $(v,t)$ and if $\norm{v}\geq \rho$ we have $\norm{H(v,t)}\geq c_0\geq c$ meaning that $H(v,t)\in D_r\setminus B_c$. Thereby we have our homotopy of pairs. 
+\end{proof}
+\begin{proposition}[Local Index]
+    Let $n\geq 1$ and let $\Psi:\overline{\R^n} \to \overline{\R^n}$ be continuous with
+    \begin{enumerate}
+        \item $\Psi^{-1}(o)=\{0\}$.
+        \item There is an open $\Omega\subseteq \R^n$ with $0\in \Omega$, $\Psi(\Omega)\in \R^n$ and $\restr{\Psi}{\Omega}$ is of class $C^1$.
+        \item $A\coloneq \diff(\restr{\Psi}{\omega})_0$ is invertible.
+        \end{enumerate} Then 
+        \begin{equation*}
+            \Psi^*=\sign \det(A) \cdot \id\,,\quad \text{on }\tilde{K}^{-n}(\overline{\R^n})\,.
+        \end{equation*}
+\end{proposition}
+\begin{proof}
+    Choose $\delta>0$ such that $D_\delta\subseteq \Omega$ and fix $\rho \in (0,\delta)$. Choose $c,R$ as in Lemma \ref{lem:orient-Linearisation} applied to $\restr{g}{\omega}$ and assume $c$ to be small enough such that 
+    \begin{equation}
+        \Psi(\overline{R^n}\setminus B_\rho) \cap B_c=\emptyset\,,
+    \end{equation} which is possible, as the left side of the intersection doesn't contain the origin and is closed.  Hence, there exist a small ball arround the origin that isn't contained. Furthermore, define $\sigma\coloneq \min\{\norm{Au}\,|\, \norm{u}=1\}>0$. Now assume $c\leq \sigma\cdot \rho$. Then we get two maps of pairs 
+    \begin{align*}
+        \Psi: &(\overline{R^n},L_\rho)\to (\overline{R^n},L_c)\\
+        \overline{A}: &(\overline{R^n},L_\rho)\to (\overline{R^n},L_c)
+    \end{align*}For the well definition of the second map assume $\norm{v}\geq \rho$. Then: 
+    \begin{equation*}
+        \norm{Av}\geq \sigma \norm{v} \geq \sigma \rho \geq c \,.
+    \end{equation*}
+    Now we apply Lemma \ref{lem:orient-admissableNeighbourhoodsGiveCompactPairs} to get the two isomorphisms induced by inclusions:
+    \begin{equation*}
+        j_\rho^*:K^{-n}(\overline{\R^n},L_\rho)\to K^{-n}(D_\delta,D_\delta\setminus B_\rho)\,,\quad 
+        j_c^*:K^{-n}(\overline{\R^n},L_c)\to K^{-n}(D_\delta,D_\delta\setminus B_c)\,.
+    \end{equation*}
+    Because $\Psi(D_\delta)\subseteq B_R$ and $\overline{A}(D_\delta)\subseteq B_R$ (by choice of $R$) we get the commuting square
+    \begin{center}
+        \begin{tikzcd}
+            K^{-n}(\overline{R^n},L_c)\arrow[r,"F^*"] \arrow[d,"j_c^*"]&K^{-n}(\overline{R^n},L_\rho)\arrow[d,"j_\rho^*"]\\
+            K^{-n}(D_R,D_R\setminus B_c)\arrow[r,"\restr{F}{D_\delta}^*"]&K^{-n}(D_\delta,D_\delta\setminus B_\rho)
+        \end{tikzcd}
+    \end{center}for both $F=\Psi$ and $F=\overline{A}$. (Commutativity follows from the commutativity of the topological square that induces). Now we can apply Lemma \ref{lem:orient-Linearisation} to deduce that both maps in the bottom row agree. As the vertical maps are isomorphisms we can deduce, that also the top two maps agree, namely $\Psi^*=\overline{A}^*$. Finally by lemma \ref{lem:orient-quotientIsCompactification} we now that $L_\rho $ and $\L_c$ are contractible and contain $\infty$. Hence the collaps $c_i: \overline{R^n}\to \overline{\R^n}\big/L_i$ for $i=\rho,c$  induces isomorphism that become the vertical maps in the commutative square:
+    \begin{center}
+         \begin{tikzcd}
+            K^{-n}(\overline{R^n},L_c)\arrow[r,"F^*"] \arrow[d,"c_c^*"]&K^{-n}(\overline{R^n},L_\rho)\arrow[d,"c_\rho^*"]\\
+            \tilde{K}^{-n}(\overline{R^n})\arrow[r,"F^*"]&\tilde{K}^{-n}(\overline{R^n})
+        \end{tikzcd}
+    \end{center} Again for $F=\Psi$ and $F=\overline{A}$. Hence, again we can conclude that $\Psi^*=\overline{A}^*$ now as maps in $\tilde{K}^{-n}(\overline{\R^n})$, where Proposition \ref{prop:linearyTheDeterminandDertermines} tells us that $\overline{A}^*=\sign \det(A)\cdot \id$.
+\end{proof}
