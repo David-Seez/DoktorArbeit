@@ -2,13 +2,14 @@
 The idea of Morse homology is now to find an invariant under manipulations of the Morse--Smale function. Obviously neither the number of critical points nor the number of flow lines stays invariant. However certain linear combinations stay invariant, when one establishes a sophisticated way to count flow lines. For this count we want to introduce signs to the flow lines between critical points with index one apart where the signs rely on orientations of over the flow lines.
 \subsection{Oriented Vector Spaces and Bundles}
 
-\begin{definition}[Morse-Smale]
-	A Morse function $f:M\to \R$ such that all stable and unstable manifolds intersect transversally is called a \textbf{Morse-Smale} function. 
-\end{definition}
+
 
 
 \begin{definition}[Orientation]
 	Let $V$ be a finite dimensional $\R$ vector space and $\det(V)\coloneq \Lambda^{\dim(V)}$ the maximal exterior algebra (or Grassmann algebra). By the principle of permanence we define $\Lambda^0(V)=\R$. An orientation of $V$ is a choice of one of the two connected components of $\det(V)\setminus \{0\}$.
+\end{definition}
+\begin{definition}[Convention]
+    If we use $\R^n$ as an oriented vector space we fix $e\coloneq e_1\wedge \cdots \wedge e_n$ to induce the orientation.
 \end{definition}
 \begin{remark}
 	Classically, an orientation of a vector space $V$ of dimension $m$ is given by an ordered basis $\mathfrak{b}=(b_1,\dots b_m)$ of $V$ and hence the product $b_1\wedge \dots \wedge b_m$ is an element of the maximal exterior product $\det(V)=\Lambda^mV$. Two ordered bases define different elements in $\det(V)$ and their difference is given by the determinant of the base change matrix. (This is just a calculation using multilinearity and the alternating property). Hence a choice of equivalence class of bases modulo base change matrix of positive determinant is the same as a choice of one connected component of $\det(V)\setminus \{0\}$.
@@ -51,9 +52,9 @@ be a short exact sequence of vector spaces and $\mathfrak{a}$ be a basis of $A$,
 	0&Q
 \end{pmatrix}$, where $*$ depends on the chosen lift. Hence the corresponding elements in $\det(B)$ differ by the product $\det(P)\det(Q)$. 
 \end{remark}
-\begin{lemma}
+\begin{definition}
 	For a rank $r$ vector bundle $E\to X$ we set $\det(E)\coloneq \Lambda^r(E)$. An orientation is an equivalence class of a non-vanishing section into the determinant bundle, where two sections are equivalent if they differ by multiplication of a positive scalar valued function. $E$ is orientable if such a section exists, i.e. if $\det(E)$ is trivial. An orientation of a bundle restricts to an orientation in each fibre.
-\end{lemma}
+\end{definition}
 
 \begin{lemma}\label{lem:morse-OrientationsInAPointInduceOrientationsOfBundle}
 	Let $E\to X$ be an orientable vector bundle and $X$ be connected. For each $x\in X$ we get the bijection induced from the restriction to the fibre:
@@ -97,97 +98,68 @@ be a short exact sequence of vector spaces and $\mathfrak{a}$ be a basis of $A$,
     (resp.\ smooth). By this, two non-vanishing sections get mapped to a non-vanishing section and hence, orientations on $E'$ and $E''$ which are represented by sections give a orientation over $E$. 
 \end{proof}
 \begin{definition}
-	We call a manifold orientable, if its tangent bundle is orientable.
-\end{definition}
-\subsection{Noch Durcharbeiten!!!}
-\begin{definition}[Orientation preserving charts and maps]
-	Let $M$ be an oriented $n$-manifold with orientation given by the nowhere-vanishing
-	section $\omega$ of $\det(TM)$, and let $\varphi:U\to \R^n$ be a chart. We call
-	$\varphi$ \textbf{orientation preserving} if for every $x\in U$ the elements
-	$\omega_x$ and $\omega^\varphi_x$ lie in the same connected component of
-	$\det(T_xM)\setminus\{0\}$, where $\omega^\varphi$ denotes the coordinate frame
-	section $\partial_1\wedge\dots\wedge\partial_n$ of $\varphi$.
-
-	More generally, let $N$ be an oriented $n$-manifold with orientation $\eta$ and
-	let $h:M\to N$ be differentiable at $x$ with $\diff h_x$ invertible. We set
-	\begin{equation*}
-		\sign\det(\diff h_x)\coloneq
-		\begin{cases*}
-			+1 & if $\Lambda^n(\diff h_x)(\omega_x)$ and $\eta_{h(x)}$ lie in the same component of $\det(T_{h(x)}N)\setminus\{0\}$,\\
-			-1 & otherwise.
-		\end{cases*}
-	\end{equation*}
+	We call a manifold orientable, if its tangent bundle is \textbf{orientable}. We call a touple $(M,[\omega])$ where $[omega]$ denotes an orientation of $TM$ an \textbf{oriented manifold}. We will often omitt the orientation and just call $M$ oriented.
 \end{definition}
 
+\begin{definition}[Orientation Preserving Charts and Maps]
+Let $(M,[\omega])$ be an oriented $n$-dimensional manifold and let $\phi:U\to \R^n$ be a chart. We call $\phi$ \textbf{orientation preserving} if for every $x\in U$ $\partial_1(x)\wedge\cdots \wedge \partial_n(x)$ and $\omega(x)$ lie in the same connected component of $\det(T_xM)\setminus\{0\}$. More generalyly, let $(N,[\eta])$ be another oriented $n$-dimensional manifold and let $h:M\to N$ be differentiable at $x$ with $\diff h_x$ invertible. We define 
+\begin{equation*}
+    \sign \det(\diff h _x)\coloneq \begin{cases*}
+        +1& if $\Lambda^n(\diff h_x)(\omega (x))$ and $\eta (x)$ induce the same orientation in $T_h(x)N$\\
+        -1& otherwise.
+    \end{cases*}
+\end{equation*}
+\end{definition}
 \begin{remark}
-	The sign is well defined: replacing $\omega$ by $\lambda\omega$ with $\lambda>0$
-	rescales $\Lambda^n(\diff h_x)(\omega_x)$ by the positive number $\lambda(x)$, and
-	replacing $\eta$ by $\mu\eta$ rescales the comparison element by $\mu(h(x))>0$;
-	neither changes the component. Moreover, reversing \emph{both} orientations
-	replaces $\Lambda^n(\diff h_x)(\omega_x)$ by its negative and $\eta_{h(x)}$ by
-	its negative, so the sign is unchanged. In particular, for $M=N=S^n$ the number
-	$\sign\det(\diff h_x)$ does not depend on which of the two orientations of $S^n$
-	we choose --- only on orientability.
+    One easyly checks that $  \sign \det(\diff h _x)$ is well-defined and reversing both orientations doesn't affect the sign. In particular, for $N=M$ the number $  \sign \det(\diff h _x)$ does not depend on the choosen orientation. 
 \end{remark}
-
-\begin{lemma}[Computing the sign in charts]\label{lem:orient-signInCharts}
-	In the situation above let $\varphi$ be an orientation preserving chart around $x$
-	and $\psi$ one around $h(x)$. Then
-	\begin{equation*}
-		\sign\det(\diff h_x)=\sign\det\left(\restr{\diff\left(\psi\circ h\circ \varphi^{-1}\right)}{\varphi(x)}\right)\,,
-	\end{equation*}
-	the right hand side being the determinant of a matrix in $\GL_n(\R)$.
+\begin{lemma}[Computing the Sign in Charts]\label{lem:orient-computingSignInCharts}
+    Let $(M,[\omega])$ and $(N,[\eta])$ be orinted $n$-dimensional manifolds and $\phi$ be an orinetation preserving chart arround $x$ in $M$ and $\psi$ one arround $h(x)$. Then
+    \begin{equation*}
+        \sign\det(\diff h_x)=\sign \det \left(\restr{\diff\left(\psi\circ h\circ \phi^{-1}\right)}{\phi(x)}\right)\,,
+    \end{equation*} wherre the right hand side calculates the sign of the determinant of a matrix.
 \end{lemma}
 \begin{proof}
-	Put $A\coloneq \restr{\diff(\psi\circ h\circ\varphi^{-1})}{\varphi(x)}
-	=\diff\psi_{h(x)}\circ \diff h_x\circ (\diff\varphi_x)^{-1}$ and write
-	$e\coloneq e_1\wedge\dots\wedge e_n$. Since $\varphi$ is orientation preserving and
-	$\Lambda^n(\diff\varphi_x)(\omega^\varphi_x)=e$, we have
-	$\Lambda^n(\diff\varphi_x)(\omega_x)=a\cdot e$ with $a>0$, and likewise
-	$\Lambda^n(\diff\psi_{h(x)})(\eta_{h(x)})=b\cdot e$ with $b>0$. Now
-	\begin{equation*}
-		\Lambda^n(\diff\psi_{h(x)})\circ\Lambda^n(\diff h_x)(\omega_x)
-		=\Lambda^n(A)\circ \Lambda^n(\diff\varphi_x)(\omega_x)
-		=a\det(A)\cdot e\,,
-	\end{equation*}
-	while the comparison element is sent to $b\cdot e$. As
-	$\Lambda^n(\diff\psi_{h(x)})$ is an isomorphism it preserves the relation of lying
-	in a common component, so the two agree precisely when $a\det(A)$ and $b$ have the
-	same sign, i.e.\ when $\det(A)>0$.
+    Define $A\coloneq \restr{\diff\left(\psi\circ h\circ \phi^{-1}\right)}{\phi(x)}=\restr{\diff \psi}{h(x)}\circ \restr{\diff h}{x}\circ (\restr{\diff \phi}{x})^{-1}$ and denote the standart orientation of $\R^n$ by $e$. Since $\phi$ is orientation preserving and $\Lambda^n(\restr{\diff \phi}{x})(\partial_1(x)\wedge\cdots\wedge\partial_n(x))=e$, we have by linearity $\Lambda^n(\restr{\diff \phi}{x})(\omega(x))=a\cdot e$ where $a>0$. Similar $\Lambda^n(\restr{\diff \psi}{h(x)})(\eta(h(x)))=b\cdot e$ with $b>0$. Hence
+    \begin{equation*}
+        \Lambda^n\left(\restr{\diff \psi}{h(x)}\right)\circ \Lambda^n\left(\restr{\diff h}{x}\right)(\omega(x))
+        =\Lambda^n(A)\circ \underbrace{\Lambda^n\left(\restr{\diff \phi}{x}\right)(\omega(x))}_{=a\cdot e}=a \det(A)\cdot e
+    \end{equation*} Now by definition we need to check if $\Lambda^n(\diff h_x)(\omega (x))=c\cdot \eta (x)$ for $c>0$, which is equivalent to 
+    \begin{equation*}
+       \underbrace{ \Lambda^n\left(\restr{\diff \psi}{h(x)}\right)\circ \Lambda^n\left(\restr{\diff h}{x}\right)(\omega(x))}_{=a \det(A)\cdot e}=c\cdot \underbrace{\Lambda^n\left(\restr{\diff \psi}{h(x)}\right)(\eta (x))}_{=b\cdot e}\,.
+    \end{equation*} which is given if and only if $\det(A)>0$.
 \end{proof}
+\begin{corollary}\label{cor:orient-existsOrientationPreservingAtlas}
+    A smooth manifold $M$ of dimension $n$ is orientable, if and only it has an atlas such that the determinants of the Jacobians of the transition functions are positive.
+\end{corollary}
+\begin{proof}
+   Let $[\omega]$ be an orientation on $M$ and let $U_\alpha$ be an open cover of $M$ with all $U_\alpha$ connected and the charts $\phi_\alpha:U_\alpha\to \R^n$. Let  $\partial_1^\alpha\wedge \cdots \wedge\partial_n^\alpha$ be the induced local section into the determinant bundle. Then 
+   \begin{equation*}
+   \restr{\omega}{U_\alpha}=g_\alpha \partial_1^\alpha\wedge \cdots \wedge\partial_n^\alpha
+   \end{equation*} whith $g_\alpha$ non vanishing and $U_\alpha$ connected. If $g_\alpha$ is negative, replace $\phi_\alpha$ with $\tilde{\phi_\alpha}(x)=(-(\phi_\alpha(x))_1,\dots,\phi_\alpha(x)_n)$, which changes the sign og $g_\alpha$. Doing this in all charts gives a orientaion preserving atlas. Hence, by defininition $\sign \det(\restr{\diff \id_M}{x})=1$ and by Lemma \ref{lem:orient-computingSignInCharts} we can calculate $\sign \det(\restr{\diff \id_M}{x})$ in this atlass by the determinants of the Jacobians of the transition functions. Hence those determinants are positive.
 
-\begin{remark}[Orientation convention]\label{conv:orient-orientationOfTheSphere}
-	Let $n\geq 1$. The bundle $\det(TS^n)$ is trivialisable, and $S^n$ is connected,
-	so by Lemma \ref{lem:morse-OrientationsInAPointInduceOrientationsOfBundle} there
-	are exactly two orientations of $S^n$, each determined by its restriction to a
-	single fibre. We fix the one whose restriction to $\det(T_NS^n)$ is the component
-	containing $\Lambda^n\left(\restr{\diff \pi_S}{N}\right)^{-1}(e_1\wedge\dots\wedge e_n)$,
-	where $\pi_S$ is the stereographic projection from the south pole of Definition
-	\ref{def:orient-fromRelaSpaceToTheSphere} and $N$ is the north pole.
-\end{remark}
+ Fot the other direction we want to glue together the local sections $\partial_1^\alpha\wedge \cdots \wedge\partial_n^\alpha$ using a smooth partition of unity subordinate to the open cover $\{U_i\}$. This yealds something non-vanishing, as all local section are pointwise positive multiples of each other where they intersect. 
+\end{proof}
+\begin{corollary} \label{cor:orient-transitionFunctionPositiveDeterminantAlsoOrientationPreserving}
+    The proof of Corollary \ref{cor:orient-existsOrientationPreservingAtlas} also shows that if one chart is orientation preserving, then also another chart that intersects with the first and has positive determinant of the Javobian of the transition function.
+\end{corollary}
 
-\begin{remark}
-	With this choice $\pi_S$ is an orientation preserving chart on all of
-	$S^n\setminus\{S\}$. Indeed, $\omega^{\pi_S}$ and $\restr{\omega}{S^n\setminus\{S\}}$
-	are both nowhere-vanishing sections over the connected space $S^n\setminus\{S\}$,
-	so the sign of their quotient is constant by the argument in the proof of Lemma
-	\ref{lem:morse-OrientationsInAPointInduceOrientationsOfBundle}, and it is positive
-	at $N$ by construction.
-\end{remark}
-
-\begin{lemma}\label{lem:orient-rotationsPreserveOrientation}
-	Every $C\in\SO(n+1)$ acts on $S^n$ as an orientation preserving diffeomorphism,
-	and $\pi_S\circ C$ is an orientation preserving chart on $C^{-1}(S^n\setminus\{S\})$.
+\begin{lemma}
+    Let $M$ be a smooth manifold that can be covered with two charts such that their intersection is connected. Then $M$ is orientable.
 \end{lemma}
 \begin{proof}
-	Choose a path $\gamma:[0,1]\to\SO(n+1)$ with $\gamma(0)=\id$ and $\gamma(1)=C$,
-	which exists since $\SO(n+1)$ is path-connected. Fix $x\in S^n$. The map
-	$t\mapsto \sign\det\left(\restr{\diff \gamma(t)}{x}\right)$ takes values in
-	$\{-1,1\}$ and is continuous, because in charts it is the sign of the determinant
-	of a matrix depending continuously on $t$, which never vanishes. Hence it is
-	constant, and at $t=0$ it equals $+1$. The second claim follows from the chain
-	rule together with Lemma \ref{lem:orient-signInCharts}.
+    Just ensure that the two charts are compatible such that they build an atlas such that the determinants of the Jacobians of the transition functions are positive. To achive this one just manipulates one of the charts.
 \end{proof}
+\begin{corollary}
+    $S^n$ for $n\geq 2$ is orientable, as it is coverd by the two stereographic projections. $S^1$ and $S^0$ are also orientable which can be seen by picking charts such that they fit into corollary \ref{cor:orient-existsOrientationPreservingAtlas}.
+\end{corollary}
+
+
+
+
+
+
+
 \subsection{K-theoretic Orientation}
 K theoretic orientation relies on bases induced generators of the K group of the sphere. Hence, we want to fix a canonical map from $R^n$ to $S^n$:
 
@@ -594,10 +566,10 @@ First we define the map
     \end{equation*} is greater then zero. Now let $c\in (0,c_0]$. Since $H(D_\delta\times [0,1])$ is bounded we may choose $R$ big enough such that $H(D_\delta\times [0,1]) \subseteq B_R$.
     With those constants we can conclude that $H(v,t)\in D_R$ for all $(v,t)$ and if $\norm{v}\geq \rho$ we have $\norm{H(v,t)}\geq c_0\geq c$ meaning that $H(v,t)\in D_r\setminus B_c$. Thereby we have our homotopy of pairs. 
 \end{proof}
-\begin{proposition}[Local Index]
+\begin{proposition}[Local Index] \label{prop:orient-localIndex}
     Let $n\geq 1$ and let $\Psi:\overline{\R^n} \to \overline{\R^n}$ be continuous with
     \begin{enumerate}
-        \item $\Psi^{-1}(o)=\{0\}$.
+        \item $\Psi^{-1}(0)=\{0\}$.
         \item There is an open $\Omega\subseteq \R^n$ with $0\in \Omega$, $\Psi(\Omega)\in \R^n$ and $\restr{\Psi}{\Omega}$ is of class $C^1$.
         \item $A\coloneq \diff(\restr{\Psi}{\omega})_0$ is invertible.
         \end{enumerate} Then 
@@ -628,11 +600,67 @@ First we define the map
             K^{-n}(\overline{R^n},L_c)\arrow[r,"F^*"] \arrow[d,"j_c^*"]&K^{-n}(\overline{R^n},L_\rho)\arrow[d,"j_\rho^*"]\\
             K^{-n}(D_R,D_R\setminus B_c)\arrow[r,"\restr{F}{D_\delta}^*"]&K^{-n}(D_\delta,D_\delta\setminus B_\rho)
         \end{tikzcd}
-    \end{center}for both $F=\Psi$ and $F=\overline{A}$. (Commutativity follows from the commutativity of the topological square that induces). Now we can apply Lemma \ref{lem:orient-Linearisation} to deduce that both maps in the bottom row agree. As the vertical maps are isomorphisms we can deduce, that also the top two maps agree, namely $\Psi^*=\overline{A}^*$. Finally by lemma \ref{lem:orient-quotientIsCompactification} we now that $L_\rho $ and $\L_c$ are contractible and contain $\infty$. Hence the collaps $c_i: \overline{R^n}\to \overline{\R^n}\big/L_i$ for $i=\rho,c$  induces isomorphism that become the vertical maps in the commutative square:
+    \end{center}for both $F=\Psi$ and $F=\overline{A}$. (Commutativity follows from the commutativity of the topological square that induces). Now we can apply Lemma \ref{lem:orient-Linearisation} to deduce that both maps in the bottom row agree. As the vertical maps are isomorphisms we can deduce, that also the top two maps agree, namely $\Psi^*=\overline{A}^*$.
+     Finally by lemma \ref{lem:orient-quotientIsCompactification} we now that $L_\rho $ and $L_c$ are contractible and contain $\infty$. Hence the collaps $c_i: \overline{R^n}\to \overline{\R^n}\big/L_i$ for $i=\rho,c$  induces isomorphism that become the vertical maps in the commutative square:
     \begin{center}
          \begin{tikzcd}
             K^{-n}(\overline{R^n},L_c)\arrow[r,"F^*"] \arrow[d,"c_c^*"]&K^{-n}(\overline{R^n},L_\rho)\arrow[d,"c_\rho^*"]\\
             \tilde{K}^{-n}(\overline{R^n})\arrow[r,"F^*"]&\tilde{K}^{-n}(\overline{R^n})
         \end{tikzcd}
     \end{center} Again for $F=\Psi$ and $F=\overline{A}$. Hence, again we can conclude that $\Psi^*=\overline{A}^*$ now as maps in $\tilde{K}^{-n}(\overline{\R^n})$, where Proposition \ref{prop:linearyTheDeterminandDertermines} tells us that $\overline{A}^*=\sign \det(A)\cdot \id$.
+\end{proof}
+\begin{remark}[Orientation convention]\label{conv:orient-orientationOfTheSphere}
+    Let $n\geq 1$. We orient $S^n$ such that the stereographic projection $\pi_S$ from Definition \ref{def:orient-fromRelaSpaceToTheSphere} is orientation preserving.
+\end{remark}
+
+
+
+\begin{lemma}\label{lem:orient-rotationsPreserveOrientation}
+	Every $C\in\SO(n+1)$ acts on $S^n$ as an orientation preserving diffeomorphism,
+	and $\pi_S\circ C$ is an orientation preserving chart on $C^{-1}(S^n\setminus\{S\})$.
+\end{lemma}
+\begin{proof}
+	Choose a path $\gamma:[0,1]\to\SO(n+1)$ with $\gamma(0)=\id$ and $\gamma(1)=C$,
+	which exists since $\SO(n+1)$ is path-connected. Fix $x\in S^n$. The map
+	$t\mapsto \sign\det\left(\restr{\diff \gamma(t)}{x}\right)$ takes values in
+	$\{-1,1\}$ and is continuous, because in charts it is the sign of the determinant
+	of a matrix depending continuously on $t$, which never vanishes. Hence it is
+	constant, and at $t=0$ it equals $+1$. The second claim follows from the chain
+	rule together with Corollary \ref{cor:orient-transitionFunctionPositiveDeterminantAlsoOrientationPreserving}.
+\end{proof}
+\begin{lemma}[Single Regular Preimage]\label{lem:orient-singleRegularPreimage}
+Let $n\geq 1$ and let $\xi:S^n\to S^n$ be continuous. Suppose that there are $y,z\in S^n$ with 
+\begin{equation*}
+    \xi^{-1}(z)=\{x\}\,,
+\end{equation*}such that $\xi$ is $C^1$ near $y$ and $\restr{\diff \xi}{y}$ is invertible. Then
+\begin{equation*}
+    \xi^*=\sign \det(d\xi_y)\cdot \id\,,\quad \text{ on }\tilde{K}^{-n}(S^n)\,.
+\end{equation*}
+\end{lemma}
+\begin{proof}
+    Let $S$ be the south pole, $N$ be the north pole and 
+    \begin{equation*}
+        \overline{\pi_S}:S^n \to \overline{\R^n}
+    \end{equation*} be the compactifications of $\pi_S$  to the one-point-compactifications, meaning $\overline{\pi_S}(S)=\infty$. Remember that $\pi_S(N)=0$ is. Now choose two rotations $B,C\in \SO(n+1)$ such that $B(z)=N$ and $C(y)=N$. Then define the two homeomorphisms
+    \begin{equation*}
+        \overline{\phi}\coloneq \overline{\pi_S}\circ C\,,\quad \overline{ \psi}\coloneq \overline{\pi_S}\circ B
+    \end{equation*} that restrict charts over $S^n\setminus C^{-1}(S)$ respectivly over $S^n\setminus B^{-1}(S)$. Those charts are orientation preserving by Lemma \ref{lem:orient-rotationsPreserveOrientation}.
+    Now define
+    \begin{equation*}
+        \Psi:\overline{\psi}\circ \xi \circ \overline{\phi}^{-1}\,:\, \overline{\R^n}\to \overline{\R^n}\,,
+    \end{equation*}
+    Then $\Psi$ satisfies the hypotheses of Proposition \ref{prop:orient-localIndex}:
+\begin{enumerate}
+    \item $\Psi(w)=0$ if and only if $\xi\circ \overline{\phi}^{-1}(w)=z$ if and only if $\overline{\phi}^{-1}(w)=y$ which is only the case for $w=0$.
+    \item Near $0$ all maps that compose to $\Psi$ are diffeomorphisms and hence $\Psi$ is a diffeomorphism near $0$.
+    \item By constructiuon $\restr{\diff \Psi}{0}$ is the coordinate representative of $\restr{\diff \xi}{y}$ in the smooth charts $\phi$ and $\psi$. Invertibility of the latter in the hypothesus exactly states the invertibility of the coordinate representation.
+\end{enumerate}
+Hence, by Proposition \ref{prop:orient-localIndex} we have that $\psi^*=\sign \det (\restr{\diff \Psi}{0})\cdot \id$ on $\tilde{K}^{-n}(\overline{\R^n})$. Finally, since $\phi$ and $\psi$ are orientation preserving, this sign equials $\sign \det(d\xi_y)$ by Lemma \ref{lem:orient-computingSignInCharts}. Finally, since $SO(n+1)$ is path connected there is a path 
+$\gamma:[0,1]\to \SO(n+1)$ with $\gamma(0)=C$ and $\gamma(1)=B$ . Then the map 
+    \begin{equation*}
+        S^n\times [0,1] \to \overline{\R^n}\,,\quad (x,t)\mapsto \overline{\pi_S}(\gamma(t)x)
+    \end{equation*} is a homotopy from $\overline{\phi}$ to $\overline{\psi}$ givin us that $\overline{\phi}^*=\overline{\psi}^*$ and both maps are isomorphisms. Hence:
+    \begin{equation*}
+        \xi^*=(\overline{\phi}^*)\circ \Psi^*\circ (\overline{\psi}^*)^{-1}=\sign \det(d\xi_y)\circ \underbrace{(\overline{\phi}^*)\circ (\overline{\psi}^*)^{-1}}_{=\id}\,.
+    \end{equation*}
 \end{proof}
