@@ -766,6 +766,113 @@ the sections $c_X^*, c_Y^*$) controls the $K(x_0)$-summand.
 \begin{example}
 	Let $S^n$ be the $n$-dimensional sphere given by all points of norm one in $\R^{n+1}$. Then a general fact is that $S^n\cong I^n\big/ \partial I^n$ and hence for all $n,m>0$ we have $S^n\wedge S^m\cong S^{n+m}$. Later \todo{ref} we will make this homeomorphism canonical.
 \end{example}
+
+\begin{definition}[From Real Space to the Sphere]\label{def:orient-fromRelaSpaceToTheSphere}
+    We now want to construct a canonical homeomorphism between $S^m$ and $\overline{\R^m}$. First we use the stereographic projection from the South Pole:
+    \begin{align*}
+        \pi_S:S^m\setminus \{S\}\subseteq \R^{m+1} &\to       \R^m\\
+        (x_1,\dots,x_m,x_{m+1})                            &\mapsto   \left(\frac{x_1}{1+x_{m+1}},\dots, \frac{x_m}{1+x_{m+1}} \right)
+    \end{align*} with its inverse: 
+    \begin{align*}
+        \pi_S^{-1}:\R^m       &\to     S^m\setminus\{S\}\subseteq \R^{m+1}\\
+        (y_1,\dots y_m)       &\mapsto  \left(\frac{2y_1}{1+\norm{y}^2},\dots,\frac{2y_m}{1+\norm{y}^2},\frac{1-\norm{y}}{1+\norm{y}} \right)
+    \end{align*}
+    Those are inverse maps and they give rise to maps between their one-point-compactifications. Hence $\overline{\R^m}\cong S^m$. Lets calculate $\pi_S^{-1}\circ \pi_s$, since we will later need a little bit of insight in those calculations:
+    \begin{align*}
+        \pi_S^{-1}\circ \pi_s(x_1,\dots ,x_{m+1})
+        &= \pi_S^{-1}\left(\frac{x_1}{1+x_{m+1}},\dots, \frac{x_m}{1+x_{m+1}} \right)\\
+        &= \left(\frac{2\frac{x_1}{1+x_{m+1}}}{1+\sum_{i=1}^m(\frac{x_i^2}{(1+x_{m+1})^2})},\dots, \frac{2\frac{x_m}{1+x_{m+1}}}{1+\sum_{i=1}^m(\frac{x_i^2}{(1+x_{m+1})^2})},\frac{1-\sum_{i=1}^m(\frac{x_i^2}{(1+x_{m+1})^2})}{1+\sum_{i=1}^m(\frac{x_i^2}{(1+x_{m+1})^2})} \right)\\
+    \end{align*} Before we keep calculating, we notice the denominator can be rewritten as:
+    \begin{align*}
+        1+\sum_{i=1}^m(\frac{x_i^2}{(1+x_{m+1})^2})=\frac{(1+x_{m+1})^2+\sum_{i=1}^m x_i^2}{(1+x_{m+1})^2}
+    \end{align*} And hence:
+    \begin{align}
+        \frac{2\frac{x_j}{1+x_{m+1}}}{1+\sum_{i=1}^m(\frac{x_i^2}{(1+x_{m+1})^2})}& = \frac{2\frac{x_j}{1+x_{m+1}}}{\frac{(1+x_{m+1})^2+\sum_{i=1}^m x_i^2}{(1+x_{m+1})^2}} \\
+        & =\frac{2x_j(1+x_{m+1})}{(1+x_{m+1})^2+\sum_{i=1}^m x_i^2} \\
+        & =\frac{2x_j(1+x_{m+1})}{(1+x_{m+1})^2+\sum_{i=1}^m x_i^2}\\
+        & = \frac{2x_j(1+x_{m+1})}{1+2 x_{m+1}+\underbrace{\sum_{i=1}^{m+1} x_i^2}_{=1}} \\
+        & = x_j
+    \end{align}
+    And the calculation of the last term is:
+    \begin{align*}
+        \frac{1-\sum_{i=1}^m(\frac{x_i^2}{(1+x_{m+1})^2})}{1+\sum_{i=1}^m(\frac{x_i^2}{(1+x_{m+1})^2})} 
+        & = \frac{\frac{(1+x_{m+1})^2-\sum_{i=1}^m x_i^2}{(1+x_{m+1})^2}}{\frac{(1+x_{m+1})^2+\sum_{i=1}^m x_i^2}{(1+x_{m+1})^2}}\\
+        & =\frac{(1+x_{m+1})^2-\sum_{i=1}^m x_i^2}{(1+x_{m+1})^2+\sum_{i=1}^m x_i^2} \\
+        & = \frac{1+2x_{m+1}+x_{m+1}^2-\sum_{i=1}^m x_i^2}{1+2x_{m+1}+\underbrace{x_{m+1}^2+\sum_{i=1}^m x_i^2}_{=1}} \\
+        & = \frac{1+2x_{m+1}+2x_{m+1}^2-\sum_{i=1}^{m+1} x_i^2}{2+2x_{m+1}} \\
+        & = \frac{x_{m+1}(2+2x_{m+1})}{2+2x_{m+1}}=x_{m+1}
+    \end{align*}
+This concludes the calculation of $\pi_S^{-1}\circ \pi_s=\id$ and $\pi_s\circ\pi_S^{-1}=\id$ can be calculated in a similar manner.
+\end{definition}
+
+\begin{lemma}[Open subspaces of compact spaces]\label{lem:orient-quotientIsCompactification}
+	Let $Z$ be a compact Hausdorff space and $U\subseteq Z$ open. Then the map
+	\begin{equation*}
+		Z\big/ (Z\setminus U)\to \overline{U}\,,\quad [z]\mapsto z \text{ for } z\in U\,,\quad [Z\setminus U]\mapsto \infty
+	\end{equation*}
+	is a homeomorphism.
+\end{lemma}
+\begin{proof}
+    The map is the quotient of the function $\phi:Z\to \overline{U}$ that is the identity on $U$ and sends $Z\setminus U$ constant to $\infty$. Hence, we only need to prove continuity for $\phi$. Nor $O\subseteq \overline{U}$ is open, if it is open in $U$, or the complement of a compact set $C\subset U$ in $\overline{U}$. In both cases, $\phi^{-1}(U)$ is open and hence $\phi$ is continuous. Since the quotiont map is now a continuouos bijection from a compact space to a Hausdorff space, it is a homeomorphism.
+\end{proof}
+
+\begin{lemma}[Compactification of a product]\label{lem:orient-compactificationOfProduct}
+	Let $X$ and $Y$ be locally compact Hausdorff spaces, and point $\overline{X}$ and
+	$\overline{Y}$ at their respective points at infinity. Then there is a
+	homeomorphism
+	\begin{equation*}
+		\Xi_{X,Y}:\overline{X\times Y}\xrightarrow{\ \cong\ } \overline{X}\wedge \overline{Y}
+	\end{equation*}
+	which is the identity on $X\times Y$ and sends $\infty$ to the base point.
+	It is natural in the sense that for proper maps $f:X\to X'$ and $g:Y\to Y'$ the
+	square
+	\begin{center}
+		\begin{tikzcd}
+			\overline{X\times Y} \arrow[r, "\Xi_{X,Y}"] \arrow[d, "\overline{f\times g}"'] & \overline{X}\wedge\overline{Y} \arrow[d, "\overline{f}\wedge\overline{g}"] \\
+			\overline{X'\times Y'} \arrow[r, "\Xi_{X',Y'}"']                               & \overline{X'}\wedge\overline{Y'}
+		\end{tikzcd}
+	\end{center}
+	commutes.
+\end{lemma}
+\begin{proof}
+    Let $Z\coloneq \overline{X}\times \overline{Y}$. Then $Z$ is a compact Hausdorfspace that contains $U\coloneq X\times Y$ as an open subset. The complement of $U$ consists of those points where one of the coordinates is infinit and hence
+    \begin{equation*}
+        Z\setminus U\,=\,(\{\infty\}\times \overline{Y})\cup (\overline{X}\times \{\infty\})\,=\, \overline{X}\vee \overline{Y}\,.
+    \end{equation*}Therefore, by definition of the smash product, $ Z\big/(S\setminus U)=\overline{X}\wedge \overline{Y}$ and by Lemma \ref{lem:orient-quotientIsCompactification} we can conculde that 
+    \begin{equation*}
+        \overline{X\times Y} \cong (Z\big/ (Z\setminus U)=\overline{X}\wedge \overline{Y}\,.
+    \end{equation*}
+    For the naturality notice that the product of proper maps is propper and hence all maps are continouos. The commmutation then comes done to checking where infinity gets mapped which is always the basepoint of the wedge product.
+\end{proof}
+\begin{lemma}
+	For pointed compact spaces $(A,a_0),(B,b_0),(C,c_0)$ there is a natural homeomorphism
+	\begin{equation*}
+		(A\wedge B) \wedge C \to A\wedge (B\wedge V)
+	\end{equation*}That restricts to the identity over $(A\setminus \{a_0\})\times( B\setminus \{b_0\}) \times (C\setminus \{c_0\})$.
+\end{lemma}
+\begin{proof}
+	Notice how for all compact pointed spaces $(X,x_0)$ the identyty (and $x_0\mapsto \infty)$ is a natural homeomorphism $\overline{X\setminus \{x_0\}}\cong X$ and we denote $X^\circ \coloneq X\setminus \{x_0\}$. Furthermore, the smash product of compact spaces is again compact (as it is a quotient of a closes space). Hence we can just calculate
+	\begin{align*}
+		(A\wedge B) \wedge C 
+		& \cong \overline{(A\wedge B)^\circ} \wedge \overline{C^\circ}\\
+				& \cong \overline{(A^\circ\times B^\circ)} \wedge \overline{C^\circ}\\
+		& \cong \overline{(A^\circ \times B^\circ) \times C^\circ} \\
+		& \cong \overline{A^\circ \times( B^\circ \times C^\circ)} \\
+		& \cong A\wedge (B\wedge V)\,.
+	\end{align*} 
+\end{proof}
+\begin{remark}
+	The statement about associativity can be extended to the category of $\mathbf{CGWH}^*_{\mathbf{cof}}$, but not all pointed topological spaces. \todo{ref einfügen}
+\end{remark}
+
+\begin{definition} [Convention]\label{def:ktheo-wedgeOfShoperesIsSphere}
+	Let $\pi_s^n$ denote the compactified stereographical projection $\overline{S^n}\to \overline{\R^n}$ 
+	With those methods we can now define the homeomorphism 
+	\begin{equation*}
+		(\pi_s^{n+m})^{-1}\circ \Xi^{-1}\circ (\pi_s^n)\wedge (\pi_s^m) :S^n\wedge S^m \to S^{n+m}\,.
+	\end{equation*} Often we will identify smash product of spheres and for those identification we will always use this homeomophism.
+\end{definition}
+
 \begin{definition}
 	Let $(X,x_0)$ be a pointed topological space. We define the \textbf{reduced suspension} of $X$ to be 
 	\begin{equation*}
@@ -1646,7 +1753,12 @@ By example \ref{ex:kTheo-LineBundlesSatlquadequalslPlusl} we know that for any l
 		 [l] \otimes [\xi] &\mapsto \mu( [l], [\xi])
 	\end{align*} is well defined. 
 
-
+\begin{definition}
+	We denote the external product of two elements by
+	\begin{equation*}
+		\zeta \boxtimes \xi \coloneq \tilde{\mu}(\zeta \otimes \xi)\,.
+	\end{equation*}
+\end{definition}
 
 \begin{theorem}[The Fundamental Product Theorem]\label{thm:kTheo-fundamentalProductTheorem}
 	For any compact $X$, and the tautological line bundle $H$ on $\C\PP^1\cong S^2$, the mapping 
@@ -1683,7 +1795,8 @@ By example \ref{ex:kTheo-LineBundlesSatlquadequalslPlusl} we know that for any l
 	We call the generator $([H]-[\underline{1}])$ that generates $\tilde{K}(S^2)$ the \textbf{Bott generator} denoted by $\bottg$.
 \end{definition}
 
-\begin{theorem}[Bott periodicity]Let $X$ be a well-pointed compact space.
+\begin{theorem}[Bott periodicity] \label{thm:Ktheo-BottPeriodicity}
+	Let $X$ be a well-pointed compact space.
 	The isomorphism from the fundamental product theorem applied in its reduced form gives a natural isomorphism:
 	\begin{equation*}
 		\bottmap: \tilde{K}^{-n}(X)\to \tilde{K}^{-n}(S^2\wedge X)\cong \tilde{K}^{-n-2}( X)
@@ -1695,9 +1808,19 @@ By example \ref{ex:kTheo-LineBundlesSatlquadequalslPlusl} we know that for any l
 		\Z([H]-[\underline{1}])\otimes \tilde{K}(X)\to \tilde{K}^{-2}(X)
 	\end{equation*} is an isomorphism. And since $\tilde{K}(X)\cong \Z(\bottg)\otimes \tilde{K}(X)$ via $[\xi]\mapsto (\bottg) \otimes [\xi]$ we have the isomorphism
 	\begin{equation*}
-		\bottmap: \tilde{K}^{-2}(X) \otimes \tilde{K}(X) \,,\quad [\xi] \mapsto \tilde{\mu}(\bottg,[\xi])\,.
+		\bottmap: \tilde{K}^{-2}(X) \otimes \tilde{K}(X) \,,\quad [\xi] \mapsto \tilde{\mu}(\bottg \otimes [\xi])\,.
 	\end{equation*}Naturality follows from $\mu$ being natural, $q^*$ being natural (and thereby its inverse) and $\tilde{\mu}$ being the composition of both of them. Furthermore, for \todo{natürlich im zweiten faktor mit festem ersten} Replacing $X$ with $S^nX$ proves the lower degree.
 \end{proof}
+
+\begin{definition}[Convention]\label{def:ktheo-higherBottGenerators} \todo{hier muss ich aufpassen und $S^0$ inspizieren!}
+    Let $\beta$ be the bott generator of $\tilde{K}(S^2)$.Define $\beta_0$ to be the generator of $\tilde{K}(S^0)$ Then we define inductively using the bott periodicity from Theorem \ref{thm:Ktheo-BottPeriodicity}: 
+    $\beta_0\coloneq \beta$ and $\beta_n\coloneq  \underbrace{\beta \otimes \beta_{n-1}}_{\in \tilde{K}(S^2\wedge S^{2(n-1)})}\cong \tilde{K}^{-n}(S^n)$. The last congruence uses the homeomorphism defined in Definition \ref{def:ktheo-wedgeOfShoperesIsSphere}. By naturality of the bott map, assoziativity of the wedge product of compact pointed spaces and the homeomorphism from Definition \ref{def:ktheo-wedgeOfShoperesIsSphere} we get the equality
+	\begin{equation*}
+		\Big((\pi_S^{n+m})^{-1}\circ \Xi^{-1}\circ (\pi_S^n\wedge \pi_S^m)\Big)^*\bottg_{n+m}\cong \bottg_n\wedge \bottg_m\,.
+	\end{equation*}
+\end{definition}
+
+
 \begin{definition}
 	The Bott periodicity mapping $\bottmap$ is natural and hence commutes with all maps in the long exact sequence. With this map we can expand the notion inductively via $K^{-n}(X)=K^{-n-2}(X)$. Said differently, we define $K^n(X)$ to be $K(X)$ for even $n$ and $K^{-1}(X)$ for odd $n$. With this we have the exact sequence of six terms  (in the top row we identified $K^0\equiv K^{-2}$ and the vertical map on the left is $\beta \circ \delta$):
 	\begin{center}
@@ -1707,3 +1830,37 @@ By example \ref{ex:kTheo-LineBundlesSatlquadequalslPlusl} we know that for any l
 		\end{tikzcd}
 	\end{center} We now define the whole long exact sequence to be the one from Theorem \ref{thm:kTheo-longExactSequence} for negative indices and the sequence of six terms above, for positive indices. With this we have gained a cohomology theory over all whole numbers.\todo{sauberer definieren}
 \end{definition}
+
+\begin{definition}[Convention]\label{def:ktheo-higherBottGenerators}
+    Let $\bottg_0\in \tilde{K}^{0}(S^0)$ be the canonical generator and let
+    $\bottg_1\in \tilde{K}^{-1}(S^1)$ be the Bott generator of $\tilde{K}(S^2)$,
+    viewed in $\tilde{K}^{-1}(S^1)=\tilde{K}^{0}(S^1\wedge S^1)$ via Definition
+    \ref{def:ktheo-wedgeOfShoperesIsSphere}. Writing
+    \begin{equation*}
+        \Upsilon_{n,m}\coloneq \left(\overline{\pi_S^{n+m}}\right)^{-1}\circ
+        \Xi_{\R^n,\R^m}^{-1}\circ\left(\overline{\pi_S^{n}}\wedge\overline{\pi_S^{m}}\right)
+        \;:\;S^n\wedge S^m\to S^{n+m}
+    \end{equation*}
+    for the homeomorphism of Definition \ref{def:ktheo-wedgeOfShoperesIsSphere},
+    we define inductively
+    \begin{equation*}
+        \bottg_n\coloneq \left(\Upsilon_{1,n-1}^{*}\right)^{-1}
+        \left(\bottg_1\wedge \bottg_{n-1}\right)\in \tilde{K}^{-n}(S^n)\,.
+    \end{equation*}
+    By Theorem \ref{thm:Ktheo-BottPeriodicity}, smashing
+    with $\bottg_1$ is an isomorphism, so each $\bottg_n$ is a generator.
+\end{definition}
+
+\begin{lemma}\label{lem:ktheo-bottGeneratorsAreMultiplicative}
+    For all $n,m\geq 0$ we have
+    $\Upsilon_{n,m}^{*}\left(\bottg_{n+m}\right)=\bottg_n\wedge \bottg_m$.
+\end{lemma}
+\begin{proof}
+    Induction on $n$. For $n=0$ the map $\Upsilon_{0,m}$ is the canonical
+    homeomorphism $S^0\wedge S^m\cong S^m$ and the claim follows from  $\beta_0 \otimes \xi$ being the nutral element  is the neutral element of the external product. For the step, write $\bottg_{n}$ as
+    $\bottg_1\wedge\bottg_{n-1}$ and use associativity of the external product
+    together with the fact that the two composites
+    $S^1\wedge S^{n-1}\wedge S^m\to S^{n+m}$ obtained by bracketing to the left and
+    to the right agree: both restrict to the identity on the dense subspace
+    $\R\times\R^{n-1}\times\R^m$, and the target is Hausdorff.
+\end{proof}

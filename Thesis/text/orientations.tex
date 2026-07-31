@@ -6,7 +6,7 @@ The idea of Morse homology is now to find an invariant under manipulations of th
 
 
 \begin{definition}[Orientation]
-	Let $V$ be a finite dimensional $\R$ vector space and $\det(V)\coloneq \Lambda^{\dim(V)}$ the maximal exterior algebra (or Grassmann algebra). By the principle of permanence we define $\Lambda^0(V)=\R$. An orientation of $V$ is a choice of one of the two connected components of $\det(V)\setminus \{0\}$.
+	Let $V$ be a finite dimensional $\R$ vector space and $\det(V)\coloneq \Lambda^{\dim(V)}$ the maximal exterior algebra (or Grassmann algebra). By the principle of permanence we define $\Lambda^0(V)=\R$. An orientation of $V$ is a choice of one of the two connected components of $\det(V)\setminus \{0\}$. we call the touple $(V,[\mathfrak{o}])$ where $\mathfrak{0}$ is a non-zero element of $\det(V)$ and hence $[\mathfrak{o}]$ is an orientation, an \textbf{oriented vector space}. Often we will just write $V$ oriented, and omitt the orientation.
 \end{definition}
 \begin{definition}[Convention]
     If we use $\R^n$ as an oriented vector space we fix $e\coloneq e_1\wedge \cdots \wedge e_n$ to induce the orientation.
@@ -24,6 +24,9 @@ v_1\wedge \dots \wedge v_{\dim(V)}&\mapsto f(v_1)\wedge \dots \wedge f(v_{\dim(V
 \begin{remark}\label{rem:orient-calculateDeterminatViaMatrixDeterminant}
 	From linear algebra we know, that we can calculate $\det(f)=\det(M^{\mathfrak{b}}_\mathfrak{b}(f))$, where $\mathfrak{b}$ is an ordered basis of $V$. Since the determinant of a matrix commutes with taking products, we have that the determinant is invariant under conjugation of linear endomorphisms.
 \end{remark}
+\begin{definition}
+    Let $(V,[\mathfrak{o}])$ and $(W,[\mathfrak{p}])$ be oriented vector spaces. We call a linear isomorphism $f:V\to W$ between two orineted vector spaces \textbf{orientation preserving}, if  $[\Lambda^{\dim(V)}(f)(\mathfrak{o})]=[\mathfrak{v}]$. Let $o$ and $p$ denote the basis induced from $\mathfrak{o}$ resp. $\mathfrak{p}$. Then by the Remark \ref{rem:orient-calculateDeterminatViaMatrixDeterminant} the map $f$ is orientation preserving, if and only if $\det(M^o_p(f))$ is positive.
+\end{definition}
 \begin{definition}[Orientation and Exact Sequences]\todo{FIX}
 A short exact sequence of vector spaces 
 \begin{center}
@@ -163,83 +166,7 @@ Let $(M,[\omega])$ be an oriented $n$-dimensional manifold and let $\phi:U\to \R
 \subsection{K-theoretic Orientation}
 K theoretic orientation relies on bases induced generators of the K group of the sphere. Hence, we want to fix a canonical map from $R^n$ to $S^n$:
 
-\begin{definition}[From Real Space to the Sphere]\label{def:orient-fromRelaSpaceToTheSphere}
-    We now want to construct a canonical homeomorphism between $S^m$ and $\overline{\R^m}$. First we use the stereographic projection from the South Pole:
-    \begin{align*}
-        \pi_S:S^m\setminus \{S\}\subseteq \R^{m+1} &\to       \R^m\\
-        (x_1,\dots,x_m,x_{m+1})                            &\mapsto   \left(\frac{x_1}{1+x_{m+1}},\dots, \frac{x_m}{1+x_{m+1}} \right)
-    \end{align*} with its inverse: 
-    \begin{align*}
-        \pi_S^{-1}:\R^m       &\to     S^m\setminus\{S\}\subseteq \R^{m+1}\\
-        (y_1,\dots y_m)       &\mapsto  \left(\frac{2y_1}{1+\norm{y}^2},\dots,\frac{2y_m}{1+\norm{y}^2},\frac{1-\norm{y}}{1+\norm{y}} \right)
-    \end{align*}
-    Those are inverse maps and they give rise to maps between their one-point-compactifications. Hence $\overline{\R^m}\cong S^m$. Lets calculate $\pi_S^{-1}\circ \pi_s$, since we will later need a little bit of insight in those calculations:
-    \begin{align*}
-        \pi_S^{-1}\circ \pi_s(x_1,\dots ,x_{m+1})
-        &= \pi_S^{-1}\left(\frac{x_1}{1+x_{m+1}},\dots, \frac{x_m}{1+x_{m+1}} \right)\\
-        &= \left(\frac{2\frac{x_1}{1+x_{m+1}}}{1+\sum_{i=1}^m(\frac{x_i^2}{(1+x_{m+1})^2})},\dots, \frac{2\frac{x_m}{1+x_{m+1}}}{1+\sum_{i=1}^m(\frac{x_i^2}{(1+x_{m+1})^2})},\frac{1-\sum_{i=1}^m(\frac{x_i^2}{(1+x_{m+1})^2})}{1+\sum_{i=1}^m(\frac{x_i^2}{(1+x_{m+1})^2})} \right)\\
-    \end{align*} Before we keep calculating, we notice the denominator can be rewritten as:
-    \begin{align*}
-        1+\sum_{i=1}^m(\frac{x_i^2}{(1+x_{m+1})^2})=\frac{(1+x_{m+1})^2+\sum_{i=1}^m x_i^2}{(1+x_{m+1})^2}
-    \end{align*} And hence:
-    \begin{align}
-        \frac{2\frac{x_j}{1+x_{m+1}}}{1+\sum_{i=1}^m(\frac{x_i^2}{(1+x_{m+1})^2})}& = \frac{2\frac{x_j}{1+x_{m+1}}}{\frac{(1+x_{m+1})^2+\sum_{i=1}^m x_i^2}{(1+x_{m+1})^2}} \\
-        & =\frac{2x_j(1+x_{m+1})}{(1+x_{m+1})^2+\sum_{i=1}^m x_i^2} \\
-        & =\frac{2x_j(1+x_{m+1})}{(1+x_{m+1})^2+\sum_{i=1}^m x_i^2}\\
-        & = \frac{2x_j(1+x_{m+1})}{1+2 x_{m+1}+\underbrace{\sum_{i=1}^{m+1} x_i^2}_{=1}} \\
-        & = x_j
-    \end{align}
-    And the calculation of the last term is:
-    \begin{align*}
-        \frac{1-\sum_{i=1}^m(\frac{x_i^2}{(1+x_{m+1})^2})}{1+\sum_{i=1}^m(\frac{x_i^2}{(1+x_{m+1})^2})} 
-        & = \frac{\frac{(1+x_{m+1})^2-\sum_{i=1}^m x_i^2}{(1+x_{m+1})^2}}{\frac{(1+x_{m+1})^2+\sum_{i=1}^m x_i^2}{(1+x_{m+1})^2}}\\
-        & =\frac{(1+x_{m+1})^2-\sum_{i=1}^m x_i^2}{(1+x_{m+1})^2+\sum_{i=1}^m x_i^2} \\
-        & = \frac{1+2x_{m+1}+x_{m+1}^2-\sum_{i=1}^m x_i^2}{1+2x_{m+1}+\underbrace{x_{m+1}^2+\sum_{i=1}^m x_i^2}_{=1}} \\
-        & = \frac{1+2x_{m+1}+2x_{m+1}^2-\sum_{i=1}^{m+1} x_i^2}{2+2x_{m+1}} \\
-        & = \frac{x_{m+1}(2+2x_{m+1})}{2+2x_{m+1}}=x_{m+1}
-    \end{align*}
-This concludes the calculation of $\pi_S^{-1}\circ \pi_s=\id$ and $\pi_s\circ\pi_S^{-1}=\id$ can be calculated in a similar manner.
-\end{definition}
 
-\begin{lemma}[Open subspaces of compact spaces]\label{lem:orient-quotientIsCompactification}
-	Let $Z$ be a compact Hausdorff space and $U\subseteq Z$ open. Then the map
-	\begin{equation*}
-		Z\big/ (Z\setminus U)\to \overline{U}\,,\quad [z]\mapsto z \text{ for } z\in U\,,\quad [Z\setminus U]\mapsto \infty
-	\end{equation*}
-	is a homeomorphism.
-\end{lemma}
-\begin{proof}
-    The map is the quotient of the function $\phi:Z\to \overline{U}$ that is the identity on $U$ and sends $Z\setminus U$ constant to $\infty$. Hence, we only need to prove continuity for $\phi$. Nor $O\subseteq \overline{U}$ is open, if it is open in $U$, or the complement of a compact set $C\subset U$ in $\overline{U}$. In both cases, $\phi^{-1}(U)$ is open and hence $\phi$ is continuous. Since the quotiont map is now a continuouos bijection from a compact space to a Hausdorff space, it is a homeomorphism.
-\end{proof}
-
-\begin{lemma}[Compactification of a product]\label{lem:orient-compactificationOfProduct}
-	Let $X$ and $Y$ be locally compact Hausdorff spaces, and point $\overline{X}$ and
-	$\overline{Y}$ at their respective points at infinity. Then there is a
-	homeomorphism
-	\begin{equation*}
-		\Xi_{X,Y}:\overline{X\times Y}\xrightarrow{\ \cong\ } \overline{X}\wedge \overline{Y}
-	\end{equation*}
-	which is the identity on $X\times Y$ and sends $\infty$ to the base point.
-	It is natural in the sense that for proper maps $f:X\to X'$ and $g:Y\to Y'$ the
-	square
-	\begin{center}
-		\begin{tikzcd}
-			\overline{X\times Y} \arrow[r, "\Xi_{X,Y}"] \arrow[d, "\overline{f\times g}"'] & \overline{X}\wedge\overline{Y} \arrow[d, "\overline{f}\wedge\overline{g}"] \\
-			\overline{X'\times Y'} \arrow[r, "\Xi_{X',Y'}"']                               & \overline{X'}\wedge\overline{Y'}
-		\end{tikzcd}
-	\end{center}
-	commutes.
-\end{lemma}
-\begin{proof}
-    Let $Z\coloneq \overline{X}\times \overline{Y}$. Then $Z$ is a compact Hausdorfspace that contains $U\coloneq X\times Y$ as an open subset. The complement of $U$ consists of those points where one of the coordinates is infinit and hence
-    \begin{equation*}
-        Z\setminus U\,=\,(\{\infty\}\times \overline{Y})\cup (\overline{X}\times \{\infty\})\,=\, \overline{X}\vee \overline{Y}\,.
-    \end{equation*}Therefore, by definition of the smash product, $Z\big/(S\setminus U)=\overline{X}\wedge \overline{Y}$ and by Lemma \ref{lem:orient-quotientIsCompactification} we can conculde that 
-    \begin{equation*}
-        \overline{X\times Y} \cong (Z\big/ (Z\setminus U)=\overline{X}\wedge \overline{Y}\,.
-    \end{equation*}
-    For the naturality notice that the product of proper maps is propper and hence all maps are continouos. The commmutation then comes done to checking where infinity gets mapped which is always the basepoint of the wedge product.
-\end{proof}
 
 \begin{lemma}[Reflection in one variable]\label{lem:reflection-is-minus-one}
 	Let $R_1:\R\to\R,\ x\mapsto -x$, and let $Z$ be a pointed compact Hausdorff
@@ -414,17 +341,61 @@ Finally, we can compare the induced generators: for this we denote $\beta_v\colo
 \end{proof}
 \end{comment}
 
+
 \begin{corollary}\label{cor:orient-vectorspaceOrientationInducesKtheoreticOrientation}
-Any finite dimensional real vector space $V$ is homeomoprhic to $\R^m$ via the coordinate map $\kappa_v$ that maps each vector to its coordinate representation. With this we can introduce a K-theoretic orientation from an ordered basis via the composition: 
+Any finite dimensional real vector space $V$ is homeomoprhic to $\R^n$ via the coordinate map $\kappa_v$ that maps each vector to its coordinate representation. With this we can introduce a K-theoretic orientation from an ordered basis via the composition: 
    \begin{center}
 \begin{tikzcd}
-\tilde{K}^{-n}(S^n) \arrow[r, "(\pi_S^{-1})^*"] & \tilde{K}^{-n}(\overline{\R^n}) \arrow[r, "B_v^*"] & \tilde{K}^{-n}(\overline{V})
+\tilde{K}^{-n}(S^n) \arrow[r, "(\pi_S^{-1})^*"] & \tilde{K}^{-n}(\overline{\R^n}) \arrow[r, " \kappa_v^*"] & \tilde{K}^{-n}(\overline{V})
 \end{tikzcd}
    \end{center} With this we can map the bott generator $\beta$ from Definition \ref{def:kTheo-BottGenerator} to a generator of $\tilde{K}^{-n}(\overline{V})$ and hence induce a K-Theoretic orientation. This orientation only depends on the orientation of $V$ and two different orientations induce different K-theoretic orientations
 \end{corollary}
 \begin{proof}
     The statement follows imidiatly from Proposition \ref{prop:linearyTheDeterminandDertermines}.
 \end{proof}
+
+
+\begin{lemma}[Multiplication]\label{lem:orient-multiplication}
+    Let $V,W$ be oriented real vector spaces of dimension $n,m$ and give $V\oplus W$ the orientation by placing the orientation of $V$ infront of the one of $W$. 
+    Let $\beta_\mathfrak{o}$ be the K Theoretic orientation ov $V$ induced by the oreintation of $V$ and similar $\beta_\mathfrak{p}$ be the one on $W$, and finaly $\beta_{\mathfrak{o}\oplus \mathfrak{p}}$ be the K-thoretic orientation of $V\oplus W$.    Then under the homeomorphism  
+    \begin{equation*}
+        \Xi: \overline{V\oplus W}\to \overline{V}\wedge \overline{W}
+    \end{equation*} from Lemma \ref{lem:orient-compactificationOfProduct} we have 
+    \begin{equation*}
+        \Xi^{*}\left(\beta_{\mathfrak o}\wedge\beta_{\mathfrak p}\right)=\beta_{\mathfrak o\oplus\mathfrak p}\,.
+    \end{equation*}
+\end{lemma}
+\begin{proof} Let $\kappa_v:V \to \R^n$ and $\kappa_w:\R^n \to W$ be two basis maps from ordered basis compatible with the orientations ov $v$ and $W$.
+    By definition of the orientation on $V\oplus W$ we know that the direct sum of thhe maps $\kappa_v\oplus \kappa_W$ is an orientation preserving between $V\oplus W$ and the canonically oriented $\R^n\oplus \R^m$. Naturality of $\Xi$ gives us
+    \begin{equation*}
+       \Xi \circ \kappa_v\oplus \kappa_W=\kappa_v \wedge \kappa_w \circ \Xi\,.
+    \end{equation*} Hence: by definition and associativity of the wedge product:
+\begin{align*}
+    \Xi^{*}\left(\beta_{\mathfrak o}\wedge\beta_{\mathfrak p}\right)
+    &=      \Xi^{*}\left(
+\kappa_v^*\wedge \kappa_w^*
+      \right)\circ \left(
+         (\pi^{-1}_s)^{-1} \wedge (\pi^{-1}_s)^{-1}
+         \right)\beta_n\wedge\beta_m\\
+    &=      \left(
+\kappa_v^*\oplus \kappa_w^*
+      \right)\circ \Xi ^* \circ \left(
+         (\pi^{-1}_s)^{-1} \wedge (\pi^{-1}_s)^{-1}
+         \right)\beta_n\wedge\beta_m\\
+         &=
+          \left(
+        \kappa_v^*\oplus \kappa_w^*
+      \right)\circ \left(
+         (\pi^{-1}_s)^{-1} \oplus (\pi^{-1}_s)^{-1}
+         \right)\circ \Xi^* (\beta_n\wedge\beta_m)\\
+         &=
+\end{align*}
+On the other hand:
+\begin{equation*}
+    \beta_{\mathfrak{o}\oplus \mathfrak{p}}=\kappa_{v\oplus w}^*\circ (\pi^{-1}_S)^*\circ \beta_{n+m}
+\end{equation*}
+\end{proof}
+
 \subsection{Local K-Theoric Orientation}
 
 \begin{lemma}[Minkowsky Gauge]\label{lem:orient-MinkowskyGauge}
