@@ -768,8 +768,11 @@ the sections $c_X^*, c_Y^*$) controls the $K(x_0)$-summand.
 \end{example}
 
 \begin{definition}[From Real Space to the Sphere]\label{def:orient-fromRelaSpaceToTheSphere}
-    We now want to construct a canonical homeomorphism between $S^m$ and $\overline{\R^m}$. First we use the stereographic projection from the South Pole:
-    \begin{align*}
+    We now want to construct a canonical homeomorphism between $S^m$ and $\overline{\R^m}$. First we use the stereographic projection from the South Pole: If $m=0$ we define this to be 
+	\begin{equation*}
+		\pi_s:S^0=\{-1,1\} \setminus \{-1\} \to \R^0\,,\quad 1\mapsto 0\,.
+	\end{equation*} For $m>0$ we define:
+	    \begin{align*}
         \pi_S:S^m\setminus \{S\}\subseteq \R^{m+1} &\to       \R^m\\
         (x_1,\dots,x_m,x_{m+1})                            &\mapsto   \left(\frac{x_1}{1+x_{m+1}},\dots, \frac{x_m}{1+x_{m+1}} \right)
     \end{align*} with its inverse: 
@@ -804,7 +807,9 @@ the sections $c_X^*, c_Y^*$) controls the $K(x_0)$-summand.
     \end{align*}
 This concludes the calculation of $\pi_S^{-1}\circ \pi_s=\id$ and $\pi_s\circ\pi_S^{-1}=\id$ can be calculated in a similar manner.
 \end{definition}
-
+\begin{definition}[One-Point Compactification]
+	For a topological space $X$ we define $\overline{X}\coloneq X\sqcup \{\infty\}$, where open sets are either open subsets of $X$, or sets of the form $\{\infty\} \sqcup X\setminus C$ where $C$ is compact and closed in $X$. For non compact Hausdorff spaces this is the one-point compactification that is characterised by being the unique (up to homeomorphism) compactification that contains $X$ and one more point. If $X$ is already compact, then $\{\infty\}$ is an open subset of $\overline{X}$ (just choose $C=K$) and thereby isolated. Hence $ \overline{X}$ is the pointing of $X$ given by $(X,[\emptyset])$ from Corollary \ref{cor:kTheo-unpointedReducedIsNonReduced}.
+\end{definition}
 \begin{lemma}[Open subspaces of compact spaces]\label{lem:orient-quotientIsCompactification}
 	Let $Z$ be a compact Hausdorff space and $U\subseteq Z$ open. Then the map
 	\begin{equation*}
@@ -844,7 +849,7 @@ This concludes the calculation of $\pi_S^{-1}\circ \pi_s=\id$ and $\pi_s\circ\pi
     \end{equation*}
     For the naturality notice that the product of proper maps is propper and hence all maps are continouos. The commmutation then comes done to checking where infinity gets mapped which is always the basepoint of the wedge product.
 \end{proof}
-\begin{lemma}
+\begin{lemma}\label{lem:kTheo-SmaschIsAssociative}
 	For pointed compact spaces $(A,a_0),(B,b_0),(C,c_0)$ there is a natural homeomorphism
 	\begin{equation*}
 		(A\wedge B) \wedge C \to A\wedge (B\wedge V)
@@ -870,7 +875,7 @@ This concludes the calculation of $\pi_S^{-1}\circ \pi_s=\id$ and $\pi_s\circ\pi
 	With those methods we can now define the homeomorphism 
 	\begin{equation*}
 		(\pi_s^{n+m})^{-1}\circ \Xi^{-1}\circ (\pi_s^n)\wedge (\pi_s^m) :S^n\wedge S^m \to S^{n+m}\,.
-	\end{equation*} Often we will identify smash product of spheres and for those identification we will always use this homeomophism.
+	\end{equation*} Often we will identify smash product of spheres and for those identification we will always use this homeomophism. For the composition to make sence we identify $\R^n\times \R^m$ with $\R^{n+m}$ (also for $n$ or $m$ equal zero.)
 \end{definition}
 
 \begin{definition}
@@ -1379,6 +1384,8 @@ For this we start trying to find a long exact sequence and on the way we will pr
 \begin{proof}
 	This follows from $K(A)\cong \tilde{K}(A,[\emptyset])$ for all topological spaces. Furthermore, $(X\sqcup Y,[\emptyset])\cong ((X,[\emptyset])\vee (Y,[\emptyset]))$. Hence, using those isomorphisms, the statement is a direct consequence of the pointed additivity.
 \end{proof}
+
+
 \begin{corollary}\label{cor:kTheo-exactnesOfTheReducedInclusionSequence}
 	If $(X,Y)\in ob(\TopCPair)$ and $Y\in ob(\TopCPoint)$ such that $X$ is pointed by using the base point $y_0$ from $Y$. Then the sequence 
 	\begin{center}
@@ -1682,7 +1689,7 @@ Before we start constructing a cohomology theory, we extend the K groups to be d
 		&= \mu(a \otimes b)\mu(c \otimes d)
 	\end{align*}
 \end{definition}
-\begin{proposition}\label{prop:kTheo-reducedExternalProduct}
+\begin{proposition}\label{prop:kTheo-reducedExternalProduct} \todo{achtung gilt nur bei zusammenhängendem! }
 Let $(X,x_0)$ and $(Y,y_0)$ be well-pointed compact spaces and let
 $q\colon X\times Y\to X\wedge Y$ denote the quotient map that appears in the exact sequence of Corollary \ref{cor:kTheo-splittingAndConnectionWedgeAndProduct}. Then:
 \begin{enumerate}
@@ -1759,6 +1766,39 @@ By example \ref{ex:kTheo-LineBundlesSatlquadequalslPlusl} we know that for any l
 		\zeta \boxtimes \xi \coloneq \tilde{\mu}(\zeta \otimes \xi)\,.
 	\end{equation*}
 \end{definition}
+\begin{proposition}[Naturality]
+	Let $f:X\to X'$ and $g:Y\to Y'$ be pointed maps, and $a\in \tilde{K}(X')$, $b \in \tilde{K}(Y')$. Then 
+	\begin{equation*}
+		f^*(a)\boxtimes g^*(b)=(f \wedge g)^*(a \boxtimes b)\,.
+	\end{equation*}
+\end{proposition}
+\begin{proof}
+	We start unreduced. Let $f:X\to X'$ and $g:Y\to Y'$ be continuous maps. then $\pi_{X'}\circ (f\times g)=f\circ \pi_X$ and similar $\pi_{Y'}\circ (f\times g)=g\circ \pi_{Y}$. Using that $(f\times g)^*$ is a ring homomorphism we calculate
+	\begin{align*}
+		(f\times g)^*\mu(a \otimes b)
+		&=(f\times g)^*\Big((\pi_{X'})^*(a)\cdot (\pi_{Y'})^*(b)\Big)\\
+		&=\big((f\times g)^*(\pi_{X'})^*(a)\big)\cdot \big((f\times g)^*(\pi_{Y'})^*(b)\big)\\
+		&=\big(\pi_X^*\circ f^*(a)\big)\cdot \big(\pi_Y^*\circ g^*(b)\big)\\
+		&=\mu(f^*(a)\otimes g^*(b))\,.
+	\end{align*} Now assume that $f$ and $g$ are pointed and denote the projections $q':X'\times Y' \to X' \wedge Y'$ and $q:X\times Y \to X\wedge Y$. Then 
+	$q'\circ (f\times g)=(f\wedge g )\circ q$ by definition of the wedge product of maps. But then we can calculate
+	\begin{equation*}
+		q^*(f\wedge g)^*(a\boxtimes b)=(f\times g)^*{q'}^*(a\boxtimes b)=(f\times g)^* \mu(a\otimes b)=\mu(f^*a\otimes g^*b)=q^*(f^*a\boxtimes g^*b) \,.
+	\end{equation*}finally since $q^*$ is injective we are done.
+\end{proof}
+\begin{definition}[Extension of the Reduced External Product]
+	
+\end{definition}
+\begin{proposition}[Associativity of the Reduced External Product]
+	
+\end{proposition}
+\begin{remark}\label{rem:kTheo-neutralELementExternalProduct}
+	Let $\zeta$ be the vector bundle  over $S^0=\{-1,+1\}$ that is $\underline{1}$ over $-1$ and $\underline{0}$ over $+1$. Then $[\xi]$ is a generator of $\tilde{K}(S^0)$, as any bundle that is in the cernal of the inclusion of $+1$ is $\underline{0}$ over $+1$, and trivial over $\{-1\}$. Let $\xi\in \tilde{K}(Y)$ be represented by $\xi=[\xi_1]-[\xi_2]$ such that $\xi_i$ are vector bundles $(i=1,2)$ over a pointed topological space $Y$. Then for $i=1,2$:
+	\begin{equation*}
+		[\zeta]\boxtimes [\xi_i]=(q^*)^{-1}(\mu([\zeta]\otimes [\xi_i]))=(q^*)^{-1}\pi_{S^0}^*(\zeta)\cdot \pi_Y^*([\xi_i])=(q^*)^{-1}([\pi_{S^0}^*(\zeta)\otimes  \pi_Y^*(\xi_i]))
+	\end{equation*}
+	The bundle $\pi_{S^0}^*(\zeta)$ is $\underline{1}$ over $\{-1\}\times Y$ and $\underline{0}$ over $\{1\}\times Y$. $\pi_Y^*(\xi_i]$ on the otherhand is the pullback of $\xi_i$ via the homeomorphism $h_-:\{- 1\}\times Y \to Y$ over $\{-1\}\times Y$ and similar over $\{+1\}\times Y$. Hence, the tensor product $\pi_{S^0}^*(\zeta)\otimes  \pi_Y^*(\xi_i]$ is given by $h_-^*(Y)$ over $$\{-1\}\times Y$$ and $\underline{0}$ over $\{+1\}\times Y$. This bundles equivalence class in $\tilde{K}$ is given by the bundle $h_-^*$ viewed over the pointed $S^0\wedge Y=\{-1\}\times Y $ with basepoint $[(-1,1)]$.
+\end{remark}
 
 \begin{theorem}[The Fundamental Product Theorem]\label{thm:kTheo-fundamentalProductTheorem}
 	For any compact $X$, and the tautological line bundle $H$ on $\C\PP^1\cong S^2$, the mapping 
@@ -1814,7 +1854,7 @@ By example \ref{ex:kTheo-LineBundlesSatlquadequalslPlusl} we know that for any l
 
 \begin{definition}[Convention]\label{def:ktheo-higherBottGenerators} \todo{hier muss ich aufpassen und $S^0$ inspizieren!}
     Let $\beta$ be the bott generator of $\tilde{K}(S^2)$.Define $\beta_0$ to be the generator of $\tilde{K}(S^0)$ Then we define inductively using the bott periodicity from Theorem \ref{thm:Ktheo-BottPeriodicity}: 
-    $\beta_0\coloneq \beta$ and $\beta_n\coloneq  \underbrace{\beta \otimes \beta_{n-1}}_{\in \tilde{K}(S^2\wedge S^{2(n-1)})}\cong \tilde{K}^{-n}(S^n)$. The last congruence uses the homeomorphism defined in Definition \ref{def:ktheo-wedgeOfShoperesIsSphere}. By naturality of the bott map, assoziativity of the wedge product of compact pointed spaces and the homeomorphism from Definition \ref{def:ktheo-wedgeOfShoperesIsSphere} we get the equality
+    $\beta_1\coloneq \beta$ and $\beta_n\coloneq  \underbrace{\beta \otimes \beta_{n-1}}_{\in \tilde{K}(S^2\wedge S^{2(n-1)})}\cong \tilde{K}^{-n}(S^n)$. The last congruence uses the homeomorphism defined in Definition \ref{def:ktheo-wedgeOfShoperesIsSphere}. By naturality of the bott map, assoziativity of the wedge product of compact pointed spaces and the homeomorphism from Definition \ref{def:ktheo-wedgeOfShoperesIsSphere} we get the equality
 	\begin{equation*}
 		\Big((\pi_S^{n+m})^{-1}\circ \Xi^{-1}\circ (\pi_S^n\wedge \pi_S^m)\Big)^*\bottg_{n+m}\cong \bottg_n\wedge \bottg_m\,.
 	\end{equation*}
@@ -1832,7 +1872,7 @@ By example \ref{ex:kTheo-LineBundlesSatlquadequalslPlusl} we know that for any l
 \end{definition}
 
 \begin{definition}[Convention]\label{def:ktheo-higherBottGenerators}
-    Let $\bottg_0\in \tilde{K}^{0}(S^0)$ be the canonical generator and let
+    Let $\bottg_0\in \tilde{K}^{0}(S^0)$ be the canonical generator given by the trivial rank onbe bundle over $-1$ and the trand let
     $\bottg_1\in \tilde{K}^{-1}(S^1)$ be the Bott generator of $\tilde{K}(S^2)$,
     viewed in $\tilde{K}^{-1}(S^1)=\tilde{K}^{0}(S^1\wedge S^1)$ via Definition
     \ref{def:ktheo-wedgeOfShoperesIsSphere}. Writing
@@ -1845,22 +1885,43 @@ By example \ref{ex:kTheo-LineBundlesSatlquadequalslPlusl} we know that for any l
     we define inductively
     \begin{equation*}
         \bottg_n\coloneq \left(\Upsilon_{1,n-1}^{*}\right)^{-1}
-        \left(\bottg_1\wedge \bottg_{n-1}\right)\in \tilde{K}^{-n}(S^n)\,.
+        \left(\bottg_1\boxtimes \bottg_{n-1}\right)\in \tilde{K}^{-n}(S^n)\,.
     \end{equation*}
-    By Theorem \ref{thm:Ktheo-BottPeriodicity}, smashing
+    By Theorem \ref{thm:Ktheo-BottPeriodicity}, the external product
     with $\bottg_1$ is an isomorphism, so each $\bottg_n$ is a generator.
 \end{definition}
 
 \begin{lemma}\label{lem:ktheo-bottGeneratorsAreMultiplicative}
     For all $n,m\geq 0$ we have
-    $\Upsilon_{n,m}^{*}\left(\bottg_{n+m}\right)=\bottg_n\wedge \bottg_m$.
+    $\Upsilon_{n,m}^{*}\left(\bottg_{n+m}\right)=\bottg_n\boxtimes \bottg_m$.
 \end{lemma}
 \begin{proof}
     Induction on $n$. For $n=0$ the map $\Upsilon_{0,m}$ is the canonical
-    homeomorphism $S^0\wedge S^m\cong S^m$ and the claim follows from  $\beta_0 \otimes \xi$ being the nutral element  is the neutral element of the external product. For the step, write $\bottg_{n}$ as
-    $\bottg_1\wedge\bottg_{n-1}$ and use associativity of the external product
-    together with the fact that the two composites
-    $S^1\wedge S^{n-1}\wedge S^m\to S^{n+m}$ obtained by bracketing to the left and
-    to the right agree: both restrict to the identity on the dense subspace
-    $\R\times\R^{n-1}\times\R^m$, and the target is Hausdorff.
-\end{proof}
+    homeomorphism $S^0\wedge S^m\cong S^m$ and the claim follows from  our calculation of $\beta_0 \boxtimes \xi$ in Remark \ref{rem:kTheo-neutralELementExternalProduct}.
+	For the induction step we first realice that by definition of the associativity map $a$ of lemma \ref{lem:kTheo-SmaschIsAssociative} the diagramm 
+
+\begin{center}
+	\begin{tikzcd}[column sep=huge, row sep=large]
+\overline{\R^{1+(n-1)+m}}
+  \arrow[r, "\Xi_{n,m}"]
+  \arrow[d, "\Xi_{1,(n-1)+m}"'] &
+\overline{\R^{n}}\wedge\overline{\R^{m}}
+  \arrow[d, "\Xi_{1,n-1}\wedge\id"] \\
+\overline{\R}\wedge\overline{\R^{(n-1)+m}}
+  \arrow[dr, "\id\wedge\Xi_{n-1,m}"'] &
+\left(\overline{\R}\wedge\overline{\R^{n-1}}\right)\wedge\overline{\R^{m}}
+  \arrow[d, "a"] \\
+ & \overline{\R}\wedge\left(\overline{\R^{n-1}}\wedge\overline{\R^{m}}\right)
+\end{tikzcd}
+\end{center}commutes. Let $b_i\coloneq ((\pi^i_S))^*( \bottg_i)$. 
+Then $(\Upsilon_{n,m}^{*})^{-1}\left(\bottg_{n}\wedge \bottg_m\right)=(\pi^{n+m}_S)^*\circ \Xi^{*} (b_n\wedge b)$ and $b_n=\Xi^*_{1,n-1}(b_1\boxtimes b_{n-1})$. Hence
+we can calculate 
+\begin{equation*}
+	\begin{array}{llr}
+\Xi^*_{n,m}(b_n\wedge b_m)
+&=\Xi^*_{n,m}(\Xi^*_{1,n-1}(b_1\boxtimes b_{n-1})\wedge id^*(b_n))&\\
+&=
+	\end{array}
+\end{equation*}
+\end{proof} 
+
