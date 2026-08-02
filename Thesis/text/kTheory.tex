@@ -1689,7 +1689,7 @@ Before we start constructing a cohomology theory, we extend the K groups to be d
 		&= \mu(a \otimes b)\mu(c \otimes d)
 	\end{align*}
 \end{definition}
-\begin{proposition}\label{prop:kTheo-reducedExternalProduct} \todo{achtung gilt nur bei zusammenhängendem! }
+\begin{proposition}\label{prop:kTheo-reducedExternalProduct} 
 Let $(X,x_0)$ and $(Y,y_0)$ be well-pointed compact spaces and let
 $q\colon X\times Y\to X\wedge Y$ denote the quotient map that appears in the exact sequence of Corollary \ref{cor:kTheo-splittingAndConnectionWedgeAndProduct}. Then:
 \begin{enumerate}
@@ -1786,12 +1786,64 @@ By example \ref{ex:kTheo-LineBundlesSatlquadequalslPlusl} we know that for any l
 		q^*(f\wedge g)^*(a\boxtimes b)=(f\times g)^*{q'}^*(a\boxtimes b)=(f\times g)^* \mu(a\otimes b)=\mu(f^*a\otimes g^*b)=q^*(f^*a\boxtimes g^*b) \,.
 	\end{equation*}finally since $q^*$ is injective we are done.
 \end{proof}
-\begin{definition}[Extension of the Reduced External Product]
-	
-\end{definition}
-\begin{proposition}[Associativity of the Reduced External Product]
-	
+
+
+\begin{proposition}[Associativity of the Reduced External Product] \label{prop:kTheo-associativityExternalProduct}
+	Let $A,B,C$ be pointed spaces and $a\in \rK(A)$,
+	 $b\in \rK(B)$ and 
+	 $c\in \rK(C)$. 
+	Let $\psi: A\wedge (B\wedge C)\to (A\wedge B)\wedge C$ be the homeomorphism from Lemma \ref{lem:kTheo-SmaschIsAssociative}. Then
+	\begin{equation*}
+		\psi^*((a\boxtimes b)\boxtimes c)=a\boxtimes (b\boxtimes c) \,.
+	\end{equation*}
 \end{proposition}
+\begin{proof}
+	Write $q_{X,Y}\colon X\times Y\to X\wedge Y$ for the quotient maps and
+	$\pi_A,\pi_B,\pi_C$ for the projections of $A\times B\times C$. Let
+	\begin{equation*}
+		Q\coloneq q_{A\wedge B,C}\circ (q_{A,B}\times \id_C)\colon A\times B\times C\to (A\wedge B)\wedge C
+	\end{equation*}
+	and analogously $Q'\coloneq q_{A,B\wedge C}\circ(\id_A\times q_{B,C})$. Both are
+	quotient maps, and by the construction of $\psi$ in Lemma
+	\ref{lem:kTheo-SmaschIsAssociative} we have
+	\begin{equation}\label{eq:kTheo-assocQuotients}
+		\psi\circ Q'=Q\,,
+	\end{equation}
+	since both sides are induced by the identity on $A\times B\times C$.
+	Furthermore $Q^*$ is injective, being the composite of the injective maps
+	$q_{A\wedge B,C}^*$ and $(q_{A,B}\times\id_C)^*$.
+
+	We first compute $Q^*$ of the left hand side. By definition of $\boxtimes$ we
+	have the equialities 
+	\begin{align}
+		q_{A\wedge B,C}^{*}\bigl((a\boxtimes b)\boxtimes c\bigr)
+	\,&=\,\mu\bigl((a\boxtimes b)\otimes c\bigr)\in \tilde{K}((A\wedge B)\times C)\label{eq:kTheo-assozExPro1}\\
+		\pi_C\circ (q_{A,B}\times \id_C)\,&=\,\pi_C\,:(A\times B )\times C \to C \label{eq:kTheo-assozExPro2}\\
+\pi_{A\wedge B}\circ (q_{A,B}\times \id_C)\,&=\,q_{A,B}\circ \pi_{A\times B}\,:(A\times B )\times C \to C \label{eq:kTheo-assozExPro3}
+	\end{align} hence
+	\begin{equation*}
+		\begin{array}{llr}
+			Q^{*}\bigl((a\boxtimes b)\boxtimes c\bigr)
+		&=(q_{A,B}\times\id_C)^{*}\Bigl(\pi_{A\wedge B}^{*}(a\boxtimes b)\cdot \pi_C^{*}(c)\Bigr)& \text{using (\ref{eq:kTheo-assozExPro1})}\\
+		&=(q_{A,B}\times\id_C)^{*}\pi_{A\wedge B}^{*}(a\boxtimes b)\cdot \pi_C^{*}(c)& \text{using (\ref{eq:kTheo-assozExPro2}) and (\ref{eq:kTheo-assozExPro3})}\\
+		&=(q_{A,B}\times\id_C)^{*}\big(\pi_A^*(a)\cdot \pi_B^*(b)\big)\cdot \pi_C^{*}(c)&\text{ similar to (\ref{eq:kTheo-assozExPro1})}\\
+		&=(\pi_A^{*}(a)\cdot\pi_B^{*}(b))\cdot\pi_C^{*}(c)& \pi_A\circ \pi_{A\times B}=\pi_A \text{ and for $\pi_B$}
+		\end{array}
+	\end{equation*}
+	
+		The same computation on the other side gives
+	\begin{equation*}
+		Q'^{*}\bigl(a\boxtimes(b\boxtimes c)\bigr)=\pi_A^{*}(a)\cdot\pi_B^{*}(b)\cdot\pi_C^{*}(c)\,,
+	\end{equation*}
+	using associativity of the multiplication in $K(A\times B\times C)$. Combining
+	this with \eqref{eq:kTheo-assocQuotients},
+	\begin{equation*}
+		Q'^{*}\psi^{*}\bigl((a\boxtimes b)\boxtimes c\bigr)
+		=Q^{*}\bigl((a\boxtimes b)\boxtimes c\bigr)
+		=Q'^{*}\bigl(a\boxtimes(b\boxtimes c)\bigr)\,,
+	\end{equation*}
+	and $Q'^{*}$ is injective, which proves the claim.
+\end{proof}
 \begin{remark}\label{rem:kTheo-neutralELementExternalProduct}
 	Let $\zeta$ be the vector bundle  over $S^0=\{-1,+1\}$ that is $\underline{1}$ over $-1$ and $\underline{0}$ over $+1$. Then $[\xi]$ is a generator of $\tilde{K}(S^0)$, as any bundle that is in the cernal of the inclusion of $+1$ is $\underline{0}$ over $+1$, and trivial over $\{-1\}$. Let $\xi\in \tilde{K}(Y)$ be represented by $\xi=[\xi_1]-[\xi_2]$ such that $\xi_i$ are vector bundles $(i=1,2)$ over a pointed topological space $Y$. Then for $i=1,2$:
 	\begin{equation*}
@@ -1896,32 +1948,53 @@ By example \ref{ex:kTheo-LineBundlesSatlquadequalslPlusl} we know that for any l
     $\Upsilon_{n,m}^{*}\left(\bottg_{n+m}\right)=\bottg_n\boxtimes \bottg_m$.
 \end{lemma}
 \begin{proof}
-    Induction on $n$. For $n=0$ the map $\Upsilon_{0,m}$ is the canonical
-    homeomorphism $S^0\wedge S^m\cong S^m$ and the claim follows from  our calculation of $\beta_0 \boxtimes \xi$ in Remark \ref{rem:kTheo-neutralELementExternalProduct}.
-	For the induction step we first realice that by definition of the associativity map $a$ of lemma \ref{lem:kTheo-SmaschIsAssociative} the diagramm 
+	Set $b_i\coloneq \left(\overline{\pi_S^{i}}\right)^{*}(\bottg_i)\in\rK^{-i}\left(\overline{\R^{i}}\right)$.
 
-\begin{center}
-	\begin{tikzcd}[column sep=huge, row sep=large]
-\overline{\R^{1+(n-1)+m}}
-  \arrow[r, "\Xi_{n,m}"]
-  \arrow[d, "\Xi_{1,(n-1)+m}"'] &
-\overline{\R^{n}}\wedge\overline{\R^{m}}
-  \arrow[d, "\Xi_{1,n-1}\wedge\id"] \\
-\overline{\R}\wedge\overline{\R^{(n-1)+m}}
-  \arrow[dr, "\id\wedge\Xi_{n-1,m}"'] &
-\left(\overline{\R}\wedge\overline{\R^{n-1}}\right)\wedge\overline{\R^{m}}
-  \arrow[d, "a"] \\
- & \overline{\R}\wedge\left(\overline{\R^{n-1}}\wedge\overline{\R^{m}}\right)
-\end{tikzcd}
-\end{center}commutes. Let $b_i\coloneq ((\pi^i_S))^*( \bottg_i)$. 
-Then $(\Upsilon_{n,m}^{*})^{-1}\left(\bottg_{n}\wedge \bottg_m\right)=(\pi^{n+m}_S)^*\circ \Xi^{*} (b_n\wedge b)$ and $b_n=\Xi^*_{1,n-1}(b_1\boxtimes b_{n-1})$. Hence
-we can calculate 
-\begin{equation*}
-	\begin{array}{llr}
-\Xi^*_{n,m}(b_n\wedge b_m)
-&=\Xi^*_{n,m}(\Xi^*_{1,n-1}(b_1\boxtimes b_{n-1})\wedge id^*(b_n))&\\
-&=
-	\end{array}
+	\emph{Reduction.} Since $\overline{\pi_S^{n}}\wedge\overline{\pi_S^{m}}$ is a
+	homeomorphism, naturality of $\boxtimes$ gives
+	$\left(\overline{\pi_S^{n}}\wedge\overline{\pi_S^{m}}\right)^{*}
+	\left(\bottg_n\boxtimes\bottg_m\right)=b_n\boxtimes b_m$. Applying
+	$\left(\overline{\pi_S^{n}}\wedge\overline{\pi_S^{m}}\right)^{*}$ to the claim and
+	using $\left(\overline{\pi_S^{n}}\wedge\overline{\pi_S^{m}}\right)^{*}\Upsilon_{n,m}^{*}
+	=\left(\Upsilon_{n,m}\circ\left(\overline{\pi_S^{n}}\wedge\overline{\pi_S^{m}}\right)\right)^{*}
+	=\left(\left(\overline{\pi_S^{n+m}}\right)^{-1}\circ\Xi_{n,m}^{-1}\right)^{*}$, the
+	claim becomes
+	\begin{equation}\label{eq:kTheo-multInR}
+		\Xi_{n,m}^{*}\left(b_n\boxtimes b_m\right)=b_{n+m}\,,
+	\end{equation}
+	and by definition $b_n=\Xi_{1,n-1}^{*}\left(b_1\boxtimes b_{n-1}\right)$.
+
+	\emph{Base case $n=0$.} Here $\Xi_{0,m}$ is the canonical homeomorphism
+	$\overline{\R^{m}}\to\overline{\R^{0}}\wedge\overline{\R^{m}}$ and
+	\eqref{eq:kTheo-multInR} is Remark
+	\ref{rem:kTheo-neutralELementExternalProduct}.
+
+	\emph{Induction step.} By definition of $\psi$ in Lemma
+	\ref{lem:kTheo-SmaschIsAssociative} the diagram above commutes, i.e.
+	\begin{equation}\label{eq:kTheo-coherence}
+		\left(\Xi_{1,n-1}\wedge\id\right)\circ\Xi_{n,m}
+		=\psi\circ\left(\id\wedge\Xi_{n-1,m}\right)\circ\Xi_{1,(n-1)+m}\,.
+	\end{equation}
+	Now
+	\begin{equation*}
+    \begin{array}{llr}
+        \Xi_{n,m}^{*}\left(b_n\boxtimes b_m\right)
+        &=\Xi_{n,m}^{*}\left(\Xi_{1,n-1}^{*}\left(b_1\boxtimes b_{n-1}\right)\boxtimes\id^{*}(b_m)\right)
+        & \text{definition of } b_n\\[2pt]
+        &=\Xi_{n,m}^{*}\left(\Xi_{1,n-1}\wedge\id\right)^{*}\left(\left(b_1\boxtimes b_{n-1}\right)\boxtimes b_m\right)
+        & \text{naturality of }\boxtimes\\[2pt]
+        &=\left(\left(\Xi_{1,n-1}\wedge\id\right)\circ\Xi_{n,m}\right)^{*}\left(\left(b_1\boxtimes b_{n-1}\right)\boxtimes b_m\right)
+        & \text{functoriality}\\[2pt]
+        &=\Xi_{1,(n-1)+m}^{*}\left(\id\wedge\Xi_{n-1,m}\right)^{*}\psi^{*}\left(\left(b_1\boxtimes b_{n-1}\right)\boxtimes b_m\right)
+        & \text{using (\ref{eq:kTheo-coherence})}\\[2pt]
+        &=\Xi_{1,(n-1)+m}^{*}\left(\id\wedge\Xi_{n-1,m}\right)^{*}\left(b_1\boxtimes\left(b_{n-1}\boxtimes b_m\right)\right)
+        & \text{Proposition \ref{prop:kTheo-associativityExternalProduct}}\\[2pt]
+        &=\Xi_{1,(n-1)+m}^{*}\left(\id^{*}(b_1)\boxtimes\Xi_{n-1,m}^{*}\left(b_{n-1}\boxtimes b_m\right)\right)
+        & \text{naturality of }\boxtimes\\[2pt]
+        &=\Xi_{1,(n-1)+m}^{*}\left(b_1\boxtimes b_{(n-1)+m}\right)
+        & \text{induction hypothesis}\\[2pt]
+        &=b_{n+m}
+        & \text{definition of } b_{n+m}
+    \end{array}
 \end{equation*}
-\end{proof} 
-
+\end{proof}
