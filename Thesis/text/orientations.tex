@@ -362,7 +362,7 @@ Any finite dimensional real vector space $V$ is homeomoprhic to $\R^n$ via the c
         \Xi: \overline{V\oplus W}\to \overline{V}\wedge \overline{W}
     \end{equation*} from Lemma \ref{lem:orient-compactificationOfProduct} we have 
     \begin{equation*}
-        \Xi^{*}\left(\beta_{\mathfrak o}\wedge\beta_{\mathfrak p}\right)=\beta_{\mathfrak o\oplus\mathfrak p}\,.
+        \Xi^{*}\left(\beta_{\mathfrak o}\boxtimes\beta_{\mathfrak p}\right)=\beta_{\mathfrak o\oplus\mathfrak p}\,.
     \end{equation*}
 \end{lemma}
 \begin{proof} Let $\kappa_v:V \to \R^n$ and $\kappa_w:\R^n \to W$ be two basis maps from ordered basis compatible with the orientations ov $v$ and $W$.
@@ -376,24 +376,39 @@ Any finite dimensional real vector space $V$ is homeomoprhic to $\R^n$ via the c
 \kappa_v^*\wedge \kappa_w^*
       \right)\circ \left(
          (\pi^{-1}_s)^{-1} \wedge (\pi^{-1}_s)^{-1}
-         \right)\beta_n\wedge\beta_m\\
+         \right)\beta_n\boxtimes\beta_m\\
     &=      \left(
 \kappa_v^*\oplus \kappa_w^*
       \right)\circ \Xi ^* \circ \left(
          (\pi^{-1}_s)^{-1} \wedge (\pi^{-1}_s)^{-1}
-         \right)\beta_n\wedge\beta_m\\
+         \right)\beta_n\boxtimes\beta_m\\
          &=
           \left(
         \kappa_v^*\oplus \kappa_w^*
       \right)\circ \left(
          (\pi^{-1}_s)^{-1} \oplus (\pi^{-1}_s)^{-1}
-         \right)\circ \Xi^* (\beta_n\wedge\beta_m)\\
-         &=
+         \right)\circ \Xi^* (\beta_n\boxtimes\beta_m)\\
+         &=  \left(
+        \kappa_v^*\oplus \kappa_w^*
+      \right)\circ \left(
+         (\pi^{-1}_s)^{-1} \oplus (\pi^{-1}_s)^{-1}
+         \right)\circ \Xi^* (\Upsilon^*_{n,m}(\beta_{n+m}))\\
+         &=\left(
+        \kappa_v^*\oplus \kappa_w^*
+      \right)\circ \left(
+         (\pi^{-1}_s)^{-1} \oplus (\pi^{-1}_s)^{-1}
+         \right)\circ \Xi^* (\overline{\pi^{n+m}_S}^{-1}\circ \Xi^{-1}\circ \overline{\pi^n_S}\wedge \overline{\pi^m_S})(\beta_{n+m}))\\
+         &=\left(
+        \kappa_v^*\oplus \kappa_w^*
+      \right)\circ \left(
+         (\pi^{-1}_s)^{-1} \oplus (\pi^{-1}_s)^{-1}
+         \right)(\beta_{n+m})
 \end{align*}
 On the other hand:
 \begin{equation*}
     \beta_{\mathfrak{o}\oplus \mathfrak{p}}=\kappa_{v\oplus w}^*\circ (\pi^{-1}_S)^*\circ \beta_{n+m}
 \end{equation*}
+Jetzt bin ich fast fertig hier....
 \end{proof}
 
 \subsection{Local K-Theoric Orientation}
