@@ -461,6 +461,13 @@ We want to refine the unstable embedding $E^u_q:T^u_qM\to W(q\to)$. For this we 
 	\Big(\restr{TM}{W(\to p)}\big/ TW(\to p)\Big)_p={T_pM}\big/ T_pW(\to p)\cong T^u_pM\,,
 	\end{equation*} beacuse $T_pM\cong T^u_pM\oplus T^s_pM$ and by Remark \ref{rem:morse-tangendspaceOfStableManifold} $ T^s_pM= T_pW(\to p)$. This lets us induce an orientation in the quotient bundle over $p$ and by Lemma \ref{lem:morse-OrientationsInAPointInduceOrientationsOfBundle} this orientation orients the whole bundle.
 \end{proof}
+\begin{definition}\label{def:morse-moduliSpaceOfFlowLines}
+	For a Morse datum $(g,f,\mathfrak{o})$ and two critical points $p,q$ we define the spaces
+	\begin{equation*}
+		W(p\to q)\coloneq W(p\to) \cap W(\to q)\quad \text{and}\quad
+		\mathcal{M}(p\to q)\coloneq W(p\to q)\big/ \R\,,
+	\end{equation*} where the quotient is defined to be the set of orbits of the $\R$-action $t \mapsto \phi_t(x) $ for all $x\in W(p\to q)$. Hence, $\mathcal{M}(p\to q)$ is the set of flow lines and is called the \textbf{moduli space of flow lines}.
+\end{definition}
 \begin{definition}[Signed Flow Lines]\label{def:morse-signedFlowLines}
 	Let $\mathfrak{A}\coloneq (g,f,\mathfrak{o})$ be a Morse Datum. Let $q,p$ be two critical points with $\ind(q)-1=\lambda(p)$. Then we have for all $\gamma\in \mathcal{M}(q\to p$ the exact sequence of bundles
 	\begin{center}
@@ -503,7 +510,89 @@ Furthermore, we define the counting of signed flow lines:
 	This will be a corollary of theorem \todo{reference zu commuting boundary homomorphisms einfügen}.
 \end{proof}
 
+ \subsection{A Morse-Theoretik Künneth Formula}
 
+\begin{definition}\label{def: Definition produce Morse datum}
+	Let $(M,\mathfrak{A},\Lambda)$ and $(M',\mathfrak{A}',\Lambda)$ be two Morse data with $\mathfrak{A}=(g,f,\mathfrak{o})$ and $ \mathfrak{A}'=(g',f',\mathfrak{o}')$. On $M\times M'$ we define the Morse function $f+f'$ and the metric $g\oplus g'$. Then, $\diff_{(x,x')}(f+f')=\diff_x(f)+\diff_x'(f')$ and hence the critical points of $f+f'$ are pairs $(p,p')$ such that $p$ is critical for $f$ and $p'$ is critical for $f'$. By corollary \ref{cor:morse-localHessian} we conclude that the hessian splits into block diagonal form and hence the property of non degenerayc follows. Since we use the product metric $g\oplus g'$ we also get a splitting gradient of $f+f'$: 
+	\begin{align*}
+		\diff_{(x,x')}(f+f')(V,V')
+		&=\diff_x(f)(V)+\diff_{x'}(f')(V')\\
+		&=g(\grad_x(f),V)+g'(\grad_{x'}(f'),V')\\
+		&=(g\oplus g')(\underbrace{(\grad_x(f),\grad_{x'}(f'))}_{\grad_{(x,x')}(f+f')},(V,V'))\,.
+	\end{align*} Hence, the flow also splits in the following sence: Assume $\tilde{\phi}$ is the flow of $f+f'$ on $M\times M'$, $\phi$ is the flow of $f$ on $M$ and $\phi'$ is the flow of $f'$ on $M'$. Then $\phi_t(x,x')=(\phi_t(x),\phi_t(x'))$, as the right sight satisfies the differential equation. Thereby, the (un-)stable manifolds split, letting us orient all unstable manifolds via that splitting which gives us $\mathfrak{o}\oplus \mathfrak{o}'$. Finally, transversal intersection is a property that carries over to products and hence the Morse datum $(M\times M',\mathfrak{A}\times \mathfrak{A}',\Lambda)$ with $\mathfrak{A}\times \mathfrak{A}'\coloneq (g\oplus g',f+f',\mathfrak{o}\oplus \mathfrak{o}')$ indeed constitutes a valid Morse datum.
+	The splitting of the flow gives a splitting of the connecting flow lines and hence of the moduli spaces for two critical points $(q,q')$ and $(p,p')$: 
+	\begin{equation*}
+		\mathcal{M}\left((q,q')\to (p,p')\right)=\mathcal{M}(q\to p)\times \mathcal{M}(q'\to p') 
+	\end{equation*} If $p\neq q$ and $p'\neq q'$, then for the moduli space to be non empty we need 
+	\begin{equation*}
+		\ind(q)>\ind(p) \quad \text{and}\quad \ind(q')>\ind(p')\,.
+	\end{equation*} This results in the index of $(q,q')$ being at least two bigger then the index of $(p,p')$. Hence, if we want to count flow lines between two consecutive indices, either $p$ equals $p'$ or $q$ equals $q'$. In this case we have the moduli space
+	\begin{equation*}
+		\mathcal{M}\left((q,q')\to (p,p')\right)=\begin{cases}
+			p\times \mathcal{M}(q' \to p')&\text{ if } p=q\\
+			\mathcal{M}(q \to p)\times p' &\text{ if } p'=q' \,.
+		\end{cases}
+	\end{equation*}
+	Now, we want to analyse how the splitting affects the counting of flow lines. For this denote the flow lines $\tilde{\gamma}\in \mathcal{M}\left((q,q')\to (p,p')\right)$, $\gamma \in \mathcal{q\to p}$ and $\gamma'\in \mathcal{M}(q'\to p')$ such that $\tilde{\gamma}=\gamma\times \gamma'$.
+	Then we get a short exact sequence of bundles:
+	\begin{center}
+		\begin{tikzcd}
+			0 \arrow[r]& T\tilde{\gamma} \arrow[r]&\restr{TW\left((q,q')\to \right)}{\tilde{\gamma}}\arrow[r]&
+			\restr{\Big(T(M\times M')\Big/ TW(\to (p,p')) \Big)}{\tilde{\gamma}} \arrow[r] &0
+		\end{tikzcd}
+	\end{center}
+	This sequence however is graded in the sence that all spaces (with exception of the $0$) are direct sums and all maps respect them, meaning it is the direct sum of the two short exact sequences:
+	\begin{equation}\label{eq:morse-firstExactSequence}
+		\begin{tikzcd}
+			0 \arrow[r]& T{\gamma} \arrow[r]&\restr{TW\left(q\to \right)}{{\gamma}}\arrow[r]&
+			\restr{\Big(TM\Big/ TW(\to p) \Big)}{{\gamma}} \arrow[r] &0 
+		\end{tikzcd}
+	\end{equation}
+	and 
+	\begin{equation}\label{eq:morse-secondExactSequence}
+		\begin{tikzcd}
+			0 \arrow[r]& T{\gamma'} \arrow[r]&\restr{TW\left(q'\to \right)}{{\gamma'}}\arrow[r]&
+			\restr{\Big(TM'\Big/ TW(\to p') \Big)}{{\gamma'}} \arrow[r] &0
+		\end{tikzcd}
+	\end{equation}
+	Now, we have the two orientations of $\restr{TW\left((q,q')\to \right)}{\tilde{\gamma}}$: The first one comes from the orientation of $T_{(q,q')}^uM\times M'$ and is given as the direct sum of the orientations of $T_q^uM$ and $T_{q'}^uM'$ and thereby represented by the product of two nonvensinging sections into the determinant bundle $s_q \otimes s_{q'}$( Remember that the determinant of a direct sum is the tensor product of the determinants; This is also true for bundles). The other way of orienting comes from the exact sequences. Let $-\grad\wedge s_p$ denote a represantative of the orientation induced by the sort exact sequence (\ref{eq:morse-firstExactSequence}) and similar denote the orientation induced in the middle of the second short exact sequence \ref{eq:morse-secondExactSequence} by $-\grad'\wedge s_{p'}$.  By definition, the compatison of $s_p$ with $-\grad\wedge s_p$ gives the sign $\epsilon{\gamma}$ and similar the comparison of $s_{q'}$ with $-\grad'\wedge s_{p'}$ gives the sign $\epsilon(\gamma')$. For ease of notation we assume that the sections live in the right space (and we omit the needed inclusions or lifts to pair them with a $\wedge$.)
+
+	Then in the product, the induced orientation from the short exact sequence is defiend by a representative of the form:
+	\begin{equation*}
+		(-\grad \wedge -\grad')\wedge ( s_p\wedge s_{p'})\,.
+	\end{equation*}
+
+	Hence we need to compare the two orientations:
+	\begin{equation*}
+		s_q \wedge s_{q'} \quad \text{ with }\quad (-\grad\wedge -\grad' )\otimes ( s_p\wedge s_{p'})
+	\end{equation*}
+
+
+
+	
+	For this we go through our classical procedure given in the definition \ref{def: Morse homology}. Assume that $q'=p'$, and let $\gamma$ be an element of $\mathcal{M}(q \to p)$ with $x\in \gamma$. Then $(\gamma,q')\in \mathcal{M}\left((q,q'),(p,q')\right)$. Now let $(b,b')$ be a basis of  
+	\begin{equation*}
+		T_{(x,q')}W\left((q,q')\to \right)=T_xW(q\to) \times T_{q'}W(q' \to )\,.
+	\end{equation*} that is oriented with respect to $T^u_{q,q'}M\times M'$ and assume that $-\grad_x(f)$ is the last vector in $b$. Now manipulate this basis such that it fitts into the splitting 
+	\begin{equation*}
+			T_{(x,q')}W\left((q,q')\to \right)=N_{(x,q')}(\gamma,q')\oplus -\grad_{x,q'}(f+f')\,.
+	\end{equation*}by moving $-\grad_x(f)$ to the back. This requires $\ind_{q'}(f')$ many transpositions. Hence if $\tilde{b}$ denotes $b$ without its last vector we have the equalitiy :
+	\begin{equation*}
+		(b,b') \text{ carries the same orientation as } (-1)^{\ind_q'(f')}(\tilde{b},b',-\grad_{(x,x')}(f+f'))\,.
+	\end{equation*} Now moving the basis $(\tilde{b},b,-\grad_{(x,x')}(f+f'))$ down along the flow and comparing it to the orientation of 
+	\begin{equation*}
+		T_{p,q'}W((p',q')\to ) = T_{p}W(p\to )\times T_{q'}W(q' \to)~ 
+	\end{equation*}
+	 is the same just comparing $\tilde{b}$ with the orientation of $ T_{p}W(p\to )$ which again is the sign $n_{\gamma}$. Hence:
+	$n_{\gamma,q'}=(-1)^{\ind_{q'}}n_\gamma$. Going though the same argument for the case that $q=p$ is easyer, since we can assume $-\grad_x(f)$ to already be in the back and hence we get for critical points $(q,q')$ and $(p,p')$ with consequtive indices:
+	\begin{equation*}
+		n\left((q,q'),(p,p') \right)=\begin{cases}
+			\phantom{(-1)^{\ind_{q'}(f')}}n(q',p') & \text{ if } q=p\\
+			(-1)^{\ind_{q'}(f')} n(q,p) & \text{ if } q'=p'\\
+			0& \text{ else.}
+		\end{cases}
+	\end{equation*}
+	\end{definition}
 \begin{comment}
 
 

@@ -1,0 +1,104 @@
+\subsection*{A Non-Trivial $d_3$}
+
+We start by listing a view facts. Our main theorem is: 
+\begin{theorem}[Summary of the Specrtal Sequence]
+	For each Morse datum $(M,f,g,\mathfrak{A})$ together with a filtration $N_{-1}\subseteq N_0 \subseteq \cdots \subseteq N_{m-1} \subseteq N_m=M$ of conlay pairs, there esists a Spectralsequence $(EM^p_r,dM^p_r)$ where each page is graded in $p$ such that
+	\begin{itemize}
+		\item The first page is the morse complex, hence the second page is the Morse homology
+		\item The spectral sequence becomes stationary and the infinity page is the associeted graded goup of the K-groups meaning:
+		\begin{align*}
+			\bigoplus_{p\in 2\N\phantom{+1}} E_\infty ^p \text{ is a associated graded group to }K^0(M) \\
+			\bigoplus_{p\in 2\N+1} E_\infty ^p \text{ is a associated graded group to }K^1(M)\,.
+		\end{align*}
+	\end{itemize}
+	\end{theorem}
+
+\begin{theorem}[Morse-theoretic Cohomological Künneth Formular]
+		If $\Lambda$ is a principle ideal domain, and let $(M,\mathfrak{A},\Lambda)$ and $(M',\mathfrak{A}',\Lambda)$ be two Morse data. Then for each $n$ there is a splitting short exact sequence 
+	\begin{multline*}
+		0~\to ~
+		\bigoplus_i\left(H^i(M,\mathfrak{A},\Lambda)\otimes_\Lambda H^{n-i}(M',\mathfrak{A}',\Lambda)\right) ~\to~
+		H^n(M\times M',\mathfrak{A}\times \mathfrak{A}',\Lambda) \\
+		~	\to ~
+		\bigoplus_i\left(\Tor_{\Lambda}\left(
+		H^i(M,\mathfrak{A},\Lambda),H^{n-i+1}(M',\mathfrak{A}',\Lambda)
+		\right) \right)~ \to ~0
+	\end{multline*}
+\end{theorem}
+\begin{proof}
+    The proof is not so bad and will be done in the final thesis. (We need it for a result wich could also be deduced from the isomorohism between Morse and singular cohomology).
+\end{proof}
+
+The next theorem comes from Atiyah himself and im not aware of an proof that does not rely an CW-structures:
+
+\begin{theorem}[Künneth Formular for complex K-Theory]
+    Let $X;Y$ be finite CW-complexes, then we have a natural exact sequence
+    \begin{center}
+        \begin{tikzcd}
+            0\arrow[r]K^*(X)\otimes K^*(Y)\arrow[r,"\alpha"]& K^*(X\times Y)\arrow[r,"\beta"]&\Tor(K^*(X),K^*(Y))\to 0\,.
+        \end{tikzcd}
+    \end{center}
+    Here $\otimes$ and $\Tor$ are applied to abelian groups, and $\alpha$ is the natural map inducved by the product in $K^*$. Morover, the sequence is $\Z_2$ graded with $\deg(\alpha)=0$, $\deg(\beta)=1$,ehere $K^p\otimes K^q$ and $\Tor(K^p,K^q)$ are given degree $p+q$ ($p,q\in \Z_2$). 
+\end{theorem}
+We will also use the known $K$-groups of real projective space. We cannot get them through our Spectral sequence direct, as we only get associated groups.
+	\begin{fact}
+		In fact $K^0(\R\PP^n)\cong \Z \oplus \Z_{2^{\left\lfloor \frac{n}{2}\right\rfloor}}$ and $K^1(\R\PP^n)\cong \Z$ if $n$ is odd, and $0$ if $n$ is even.
+	\end{fact}
+
+\begin{example}[$\R\PP^2\times \R\PP^4$]
+    First we list the Cohomology of $\R\PP^2$ and $\R\PP^4$ (This is not to bad to calculate by Morse Theory and can be done by reusing earlyer work, where I looked at the Morse-Theoretic Spectral Sequence of $\R\PP^n$):
+	\begin{equation*}
+		\begin{array}{c|c c}
+			& \R\PP^2 &\R\PP^4\\
+			\hline
+			H^0&\Z&\Z \\
+			H^1&0&0\\
+			H^2&\Z_2&\Z_2\\
+			H^3&0&0\\
+			H^4&0&\Z_2
+		\end{array}
+	\end{equation*}
+
+    Furthermore, the only non-zero $\Tor$ is $\Tor(\Z_2,\Z_2)$, which appears for $n=3$ and $n=5$. For the tensor groups for any $A$ we have: $\Z\otimes A\cong A$ and $\Z_2\otimes \Z_2 \cong \Z_2$. 
+
+    Hence, we have the resulting isomorphisms: 
+ \begin{equation*}
+ 	H^i(\R\PP^2\times \R\PP^4)\cong \begin{cases}
+ 		\Z & \text{ if }i=  0\,,\\
+	 	0  & \text{ if }i=  1\,,\\
+	 	\Z_2\oplus \Z_2& \text{ if }i= 2\,,\\
+	 	\Z_2 & \text{ if }i=  3\,,\\
+	 	\Z_2\oplus \Z_2 & \text{ if }i=  4\,,\\
+	 	\Z_2& \text{ if }i=  5\,,\\
+	 	\Z_2& \text{ if }i=  6\,,\\
+	 	0& \text{ if }i>6\,.
+ 	\end{cases}
+ \end{equation*}
+(This result could also have been derived from the classical universal coefficient theorem in singular homology and its isomorphism to Morse homology)
+ Now $d_3$ is a map of those groubs of degree three. Hence, there are two maps, that could be non-trivial:
+\begin{align}
+    d_3^0: &\Z\phantom{_2\oplus \Z_2}\to \Z_2\\
+    d_3^2: &\Z_2\oplus \Z_2 \to \Z_2\\
+    d_3^3: &\Z_2\phantom{~\oplus \Z_2}\to \Z_2\,.
+\end{align}
+
+Now by the Künneth formular for K-Theory, we get the two exact sequences:
+\begin{center}
+        	\begin{tikzcd}
+		0 \arrow[r]&K^0(\R\PP^2)\otimes K^0(\R\PP^4) \arrow[r]&K^0(\R\PP^2\times \R\PP^4)\arrow[r]&\Tor(K^1(\R\PP^2),K^1(\R\PP^4))\arrow[r]&0\\
+			0 \arrow[r]&K^1(\R\PP^2)\otimes K^1(\R\PP^4) \arrow[r]&K^1(\R\PP^2\times \R\PP^4)\arrow[r]&\Tor(K^0(\R\PP^2),K^0(\R\PP^4))\arrow[r]&0
+	\end{tikzcd}
+
+	\end{center}In our case the two sequences are of the form:\begin{center}
+		\begin{tikzcd}
+		0 \arrow[r]&(\Z\oplus \Z_2)\otimes (\Z\oplus \Z_4) \arrow[r]&K^0(\R\PP^2\times \R\PP^4)\arrow[r]&\Tor(0,0)\arrow[r]&0\\
+		0 \arrow[r]&0\arrow[r]&K^1(\R\PP^2\times \R\PP^4)\arrow[r]&\Tor(\Z_2,\Z_4)\arrow[r]&0
+	\end{tikzcd}
+	\end{center}
+\end{example}
+
+And thereby \begin{equation*}
+		K^0(\R\PP^2\times \R\PP^4)\cong \Z\oplus \Z_2\oplus \Z_2\oplus \Z_4\text{ and }	K^1(\R\PP^2\times \R\PP^4)\cong \Z_2
+\end{equation*}
+Now assuming that all $d_3$ are trivial(and all higher $d_r$ ). Then, the second page would be the last page, where the sum of all odd entrys is a graded associated group of $K^1(\R\PP^2\times \R\PP^4)\cong \Z_2$. Now, under group extensions, the order of the group is multiplicative. Hence, the group assoziated to $K^1(\R\PP^2\times \R\PP^4)$ needs to have order two giving us a contradiction. I Think there are algebaic ways to show that $d_3$ already is nontrivial, by proofing that $d_5^0=0$ (and thereby $d_3$ would be the only possibility for nintrivial maps), as this is a map on the edge of the spectral sequence.
+

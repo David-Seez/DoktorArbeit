@@ -346,7 +346,7 @@ Finally, we can compare the induced generators: for this we denote $\beta_v\colo
 Any finite dimensional real vector space $V$ is homeomoprhic to $\R^n$ via the coordinate map $\kappa_v$ that maps each vector to its coordinate representation. With this we can introduce a K-theoretic orientation from an ordered basis via the composition: 
    \begin{center}
 \begin{tikzcd}
-\tilde{K}^{-n}(S^n) \arrow[r, "(\pi_S^{-1})^*"] & \tilde{K}^{-n}(\overline{\R^n}) \arrow[r, " \kappa_v^*"] & \tilde{K}^{-n}(\overline{V})
+\tilde{K}^{-n}(S^n) \arrow[r, "\overline{(\pi_S^{-1})}^*"] & \tilde{K}^{-n}(\overline{\R^n}) \arrow[r, " \overline{\kappa}_v^*"] & \tilde{K}^{-n}(\overline{V})
 \end{tikzcd}
    \end{center} With this we can map the bott generator $\beta$ from Definition \ref{def:kTheo-BottGenerator} to a generator of $\tilde{K}^{-n}(\overline{V})$ and hence induce a K-Theoretic orientation. This orientation only depends on the orientation of $V$ and two different orientations induce different K-theoretic orientations
 \end{corollary}
@@ -365,50 +365,41 @@ Any finite dimensional real vector space $V$ is homeomoprhic to $\R^n$ via the c
         \Xi^{*}\left(\beta_{\mathfrak o}\boxtimes\beta_{\mathfrak p}\right)=\beta_{\mathfrak o\oplus\mathfrak p}\,.
     \end{equation*}
 \end{lemma}
-\begin{proof} Let $\kappa_v:V \to \R^n$ and $\kappa_w:\R^n \to W$ be two basis maps from ordered basis compatible with the orientations ov $v$ and $W$.
-    By definition of the orientation on $V\oplus W$ we know that the direct sum of thhe maps $\kappa_v\oplus \kappa_W$ is an orientation preserving between $V\oplus W$ and the canonically oriented $\R^n\oplus \R^m$. Naturality of $\Xi$ gives us
-    \begin{equation*}
-       \Xi \circ \kappa_v\oplus \kappa_W=\kappa_v \wedge \kappa_w \circ \Xi\,.
-    \end{equation*} Hence: by definition and associativity of the wedge product:
+\begin{proof} Let $\kappa_v:V \to \R^n$ and $\kappa_w:\R^n \to W$ be two basis maps from ordered basis compatible with the orientations ov $V$ and $W$.
+    By definition and naturality of the reduced external product:
+    \begin{align*}
+         \Xi^{*}\left(\beta_{\mathfrak o}\boxtimes\beta_{\mathfrak p}\right)
+         &= \Xi^* \circ \Big(\left(\overline{(\pi_S^n)}^{-1}\circ \overline{\kappa}_v\right)^*(\beta_n) \boxtimes \left(\overline{(\pi_S^m)}^{-1}\circ \overline{\kappa}_w\right)^*(\beta_m) \Big) \\
+         &= \Xi^* \circ \left(\left(\overline{(\pi_S^n)}^{-1}\circ \overline{\kappa}_v\right) \wedge \left(\overline{(\pi_S^m)}^{-1}\circ \overline{\kappa}_w\right)\right)^*(\beta_n \boxtimes \beta_m)
+    \end{align*}
+Now, the function $(\left(\overline{(\pi_S^n)}^{-1}\circ \overline{\kappa}_v\right) \wedge \left(\overline{(\pi_S^m)}^{-1}\circ \overline{\kappa}_w\right):\overline{V}\to S^n$ is the compactification of $(\pi_S^n)^{-1}\circ \kappa_v$ Hence, by naturality of $\Xi$ we conclude:
 \begin{align*}
-    \Xi^{*}\left(\beta_{\mathfrak o}\wedge\beta_{\mathfrak p}\right)
-    &=      \Xi^{*}\left(
-\kappa_v^*\wedge \kappa_w^*
-      \right)\circ \left(
-         (\pi^{-1}_s)^{-1} \wedge (\pi^{-1}_s)^{-1}
-         \right)\beta_n\boxtimes\beta_m\\
-    &=      \left(
-\kappa_v^*\oplus \kappa_w^*
-      \right)\circ \Xi ^* \circ \left(
-         (\pi^{-1}_s)^{-1} \wedge (\pi^{-1}_s)^{-1}
-         \right)\beta_n\boxtimes\beta_m\\
-         &=
-          \left(
-        \kappa_v^*\oplus \kappa_w^*
-      \right)\circ \left(
-         (\pi^{-1}_s)^{-1} \oplus (\pi^{-1}_s)^{-1}
-         \right)\circ \Xi^* (\beta_n\boxtimes\beta_m)\\
-         &=  \left(
-        \kappa_v^*\oplus \kappa_w^*
-      \right)\circ \left(
-         (\pi^{-1}_s)^{-1} \oplus (\pi^{-1}_s)^{-1}
-         \right)\circ \Xi^* (\Upsilon^*_{n,m}(\beta_{n+m}))\\
-         &=\left(
-        \kappa_v^*\oplus \kappa_w^*
-      \right)\circ \left(
-         (\pi^{-1}_s)^{-1} \oplus (\pi^{-1}_s)^{-1}
-         \right)\circ \Xi^* (\overline{\pi^{n+m}_S}^{-1}\circ \Xi^{-1}\circ \overline{\pi^n_S}\wedge \overline{\pi^m_S})(\beta_{n+m}))\\
-         &=\left(
-        \kappa_v^*\oplus \kappa_w^*
-      \right)\circ \left(
-         (\pi^{-1}_s)^{-1} \oplus (\pi^{-1}_s)^{-1}
-         \right)(\beta_{n+m})
+    \Xi^* \circ \left(\left(\overline{(\pi_S^n)}^{-1}\circ \overline{\kappa}_v\right) \wedge \left(\overline{(\pi_S^m)}^{-1}\circ \overline{\kappa}_w\right)\right)^*
+    &= \overline{
+        \big((\pi_S^n)^{-1}\circ \kappa_v\big)\times (\pi_S^m)^{-1}\circ \kappa_w \big)
+    }^* \circ \Xi^* \\
+    &=\overline{\kappa_v\times \kappa_w}^*\circ \overline{\left((\pi_S^n)^{-1} \times (\pi_S^m)^{-1}\right)}^*\circ \Xi^*
 \end{align*}
-On the other hand:
-\begin{equation*}
-    \beta_{\mathfrak{o}\oplus \mathfrak{p}}=\kappa_{v\oplus w}^*\circ (\pi^{-1}_S)^*\circ \beta_{n+m}
-\end{equation*}
-Jetzt bin ich fast fertig hier....
+
+
+    Next we will apply Lemma to replace \ref{lem:ktheo-bottGeneratorsAreMultiplicative} $(\beta_n \boxtimes \beta_m)$ with $\Upsilon^*_{n-m}(\beta_{n+m})$ where \begin{equation*}
+        \Upsilon_{n,m}\coloneq \overline{(\pi_S^{n+m})}^{-1}\circ I \circ  \Xi^{-1}\circ \left(\overline{\pi^n_S}\wedge\overline{\pi^m_S}\right)\,.
+    \end{equation*} In the definition of $\Upsilon$ in Definition \ref{def:ktheo-higherBottGenerators} we supressed the map $I$ that identifies $\overline{\R^n\times \R^m}$ with $\overline{\R^{n+m}}$. For this proof we will write it out.
+    This leads to 
+    \begin{align*}
+        \Xi^*(\beta_n\boxtimes \beta_m)
+        &=\Big(\overline{(\pi_S^{n+m})}^{-1}\circ I\circ \Xi^{-1}\circ \left(\overline{\pi^n_S}\wedge\overline{\pi^m_S}\right)\circ \Xi\Big)^*(\beta_{n+m})\\
+        &=\Big(\overline{(\pi_S^{n+m})}^{-1}\circ I\circ  \left(\overline{\pi^n_S\times \pi^m_S}\right)\Big)^*(\beta_{n+m})
+    \end{align*}
+ Now pulling everything together we get:
+\begin{align*}
+    \Xi^{*}\left(\beta_{\mathfrak o}\boxtimes\beta_{\mathfrak p}\right)
+    &=\overline{\kappa_v\times \kappa_w}^*\circ \overline{\left((\pi_S^n)^{-1} \times (\pi_S^m)^{-1}\right)}^*\circ \Xi^*(\beta_n\boxtimes \beta_m)\\
+    &=\overline{\kappa_v\times \kappa_w}^*\circ \overline{\left((\pi_S^n)^{-1} \times (\pi_S^m)^{-1}\right)}^*\circ \Big(\overline{(\pi_S^{n+m})}^{-1}\circ I\circ  \left(\overline{\pi^n_S\times \pi^m_S}\right)\Big)^*(\beta_{n+m})\\
+    &=\Big((\overline{(\pi_S^{n+m})}^{-1}) \circ \underbrace{I \circ  \overline{\kappa_v\times \kappa_w}}_{\kappa_{v\oplus w}}\Big)^* (\beta_{n+m})\\
+    &= \beta_{\mathfrak{o}\oplus \mathfrak{p}}
+\end{align*}
+
 \end{proof}
 
 \subsection{Local K-Theoric Orientation}
@@ -457,8 +448,10 @@ By definition of the infimum there exists a $s_0\in ( \mu(v),s]$ with $s_0^{-1}v
         \iota:\overline{V}\setminus U \to \overline{U}\,,\quad \iota (v)\coloneq \frac{v}{\mu(v)^2}\, (v\neq \infty), \quad \iota(\infty)\coloneq 0. 
     \end{equation*} The well-definition as a map follows from $\mu(v)\geq 1$ if $v\in V\setminus U$ and thereby $\mu(\iota(v))=\mu(v)\mu(v)^2=\mu(v)^{-1}\leq 1$ which concludes the well definition by (f). The map $w\mapsto w\mu(w)^{-2}$ ($0\mapsto \infty$)is a two sided inverse of $\iota$ which can be seen by computation and realizing that $\iota$ maps $\infty$ to zero {lem:orient-MinkowskyGauge} (c). Finally, continuity of $\iota$ in $V\setminus U$ follows from $\mu$ beeing continuous and in $\infty$ the continuity follows from (c):
     \begin{equation*}
-        \norm{\iota(v)}=\frac{\norm{v}}{\mu(v)^2} \xrightarrow[\ \norm{v}\to \infty \ ]{} 0\,.
-    \end{equation*} The same argument gives us continuouty of our inverse function. Alternitively we can argue that $\iota$ is a continouos bijection from a compact space to a Hausdorr space and thereby a homeomorphism. Finally, $\overline{U}$ is convex and compact and thereby contractible.
+        \norm{\iota(v)}
+        =\frac{\norm{v}}{\mu(v)^2} \xrightarrow[ \norm{v}\to \infty ]{ ~} 0\,.
+    \end{equation*} 
+    The same argument gives us continuouty of our inverse function. Alternitively we can argue that $\iota$ is a continouos bijection from a compact space to a Hausdorr space and thereby a homeomorphism. Finally, $\overline{U}$ is convex and compact and thereby contractible.
 \end{proof}
 
 \begin{definition}[Admissible Neighbourhoods]

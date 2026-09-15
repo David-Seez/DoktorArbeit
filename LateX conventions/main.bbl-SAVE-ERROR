@@ -1,0 +1,211 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.2 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{anyt/global//global/global}
+    \entry{AudinDamian2014}{book}{}
+      \name{author}{2}{}{%
+        {{hash=088f07e7178387e1de67529211dfe3b0}{%
+           family={Audin},
+           familyi={A\bibinitperiod},
+           given={Michèle},
+           giveni={M\bibinitperiod}}}%
+        {{hash=f5e51a8196892e8108db78f21637fb14}{%
+           family={Damian},
+           familyi={D\bibinitperiod},
+           given={Mihai},
+           giveni={M\bibinitperiod}}}%
+      }
+      \name{translator}{1}{}{%
+        {{hash=b20bc331720b3279e92cfcf6b886a919}{%
+           family={Erné},
+           familyi={E\bibinitperiod},
+           given={Reinie},
+           giveni={R\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {London}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{a983ff4b48574ef2b702250fd9f68d83}
+      \strng{fullhash}{a983ff4b48574ef2b702250fd9f68d83}
+      \strng{bibnamehash}{a983ff4b48574ef2b702250fd9f68d83}
+      \strng{authorbibnamehash}{a983ff4b48574ef2b702250fd9f68d83}
+      \strng{authornamehash}{a983ff4b48574ef2b702250fd9f68d83}
+      \strng{authorfullhash}{a983ff4b48574ef2b702250fd9f68d83}
+      \strng{translatorbibnamehash}{b20bc331720b3279e92cfcf6b886a919}
+      \strng{translatornamehash}{b20bc331720b3279e92cfcf6b886a919}
+      \strng{translatorfullhash}{b20bc331720b3279e92cfcf6b886a919}
+      \field{labelalpha}{AD14}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{978-1-4471-5495-2}
+      \field{series}{Universitext}
+      \field{title}{Morse Theory and Floer Homology}
+      \field{year}{2014}
+      \verb{doi}
+      \verb 10.1007/978-1-4471-5496-9
+      \endverb
+    \endentry
+    \entry{banyaga2004lectures}{book}{}
+      \name{author}{2}{}{%
+        {{hash=71b1b62eaa7b8805e5582243ea133693}{%
+           family={Banyaga},
+           familyi={B\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+        {{hash=d802bf97488cdea9748ee8ba7b03a9c5}{%
+           family={Hurtubise},
+           familyi={H\bibinitperiod},
+           given={D.},
+           giveni={D\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer Netherlands}%
+      }
+      \strng{namehash}{efaed3a79a10e81b7c3d6ae9d550aa60}
+      \strng{fullhash}{efaed3a79a10e81b7c3d6ae9d550aa60}
+      \strng{bibnamehash}{efaed3a79a10e81b7c3d6ae9d550aa60}
+      \strng{authorbibnamehash}{efaed3a79a10e81b7c3d6ae9d550aa60}
+      \strng{authornamehash}{efaed3a79a10e81b7c3d6ae9d550aa60}
+      \strng{authorfullhash}{efaed3a79a10e81b7c3d6ae9d550aa60}
+      \field{labelalpha}{BH04}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{9781402026959}
+      \field{series}{Texts in the Mathematical Sciences}
+      \field{title}{Lectures on Morse Homology}
+      \field{year}{2004}
+      \verb{urlraw}
+      \verb https://books.google.de/books?id=AX-_sbMjOK4C
+      \endverb
+      \verb{url}
+      \verb https://books.google.de/books?id=AX-_sbMjOK4C
+      \endverb
+    \endentry
+    \entry{hatcher2002algebraic}{book}{}
+      \name{author}{1}{}{%
+        {{hash=0a94eadf86d8b878d4c37bc5640e53e3}{%
+           family={Hatcher},
+           familyi={H\bibinitperiod},
+           given={Allen},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Cambridge}%
+      }
+      \list{publisher}{1}{%
+        {Cambridge University Press}%
+      }
+      \strng{namehash}{0a94eadf86d8b878d4c37bc5640e53e3}
+      \strng{fullhash}{0a94eadf86d8b878d4c37bc5640e53e3}
+      \strng{bibnamehash}{0a94eadf86d8b878d4c37bc5640e53e3}
+      \strng{authorbibnamehash}{0a94eadf86d8b878d4c37bc5640e53e3}
+      \strng{authornamehash}{0a94eadf86d8b878d4c37bc5640e53e3}
+      \strng{authorfullhash}{0a94eadf86d8b878d4c37bc5640e53e3}
+      \field{labelalpha}{Hat02}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{978-0-521-79540-1}
+      \field{title}{Algebraic Topology}
+      \field{year}{2002}
+    \endentry
+    \entry{Perko2001}{book}{}
+      \name{author}{1}{}{%
+        {{hash=2e86fbceb5185d82a8b0e6fccbdf1691}{%
+           family={Perko},
+           familyi={P\bibinitperiod},
+           given={Lawrence},
+           giveni={L\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {New York / Berlin}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{2e86fbceb5185d82a8b0e6fccbdf1691}
+      \strng{fullhash}{2e86fbceb5185d82a8b0e6fccbdf1691}
+      \strng{bibnamehash}{2e86fbceb5185d82a8b0e6fccbdf1691}
+      \strng{authorbibnamehash}{2e86fbceb5185d82a8b0e6fccbdf1691}
+      \strng{authornamehash}{2e86fbceb5185d82a8b0e6fccbdf1691}
+      \strng{authorfullhash}{2e86fbceb5185d82a8b0e6fccbdf1691}
+      \field{labelalpha}{Per01}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{3}
+      \field{isbn}{978-1461265269}
+      \field{note}{Softcover / Paperback edition}
+      \field{series}{Texts in Applied Mathematics}
+      \field{title}{Differential Equations and Dynamical Systems}
+      \field{volume}{7}
+      \field{year}{2001}
+      \field{pages}{557}
+      \range{pages}{1}
+    \endentry
+    \entry{Whitehead1978}{book}{}
+      \name{author}{1}{}{%
+        {{hash=22fc52ce77144c9d6a8af2f08199437f}{%
+           family={Whitehead},
+           familyi={W\bibinitperiod},
+           given={George\bibnamedelima W.},
+           giveni={G\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {New York--Berlin}%
+      }
+      \list{publisher}{1}{%
+        {Springer-Verlag}%
+      }
+      \strng{namehash}{22fc52ce77144c9d6a8af2f08199437f}
+      \strng{fullhash}{22fc52ce77144c9d6a8af2f08199437f}
+      \strng{bibnamehash}{22fc52ce77144c9d6a8af2f08199437f}
+      \strng{authorbibnamehash}{22fc52ce77144c9d6a8af2f08199437f}
+      \strng{authornamehash}{22fc52ce77144c9d6a8af2f08199437f}
+      \strng{authorfullhash}{22fc52ce77144c9d6a8af2f08199437f}
+      \field{labelalpha}{Whi78}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{0-387-90336-4}
+      \field{series}{Graduate Texts in Mathematics}
+      \field{title}{Elements of Homotopy Theory}
+      \field{volume}{61}
+      \field{year}{1978}
+      \field{pages}{xxi+744}
+      \range{pages}{-1}
+      \verb{doi}
+      \verb 10.1007/978-1-4612-6318-0
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+
