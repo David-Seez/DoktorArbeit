@@ -513,87 +513,284 @@ Furthermore, we define the counting of signed flow lines:
  \subsection{A Morse-Theoretik Künneth Formula}
 
 \begin{definition}\label{def: Definition produce Morse datum}
-	Let $(M,\mathfrak{A},\Lambda)$ and $(M',\mathfrak{A}',\Lambda)$ be two Morse data with $\mathfrak{A}=(g,f,\mathfrak{o})$ and $ \mathfrak{A}'=(g',f',\mathfrak{o}')$. On $M\times M'$ we define the Morse function $f+f'$ and the metric $g\oplus g'$. Then, $\diff_{(x,x')}(f+f')=\diff_x(f)+\diff_x'(f')$ and hence the critical points of $f+f'$ are pairs $(p,p')$ such that $p$ is critical for $f$ and $p'$ is critical for $f'$. By corollary \ref{cor:morse-localHessian} we conclude that the hessian splits into block diagonal form and hence the property of non degenerayc follows. Since we use the product metric $g\oplus g'$ we also get a splitting gradient of $f+f'$: 
+	Let $(M,\mathfrak{A},\Lambda)$ and $(M',\mathfrak{A}',\Lambda)$ be two Morse data with $\mathfrak{A}=(g,f,\mathfrak{o})$ and $ \mathfrak{A}'=(g',f',\mathfrak{o}')$. On $M\times M'$ we define the Morse function $f+f'$ and the metric $g\oplus g'$. Then, $\diff_{(x,x')}(f+f')=\diff_x(f)+\diff_x'(f')$ and hence the critical points of $f+f'$ are pairs $(p,p')$ such that $p$ is critical for $f$ and $p'$ is critical for $f'$. By corollary \ref{cor:morse-localHessian} we conclude that the Hessian splits into block diagonal form and hence the property of non degenerayc follows. Since we use the product metric $g\oplus g'$ we also get a splitting of the gradient of $f+f'$: 
 	\begin{align*}
 		\diff_{(x,x')}(f+f')(V,V')
 		&=\diff_x(f)(V)+\diff_{x'}(f')(V')\\
 		&=g(\grad_x(f),V)+g'(\grad_{x'}(f'),V')\\
 		&=(g\oplus g')(\underbrace{(\grad_x(f),\grad_{x'}(f'))}_{\grad_{(x,x')}(f+f')},(V,V'))\,.
-	\end{align*} Hence, the flow also splits in the following sence: Assume $\tilde{\phi}$ is the flow of $f+f'$ on $M\times M'$, $\phi$ is the flow of $f$ on $M$ and $\phi'$ is the flow of $f'$ on $M'$. Then $\phi_t(x,x')=(\phi_t(x),\phi_t(x'))$, as the right sight satisfies the differential equation. Thereby, the (un-)stable manifolds split, letting us orient all unstable manifolds via that splitting which gives us $\mathfrak{o}\oplus \mathfrak{o}'$. Finally, transversal intersection is a property that carries over to products and hence the Morse datum $(M\times M',\mathfrak{A}\times \mathfrak{A}',\Lambda)$ with $\mathfrak{A}\times \mathfrak{A}'\coloneq (g\oplus g',f+f',\mathfrak{o}\oplus \mathfrak{o}')$ indeed constitutes a valid Morse datum.
+	\end{align*} Hence, the flow also splits in the following sense: Assume $\tilde{\phi}$ is the flow of $f+f'$ on $M\times M'$, $\phi$ is the flow of $f$ on $M$ and $\phi'$ is the flow of $f'$ on $M'$. Then $\phi_t(x,x')=(\phi_t(x),\phi_t(x'))$, as the right sight satisfies the differential equation. Thereby, the (un-)stable manifolds split, letting us orient all unstable manifolds via that splitting which gives us $\mathfrak{o}\oplus \mathfrak{o}'$. Finally, transversal intersection is a property that carries over to products and hence the Morse datum $(M\times M',\mathfrak{A}\times \mathfrak{A}',\Lambda)$ with $\mathfrak{A}\times \mathfrak{A}'\coloneq (g\oplus g',f+f',\mathfrak{o}\oplus \mathfrak{o}')$ indeed constitutes a valid Morse datum.
 	The splitting of the flow gives a splitting of the connecting flow lines and hence of the moduli spaces for two critical points $(q,q')$ and $(p,p')$: 
 	\begin{equation*}
 		\mathcal{M}\left((q,q')\to (p,p')\right)=\mathcal{M}(q\to p)\times \mathcal{M}(q'\to p') 
-	\end{equation*} If $p\neq q$ and $p'\neq q'$, then for the moduli space to be non empty we need 
+	\end{equation*} If $p\neq q$ and $p'\neq q'$, then for the moduli space to be non-empty we need 
 	\begin{equation*}
 		\ind(q)>\ind(p) \quad \text{and}\quad \ind(q')>\ind(p')\,.
-	\end{equation*} This results in the index of $(q,q')$ being at least two bigger then the index of $(p,p')$. Hence, if we want to count flow lines between two consecutive indices, either $p$ equals $p'$ or $q$ equals $q'$. In this case we have the moduli space
+	\end{equation*} This results in the index of $(q,q')$ being at least two bigger than the index of $(p,p')$. Hence, if we want to count flow lines between two consecutive indices, either $q$ equals $p$ or $q'$ equals $p'$. In this case we have the moduli space
 	\begin{equation*}
 		\mathcal{M}\left((q,q')\to (p,p')\right)=\begin{cases}
 			p\times \mathcal{M}(q' \to p')&\text{ if } p=q\\
 			\mathcal{M}(q \to p)\times p' &\text{ if } p'=q' \,.
 		\end{cases}
 	\end{equation*}
-	Now, we want to analyse how the splitting affects the counting of flow lines. For this denote the flow lines $\tilde{\gamma}\in \mathcal{M}\left((q,q')\to (p,p')\right)$, $\gamma \in \mathcal{q\to p}$ and $\gamma'\in \mathcal{M}(q'\to p')$ such that $\tilde{\gamma}=\gamma\times \gamma'$.
+	Now, we want to analyse how the splitting affects the counting of flow lines. For this we denote the flow lines $\tilde{\gamma}\in \mathcal{M}\left((q,q')\to (p,p')\right)$, $\gamma \in \mathcal{M}{q\to p}$ and $\gamma'\in \mathcal{M}(q'\to p')$ such that $\tilde{\gamma}=\gamma\times \gamma'$.
 	Then we get a short exact sequence of bundles:
+
 	\begin{center}
 		\begin{tikzcd}
 			0 \arrow[r]& T\tilde{\gamma} \arrow[r]&\restr{TW\left((q,q')\to \right)}{\tilde{\gamma}}\arrow[r]&
 			\restr{\Big(T(M\times M')\Big/ TW(\to (p,p')) \Big)}{\tilde{\gamma}} \arrow[r] &0
 		\end{tikzcd}
 	\end{center}
-	This sequence however is graded in the sence that all spaces (with exception of the $0$) are direct sums and all maps respect them, meaning it is the direct sum of the two short exact sequences:
+	
+
+
+
+
+	This sequence, however, is graded in the sense that all spaces (with the exception of the $0$) are direct sums and all maps respect them, meaning it is the direct sum of the two short exact sequences:
 	\begin{equation}\label{eq:morse-firstExactSequence}
 		\begin{tikzcd}
-			0 \arrow[r]& T{\gamma} \arrow[r]&\restr{TW\left(q\to \right)}{{\gamma}}\arrow[r]&
+			0 \arrow[r]& T{\gamma} \text{ or }0\arrow[r]&\restr{TW\left(q\to \right)}{{\gamma}}\arrow[r]&
 			\restr{\Big(TM\Big/ TW(\to p) \Big)}{{\gamma}} \arrow[r] &0 
 		\end{tikzcd}
 	\end{equation}
 	and 
 	\begin{equation}\label{eq:morse-secondExactSequence}
 		\begin{tikzcd}
-			0 \arrow[r]& T{\gamma'} \arrow[r]&\restr{TW\left(q'\to \right)}{{\gamma'}}\arrow[r]&
+			0 \arrow[r]& T{\gamma'} \text{ or }0 \arrow[r]&\restr{TW\left(q'\to \right)}{{\gamma'}}\arrow[r]&
 			\restr{\Big(TM'\Big/ TW(\to p') \Big)}{{\gamma'}} \arrow[r] &0
 		\end{tikzcd}
 	\end{equation}
-	Now, we have the two orientations of $\restr{TW\left((q,q')\to \right)}{\tilde{\gamma}}$: The first one comes from the orientation of $T_{(q,q')}^uM\times M'$ and is given as the direct sum of the orientations of $T_q^uM$ and $T_{q'}^uM'$ and thereby represented by the product of two nonvensinging sections into the determinant bundle $s_q \otimes s_{q'}$( Remember that the determinant of a direct sum is the tensor product of the determinants; This is also true for bundles). The other way of orienting comes from the exact sequences. Let $-\grad\wedge s_p$ denote a represantative of the orientation induced by the sort exact sequence (\ref{eq:morse-firstExactSequence}) and similar denote the orientation induced in the middle of the second short exact sequence \ref{eq:morse-secondExactSequence} by $-\grad'\wedge s_{p'}$.  By definition, the compatison of $s_p$ with $-\grad\wedge s_p$ gives the sign $\epsilon{\gamma}$ and similar the comparison of $s_{q'}$ with $-\grad'\wedge s_{p'}$ gives the sign $\epsilon(\gamma')$. For ease of notation we assume that the sections live in the right space (and we omit the needed inclusions or lifts to pair them with a $\wedge$.)
+	Now, we have the two orientations of $\restr{TW\left((q,q')\to \right)}{\tilde{\gamma}}$: The first one comes from the orientation of $T_{(q,q')}^uM\times M'$ and is given as the wedge product of two non-vanisching sections into the determinant bundle from the orientations of $T_q^uM$ and $T_{q'}^uM'$ and thereby represented by $s_q \otimes s_{q'}$( Remember that the determinant of a direct sum is the tensor product of the determinants; this is also true for bundles. Furthermore, we omit the needed inclusions or lifts to pair them with a $\wedge$.). 
+	The other way of orienting comes from the exact sequences. Let $-\grad\wedge s_p$ denote a representative of the orientation induced by the short exact sequence (\ref{eq:morse-firstExactSequence}) and similarly denote the orientation induced in the middle of the second short exact sequence (\ref{eq:morse-secondExactSequence}) by $-\grad'\wedge s_{p'}$.  
+	By definition, the comparison of $s_q$ with $-\grad\wedge s_p$ gives the sign $\epsilon(\gamma)$ and similarly the comparison of $s_{q'}$ with $-\grad'\wedge s_{p'}$ gives the sign $\epsilon(\gamma')$. For ease of notation we assume that the sections live in the right space. 
 
-	Then in the product, the induced orientation from the short exact sequence is defiend by a representative of the form:
+	Now we assume that $q'=p'$ resulting in the first element of the short exact sequence (\ref{eq:morse-secondExactSequence}) being trivial and hence giving us the need to compare those two sections:
 	\begin{equation*}
-		(-\grad \wedge -\grad')\wedge ( s_p\wedge s_{p'})\,.
+		(-\grad )\wedge ( s_p\wedge s_{p'})\,.
 	\end{equation*}
 
 	Hence we need to compare the two orientations:
 	\begin{equation*}
-		s_q \wedge s_{q'} \quad \text{ with }\quad (-\grad\wedge -\grad' )\otimes ( s_p\wedge s_{p'})
+		s_q \wedge s_{q'} \quad \text{ with }\quad (-\grad )\wedge ( s_p\wedge s_{q'})=(-\grad\wedge s_p)\wedge s_{q'}\,.
 	\end{equation*}
+	It is now clear that the sign we get from comparing can be expressed as $\epsilon{(\gamma)}$.
 
+	If $q=p$,  the first short exact sequence (\ref{eq:morse-firstExactSequence}) has a trivial first bundle and hence we need to compare the two orientations:
 
+	\begin{equation*}
+		s_q \wedge s_{q'} \quad \text{ with }\quad (-\grad' )\wedge ( s_q\wedge s_{q'})=(-1)^{\ind_q(f)}(s_q\wedge -\grad\wedge s_{p'})\,,
+	\end{equation*}where the sign comes from moving $s_q$ to the front. Is is now clear that the sign we get from comparing can be expressed as $(-1)^{\ind_q(f)}\epsilon{(\gamma')}$.
 
-	
-	For this we go through our classical procedure given in the definition \ref{def: Morse homology}. Assume that $q'=p'$, and let $\gamma$ be an element of $\mathcal{M}(q \to p)$ with $x\in \gamma$. Then $(\gamma,q')\in \mathcal{M}\left((q,q'),(p,q')\right)$. Now let $(b,b')$ be a basis of  
-	\begin{equation*}
-		T_{(x,q')}W\left((q,q')\to \right)=T_xW(q\to) \times T_{q'}W(q' \to )\,.
-	\end{equation*} that is oriented with respect to $T^u_{q,q'}M\times M'$ and assume that $-\grad_x(f)$ is the last vector in $b$. Now manipulate this basis such that it fitts into the splitting 
-	\begin{equation*}
-			T_{(x,q')}W\left((q,q')\to \right)=N_{(x,q')}(\gamma,q')\oplus -\grad_{x,q'}(f+f')\,.
-	\end{equation*}by moving $-\grad_x(f)$ to the back. This requires $\ind_{q'}(f')$ many transpositions. Hence if $\tilde{b}$ denotes $b$ without its last vector we have the equalitiy :
-	\begin{equation*}
-		(b,b') \text{ carries the same orientation as } (-1)^{\ind_q'(f')}(\tilde{b},b',-\grad_{(x,x')}(f+f'))\,.
-	\end{equation*} Now moving the basis $(\tilde{b},b,-\grad_{(x,x')}(f+f'))$ down along the flow and comparing it to the orientation of 
-	\begin{equation*}
-		T_{p,q'}W((p',q')\to ) = T_{p}W(p\to )\times T_{q'}W(q' \to)~ 
-	\end{equation*}
-	 is the same just comparing $\tilde{b}$ with the orientation of $ T_{p}W(p\to )$ which again is the sign $n_{\gamma}$. Hence:
-	$n_{\gamma,q'}=(-1)^{\ind_{q'}}n_\gamma$. Going though the same argument for the case that $q=p$ is easyer, since we can assume $-\grad_x(f)$ to already be in the back and hence we get for critical points $(q,q')$ and $(p,p')$ with consequtive indices:
+This results for critical points $(q,q')$ and $(p,p')$ with consecutive indices in the formula:
 	\begin{equation*}
 		n\left((q,q'),(p,p') \right)=\begin{cases}
-			\phantom{(-1)^{\ind_{q'}(f')}}n(q',p') & \text{ if } q=p\\
-			(-1)^{\ind_{q'}(f')} n(q,p) & \text{ if } q'=p'\\
-			0& \text{ else.}
+			(-1)^{\ind_q(f)}n(q',p') & \text{ if } q=p\\
+			\phantom{(-1)^{\ind_q(f)}} n(q,p) & \text{ if } q'=p'			
 		\end{cases}
 	\end{equation*}
 	\end{definition}
+
+
+\begin{remark}
+			Let $(M,\mathfrak{A},\Lambda)$ and $(M',\mathfrak{A}',\Lambda)$ be two Morse data with $\mathfrak{A}=(g,f,\mathfrak{o})$ and $ \mathfrak{A}'=(g',f',\mathfrak{o}')$. Then the map (given on the generators of the pure tensors)
+		\begin{equation*}
+			\Phi: \bigoplus_{i+j=k}C_i(M,\mathfrak{A},\Lambda)\otimes_\Lambda C_j(M',\mathfrak{A}',\Lambda) \to C_k(M\times M',\mathfrak{A}\times \mathfrak{A}',\Lambda)\,,\quad (p\otimes p')\mapsto (p,p')
+		\end{equation*}
+		is an isomorphism of groups.Furthermore, if we denote the boundary morphism of the chain complexes corresponding to $M,M'$ and $M\times M'$ by $\partial_f$, $\partial_{f'}$ and $\partial_{f+f'}$ respectifely, we	
+		 obtain the following isomorphism of chain complexes induced by $\Phi$:
+
+		\begin{multline*}
+    \left(\bigoplus_{i+j=*}C_i(M,\mathfrak{A},\Lambda)\otimes_\Lambda C_j(M',\mathfrak{A}',\Lambda),\,\partial_f\otimes 1 +(-1)^i1\otimes \partial_{f'} \right)\\
+    \to \left(C_*(M\times M',\mathfrak{A}\times \mathfrak{A}',\Lambda),\partial_{f+f'}\right)
+\end{multline*}
+		Here, the left side is,by definition, the tensor product of chain complexes. Hence, we get a natural isomorphism of chain complexes:
+		\begin{equation*}
+			C_*(M,\mathfrak{A},\Lambda)\otimes_\Lambda C_*(M',\mathfrak{A}',\Lambda) \to C_*(M\times M',\mathfrak{A}\times \mathfrak{A}',\Lambda) \,.
+		\end{equation*}
+	\end{remark}
+
+	\begin{proof}
+		The isomorphism of groups is easy to see, since we have a bijection of the generators
+		\begin{equation*}
+			(p\otimes q) \leftrightarrow (p,q)\,.
+		\end{equation*} Since both sides are free $\Lambda$-modules we can apply the universal property of free modules, giving us a canonical isomorphism of $\Lambda$-modules and hence a group isomorphism.
+		Now we want to show that we get an isomorphism of chain complexes and hence need to check if the boundary map commutes with $\Phi$. Let $q$ be a critical point of index $i$ of $f$ and let $q'$ be a critical point of index $j$ of $f'$. On the one hand, we can calculate
+		\begin{align*}
+    \Phi \left(\partial_f\otimes 1 +(-1)^i1\otimes  \partial_{f'}\right) &(q\otimes q')\\
+    &= \Phi \left(\partial_f(q) \otimes q' +(-1)^i q\otimes  \partial_{f'}(q')\right)\\
+    &= \Phi \left(\sum_{p\in \Crit_{i-1}(f)} n(q,p)\,p\otimes q' +(-1)^i q\otimes \sum_{p'\in \Crit_{j-1}(f')} n(q',p')\,p'\right) \\
+    &=\sum_{p\in \Crit_{i-1}(f)} n(q,p)(p, q') +\sum_{p'\in \Crit_{j-1}(f')}(-1)^i n(q',p')(q,p')\,,
+\end{align*} 
+
+and on the other hand,
+		\begin{align*}
+    \partial_{f+f'}\left(\Phi(q \otimes q')\right)
+    &=\partial_{f+f'}(q,q')\\
+    &=\sum_{(p,p')\in \Crit_{i+j-1}(f+f')}n\left((q,q'),(p,p')\right)\,(p,p')\\
+    &=\underbrace{\sum_{p\in \Crit_{i-1}(f)} n(q,p)(p,q')}_{q'=p'}+
+    \underbrace{\sum_{p'\in \Crit_{j-1}(f')}(-1)^in(q',p')(q,p')}_{q=p}\,.
+\end{align*}
+	\end{proof}
+
+
+\begin{lemma}[Algebraic Künneth Formula]\label{lem:morse-AlgKünForm}
+	If $\Lambda$ is a principal ideal domain, and $C$ and $C'$ are chain complexes over $\Lambda$ such that all $C_n$ are free $\Lambda$-modules, then for each $n$ there is a natural short exact sequence 
+	\begin{center}
+		\begin{adjustbox}{width=\textwidth}
+		\begin{tikzcd}
+		0 \arrow[r]&
+		\bigoplus_i\left(H_i(C)\otimes_\Lambda H_{n-i}(C')\right)\arrow[r]&
+		H_n(C\otimes_\Lambda C') \arrow[r]&
+		\bigoplus_i\left(\Tor_{\Lambda}\left(
+		H_i(C),H_{n-i-1}(C')
+		\right) \right) \arrow[r]&0
+		\end{tikzcd}
+		\end{adjustbox}
+	\end{center}that splits.
+\end{lemma}
+\begin{proof}
+	This is a standard result of homological algebra, found in most algebraic topology textbooks. Compare Theorem 3B.5. in  \cite{hatcher2002algebraic} for example.
+\end{proof}
+\begin{corollary}[Algebraic Künneth Formula for Cohomology]
+	If $\Lambda$ is a principal ideal domain, and $C$ and $C'$ are cochain complexes over $\Lambda$ such that all $C^n$ are free $\Lambda$-modules, then for each $n$ there is a natural short exact sequence 
+	\begin{center}
+		\begin{adjustbox}{width=\textwidth}
+		\begin{tikzcd}
+		0 \arrow[r]&
+		\bigoplus_i\left(H^i(C)\otimes_\Lambda H^{n-i}(C')\right)\arrow[r]&
+		H^n(C\otimes_\Lambda C') \arrow[r]&
+		\bigoplus_i\left(\Tor_{\Lambda}\left(
+		H^i(C),H^{n-i+1}(C')
+		\right) \right) \arrow[r]&0
+		\end{tikzcd}
+		\end{adjustbox}
+	\end{center}that splits.
+\end{corollary}
+\begin{proof}
+	This is a corollary of the Algebraic Künneth Formula. For this we define the chain complexes \begin{equation*}
+		D_{-i}\coloneq C^i\quad \text{ and }\quad {D'}_{-i}\coloneq {C'}^i
+	\end{equation*}with the same differentials 
+	\begin{equation*}
+		d_i: D_i \to D_{i-1}\,,c\mapsto d^i(c)  \quad \text{ and }\quad {d'}_i: {D'}_i\to {D'}_{i-1}\,,c'\mapsto d'^i(c)
+	\end{equation*}
+	Then we have the equalities 
+	\begin{equation*}
+		H_i(D)=H^{-1}(C)\,,\quad \text{ and }\quad H_i(D')=H^{-1}(C')\,.
+	\end{equation*} Furthermore, the redefinition is well behaved with tensor products in the sence that
+	\begin{equation*}
+		D\otimes_\Lambda D'=\bigoplus_{i+j=m}D_i\otimes D_j =\bigoplus_{i+j=m}D^{-i}\otimes D^{-j}=(C\otimes_{\Lambda}C')^{-m}\,
+	\end{equation*}and the boundary map of the tensor product chain complex is the same as the coboundary map of the tensorproduct of the cochaincomplex (with the inverted degree).
+	This leads to the equiality
+	\begin{equation*}
+		H_m(D\otimes_\Lambda D')=H^{-m}(C\otimes_\Lambda C')\,.
+	\end{equation*}
+	Now we can appliy the algebraic Künneth theorem to $D,D$ to get the short splitting exact sequence
+	\begin{center}
+		\begin{adjustbox}{width=\textwidth}
+		\begin{tikzcd}
+		0 \arrow[r]&
+		\bigoplus_i\left(H_i(C)\otimes_\Lambda H_{m-i}(C')\right)\arrow[r]&
+		H_m(C\otimes_\Lambda C') \arrow[r]&
+		\bigoplus_i\left(\Tor_{\Lambda}\left(
+		H_i(C),H_{m-i-1}(C')
+		\right) \right) \arrow[r]&0
+		\end{tikzcd}
+		\end{adjustbox}
+	\end{center}. We can now define $n\coloneq -m$ and reindex the summations from $i$ to $-i$ giving us the desired sequence.
+\end{proof}
+
+\begin{theorem}[Morse-theoretic Künneth Formula]
+	Let $\Lambda$ be a principal ideal domain, and let $(M,\mathfrak{A},\Lambda)$ and $(M',\mathfrak{A}',\Lambda)$ be two Morse data. Then for each $n$ there is a splitting short exact sequence 
+	\begin{multline*}
+		0~\to ~
+		\bigoplus_i\left(H_i(M,\mathfrak{A},\Lambda)\otimes_\Lambda H_{n-i}(M',\mathfrak{A}',\Lambda)\right) ~\to~
+			H_n(M\times M',\mathfrak{A}\times \mathfrak{A}',\Lambda) \\
+		~	\to ~
+			\bigoplus_i\left(\Tor_{\Lambda}\left(
+			H_i(M,\mathfrak{A},\Lambda),H_{n-i-1}(M',\mathfrak{A}',\Lambda)
+			\right) \right)~ \to ~0
+	\end{multline*}
+\end{theorem}
+\begin{proof}
+	The theorem follows directly from Lemma \ref{lem:morse-AlgKünForm} above together with the isomorphism of chain complexes 
+	\begin{equation*}
+		C_*(M,\mathfrak{A},\Lambda)\otimes_\Lambda C_*(M',\mathfrak{A}',\Lambda) \to C_*(M\times M',\mathfrak{A}\times \mathfrak{A}',\Lambda) \,.
+	\end{equation*}
+\end{proof}
+
+
+\begin{definition}[Morse Cohomology]
+Let $G$ be a commutative ring with one. To get the cohomology we have to dualice the chain complex. Let $\Crit_k(f)=\{p_1,\dots p_l\}$ be a basis of the $k$-th chain group $C_k(M,\mathfrak{A},G)$. Then, the functionals
+\begin{equation*}
+	\eta_i:C_k(M,\mathfrak{A},G) \to G; p_j \mapsto \begin{cases*}
+		1 & \text{ if } j=i\\
+		0 & \text{ else.}
+	\end{cases*}
+\end{equation*} 
+are a basis of the dual group $C^k(M,\mathfrak{A},G)$. The coboundary map is easy to obtain too: Let $q_j$ for $j=1,\dots,r$ be the critical points with index $k+1$ and let $\xi_i$ be the corresponding forms. Then let $n_f(q_j,p_i)$ be the number of flow lines form $q_j$ to $p_i$ counted with the sign. Then the coboundary map is given as:
+\begin{align*}
+	\partial^k:C^k(M,\mathfrak{A},G) & \to C^{k+1}(M,\mathfrak{A},G)\\
+	\eta_i &\mapsto \partial^{k}\eta_i=\eta_i\circ \partial_{k+1}=\sum_j n_j(q_j,p_i) \xi_j \,.
+\end{align*}
+\end{definition}
+
+
+\begin{theorem}[Morse-theoretic Cohomological Künneth Formular]
+	Let $\Lambda$ be a principal ideal domain, and let $(M,\mathfrak{A},\Lambda)$ and $(M',\mathfrak{A}',\Lambda)$ be two Morse data. Then for each $n$ there is a splitting short exact sequence 
+	\begin{multline*}
+		0~\to ~
+		\bigoplus_i\left(H^i(M,\mathfrak{A},\Lambda)\otimes_\Lambda H^{n-i}(M',\mathfrak{A}',\Lambda)\right) ~\to~
+		H^n(M\times M',\mathfrak{A}\times \mathfrak{A}',\Lambda) \\
+		~	\to ~
+		\bigoplus_i\left(\Tor_{\Lambda}\left(
+		H^i(M,\mathfrak{A},\Lambda),H^{n-i+1}(M',\mathfrak{A}',\Lambda)
+		\right) \right)~ \to ~0
+	\end{multline*}
+\end{theorem}
+\begin{proof}
+	We show this by giving a natural isomorphism of the chain complexes 
+	\begin{equation*}
+		C^*(M,\mathfrak{A},\Lambda)\otimes_\Lambda C^*(M,'\mathfrak{A}',\Lambda) \to C^*(M\times M',\mathfrak{A}\times \mathfrak{A}',\Lambda) \,.
+	\end{equation*}
+	First we need to give an group isomorphism 
+	\begin{equation*}
+		\Phi: \bigoplus_{i+j=k}C^i(M,\mathfrak{A},\Lambda)\otimes_\Lambda C^j(M,'\mathfrak{A}',\Lambda) \to C^k(M\times M',\mathfrak{A}\times \mathfrak{A}',\Lambda)
+	\end{equation*} This isomorphism however is clear and given on the generators : Let $a$ and $a'$ be critical pointes of index $i$ and $j$ with respect to $f$ and $f'$. Let $\eta$ and $eta'$ be the corresponding generators of $C^i(M,\mathfrak{A},\Lambda)$ and $C^j(M,'\mathfrak{A}',\Lambda)$. Then we have the bijection 
+	\begin{equation*}
+		\eta \otimes \eta' \leftrightarrow (\eta,\eta')\,.
+	\end{equation*} To get an chain isomorphism we need to check the compatibility with the coboundary maps. For each $b_l\in \Crit_{i+1}(f)$ let $\xi_l$ be the corresponding form and similar for each $z_k\in \Crit_{j+1}(f')$ let $\zeta_k$ be the corresponding form. Then we calculate
+	\begin{align*}
+	\Phi\left(
+	(-1)^j \partial^f\otimes 1+1\otimes \partial^{f'}
+	\right) (\eta \otimes \eta')
+	&= \Phi\left(
+	(-1)^j \partial^f(\eta)\otimes \eta'+\eta\otimes \partial^{f'}(\eta')
+	\right)\\
+		&= \Phi\left(
+	\sum_{l}(-1)^j n(b_l,a)\xi_l \otimes \eta'+\sum_k n(z_k,a')\eta\otimes \zeta_k
+	\right)\\
+		&= 
+	\sum_{l}(-1)^j n(b_l,a)(\xi_l , \eta')+\sum_k n(z_k,a')(\eta, \zeta_k)
+	\\
+	\end{align*} and the other way arround, if we define for $(x,x')$ with $\ind_{f+f'}(x,x')=\ind_{f+f'}(a,a')+1$ the corresponding form to be $\nu$ we have:
+	\begin{align*}
+		\partial^{f+f'}\Phi(\eta\otimes \eta')
+		&=\partial^{f+f'}(\eta,\eta')\\
+		&=\sum_{(x,x')\in \Crit_{i+j+1}(f+f')}n\left(
+													(a,a'),(x,x')
+											   \right)(\nu)\\
+		&=\underbrace{\sum_l (-1)^{j}n(b_l,a)(\xi_l,\eta')}_{a'=x'}+
+		  \underbrace{\sum_kn(z_k,a')(\eta,\zeta_k)}_{a=x}
+	\end{align*}
+	Now finally we can applie the Algebraic Künneth Formular for Cohomology and we are done. The latter formular is almost the same is the homological one but with a different index shift in the $\Tor$ functor. Again this is standart homological algebra.
+\end{proof}
+
+
+
 \begin{comment}
+
+
 
 
 
