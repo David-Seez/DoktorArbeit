@@ -46,7 +46,7 @@ $\diff f _p=0$  is called \textbf{critical}. By $\Crit (f)$ we denote the \textb
  	\begin{equation*}
  		k=\max \left\{ \dim(U)|U\subseteq \R^n \text{subspace such that } x^\top Ax>0 ~\forall x\in U\setminus \{0\}  \right\}
  	\end{equation*}
- 	So we start by showing \enquote{$\leq$} :
+ 	So we start by showing \enquote{$\leq$}:
  	Denote the first $k$ columns of $T$ with $x_1,...,x_k$. They form a basis of the subspace $\R^k\subseteq \R^n$ and with $ 0 \neq x=\sum_{i=1}^k\lambda_i x_i$ we have that by bilinearity
  	\begin{equation}
  		x^\top Ax=\sum_{i=1}^{k}\lambda_i x_i^\top A x=\sum_{i,j=1}^{k}\lambda_i \lambda_j x_i^\top A x_j=\sum_{i=1}^{k}(\lambda_i)^2\geq 0 \,. 
@@ -652,6 +652,45 @@ and on the other hand,
 \begin{proof}
 	This is a standard result of homological algebra, found in most algebraic topology textbooks. Compare Theorem 3B.5. in  \cite{hatcher2002algebraic} for example.
 \end{proof}
+
+
+\begin{theorem}[Morse-theoretic Künneth Formula]
+	Let $\Lambda$ be a principal ideal domain, and let $(M,\mathfrak{A},\Lambda)$ and $(M',\mathfrak{A}',\Lambda)$ be two Morse data. Then for each $n$ there is a splitting short exact sequence 
+	\begin{multline*}
+		0~\to ~
+		\bigoplus_i\left(H_i(M,\mathfrak{A},\Lambda)\otimes_\Lambda H_{n-i}(M',\mathfrak{A}',\Lambda)\right) ~\to~
+			H_n(M\times M',\mathfrak{A}\times \mathfrak{A}',\Lambda) \\
+		~	\to ~
+			\bigoplus_i\left(\Tor_{\Lambda}\left(
+			H_i(M,\mathfrak{A},\Lambda),H_{n-i-1}(M',\mathfrak{A}',\Lambda)
+			\right) \right)~ \to ~0
+	\end{multline*}
+\end{theorem}
+\begin{proof}
+	The theorem follows directly from Lemma \ref{lem:morse-AlgKünForm} above together with the isomorphism of chain complexes 
+	\begin{equation*}
+		C_*(M,\mathfrak{A},\Lambda)\otimes_\Lambda C_*(M',\mathfrak{A}',\Lambda) \to C_*(M\times M',\mathfrak{A}\times \mathfrak{A}',\Lambda) \,.
+	\end{equation*}
+\end{proof}
+\begin{remark}
+	One might wonder, why there is no \textit{natural} short exact sequence in the Künneth Formula for Morse homology. This is due to the missing functoriality of Morse homology at the moment.
+\end{remark}
+
+\begin{definition}[Morse Cohomology]
+Let $G$ be a commutative ring with one. To get the cohomology we have to dualice the chain complex. Let $\Crit_k(f)=\{p_1,\dots p_l\}$ be a basis of the $k$-th chain group $C_k(M,\mathfrak{A},G)$. Then, the functionals
+\begin{equation*}
+	\eta_i:C_k(M,\mathfrak{A},G) \to G; p_j \mapsto \begin{cases*}
+		1 & \text{ if } j=i\\
+		0 & \text{ else.}
+	\end{cases*}
+\end{equation*} 
+are a basis of the dual group $C^k(M,\mathfrak{A},G)$. The coboundary map is easy to obtain too: Let $q_j$ for $j=1,\dots,r$ be the critical points with index $k+1$ and let $\xi_i$ be the corresponding forms. Let $n(q_j,p_i)$ be the number of flow lines form $q_j$ to $p_i$ counted with the sign. Then the coboundary map is given as:
+\begin{align*}
+	\partial^k:C^k(M,\mathfrak{A},G) & \to C^{k+1}(M,\mathfrak{A},G)\\
+	\eta_i &\mapsto \partial^{k}\eta_i=\eta_i\circ \partial_{k+1}=\sum_j n(q_j,p_i) \xi_j \,.
+\end{align*}
+\end{definition}
+
 \begin{corollary}[Algebraic Künneth Formula for Cohomology]
 	If $\Lambda$ is a principal ideal domain, and $C$ and $C'$ are cochain complexes over $\Lambda$ such that all $C^n$ are free $\Lambda$-modules, then for each $n$ there is a natural short exact sequence 
 	\begin{center}
@@ -672,71 +711,35 @@ and on the other hand,
 		D_{-i}\coloneq C^i\quad \text{ and }\quad {D'}_{-i}\coloneq {C'}^i
 	\end{equation*}with the same differentials 
 	\begin{equation*}
-		d_i: D_i \to D_{i-1}\,,c\mapsto d^i(c)  \quad \text{ and }\quad {d'}_i: {D'}_i\to {D'}_{i-1}\,,c'\mapsto d'^i(c)
+		d_i: D_i \to D_{i-1}\,,c\mapsto d^{-i}(c)  \quad \text{ and }\quad {d'}_i: {D'}_i\to {D'}_{i-1}\,,c'\mapsto d'^{-i}(c')
 	\end{equation*}
 	Then we have the equalities 
 	\begin{equation*}
-		H_i(D)=H^{-1}(C)\,,\quad \text{ and }\quad H_i(D')=H^{-1}(C')\,.
-	\end{equation*} Furthermore, the redefinition is well behaved with tensor products in the sence that
+		H_i(D)=H^{-i}(C)\,,\quad \text{ and }\quad H_i(D')=H^{-i}(C')\,.
+	\end{equation*} Furthermore, the redefinition is well behaved with tensor products in the sense that
 	\begin{equation*}
-		D\otimes_\Lambda D'=\bigoplus_{i+j=m}D_i\otimes D_j =\bigoplus_{i+j=m}D^{-i}\otimes D^{-j}=(C\otimes_{\Lambda}C')^{-m}\,
-	\end{equation*}and the boundary map of the tensor product chain complex is the same as the coboundary map of the tensorproduct of the cochaincomplex (with the inverted degree).
-	This leads to the equiality
+		D\otimes_\Lambda D'=\bigoplus_{i+j=m}D_i\otimes D_j =\bigoplus_{i+j=m}C^{-i}\otimes C^{-j}=(C\otimes_{\Lambda}C')^{-m}\,
+	\end{equation*}and the boundary map of the tensor product chain complex is the same as the coboundary map of the tensor product of the cochain complexes (with the inverted degree).
+	This leads to the equality
 	\begin{equation*}
 		H_m(D\otimes_\Lambda D')=H^{-m}(C\otimes_\Lambda C')\,.
 	\end{equation*}
-	Now we can appliy the algebraic Künneth theorem to $D,D$ to get the short splitting exact sequence
+	Now we can apply the Algebraic Künneth Formula to $D,D'$ to get the short splitting exact sequence
 	\begin{center}
 		\begin{adjustbox}{width=\textwidth}
 		\begin{tikzcd}
 		0 \arrow[r]&
-		\bigoplus_i\left(H_i(C)\otimes_\Lambda H_{m-i}(C')\right)\arrow[r]&
-		H_m(C\otimes_\Lambda C') \arrow[r]&
+		\bigoplus_i\left(H_i(D)\otimes_\Lambda H_{m-i}(D')\right)\arrow[r]&
+		H_m(D\otimes_\Lambda D') \arrow[r]&
 		\bigoplus_i\left(\Tor_{\Lambda}\left(
-		H_i(C),H_{m-i-1}(C')
+		H_i(D),H_{m-i-1}(D')
 		\right) \right) \arrow[r]&0
 		\end{tikzcd}
 		\end{adjustbox}
-	\end{center}. We can now define $n\coloneq -m$ and reindex the summations from $i$ to $-i$ giving us the desired sequence.
+	\end{center} We can now define $n\coloneq -m$ and reindex the summations from $i$ to $-i$, giving us the desired sequence.
 \end{proof}
 
-\begin{theorem}[Morse-theoretic Künneth Formula]
-	Let $\Lambda$ be a principal ideal domain, and let $(M,\mathfrak{A},\Lambda)$ and $(M',\mathfrak{A}',\Lambda)$ be two Morse data. Then for each $n$ there is a splitting short exact sequence 
-	\begin{multline*}
-		0~\to ~
-		\bigoplus_i\left(H_i(M,\mathfrak{A},\Lambda)\otimes_\Lambda H_{n-i}(M',\mathfrak{A}',\Lambda)\right) ~\to~
-			H_n(M\times M',\mathfrak{A}\times \mathfrak{A}',\Lambda) \\
-		~	\to ~
-			\bigoplus_i\left(\Tor_{\Lambda}\left(
-			H_i(M,\mathfrak{A},\Lambda),H_{n-i-1}(M',\mathfrak{A}',\Lambda)
-			\right) \right)~ \to ~0
-	\end{multline*}
-\end{theorem}
-\begin{proof}
-	The theorem follows directly from Lemma \ref{lem:morse-AlgKünForm} above together with the isomorphism of chain complexes 
-	\begin{equation*}
-		C_*(M,\mathfrak{A},\Lambda)\otimes_\Lambda C_*(M',\mathfrak{A}',\Lambda) \to C_*(M\times M',\mathfrak{A}\times \mathfrak{A}',\Lambda) \,.
-	\end{equation*}
-\end{proof}
-
-
-\begin{definition}[Morse Cohomology]
-Let $G$ be a commutative ring with one. To get the cohomology we have to dualice the chain complex. Let $\Crit_k(f)=\{p_1,\dots p_l\}$ be a basis of the $k$-th chain group $C_k(M,\mathfrak{A},G)$. Then, the functionals
-\begin{equation*}
-	\eta_i:C_k(M,\mathfrak{A},G) \to G; p_j \mapsto \begin{cases*}
-		1 & \text{ if } j=i\\
-		0 & \text{ else.}
-	\end{cases*}
-\end{equation*} 
-are a basis of the dual group $C^k(M,\mathfrak{A},G)$. The coboundary map is easy to obtain too: Let $q_j$ for $j=1,\dots,r$ be the critical points with index $k+1$ and let $\xi_i$ be the corresponding forms. Then let $n_f(q_j,p_i)$ be the number of flow lines form $q_j$ to $p_i$ counted with the sign. Then the coboundary map is given as:
-\begin{align*}
-	\partial^k:C^k(M,\mathfrak{A},G) & \to C^{k+1}(M,\mathfrak{A},G)\\
-	\eta_i &\mapsto \partial^{k}\eta_i=\eta_i\circ \partial_{k+1}=\sum_j n_j(q_j,p_i) \xi_j \,.
-\end{align*}
-\end{definition}
-
-
-\begin{theorem}[Morse-theoretic Cohomological Künneth Formular]
+\begin{theorem}[Morse-theoretic Künneth Formula for Cohomology]
 	Let $\Lambda$ be a principal ideal domain, and let $(M,\mathfrak{A},\Lambda)$ and $(M',\mathfrak{A}',\Lambda)$ be two Morse data. Then for each $n$ there is a splitting short exact sequence 
 	\begin{multline*}
 		0~\to ~
@@ -749,41 +752,41 @@ are a basis of the dual group $C^k(M,\mathfrak{A},G)$. The coboundary map is eas
 	\end{multline*}
 \end{theorem}
 \begin{proof}
-	We show this by giving a natural isomorphism of the chain complexes 
+	We show this by giving an isomorphism of the cochain complexes 
 	\begin{equation*}
-		C^*(M,\mathfrak{A},\Lambda)\otimes_\Lambda C^*(M,'\mathfrak{A}',\Lambda) \to C^*(M\times M',\mathfrak{A}\times \mathfrak{A}',\Lambda) \,.
+		C^*(M,\mathfrak{A},\Lambda)\otimes_\Lambda C^*(M',\mathfrak{A}',\Lambda) \to C^*(M\times M',\mathfrak{A}\times \mathfrak{A}',\Lambda) \,.
 	\end{equation*}
-	First we need to give an group isomorphism 
+	First we need to give a group isomorphism 
 	\begin{equation*}
-		\Phi: \bigoplus_{i+j=k}C^i(M,\mathfrak{A},\Lambda)\otimes_\Lambda C^j(M,'\mathfrak{A}',\Lambda) \to C^k(M\times M',\mathfrak{A}\times \mathfrak{A}',\Lambda)
-	\end{equation*} This isomorphism however is clear and given on the generators : Let $a$ and $a'$ be critical pointes of index $i$ and $j$ with respect to $f$ and $f'$. Let $\eta$ and $eta'$ be the corresponding generators of $C^i(M,\mathfrak{A},\Lambda)$ and $C^j(M,'\mathfrak{A}',\Lambda)$. Then we have the bijection 
+		\Phi: \bigoplus_{i+j=k}C^i(M,\mathfrak{A},\Lambda)\otimes_\Lambda C^j(M',\mathfrak{A}',\Lambda) \to C^k(M\times M',\mathfrak{A}\times \mathfrak{A}',\Lambda)
+	\end{equation*} This isomorphism ,however, is clear and given on the generators: Let $p$ and $p'$ be critical points of index $i$ and $j$ with respect to $f$ and $f'$. Let $\eta$ and $\eta'$ be the corresponding generators of $C^i(M,\mathfrak{A},\Lambda)$ and $C^j(M',\mathfrak{A}',\Lambda)$. Then we have the bijection 
 	\begin{equation*}
 		\eta \otimes \eta' \leftrightarrow (\eta,\eta')\,.
-	\end{equation*} To get an chain isomorphism we need to check the compatibility with the coboundary maps. For each $b_l\in \Crit_{i+1}(f)$ let $\xi_l$ be the corresponding form and similar for each $z_k\in \Crit_{j+1}(f')$ let $\zeta_k$ be the corresponding form. Then we calculate
+	\end{equation*} To get a chain isomorphism we need to check the compatibility with the coboundary maps. For each $q_l\in \Crit_{i+1}(f)$ let $\xi_l$ be the corresponding form and similarly for each ${q'}_k\in \Crit_{j+1}(f')$ let ${\xi'}_k$ be the corresponding form. Then we calculate
 	\begin{align*}
 	\Phi\left(
-	(-1)^j \partial^f\otimes 1+1\otimes \partial^{f'}
+	 \partial^f\otimes 1+(-1)^i 1\otimes \partial^{f'}
 	\right) (\eta \otimes \eta')
 	&= \Phi\left(
-	(-1)^j \partial^f(\eta)\otimes \eta'+\eta\otimes \partial^{f'}(\eta')
+	 \partial^f(\eta)\otimes \eta'+(-1)^i \eta\otimes \partial^{f'}(\eta')
 	\right)\\
 		&= \Phi\left(
-	\sum_{l}(-1)^j n(b_l,a)\xi_l \otimes \eta'+\sum_k n(z_k,a')\eta\otimes \zeta_k
+	\sum_{l} n(q_l,p)\xi_l \otimes \eta'+\sum_k (-1)^i n({q'}_k,p')\eta\otimes {\xi'}_k
 	\right)\\
 		&= 
-	\sum_{l}(-1)^j n(b_l,a)(\xi_l , \eta')+\sum_k n(z_k,a')(\eta, \zeta_k)
+	\sum_{l} n(q_l,p)(\xi_l , \eta')+\sum_k (-1)^i n({q'}_k,p')(\eta, {\xi'}_k)
 	\\
-	\end{align*} and the other way arround, if we define for $(x,x')$ with $\ind_{f+f'}(x,x')=\ind_{f+f'}(a,a')+1$ the corresponding form to be $\nu$ we have:
+	\end{align*} and the other way around, if we define for $(q,q')$ with $\ind_{f+f'}(q,q')=\ind_{f+f'}(p,p')+1$ the corresponding form to be $\nu$ we have:
 	\begin{align*}
 		\partial^{f+f'}\Phi(\eta\otimes \eta')
 		&=\partial^{f+f'}(\eta,\eta')\\
-		&=\sum_{(x,x')\in \Crit_{i+j+1}(f+f')}n\left(
-													(a,a'),(x,x')
+		&=\sum_{(q,q')\in \Crit_{i+j+1}(f+f')}n\left(
+													(q,q'),(p,p')
 											   \right)(\nu)\\
-		&=\underbrace{\sum_l (-1)^{j}n(b_l,a)(\xi_l,\eta')}_{a'=x'}+
-		  \underbrace{\sum_kn(z_k,a')(\eta,\zeta_k)}_{a=x}
+		&=\underbrace{\sum_l n(q_l,p)(\xi_l,\eta')}_{q'=p'}+
+		  \underbrace{\sum_k (-1)^{i}n({q'}_k,p')(\eta,{\xi'}_k)}_{q=p}
 	\end{align*}
-	Now finally we can applie the Algebraic Künneth Formular for Cohomology and we are done. The latter formular is almost the same is the homological one but with a different index shift in the $\Tor$ functor. Again this is standart homological algebra.
+	Now finally we can apply the Algebraic Künneth Formula for Cohomology and we are done. The latter formular is almost the same as the homological one but with a different index shift in the $\Tor$ functor. Again this is standard homological algebra.
 \end{proof}
 
 

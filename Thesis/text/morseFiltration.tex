@@ -1,10 +1,120 @@
-\section{Title}
-\subsection{Mathematical Goals}
+\section{A Morse-Theoretic Filtration}
+\subsection{Conley index} \label{}
+\begin{definition}[Compact Invariant Isolated Subset] \label{def:morseFiltr-compactInvariantIsolatedSubset}
+	For a flow $\phi_t:M\to M$ on a locally compact metric space, we call a subset $S\subseteq M$ an \textbf{invariant subset} if and only if $\phi_t(S)=S$ for all $t\in \R$. For any subset $N\subseteq M$ we define the \textbf{maximal invariant subset}
+	\begin{align*}
+		I(N)&=\{x\in N \mid \phi_t(x)\in N \forall t\in \R\}\\
+		&=\bigcap_{t\in \R} \phi_t(N).
+	\end{align*} A \textbf{compact invariant subset} $S$ is called \textbf{isolated} if a compact neighbourhood $N$ exists such that $I(N)=S$.
+\end{definition}
+\begin{definition}[Index pairs] \label{def:morseFiltr-indexPairs}
+	Let $S$ be an isolated compact invariant subset. A topological pair $(N,L)$ of compact subsets of $M$ where $L\subseteq N$ is called an \textbf{index pair of }S, if it satisfies the following:
+	\begin{enumerate}
+		\item $S=I(\overline{N\setminus L})\subseteq (\mathring{N\setminus L})$.
+		\item  $x\in L$ and $\phi_{[0,t]}(x)\subseteq N$ implies that  $\phi_{[0,t]}(x)\subseteq L$. We call $L$ \textbf{positively invariant in } $N$. Here $\phi_{[0,t]}(x)\coloneq\{ \phi_{\tilde{t}}(x)|\tilde{t}\in [0,t]\}$.
+		\item For all $x\in N$ such that a $t$ exists, with $\phi_t(x)\not\in N$, there exists a $t'$ with $\phi_{[0,t']}(x)\subseteq N$ and $\phi_{t'}(x)\in L$.
+	\end{enumerate}
+	This definition captures how the flow lines leave the invariant space $S$. Due to the third property we call $L$ the \textbf{exit set}.
+\end{definition}
 
-\begin{theorem}[The Theorems and Mathematical Structures]
-	\begin{itemize}
-		\item 
-		\item
-	\end{itemize}
+
+\begin{definition}[Regular Index Pairs]\label{def:morseFiltr-regularIndexPairs}
+	We call an index pair $(N,L)$ \textbf{regular} if and only if the inclusion $i: L \hookrightarrow N$ is a cofibration.
+\end{definition}
+\begin{theorem}[Homotopy Equivalence of Index Pairs]\label{thm:morseFiltr-homotopyEquivalenceOfIndexPairs}
+	If $S$ is an isolated compact invariant subset and $(N,L)$ and $(\tilde{N},\tilde{L})$ are two index pairs of $S$, then $N/L$ and $\tilde{N}/\tilde{L}$ are homotopy equivalent as pointed spaces. This homotopy equivalence is canonical, and transitive up to homotopy. 
 \end{theorem}
-The approach to this chapter is ...
+\begin{proof}
+	For a proof of the homotopy equivalence we refer to \cite{banyaga2004lectures}, Theorem 7.15. The constructed homotopy equivalence is given as follows: Choose $T\geq 0$ such that the following implications hold for $t\geq T$:
+\begin{align*}
+\phi_{[-t,t]}(x) \subseteq N\setminus L \quad &\Rightarrow \quad x \in \tilde{N}\setminus \tilde{L}\,, \\
+\phi_{[-t,t]}(x) \subseteq  \tilde{N}\setminus \tilde{L} \quad &\Rightarrow \quad x \in N\setminus L\,, 
+\end{align*} where $\phi_{[a,b]}(x) \coloneq \{\phi_t(x)\mid t\in [a,b]\}$.
+Then the map:
+\begin{align*}
+h:N/L \times [T,\infty) & \to \tilde{N}/\tilde{L} \\
+([x],t) & \mapsto 
+\begin{cases}
+[\phi_{3t}(x)] & \text{ if } \phi_{[0,2t]}(x)\subseteq N\setminus L \text{ and } \phi_{[t,3t]}(x)\subseteq \tilde{N}\setminus \tilde{L}\\
+[\tilde{L}] & \text{ otherwise,}
+\end{cases}
+\end{align*}
+is continuous and for any fixed $t$ this gives our homotopy equivalence. Obviously, such a map is canonical and transitive up to homotopy.
+\end{proof}
+
+\begin{definition}[Connected Simple System]\label{def:morseFiltr-connectedSimpleSystem}
+	A \textbf{connected simple system} consists of a set $I_0$ of pointed spaces along with a set $I_m$ of homotopy classes of maps between these spaces such that 
+		\begin{enumerate}[(i)]
+			\item $\hom(X,Y)\coloneq \{[f]\in [X,Y]\mid[f]\in I_m\}$ consists of exactly one element for each pair of spaces $(X,Y)\in I_0^2$, where $[X,Y]$ denotes the set of homotopy classes of maps between $X$ and $Y$.
+			\item If $X,Y,Z\in I_0,[f]\in \hom(X,Y),$ and $[g]\in \hom(Y,Z)$, then $[g\circ f]\in \hom(X,Z)$.
+			\item $\hom(X,X)=\{[\id_X]\}$ for all $X\in I_0$. 
+		\end{enumerate}
+\end{definition}
+\begin{remark}\label{rem:morseFiltr-connectedSimpleSystemSalamon}
+	This definition comes from Salamon in \cite{Salamon1985}.
+\end{remark}
+
+
+\begin{remark}\label{rem:morseFiltr-indexPairConnectedSimpleSystem} Let $S$ be an isolated compact invariant subset of $M$ with respect to the Morse flow $\phi$. Then the collections
+\begin{align*}
+	I_0&\coloneq \{N  / L\mid (N,L)\text{ is an index pair of }S\}\\
+	I_m&\coloneq \{[f] \mid f \text{ is a homotopy equivalence from Theorem \ref{thm:morseFiltr-homotopyEquivalenceOfIndexPairs}}\}\,,
+\end{align*} make up a connected simple system. We denote this by $\mathcal{IP}_S$.
+\end{remark}
+
+
+\begin{definition}[Morphisms of Connected Simple Systems]\label{def:morseFiltr-morphismsOfConnectedSimpleSystems}
+A \textbf{morphism} $\Phi:I\to J$ between two connected simple systems $I=(I_0,I_m)$ and $J=(J_0,J_m)$ is a set of homotopy classes of maps between spaces in $I_0$ and $J_0$ such that
+\begin{enumerate}[(i)]
+	\item For every $X\in I_0$ and $Y\in J_0$ the set $\Phi(X,Y)\coloneq \{[\phi]\in [X,Y]\mid[\phi]\in \Phi\}$ consists of exactly one element. 
+	\item If $X,\bar{X}\in I_0$ and $Y,\bar{Y}\in J_0$ and if $[\phi]\in \Phi(X,Y)$, $[f]\in \hom(\bar{X},X)$, $[g]\in \hom(Y,\bar{Y})$, then $[g\circ \phi\circ f]\in \Phi(\bar{X},\bar{Y})$
+\end{enumerate}
+\end{definition}
+\begin{remark}\label{rem:morseFiltr-morphismInducedBySingleMap}
+	By the second property of a morphism between connected simple systems $I$ and $J$, we can induce such a morphism by a single map $\phi:X\to Y$ where $X\in I_0$ and $Y\in J_0$. 
+\end{remark}
+
+
+\begin{definition}[Canonical Isomorphism Class]\label{def:morseFiltr-canonicalIsomorphismClass}
+	A \textbf{canonical isomorphism class} of Abelian groups (or other algebraic structures) is a set of groups $R_0$ together with a set of group homomorphisms $R_m$ such that
+	\begin{enumerate}[(i)]
+		\item For $R,L \in R_0$ the set $\hom(X,Y)\coloneq \{f:X\to Y: f \in R_m\}$ consists of exactly one element. 
+		\item If $R,L,S\in R_0$ and $f\in \hom(R,L)$ and $g\in \hom(L,S)$, then $g\circ f\in \hom(X,Z)\,$.
+		\item $\hom(X,X)=\{\id_x\}$
+	\end{enumerate}
+	A \textbf{morphism} between two canonical isommorphism classes of rings $\Psi: (R_0,R_m)\to (S_0,S_m)$ is a collection of homomorphisms such that 
+	\begin{enumerate}
+		\item For any $R\in R_0$ and $S\in S_0$ the set $\Psi(R,S)\coloneq \{f:R\to S: f\in \Psi\}$ contains exactly one element.
+		\item If $R,\bar{R}\in R_0$ and $S,\bar{S}\in S_0$, $f\in \hom(\bar{R},R)$, $g\in \hom(S,\bar{S})$ and $\psi\in \Psi(R,S)$, then $g\circ \psi\circ g\in \Psi(\bar{R},\bar{S})\,$.
+	\end{enumerate}
+\end{definition}
+
+\begin{definition}
+	Let $F:\TopP\to \Ab$ be a functor from pointed topological spaces to abelian groups (or any other algebraic category) that factors over the homotopy categorie,i.e. is homotopie invariant. Then we can define the functor $\tilde{F}$ from the category of connected simple systems to the canonical isomorphism classes by 
+	$\tilde{F}((I_0,I_m))=(R_0,R_m)$ where $R_0\coloneq \{F(X)\mid X\in I_0\}$, and 
+	$R_m\coloneq \{F(g) \mid [g]\in I_m$.  Morphisms of connected simple systems $\Phi (I_0,I_m)\to (J_0,J_m) $ are given by any map $\phi: X\to Y$ where $X\in I_0$ and $Y\in J_0$. The same is true for morphisms of canonical isomorphism classes. We then define $F(\Phi)$ as the morphism induced by $F(\phi)$. This is obviously independ of the choosen $\phi$.
+\end{definition}
+
+\begin{remark}[Critical points as isolated compact invariant subsets] \label{rem:morseFiltr-criticalPointsAsIsolatedCompactInvariantSubsets}
+	Let ${f:M\to \R}$ be a Morse function on a smooth Riemannian manifold $(M,g)$. Let $q\in \Crit_k(f)$. Around $q$ we have refined Morse charts $\phi:U \to T_qM$ (after identifying $q_i$ and $\partial q_i$) where  ${\phi(W(q\to)\cap U)\subseteq T_q^{u}M}$ and ${\phi(W(\to q)\cap U)\subseteq T_q^{s}M}$. With this we can define the balls:
+	\begin{align*}
+		D^{s}_\epsilon &~=~\{v\in T_q^{s}M | \norm{v}\leq \epsilon \}, \\
+		D^{u}_\epsilon &~=~\{v\in T_q^{u }M | \norm{v}\leq \epsilon \}. 
+	\end{align*}
+For epsilon small engouh, they give rise to the index pair $N_q\coloneq\phi^{-1}( D^{s }\times  D^{u })$ and $L_q=\phi^{-1}( D^{ s}\times \partial D^{u})$. To see this notice, that in such a refined morse chart $\phi$, the differential of the flow in the critical point splits the tanged space into $T^u_pM\times T^s_pM$. Finally, being a retraction on $T^s_pM$ is a open condition and thereby there is an $\epsilon>0$ such that $\diff \phi_x$ is a retraction in $T^s_p$ for all $x$ with $\norm{\phi^{-1}(x)}<\epsilon$. Thereby, the norm of $x$ projected to $T^s_pM$ is strictly decreasing. This proofes that $L_p$ is an exit set of $N_p$. Similarly, one sees that $L$ is positively invariant. 
+
+This index pair is in fact regular, since $(N_q,L_q)\cong  (D^{ s}\times  D^{u }, D^{s}\times \partial D^{u}) \cong (D^{u}_{\epsilon},\partial D^{u}_{\epsilon} )$.\todo{ warum ist das eine cofibration? } Now we know the K-group of such a pair:
+	\begin{align} \label{eq: homology of indexx pair of critical point}
+		K^i(N_q,L_q)\cong K^i(D^{k},\partial D^{k})\cong \begin{cases}
+			\Z & \text{if } i-k\in 2\N,\\
+			0& \text{else. }
+		\end{cases}
+	\end{align}
+	Notice that for $k=0$ we need to consider $\partial D^k=\emptyset$, to get an index pair. That's why we let $\partial$ denote the manifold boundary insted of the topological boundary. However, now we can identify for all $k$: \begin{equation} \label{ kritical points as direct sum of homology groups}
+		C^{k}(M,\mathfrak{A},\tilde{K}^{l}(pt)=\bigoplus_{ \Crit_k(f)} \Z \cong \bigoplus_{q\in \Crit_k(f)} K^k(N_q,L_q;\Z).
+	\end{equation}
+	Or using the language of connected simple systems, we have the identification \todo{define what K(IP) should mean}
+	\begin{equation} 
+		C^{k}(M,\mathfrak{A},\tilde{K}^{l}(pt)= \bigoplus_{q\in \Crit_k(f)} K^k(\mathcal{IP}_q)).
+	\end{equation}
+\end{remark}
