@@ -1,5 +1,5 @@
 \section{A Morse-Theoretic Filtration}
-\subsection{Conley index} \label{}
+\subsection{Conley index}
 \begin{definition}[Compact Invariant Isolated Subset] \label{def:morseFiltr-compactInvariantIsolatedSubset}
 	For a flow $\phi_t:M\to M$ on a locally compact metric space, we call a subset $S\subseteq M$ an \textbf{invariant subset} if and only if $\phi_t(S)=S$ for all $t\in \R$. For any subset $N\subseteq M$ we define the \textbf{maximal invariant subset}
 	\begin{align*}
@@ -7,7 +7,7 @@
 		&=\bigcap_{t\in \R} \phi_t(N).
 	\end{align*} A \textbf{compact invariant subset} $S$ is called \textbf{isolated} if a compact neighbourhood $N$ exists such that $I(N)=S$.
 \end{definition}
-\begin{definition}[Index pairs] \label{def:morseFiltr-indexPairs}
+\begin{definition}[Index Pairs] \label{def:morseFiltr-indexPairs}
 	Let $S$ be an isolated compact invariant subset. A topological pair $(N,L)$ of compact subsets of $M$ where $L\subseteq N$ is called an \textbf{index pair of }S, if it satisfies the following:
 	\begin{enumerate}
 		\item $S=I(\overline{N\setminus L})\subseteq (\mathring{N\setminus L})$.
@@ -78,64 +78,67 @@ A \textbf{morphism} $\Phi:I\to J$ between two connected simple systems $I=(I_0,I
 \begin{definition}[Canonical Isomorphism Class]\label{def:morseFiltr-canonicalIsomorphismClass}
 	A \textbf{canonical isomorphism class} of Abelian groups (or other algebraic structures) is a set of groups $R_0$ together with a set of group homomorphisms $R_m$ such that
 	\begin{enumerate}[(i)]
-		\item For $R,L \in R_0$ the set $\hom(X,Y)\coloneq \{f:X\to Y: f \in R_m\}$ consists of exactly one element. 
-		\item If $R,L,S\in R_0$ and $f\in \hom(R,L)$ and $g\in \hom(L,S)$, then $g\circ f\in \hom(X,Z)\,$.
-		\item $\hom(X,X)=\{\id_x\}$
+		\item For $R,L \in R_0$ the set $\hom(R,L)\coloneq \{f:R\to L: f \in R_m\}$ consists of exactly one element. 
+		\item If $R,L,S\in R_0$ and $f\in \hom(R,L)$ and $g\in \hom(L,S)$, then $g\circ f\in \hom(L,S)\,$.
+		\item $\hom(R,R)=\{\id_R\}$
 	\end{enumerate}
-	A \textbf{morphism} between two canonical isommorphism classes of Abelian groups $\Psi: (R_0,R_m)\to (S_0,S_m)$ is a collection of homomorphisms such that 
-	\begin{enumerate}
+	A \textbf{morphism} between two canonical isomorphism classes of Abelian groups $\Psi: (R_0,R_m)\to (S_0,S_m)$ is a collection of homomorphisms such that 
+	\begin{enumerate}[(i)]
 		\item For any $R\in R_0$ and $S\in S_0$ the set $\Psi(R,S)\coloneq \{f:R\to S: f\in \Psi\}$ contains exactly one element.
-		\item If $R,\bar{R}\in R_0$ and $S,\bar{S}\in S_0$, $f\in \hom(\bar{R},R)$, $g\in \hom(S,\bar{S})$ and $\psi\in \Psi(R,S)$, then $g\circ \psi\circ g\in \Psi(\bar{R},\bar{S})\,$.
+		\item If $R,\bar{R}\in R_0$ and $S,\bar{S}\in S_0$, $f\in \hom(\bar{R},R)$, $g\in \hom(S,\bar{S})$ and $\psi\in \Psi(R,S)$, then $g\circ \psi\circ f\in \Psi(\bar{R},\bar{S})\,$.
 	\end{enumerate}
 \end{definition}
 
 \begin{definition}\label{def:morseFiltr-systemCategories}
-We denote the category of connected simple systems with their morphisms by $\CSS$ and similar we call the category of canonical isomorphism classes of Abelien groups by $\CIAB$, respectifly for rings $\CIRing$.
+We denote the category of connected simple systems with their morphisms by $\CSS$ and similar we call the category of canonical isomorphism classes of Abelian groups by $\CIAB$, respectively, the category for rings by $\CIRing$.
 \end{definition}
 
 \begin{definition} \label{def:morseFiltr-postcomposedFunctor}
-	Let $G$ be a algebraic structure and $X$ be any set. We can \textbf{tag} $G$ with $X$ by defining the set $G\times \{X\}$ and endowing it with the algebraic information from $G$. (for example we define $(g,X)\cdot (g',X)=(g\cdot_Gg',X))$. Let $f:G\to G'$ be a homomorphism. Then $f$ induces a homomrphism between the tagged $G\times \{X\}$ and $G'\times \{X'\}$ by sending $(g,X)\mapsto (f(g),X')$.
-	Let $F:\TopP\to \Ab$ be a (contravariant) functor from pointed topological spaces to Abelian groups (or any other algebraic category) that factors over the homotopy categorie,i.e. is homotopie invariant. We first define the tagged functor $F^{tag}$ to map spaces to groups that are tagged with the spaces they come from:
+	Let $G$ be an Abelian group and $X$ be any set. We can \textbf{tag} $G$ with $X$ by defining the set $G\times \{X\}$ and endowing it with the algebraic information from $G$. (for example we define $(g,X)\cdot (g',X)=(g\cdot_Gg',X)$). Let $f:G\to L$ be a homomorphism. Then $f$ induces a homomorphism between the tagged $G\times \{X\}$ and $L\times \{Y\}$ by sending $(g,X)\mapsto (f(g),Y)$.
+	Let $F:\TopP\to \Ab$ be a (contravariant) functor from pointed topological spaces to Abelian groups that factors over the homotopy category, i.e. is homotopy invariant. We first define the tagged functor $F^{tag}$ to map spaces to groups that are tagged with the spaces they come from:
 	\begin{align*}
 		F^{tag}: \TopP &\to \Ab\\
 		X&\mapsto F(X)\times \{X\}\\
 		\big(f:X\to Y\big)&\mapsto \big(F^{tag}(f):F(Y)\times \{Y\}\to F(X)\times\{X\}\big)
 	\end{align*}
-	For covariant functors the procedure is analogously.
+	For covariant functors the procedure is analogous.
 	Now we can define the \textbf{postcomposed functor} $F_{\#}$ from the category of connected simple systems to the canonical isomorphism classes as follows:
 	\begin{align*}
 	F_{\#} : \CSS		&\to   \CIAB \\
-	I_0 & \mapsto \{(F^{tag}(X))\mid X \in I_0 \} \\
+	I_0 & \mapsto \{F^{tag}(X)\mid X \in I_0 \} \\
 	I_m & \mapsto \{ F^{tag}(g) \mid [g]\in I_m \}\\
 	\end{align*}
 	Let $\Phi:(I_0,I_m)\to (J_0,J_m)$ be a morphism in $\CSS$. Then we define
 	\begin{equation*}
-		F_{\#}(\Phi): (S_0,S_m) \to  (R_0,R_m)\,,\quad 
-		F_{\#}(\Phi) \coloneq \{F^{tag}(g)\mid g\in \Phi \}\,.
+		F_{\#}(\Phi): F_{\#}(J_0,J_m) \to  F_{\#}(I_0,I_m)\,,\quad 
+		F_{\#}(\Phi) \coloneq \{F^{tag}(g)\mid [g]\in \Phi \}\,.
 	\end{equation*}
-This obviously becomes a new functor, where the tagging removed uniqueness problems for not - injective (in the literal sence not up to isomorphie) functors $F$. If $F(X)=F(Y)$ for different $X,Y\in I_0$ with $g:X\to Y\in I_m$ then  without tagging there could be two different morphisms $F(X)\to F(X)$: The identity and $F(g)$. Since our functors are almost always injective we will ignore the tagging from now on. 
+This obviously becomes a new functor, where the tagging removed uniqueness problems for non-injective (in the literal sense not up to isomorphism) functors $F$. If $F(X)=F(Y)$ for different $X,Y\in I_0$ with $g:X\to Y\in I_m$, then without tagging there could be two different morphisms $F(X)\to F(X)$: the identity and $F(g)$. Since our functors are almost always injective, we will ignore the tagging from now on. 
 \end{definition}
+\begin{remark}
+	Obviously, the procedure of postcomposing a functor works for any homotopy invariant functor from pointed topological spaces into any algebraic category and not just Abelian groups.
+\end{remark}
 
 \begin{remark}[Critical points as isolated compact invariant subsets] \label{rem:morseFiltr-criticalPointsAsIsolatedCompactInvariantSubsets}
-	Let ${f:M\to \R}$ be a Morse function on a smooth Riemannian manifold $(M,g)$. Let $q\in \Crit_k(f)$. Around $q$ we have refined Morse charts $\phi:U \to T_qM$ (after identifying $q_i$ and $\partial q_i$) where  ${\phi(W(q\to)\cap U)\subseteq T_q^{u}M}$ and ${\phi(W(\to q)\cap U)\subseteq T_q^{s}M}$. With this we can define the balls:
+	Let ${f:M\to \R}$ be a Morse function on a smooth Riemannian manifold $(M,g)$. Let $q\in \Crit_k(f)$. Around $q$ we have refined Morse charts $\phi:U \to T_qM$ (after identifying $x_i$ and $\partial_i$) where  ${\phi(W(q\to)\cap U)\subseteq T_q^{u}M}$ and ${\phi(W(\to q)\cap U)\subseteq T_q^{s}M}$. With this we can define the balls:
 	\begin{align*}
-		D^{s}_\epsilon &~=~\{v\in T_q^{s}M | \norm{v}\leq \epsilon \}, \\
-		D^{u}_\epsilon &~=~\{v\in T_q^{u }M | \norm{v}\leq \epsilon \}. 
+		D^{s}_\epsilon &~\coloneq~\{v\in T_q^{s}M \mid \norm{v}\leq \epsilon \}, \\
+		D^{u}_\epsilon &~\coloneq~\{v\in T_q^{u }M \mid \norm{v}\leq \epsilon \}. 
 	\end{align*}
-For epsilon small engouh, they give rise to the index pair $N_q\coloneq\phi^{-1}( D^{s }\times  D^{u })$ and $L_q=\phi^{-1}( D^{ s}\times \partial D^{u})$. To see this notice, that in such a refined morse chart $\phi$, the differential of the flow in the critical point splits the tanged space into $T^u_pM\times T^s_pM$. Finally, being a retraction on $T^s_pM$ is a open condition and thereby there is an $\epsilon>0$ such that $\diff \phi_x$ is a retraction in $T^s_p$ for all $x$ with $\norm{\phi^{-1}(x)}<\epsilon$. Thereby, the norm of $x$ projected to $T^s_pM$ is strictly decreasing. This proofes that $L_p$ is an exit set of $N_p$. Similarly, one sees that $L$ is positively invariant. 
+For epsilon small enough, they give rise to the index pair $N_q\coloneq\phi^{-1}( D^{s }_\epsilon\times  D^{u }_\epsilon)$ and $L_q\coloneq\phi^{-1}( D^{ s}_\epsilon\times \partial D^{u}_\epsilon)$. To see this, notice that in such a refined Morse chart $\phi$, the differential of the flow in the critical point splits the tangent space into $T^u_qM\times T^s_qM$. Finally, since the property of $\diff \phi_x$ being a contraction on $T^s_qM$ is an open condition and thereby there is an $\epsilon>0$ such that $\diff \phi_x$ is a contraction on $T^s_qM$ for all $x$ with $\norm{\phi^{-1}(x)}<\epsilon$. Thereby, the norm of $\phi_t(x)$ projected to $T^s_qM$ is strictly decreasing in $t$. This proves that $L_q$ is an exit set of $N_q$. Similarly, one sees that $L_q$ is positively invariant in $N_q$. 
 
-This index pair is in fact regular, since $(N_q,L_q)\cong  (D^{ s}\times  D^{u }, D^{s}\times \partial D^{u}) \cong (D^{u}_{\epsilon},\partial D^{u}_{\epsilon} )$.\todo{ warum ist das eine cofibration? } Now we know the K-group of such a pair:
-	\begin{align} \label{eq: homology of indexx pair of critical point}
+This index pair is in fact regular, since $(N_q,L_q)\cong  (D^{ s}_\epsilon\times  D^{u }_\epsilon, D^{s}_\epsilon\times \partial D^{u}_\epsilon) \cong (D^{u}_{\epsilon},\partial D^{u}_{\epsilon} )$.\todo{ warum ist das eine cofibration? } Now we know the K-group of such a pair:
+	\begin{align} \label{eq: homology of index pair of critical point}
 		K^i(N_q,L_q)\cong K^i(D^{k},\partial D^{k})\cong \begin{cases}
-			\Z & \text{if } i-k\in 2\N,\\
+			\Z & \text{if } i-k\in 2\Z,\\
 			0& \text{else. }
 		\end{cases}
 	\end{align}
-	Notice that for $k=0$ we need to consider $\partial D^k=\emptyset$, to get an index pair. That's why we let $\partial$ denote the manifold boundary insted of the topological boundary. However, now we can identify for all $k$: \begin{equation} \label{ kritical points as direct sum of homology groups}
-		C^{k}(M,\mathfrak{A},\tilde{K}^{l}(pt)=\bigoplus_{ \Crit_k(f)} \Z \cong \bigoplus_{q\in \Crit_k(f)} K^k(N_q,L_q;\Z).
+	Notice that for $k=0$ we need to consider $\partial D^k=\emptyset$ to get an index pair. That's why we let $\partial$ denote the manifold boundary instead of the topological boundary. However, now we can identify for all $k$: \begin{equation} \label{ kritical points as direct sum of homology groups}
+		C^{k}(M,\mathfrak{A},\tilde{K}^{l}(pt))=\bigoplus_{ \Crit_k(f)} \Z \cong \bigoplus_{q\in \Crit_k(f)} K^k(N_q,L_q).
 	\end{equation}
-	Or using the language of connected simple systems, we have the identification \todo{define what K(IP) should mean}
+	Or using the language of connected simple systems, we have the identification 
 	\begin{equation} 
-		C^{k}(M,\mathfrak{A},\tilde{K}^{l}(pt)= \bigoplus_{q\in \Crit_k(f)} K^k(\mathcal{IP}_q)).
-	\end{equation}
+		C^{k}(M,\mathfrak{A},\tilde{K}^{l}(pt))\cong \bigoplus_{q\in \Crit_k(f)} K_{\#}^k(\mathcal{IP}_q)\,,
+	\end{equation}where the isomorphism can be read as an isomorphism of canonical isomorphism classes with the left-hand side vierwd as an object of $\CIAB$ consists of only one group.
 \end{remark}
