@@ -82,17 +82,38 @@ A \textbf{morphism} $\Phi:I\to J$ between two connected simple systems $I=(I_0,I
 		\item If $R,L,S\in R_0$ and $f\in \hom(R,L)$ and $g\in \hom(L,S)$, then $g\circ f\in \hom(X,Z)\,$.
 		\item $\hom(X,X)=\{\id_x\}$
 	\end{enumerate}
-	A \textbf{morphism} between two canonical isommorphism classes of rings $\Psi: (R_0,R_m)\to (S_0,S_m)$ is a collection of homomorphisms such that 
+	A \textbf{morphism} between two canonical isommorphism classes of Abelian groups $\Psi: (R_0,R_m)\to (S_0,S_m)$ is a collection of homomorphisms such that 
 	\begin{enumerate}
 		\item For any $R\in R_0$ and $S\in S_0$ the set $\Psi(R,S)\coloneq \{f:R\to S: f\in \Psi\}$ contains exactly one element.
 		\item If $R,\bar{R}\in R_0$ and $S,\bar{S}\in S_0$, $f\in \hom(\bar{R},R)$, $g\in \hom(S,\bar{S})$ and $\psi\in \Psi(R,S)$, then $g\circ \psi\circ g\in \Psi(\bar{R},\bar{S})\,$.
 	\end{enumerate}
 \end{definition}
 
-\begin{definition}
-	Let $F:\TopP\to \Ab$ be a functor from pointed topological spaces to abelian groups (or any other algebraic category) that factors over the homotopy categorie,i.e. is homotopie invariant. Then we can define the functor $\tilde{F}$ from the category of connected simple systems to the canonical isomorphism classes by 
-	$\tilde{F}((I_0,I_m))=(R_0,R_m)$ where $R_0\coloneq \{F(X)\mid X\in I_0\}$, and 
-	$R_m\coloneq \{F(g) \mid [g]\in I_m$.  Morphisms of connected simple systems $\Phi (I_0,I_m)\to (J_0,J_m) $ are given by any map $\phi: X\to Y$ where $X\in I_0$ and $Y\in J_0$. The same is true for morphisms of canonical isomorphism classes. We then define $F(\Phi)$ as the morphism induced by $F(\phi)$. This is obviously independ of the choosen $\phi$.
+\begin{definition}\label{def:morseFiltr-systemCategories}
+We denote the category of connected simple systems with their morphisms by $\CSS$ and similar we call the category of canonical isomorphism classes of Abelien groups by $\CIAB$, respectifly for rings $\CIRing$.
+\end{definition}
+
+\begin{definition} \label{def:morseFiltr-postcomposedFunctor}
+	Let $G$ be a algebraic structure and $X$ be any set. We can \textbf{tag} $G$ with $X$ by defining the set $G\times \{X\}$ and endowing it with the algebraic information from $G$. (for example we define $(g,X)\cdot (g',X)=(g\cdot_Gg',X))$. Let $f:G\to G'$ be a homomorphism. Then $f$ induces a homomrphism between the tagged $G\times \{X\}$ and $G'\times \{X'\}$ by sending $(g,X)\mapsto (f(g),X')$.
+	Let $F:\TopP\to \Ab$ be a (contravariant) functor from pointed topological spaces to Abelian groups (or any other algebraic category) that factors over the homotopy categorie,i.e. is homotopie invariant. We first define the tagged functor $F^{tag}$ to map spaces to groups that are tagged with the spaces they come from:
+	\begin{align*}
+		F^{tag}: \TopP &\to \Ab\\
+		X&\mapsto F(X)\times \{X\}\\
+		\big(f:X\to Y\big)&\mapsto \big(F^{tag}(f):F(Y)\times \{Y\}\to F(X)\times\{X\}\big)
+	\end{align*}
+	For covariant functors the procedure is analogously.
+	Now we can define the \textbf{postcomposed functor} $F_{\#}$ from the category of connected simple systems to the canonical isomorphism classes as follows:
+	\begin{align*}
+	F_{\#} : \CSS		&\to   \CIAB \\
+	I_0 & \mapsto \{(F^{tag}(X))\mid X \in I_0 \} \\
+	I_m & \mapsto \{ F^{tag}(g) \mid [g]\in I_m \}\\
+	\end{align*}
+	Let $\Phi:(I_0,I_m)\to (J_0,J_m)$ be a morphism in $\CSS$. Then we define
+	\begin{equation*}
+		F_{\#}(\Phi): (S_0,S_m) \to  (R_0,R_m)\,,\quad 
+		F_{\#}(\Phi) \coloneq \{F^{tag}(g)\mid g\in \Phi \}\,.
+	\end{equation*}
+This obviously becomes a new functor, where the tagging removed uniqueness problems for not - injective (in the literal sence not up to isomorphie) functors $F$. If $F(X)=F(Y)$ for different $X,Y\in I_0$ with $g:X\to Y\in I_m$ then  without tagging there could be two different morphisms $F(X)\to F(X)$: The identity and $F(g)$. Since our functors are almost always injective we will ignore the tagging from now on. 
 \end{definition}
 
 \begin{remark}[Critical points as isolated compact invariant subsets] \label{rem:morseFiltr-criticalPointsAsIsolatedCompactInvariantSubsets}
