@@ -59,7 +59,7 @@ is continuous and for any fixed $t$ this gives our homotopy equivalence. Obvious
 \begin{align*}
 	I_0&\coloneq \{N  / L\mid (N,L)\text{ is an index pair of }S\}\\
 	I_m&\coloneq \{[f] \mid f \text{ is a homotopy equivalence from Theorem \ref{thm:morseFiltr-homotopyEquivalenceOfIndexPairs}}\}\,,
-\end{align*} make up a connected simple system. We denote this by $\mathcal{IP}_S$.
+\end{align*} make up a connected simple system. We denote this by $\mathcal{IP}_S$. If $S=\Crit_k(f)$ for some $k\in \N$, we denote $\mathcal{IP}_{\Crit_k(f)}=\mathcal{IP}_k$.
 \end{remark}
 
 
@@ -88,6 +88,16 @@ A \textbf{morphism} $\Phi:I\to J$ between two connected simple systems $I=(I_0,I
 		\item If $R,\bar{R}\in R_0$ and $S,\bar{S}\in S_0$, $f\in \hom(\bar{R},R)$, $g\in \hom(S,\bar{S})$ and $\psi\in \Psi(R,S)$, then $g\circ \psi\circ f\in \Psi(\bar{R},\bar{S})\,$.
 	\end{enumerate}
 \end{definition}
+\begin{remark}
+	Again the second property lets us induce a morphism between two canonical isommorphism classes of Abelian Groups $\Psi: (R_0,R_m)\to (S_0,S_m)$ by a single isomorphism 
+	\begin{equation*}
+		\psi: R\to S
+	\end{equation*} for $R\in R_0$ and $S\in S_0$.
+\end{remark}
+
+\begin{example}
+	Any pointed topological space $X$ defines a simple connected system $(\{X\},{[\id_x]})$. Similar, any Abelian group $G$ defines a caninical isomorphism class of Abelian groups $(\{G\},\{\id_R\})$.
+\end{example}
 
 \begin{definition}\label{def:morseFiltr-systemCategories}
 We denote the category of connected simple systems with their morphisms by $\CSS$ and similar we call the category of canonical isomorphism classes of Abelian groups by $\CIAB$, respectively, the category for rings by $\CIRing$.
@@ -120,25 +130,65 @@ This obviously becomes a new functor, where the tagging removed uniqueness probl
 \end{remark}
 
 \begin{remark}[Critical points as isolated compact invariant subsets] \label{rem:morseFiltr-criticalPointsAsIsolatedCompactInvariantSubsets}
-	Let ${f:M\to \R}$ be a Morse function on a smooth Riemannian manifold $(M,g)$. Let $q\in \Crit_k(f)$. Around $q$ we have refined Morse charts $\phi:U \to T_qM$ (after identifying $x_i$ and $\partial_i$) where  ${\phi(W(q\to)\cap U)\subseteq T_q^{u}M}$ and ${\phi(W(\to q)\cap U)\subseteq T_q^{s}M}$. With this we can define the balls:
+	Let ${f:M\to \R}$ be a Morse function on a smooth Riemannian manifold $(M,g)$. Let $q\in \Crit_k(f)$. Around $q$ we have refined Morse charts $\phi:U \to \R^m\cong \R^{m-\lambda_q}\oplus \R^{\lambda_p}$ where  the splitting of $\R^m$ is taken such that $\diff \phi_q$ is expanding in $\R^{m-\lambda_q}$ and contracting in $\R^{\lambda_p}$. With this we can define the balls:
 	\begin{align*}
-		D^{s}_\epsilon &~\coloneq~\{v\in T_q^{s}M \mid \norm{v}\leq \epsilon \}, \\
-		D^{u}_\epsilon &~\coloneq~\{v\in T_q^{u }M \mid \norm{v}\leq \epsilon \}. 
+		D^{s}_\epsilon &~\coloneq~\{v\in \R^{m-\lambda_q} \mid \norm{v}\leq \epsilon \}, \\
+		D^{u}_\epsilon &~\coloneq~\{v\in \R^{\lambda_q\phantom{-m}} \mid \norm{v}\leq \epsilon \}. 
 	\end{align*}
 For epsilon small enough, they give rise to the index pair $N_q\coloneq\phi^{-1}( D^{s }_\epsilon\times  D^{u }_\epsilon)$ and $L_q\coloneq\phi^{-1}( D^{ s}_\epsilon\times \partial D^{u}_\epsilon)$. To see this, notice that in such a refined Morse chart $\phi$, the differential of the flow in the critical point splits the tangent space into $T^u_qM\times T^s_qM$. Finally, since the property of $\diff \phi_x$ being a contraction on $T^s_qM$ is an open condition and thereby there is an $\epsilon>0$ such that $\diff \phi_x$ is a contraction on $T^s_qM$ for all $x$ with $\norm{\phi^{-1}(x)}<\epsilon$. Thereby, the norm of $\phi_t(x)$ projected to $T^s_qM$ is strictly decreasing in $t$. This proves that $L_q$ is an exit set of $N_q$. Similarly, one sees that $L_q$ is positively invariant in $N_q$. 
 
-This index pair is in fact regular, since $(N_q,L_q)\cong  (D^{ s}_\epsilon\times  D^{u }_\epsilon, D^{s}_\epsilon\times \partial D^{u}_\epsilon) \cong (D^{u}_{\epsilon},\partial D^{u}_{\epsilon} )$.\todo{ warum ist das eine cofibration? } Now we know the K-group of such a pair:
+This index pair is in fact regular, since $(N_q,L_q)\simeq  (D^{ s}_\epsilon\times  D^{u }_\epsilon, D^{s}_\epsilon\times \partial D^{u}_\epsilon) \simeq (D^{u}_{\epsilon},\partial D^{u}_{\epsilon} )$ and the latters regularity is easy to see by showing that it is an NDR pair. 
+
+Furthermore, the index pair $(N_q,L_q)$ is homotopically equivalent to $\overline{T^u_qM}$, which is clear, as $(D^{u}_{\epsilon},\partial D^{u}_{\epsilon} ) \simeq \overline{T^u_qM}$ by mapping $\R^{\lambda_q}\to T^u_qM$ via $\restr{\diff \phi^{-1}}{0}\circ R_0$, where $R_0:\R^m\to T_0\R^m$ is the linear identification from Derfinition \ref{def:vb-linearIdentification}. Finally, we just need to strech the ball to infinity. 
+
+
+We know the K-group of such a pair to be:
 	\begin{align} \label{eq: homology of index pair of critical point}
-		K^i(N_q,L_q)\cong K^i(D^{k},\partial D^{k})\cong \begin{cases}
+		K^i(N_q,L_q)\cong K^i(\overline{T^u_qM})\cong \begin{cases}
 			\Z & \text{if } i-k\in 2\Z,\\
 			0& \text{else. }
 		\end{cases}
 	\end{align}
 	Notice that for $k=0$ we need to consider $\partial D^k=\emptyset$ to get an index pair. That's why we let $\partial$ denote the manifold boundary instead of the topological boundary. However, now we can identify for all $k$: \begin{equation} \label{ kritical points as direct sum of homology groups}
-		C^{k}(M,\mathfrak{A},\tilde{K}^{l}(pt))=\bigoplus_{ \Crit_k(f)} \Z \cong \bigoplus_{q\in \Crit_k(f)} K^k(N_q,L_q).
+		C^{k}(M,\mathfrak{A},\tilde{K}^{l}(pt))=\bigoplus_{ \Crit_k(f)} \Z \cong \bigoplus_{q\in \Crit_k(f)} K^{-k}(N_q,L_q).
 	\end{equation}
 	Or using the language of connected simple systems, we have the identification 
 	\begin{equation} 
-		C^{k}(M,\mathfrak{A},\tilde{K}^{l}(pt))\cong \bigoplus_{q\in \Crit_k(f)} K_{\#}^k(\mathcal{IP}_q)\,,
+		C^{k}(M,\mathfrak{A},\tilde{K}^{l}(pt))\cong \bigoplus_{q\in \Crit_k(f)} K_{\#}^{-k}(\mathcal{IP}_q)\,,
 	\end{equation}where the isomorphism can be read as an isomorphism of canonical isomorphism classes with the left-hand side vierwd as an object of $\CIAB$ consists of only one group.
 \end{remark}
+
+
+\begin{remark}\label{rem:morseFiltr-morphismToCanonicalIntegers}
+	Let $\underline{\Z}$ be the canonical equivalence class of Abelien groups consiting only of the group $\Z$, and let $p$ be a critical point of index $\lambda_p$ in $M$. Then, remark \ref{rem:morseFiltr-morphismInducedBySingleMap}, together with Remark \ref{rem:morseFiltr-criticalPointsAsIsolatedCompactInvariantSubsets} gives us the existence of a morphism for all $i\in \N$:
+	\begin{equation*}
+		\tilde{K}^{-\lambda_p-2i}(\mathcal{IP}_p)\to \underline{Z}\,.
+	\end{equation*} Furthermore, this map is given by mapping a generator of $\tilde{K}^{-\lambda_p-2i}(\mathcal{IP}_p)$ to one, and hence uniquely determind, if we have a way to canonically give the latter a generator. Hence, if $T^u_qM$ is oriented Corollary \ref{cor:orient-vectorspaceOrientationInducesKtheoreticOrientation} gives us just what we need making the map canonical.
+\end{remark}
+
+
+
+	
+\begin{example}[A Map of K-Groups]
+	Let $f:M\to \R$ be a Morse Smale function on a smooth compact Riemannian manifold $(M,g)$. Let $q\in \Crit_k(f)$ and $p\in \Crit_{k-1}(f)$. Assume for a moment we already have an isolated regular compact index pair $(N_2,N_0)$ of $S=W(p\to q)\cup\{p,q\}$. 
+	For a $c\in (f(p),f(q))$ we set $N_1=N_0\cup (N_2 \cap M^c)$, where $M^c$ is the sublevel set. Clearly now $(N_2,N_1)$ is an index pair for $q$ and $(N_1,N_0)$ is a pair for $p$. Assuming we have regular index pairs $(N_q.L_q)$ and $(N_p,L_p)$ for $p,q$ we can now define a map:
+	\begin{align*}
+		\Delta^k(q \to p):K^{k-1}(N_p,L_p) \to  K^k(N_q,L_q) 
+	\end{align*} as the composition:
+	\begin{center}
+% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZAZgBoAGAXVJADcBDAGwFcYkQBpAPQGsAKAHIB9AI6kAMqIDcAHRkAtAJQgAvqXSZc+QigBMFanSat23fsP3CAjLIXK1G7HgJErBmgxZtEnLsB4AtFYqgkJuwuS2SqrqIBhO2kTk7kZepn6BwaFoEkJoUfaGMFAA5vBEoABmAE4QALZIbiA4EEjJqSY+cgDGBCUxVbUNiPrNrYhNnp0gcrCMOPRCwDjVWGiMMCoDIDX1SGRjSKNT3jMyvWD9KpQqQA
+\begin{tikzcd}
+	{K^{k-1}(N_p,L_p;\Z)} \arrow[r, "\cong"] & {K^{k-1}(N_1,N_0;\Z)} \arrow[r, "\delta_{triple}"] & {K^k(N_2,N_1;\Z)} \arrow[r, "\cong"] & {K^k(N_q,L_q;\Z)}
+\end{tikzcd}
+	\end{center} where $\delta_{triple}$ is the connecting homomorphism, and the other two maps are induced by the homotopic equivalence of two index pairs corresponding to the same isolated compact invariant subset. Putting all together we can define a morphism:
+	\begin{align}\label{equation: definition of boundary operator for filtrations}
+		\Delta^k:\bigoplus_{p\in \Crit_{k-1}(f)}K^{k-1}(N_p,L_p) \to \bigoplus_{q\in \Crit_k(f)}K^k(N_q,L_q)
+	\end{align}
+	We can define this also with canonical isomorphism classes:
+	\begin{equation*}
+		\underline{\Delta^k}:\bigoplus\limits_{p\in \Crit_{k-1}(f)}K^{k-1}(\mathcal{IP}_p)\to \bigoplus\limits_{q\in \Crit_{k}(f)}K^{k}(\mathcal{IP}_q)
+	\end{equation*} \todo{define direkt sum of canonical isomorphism classes, swich all indices to negative ones and maby make it canonical}
+\end{example}
+
+
+
