@@ -668,7 +668,7 @@ Hence, the assignment $A\mapsto K(A)$ and $\beta\mapsto K(\beta)$ defines a func
 	For a continuous map $f:X\to Y$ we denote the induced map $K(f^*):K(Y)\to K(X)$ by just $f^*$.
 \end{remark}
 \begin{theorem}
-	The functor $K:\TopC \to \Ring$ factors over the homotopy category $\hTopC$ of compact Hausdorff spaces together with homotopy classes of maps. 
+	The functor $K:\TopC \to \Ring$ factors through the homotopy category $\hTopC$ of compact Hausdorff spaces together with homotopy classes of maps. 
 \end{theorem}
 \begin{proof} This directly follows from Theorem \ref{thm:kTheo-homotopyInvariance}.
 \end{proof}
@@ -759,7 +759,7 @@ the sections $c_X^*, c_Y^*$) controls the $K(x_0)$-summand.
 	\begin{equation*}
 		r_2^x: (Y,y_0)\to (X,x_0)\times (Y,y_0),\quad y \mapsto (x,y)\,.
 	\end{equation*}
-	 Now for any $x\in X$ we have $f(x,y_0)=f\circ i^x_Y(y_0)=z_0$ as the composition is said to be basepoint preserving. Similarly we see that $f(x_0,y)=z_0$ for any $y\in Y$. Hence $f$ factors over the quotient space \begin{equation*}
+	 Now for any $x\in X$ we have $f(x,y_0)=f\circ i^x_Y(y_0)=z_0$ as the composition is said to be basepoint preserving. Similarly we see that $f(x_0,y)=z_0$ for any $y\in Y$. Hence $f$ factors through the quotient space \begin{equation*}
 		X\times Y \big/ (X\times \{y_0\} \cup (Y\times \{x_0\})) \,,
 	 \end{equation*} where the numerator is the canonically embedded $X\vee Y$ into the product. Furthermore by the universal property of quotient spaces, this factorisation is unique.
 \end{remark}
@@ -926,13 +926,13 @@ This proof is omitted but is Proposition 5.1.16 in \cite{tomdieck2008algebraic}.
 	All those definitions give contravariant and homotopically invariant functors into the category of rings.
 \end{definition}
 \begin{corollary}\label{cor:kTheo-K(X)istK(X,nix)}
-	Let $X$ be a topological space. Then we have a natural isomorphism between the functors $K^0(X)$ and $K(X)$.
+	Let $X$ be a topological space. Then we have a natural isomorphism between the functors $K^0(X)$ and $K(X)$. Furthermore, if $(X,x_0)$ is a pointed topological space, we have a natural isomorphism between $\tilde{K}$ and $K^0$.
 \end{corollary}
 \begin{proof}
 	When disentangling the definitions, we see that 
 	\begin{equation*}
 		K^0(X)=\tilde{K}(\Sigma^0(X,[\emptyset]))\cong \tilde{K}(X,[\emptyset])\cong K(X)
-	\end{equation*} where the first isomorphism comes from $\Sigma^0$ being canonically isomorphic to the identity and the second isomorphism is given in Corollary \ref{cor:kTheo-unpointedReducedIsNonReduced}.
+	\end{equation*} where the first isomorphism comes from $\Sigma^0$ being canonically isomorphic to the identity and the second isomorphism is given in Corollary \ref{cor:kTheo-unpointedReducedIsNonReduced}. The natural isomorphism between $K^0$ and $\tilde{K}$ is given by definition and the canonical isomorphism $X\cong S^0 \wedge (X)$.
 \end{proof}
 \begin{remark}
 	If we have pointed topological spaces $(X,x_0)$ or pairs $(X,A)$ and want to denote $K^0(X,pt)$ or $K^0(X,A)$ we will often omit the exponent and just write $K(X,x_0)$ and $K(X,A)$.
@@ -1293,7 +1293,7 @@ $f\cdot f'\oplus \id_1\simeq f \oplus f'$ and hence $l\otimes l'\oplus \underlin
  We can compose this map with the natural currying map $C(X\times Y,Z)\to C(X,C(Y,Z))$. For $Y=S^1$ we gain a map 
  \begin{equation*}
 	C(SX,Z)\to C(X,\Omega Z)
- \end{equation*} that is again a bijection, since any $f:X\to \Omega Z$ gives a map $\tilde{f}:X\times S\to Z$ $\tilde{f}(x,s)\mapsto f(x)(s)$. If $(x,s)\in X\vee S\subseteq X\times S$, then either $x=x_0$ or $s=1$. In the first case, $f(x_0)$ is the constant loop and hence $f(x_0)(s)=z_0$ and in the second case we evaluate a based loop at its base and hence $f(x)(1)=z_0$. Hence, the $\tilde{f}$ factors over $X\vee S$ giving a well defined element in $C(SX,Z)$. This is its inverse. The continuity part of the argument follows from Proposition \ref{prop:kTheo-curryingIsContinuous}.
+ \end{equation*} that is again a bijection, since any $f:X\to \Omega Z$ gives a map $\tilde{f}:X\times S\to Z$ $\tilde{f}(x,s)\mapsto f(x)(s)$. If $(x,s)\in X\vee S\subseteq X\times S$, then either $x=x_0$ or $s=1$. In the first case, $f(x_0)$ is the constant loop and hence $f(x_0)(s)=z_0$ and in the second case we evaluate a based loop at its base and hence $f(x)(1)=z_0$. Hence, the $\tilde{f}$ factors through $X\vee S$ giving a well defined element in $C(SX,Z)$. This is its inverse. The continuity part of the argument follows from Proposition \ref{prop:kTheo-curryingIsContinuous}.
 \end{proof}
 \begin{remark}
 	By Theorem \ref{thm:kTheo-reducedKgroupAsHomotopy}, and the Proposition above we know that for a connected pointed compact space we have
@@ -1321,14 +1321,14 @@ For this we start trying to find a long exact sequence and on the way we will pr
 	Here, we identify $K(X)=K(X,\emptyset)$ and the same with $K(Y)=K(Y,\emptyset)$ such that we have well defined induced functions from the same functor in the sequence. This is just a formal note, as $K(X,\emptyset)\cong K(X)$ by Corollary \ref{cor:kTheo-K(X)istK(X,nix)}.
 \end{lemma}
 \begin{proof}
-	First, we show that $\im(i^*)\subseteq \ker(j^*)$. To see this, notice that $i^*\circ j^*=(j\circ i)^*$, and $j\circ i$ factors over $(Y,Y)$:
+	First, we show that $\im(i^*)\subseteq \ker(j^*)$. To see this, notice that $i^*\circ j^*=(j\circ i)^*$, and $j\circ i$ factors through $(Y,Y)$:
 	\begin{center}
 		\begin{tikzcd}
 			{(Y,\emptyset)} \arrow[r, "i"] \arrow[d] & {(X,\emptyset)} \arrow[d, "j"] \\
 			{(Y,Y)} \arrow[r]                        & {(X,Y)}                       
 		\end{tikzcd}
 	\end{center}
-	Hence, $j^*\circ i^*$ factors over the trivial ring $K(Y,Y)$ and thereby is trivial.
+	Hence, $j^*\circ i^*$ factors through the trivial ring $K(Y,Y)$ and thereby is trivial.
 	Now suppose $k\in \ker(i^*)$. 
 	The intuition now is that if we have a vector bundle that gets mapped to $0$ this means that it is trivial over $Y$ which lets us define a vector bundle over the quotient $X\slash Y$ by a trivialisation: 
 	We write $k=[\xi]-[\underline{n}]$ for $\xi$ being a vector bundle over $X$. (Compare Remark \ref{rem:kTheo-elementsInReducedKtheoryAreGivenByEMionusN}) Since $i^*\xi=0$ it follows that $i^*([\xi]-[\underline{n}])=[\restr{\xi}{Y}]-[\restr{\underline{n}}{Y}]=0$ and hence $\xi$ and $\underline{n}$ are stably equivalent over $Y$ giving us an $m$ such that 
@@ -1600,6 +1600,42 @@ By the lemma above, we know that $\Sigma T$ makes the diagram commute and by Lem
 		\end{tikzcd}
 	\end{center} The exactness in the top row now proves exactness in the bottom.
 \end{proof}
+
+\begin{corollary}[Triple Sequence] \label{ktheo:cor-tripleSequence}
+	
+\definecolor{cXY}{RGB}{20,60,220}   % Paar (X,Y)
+\definecolor{cXZ}{RGB}{0,0,0}       % Paar (X,Z)
+\definecolor{cYZ}{RGB}{200,20,90}   % Paar (Y,Z)
+\definecolor{cT}{RGB}{245,140,0}    % Triple-Sequenz
+
+	Let $(X,Y,Z)$ be a topological triple, meaning that all inclusions are cofibrations. Then we can inspect the three long exact sequences from the pairs $\textcolor{cXY}{(X,Y)}$, $\textcolor{cYZ}{(Y,Z)}$ and $\textcolor{cXZ}{(X,Z)}$ that are in the diagram below. The map $\delta_{triple}$ is defined to be the composition $\textcolor{cXY}{\delta}\circ \textcolor{cYZ}{j^*}$, $q*$ is defined to be induced by the inclusion $(X,Z)\to (X,Y)$ and $s^*$ is also given by the inclusion $(Y,Z)\to (X,Z)$. Then, the whole diagram becomes commutative by the naturality of the maps appearing in the long exact sequences. 
+
+\begin{center}
+
+\resizebox{\textwidth}{!}{%
+\begin{tikzcd}[ampersand replacement=\&, column sep=1.2em, row sep=2.2em]
+ \& K^{-n-1}(X,Y) \arrow[rd, cT, "q^*"] \arrow[rr, bend left, cXY, "j^*"]
+ \& \& K^{-n-1}(X) \arrow[rd, cXY, "i^*"] \arrow[rr, bend left, cXZ, "i^*"]
+ \& \& K^{-n-1}(Z) \arrow[rd, cXZ, "\delta"] \& \\
+K^{-n-2}(Y) \arrow[ru, cXY, "\delta"] \arrow[rd, cYZ, "i^*"']
+ \& \& K^{-n-1}(X,Z) \arrow[ru, cXZ, "j^*"] \arrow[rd, cT, "s^*"]
+ \& \& K^{-n-1}(Y) \arrow[ru, cYZ, "i^*"] \arrow[rd, cXY, "\delta"']
+ \& \& K^{-n}(X,Z) \\
+ \& K^{-n-2}(Z) \arrow[ru, cXZ, "\delta"'] \arrow[rr, bend right, cYZ, "\delta"']
+ \& \& K^{-n-1}(Y,Z) \arrow[ru, cYZ, "j^*"'] \arrow[rr, bend right, cT, "\delta_{triple}"']
+ \& \& K^{-n}(X,Y) \arrow[ru, cT, "q^*"'] \&
+\end{tikzcd}%
+}
+\end{center}
+Furthermore, the yellow sequence is a chain complex which we need to verify at three locations:
+	\begin{enumerate}
+		\item At $K^{-n-1}(X,Z)$ we can see that the composition $\textcolor{cT}{s^*\circ q^*}$ is the pullback of the inclusion $(Y,Z)\to (X,Y)$ which factors through $(Y,Y)$ and thereby the pullback factors through the trivial ring $K^{-n-1}(Y,Y)$.
+		\item At $K^{-n-1}(Y,Z)$  we get that the composition is zero as it factors through two consecutive maps in the sequence of $(X,Y)$: $\textcolor{cT}{\delta_{triple}\circ s^*}=\textcolor{cXY}{\delta\circ i^*} \circ j^*=0$.
+		\item At $K^{-n}(X,Y)$ we get $\textcolor{cT}{q^*\circ \delta}=0$ as it factors through $\textcolor{cYZ}{i^*\circ j^*}$. 
+	\end{enumerate}
+	Then, by the braid lemma (which is typical diagram yoga \todo{referenz einfügen: Munkres, p. 148 of Elements of algebraic topology?} ), we know that the \textcolor{cT}{orange} sequence is exact. We call this sequence the \textbf{triple exact sequence}.
+\end{corollary}
+
 
 \begin{corollary}\label{cor:kTheo-retractionsInduceSplittingSequences}
 	If $(X,Y)$ is a compact pair such that $Y\subseteq X$ is a retract, i.e. the inclusion has a continuous up to homotopy left inverse. Then for all $n\geq 0$, the sequence 
@@ -1885,22 +1921,23 @@ By example \ref{ex:kTheo-LineBundlesSatlquadequalslPlusl} we know that for any l
 	We call the generator $([H]-[\underline{1}])$ that generates $\tilde{K}(S^2)$ the \textbf{Bott generator} denoted by $\bottg$.
 \end{definition}
 
-\begin{theorem}[Bott periodicity] \label{thm:Ktheo-BottPeriodicity}
+\begin{theorem}[Bott Periodicity] \label{thm:Ktheo-BottPeriodicity}
 	Let $X$ be a well-pointed compact space.
 	The isomorphism from the fundamental product theorem applied in its reduced form gives a natural isomorphism:
 	\begin{equation*}
-		\bottmap: \tilde{K}^{-n}(X)\to \tilde{K}^{-n}(S^2\wedge X)\cong \tilde{K}^{-n-2}( X)
+		\bottmap: {K}^{-n}(X)\to {K}^{-n}(S^2\wedge X)\cong {K}^{-n-2}( X)
 	\end{equation*}
 \end{theorem}
 \begin{proof} We start with $n=0$.
 	By Proposition \ref{prop:kTheo-reducedExternalProduct} we know that the reduced external product applied to the spaces $\tilde{K}(S^2)\cong \mathrm{span}_{\Z}([H]-[\underline{1}]) $ and $\tilde{K}(X)$ is an isomorphism due to the non-reduced external product being one, by the fundamental product theorem. Hence we have that
 	\begin{equation*}
-		\Z([H]-[\underline{1}])\otimes \tilde{K}(X)\to \tilde{K}^{-2}(X)
+		\Z([H]-[\underline{1}])\otimes \tilde{K}(X)\to {K}^{-2}(X)
 	\end{equation*} is an isomorphism. And since $\tilde{K}(X)\cong \Z(\bottg)\otimes \tilde{K}(X)$ via $[\xi]\mapsto (\bottg) \otimes [\xi]$ we have the isomorphism
 	\begin{equation*}
-		\bottmap: \tilde{K}^{-2}(X) \otimes \tilde{K}(X) \,,\quad [\xi] \mapsto \tilde{\mu}(\bottg \otimes [\xi])\,.
+		\bottmap: {K}^{-2}(X) \otimes \tilde{K}(X) \,,\quad [\xi] \mapsto \tilde{\mu}(\bottg \otimes [\xi])\,.
 	\end{equation*}Naturality follows from $\mu$ being natural, $q^*$ being natural (and thereby its inverse) and $\tilde{\mu}$ being the composition of both of them. Furthermore, for \todo{natürlich im zweiten faktor mit festem ersten} Replacing $X$ with $S^nX$ proves the lower degree.
 \end{proof}
+
 
 \begin{definition}[Convention]\label{def:ktheo-higherBottGenerators} \todo{hier muss ich aufpassen und $S^0$ inspizieren!}
     Let $\beta$ be the bott generator of $\tilde{K}(S^2)$.Define $\beta_0$ to be the generator of $\tilde{K}(S^0)$ Then we define inductively using the bott periodicity from Theorem \ref{thm:Ktheo-BottPeriodicity}: 
