@@ -183,23 +183,25 @@ We know the K-group of such a pair to be:
     \end{equation*}
 	Now the disjoint union of the index pairs $(N_q,L_q)$ for all $q\in \Crit_{k}(f)$ is an index pair of $\Crit_{k}(f)$ itself. The collapsing maps $c_p:\bigvee _{p\in \Crit_{k-1}}\big(N_p/L_p\big)\to \big(N_p /L_p\big)$ together with the inclusions $i_q:\big(N_q/L_q\big)\to \bigvee_{q \in \Crit_{k}}(N_q/L_q)$ let us define the map 
 \begin{equation*}
-	\Delta^k \coloneq \Big(\sum_{q\in\Crit_{k}}\sum_{p\in \Crit_{k-1}} c_p\circ \big(b\circ \delta_{triple}^{p,q}\circ i_q\big)\Big)_{\#}: K^{-(k-1)}_{\#}(\mathcal{IP}_{k-1}) \to K^{-k}_{\#}(\mathcal{IP}_{k} )\,.
+	\Delta^{k-1} \coloneq \Big(\sum_{q\in\Crit_{k}}\sum_{p\in \Crit_{k-1}} c_p\circ \big(b\circ \delta_{triple}^{p,q}\circ i_q\big)\Big)_{\#}: K^{-(k-1)}_{\#}(\mathcal{IP}_{k-1}) \to K^{-k}_{\#}(\mathcal{IP}_{k} )\,.
 \end{equation*} 
+
+Due to the naturality of the triple connecting homomorphism, the inclusion and the collapsing, any list of topological triples $(X,Y,Z)$ such that $(X,Y)$ is a regular index pair of $\{q\}$, $(Y,Z)$ of $\{p\}$ and $(X,Z)$ of $W(q\to p)\cup \{q\}\cup \{p\}$ for all $q\in \Crit_k(f),p\in \Crit_{k-1}(f)$ gives rise to the same morphism of canonical isomorphism classes.
 \end{example}	
 
 
 
-\begin{theorem}
+\begin{theorem}\label{thm:morseFilt-commutingMorsecoboundary}
 	Let $M$ be a smooth manifold with the Morse datum $\mathfrak{A}$, denote the one pointed topological space by $\{pt\}$. Then, for any $l\in \Z$ the following diagram comutes:
-	\begin{center}
-		\begin{tikzcd}
-			C^{k-1}(M,\mathfrak{A},K^l(pt)) \arrow[r,"\partial^k"] \arrow[d] 
+	\begin{equation}
+		\begin{tikzcd}\label{eq:morseFilt-commutingDiagramTheorem}
+			C^{k-1}(M,\mathfrak{A},K^l(pt)) \arrow[r,"\partial^{k-1}"] \arrow[d] 
 			& 
 			C^{k}(M,\mathfrak{A},K^l(pt)) \arrow[d]
 			\\
-			K^{-(k-1)-l}_{\#}(\mathcal{IP}_{k-1}) \arrow[r,"\Delta^k"]& K^{-(k)-l}_{\#}(\mathcal{IP}_{k})
+			K^{-(k-1)-l}_{\#}(\mathcal{IP}_{k-1}) \arrow[r,"\Delta^{k-1}"]& K^{-(k)-l}_{\#}(\mathcal{IP}_{k})
 		\end{tikzcd}
-	\end{center}
+	\end{equation}
 \end{theorem}
 Before we can proof this theorem we need the following Lemma:
 
@@ -208,7 +210,7 @@ Before we can proof this theorem we need the following Lemma:
 	\begin{align}
 		f: M\to \R
 	\end{align}
-	We assume that $q$ is a critical point of index $k+1$ and $p$ is a critical point of index $k$. we define $f(q)=b$ and $f(p)=a$ and assume that there is no critical point in $f^{-1}(a,b)\subseteq M$. We define the sub and superlevelsets 
+	We assume that $q$ is a critical point of index $k$ and $p$ is a critical point of index $k-1$. we define $f(q)=b$ and $f(p)=a$ and assume that there is no critical point in $f^{-1}(a,b)\subseteq M$. We define the sub and superlevelsets 
 	\begin{align}
 		M^t:=\{ x\in M | f(x)\leq t \} \quad \text{and}\quad M_t:=\{ x\in M | f(x)\geq t \} \, ,
 	\end{align} and the constants 
@@ -224,7 +226,8 @@ Before we can proof this theorem we need the following Lemma:
 	\begin{align}
 		C  & \coloneq  N_p \cup N_q  \, ,                     \\
 		B  & \coloneq  N_p \cup L_q   \, ,                   \\
-		A  & \coloneq  L_p \cup \mathring{(L_q-N_p)} \, .
+		A  & \coloneq  L_p \cup \mathring{(L_q-N_p)} 	\\
+		S(q\to)& \coloneq S(q\to)\cap f^{-1}(c)\,.
 	\end{align}
 	
 	We claim that 
@@ -395,7 +398,29 @@ Before we can proof this theorem we need the following Lemma:
 \end{lemma}
 
 
+\begin{proof}[Proof of Theorem \ref{thm:morseFilt-commutingMorsecoboundary}]
+	For all $l\in \Z$ we get the commuting square 
+	\begin{center}
+		\begin{tikzcd}
+			K^{-(k-1)-l}_{\#}(\mathcal{IP}_{k-1}) \arrow[r,"\Delta^k"]\arrow[d,"b"]& K^{-(k)-l}_{\#}(\mathcal{IP}_{k})\arrow[d,"b"]\\
+			K^{-(k-1)-l-2}_{\#}(\mathcal{IP}_{k-1}) \arrow[r,"\Delta^k"]& K^{-(k)-l-2}_{\#}(\mathcal{IP}_{k})
+		\end{tikzcd}
+	\end{center}
+	Hence, we only need to proof the original statement for $l=0,1$.
+	For $l=1$ the bottom row of the diagram \ref{eq:morseFilt-commutingDiagramTheorem} is trivial, as the connected simple systems $\mathcal{IP}_k$ consists of spaces that are homotopically equivalent to $k$-spheres and we know by \ref{cor:kTheo-kGroupsOfTheSpheres} that $K^{-k-1}(S^k)\cong\tilde{K}(S^{2k+1})=0$. The same argument works for the image of $\Delta^k$ for $l=1$. So for the rest of the proof we assume $l=0$. Now since $N_p$ is a tubular neighbourhood of $W(\to p)\cap M^c$ we know that $N_p\cap S(q\to)$ consists of finitly many components $V_j$ and each component has one $\{x_j\}=W(q\to p)\cap V_j$. In fact, the proof of Lemma \ref{lem: The Main Lemma Np is tubular} shows that the $V_j$ are fibers of the normal neighbourhood of $W(\to p)$ inside $W(q\to)$ and hence homeomorphic to $\R$.\todo{referenz!}
+	Now we take the tiple $(C,B,A)$ from Lemma \ref{lem: The Main Lemma Np is tubular}. We have a map of triples: 
+	\begin{align*}
+			\left( ~W(q\to)\cap N_q ~,~S(q\to)~,~S(q\to ) \setminus \bigcup\limits_jV_j ~\right) \to (C,B,A)
+		\end{align*} giving us a commuting diagramm
 
+		\begin{fdiagram}
+			\begin{tikzcd}
+				{K^{-\lambda_p}\left[ B,A \right]} \arrow[r, "\delta_{triple}^1"] \arrow[d, "{i_{B,A}^*}"]                                                            & {K^{-\lambda_q}\left[C, B \right]} \arrow[d, "{i_{C,B}^*}"] \\
+				{K^{-\lambda_p}\left[ S(q\to),S(q\to)\setminus \bigcup\limits_j \inti(V_j) \right]} \arrow[r, "\delta_{triple}^2"] \arrow[d, "i_j^*"', shift right=2] & {K^{-\lambda_q}\left[W(q\to)\cap N_q,S(q\to) \right]}       \\
+				{K^{-\lambda_p}\left[ V_j,\partial V_j \right]} \arrow[ru, "\delta^j_{triple}"'] \arrow[u, "c_j^*"']                                                  &                                                            
+			\end{tikzcd} 
+		\end{fdiagram}
+\end{proof}
 
 \begin{definition}[Regular Index Pairs and a Filtration] 
 	As always let $f:M\to \R$ be a Morse-Smale function on a compact smooth Riemannian manifold $(M,g)$ of dimension $m$. Let $\phi_t:M\to M$ be the flow given by $-\grad f$. For $0\leq j\leq k\leq m$ define:
