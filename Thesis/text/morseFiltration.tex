@@ -199,7 +199,7 @@ Due to the naturality of the triple connecting homomorphism, the inclusion and t
 			& 
 			C^{k}(M,\mathfrak{A},K^l(pt)) \arrow[d]
 			\\
-			K^{-(k-1)-l}_{\#}(\mathcal{IP}_{k-1}) \arrow[r,"\Delta^{k-1}"]& K^{-(k)-l}_{\#}(\mathcal{IP}_{k})
+			K^{-(k-1)-l}_{\#}(\mathcal{IP}_{k-1}) \arrow[r,"\Delta^{k-1+l}"]& K^{-(k)-l}_{\#}(\mathcal{IP}_{k})
 		\end{tikzcd}
 	\end{equation}
 \end{theorem}
@@ -410,16 +410,48 @@ Before we can proof this theorem we need the following Lemma:
 	For $l=1$ the bottom row of the diagram \ref{eq:morseFilt-commutingDiagramTheorem} is trivial, as the connected simple systems $\mathcal{IP}_k$ consists of spaces that are homotopically equivalent to $k$-spheres and we know by \ref{cor:kTheo-kGroupsOfTheSpheres} that $K^{-k-1}(S^k)\cong\tilde{K}(S^{2k+1})=0$. The same argument works for the image of $\Delta^k$ for $l=1$. So for the rest of the proof we assume $l=0$. Now since $N_p$ is a tubular neighbourhood of $W(\to p)\cap M^c$ we know that $N_p\cap S(q\to)$ consists of finitly many components $V_j$ and each component has one $\{x_j\}=W(q\to p)\cap V_j$. In fact, the proof of Lemma \ref{lem: The Main Lemma Np is tubular} shows that the $V_j$ are fibers of the normal neighbourhood of $W(\to p)$ inside $W(q\to)$ and hence homeomorphic to $\R$.\todo{referenz!}
 	Now we take the tiple $(C,B,A)$ from Lemma \ref{lem: The Main Lemma Np is tubular}. We have a map of triples: 
 	\begin{align*}
-			\left( ~W(q\to)\cap N_q ~,~S(q\to)~,~S(q\to ) \setminus \bigcup\limits_jV_j ~\right) \to (C,B,A)
-		\end{align*} giving us a commuting diagramm
-
+			\left( ~W(q\to)\cap N_q ~,~S(q\to)~,~S(q\to ) \setminus \bigcup\limits_j\inti2(V_j) ~\right) \to (C,B,A)
+		\end{align*} giving us a commuting diagramm (the square bracets for the input of the K funktors $K[-]$ are choosen for readability and have no deeper meaning)
 		\begin{fdiagram}
 			\begin{tikzcd}
 				{K^{-\lambda_p}\left[ B,A \right]} \arrow[r, "\delta_{triple}^1"] \arrow[d, "{i_{B,A}^*}"]                                                            & {K^{-\lambda_q}\left[C, B \right]} \arrow[d, "{i_{C,B}^*}"] \\
 				{K^{-\lambda_p}\left[ S(q\to),S(q\to)\setminus \bigcup\limits_j \inti(V_j) \right]} \arrow[r, "\delta_{triple}^2"] \arrow[d, "i_j^*"', shift right=2] & {K^{-\lambda_q}\left[W(q\to)\cap N_q,S(q\to) \right]}       \\
-				{K^{-\lambda_p}\left[ V_j,\partial V_j \right]} \arrow[ru, "\delta^j_{triple}"'] \arrow[u, "c_j^*"']                                                  &                                                            
+				{K^{-\lambda_p}\left[ V_j,\partial V_j \right]} \arrow[ru, "f^j"'] \arrow[u, "c_j^*"']                                                  &                                                            
 			\end{tikzcd} 
 		\end{fdiagram}
+		Now $i^*_{C,B}$ is an isomorphism, because the collapsing of the tubular neighbourhood $N_q$ induces a homotopy equivalence
+		\begin{equation*}
+			\frac{N_q\cup N_p}{N_p\cap L_q}		 	\, \cong \, 
+			 \frac{N_q}{L_q}		  				\; \to   \; 
+			\frac{W(q\to)\cap M_c}{L_q\cap W(q\to)} \, \cong \, \frac{W(q\to)\cap N_q}{S(q\to)}
+		\end{equation*} that is inverse to the inclusion (once the pairs are viewed as pointed quotients). For the rest of the proof we will often argue in similar ways by identifying pairs and there pointed spaces given by quotiening the subspace. This is justified, as the K-theory of a pair is defined to be the K theory of said quotiont, and this helps us in the proof as we can write down maps of pointed spaces, that would not be continuous as maps of pairs.
+		Due to the quotient
+		\begin{equation*}
+			S(q\to)\Big/S(q\to)\setminus \bigcup\limits_j \inti(V_j)\cong \bigvee_j \big(V_j/\partial V_j\big)\,
+		\end{equation*}being a pointed sum, the map $\delta^2_{triple}$ is a sum of the functions $f^j\circ i_j^*$ where the $f^j:K^{-\lambda_p}\left[ V_j,\partial V_j \right]\to K^{-\lambda_q}\left[W(q\to)\cap N_q,S(q\to) \right]$ are defined to be $\delta^2_{triple}\circ c_j^*$.
+		Now we will inspect said composition more closely, for which we need to dive into the definition of the triple connecting homomorphism, which was given by the composition of the connecting homomophism of the pair after the pullback alng the inclusion:
+\begin{fdiagram}
+\begin{adjustbox}{max width=\textwidth}
+
+\begin{tikzcd}
+{K^{-\lambda_p}\left[ V_j,\partial V_j \right]} \arrow[d, "c_j^*"] \arrow[rd, "f^j", bend left]                                                                 &                                                        \\
+{K^{-\lambda_p}\left[ S(q\to),S(q\to)\setminus \bigcup\limits_j \inti(V_j) \right]} \arrow[d, "i_1^*"] \arrow[r, "\delta_{triple}"]                             & {K^{-\lambda_p+1}\left[W(q\to)\cap N_p,S(q\to)\right]} \\
+{K^{-\lambda_p}\left[ S(q\to) \right]=K^{-\lambda_p+1}\left[S\wedge\big( S(q\to)\big) \right]} \arrow[ru, "\delta_{pair}", bend right] \arrow[d, "\theta^{-1}"] &                                                        \\
+{K^{-\lambda_p+1}\left[ W(q\to)\cap N_p \cup C\left( S(q\to)\right),W(q\to)\cap N_p \right]} \arrow[d, "m^*"]                                                   &                                                        \\
+{K^{-\lambda_p+1}\left[ W(q\to)\cap N_p \cup C\left( S(q\to)\right)\right]} \arrow[ruuu, "(\pi^{*})^{-1}"', bend right]                                         &                                                       
+\end{tikzcd}
+
+\end{adjustbox}
+\end{fdiagram}
+If we already start by identifying $K^{-\lambda_p}\left[ V_j,\partial V_j \right]$ with $K^{-\lambda_p+1}\left[ S \wedge(V_j,\partial V_j) \right]$\todo{def wedge of a pair!} we have that the composition
+\begin{equation*}
+	(\id \wedge l_1)^*\coloneq i_1^*\circ c_j^*:K^{-\lambda_p+1}\left[ S \wedge(V_j,\partial V_j) \right] \to K^{-\lambda_p+1}\left[S\wedge\big( S(q\to)\big) \right]
+\end{equation*} is induced by the collapsing map 
+\begin{equation*}
+	l_1:(S(q\to)) \to (V_j\big/ \partial V_j)\,.
+\end{equation*} 
+
+
 \end{proof}
 
 \begin{definition}[Regular Index Pairs and a Filtration] 
