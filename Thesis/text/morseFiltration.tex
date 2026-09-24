@@ -167,7 +167,12 @@ We know the K-group of such a pair to be:
 	Let $\underline{\Z}$ be the canonical isomorphism class of Abelian groups consisting only of the group $\Z$, and let $q$ be a critical point of index $\lambda_q$ in $M$. Then, Remark \ref{rem:morseFiltr-morphismInducedBySingleMap}, together with Remark \ref{rem:morseFiltr-criticalPointsAsIsolatedCompactInvariantSubsets} gives us the existence of a morphism for all $i\in \N$:
 	\begin{equation*}
 		\tilde{K}^{-\lambda_q-2i}(\mathcal{IP}_{\{q\}})\to \underline{\Z}\,.
-	\end{equation*} Furthermore, this map is given by mapping a generator of $\tilde{K}^{-\lambda_q-2i}(N_q/L_q)$ to one, and hence uniquely determined, provided we have a canonical way to choose a generator of $\tilde{K}^{-\lambda_q-2i}(N_q/L_q)\cong \tilde{K}^{-\lambda_q-2i}(\overline{T^u_qM})$, where the isomorphism is natural and described in Remark \ref{rem:morseFiltr-criticalPointsAsIsolatedCompactInvariantSubsets}. Hence, if $T^u_qM$ is oriented, Corollary \ref{cor:orient-vectorspaceOrientationInducesKtheoreticOrientation} gives us just what we need, making the map canonical.
+	\end{equation*} Furthermore, this map is given by mapping a generator of $\tilde{K}^{-\lambda_q-2i}(N_q/L_q)$ to one, and hence uniquely determined, provided we have a canonical way to choose a generator of $\tilde{K}^{-\lambda_q-2i}(N_q/L_q)\cong \tilde{K}^{-\lambda_q-2i}(\overline{T^u_qM})$, where the isomorphism is natural and described in Remark \ref{rem:morseFiltr-criticalPointsAsIsolatedCompactInvariantSubsets}. 
+	
+	Hence, if $T^u_qM$ is oriented, Corollary \ref{cor:orient-vectorspaceOrientationInducesKtheoreticOrientation} gives us just what we need, making the map canonical. The generator is then given by pulling back the generator of $K^{-\lambda_p}(\overline{T^u_qM})$ along the map of pairs:
+	\begin{align*}
+	\kappa_q\coloneq R_0\circ \restr{\diff \phi^{-1}}{0}\circ s \circ \phi	\,:\,(\phi^{-1}( D^{s }_\epsilon\times  D^{u }_\epsilon),\phi^{-1}( D^{ s}_\epsilon\times \partial D^{u}_\epsilon))  \to (\overline{T^u_qM},\{\infty\})
+	\end{align*} where $s$ is the streching $x\mapsto x\cdot (\frac{1}{\epsilon}-\norm{x}-\frac{1}{\epsilon})$ with $\restr{\diff s}{0}=\frac{1}{\epsilon}\Idm$.
 \end{remark}
 
 
@@ -410,7 +415,7 @@ Before we can proof this theorem we need the following Lemma:
 	For $l=1$ the bottom row of the diagram \ref{eq:morseFilt-commutingDiagramTheorem} is trivial, as the connected simple systems $\mathcal{IP}_k$ consists of spaces that are homotopically equivalent to $k$-spheres and we know by \ref{cor:kTheo-kGroupsOfTheSpheres} that $K^{-k-1}(S^k)\cong\tilde{K}(S^{2k+1})=0$. The same argument works for the image of $\Delta^k$ for $l=1$. So for the rest of the proof we assume $l=0$. Now since $N_p$ is a tubular neighbourhood of $W(\to p)\cap M^c$ we know that $N_p\cap S(q\to)$ consists of finitly many components $V_j$ and each component has one $\{x_j\}=W(q\to p)\cap V_j$. In fact, the proof of Lemma \ref{lem: The Main Lemma Np is tubular} shows that the $V_j$ are fibers of the normal neighbourhood of $W(\to p)$ inside $W(q\to)$ and hence homeomorphic to $\R$.\todo{referenz!}
 	Now we take the tiple $(C,B,A)$ from Lemma \ref{lem: The Main Lemma Np is tubular}. We have a map of triples: 
 	\begin{align*}
-			\left( ~W(q\to)\cap N_q ~,~S(q\to)~,~S(q\to ) \setminus \bigcup\limits_j\inti2(V_j) ~\right) \to (C,B,A)
+			\left( ~W(q\to)\cap N_q ~,~S(q\to)~,~S(q\to ) \setminus \bigcup\limits_j\inti(V_j) ~\right) \to (C,B,A)
 		\end{align*} giving us a commuting diagramm (the square bracets for the input of the K funktors $K[-]$ are choosen for readability and have no deeper meaning)
 		\begin{fdiagram}
 			\begin{tikzcd}
@@ -450,8 +455,47 @@ If we already start by identifying $K^{-\lambda_p}\left[ V_j,\partial V_j \right
 \begin{equation*}
 	l_1:(S(q\to)) \to (V_j\big/ \partial V_j)\,.
 \end{equation*} 
+This brings us into the following setup: 
+
+\begin{fdiagram}
+	\begin{adjustbox}{max width=\textwidth}
+\begin{tikzcd}
+{K^{-\lambda_p+1}\left[ S \wedge(V_j,\partial V_j) \right]} \arrow[rr, "f^j"] \arrow[rd, "(id\wedge l)^*"]                  &                                                                                                                 & {K^{-\lambda_p+1}\left[W(q\to)\cap N_p,S(q\to)\right]}                         \\
+                                                                                                                            & {K^{-\lambda_p+1}\left[S\wedge\big( S(q\to)\big) \right]} \arrow[ru, "\delta_{pair}"] \arrow[rd, "r^*", dashed] &                                                                                \\
+{K^{-\lambda_p+1}\left[\overline{ \R^{\lambda_p +1}}\right]} \arrow[uu, "f_p"] \arrow[rr, dashed] \arrow[ru, "s^*", dashed] &                                                                                                                 & {K^{-\lambda_p+1}\left[\overline{ \R^{\lambda_p +1}}\right]} \arrow[uu, "f_q"]
+\end{tikzcd}
+	\end{adjustbox}
+\end{fdiagram}
+
+The dashed arrows denote functions that we still need to find, to make the diagramm commute. The functions $f_p$ and $f_q$ will be given below. We will later see, that the notation of $s^*$ and $r^*$ is justified in the sence that those are topologically induced funktions. 
 
 
+\textcolor{red}{ALTERNATIVE}
+\begin{fdiagram}
+	\begin{adjustbox}{max width=\textwidth}
+\begin{tikzcd}
+{K^{-\lambda_p+1}\left[ S \wedge(V_j,\partial V_j) \right]} \arrow[rr, "f^j"] \arrow[rd, "(id\wedge l)^*"]                  &                                                                                                                 & {K^{-\lambda_p+1}\left[W(q\to)\cap N_p,S(q\to)\right]}                         \\
+                                                                                                                            & {K^{-\lambda_p+1}\left[S\wedge\big( S(q\to)\big) \right]} \arrow[ru, "\delta_{pair}"] \arrow[rd, "r^*", dashed] &                                                                                \\
+{K^{-\lambda_p+1}\left[\overline{T_{x_j}W(q\to)}\right]} \arrow[uu, "f_p^*"] \arrow[rr, dashed] \arrow[ru, "s^*", dashed] &                                                                                                                 & {K^{-\lambda_p+1}\left[\overline{ \R^{\lambda_p +1}}\right]} \arrow[uu, "f_q^*"]
+\end{tikzcd}
+	\end{adjustbox}
+\end{fdiagram}
+
+
+
+Notice how by definietion of the reduced suspension, there is a natural homomorphism: $S\wedge(V_j\Big/\partial V_j)\cong ([-1,1]\times V_j \big/ \partial([-1,1]\times V_j))$
+Now $V_j$ is the image of $\mathcal{N}_{x_j}\gamma^{W(q\to)}$\todo{notation einführen} under the tubular neighbouzrhood embedding $J$. And $\inti([-1,1])$ is homeomorphic to $\R$ via $x\mapsto \frac{-x}{x^2-1}$. This gives us a mapping 
+
+\begin{equation*}
+	f_p:S\wedge(V_j\Big/\partial V_j)\to \overline{\R\oplus \mathcal{N}_{x_j}^{W(q\to)}\gamma}
+\end{equation*}
+
+
+With this we can define the homomorphism $\tilde{f_p}: (I\times V_j \big/ \partial(I\times V_j)) \to \overline{ T_{x_j}W(q\to)}$ as the closure of the map $(x,v)\mapsto -\frac{-x}{x^2-1}\cdot\grad_{x_j}(f)+J(v)$ Then we define $f_p\coloneq \big(\overline{q_{\mathfrak{b}_q}}\circ \tilde{f^p}\big)^*$, where the map $g_{\mathfrak{b}_q}:\R^{\lambda_p+1}\to T_{x_j}W(q\to)$ is the inverse of the koordinate map $\kappa_{\mathfrak{b}_q}$ where $\mathfrak{b}_q$ is the basis of $T_{x_j}W(q\to)$ induced by Proposition $\ref{def:morse-signedFlowLines}$ that comes from the short exact sequence.
+
+Let $(\alpha_p)_{\#}$ be a generator of $K^{\lambda_p}_{\#}(\mathcal{IP}_p)$ meaning that $(\alpha_p)_{\#}$ is a family of generators for all groups in $K^{\lambda_p}_{\#}(\mathcal{IP}_p)$ that transform into each other under the canonical group isomorphisms.
+ Notice that $(\alpha_p)_{\#}$ is induced by any of its elements. Now lets fix $(\alpha_p)_{\#}$ to be the generator induced in Remark \ref{rem:morseFiltr-morphismToCanonicalIntegers} and hence given by the generator $\alpha_p=\kappa_p^*(\mathfrak{b}_q)$ of $K^{\lambda_p}(\phi^{-1}( D^{s }_\epsilon\times  D^{u }_\epsilon),\phi^{-1}( D^{ s}_\epsilon\times \partial D^{u}_\epsilon))$, where $\mathfrak{b}_q$ is the generator of $\tilde{K}^{\lambda_p}(\overline{T^u_qM})$ induced by the orientation of $T^u_qM$. Furthermore, let $\alpha_p^{(B,A)}\in (\alpha_p)_{\#}$ be the generator of $K^{-\lambda_p}\left[B,A\right]$. Let $\mathfrak{e}$ denote the generator of $K^{-\lambda_p+1}(\R^{\lambda_p+1})$ induced by the standart bases (and composed with a bott periodicity map).
+Then $f^p(\mathfrak{e})=i_j^*\circ i^*_{B,A}(\alpha_p^{(B,A)})$
 \end{proof}
 
 \begin{definition}[Regular Index Pairs and a Filtration] 

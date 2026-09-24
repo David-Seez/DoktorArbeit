@@ -1,0 +1,184 @@
+%======================================================================
+%  VORSCHLAG: Neustrukturierung des Beweises von
+%  Theorem \ref{thm:morseFilt-commutingMorsecoboundary}.
+%  Einzufügen zwischen Lemma \ref{lem: The Main Lemma Np is tubular}
+%  und dem Beweis des Theorems. Sprache wie in der Arbeit (Englisch).
+%  Benutzt werden nur Resultate aus main.pdf (Kapitel 3--6); neue
+%  Labels beginnen mit "filt-".
+%======================================================================
+
+\subsection{Tools for the Proof of Theorem \ref{thm:morseFilt-commutingMorsecoboundary}}
+
+Throughout this subsection we use the notation of Lemma \ref{lem: The Main Lemma Np is tubular}: $q\in \Crit_k(f)$, $p\in\Crit_{k-1}(f)$, $f(q)=b$, $f(p)=a$, $c\in (a,b)$ and there is no critical value in $(a,b)$. We write
+\begin{equation*}
+	D_q\coloneq W(q\to)\cap M_c\,,\qquad
+	S(q\to)\coloneq W(q\to)\cap f^{-1}(c)\,,\qquad
+	Q^p\coloneq \restr{TM}{W(\to p)}\big/ TW(\to p)\,,
+\end{equation*}
+where $W(q\to)$ is oriented by Proposition \ref{prop:morse-OrientedUnstableSpaces} and $Q^p$ is oriented by Proposition \ref{prop:morse-orientTheQuotient}. For an oriented real vector space $V$ of dimension $n$ let $\beta_V\in \rK^{-n}(\overline{V})$ be its K-theoretic orientation from Corollary \ref{cor:orient-vectorspaceOrientationInducesKtheoreticOrientation}. For an index pair $(N,L)$ of $\{p\}$ let $\alpha_p^{(N,L)}\in K^{-\lambda_p}(N,L)$ denote the member of the canonical generator of $K^{-\lambda_p}_{\#}(\mathcal{IP}_{\{p\}})$ from Remark \ref{rem:morseFiltr-morphismToCanonicalIntegers}, i.e.\ the pullback of $\kappa_p^*(\beta_{T^u_pM})$ along the homotopy equivalence of Theorem \ref{thm:morseFiltr-homotopyEquivalenceOfIndexPairs}. Here $\kappa_p$ is read with the projection onto the unstable coordinates, i.e.\ $\kappa_p=R_0\circ\restr{\diff\psi^{-1}}{0}\circ s\circ \mathrm{pr}_u\circ\psi$.\todo{In Bemerkung \ref{rem:morseFiltr-morphismToCanonicalIntegers} fehlt $\mathrm{pr}_u$.}
+
+\begin{lemma}[Linear Maps on Smash Products]\label{lem:filt-linearMapsOnSmash}
+	Let $A\in\GL_m(\R)$ and let $Z$ be a pointed compact space. Then 
+	\begin{equation*}
+		\left(\overline{A}\wedge \id_Z\right)^*=\sign\det(A)\cdot\id\quad\text{on }\rK\left(\overline{\R^m}\wedge Z\right)\,.
+	\end{equation*}
+	In particular, if $\overline{\R^{m_1}}\wedge\dots\wedge\overline{\R^{m_r}}$ is identified with $\overline{\R^{m}}$ by Lemma \ref{lem:orient-compactificationOfProduct}, a permutation of the smash factors acts on $\rK\left(\overline{\R^{m_1}}\wedge\dots\wedge\overline{\R^{m_r}}\wedge Z\right)$ by the sign of the induced permutation of the $m=m_1+\dots+m_r$ coordinates.
+\end{lemma}
+\begin{proof}
+	The proof of Proposition \ref{prop:linearyTheDeterminandDertermines} works verbatim if $S^n\wedge\overline{\R^{n-1}}$ is replaced by $\overline{\R^{m-1}}\wedge Z$: a path $A_t$ in $\GL_m(\R)$ from $A$ to $\id$ or to the reflection $R$ gives the pointed homotopy $\overline{A_t}\wedge\id_Z$, and $\overline{R}\wedge\id_Z$ corresponds to $\overline{R_1}\wedge\id_{\overline{\R^{m-1}}\wedge Z}$, which acts by $-1$ by Lemma \ref{lem:reflection-is-minus-one}. A permutation of coordinates is a linear map whose determinant is the sign of the permutation.
+\end{proof}
+
+\begin{lemma}[Flow Time and Projection to the Level Set]\label{lem:filt-tauRho}
+	Let $\lambda_q\geq 1$.
+	\begin{enumerate}[(a)]
+		\item For $x\in D_q\setminus\{q\}$ there is a unique $\tau(x)\geq 0$ with $f(\phi_{\tau(x)}(x))=c$. The map $\tau:D_q\setminus\{q\}\to[0,\infty)$ is smooth, $\tau^{-1}(0)=S(q\to)$, $\tau(\phi_s(x))=\tau(x)-s$ and $\tau(x)\to\infty$ for $x\to q$. We set $\tau(q)\coloneq\infty$. In particular $\restr{\diff\tau}{x}(-\grad_x f)=-1$.
+		\item The map $\rho:D_q\setminus\{q\}\to S(q\to)$, $\rho(x)\coloneq \phi_{\tau(x)}(x)$ is a smooth retraction with $\rho\circ\phi_s=\rho$. In particular $\restr{\diff\rho}{x}(\grad_xf)=0$, and for $y\in S(q\to)$, $w\in T_yS(q\to)$ and $s\geq 0$:
+		\begin{equation*}
+			\diff\rho\left(\restr{\diff\phi_{-s}}{y}w\right)=w\,,\qquad \diff\tau\left(\restr{\diff\phi_{-s}}{y}w\right)=0\,.
+		\end{equation*}
+		\item $S(q\to)$ is a closed submanifold of $W(q\to)$ of dimension $\lambda_q-1$, and there are a homeomorphism $g_q:S^{\lambda_q}\to D_q/S(q\to)$ mapping the south pole $S$ to the base point and a closed subset $Z_q\subseteq S^{\lambda_q}\setminus\{S\}$ with $q\notin g_q(Z_q)\subseteq\{\tau\geq 1\}$, such that $g_q$ restricts to an orientation preserving diffeomorphism $S^{\lambda_q}\setminus (Z_q\cup\{S\})\to D_q\setminus \left(S(q\to)\cup g_q(Z_q)\right)$.
+	\end{enumerate}
+\end{lemma}
+\begin{proof}
+	(a) Along a flow line in $W(q\to)\setminus\{q\}$ the function $f$ is strictly decreasing, and since there is no critical value in $[c,b)$, the flow line crosses $f^{-1}(c)$ exactly once. This gives existence and uniqueness, and uniqueness gives $\tau(\phi_s(x))=\tau(x)-s$. Smoothness follows from the implicit function theorem applied to $G(x,t)\coloneq f(\phi_t(x))$, since $\partial_tG(x,t)=-\norm{\grad_{\phi_t(x)}f}^2\neq 0$. Differentiating $\tau(\phi_s(x))=\tau(x)-s$ in $s=0$ gives $\diff\tau(-\grad f)=-1$. If $x_n\to q$ with $\tau(x_n)\leq T$, then after passing to a subsequence $\phi_{\tau(x_n)}(x_n)\to\phi_{t}(q)=q$ for some $t\le T$, contradicting $f(\phi_{\tau(x_n)}(x_n))=c<b$.
+	
+	(b) $\rho\circ\phi_s=\rho$ follows from (a), and differentiating it in $s$ gives $\diff\rho(\grad f)=0$. The last two identities are the differentials of $\rho\circ\phi_{-s}=\id$ and $\tau\circ\phi_{-s}\equiv s$ on $S(q\to)$.
+	
+	(c) $c$ is a regular value of $\restr{f}{W(q\to)}$ as $\grad f$ is tangent to $W(q\to)$ and non-zero away from $q$, so $S(q\to)$ is a closed submanifold. Let $\psi=(\psi^s,\psi^u)$ be a refined Morse chart around $q$ whose unstable coordinates induce the orientation of $T^u_qM$. By Lemma \ref{lem:morse-localUnStableManifoldTheorem} the map $\psi^u$ restricts to a diffeomorphism from a neighbourhood of $q$ in $W(q\to)$ onto a neighbourhood of $0\in\R^{\lambda_q}$, and as in Remark \ref{rem:morseFiltr-criticalPointsAsIsolatedCompactInvariantSubsets} (expansion on $T^u_qM$ is an open condition) $t\mapsto\norm{\psi^u(\phi_t(x))}$ is strictly increasing near $q$. Choose $r>0$ so small that $E_r\coloneq\{x\in W(q\to)\text{ near } q\mid \norm{\psi^u(x)}\leq r\}\subseteq\{\tau\geq 1\}$. Every flow line in $D_q\setminus\{q\}$ leaves $E_r$ exactly once and transversally through $\partial E_r$, so
+	\begin{equation*}
+		D_q=E_r\,\cup\,\left\{\phi_s(y)\mid y\in\partial E_r,\ 0\leq s\leq\tau(y)\right\}\,.
+	\end{equation*}
+	Map $E_r$ to the ball $D_{1/2}\subseteq\R^{\lambda_q}$ by $x\mapsto\frac{1}{2r}\psi^u(x)$ and the second piece to the annulus $D_1\setminus \inti(D_{1/2})$ by $\phi_s(y)\mapsto \left(\frac12+\frac{s}{2\tau(y)}\right)\frac{\psi^u(y)}{r}$. Both maps agree on $\partial E_r$, are diffeomorphisms on the interiors of the pieces and send the outward flow direction and $T\partial E_r$ to the outward radial direction and the tangent space of the sphere; hence they are orientation preserving on both pieces (for the first piece this is the choice of $\psi$). Compose with $D_1/\partial D_1\to S^{\lambda_q}$, $v\mapsto\pi_S^{-1}\left(\frac{v}{1-\norm{v}}\right)$, which is an orientation preserving diffeomorphism on the interior by Remark \ref{conv:orient-orientationOfTheSphere} ($\frac{v}{1-\norm v}$ has positive definite differential). The inverse of this composition is $g_q$, and $Z_q$ is the preimage of $\partial E_r$.
+\end{proof}
+
+\begin{lemma}[Orientation Class of a Disk]\label{lem:filt-orientationClassOfDisk}
+	Let $n\geq 1$ and let $(\Sigma,\partial\Sigma)$ be a compact pair such that $\Sigma\setminus\partial\Sigma$ is an oriented $C^1$-manifold of dimension $n$. Assume there are a homeomorphism $g:S^n\to\Sigma/\partial\Sigma$ with $g(S)=[\partial\Sigma]$ and a closed $Z\subseteq S^n\setminus\{S\}$ such that $g$ restricts to an orientation preserving $C^1$-diffeomorphism $S^n\setminus(Z\cup\{S\})\to (\Sigma\setminus\partial\Sigma)\setminus g(Z)$. Define
+	\begin{equation*}
+		o_\Sigma\coloneq (g^{-1})^*(\beta_n)\in \rK^{-n}(\Sigma/\partial\Sigma)=K^{-n}(\Sigma,\partial\Sigma)\,,
+	\end{equation*}
+	with $\beta_n$ from Definition \ref{def:ktheo-higherBottGenerators}. Let $V$ be an oriented $n$-dimensional vector space and $h:\Sigma/\partial\Sigma\to\overline{V}$ a pointed map such that for some $z\in V$ we have $h^{-1}(z)=\{y\}$ with $y\in(\Sigma\setminus\partial\Sigma)\setminus g(Z)$, $h$ is $C^1$ near $y$ and $\restr{\diff h}{y}$ is invertible. Then
+	\begin{equation*}
+		h^*(\beta_V)=\sign\det\left(\restr{\diff h}{y}\right)\cdot o_\Sigma\,.
+	\end{equation*}
+\end{lemma}
+\begin{proof}
+	Let $\kappa_V:V\to\R^n$ be the coordinate map of a positively oriented basis, so $\beta_V=\left(\overline{\pi_S^{-1}}\circ\overline{\kappa_V}\right)^*(\beta_n)$ by Corollary \ref{cor:orient-vectorspaceOrientationInducesKtheoreticOrientation}. Then $\xi\coloneq\overline{\pi_S^{-1}}\circ\overline{\kappa_V}\circ h\circ g:S^n\to S^n$ satisfies $\xi^{-1}(\pi_S^{-1}\kappa_V(z))=\{g^{-1}(y)\}$, is $C^1$ near $g^{-1}(y)$, and by the chain rule and Lemma \ref{lem:orient-computingSignInCharts}
+	\begin{equation*}
+		\sign\det\left(\restr{\diff\xi}{g^{-1}(y)}\right)=\sign\det\left(\restr{\diff h}{y}\right)\,,
+	\end{equation*}
+	since $\pi_S^{-1}$ (Remark \ref{conv:orient-orientationOfTheSphere}), $\kappa_V$ and $g$ are orientation preserving. Lemma \ref{lem:orient-singleRegularPreimage} gives $g^*h^*(\beta_V)=\xi^*(\beta_n)=\sign\det(\restr{\diff h}{y})\,\beta_n$. Apply $(g^{-1})^*$.
+\end{proof}
+
+\begin{remark}
+	By Lemma \ref{lem:filt-tauRho}(c) the lemma applies to $(D_q,S(q\to))$ with $g=g_q$. For a fibre $V_j$ of the tubular neighbourhood from Lemma \ref{lem: The Main Lemma Np is tubular} with centre $x_j$ it applies with $Z=\emptyset$ and $g_j$ given by the tubular embedding composed with $v\mapsto\pi_S^{-1}\left(\frac{v}{1-\norm v}\right)$ (and a reflection fixing both poles, if necessary to preserve orientation); then $g_j(N)=x_j$ for the north pole $N$. In particular $h_j\coloneq\overline{\kappa_V^{-1}}\circ\overline{\pi_S}\circ g_j^{-1}$ is a map as in the lemma with $h_j^{-1}(0)=\{x_j\}$ and $h_j^*(\beta_V)=o_{V_j}$.
+\end{remark}
+
+\begin{lemma}[Canonical Generators on Transversal Disks]\label{lem:filt-generatorsOnDisks}
+	Let $p\in\Crit(f)$ with $n\coloneq\lambda_p\geq 1$, let $(N,L)$ be an index pair of $\{p\}$ and let $\Sigma\subseteq N$ with $\partial\Sigma\subseteq L$ be as in Lemma \ref{lem:filt-orientationClassOfDisk}. Assume
+	\begin{enumerate}[(i)]
+		\item $\Sigma\cap W(\to p)=\{x\}$ with $x\in(\Sigma\setminus\partial\Sigma)\setminus g(Z)$ and $T_x\Sigma\oplus T_xW(\to p)=T_xM$,
+		\item for every $s\geq 0$ there is a neighbourhood $U_s$ of $x$ in $\Sigma$ with $\phi_{[0,s]}(U_s)\subseteq N\setminus L$.
+	\end{enumerate}
+	Orient $\Sigma\setminus\partial\Sigma$ such that the isomorphism $T_x\Sigma\to Q^p_x$ is orientation preserving (Lemma \ref{lem:morse-OrientationsInAPointInduceOrientationsOfBundle}). Then for the inclusion $i:(\Sigma,\partial\Sigma)\to(N,L)$
+	\begin{equation*}
+		i^*\left(\alpha_p^{(N,L)}\right)=o_\Sigma\,.
+	\end{equation*}
+	The two cases we need are $\Sigma=D_q$, $x=q$, $(N,L)=(C,B)$ (here $Q^q_q=T_qM/T^s_qM\cong T^u_qM$, so $o_{D_q}$ is taken with respect to the orientation of $W(q\to)$), and $\Sigma=V_j$, $x=x_j$, $(N,L)=(B,A)$.
+\end{lemma}
+\begin{proof}
+	\emph{Step 1 (the canonical generator restricted to the unstable disk).} Let $\chi=(\chi^s,\chi^u)$ be any chart around $p$ with $\diff\chi_p=\diff\psi_p$ in which $W(p\to)$ is locally the graph of a map over the $u$-coordinates and whose box $(N_\chi,L_\chi)$ is an index pair, and let $\kappa_\chi$ be defined like $\kappa_p$. Let $\Sigma\subseteq W(p\to)$, $x=p$. For $t$ large, the homotopy equivalence $c:N/L\to N_\chi/L_\chi$ of Theorem \ref{thm:morseFiltr-homotopyEquivalenceOfIndexPairs} is $y\mapsto[\phi_{3t}(y)]$ near $p$ (by (ii) and since $p$ is an interior fixed point of $N_\chi\setminus L_\chi$). Consider $h\coloneq\kappa_\chi\circ c\circ i$. If $h(y)=0$, then $\phi_{3t}(y)\in W(p\to)\cap(\chi^u)^{-1}(0)=\{p\}$ (graph over $u$; $f$ decreases along $W(p\to)$, so $W(p\to)\cap N_\chi$ is the local piece), hence $y=p$. At $p$, $\restr{\diff h}{p}=\frac1\epsilon\cdot\restr{\diff\phi_{3t}}{p}$ on $T^u_pM$, which has positive determinant by Remark \ref{rem:morse-jacobianOfTheFlowInRefinedMorsechart}. Lemma \ref{lem:filt-orientationClassOfDisk} gives $i^*c^*\kappa_\chi^*(\beta_{T^u_pM})=o_\Sigma$.
+	
+	\emph{Step 2 (straightened chart).} By Lemma \ref{lem:morse-localUnStableManifoldTheorem} there is a smooth $g^s$ with $g^s(0)=0$, $\diff g^s_0=0$ such that $\psi(W(\to p))$ is locally the graph of $g^s$ over the $s$-coordinates. The chart $\hat\psi\coloneq(\psi^s,\psi^u-g^s\circ\psi^s)$ satisfies $\diff\hat\psi_p=\diff\psi_p$, $W(\to p)=\hat\psi^{-1}(\R^{m-n}\times\{0\})$ locally, $W(p\to)$ is still a graph over the $u$-coordinates, and for small $\epsilon$ its box $(\hat N,\hat L)$ is an index pair (the argument of Remark \ref{rem:morseFiltr-criticalPointsAsIsolatedCompactInvariantSubsets} only uses $\diff\psi_p$). We claim that $\hat\kappa^*(\beta_{T^u_pM})$ is the member of the canonical generator. Let $E\coloneq W(p\to)\cap N_\psi$ be the unstable disk in the box of $\psi$. In $\psi$-coordinates $E$ is the graph of a map $u\mapsto e(u)\in D^s_\epsilon$ and $H_\mu(s,u)\coloneq((1-\mu)s+\mu e(u),u)$ deforms $(N_\psi,L_\psi)$ into $(E,\partial E)$ relative $E$; so $K^{-n}(N_\psi,L_\psi)\to K^{-n}(E,\partial E)$ is an isomorphism. By Step 1, applied to $\chi=\psi$ and $\chi=\hat\psi$, both $\kappa_p^*(\beta_{T^u_pM})$ and the transport of $\hat\kappa^*(\beta_{T^u_pM})$ restrict to $o_E$. Hence they agree.
+	
+	\emph{Step 3 (general $\Sigma$).} Use $\hat\psi$ and set $h\coloneq\hat\kappa\circ c\circ i:\Sigma/\partial\Sigma\to\overline{T^u_pM}$ with $c$ as in Step 1. If $h(y)=0$, then $\phi_{3t}(y)\in\hat\psi^{-1}(\R^{m-n}\times\{0\})\subseteq W(\to p)$, so $y\in\Sigma\cap W(\to p)=\{x\}$. By (ii) and since $\phi_{[t,3t]}(x)$ lies close to $p$ for $t$ large, $h=\hat\kappa\circ\phi_{3t}$ near $x$. Since $\hat\kappa$ is constant on $W(\to p)$ near $p$ and $\phi_{3t}$ preserves $W(\to p)$, the differential factors as
+	\begin{equation*}
+		\restr{\diff h}{x}:\;T_x\Sigma\xrightarrow{\;\cong\;}Q^p_x\xrightarrow{\;[\diff\phi_{3t}]\;}Q^p_{\phi_{3t}(x)}\xrightarrow{\;[\diff\hat\kappa]\;}T^u_pM\,.
+	\end{equation*}
+	The first map is orientation preserving by the choice of orientation. The sign of $[\diff\phi_s]$ is continuous in $s$ and equals $1$ for $s=0$. The sign of $[\diff\hat\kappa]_y$ is continuous in $y$ on the (connected) local stable disk and equals $1$ at $y=p$, where $[\diff\hat\kappa]_p$ is $\frac1\epsilon$ times the identification $T_pM/T^s_pM\cong T^u_pM$ used in Proposition \ref{prop:morse-orientTheQuotient}. So $\sign\det\restr{\diff h}{x}=1$, and Lemma \ref{lem:filt-orientationClassOfDisk} together with Step 2 gives $i^*(\alpha_p^{(N,L)})=i^*c^*\hat\kappa^*(\beta_{T^u_pM})=h^*(\beta_{T^u_pM})=o_\Sigma$.
+\end{proof}
+
+\begin{lemma}[Connecting Homomorphism along a Collar]\label{lem:filt-deltaViaCollar}
+	Let $(X,Y)$ be a compact pair (with cofibration) and $Y$ well pointed by $y_0$. Let $s:X\to[0,1]$ be continuous with $s^{-1}(0)=Y$ and let $r:s^{-1}([0,1))\to Y$ be a continuous retraction. Define, with $S^1=I/\partial I$,
+	\begin{equation*}
+		\bar k:X/Y\to\Sigma Y=S^1\wedge Y\,,\qquad \bar k([z])\coloneq\begin{cases}[1-s(z),r(z)]&s(z)<1\,,\\ \ast & s(z)=1\,.\end{cases}
+	\end{equation*}
+	Then for all $n\geq 1$ the connecting homomorphism $\delta:\rK^{-n}(Y)\to K^{-n+1}(X,Y)$ of Definition \ref{def:kTheo-connectingHomomorphism} satisfies
+	\begin{equation*}
+		\delta=(-1)^n\cdot\bar k^*\circ\sigma_n\,,
+	\end{equation*}
+	where $\sigma_n:\rK^{-n}(Y)=\rK(S^n\wedge Y)\cong\rK(S^{n-1}\wedge S^1\wedge Y)=\rK^{-(n-1)}(\Sigma Y)$ is the identification via Definition \ref{def:ktheo-wedgeOfShoperesIsSphere} ($\sigma_1=\id$) and $\bar k^*$ denotes $(\id_{S^{n-1}}\wedge\bar k)^*$. Here the homotopy equivalence $CY/Y\to\Sigma Y$ of Proposition 3.5.7 is $[y,t]\mapsto[t,y]$.\todo{Konvention in Prop.\ 3.5.7 prüfen; mit $t\mapsto 1-t$ dreht sich das Vorzeichen.}
+\end{lemma}
+\begin{proof}
+	Let $n=1$. With the notation of Definition \ref{def:kTheo-connectingHomomorphism} let $\bar m:X\cup CY\to (X\cup CY)/X\cong CY/Y\to\Sigma Y$, so that $\delta=(\pi^*)^{-1}\circ\bar m^*$. For $\mu\in[0,1]$ define $H_\mu:X\cup CY\to\Sigma Y$ by
+	\begin{equation*}
+		H_\mu([y,t])\coloneq[(1-\mu)t,\,y]\ \text{ on } CY\,,\qquad H_\mu(z)\coloneq[(1-\mu)+\mu s(z),\,r(z)]\ \text{ on } X
+	\end{equation*}
+	(and $\ast$ if $s(z)=1$). Both formulas agree on $Y$ (where $t=1$, $s=0$), $H_\mu$ is continuous and pointed, $H_0=\bar m$ and $H_1=(T\wedge 1)\circ\bar k\circ\pi$ with the flip $T(t)=1-t$. Hence, by Corollary \ref{lem:kTheo-inversesInKGivenByHomotopicallyMethods},
+	\begin{equation*}
+		\bar m^*=\pi^*\circ\bar k^*\circ(T\wedge 1)^*=-\pi^*\circ\bar k^*\quad\Longrightarrow\quad \delta=-\bar k^*\,.
+	\end{equation*}
+	For $n\geq 2$, $\delta$ is by definition the connecting homomorphism of $(S^{n-1}\wedge X,S^{n-1}\wedge Y)$, and the same homotopy $\id_{S^{n-1}}\wedge H_\mu$ (followed by moving the cone coordinate to the front) gives $\delta=-\bar k_n^*$ with $\bar k_n=P\circ(\id_{S^{n-1}}\wedge\bar k)$, where $P:S^{n-1}\wedge S^1\to S^1\wedge S^{n-1}$ swaps the factors. After identifying both sides with $S^n$ via Definition \ref{def:ktheo-wedgeOfShoperesIsSphere}, $P$ is the compactification of the permutation moving one coordinate past $n-1$ others, so $P^*=(-1)^{n-1}$ by Lemma \ref{lem:filt-linearMapsOnSmash}.
+\end{proof}
+
+\begin{lemma}[Suspending K-theoretic Orientations]\label{lem:filt-suspensionOfOrientations}
+	Let $V$ be an oriented real vector space of dimension $n\geq 1$, let $g:(0,1)\to\R$ be an orientation preserving diffeomorphism (e.g.\ $g(t)=\tan(\pi(t-\frac12))$) and
+	\begin{equation*}
+		G_V:\Sigma\overline{V}=S^1\wedge\overline{V}\to\overline{\R\oplus V}\,,\qquad [t,v]\mapsto (g(t),v)\,,
+	\end{equation*}
+	which is a homeomorphism by Lemma \ref{lem:orient-compactificationOfProduct}; here $\R\oplus V$ is oriented with $\R$ in front. Let $b=\beta\boxtimes(-)$ be the Bott map. Then there is $e_n\in\{\pm1\}$, depending only on $n$, with
+	\begin{equation*}
+		b\left(\sigma_n(\beta_V)\right)=e_n\cdot G_V^*\left(\beta_{\R\oplus V}\right)\quad\in \rK^{-(n+1)}(\Sigma\overline{V})\,.
+	\end{equation*}
+\end{lemma}
+\begin{proof}
+	Both sides are generators of $\rK^{-(n+1)}(\Sigma\overline V)\cong\rK(S^{2n+2})\cong\Z$ (suspension identification and Theorem \ref{thm:Ktheo-BottPeriodicity}), so they differ by a sign $e(V)$. For an isomorphism $A:V\to W$ we have $G_W\circ(\id\wedge\overline A)=\overline{\id\oplus A}\circ G_V$, and $b$, $\sigma_n$ are natural. By Corollary \ref{cor:orient-vectorspaceOrientationInducesKtheoreticOrientation} and Proposition \ref{prop:linearyTheDeterminandDertermines}, $\overline A^*\beta_W=\sign\det(A)\beta_V$ and $\overline{\id\oplus A}^*\beta_{\R\oplus W}=\sign\det(A)\beta_{\R\oplus V}$, so the sign cancels and $e(V)=e(W)$.
+\end{proof}
+
+\begin{remark}\label{rem:filt-valueOfTheSign}
+	The value of $e_n$ is pure bookkeeping: for $V=\R^n$ all identifications involved ($\Upsilon$, $\Xi$, $\sigma_n$, Lemma \ref{lem:orient-multiplication}, Lemma \ref{lem:ktheo-bottGeneratorsAreMultiplicative}) are compactifications of coordinate permutations, so by Lemma \ref{lem:filt-linearMapsOnSmash} $e_n$ is the sign of one explicit permutation, possibly times the sign comparing $I/\partial I\cong S^1$ of Definition 3.3.28 with $g$.\todo{$e_n$ einmal ausrechnen.}
+\end{remark}
+
+\begin{proposition}[Contribution of a Single Flow Line]\label{prop:filt-singleFlowLine}
+	Let $n\coloneq\lambda_p\geq1$, let $V_j\subseteq S(q\to)$ be a fibre of the tubular neighbourhood $N_p$ with centre $x_j\in W(q\to p)$ and let $\gamma_j\in\mathcal{M}(q\to p)$ be the flow line through $x_j$. Orient $V_j$ as in Lemma \ref{lem:filt-generatorsOnDisks}, let $l_j:S(q\to)\to V_j/\partial V_j$ be the collapse and $\delta$ the connecting homomorphism of $(D_q,S(q\to))$. Then
+	\begin{equation*}
+		b\circ\delta\circ l_j^*\left(o_{V_j}\right)=c_n\cdot\varepsilon(\gamma_j)\cdot o_{D_q}\,,\qquad c_n\coloneq(-1)^n e_n\,.
+	\end{equation*}
+\end{proposition}
+\begin{proof}
+	Apply Lemma \ref{lem:filt-deltaViaCollar} to $(X,Y)=(D_q,S(q\to))$ with $s\coloneq\min(\tau,1)$ and $r\coloneq\rho$ from Lemma \ref{lem:filt-tauRho}, and write $o_{V_j}=h_j^*(\beta_Q)$ with $Q\coloneq Q^p_{x_j}$ and $h_j$ as in the remark after Lemma \ref{lem:filt-orientationClassOfDisk}. By naturality of $\sigma_n$ and $b$ (Proposition 3.5.20) and Lemma \ref{lem:filt-suspensionOfOrientations},
+	\begin{equation*}
+		b\,\delta\, l_j^*h_j^*(\beta_Q)
+		=(-1)^n\,\bar k^*(\id\wedge h_jl_j)^*\,b\,\sigma_n(\beta_Q)
+		=c_n\,F^*\left(\beta_{\R\oplus Q}\right)\,,\qquad F\coloneq G_Q\circ(\id\wedge h_jl_j)\circ\bar k\,.
+	\end{equation*}
+	Explicitly $F(z)=\left(g(1-\tau(z)),\,h_j(l_j(\rho(z)))\right)$ if $0<\tau(z)<1$ and $F(z)=\infty$ otherwise. Hence $F(z)=0$ if and only if $\tau(z)=\frac12$ and $\rho(z)=x_j$, i.e.\ $F^{-1}(0)=\{\hat x\}$ with $\hat x\coloneq\phi_{-1/2}(x_j)\in\gamma_j$, and $\hat x\notin g_q(Z_q)\subseteq\{\tau\geq1\}$. Let $(w_1,\dots,w_n)$ be a positive basis of $T_{x_j}V_j=T_{x_j}S(q\to)$. By Lemma \ref{lem:filt-tauRho}(a),(b)
+	\begin{equation*}
+		\restr{\diff F}{\hat x}(-\grad_{\hat x}f)=\left(g'(\tfrac12),0\right)\,,\qquad
+		\restr{\diff F}{\hat x}\left(\diff\phi_{-1/2}w_i\right)=\left(0,\restr{\diff h_j}{x_j}w_i\right)\,,
+	\end{equation*}
+	and the right hand sides form a positive basis of $\R\oplus Q$. Thus $\sign\det\restr{\diff F}{\hat x}$ is the sign of the basis $\left(-\grad_{\hat x}f,\diff\phi_{-1/2}w_1,\dots,\diff\phi_{-1/2}w_n\right)$ with respect to the orientation of $W(q\to)$. This frame depends continuously on $s\in[0,\frac12]$ if $\frac12$ is replaced by $s$ (note $\diff\phi_{-s}(\grad f)=\grad f$ along $\gamma_j$), so its sign equals the sign of $(-\grad_{x_j}f,w_1,\dots,w_n)$ in $T_{x_j}W(q\to)$. Since $w_i$ lifts a positive basis of $Q$, this basis is exactly the one induced by the short exact sequence of Definition \ref{def:morse-signedFlowLines}, so the sign is $\varepsilon(\gamma_j)$. Lemma \ref{lem:filt-orientationClassOfDisk} gives $F^*(\beta_{\R\oplus Q})=\varepsilon(\gamma_j)\,o_{D_q}$.
+\end{proof}
+
+\subsection{The Proof}
+
+\begin{proof}[Proof of Theorem \ref{thm:morseFilt-commutingMorsecoboundary}]
+	As above it suffices to treat $l=0$, and by Example \ref{ex:morseFiltr-aMapOfKGroups}\todo{Label des Beispiels 6.1.18} we may compute $\Delta^{k-1}$ with the triple $(C,B,A)$ of Lemma \ref{lem: The Main Lemma Np is tubular} for every pair $p\in\Crit_{k-1}(f)$, $q\in\Crit_k(f)$. Hence it suffices to show
+	\begin{equation}\label{eq:filt-toShow}
+		b\circ\delta^1_{triple}\left(\alpha_p^{(B,A)}\right)=c_{k-1}\cdot n(q,p)\cdot\alpha_q^{(C,B)}\,.
+	\end{equation}
+	Let $V_j$ be the components of $N_p\cap S(q\to)$ and $\{x_j\}=V_j\cap W(\to p)$. Since $f$ is strictly decreasing along flow lines, $j\mapsto\gamma_j$ is a bijection onto $\mathcal{M}(q\to p)$, so $\sum_j\varepsilon(\gamma_j)=n(q,p)$. From the diagram above and Theorem \ref{thm:kTheo-pointedAdditivity} we get
+	\begin{equation*}
+		\delta^1_{triple}\left(\alpha_p^{(B,A)}\right)=\left(i_{C,B}^*\right)^{-1}\sum_j\delta\circ l_j^*\left(i_j^*\,i_{B,A}^*\,\alpha_p^{(B,A)}\right)\,.
+	\end{equation*}
+	Lemma \ref{lem:filt-generatorsOnDisks} applies to $\Sigma=V_j\subseteq B$, $x=x_j$: condition (i) is the Morse--Smale condition, and (ii) holds since $f(\phi_{T+s}(x_j))>a>a-\epsilon$ for all $s\geq0$, which by continuity persists on a neighbourhood for $s$ in compact intervals. It also applies to $\Sigma=D_q\subseteq C$, $x=q$. Hence $i_j^*i_{B,A}^*\alpha_p^{(B,A)}=o_{V_j}$ and $i_{C,B}^*\alpha_q^{(C,B)}=o_{D_q}$. Since $b$ commutes with pullbacks, Proposition \ref{prop:filt-singleFlowLine} yields
+	\begin{equation*}
+		b\,\delta^1_{triple}\left(\alpha_p^{(B,A)}\right)
+		=\left(i_{C,B}^*\right)^{-1}\sum_j c_{k-1}\,\varepsilon(\gamma_j)\,o_{D_q}
+		=c_{k-1}\,n(q,p)\,\alpha_q^{(C,B)}\,,
+	\end{equation*}
+	which is \eqref{eq:filt-toShow}. Summing over $q$ gives $\Delta^{k-1}(\alpha_p)=c_{k-1}\sum_q n(q,p)\,\alpha_q$, and by Definition 5.2.6 the right hand side is $c_{k-1}$ times the image of $\partial^{k-1}\eta_p$.
+\end{proof}
+
+\begin{remark}[Normalisation of the Sign]
+	If $c_n=1$ for all $n$, the diagram of Theorem \ref{thm:morseFilt-commutingMorsecoboundary} commutes on the nose. Otherwise, it commutes after multiplying the vertical identification in degree $k$ by $s_k\coloneq\prod_{i=0}^{k-1}c_i$. As the $c_n$ are universal, this changes nothing in the spectral sequence. The case $\lambda_p=0$ (where $V_j$ is a point and $S(q\to)$ consists of two points) has to be checked by hand, since Lemma \ref{lem:orient-singleRegularPreimage} requires $n\geq1$.
+\end{remark}
