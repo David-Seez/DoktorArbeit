@@ -171,8 +171,8 @@ We know the K-group of such a pair to be:
 	
 	Hence, if $T^u_qM$ is oriented, Corollary \ref{cor:orient-vectorspaceOrientationInducesKtheoreticOrientation} gives us just what we need, making the map canonical. The generator is then given by pulling back the generator of $K^{-\lambda_p}(\overline{T^u_qM})$ along the map of pairs:
 	\begin{align*}
-	\kappa_q\coloneq R_0\circ \restr{\diff \phi^{-1}}{0}\circ s \circ \phi	\,:\,(\phi^{-1}( D^{s }_\epsilon\times  D^{u }_\epsilon),\phi^{-1}( D^{ s}_\epsilon\times \partial D^{u}_\epsilon))  \to (\overline{T^u_qM},\{\infty\})
-	\end{align*} where $s$ is the streching $x\mapsto x\cdot (\frac{1}{\epsilon}-\norm{x}-\frac{1}{\epsilon})$ with $\restr{\diff s}{0}=\frac{1}{\epsilon}\Idm$.
+	\kappa_q\coloneq R_0\circ \restr{\diff \phi^{-1}}{0}\circ s\circ pr_u \circ \phi	\,:\,(\phi^{-1}( D^{s }_\epsilon\times  D^{u }_\epsilon),\phi^{-1}( D^{ s}_\epsilon\times \partial D^{u}_\epsilon))  \to (\overline{T^u_qM},\{\infty\})
+	\end{align*} where $pr_u$ is the projection onto the unstable coordinates and $s$ is the streching $x\mapsto x\cdot (\frac{1}{\epsilon}-\norm{x}-\frac{1}{\epsilon})$ with $\restr{\diff s}{0}=\frac{1}{\epsilon}\Idm$.
 \end{remark}
 
 
@@ -210,11 +210,11 @@ Due to the naturality of the triple connecting homomorphism, the inclusion and t
 \end{theorem}
 Before we can proof this theorem we need the following Lemma:
 
-\begin{lemma}\label{lem: The Main Lemma Np is tubular}
-	We work in a compact, riemanian, orientable, smooth Manifold $(M,g)$ of dimension $m$ together with a Morse-Smale funktion 
+\begin{definition}[Definitions and Setup]\label{def:morseFilt-setupCommutingDiff}
+	We work in a compact, riemanian, smooth Manifold $(M,g)$ of dimension $m$ together with a Morse-Smale funktion 
 	\begin{align}
 		f: M\to \R
-	\end{align}
+	\end{align} and orientations $\mathfrak{o}$ of all unstable tangend spaces.
 	We assume that $q$ is a critical point of index $k$ and $p$ is a critical point of index $k-1$. we define $f(q)=b$ and $f(p)=a$ and assume that there is no critical point in $f^{-1}(a,b)\subseteq M$. We define the sub and superlevelsets 
 	\begin{align}
 		M^t:=\{ x\in M | f(x)\leq t \} \quad \text{and}\quad M_t:=\{ x\in M | f(x)\geq t \} \, ,
@@ -229,20 +229,16 @@ Before we can proof this theorem we need the following Lemma:
 		L_p  & \coloneq    \{ x\in N_p |f( \phi_T(x))    =    a-\epsilon   \} \, ,
 	\end{align} and finally: 
 	\begin{align}
-		C  & \coloneq  N_p \cup N_q  \, ,                     \\
-		B  & \coloneq  N_p \cup L_q   \, ,                   \\
-		A  & \coloneq  L_p \cup \mathring{(L_q-N_p)} 	\\
-		S(q\to)& \coloneq S(q\to)\cap f^{-1}(c)\,.
+		C  & \coloneq  N_p \cup N_q  \, ,                     	\\
+		B  & \coloneq  N_p \cup L_q   \, ,                   	\\
+		A 	 & \coloneq  L_p \cup \mathring{(L_q-N_p)} 			\\
+		S(q\to)& \coloneq W(q\to)\cap f^{-1}(c)\				\\
+		D_q & \coloneq W(q\to)\cap M_c\,.							
 	\end{align}
 	
-	We claim that 
-	\begin{enumerate}
-		\item $(N_q,L_q)$ is a regular index pair for $q$\, . \label{lem: enum: 1}
-		\item $(C,B)$ is an index pair for $q$\, .\label{lem: enum: 2}
-		\item $(N_p,L_p)$ is a regular index pair for $p$\, .\label{lem: enum: 3}
-		\item $(B,A)$ is an index pair for $p$\, .\label{lem: enum: 4}
-		\item $N_p$ is a tubular neighbourhood of $W(\to p)\cap M^c$.\label{lem: enum: 5}
-	\end{enumerate}
+	
+	Furthermore, we assume $W(q\to)$ to be oriented with respect to the orientation of $T^u_qM$ as in Proposition \ref{prop:morse-OrientedUnstableSpaces}. Let $Q^p\coloneq \restr{TM}{W(\to p)}\Big/ TW(\to p)$ be orienbted with respect to $T^u_pM$ as in Proposition \ref{prop:morse-orientTheQuotient}.
+	For an oriented real vectorspace $V$ of dimension $n$, let $\beta_V\in K^{-n}(\overline{V})$ denote its K-theoretic orientation from Corollary \ref{cor:orient-vectorspaceOrientationInducesKtheoreticOrientation}. For an index pair $(N,L)$ of $\{p\}$ let $\alpha^{(N,L)}_p\in K^{-\lambda_p}(N,L)$ denote the canonical generator from Remark \ref{rem:morseFiltr-morphismToCanonicalIntegers}, i.e.\ the pullback of $\kappa_p^*(\beta_{T^u_pM})$ along the homotopy equivalence of Theorem \ref{thm:morseFiltr-homotopyEquivalenceOfIndexPairs} from $(N,L)$ to the standart index pair and $\kappa_v= \kappa_q\coloneq R_0\circ \restr{\diff \phi^{-1}}{0}\circ s\circ pr_u \circ \phi$.
 	\begin{center}
 	
 	
@@ -400,6 +396,18 @@ Before we can proof this theorem we need the following Lemma:
 			
 		}
 	\end{center}
+\end{definition}
+\begin{lemma}[]\label{lem:morseFilt-npIsTubular} In the setting of Definition \ref{def:morseFilt-setupCommutingDiff}, we claim that 
+	\begin{enumerate}
+		\item $(N_q,L_q)$ is a regular index pair for $q$\, . \label{lem: enum: 1}
+		\item $(C,B)$ is an index pair for $q$\, .\label{lem: enum: 2}
+		\item $(N_p,L_p)$ is a regular index pair for $p$\, .\label{lem: enum: 3}
+		\item $(B,A)$ is an index pair for $p$\, .\label{lem: enum: 4}
+		\item $N_p$ is a tubular neighbourhood of $W(\to p)\cap M^c$.\label{lem: enum: 5}
+	\end{enumerate}
+\end{lemma}
+\begin{lemma}
+	
 \end{lemma}
 
 

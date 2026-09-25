@@ -213,9 +213,36 @@ K theoretic orientation relies on bases induced generators of the K group of the
 
 
 
+\begin{lemma}[Linear Maps on Smash Products]\label{lem:orient-linearMapsOnSmashProducts}
+	Let $A\in \GL(V)$ and let $Z$ be a pointed compact space. Then
+\begin{equation*}
+	(\overline{A}\wedge \id_Z)^*=\sign \det(A)\cdot \id \quad \text{on }\tilde{K}(\overline{V}\wedge Z)\,.
+\end{equation*}
+In particular, if $\overline{\R^{m_1}}\wedge \cdots \wedge\overline{\R^{m_r}}$ is identified with $\overline{R^m}$ by Lemma \ref{lem:orient-compactificationOfProduct}, a permutation od the smash factors acts on $\tilde{K}(\overline{\R^{m_1}}\wedge \cdots \wedge\overline{\R^{m_r}}\wedge Z)$ by the sign of the induced permutation of the $m=m_1+\cdots m_r$ coordinates.
+\end{lemma}
+\begin{proof}
+ Since the determinant of an endomorphism is invariant under conjugation we can choose a basis and assume that $V=\R^m$. The group $\GL_n(\R)$ as exactly two path components, seperated by the sign of the determinant. Hence, there is a contiuous path $A_{\bullet}:[0,1]\to \GL_m(\R)$  with $A_0=A$ and $A_1=\id$ if $\det(A)>0$ and $R$ if $\det(A)<0$ with $R$ being the reflection $(x_1,\dots,x_m)\mapsto (-x_1,x_2\dots,x_m)$. The map 
+    \begin{equation*}
+        H:\R^m\times[0,1]\to \R^m\,,\quad H(v,t)\coloneq A_tv
+    \end{equation*} is a proper homomorphism into a locally compact space: If $K\subseteq \R^m$ is compact and $A_tv\in K$, then by definition of the operator norm we have that $\norm{v}\leq (\sup_t\norm{A^{-1}_t})\cdot \max_{k\in K}\norm{k}$. Hence $H^{-1}(K)$ is bounded and closed by continuity. Thereby the the extension $\tilde{H}:\overline{V\times I}\to \overline{V}$ is continuous. Let $q:\overline{V}\times I\to \overline{V\times I}$ be the collaps of $\{\infty\}\times I$ to $\infty$. Then we have that $\overline{H}=\tilde{H}\circ q$ and hence $\overline{H}$ is continuous. If $\det(A)>0$, we are done. Let $\overline{R}$ denote the extension of $R$ to the compactifications. What is left to show is that $(\overline{R}\wedge \id_Z)^*$ is given by multiplication with minus one.
 
 
-
+    For this we write $R=R_1\times \id_{\R^{n-1}}$ where $R_1$ denotes the reflection $x\mapsto -x$ on $\R$. Let $\Xi:\overline{\R^n}\to \overline{\R}\wedge \overline{\R^{n-1}}$ be the natural homeomorphism from Lemma \ref{lem:orient-compactificationOfProduct}. By the naturality for proper maps we have that $  \Xi\circ (\overline{R})=(\overline{R_1}\wedge \overline{\id_{\R^{n-1}}})\circ \Xi$, giving us:
+    \begin{equation*}
+     (\Xi\wedge \id_Z)(\overline{R}\wedge \id_Z)=(\Xi\circ \overline{R})\wedge \id_Z=\big((\overline{R_1}\wedge \overline{\id_{\R^{n-1}}})\circ \Xi \big)\wedge \id_Z 
+    \end{equation*}
+    If we now define $L\coloneq \overline{R^{m-1}}\wedge Z$ and let $AS:(\overline{\R^1}\wedge \overline{\R^{m-1}})\wedge Z\to \overline{\R^1}\wedge (L)$ be the assozoiativity of the wedge product. Then we have 
+    \begin{equation*}
+       AS\circ (\Xi\wedge \id_Z)(\overline{R}\wedge \id_Z)=(\overline{R_1}\wedge \id_L)\circ AS\circ \Xi\wedge \id_Z
+    \end{equation*}
+Hence,if we define $\Theta \coloneq AS\circ \Xi\wedge \id_Z$ we get
+\begin{equation*}
+    \overline{R}\wedge \id_Z=\Theta^{-1}\circ (\overline{R_1}\wedge \id_L)\circ \Theta
+\end{equation*} or as maps of K-groups:
+\begin{equation*}   ( \overline{R}\wedge \id_Z)^*=\Theta^*\circ \underbrace{(\overline{R_1}\wedge \id_L)^*}_{=-\id\text{ by Lemma \ref{lem:reflection-is-minus-one}}}\circ (\Theta^{-1})^*
+   =-\id\,.
+\end{equation*}
+\end{proof}
 
 \begin{proposition}\label{prop:linearyTheDeterminandDertermines}
     Let $V$ be an $n$-dimensinoal real vector space and $A\in \GL(V)$. Then 
@@ -224,35 +251,22 @@ K theoretic orientation relies on bases induced generators of the K group of the
     \end{equation*}
 \end{proposition}
 \begin{proof}
-    Since the determinant of an endomorphism is invariant under conjugation we can choose a basis and assume that $V=\R^n$. The group $\GL_n(\R)$ as exactly two path components, seperated by the sign of the determinant. Hence, there is a contiuous path $A_{\bullet}:[0,1]\to \GL_n(\R)$  with $A_0=A$ and $A_1=\id$ if $\det(A)>0$ and $R$ if $\det(A)<0$ with $R$ being the reflection $(x_1,\dots,x_n)\mapsto (-x_1,x_2\dots,x_n)$. The map 
+    The statement is almost a corollary of Lemma \ref{lem:orient-linearMapsOnSmashProducts}:
+    We care for the map $\overline{A}^*$ which is defined as the map
     \begin{equation*}
-        H:\R^n\times[0,1]\to \R^n\,,\quad H(v,t)\coloneq A_tv
-    \end{equation*} is a proper homomorphism into a locally compact space: If $K\subseteq \R^n$ is compact and $A_tv\in K$, then by definition of the operatir norm we have that $\norm{v}\leq (\sup_t\norm{A^{-1}_t})\cdot \max_{k\in K}\norm{k}$. Hence $H^{-1}(K)$ is bounded and closed by continuity. Thereby the the extension $\tilde{H}:\overline{V\times I}\to \overline{V}$ is continuous. Let $q:\overline{V}\times I\to \overline{V\times I}$ be the collaps of $\{\infty\}\times I$ to $\infty$. Then we have that $\overline{H}=\tilde{H}\circ q$ and hence $\overline{H}$ is continuous. If $\det(A)>0$, we are done. Let $\overline{R}$ denote the extension of $R$ to the compactifications. What is left to show is that $\overline{R}^*$ is given by multiplication with minus one.
-    For this we write $R=R_1\times \id_{\R^{n-1}}$ where $R_1$ denotes the reflection $x\mapsto -x$ on $\R$. Let $\Xi:\overline{R^n}\to \overline{R}\times \overline{R^{n-1}}$ be the natural homeomorphism from Lemma \ref{lem:orient-compactificationOfProduct}. By the naturality for proper maps we have that
-    \begin{equation*}
-        \Xi\circ (\overline{R})=(\overline{R_1}\wedge \overline{\id_{\R^{n-1}}})\circ \Xi\,.
+        (\id_{S^n}\wedge A)^*:\tilde{K}^{-n}(V)=\tilde{K}(S^n\wedge V) \to \tilde{K}(S^n\wedge V)=\tilde{K}^{-n}(V)
     \end{equation*}
-    Now $\tilde{K}^{-n}(\overline{R^n})=\tilde{K}(S^n\wedge \overline{R^n})$ and the map $\overline{R}^*$ is induced by the homeomorphism $\id_{S^n}\wedge \overline{R}$. By Lemma \todo{hier lemma, dass wedge kommutative für compakte räume} we have associativity and commutativity in the wedge product letting us define a reordering 
-    \begin{equation*} 
-        \mathcal{O}:
-         S^n\wedge \overline{R^n}
-         = S^n\wedge \overline{\R\times \R^{n-1}}
-         =S^n\wedge \overline{\R}\wedge \overline{\R^{n-1}} 
-         \to 
-         \overline{\R}\wedge \underbrace{\big(S^n\wedge \overline{\R^{n-1}}\big)}_{\coloneq Z} 
-    \end{equation*} Such that 
-    \begin{align*}
-        \mathcal{O}\circ (\id_{S^n}\wedge \Xi)(\overline{R})
-        &=\mathcal{O}\circ (\id_{S^n}\wedge (\overline{R_1}\wedge \overline{\id_{\R^{n-1}}})\circ \Xi)\\
-        &=\mathcal{O}\circ (\id_{S^n}\wedge (\overline{R_1}\wedge \overline{\id_{\R^{n-1}}})) \circ (\id_{S^n}\wedge \Xi) \\
-        &=(\overline{R_1}\wedge \id_{S^n}\wedge \overline{\id_{\R^{n-1}}}) \circ \mathcal{O}\circ (\id_{S^n}\wedge \Xi) \\
-        &=(\overline{R_1}\wedge \id_Z) \circ \mathcal{O}\circ (\id_{S^n}\wedge \Xi) 
-    \end{align*}
-    Finally, we define $\Theta\coloneq   \mathcal{O}\circ (\id_{S^n}\wedge \Xi)$ then we can apply Corollary \ref{lem:kTheo-inversesInKGivenByHomotopicallyMethods} to deduce:
+    Let $\Theta:S^n\wedge V\to V\wedge S^n$ be the reordering from Lemma \ref{lem:kTheo-SmaschIsAssociative}. Then we have that
     \begin{equation*}
-        \overline{R}^*=\Theta^*\circ \underbrace{(\overline{R_1}\wedge \id_Z)}_{=-\id }\circ (\Theta^{-1})^*=-\id\,.
+       \id_{S^n}\wedge A= \Theta^{-1}\circ (A \wedge \id{S^n}) \circ \Theta\,.
+    \end{equation*}Hence, lemma \ref{lem:orient-linearMapsOnSmashProducts} gives us:
+    \begin{equation*}
+        \overline{A}^*=(\Theta^{-1}\circ (A \wedge \id{S^n}) \circ \Theta)^*=\Theta^*\circ \underbrace{(A \wedge \id{S^n})^*}_{=\sign \det(A)\cdot \id}\circ (\Theta^{-1})^*=\sign \det(A)\cdot \id\,.
     \end{equation*}
 \end{proof}
+
+    
+
 
 
 \begin{comment}

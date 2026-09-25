@@ -849,11 +849,22 @@ This concludes the calculation of $\pi_S^{-1}\circ \pi_s=\id$ and $\pi_s\circ\pi
     \end{equation*}
     For the naturality notice that the product of proper maps is propper and hence all maps are continouos. The commmutation then comes done to checking where infinity gets mapped which is always the basepoint of the wedge product.
 \end{proof}
-\begin{lemma}\label{lem:kTheo-SmaschIsAssociative}
+\begin{lemma}[Associativity and Kommutativity]\label{lem:kTheo-SmaschIsAssociative}
 	For pointed compact spaces $(A,a_0),(B,b_0),(C,c_0)$ there is a natural homeomorphism
 	\begin{equation*}
 		(A\wedge B) \wedge C \to A\wedge (B\wedge V)
 	\end{equation*}That restricts to the identity over $(A\setminus \{a_0\})\times( B\setminus \{b_0\}) \times (C\setminus \{c_0\})$.
+	Furthermore, there is a natural homeomorphism
+	\begin{equation*}
+		A\wedge B\to B\wedge A
+	\end{equation*}that restricts to the change of coordinates over 
+	\begin{equation*}
+		(A\setminus \{a_0\}\times B\setminus\{b_0\})\to (B\setminus \{b_0\}\times A\setminus\{a_0\})
+	\end{equation*}
+	For the kommutativity we can proceed in the same way:
+	\begin{align}
+		A\wedge B \cong \overline{(A\wedge B)^{\circ}}\cong \overline{(B\wedge A)^{\circ}}\cong B \wedge A
+	\end{align}
 \end{lemma}
 \begin{proof}
 	Notice how for all compact pointed spaces $(X,x_0)$ the identyty (and $x_0\mapsto \infty)$ is a natural homeomorphism $\overline{X\setminus \{x_0\}}\cong X$ and we denote $X^\circ \coloneq X\setminus \{x_0\}$. Furthermore, the smash product of compact spaces is again compact (as it is a quotient of a closes space). Hence we can just calculate
@@ -865,6 +876,7 @@ This concludes the calculation of $\pi_S^{-1}\circ \pi_s=\id$ and $\pi_s\circ\pi
 		& \cong \overline{A^\circ \times( B^\circ \times C^\circ)} \\
 		& \cong A\wedge (B\wedge V)\,.
 	\end{align*} 
+
 \end{proof}
 \begin{remark}
 	The statement about associativity can be extended to the category of $\mathbf{CGWH}^*_{\mathbf{cof}}$, but not all pointed topological spaces. \todo{ref einfügen}
