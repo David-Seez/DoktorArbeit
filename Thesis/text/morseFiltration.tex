@@ -195,7 +195,7 @@ Due to the naturality of the triple connecting homomorphism, the inclusion and t
 \end{example}	
 
 
-
+\subsection{Commuting Boundary Maps}
 \begin{theorem}\label{thm:morseFilt-commutingMorsecoboundary}
 	Let $M$ be a smooth manifold with the Morse datum $\mathfrak{A}$, denote the one pointed topological space by $\{pt\}$. Then, for any $l\in \Z$ the following diagram comutes:
 	\begin{equation}
@@ -214,7 +214,7 @@ Before we can proof this theorem we need the following Lemma:
 	We work in a compact, riemanian, smooth Manifold $(M,g)$ of dimension $m$ together with a Morse-Smale funktion 
 	\begin{align}
 		f: M\to \R
-	\end{align} and orientations $\mathfrak{o}$ of all unstable tangend spaces.
+	\end{align} and orientations $\mathfrak{o}$ of all unstable tangend spaces. We denote the flow corresponding to the negative gradient by $\phi_t(x)$.
 	We assume that $q$ is a critical point of index $k$ and $p$ is a critical point of index $k-1$. we define $f(q)=b$ and $f(p)=a$ and assume that there is no critical point in $f^{-1}(a,b)\subseteq M$. We define the sub and superlevelsets 
 	\begin{align}
 		M^t:=\{ x\in M | f(x)\leq t \} \quad \text{and}\quad M_t:=\{ x\in M | f(x)\geq t \} \, ,
@@ -406,9 +406,23 @@ Before we can proof this theorem we need the following Lemma:
 		\item $N_p$ is a tubular neighbourhood of $W(\to p)\cap M^c$.\label{lem: enum: 5}
 	\end{enumerate}
 \end{lemma}
-\begin{lemma}
-	
-\end{lemma}
+\begin{lemma}\label{lem:morseFilt-flowTimeAndProjectionToLevelSets}
+	Let $\ind_q(f)\geq1$.
+	\begin{enumerate}[(a)]
+		\item For $x\in D_q\setminus \{q\}$ there is a unique $\tau(X)\geq 0$ with $f(\phi_{\tau(x)}(X))=c$ The resulting map $\tau:D_q\setminus \{q\}\to [0\infty)$ is smooth, $\tau^{-1}(0)=S(q\to)$, $\tau(\phi_s(x))=\tau(x)-s$, $\restr{\diff \tau}{x}(-\grad_x(f))=-1$ and $\tau(x)\to \infty$ for $x\to q$. We set $\tau(q)=\infty$. 
+		\item The map $\rho: D\setminus \{q\}\to S(q\to),~\rho(x)\coloneq \phi_{\tau(x)}(x)$ is a smooth retraction with $\rho\circ \phi_s=\rho$. In particular, $\restr{\diff \rho}{x}(\grad_x(f))=0$ and for $y\in S(q\to),~w\in T_y(S(q\to))$ and $s\geq 0$:
+		 \begin{equation*}
+			\diff \rho \big(\restr{\diff \phi_{-s}}{y}w\big)=w,\quad \diff \tau \big(\restr{\diff \phi_{-s}}{y}w\big)=0\,.
+		\end{equation*}
+		\item There are homeomorphisms $g_q:S^{\ind_q} \to D_q /S(q\to) $ with $g_q(S)=[S(q\to)]$ and a constant $T_q\geq 0$ such that, with the open neighbourhood 
+		\begin{equation*}
+			W_q\coloneq \{x\in D_q \mid \tau(x)>T:q\}\ni q
+		\end{equation*} of $q$, the map $g_q$ restricts to an orientation preserving differomorphism from $U_q\coloneq g_q^{-1}(W_q)$ onto $W_q$. 
+	\end{enumerate}
+\end{lemma}\todo{Bild}
+\begin{proof}
+(a) 
+\end{proof}
 
 
 \begin{proof}[Proof of Theorem \ref{thm:morseFilt-commutingMorsecoboundary}]
@@ -505,7 +519,7 @@ Let $(\alpha_p)_{\#}$ be a generator of $K^{\lambda_p}_{\#}(\mathcal{IP}_p)$ mea
  Notice that $(\alpha_p)_{\#}$ is induced by any of its elements. Now lets fix $(\alpha_p)_{\#}$ to be the generator induced in Remark \ref{rem:morseFiltr-morphismToCanonicalIntegers} and hence given by the generator $\alpha_p=\kappa_p^*(\mathfrak{b}_q)$ of $K^{\lambda_p}(\phi^{-1}( D^{s }_\epsilon\times  D^{u }_\epsilon),\phi^{-1}( D^{ s}_\epsilon\times \partial D^{u}_\epsilon))$, where $\mathfrak{b}_q$ is the generator of $\tilde{K}^{\lambda_p}(\overline{T^u_qM})$ induced by the orientation of $T^u_qM$. Furthermore, let $\alpha_p^{(B,A)}\in (\alpha_p)_{\#}$ be the generator of $K^{-\lambda_p}\left[B,A\right]$. Let $\mathfrak{e}$ denote the generator of $K^{-\lambda_p+1}(\R^{\lambda_p+1})$ induced by the standart bases (and composed with a bott periodicity map).
 Then $f^p(\mathfrak{e})=i_j^*\circ i^*_{B,A}(\alpha_p^{(B,A)})$
 \end{proof}
-
+\begin{comment}
 \begin{definition}[Regular Index Pairs and a Filtration] 
 	As always let $f:M\to \R$ be a Morse-Smale function on a compact smooth Riemannian manifold $(M,g)$ of dimension $m$. Let $\phi_t:M\to M$ be the flow given by $-\grad f$. For $0\leq j\leq k\leq m$ define:
 	\begin{align*}
@@ -521,3 +535,4 @@ Then $f^p(\mathfrak{e})=i_j^*\circ i^*_{B,A}(\alpha_p^{(B,A)})$
 \begin{proof}
 	The proof is done by Dietmar Salamon and can be checked in \cite{Salamon1985} corollary 4.4. 
 \end{proof}
+\end{comment}
