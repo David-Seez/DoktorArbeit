@@ -517,6 +517,8 @@ To get an orthonormal atlas from a smooth one given a Riemannian metric, we star
 		 Q\circ \diff f (V) = g(\grad(f),V) \, .
 	\end{align*} Notice how the non-degeneracy of $g$ ensures existence and uniqueness. 
 \end{definition}
+
+
 \begin{definition}\label{def:vb-localDescriptionOfGradientGij}
 	Let $(M,g)$ be a Riemannian manifold and $\phi:U\to V$ be a chart. We define the smooth functions $g_{ij}:U\to \R$ to be:
 	\begin{align*}
@@ -594,8 +596,43 @@ To get an orthonormal atlas from a smooth one given a Riemannian metric, we star
 	Regarding the left-hand side of the definition $\diff \phi \left(\partial_t(t,x )\right)$ we could also differentiate the map 
 	\begin{equation*}
 		t \mapsto \phi_t(x)\,,
-	\end{equation*} for fixed $x$ at $t$ and evaluate this at the constant vector field $t\mapsto R_t(1)\in T_t \R$ from definition \ref{def:vb-linearIdentification}. 
+	\end{equation*} for fixed $x$ at $t$ and evaluate this at the constant vector field $t\mapsto R_t(1)\in T_t \R$ from definition \ref{def:vb-linearIdentification}. The condition on the dynamical system reads then
+	\begin{equation*}
+		\frac{\diff}{\diff t} \phi_t(x)\big(R_t(1)\big)=X(\phi_{t}(x))
+	\end{equation*}
 \end{remark}
+
+\begin{definition}
+	Let $X\in \Gamma(TM)$ be a global vector field on the smooth manifold $M$ and denote the associated flow by $\phi$. Then we call $q\in M$ a \textbf{critical point of $X$}, if $X(q)=0$.
+\end{definition}
+\begin{proposition}\label{prop:vb-onceCriticalAlwaysCritical}
+	Let $X\in \Gamma(TM)$ be a global vector field on the smooth manifold $M$ and denote the associated flow by $\phi$. Then the function 
+	\begin{equation*}
+		t\mapsto \phi_t(x)
+	\end{equation*} is constant if $x$ is a critical point of $X$. Furthermore, if $x$ is not critical, then for all $t,~ \phi_t(x)$ is also not critical.
+\end{proposition}
+\begin{proof}
+	The first statement follows from Picard–Lindelöf, as the constant function $\mathrm{const}_x: t\mapsto x$ for all $t$ satisfies the condition 
+	\begin{equation*}
+		\frac{\diff}{\diff t}\mathrm{const}_x=0=X(\mathrm{const}_x(t))\,.
+	\end{equation*}
+	Now assume that for some $t_0$, $y\coloneq \phi_{t_0}(x)$ is critical. Then by the flow property $x=\phi_{-t_0}(y)$ and hence $x$ was already critical.
+\end{proof}
+
+\begin{proposition}[The Flow of the Gradient] \label{prop:vb-ffDecreasesAlongGradientFlow}
+	Let $f:M\to \R$ be smooth function on a Riemannian manifold $(M,g)$ and  $\phi$ be the dynamical system associated to $\grad(f)$. Then for any $x\in M$, the function
+	\begin{equation*}
+		f\circ \phi_{\square}(x):\R\to \R\,,\quad t\mapsto f\circ \phi_t(x)
+	\end{equation*} is strictly increasing if $x$ is not a critical point of $\grad(f)$ and constant if $x$ is a critical point of $\grad(f)$. (If the function is only defined on an open subset of $\R$, the statement still holds.)
+\end{proposition}
+
+\begin{proof}
+	We just calculate the differential of $\phi_{\cdot}(x)$ and make use of positive definiteness of $g$:
+	\begin{equation*}
+		\frac{\diff}{\diff t}f\circ \phi_{t}(x)(R_t(1))={\diff f}_{\phi_t(x)} \big( \grad_{\phi_t(x)}(f)\big)=g(\grad_{\phi_t(x)}(f),\grad_{\phi_t(x)}(f))\geq 0\, \quad \forall t\in \R
+	\end{equation*} where equality holds only if and only if $\grad_{\phi_t(x)}(f)=0$. Prop \ref{prop:vb-onceCriticalAlwaysCritical} tells us that the latter is equivalent to $x$ being a critical point of our vector field.
+\end{proof}
+
 These two constructions are mutually inverse, giving the following theorem:
 \begin{theorem}
 	Let $M$ be a smooth manifold. Then there is a one-to-one correspondence between global dynamical systems and vector fields given by the constructions above.

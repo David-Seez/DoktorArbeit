@@ -414,14 +414,54 @@ Before we can proof this theorem we need the following Lemma:
 		 \begin{equation*}
 			\diff \rho \big(\restr{\diff \phi_{-s}}{y}w\big)=w,\quad \diff \tau \big(\restr{\diff \phi_{-s}}{y}w\big)=0\,.
 		\end{equation*}
-		\item There are homeomorphisms $g_q:S^{\ind_q} \to D_q /S(q\to) $ with $g_q(S)=[S(q\to)]$ and a constant $T_q\geq 0$ such that, with the open neighbourhood 
+		\item $S(q\to)$ is a closedf submanifold of $W(q\to)$ of dimension $\lambda_q-1$. There are homeomorphisms $g_q:S^{\ind_q} \to D_q /S(q\to) $ with $g_q(S)=[S(q\to)]$ and a constant $T_q\geq 0$ such that, with the open neighbourhood 
 		\begin{equation*}
 			W_q\coloneq \{x\in D_q \mid \tau(x)>T:q\}\ni q
 		\end{equation*} of $q$, the map $g_q$ restricts to an orientation preserving differomorphism from $U_q\coloneq g_q^{-1}(W_q)$ onto $W_q$. 
 	\end{enumerate}
 \end{lemma}\todo{Bild}
 \begin{proof}
-(a) 
+(a) The function $f$ stricly decreases along flow lines, which approach criitcal points. As there is no critical point in $f^{-1}[c.n)$ aour flow line needs to pass through $f^{-1}(c)$ giving us a $\tau(x)$, where uniqueness follows again from strict monotonicity. This uniqueness lets us deduce that $\tau(\phi_s(x))=\tau(x)+s$. The smoothnes follows from the implicit function theorem applied to $G(x,t)\coloneq f(\phi_t(x))-c$, since $\partial_t G(x,t)=-\norm{\grad_{\phi_t}(f)}^2\neq 0$. (Proposition compare \ref{prop:vb-ffDecreasesAlongGradientFlow} for the calculation) Differentiating $\tau(\phi_s(x))=\tau(x)-s$ in $s=0$ gives $\diff \tau (-\grad(f))=-1$. Finally asume that $x_n\to q$ whilst $\tau(x_n)\leq T$ for some $T>0$. Then we can pass to a subsequence such that $\tau(x_n)\to t$ for $t\leq T$. In this subsequence we then have that $f(\phi_{\tau(x_n)}(x_n))=f(\phi_t(q))=b$ contradicting $\phi_{\tau(x_n)(x_n)}=c<b$ for all $n\in \N$. 
+
+(b) By (a) we have that $\rho\circ \phi_s=\rho$, and differentiation it in $s$ gives us $\diff \rho (\grad(f))=0$. The last two identities are the differentials of $\rho\circ \phi_{-s}=\id$ and $\tau \circ \phi_{-s} =\mathrm{const}_s$ on $S(q\to)$.
+
+(c) $\grad(f)$ is tangent to $W(q\to)$ (meaning that it is contained in the tangend bundle of $W(q\to)$ as a subbundle of $TM$) and non-zero away from $q$. Hence, $c$ is a regular value of $\restr{f}{W(q\to)}$, ($\diff \restr{f}{W(q\to)} (\grad(f))$ is nonzero outside of critical points) hence $S(q\to)$ is a submanifold of $W(q\to)$.
+
+Let $\psi=(\psi_s,\psi_u)$ be a refined Morse chart arround $q$ such that the unstable coordinates correspont to a positively oriented bsais of $T^u_qM=T_qW(q\to)$. Here, $\psi_u$ denotes $\pi_u\circ \psi$ where $\pi_u$ projects to the unstable coordinates (and $\pi_S$ is defined analogously). By Lemma \ref{lem:morse-localUnStableManifoldTheorem} the unstable manifold is, in these coordinates the graph od a smooth function $g$ with $g(0)=0$, that is Lipschitz with Lipschitz constand less then one. Hence, $\psi_u$ restricts to a diffeomorphism from a neighbourhood $O$ of $q$ in $W(q\to)$ onto an open ball arround $0$ and $\norm{\psi(x)}\leq \sqrt{2}\norm{\psi_u(x)}$ on $O$ (The latter is deduced from the lipschitz constant of $g$  beeing less or equal to one). Write $u(t)\coloneq \psi_u(\phi_t(x))$ for $x\in O$ (and $t$ small enough such that $\phi_t(x)\in O$) and denote pullback of the the gradient via the chart $\psi$ by $X\coloneq -q_{\psi}\circ \grad(f)\circ \psi^{-1}$. By Lemma \ref{lem:morse-jabobianOfTheGradient} together with Remark \ref{rem:morse-jacobianOfTheFlowInRefinedMorsechart} we know that $\restr{\diff X}{0}=J(\grad(f))_{\psi}(0)$ is diagonal. Now we define 
+\begin{equation*}
+	Y:\R^{\lambda_q}\supseteq B \to \R^{\lambda_q}\,,\quad v\mapsto Y(v)\coloneq \pi_u \circ (X_{g(v),v})
+\end{equation*} and tayor said function in the origin. By the chain rule and splitting of the tanged space ion the origin we get that $Y(v)=\Lambda v+R(v)$ with $\Lambda=\diag(2\mu_1,\dots ,2\mu_{\lambda_q})$ and $\norm{R(v)}=o(\norm{v})$.
+ Now \begin{equation*}
+	\frac{\diff}{\diff t} (u(t))=\pi_u \circ  q_\psi\circ \frac{\diff}{\diff t} \phi_t(x)=\pi_u \circ q_\psi \circ -\grad_{\phi_t(x)}(f)=Y({\phi_t(x)})\,.
+\end{equation*} Thus, with Cauchy-Schwarz we can calculate that for $v$ close enough to zero:
+
+\begin{equation*}
+	\frac{\diff}{\diff t}\frac12\norm{u(t)}^2=\big\langle u(t),\Lambda u(t)\big\rangle\underbrace{+\big\langle u(t),R(u(t))\big\rangle}_{\geq -\norm{u(t)}\cdot \underbrace{\norm{R(u(t))}}_{\geq \mu_{min}\norm{u(t)}}}\geq 2\mu_{\min}\norm{u(t)}^2-\mu_{\min}\norm{u(t)}^2>0\,.
+\end{equation*} 
+Now choose $r$ small enough such that the estimat holds and the Ball $B_r(0)\subseteq \psi_u(O)$, and $f>c$ on $E_r\coloneq (\restr{\psi_u}{O})^{-1}(B_r(0))$. Then:
+\begin{enumerate}[(i)]
+	\item For $y\in \partial E_r$ and $t>0$ we have $\phi_{-t}(y)\in \inti(E_r)$, since $\psi_u(\phi_{-t}(y))$ strictly decreases in $t$, by the estimate above.
+	\item Every flow line in  $D_q\setminus \{q\}$ meets $\partial E_r$ exactly once: It meets the boundary at least once, as it starts in $q\in \inti(E_r)$ and ends in $S(q\to)$ which is disjoint with $E_r$. If a flow line met the boundary at multiple times, there would be a time $t_0$ where the flow line reenters $E_r$, which forces the $t$ differential of said flow line in the chart $\psi_u$ to be less or equal to $0$ (the norm needs to be non-increasing), which contradicts the estimate above.
+\end{enumerate}
+
+Now we come to the homeomorphism: By (ii), the map 
+\begin{equation*}
+	\Theta:\{(y,s)\mid y\in \partial E_r, 0\leq s \leq \tau(y)\}\to D_q\setminus \inti(E_r)\,,\quad \Theta(y,s)\coloneq \phi_s(y)
+\end{equation*}  is a continuous bijection from a compact set into a hausdorff space and hence a homeomorphism. Now we define 
+\begin{align*}
+	G:D_q\to D_1\subseteq \R^{\lambda_q}\,, \quad 
+	\begin{cases}
+		G(x)\coloneq \frac{1}{2r}\psi_q(x) & \text{ for }x\in E_r,\\
+		G(\phi_s(y))\coloneq \left(\frac12 + \frac{s}{2 \tau(y)}\right) \frac{\psi_u(y)}{r}&\text{ for } y\in \partial E_r,~ 0\leq s\leq \tau(y)\,.
+	\end{cases}
+\end{align*}
+Both formulars define something continuous (even smoth on their domain) and agree on $\partial E_r$. hence $G$ is continuous. Furthermore, $G$ is bijectictive and the domain is compact, whilst the image is Hausdorff, giving us a homeomorphism that maps $\partial D_q$ onto $\partial D_1$. Now let $\overline{\pi_S}:S^{\lambda_q}\to \overline{\R^m}$ denote the function from Definition \ref{def:orient-fromRelaSpaceToTheSphere} and with this define 
+\begin{equation*}
+	g_q^{-1}\coloneq \overline{\pi_S}^{-1}(\frac{G}{1-\norm{G}}): D_q\big/S(q\to) \to S^{\lambda_q}
+	\quad \text{ where $\frac{c}{0}\coloneq \infty$. for $c\in \R$}
+\end{equation*} 
+
+Now only the statement about the orientation preservation of $g_q$ at a neighbourhood of $q$ is missing: Define $T_q\coloneq \max_{\partial E_r}\tau$. If $\tau(x)>T_q$ and $x\neq q$, let $y$ be the point, where the flow line through $x$ passes through the boundary $\partial E_r$. Then $x=\phi_{-t}(y)$ with $t=\tau(x)-\tau(y)>0$ and thereby $x\in \inti(E_r)$ by (i). Hence, $W_q\subseteq \inti E_r$ and in said interioir of $E_r$ $G$ is a diffeomorphism that is orientation preserving in $q$ by the definition of $\psi_u$ and by Lemma $\ref{lem:orient-computingSignInCharts}$ we know that the sign of the determinant of a diffeomorphism of oriented manifolds is computed by a smooth procedure, we know that it is locally constant, making $G$ orientation preserving on the whole $\inti(E_r)$. The map $\pi_S^{-1}$ is orientation preserving: This follows from the definition of the orientation of $\R^{\lambda_q}$ as a subspace of the canonically oriented $\R^{\lambda_q}$ and the orientation of $S^{\lambda_q}$ by Remark \ref{conv:orient-orientationOfTheSphere}. Furtermore, the streching $v\mapsto \frac{v}{1-\norm{v}}$ is orientation preserving where $D_1$ is oriented as a subspace of $\R^{\lambda_q}$(this can be shown by looking at the sign of the determinant of its jacobean). Hence the wholw composition $g_q^{-1}$ is orientation preserving and thereby also $g_q$ is.
 \end{proof}
 
 
