@@ -10,7 +10,7 @@
 \begin{definition}[Index Pairs] \label{def:morseFiltr-indexPairs}
 	Let $S$ be an isolated compact invariant subset. A topological pair $(N,L)$ of compact subsets of $M$ where $L\subseteq N$ is called an \textbf{index pair of }S, if it satisfies the following:
 	\begin{enumerate}
-		\item $S=I(\overline{N\setminus L})\subseteq (\mathring{N\setminus L})$.
+		\item $S=I(\overline{N\setminus L})\subseteq \inti({N\setminus L})$.
 		\item  $x\in L$ and $\phi_{[0,t]}(x)\subseteq N$ implies that  $\phi_{[0,t]}(x)\subseteq L$. We call $L$ \textbf{positively invariant in } $N$. Here $\phi_{[0,t]}(x)\coloneq\{ \phi_{\tilde{t}}(x)|\tilde{t}\in [0,t]\}$.
 		\item For all $x\in N$ such that a $t$ exists, with $\phi_t(x)\not\in N$, there exists a $t'$ with $\phi_{[0,t']}(x)\subseteq N$ and $\phi_{t'}(x)\in L$.
 	\end{enumerate}
@@ -169,10 +169,10 @@ We know the K-group of such a pair to be:
 		\tilde{K}^{-\lambda_q-2i}(\mathcal{IP}_{\{q\}})\to \underline{\Z}\,.
 	\end{equation*} Furthermore, this map is given by mapping a generator of $\tilde{K}^{-\lambda_q-2i}(N_q/L_q)$ to one, and hence uniquely determined, provided we have a canonical way to choose a generator of $\tilde{K}^{-\lambda_q-2i}(N_q/L_q)\cong \tilde{K}^{-\lambda_q-2i}(\overline{T^u_qM})$, where the isomorphism is natural and described in Remark \ref{rem:morseFiltr-criticalPointsAsIsolatedCompactInvariantSubsets}. 
 	
-	Hence, if $T^u_qM$ is oriented, Corollary \ref{cor:orient-vectorspaceOrientationInducesKtheoreticOrientation} gives us just what we need, making the map canonical. The generator is then given by pulling back the generator of $K^{-\lambda_p}(\overline{T^u_qM})$ along the map of pairs:
+	Hence, if $T^u_qM$ is oriented, Corollary \ref{cor:orient-vectorspaceOrientationInducesKtheoreticOrientation} gives us just what we need, making the map canonical. The generator is then given by pulling back the generator of $K^{-\ind_p}(\overline{T^u_qM})$ along the map of pairs:
 	\begin{align*}
 	\kappa_q\coloneq R_0\circ \restr{\diff \phi^{-1}}{0}\circ s\circ pr_u \circ \phi	\,:\,(\phi^{-1}( D^{s }_\epsilon\times  D^{u }_\epsilon),\phi^{-1}( D^{ s}_\epsilon\times \partial D^{u}_\epsilon))  \to (\overline{T^u_qM},\{\infty\})
-	\end{align*} where $pr_u$ is the projection onto the unstable coordinates and $s$ is the streching $x\mapsto x\cdot (\frac{1}{\epsilon}-\norm{x}-\frac{1}{\epsilon})$ with $\restr{\diff s}{0}=\frac{1}{\epsilon}\Idm$.
+	\end{align*} where $pr_u$ is the projection onto the unstable coordinates and $s$ is the stretching $x\mapsto x\cdot (\frac{1}{\epsilon}-\norm{x}-\frac{1}{\epsilon})$ with $\restr{\diff s}{0}=\frac{1}{\epsilon}\Idm$.
 \end{remark}
 
 
@@ -211,13 +211,13 @@ Due to the naturality of the triple connecting homomorphism, the inclusion and t
 Before we can proof this theorem we need the following Lemma:
 
 \begin{definition}[Definitions and Setup]\label{def:morseFilt-setupCommutingDiff}
-	We work in a compact, riemanian, smooth Manifold $(M,g)$ of dimension $m$ together with a Morse-Smale funktion 
+	We work in a compact, Riemanian, smooth manifold $(M,g)$ of dimension $m$ together with a Morse-Smale function 
 	\begin{align}
 		f: M\to \R
-	\end{align} and orientations $\mathfrak{o}$ of all unstable tangend spaces. We denote the flow corresponding to the negative gradient by $\phi_t(x)$.
-	We assume that $q$ is a critical point of index $k$ and $p$ is a critical point of index $k-1$. we define $f(q)=b$ and $f(p)=a$ and assume that there is no critical point in $f^{-1}(a,b)\subseteq M$. We define the sub and superlevelsets 
+	\end{align} and orientations $\mathfrak{o}$ of all unstable tangent spaces. We denote the flow corresponding to the negative gradient by $\phi_t(x)$.
+	We assume that $q$ is a critical point of index $k$ and $p$ is a critical point of index $k-1$. We define $f(q)=b$ and $f(p)=a$ and assume that there is no critical point in $f^{-1}(a,b)\subseteq M$. We define the sublevle and superlevel sets 
 	\begin{align}
-		M^t:=\{ x\in M | f(x)\leq t \} \quad \text{and}\quad M_t:=\{ x\in M | f(x)\geq t \} \, ,
+		M^t \coloneq \{ x\in M | f(x)\leq t \} \quad \text{and}\quad M_t:=\{ x\in M | f(x)\geq t \} \, ,
 	\end{align} and the constants 
 	\begin{align}
 		c \in (a,b) \quad , \quad \epsilon >0 \text{ small } \quad,\quad T>0 \text{ big .}
@@ -231,14 +231,14 @@ Before we can proof this theorem we need the following Lemma:
 	\begin{align}
 		C  & \coloneq  N_p \cup N_q  \, ,                     	\\
 		B  & \coloneq  N_p \cup L_q   \, ,                   	\\
-		A 	 & \coloneq  L_p \cup \mathring{(L_q-N_p)} 			\\
+		A 	 & \coloneq  L_p \cup \inti{(L_q\setminus N_p)} 			\\
 		S(q\to)& \coloneq W(q\to)\cap f^{-1}(c)\				\\
 		D_q & \coloneq W(q\to)\cap M_c\,.							
 	\end{align}
 	
 	
-	Furthermore, we assume $W(q\to)$ to be oriented with respect to the orientation of $T^u_qM$ as in Proposition \ref{prop:morse-OrientedUnstableSpaces}. Let $Q^p\coloneq \restr{TM}{W(\to p)}\Big/ TW(\to p)$ be orienbted with respect to $T^u_pM$ as in Proposition \ref{prop:morse-orientTheQuotient}.
-	For an oriented real vectorspace $V$ of dimension $n$, let $\beta_V\in K^{-n}(\overline{V})$ denote its K-theoretic orientation from Corollary \ref{cor:orient-vectorspaceOrientationInducesKtheoreticOrientation}. For an index pair $(N,L)$ of $\{p\}$ let $\alpha^{(N,L)}_p\in K^{-\lambda_p}(N,L)$ denote the canonical generator from Remark \ref{rem:morseFiltr-morphismToCanonicalIntegers}, i.e.\ the pullback of $\kappa_p^*(\beta_{T^u_pM})$ along the homotopy equivalence of Theorem \ref{thm:morseFiltr-homotopyEquivalenceOfIndexPairs} from $(N,L)$ to the standart index pair and $\kappa_v= \kappa_q\coloneq R_0\circ \restr{\diff \phi^{-1}}{0}\circ s\circ pr_u \circ \phi$.
+	Furthermore, we assume $W(q\to)$ to be oriented with respect to the orientation of $T^u_qM$ as in Proposition \ref{prop:morse-OrientedUnstableSpaces}. Let $Q^p\coloneq \restr{TM}{W(\to p)}\Big/ TW(\to p)$ be oriented with respect to $T^u_pM$ as in Proposition \ref{prop:morse-orientTheQuotient}.
+	For an oriented real vector space $V$ of dimension $n$, let $\beta_V\in K^{-n}(\overline{V})$ denote its K-theoretic orientation from Corollary \ref{cor:orient-vectorspaceOrientationInducesKtheoreticOrientation}. For an index pair $(N,L)$ of $\{p\}$ let $\alpha^{(N,L)}_p\in K^{-\ind_p}(N,L)$ denote the canonical generator from Remark \ref{rem:morseFiltr-morphismToCanonicalIntegers}, i.e.\ the pullback of $\kappa_p^*(\beta_{T^u_pM})$ along the homotopy equivalence of Theorem \ref{thm:morseFiltr-homotopyEquivalenceOfIndexPairs} from $(N,L)$ to the standart index pair and $\kappa_v= \kappa_q\coloneq R_0\circ \restr{\diff \phi^{-1}}{0}\circ s\circ pr_u \circ \phi$. \todo{später}
 	\begin{center}
 	
 	
@@ -409,59 +409,131 @@ Before we can proof this theorem we need the following Lemma:
 \begin{lemma}\label{lem:morseFilt-flowTimeAndProjectionToLevelSets}
 	Let $\ind_q(f)\geq1$.
 	\begin{enumerate}[(a)]
-		\item For $x\in D_q\setminus \{q\}$ there is a unique $\tau(X)\geq 0$ with $f(\phi_{\tau(x)}(X))=c$ The resulting map $\tau:D_q\setminus \{q\}\to [0\infty)$ is smooth, $\tau^{-1}(0)=S(q\to)$, $\tau(\phi_s(x))=\tau(x)-s$, $\restr{\diff \tau}{x}(-\grad_x(f))=-1$ and $\tau(x)\to \infty$ for $x\to q$. We set $\tau(q)=\infty$. 
-		\item The map $\rho: D\setminus \{q\}\to S(q\to),~\rho(x)\coloneq \phi_{\tau(x)}(x)$ is a smooth retraction with $\rho\circ \phi_s=\rho$. In particular, $\restr{\diff \rho}{x}(\grad_x(f))=0$ and for $y\in S(q\to),~w\in T_y(S(q\to))$ and $s\geq 0$:
+		\item For $x\in D_q\setminus \{q\}$ there is a unique $\tau(x)\geq 0$ with $f(\phi_{\tau(x)}(x))=c$. The resulting map $\tau:D_q\setminus \{q\}\to [0,\infty)$ is smooth, $\tau^{-1}(0)=S(q\to)$, $\tau(\phi_s(x))=\tau(x)-s$, $\restr{\diff \tau}{x}(-\grad_x(f))=-1$ and $\tau(x)\to \infty$ for $x\to q$. We set $\tau(q)=\infty$. 
+		\item The map $\rho: D_q\setminus \{q\}\to S(q\to),~\rho(x)\coloneq \phi_{\tau(x)}(x)$ is a smooth retraction with $\rho\circ \phi_s=\rho$. In particular, $\restr{\diff \rho}{x}(\grad_x(f))=0$ and for $y\in S(q\to),~w\in T_y(S(q\to))$ and $s\geq 0$:
 		 \begin{equation*}
 			\diff \rho \big(\restr{\diff \phi_{-s}}{y}w\big)=w,\quad \diff \tau \big(\restr{\diff \phi_{-s}}{y}w\big)=0\,.
 		\end{equation*}
-		\item $S(q\to)$ is a closedf submanifold of $W(q\to)$ of dimension $\lambda_q-1$. There are homeomorphisms $g_q:S^{\ind_q} \to D_q /S(q\to) $ with $g_q(S)=[S(q\to)]$ and a constant $T_q\geq 0$ such that, with the open neighbourhood 
+		\item $S(q\to)$ is a closed submanifold of $W(q\to)$ of dimension $\ind_q-1$. There are homeomorphisms $g_q:S^{\ind_q} \to D_q /S(q\to) $ with $g_q(S)=[S(q\to)]$ and a constant $T_q\geq 0$ such that, with the open neighbourhood 
 		\begin{equation*}
-			W_q\coloneq \{x\in D_q \mid \tau(x)>T:q\}\ni q
-		\end{equation*} of $q$, the map $g_q$ restricts to an orientation preserving differomorphism from $U_q\coloneq g_q^{-1}(W_q)$ onto $W_q$. 
+			W_q\coloneq \{x\in D_q \mid \tau(x)>T_q\}\ni q
+		\end{equation*} of $q$, the map $g_q$ restricts to an orientation preserving diffeomorphism from $U_q\coloneq g_q^{-1}(W_q)$ onto $W_q$. 
 	\end{enumerate}
 \end{lemma}\todo{Bild}
 \begin{proof}
-(a) The function $f$ stricly decreases along flow lines, which approach criitcal points. As there is no critical point in $f^{-1}[c.n)$ aour flow line needs to pass through $f^{-1}(c)$ giving us a $\tau(x)$, where uniqueness follows again from strict monotonicity. This uniqueness lets us deduce that $\tau(\phi_s(x))=\tau(x)+s$. The smoothnes follows from the implicit function theorem applied to $G(x,t)\coloneq f(\phi_t(x))-c$, since $\partial_t G(x,t)=-\norm{\grad_{\phi_t}(f)}^2\neq 0$. (Proposition compare \ref{prop:vb-ffDecreasesAlongGradientFlow} for the calculation) Differentiating $\tau(\phi_s(x))=\tau(x)-s$ in $s=0$ gives $\diff \tau (-\grad(f))=-1$. Finally asume that $x_n\to q$ whilst $\tau(x_n)\leq T$ for some $T>0$. Then we can pass to a subsequence such that $\tau(x_n)\to t$ for $t\leq T$. In this subsequence we then have that $f(\phi_{\tau(x_n)}(x_n))=f(\phi_t(q))=b$ contradicting $\phi_{\tau(x_n)(x_n)}=c<b$ for all $n\in \N$. 
+(a) The function $f$ strictly decreases along flow lines, which approach critical points. As there is no critical point in $f^{-1}[c,b)$ our flow line needs to pass through $f^{-1}(c)$ giving us a $\tau(x)$, where uniqueness follows again from strict monotonicity. This uniqueness lets us deduce that $\tau(\phi_s(x))=\tau(x)-s$. 
+The smoothness follows from the implicit function theorem applied to $G(x,t)\coloneq f(\phi_t(x))-c$, since $\partial_t G(x,t)=-\norm{\grad_{\phi_t(x)}(f)}^2\neq 0$. (compare Proposition \ref{prop:vb-ffDecreasesAlongGradientFlow} for the calculation) Differentiating $\tau(\phi_s(x))=\tau(x)-s$ in $s=0$ gives $\diff \tau (-\grad(f))=-1$. Finally assume that $x_n\to q$ whilst $\tau(x_n)\leq T$ for some $T>0$. Then we can pass to a subsequence such that $\tau(x_n)\to t$ for $t\leq T$. In this subsequence we then have that $\lim_{n\to \infty}f(\phi_{\tau(x_n)}(x_n))=f(\phi_t(q))=b$ contradicting $f\big(\phi_{\tau(x_n)}(x_n)\big)=c<b$ for all $n\in \N$. 
 
-(b) By (a) we have that $\rho\circ \phi_s=\rho$, and differentiation it in $s$ gives us $\diff \rho (\grad(f))=0$. The last two identities are the differentials of $\rho\circ \phi_{-s}=\id$ and $\tau \circ \phi_{-s} =\mathrm{const}_s$ on $S(q\to)$.
+(b) By (a) we have that $\rho\circ \phi_s=\rho$, and differentiating it in $s$ gives us $\diff \rho (\grad(f))=0$. The last two identities are the differentials of $\rho\circ \phi_{-s}=\id$ and $\tau \circ \phi_{-s} =\mathrm{const}_s$ on $S(q\to)$.
 
-(c) $\grad(f)$ is tangent to $W(q\to)$ (meaning that it is contained in the tangend bundle of $W(q\to)$ as a subbundle of $TM$) and non-zero away from $q$. Hence, $c$ is a regular value of $\restr{f}{W(q\to)}$, ($\diff \restr{f}{W(q\to)} (\grad(f))$ is nonzero outside of critical points) hence $S(q\to)$ is a submanifold of $W(q\to)$.
+(c) $\grad(f)$ is tangent to $W(q\to)$ (meaning that it is contained in the tangent bundle of $W(q\to)$ as a subbundle of $TM$) and non-zero away from $q$. Hence, $c$ is a regular value of $\restr{f}{W(q\to)}$, ($\diff \restr{f}{W(q\to)} (\grad(f))$ is nonzero outside of critical points) hence $S(q\to)$ is a submanifold of $W(q\to)$.
 
-Let $\psi=(\psi_s,\psi_u)$ be a refined Morse chart arround $q$ such that the unstable coordinates correspont to a positively oriented bsais of $T^u_qM=T_qW(q\to)$. Here, $\psi_u$ denotes $\pi_u\circ \psi$ where $\pi_u$ projects to the unstable coordinates (and $\pi_S$ is defined analogously). By Lemma \ref{lem:morse-localUnStableManifoldTheorem} the unstable manifold is, in these coordinates the graph od a smooth function $g$ with $g(0)=0$, that is Lipschitz with Lipschitz constand less then one. Hence, $\psi_u$ restricts to a diffeomorphism from a neighbourhood $O$ of $q$ in $W(q\to)$ onto an open ball arround $0$ and $\norm{\psi(x)}\leq \sqrt{2}\norm{\psi_u(x)}$ on $O$ (The latter is deduced from the lipschitz constant of $g$  beeing less or equal to one). Write $u(t)\coloneq \psi_u(\phi_t(x))$ for $x\in O$ (and $t$ small enough such that $\phi_t(x)\in O$) and denote pullback of the the gradient via the chart $\psi$ by $X\coloneq -q_{\psi}\circ \grad(f)\circ \psi^{-1}$. By Lemma \ref{lem:morse-jabobianOfTheGradient} together with Remark \ref{rem:morse-jacobianOfTheFlowInRefinedMorsechart} we know that $\restr{\diff X}{0}=J(\grad(f))_{\psi}(0)$ is diagonal. Now we define 
+Let $\psi=(\psi_s,\psi_u)$ be a refined Morse chart around $q$ such that the unstable coordinates correspond to a positively oriented basis of $T^u_qM=T_qW(q\to)$. 
+Here, $\psi_u$ denotes $\pi_u\circ \psi$ where $\pi_u$ projects to the unstable coordinates (and $\pi_s$ is defined analogously). 
+By Lemma \ref{lem:morse-localUnStableManifoldTheorem} the unstable manifold is, in these coordinates the graph of a smooth function $g$ with $g(0)=0$, that is Lipschitz with Lipschitz constant less than one. (This $g$ does not denote the Riemannian metric, which doesnt appear by name in this proof.)
+Hence, $\psi_u$ restricts to a diffeomorphism from a neighbourhood $O$ of $q$ in $W(q\to)$ onto an open ball around $0$ and $\norm{\psi(x)}\leq \sqrt{2}\norm{\psi_u(x)}$ on $O$ 
+(The latter is deduced from the lipschitz constant of $g$  being less than or equal to one). Write $u(t)\coloneq \psi_u(\phi_t(x))$ for $x\in O$ (and $t$ small enough such that $\phi_t(x)\in O$) and denote pullback of the gradient via the chart $\psi$ by $X\coloneq -q_{\psi}\circ \grad(f)\circ \psi^{-1}$, where $q_\psi$ denotes the coordinate map on the tangent bundle induced by the frame $\partial_i$ (which comes from the morse chart. Compare Definition \ref{def:morse-jacobeanOfTheGradient}). 
+By Lemma \ref{lem:morse-jabobianOfTheGradient} together with Remark \ref{rem:morse-jacobianOfTheFlowInRefinedMorsechart} we know that $\restr{\diff X}{0}=J(\grad(f))_{\psi}(0)$ is diagonal. Now we define 
 \begin{equation*}
-	Y:\R^{\lambda_q}\supseteq B \to \R^{\lambda_q}\,,\quad v\mapsto Y(v)\coloneq \pi_u \circ (X_{g(v),v})
-\end{equation*} and tayor said function in the origin. By the chain rule and splitting of the tanged space ion the origin we get that $Y(v)=\Lambda v+R(v)$ with $\Lambda=\diag(2\mu_1,\dots ,2\mu_{\lambda_q})$ and $\norm{R(v)}=o(\norm{v})$.
+	Y:\R^{\ind_q}\supseteq B \to \R^{\ind_q}\,,\quad v\mapsto Y(v)\coloneq \pi_u \circ (X_{g(v),v})
+\end{equation*} and Taylor-expand said function in the origin. By the chain rule and splitting of the tanget space at the origin we get that $Y(v)=\Lambda v+R(v)$ with $\Lambda=\diag(2\mu_1,\dots ,2\mu_{\ind_q})$ and $\norm{R(v)}=o(\norm{v})$.
  Now \begin{equation*}
-	\frac{\diff}{\diff t} (u(t))=\pi_u \circ  q_\psi\circ \frac{\diff}{\diff t} \phi_t(x)=\pi_u \circ q_\psi \circ -\grad_{\phi_t(x)}(f)=Y({\phi_t(x)})\,.
+	\frac{\diff}{\diff t} (u(t))=\pi_u \circ  q_\psi\circ \frac{\diff}{\diff t} \phi_t(x)=\pi_u \circ q_\psi \circ -\grad_{\phi_t(x)}(f)=Y(u(t))\,.
 \end{equation*} Thus, with Cauchy-Schwarz we can calculate that for $v$ close enough to zero:
 
 \begin{equation*}
-	\frac{\diff}{\diff t}\frac12\norm{u(t)}^2=\big\langle u(t),\Lambda u(t)\big\rangle\underbrace{+\big\langle u(t),R(u(t))\big\rangle}_{\geq -\norm{u(t)}\cdot \underbrace{\norm{R(u(t))}}_{\geq \mu_{min}\norm{u(t)}}}\geq 2\mu_{\min}\norm{u(t)}^2-\mu_{\min}\norm{u(t)}^2>0\,.
+	\frac{\diff}{\diff t}\frac12\norm{u(t)}^2=\big\langle u(t),\Lambda u(t)\big\rangle\underbrace{+\big\langle u(t),R(u(t))\big\rangle}_{\geq -\norm{u(t)}\cdot \underbrace{\norm{R(u(t))}}_{\leq \mu_{min}\norm{u(t)}}}\geq 2\mu_{\min}\norm{u(t)}^2-\mu_{\min}\norm{u(t)}^2>0\,.
 \end{equation*} 
-Now choose $r$ small enough such that the estimat holds and the Ball $B_r(0)\subseteq \psi_u(O)$, and $f>c$ on $E_r\coloneq (\restr{\psi_u}{O})^{-1}(B_r(0))$. Then:
+Now choose $r$ small enough such that the estimate holds and the ball $B_r(0)\subseteq \psi_u(O)$, and $f>c$ on $E_r\coloneq (\restr{\psi_u}{O})^{-1}(B_r(0))$. Then:
 \begin{enumerate}[(i)]
 	\item For $y\in \partial E_r$ and $t>0$ we have $\phi_{-t}(y)\in \inti(E_r)$, since $\psi_u(\phi_{-t}(y))$ strictly decreases in $t$, by the estimate above.
-	\item Every flow line in  $D_q\setminus \{q\}$ meets $\partial E_r$ exactly once: It meets the boundary at least once, as it starts in $q\in \inti(E_r)$ and ends in $S(q\to)$ which is disjoint with $E_r$. If a flow line met the boundary at multiple times, there would be a time $t_0$ where the flow line reenters $E_r$, which forces the $t$ differential of said flow line in the chart $\psi_u$ to be less or equal to $0$ (the norm needs to be non-increasing), which contradicts the estimate above.
+	\item Every flow line in  $D_q\setminus \{q\}$ meets $\partial E_r$ exactly once: It meets the boundary at least once, as it starts in $q\in \inti(E_r)$ and ends in $S(q\to)$ which is disjoint from $E_r$. If a flow line met the boundary at multiple times, there would be a time $t_0$ where the flow line reenters $E_r$, which forces the $t$ differential of said flow line in the chart $\psi_u$ to be less than or equal to $0$ (the norm needs to be non-increasing), which contradicts the estimate above.
 \end{enumerate}
 
 Now we come to the homeomorphism: By (ii), the map 
 \begin{equation*}
 	\Theta:\{(y,s)\mid y\in \partial E_r, 0\leq s \leq \tau(y)\}\to D_q\setminus \inti(E_r)\,,\quad \Theta(y,s)\coloneq \phi_s(y)
-\end{equation*}  is a continuous bijection from a compact set into a hausdorff space and hence a homeomorphism. Now we define 
+\end{equation*}  is a continuous bijection from a compact set into a Hausdorff space and hence a homeomorphism. Now we define 
 \begin{align*}
-	G:D_q\to D_1\subseteq \R^{\lambda_q}\,, \quad 
+	G:D_q\to D_1\subseteq \R^{\ind_q}\,, \quad 
 	\begin{cases}
-		G(x)\coloneq \frac{1}{2r}\psi_q(x) & \text{ for }x\in E_r,\\
+		G(x)\coloneq \frac{1}{2r}\psi_u(x) & \text{ for }x\in E_r,\\
 		G(\phi_s(y))\coloneq \left(\frac12 + \frac{s}{2 \tau(y)}\right) \frac{\psi_u(y)}{r}&\text{ for } y\in \partial E_r,~ 0\leq s\leq \tau(y)\,.
 	\end{cases}
 \end{align*}
-Both formulars define something continuous (even smoth on their domain) and agree on $\partial E_r$. hence $G$ is continuous. Furthermore, $G$ is bijectictive and the domain is compact, whilst the image is Hausdorff, giving us a homeomorphism that maps $\partial D_q$ onto $\partial D_1$. Now let $\overline{\pi_S}:S^{\lambda_q}\to \overline{\R^m}$ denote the function from Definition \ref{def:orient-fromRelaSpaceToTheSphere} and with this define 
+Both formulas define something continuous (even smooth on their domain) and agree on $\partial E_r$. Hence $G$ is continuous. Furthermore, $G$ is bijective and the domain is compact, whilst the image is Hausdorff, giving us a homeomorphism that maps $\partial D_q$ onto $\partial D_1$. Now let $\overline{\pi_S}:S^{\ind_q}\to \overline{\R^{\ind_q}}$ denote the function from Definition \ref{def:orient-fromRelaSpaceToTheSphere} and with this define 
 \begin{equation*}
-	g_q^{-1}\coloneq \overline{\pi_S}^{-1}(\frac{G}{1-\norm{G}}): D_q\big/S(q\to) \to S^{\lambda_q}
+	g_q^{-1}\coloneq \overline{\pi_S^{-1}}(\frac{G}{1-\norm{G}}): D_q\big/S(q\to) \to S^{\ind_q}
 	\quad \text{ where $\frac{c}{0}\coloneq \infty$. for $c\in \R$}
 \end{equation*} 
 
-Now only the statement about the orientation preservation of $g_q$ at a neighbourhood of $q$ is missing: Define $T_q\coloneq \max_{\partial E_r}\tau$. If $\tau(x)>T_q$ and $x\neq q$, let $y$ be the point, where the flow line through $x$ passes through the boundary $\partial E_r$. Then $x=\phi_{-t}(y)$ with $t=\tau(x)-\tau(y)>0$ and thereby $x\in \inti(E_r)$ by (i). Hence, $W_q\subseteq \inti E_r$ and in said interioir of $E_r$ $G$ is a diffeomorphism that is orientation preserving in $q$ by the definition of $\psi_u$ and by Lemma $\ref{lem:orient-computingSignInCharts}$ we know that the sign of the determinant of a diffeomorphism of oriented manifolds is computed by a smooth procedure, we know that it is locally constant, making $G$ orientation preserving on the whole $\inti(E_r)$. The map $\pi_S^{-1}$ is orientation preserving: This follows from the definition of the orientation of $\R^{\lambda_q}$ as a subspace of the canonically oriented $\R^{\lambda_q}$ and the orientation of $S^{\lambda_q}$ by Remark \ref{conv:orient-orientationOfTheSphere}. Furtermore, the streching $v\mapsto \frac{v}{1-\norm{v}}$ is orientation preserving where $D_1$ is oriented as a subspace of $\R^{\lambda_q}$(this can be shown by looking at the sign of the determinant of its jacobean). Hence the wholw composition $g_q^{-1}$ is orientation preserving and thereby also $g_q$ is.
+Now only the statement about the orientation preservation of $g_q$ at a neighbourhood of $q$ is missing: Define $T_q\coloneq \max_{\partial E_r}\tau$. If $\tau(x)>T_q$ and $x\neq q$, let $y$ be the point, where the flow line through $x$ passes through the boundary $\partial E_r$. Then $x=\phi_{-t}(y)$ with $t=\tau(x)-\tau(y)>0$ and thereby $x\in \inti(E_r)$ by (i). Hence, $W_q\subseteq \inti (E_r)$ and in said interior of $E_r$ $G$ is a diffeomorphism that is orientation preserving at $q$ by the definition of $\psi_u$ and by Lemma \ref{lem:orient-computingSignInCharts} we know that the sign of the determinant of a diffeomorphism of oriented manifolds is computed by a smooth procedure, and thereby it is locally constant, making $G$ orientation preserving on the whole $\inti(E_r)$. The map $\overline{\pi_S^{-1}}$ is orientation preserving: This follows from the orientation of $S^{\ind_q}$ by Remark \ref{conv:orient-orientationOfTheSphere}. Furthermore, the stretching $v\mapsto \frac{v}{1-\norm{v}}$ is orientation preserving where $D_1$ is oriented as a subspace of $\R^{\ind_q}$(this can be shown by looking at the sign of the determinant of its Jacobian). Hence the whole composition $g_q^{-1}$ is orientation preserving and thereby also $g_q$ is.
+\end{proof}
+
+
+\begin{lemma}\label{lem:morseFiltr-orientationClassOfADisk}
+	Let $n\geq 1$ and let $(\Sigma,\partial \Sigma)$ be a compact pair ($\partial \Sigma$ denotes a closed subspace of $\Sigma$, and not some kind of boundary. In applications of the Lemma, it will be a boundary) such that $(\Sigma \setminus \partial \Sigma)$ is an oriented $C^1$-manifold of dimension $n$. Let $g:S^n\to \Sigma \big/ \partial \Sigma$ be a homeomorphism with $g(S)=[\partial \Sigma]$ (where $S$ denotes the south pole), and let $U\subseteq S^n\setminus S$ be open such that $\restr{g}{U}$ is an orientation preserving $C^1$-diffeomorphism onto an open subset of $\Sigma \setminus \partial \Sigma$. Define
+	\begin{equation*}
+		o_{\Sigma}\coloneq (g^{-1})^*(\beta_n)\in\tilde{K}^{-n}(\Sigma /\partial \Sigma)= K^{-n}(\Sigma , \partial \Sigma)\,,
+	\end{equation*} with $\beta_n$ being the canonical generator defined in Definition \ref{def:ktheo-higherBottGenerators}. Let $V$ be an oriented $n$-dimensional vector space with K-theoretic orientation $\beta_V$ and $h:\Sigma / \partial \Sigma \to \overline{V}$ be a pointed map such that for some $z\in V$ we have that $h^{-1}(z)=\{y\}$ with $y\in g(U)$, $h$ is $C^1$ near $y$ and $\restr{\diff h}{y}$ is invertible. Then
+	\begin{equation*}
+		h^*(\beta_V)=\sign\det\left(\restr{\diff h}{y}\right)\cdot o_{\Sigma}
+	\end{equation*} 
+\end{lemma}
+\begin{proof}
+	Let $\kappa_V:V\to \R^n$ be the coordinate map of a positively oriented basis, meaning that $\left(\overline{\pi_S^{-1}}\circ \overline{\kappa_V}\right)^*(\beta_n)=\beta_V$ (compare Corollary \ref{cor:orient-vectorspaceOrientationInducesKtheoreticOrientation}). Then $\xi\coloneq \overline{\pi_S^{-1}}\circ \overline{\kappa_V}\circ h \circ g:S^n\to S^n$ satisfies:
+	\begin{enumerate}[(i)]
+		\item $\xi^{-1}(\pi_S^{-1}\circ \kappa_V(z))=\{g^{-1}(y)\}$,
+		\item $\xi$ is $C^1$ near $g^{-1}(y)\in U$, 
+		\item by the chain rule, Lemma \ref{lem:orient-computingSignInCharts} and since $\pi_S^{-1}$, $\kappa_V$ and $g$ are orientation preserving we have:
+		\begin{equation*}
+			\sign \det(\restr{\diff \xi}{g^{-1}(y)})=\sign \det (\restr{\diff h}{y})\,.
+		\end{equation*}
+	\end{enumerate}
+	Hence by the Single Regular Preimage Lemma \ref{lem:orient-singleRegularPreimage} applied to $\xi^*$ we can calculate
+	\begin{equation*}
+		g^*h^*(\beta_V)=\xi^*(\beta_n)=\sign \det \left(\restr{\diff h}{y}\right)\cdot \beta_n\,.
+	\end{equation*} Finally we can apply $(g^{-1})^*$ from the left to finish the proof.
+\end{proof}
+
+
+
+\begin{remark}
+	We can apply the Lemma above to the pair $(D_q,S(q\to))$ together with $g=g_q$, and $U=U_q$ from Lemma \ref{lem:morseFilt-flowTimeAndProjectionToLevelSets} (c). 
+\end{remark}
+
+\begin{lemma}[Oriented Tubular Embedding]\label{lem:filt-orientedTubularEmbedding}
+	Let $B_p\coloneq W(\to p)\cap M^c$ and let $J:D_{\epsilon}(\mathcal{N})\to N_p$ be the tubular embedding from Lemma \ref{lem:morseFilt-npIsTubular}, where $\mathcal{N}\to B_p$ denotes the normal bundle. Now we can orient the normal bundle via the bundle isomorphism $l:\mathcal{N}\to Q^p$  where $Q^p$ denotes the quotient bundle from Definition \ref{def:morseFilt-setupCommutingDiff}(the map is given by including the normal bundle into the tangent bundle and projecting then onto the quotient bundle). Then $J$ can be chosen to be fibrewise orientation preserving, meaning that with the linear identification $R_0:\mathcal{N}_x\to T_0\mathcal{N}_x$ and the projection bundle map $pr: \restr{TM}{W(\to p)\cap M^c}\to Q^p$ we have that for all $x$ the map
+	\begin{equation*}
+		pr\circ \restr{\diff  J_x}{0}\circ R_0:\mathcal{N}_x\to Q_x^p
+	\end{equation*} is orientation preserving.
+\end{lemma}
+\begin{proof}
+	This follows directly from $pr\circ \restr{\diff  J_x}{0}\circ R_0:\mathcal{N}_x\to Q_x^p$ being a bundle isomorphism. Hence it either is orientation preserving in all fibers, or reversing in all fibers (due to the connected base space). If the latter happens, we redefine $J$ by composing it with a map $\rho$ that reflects, say the first coordinate: Here we choose a global orthonormal trivialisation of $\mathcal{N}$ (which exists since the base space $B_p$ is contractible) such that $\rho$ maps the domain of the tubular embedding isomorphically onto itself. 
+\end{proof}
+\begin{remark}
+	For a fiber $V_j$ of the tubular neighbourhood from Lemma \ref{lem:morseFilt-npIsTubular} with center $x_j$, we can apply the Lemma \ref{lem:morseFiltr-orientationClassOfADisk} with $U=S^n\setminus \{S\}$ and $g_j$ given by the oriented tubular embedding composed with the inverse of $v\mapsto \pi^{-1}_S\left(\frac{v}{1-\norm{v}}\right)$. Then $g_j(N)=x_j$ for the north pole $N$ and $h_j\coloneq \overline{\kappa_V^{-1}}\circ \overline{\pi_S}\circ g_j^{-1}$ is a map where we can apply the Lemma \ref{lem:morseFiltr-orientationClassOfADisk} above with $h^{-1}(0)=\{x_j\}$ to conclude that $h^*_j(\beta_V)=o_{V_j}$.(It is easy to see that $h_j$ is locally a diffeomorphism and $h$ as invertable differential in the origin.)
+\end{remark}
+\begin{lemma}\label{lem:morseFilt-canonicalGeneratorsOnTransversalDisks}
+	Let $p\in Crit(f)$ with $n\coloneq \ind(p)\geq 1$, let $(N,L)$ be an index pair of $\{p\}$ and let $\Sigma \subseteq N$ with $\partial \Sigma \subseteq L$ be as in Lemma \ref{lem:morseFiltr-orientationClassOfADisk}. Assume 
+	\begin{enumerate}[(i)]
+		\item $\Sigma \cap W(\to p)=\{x\}$ with $x\in g(U)$ and $T_x\Sigma \oplus T_xW(\to p)=T_xM$, ($\Sigma$ is transversal)
+		\item for every $s\geq 0$ there is a neighbourhood $U_s$ of $x$ in $\Sigma$ with $\phi_[0,s](U_s)\subseteq N\setminus L$.
+	\end{enumerate}
+	Orient $\Sigma\setminus \partial \Sigma$ such that the isomorphism $T_x\Sigma \to Q_x^p$ is orientation preserving. Then for the inclusion $i:(\Sigma,\partial \Sigma)\to (N,L)$
+	\begin{equation*}
+		i^*\left(\alpha_p^{(N,L)}\right)=o_{\Sigma}\,.
+	\end{equation*}
+\end{lemma}
+\begin{remark}
+	The two cases where we apply said lemma are: 
+	\begin{enumerate}
+		\item $\Sigma=D_q,~x=q,~(N,L)=(C,B)$ (from Lemma \ref{lem:morseFilt-flowTimeAndProjectionToLevelSets}) where $Q^q_q=T_qM/T^s_qM\cong T^u_qM$, so $o_{D_q}$ is taken with respect to the orientation of $T^u_qM$. 
+		\item $\Sigma=V_j$ $x=x_j$ and $(N,L)=(B,A)$.
+	\end{enumerate}
+\end{remark}
+\begin{proof}
+	
 \end{proof}
 
 
