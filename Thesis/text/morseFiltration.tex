@@ -415,6 +415,13 @@ Before we can proof this theorem we need the following Lemma:
 		\item $N_p$ is a tubular neighbourhood of $W(\to p)\cap M^c$.\label{lem: enum: 5}
 	\end{enumerate}
 \end{lemma}
+
+\begin{figure}
+	\includegraphics[width=0.49\textwidth]{text/images/TauAndRho.jpg}
+	\includegraphics[width=0.49\textwidth]{text/images/theMapGinQ.jpg}
+	\caption{The map $\tau$ and $\rho$ from Lemma \ref{lem:morseFilt-flowTimeAndProjectionToLevelSets} (a) is shown on the left and the map $G$ from (c) is shown on the right.}
+\end{figure}
+
 \begin{lemma}\label{lem:morseFilt-flowTimeAndProjectionToLevelSets}
 	Let $\ind_q(f)\geq1$.
 	\begin{enumerate}[(a)]
@@ -429,6 +436,7 @@ Before we can proof this theorem we need the following Lemma:
 		\end{equation*} of $q$, the map $g_q$ restricts to an orientation preserving diffeomorphism from $U_q\coloneq g_q^{-1}(W_q)$ onto $W_q$. 
 	\end{enumerate}
 \end{lemma}\todo{Bild}
+
 \begin{proof}
 (a) The function $f$ strictly decreases along flow lines, which approach critical points. As there is no critical point in $f^{-1}[c,b)$ our flow line needs to pass through $f^{-1}(c)$ giving us a $\tau(x)$, where uniqueness follows again from strict monotonicity. This uniqueness lets us deduce that $\tau(\phi_s(x))=\tau(x)-s$. 
 The smoothness follows from the implicit function theorem applied to $G(x,t)\coloneq f(\phi_t(x))-c$, since $\partial_t G(x,t)=-\norm{\grad_{\phi_t(x)}(f)}^2\neq 0$. (compare Proposition \ref{prop:vb-ffDecreasesAlongGradientFlow} for the calculation) Differentiating $\tau(\phi_s(x))=\tau(x)-s$ in $s=0$ gives $\diff \tau (-\grad(f))=-1$. Finally assume that $x_n\to q$ whilst $\tau(x_n)\leq T$ for some $T>0$. Then we can pass to a subsequence such that $\tau(x_n)\to t$ for $t\leq T$. In this subsequence we then have that $\lim_{n\to \infty}f(\phi_{\tau(x_n)}(x_n))=f(\phi_t(q))=b$ contradicting $f\big(\phi_{\tau(x_n)}(x_n)\big)=c<b$ for all $n\in \N$. 
@@ -478,7 +486,11 @@ Both formulas define something continuous (even smooth on their domain) and agre
 
 Now only the statement about the orientation preservation of $g_q$ at a neighbourhood of $q$ is missing: Define $T_q\coloneq \max_{\partial E_r}\tau$. If $\tau(x)>T_q$ and $x\neq q$, let $y$ be the point, where the flow line through $x$ passes through the boundary $\partial E_r$. Then $x=\phi_{-t}(y)$ with $t=\tau(x)-\tau(y)>0$ and thereby $x\in \inti(E_r)$ by (i). Hence, $W_q\subseteq \inti (E_r)$ and in said interior of $E_r$ $G$ is a diffeomorphism that is orientation preserving at $q$ by the definition of $\psi_u$ and by Lemma \ref{lem:orient-computingSignInCharts} we know that the sign of the determinant of a diffeomorphism of oriented manifolds is computed by a smooth procedure, and thereby it is locally constant, making $G$ orientation preserving on the whole $\inti(E_r)$. The map $\overline{\pi_S^{-1}}$ is orientation preserving: This follows from the orientation of $S^{\ind_q}$ by Remark \ref{conv:orient-orientationOfTheSphere}. Furthermore, the stretching $v\mapsto \frac{v}{1-\norm{v}}$ is orientation preserving where $D_1$ is oriented as a subspace of $\R^{\ind_q}$(this can be shown by looking at the sign of the determinant of its Jacobian). Hence the whole composition $g_q^{-1}$ is orientation preserving and thereby also $g_q$ is.
 \end{proof}
-
+\begin{figure}
+	\centering
+	\includegraphics[width=0.6\textwidth]{text/images/InduceOrientationByLinearAndDiffeo.jpg}
+	\caption{The setup of Lemma \ref{lem:morseFiltr-orientationClassOfADisk}.}
+\end{figure}
 
 \begin{lemma}\label{lem:morseFiltr-orientationClassOfADisk}
 	Let $n\geq 1$ and let $(\Sigma,\partial \Sigma)$ be a compact pair ($\partial \Sigma$ denotes a closed subspace of $\Sigma$, and not some kind of boundary. In applications of the Lemma, it will be a boundary) such that $(\Sigma \setminus \partial \Sigma)$ is an oriented $C^1$-manifold of dimension $n$. Let $g:S^n\to \Sigma \big/ \partial \Sigma$ be a homeomorphism with $g(S)=[\partial \Sigma]$ (where $S$ denotes the south pole), and let $U\subseteq S^n\setminus S$ be open such that $\restr{g}{U}$ is an orientation preserving $C^1$-diffeomorphism onto an open subset of $\Sigma \setminus \partial \Sigma$. Define
@@ -523,6 +535,11 @@ Now only the statement about the orientation preservation of $g_q$ at a neighbou
 \begin{remark}
 	For a fiber $V_j$ of the tubular neighbourhood from Lemma \ref{lem:morseFilt-npIsTubular} with center $x_j$, we can apply the Lemma \ref{lem:morseFiltr-orientationClassOfADisk} with $U=S^n\setminus \{S\}$ and $g_j$ given by the oriented tubular embedding composed with the inverse of $v\mapsto \pi^{-1}_S\left(\frac{v}{1-\norm{v}}\right)$. Then $g_j(N)=x_j$ for the north pole $N$ and $h_j\coloneq \overline{\kappa_V^{-1}}\circ \overline{\pi_S}\circ g_j^{-1}$ is a map where we can apply the Lemma \ref{lem:morseFiltr-orientationClassOfADisk} above with $h^{-1}(0)=\{x_j\}$ to conclude that $h^*_j(\beta_V)=o_{V_j}$.(It is easy to see that $h_j$ is locally a diffeomorphism and $h$ as invertable differential in the origin.)
 \end{remark}
+\begin{figure}
+	\centering
+	\includegraphics[width=0.7\textwidth]{text/images/induceOrientationsOnTransversDisc.jpg}
+	\caption{The definition of the transverse $\Sigma$ from Lemma \ref{lem:morseFilt-canonicalGeneratorsOnTransversalDisks}.}
+\end{figure}
 \begin{lemma}\label{lem:morseFilt-canonicalGeneratorsOnTransversalDisks}
 	Let $p\in Crit(f)$ with $n\coloneq \ind(p)\geq 1$, let $(N,L)$ be an index pair of $\{p\}$ and let $\Sigma \subseteq N$ with $\partial \Sigma \subseteq L$ be as in Lemma \ref{lem:morseFiltr-orientationClassOfADisk}. Assume 
 	\begin{enumerate}[(i)]
