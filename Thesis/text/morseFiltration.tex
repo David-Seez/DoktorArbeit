@@ -141,7 +141,7 @@ This obviously becomes a new functor, where the tagging removed uniqueness probl
 	\end{align*}
 For epsilon small enough, they give rise to the index pair $N_q\coloneq\phi^{-1}( D^{s }_\epsilon\times  D^{u }_\epsilon)$ and $L_q\coloneq\phi^{-1}( D^{ s}_\epsilon\times \partial D^{u}_\epsilon)$. To see this, notice that in such a refined Morse chart $\phi$, the differential of the flow in the critical point splits the tangent space into $T^u_qM\times T^s_qM$. Finally, since the property of $\diff \phi_x$ being a contraction on $T^s_qM$ is an open condition and thereby there is an $\epsilon>0$ such that $\diff \phi_x$ is a contraction on $T^s_qM$ for all $x$ with $\norm{\phi^{-1}(x)}<\epsilon$. Thereby, the norm of $\phi_t(x)$ projected to $T^s_qM$ is strictly decreasing in $t$. This proves that $L_q$ is an exit set of $N_q$. Similarly, one sees that $L_q$ is positively invariant in $N_q$. 
 
-This index pair is in fact regular, since $(N_q,L_q)\simeq  (D^{ s}_\epsilon\times  D^{u }_\epsilon, D^{s}_\epsilon\times \partial D^{u}_\epsilon) \simeq (D^{u}_{\epsilon},\partial D^{u}_{\epsilon} )$ and the latters regularity is easy to see by showing that it is an NDR pair. 
+This index pair is in fact regular, since $(N_q,L_q)\simeq  (D^{ s}_\epsilon\times  D^{u }_\epsilon, D^{s}_\epsilon\times \partial D^{u}_\epsilon) \simeq (D^{u}_{\epsilon},\partial D^{u}_{\epsilon} )$ and the latters regularity is easy to see by showing that it is an NDR pair. We will cal such an index pair a \textbf{standart index pair of $q$}.
 
 Furthermore, the index pair $(N_q,L_q)$ is homotopically equivalent to $\overline{T^u_qM}$, which is clear, as $(D^{u}_{\epsilon},\partial D^{u}_{\epsilon} ) \simeq \overline{T^u_qM}$ by mapping $\R^{\lambda_q}\to T^u_qM$ via $\restr{\diff \phi^{-1}}{0}\circ R_0$, where $R_0:\R^m\to T_0\R^m$ is the linear identification from Derfinition \ref{def:vb-linearIdentification}. Finally, we just need to strech the ball to infinity. 
 
@@ -161,6 +161,12 @@ We know the K-group of such a pair to be:
 		C^{k}(M,\mathfrak{A},\tilde{K}^{l}(pt))\cong \bigoplus_{q\in \Crit_k(f)} K_{\#}^{-k}(\mathcal{IP}_q)\,,
 	\end{equation}where the isomorphism can be read as an isomorphism of canonical isomorphism classes with the left-hand side vierwd as an object of $\CIAB$ consists of only one group.
 \end{remark}
+\begin{remark}\label{rem:morseFiltr-indexPairForDifferentChart}
+	For any chart $\chi$ that is centered at a critical point $q$ and $\epsilon>0$ we define the topological pair 
+	\begin{equation*}
+		(N_\chi,L_\chi)\coloneq (\chi^{-1}(D^s_{\epsilon}\times D^u_{\epsilon}), \chi^{-1}(D^s_{\epsilon}\times \partial D^u_{\epsilon}))\,.
+	\end{equation*}The argument that shows that $(N_\psi,L_\psi)$ is a reglar index pair of $q$ only needed that $\restr{\diff \psi}{q}$ splitts. Hence if $\restr{\diff \chi}{q}=\restr{\diff \psi}{q}$, we can conclude, that there is an $\epsilon>0$ such that $(N_\chi,L_\chi)$ is also a regular index pair.
+\end{remark}
 
 
 \begin{remark}\label{rem:morseFiltr-morphismToCanonicalIntegers}
@@ -171,8 +177,8 @@ We know the K-group of such a pair to be:
 	
 	Hence, if $T^u_qM$ is oriented, Corollary \ref{cor:orient-vectorspaceOrientationInducesKtheoreticOrientation} gives us just what we need, making the map canonical. The generator is then given by pulling back the generator of $K^{-\ind_p}(\overline{T^u_qM})$ along the map of pairs:
 	\begin{align*}
-	\kappa_q\coloneq R_0\circ \restr{\diff \phi^{-1}}{0}\circ s\circ pr_u \circ \phi	\,:\,(\phi^{-1}( D^{s }_\epsilon\times  D^{u }_\epsilon),\phi^{-1}( D^{ s}_\epsilon\times \partial D^{u}_\epsilon))  \to (\overline{T^u_qM},\{\infty\})
-	\end{align*} where $pr_u$ is the projection onto the unstable coordinates and $s$ is the stretching $x\mapsto x\cdot (\frac{1}{\epsilon}-\norm{x}-\frac{1}{\epsilon})$ with $\restr{\diff s}{0}=\frac{1}{\epsilon}\Idm$.
+	 \kappa_q\coloneq  \restr{\diff \phi^{-1}}{0}\circ R_0\circ s\circ pr_u \circ \phi	\,:\,(\phi^{-1}( D^{s }_\epsilon\times  D^{u }_\epsilon),\phi^{-1}( D^{ s}_\epsilon\times \partial D^{u}_\epsilon))  \to (\overline{T^u_qM},\{\infty\})
+	\end{align*} where $pr_u$ is the projection onto the unstable coordinates and $s$ is the stretching $x\mapsto x\cdot (\frac{1}{\epsilon}-\norm{x}-\frac{1}{\epsilon})$ with $\restr{\diff s}{0}=\frac{1}{\epsilon}\Idm$. We call such a generator the \textbf{standart generator at $q$}.
 \end{remark}
 
 
@@ -239,6 +245,9 @@ Before we can proof this theorem we need the following Lemma:
 	
 	Furthermore, we assume $W(q\to)$ to be oriented with respect to the orientation of $T^u_qM$ as in Proposition \ref{prop:morse-OrientedUnstableSpaces}. Let $Q^p\coloneq \restr{TM}{W(\to p)}\Big/ TW(\to p)$ be oriented with respect to $T^u_pM$ as in Proposition \ref{prop:morse-orientTheQuotient}.
 	For an oriented real vector space $V$ of dimension $n$, let $\beta_V\in K^{-n}(\overline{V})$ denote its K-theoretic orientation from Corollary \ref{cor:orient-vectorspaceOrientationInducesKtheoreticOrientation}. For an index pair $(N,L)$ of $\{p\}$ let $\alpha^{(N,L)}_p\in K^{-\ind_p}(N,L)$ denote the canonical generator from Remark \ref{rem:morseFiltr-morphismToCanonicalIntegers}, i.e.\ the pullback of $\kappa_p^*(\beta_{T^u_pM})$ along the homotopy equivalence of Theorem \ref{thm:morseFiltr-homotopyEquivalenceOfIndexPairs} from $(N,L)$ to the standart index pair and $\kappa_v= \kappa_q\coloneq R_0\circ \restr{\diff \phi^{-1}}{0}\circ s\circ pr_u \circ \phi$. \todo{später}
+
+	Let $(\alpha_p)_{\#}$ be a generator of $K^{\lambda_p}_{\#}(\mathcal{IP}_p)$ meaning that $(\alpha_p)_{\#}$ is a family of generators for all groups in $K^{\lambda_p}_{\#}(\mathcal{IP}_p)$ that transform into each other under the canonical group isomorphisms.
+ Notice that $(\alpha_p)_{\#}$ is induced by any of its elements.
 	\begin{center}
 	
 	
@@ -535,7 +544,37 @@ Now only the statement about the orientation preservation of $g_q$ at a neighbou
 \begin{proof}[Proof of Lemma \ref{lem:morseFilt-canonicalGeneratorsOnTransversalDisks}]
 	We proof the Lemma in three steps. First we introduce a canonical generator on a disk in the unstable manifold. Then we find a way to expand it and as the third step we define the generator for a general $\Sigma$:
 
-	\textit{Step 1}. Let $\xi=$
+	\textit{Step 1}. Let $\chi=(\chi_s,\chi_u)$ be a chart arround $p$ such that 
+	
+	\begin{enumerate}
+		\item $W(q\to)$ is the graph of function over the unstable coordinats,
+		\item the box $(N_\chi,L_\chi)$ defined as 
+	\begin{equation*}
+		(\chi^{-1}(D^s_{\epsilon}\times D^u_{\epsilon}), \chi^{-1}(D^s_{\epsilon}\times \partial D^u_{\epsilon}))
+	\end{equation*} is a regular index pair of $\{q\}$.
+		\item $\diff \chi_q=\diff \psi_q$ where $\psi$ is a refind Morse chart.
+	\end{enumerate}
+	 The existence of such a function follows from the local unstable manifold theorem \ref{lem:morse-localUnStableManifoldTheorem}.Let  $\kappa_{\chi}$ be the map defined as 
+	 \begin{equation*}
+		\kappa_{\chi} \coloneq  \restr{\diff \chi^{-1}}{0}\circ R_0\circ s\circ pr_u\circ \chi
+	 \end{equation*} similar to the construction of $\kappa_q$ in Remark \ref{rem:morseFiltr-morphismToCanonicalIntegers}. Let $\Sigma$ be a disk contained in $W(q\to)$ and hence $\Sigma \cap W(\to q)=q$. Near $q$ and for large $t>0$ the homotopy equivalence $c:(N,L) \to (N_\chi,L_\chi)$ is given by $y\mapsto[\phi_{3t}(y)]$. Define $i:(\Sigma,\partial \Sigma) \to (N,L)$ to be the inclusion. Then consider the function $h\coloneq \kappa_{\chi}\circ c\circ i$. If $h(y)=0$, then by definition of $\kappa_{\chi}$ we know that $c\circ i(y)\in T^s_qM\times \{0\}$. And since $y\in \Sigma\subseteq W(q\to)$, and $c$ restricts to a map from $W(q\to)$ to $W(q\to)$ (restrictied to the right domain, and image), we know that $y\in W(q\to)\cap T^s_qM\times \{0\}$. Finally, we assumed that $W(q\to)$ was the graph of the unstable coordinates and hence, there is only $p\in W(q\to)\cap T^s_qM\times \{0\}$. Thereby $y=q$ and $0$ has a unique preimage under $h$. Furthermore, $\restr{\diff h}{q}$ is an endomorphism on $T^u_qM$. We can calculate its determinant by calculating the jacobean determinants of $c\circ i$ and $\kappa_\chi$ in $q$ (resp. in the origin) in a refind Morse chart seperatly: 
+	 \begin{enumerate}
+		\item The function $\restr{\diff c\circ i}{q}$ (restricted in its image to $T^u_qM$) has positive determinand which follows from the flow in a refined morse cahrt in a critical point restricted to the unstable space has a differential that is diagonal with positive entrys. This was calculated in Remark \ref{rem:morse-jacobianOfTheFlowInRefinedMorsechart}.
+		\item The function $\kappa_\chi$ can be differentiated in $q$:
+		\begin{equation*}
+			\diff \kappa_{\chi}=\diff \Big(\restr{\diff \chi^{-1}}{o}\circ R_0\circ s\circ pr_u\circ \chi \Big)\,
+		\end{equation*}
+		 where $\iota\coloneq\restr{\diff\chi^{-1}}{0}\circ R_0:\{0\}\times\R^{\lambda}\to T^u_qM$ is a linear isomorphism (since $\restr{\diff\chi}{q}$ maps $T^u_qM$ onto the unstable coordinate plane) and $s$ is the radial stretching with $\restr{\diff s}{0}=\lambda \id$, where $\lambda>0$. On $T^u_qM$ the map $\mathrm{pr}_u\circ\restr{\diff\chi}{q}$ is the inverse of $\iota$, so, identifying $T_0T^u_qM$ with $T^u_qM$,
+\begin{equation*}
+	\restr{\diff h}{p}=\lambda\,\restr{\diff\phi_{3t}}{q}\Big|_{T^u_qM}\in\operatorname{End}(T^u_qM)\,.
+\end{equation*}
+Its determinant is again positive, as the flow restricted to the unstable tangend space of a critical point is diagonal with positive entries.
+	 \end{enumerate}
+Hence, $\restr{\diff h}{q}$ has positive determinant and Lemma \ref{lem:morseFiltr-orientationClassOfADisk} gives us the equiality
+\begin{equation*}
+	i^*\circ c^*\circ \kappa_{\chi}^*(\beta_{T^u_qM})=h^*(\beta_{T^u_qM})=o_{\Sigma}\,.
+\end{equation*}This concludes the proof for the special case, where $\Sigma$ is contained in $(q\to)$.
+\textit{Step 2} We know by the local unstable manifold theorem, that for our refined morse chart $\psi$ there exists a smooth $g_s$ such that $\psi \big(W(\to q)\big)$ is the graph of $g_s$ with $g_s(0)=0$ and $\restr{\diff g_s }{0}=0$. The chart $\tilde{\psi}\coloneq (\psi_s,\psi_u-g_s\circ \psi_s)$ satisfies $\restr{\diff \tilde{\psi}}{q}=\restr{\diff \psi}{q}$, $W(\to p)=\tilde{\psi}^{-1}(\R^{m-n}\times \{0\})$ (locally), $W(p\to)$ is still the graph of a function over the unstable coordinates and by Remark \ref{rem:morseFiltr-indexPairForDifferentChart} , a small $\epsilon$, its box $(N_{\tilde{\psi}},L_{\tilde{\psi}})$ is an index pair. We claim now, that $\kappa_{\tilde{\psi}}$ is a member of the canonical generator $(\alpha_q)_{\#}$.\todo{hier gehts weiter!}
 \end{proof}
 
 
@@ -629,8 +668,7 @@ Now $V_j$ is the image of $\mathcal{N}_{x_j}\gamma^{W(q\to)}$\todo{notation einf
 
 With this we can define the homomorphism $\tilde{f_p}: (I\times V_j \big/ \partial(I\times V_j)) \to \overline{ T_{x_j}W(q\to)}$ as the closure of the map $(x,v)\mapsto -\frac{-x}{x^2-1}\cdot\grad_{x_j}(f)+J(v)$ Then we define $f_p\coloneq \big(\overline{q_{\mathfrak{b}_q}}\circ \tilde{f^p}\big)^*$, where the map $g_{\mathfrak{b}_q}:\R^{\lambda_p+1}\to T_{x_j}W(q\to)$ is the inverse of the koordinate map $\kappa_{\mathfrak{b}_q}$ where $\mathfrak{b}_q$ is the basis of $T_{x_j}W(q\to)$ induced by Proposition $\ref{def:morse-signedFlowLines}$ that comes from the short exact sequence.
 
-Let $(\alpha_p)_{\#}$ be a generator of $K^{\lambda_p}_{\#}(\mathcal{IP}_p)$ meaning that $(\alpha_p)_{\#}$ is a family of generators for all groups in $K^{\lambda_p}_{\#}(\mathcal{IP}_p)$ that transform into each other under the canonical group isomorphisms.
- Notice that $(\alpha_p)_{\#}$ is induced by any of its elements. Now lets fix $(\alpha_p)_{\#}$ to be the generator induced in Remark \ref{rem:morseFiltr-morphismToCanonicalIntegers} and hence given by the generator $\alpha_p=\kappa_p^*(\mathfrak{b}_q)$ of $K^{\lambda_p}(\phi^{-1}( D^{s }_\epsilon\times  D^{u }_\epsilon),\phi^{-1}( D^{ s}_\epsilon\times \partial D^{u}_\epsilon))$, where $\mathfrak{b}_q$ is the generator of $\tilde{K}^{\lambda_p}(\overline{T^u_qM})$ induced by the orientation of $T^u_qM$. Furthermore, let $\alpha_p^{(B,A)}\in (\alpha_p)_{\#}$ be the generator of $K^{-\lambda_p}\left[B,A\right]$. Let $\mathfrak{e}$ denote the generator of $K^{-\lambda_p+1}(\R^{\lambda_p+1})$ induced by the standart bases (and composed with a bott periodicity map).
+ Now lets fix $(\alpha_p)_{\#}$ to be the generator induced in Remark \ref{rem:morseFiltr-morphismToCanonicalIntegers} and hence given by the generator $\alpha_p=\kappa_p^*(\mathfrak{b}_q)$ of $K^{\lambda_p}(\phi^{-1}( D^{s }_\epsilon\times  D^{u }_\epsilon),\phi^{-1}( D^{ s}_\epsilon\times \partial D^{u}_\epsilon))$, where $\mathfrak{b}_q$ is the generator of $\tilde{K}^{\lambda_p}(\overline{T^u_qM})$ induced by the orientation of $T^u_qM$. Furthermore, let $\alpha_p^{(B,A)}\in (\alpha_p)_{\#}$ be the generator of $K^{-\lambda_p}\left[B,A\right]$. Let $\mathfrak{e}$ denote the generator of $K^{-\lambda_p+1}(\R^{\lambda_p+1})$ induced by the standart bases (and composed with a bott periodicity map).
 Then $f^p(\mathfrak{e})=i_j^*\circ i^*_{B,A}(\alpha_p^{(B,A)})$
 \end{proof}
 \begin{comment}
