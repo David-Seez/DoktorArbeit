@@ -1,5 +1,5 @@
 % $ biblatex auxiliary file $
-% $ biblatex bbl format version 3.2 $
+% $ biblatex bbl format version 3.3 $
 % Do not modify the above lines!
 %
 % This is an auxiliary file used by the 'biblatex' package.
@@ -18,8 +18,8 @@
 
 
 \refsection{0}
-  \datalist[entry]{anyt/global//global/global}
-    \entry{atiyah1989k}{book}{}
+  \datalist[entry]{anyt/global//global/global/global}
+    \entry{atiyah1989k}{book}{}{}
       \name{author}{1}{}{%
         {{hash=feb3593a7d423b4961148cc3cc6c0231}{%
            family={Atiyah},
@@ -35,10 +35,12 @@
       }
       \strng{namehash}{feb3593a7d423b4961148cc3cc6c0231}
       \strng{fullhash}{feb3593a7d423b4961148cc3cc6c0231}
+      \strng{fullhashraw}{feb3593a7d423b4961148cc3cc6c0231}
       \strng{bibnamehash}{feb3593a7d423b4961148cc3cc6c0231}
       \strng{authorbibnamehash}{feb3593a7d423b4961148cc3cc6c0231}
       \strng{authornamehash}{feb3593a7d423b4961148cc3cc6c0231}
       \strng{authorfullhash}{feb3593a7d423b4961148cc3cc6c0231}
+      \strng{authorfullhashraw}{feb3593a7d423b4961148cc3cc6c0231}
       \field{labelalpha}{Ati89}
       \field{sortinit}{A}
       \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
@@ -53,7 +55,7 @@
       \field{pages}{xx+216}
       \range{pages}{-1}
     \endentry
-    \entry{banyaga2004lectures}{book}{}
+    \entry{banyaga2004lectures}{book}{}{}
       \name{author}{2}{}{%
         {{hash=71b1b62eaa7b8805e5582243ea133693}{%
            family={Banyaga},
@@ -71,10 +73,12 @@
       }
       \strng{namehash}{efaed3a79a10e81b7c3d6ae9d550aa60}
       \strng{fullhash}{efaed3a79a10e81b7c3d6ae9d550aa60}
+      \strng{fullhashraw}{efaed3a79a10e81b7c3d6ae9d550aa60}
       \strng{bibnamehash}{efaed3a79a10e81b7c3d6ae9d550aa60}
       \strng{authorbibnamehash}{efaed3a79a10e81b7c3d6ae9d550aa60}
       \strng{authornamehash}{efaed3a79a10e81b7c3d6ae9d550aa60}
       \strng{authorfullhash}{efaed3a79a10e81b7c3d6ae9d550aa60}
+      \strng{authorfullhashraw}{efaed3a79a10e81b7c3d6ae9d550aa60}
       \field{labelalpha}{BH04}
       \field{sortinit}{B}
       \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
@@ -91,7 +95,7 @@
       \verb https://books.google.de/books?id=AX-_sbMjOK4C
       \endverb
     \endentry
-    \entry{Brodzki1996}{misc}{}
+    \entry{Brodzki1996}{misc}{}{}
       \name{author}{1}{}{%
         {{hash=085706e0d25ea9c857bb24cf4135f059}{%
            family={Brodzki},
@@ -101,10 +105,12 @@
       }
       \strng{namehash}{085706e0d25ea9c857bb24cf4135f059}
       \strng{fullhash}{085706e0d25ea9c857bb24cf4135f059}
+      \strng{fullhashraw}{085706e0d25ea9c857bb24cf4135f059}
       \strng{bibnamehash}{085706e0d25ea9c857bb24cf4135f059}
       \strng{authorbibnamehash}{085706e0d25ea9c857bb24cf4135f059}
       \strng{authornamehash}{085706e0d25ea9c857bb24cf4135f059}
       \strng{authorfullhash}{085706e0d25ea9c857bb24cf4135f059}
+      \strng{authorfullhashraw}{085706e0d25ea9c857bb24cf4135f059}
       \field{labelalpha}{Bro96}
       \field{sortinit}{B}
       \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
@@ -123,7 +129,7 @@
       \verb https://arxiv.org/abs/funct-an/9606001
       \endverb
     \endentry
-    \entry{Courtney2004}{misc}{}
+    \entry{Courtney2004}{misc}{}{}
       \name{author}{1}{}{%
         {{hash=b0a4764d5b2a2b13e1e7a46a77f496a1}{%
            family={Courtney},
@@ -133,10 +139,12 @@
       }
       \strng{namehash}{b0a4764d5b2a2b13e1e7a46a77f496a1}
       \strng{fullhash}{b0a4764d5b2a2b13e1e7a46a77f496a1}
+      \strng{fullhashraw}{b0a4764d5b2a2b13e1e7a46a77f496a1}
       \strng{bibnamehash}{b0a4764d5b2a2b13e1e7a46a77f496a1}
       \strng{authorbibnamehash}{b0a4764d5b2a2b13e1e7a46a77f496a1}
       \strng{authornamehash}{b0a4764d5b2a2b13e1e7a46a77f496a1}
       \strng{authorfullhash}{b0a4764d5b2a2b13e1e7a46a77f496a1}
+      \strng{authorfullhashraw}{b0a4764d5b2a2b13e1e7a46a77f496a1}
       \field{labelalpha}{Cou04}
       \field{sortinit}{C}
       \field{sortinithash}{4d103a86280481745c9c897c925753c0}
@@ -151,7 +159,7 @@
       \verb https://math.berkeley.edu/~hutching/teach/215b-2004/courtney.pdf
       \endverb
     \endentry
-    \entry{CliffordPreston1961}{book}{}
+    \entry{CliffordPreston1961}{book}{}{}
       \name{author}{2}{}{%
         {{hash=03416d33d71ca5842305cc75740a5aab}{%
            family={Clifford},
@@ -172,10 +180,12 @@
       }
       \strng{namehash}{60ae3b564d1414c1ce9b2e6d251283f9}
       \strng{fullhash}{60ae3b564d1414c1ce9b2e6d251283f9}
+      \strng{fullhashraw}{60ae3b564d1414c1ce9b2e6d251283f9}
       \strng{bibnamehash}{60ae3b564d1414c1ce9b2e6d251283f9}
       \strng{authorbibnamehash}{60ae3b564d1414c1ce9b2e6d251283f9}
       \strng{authornamehash}{60ae3b564d1414c1ce9b2e6d251283f9}
       \strng{authorfullhash}{60ae3b564d1414c1ce9b2e6d251283f9}
+      \strng{authorfullhashraw}{60ae3b564d1414c1ce9b2e6d251283f9}
       \field{labelalpha}{CP61}
       \field{sortinit}{C}
       \field{sortinithash}{4d103a86280481745c9c897c925753c0}
@@ -187,7 +197,7 @@
       \field{volume}{I}
       \field{year}{1961}
     \endentry
-    \entry{Green1965}{book}{}
+    \entry{Green1965}{book}{}{}
       \name{author}{1}{}{%
         {{hash=0e19f021aba27c9ec623165f9da4d6a7}{%
            family={Green},
@@ -203,10 +213,12 @@
       }
       \strng{namehash}{0e19f021aba27c9ec623165f9da4d6a7}
       \strng{fullhash}{0e19f021aba27c9ec623165f9da4d6a7}
+      \strng{fullhashraw}{0e19f021aba27c9ec623165f9da4d6a7}
       \strng{bibnamehash}{0e19f021aba27c9ec623165f9da4d6a7}
       \strng{authorbibnamehash}{0e19f021aba27c9ec623165f9da4d6a7}
       \strng{authornamehash}{0e19f021aba27c9ec623165f9da4d6a7}
       \strng{authorfullhash}{0e19f021aba27c9ec623165f9da4d6a7}
+      \strng{authorfullhashraw}{0e19f021aba27c9ec623165f9da4d6a7}
       \field{labelalpha}{Gre65}
       \field{sortinit}{G}
       \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
@@ -215,7 +227,7 @@
       \field{title}{Sets and Groups}
       \field{year}{1965}
     \endentry
-    \entry{hatcher2002algebraic}{book}{}
+    \entry{hatcher2002algebraic}{book}{}{}
       \name{author}{1}{}{%
         {{hash=0a94eadf86d8b878d4c37bc5640e53e3}{%
            family={Hatcher},
@@ -231,10 +243,12 @@
       }
       \strng{namehash}{0a94eadf86d8b878d4c37bc5640e53e3}
       \strng{fullhash}{0a94eadf86d8b878d4c37bc5640e53e3}
+      \strng{fullhashraw}{0a94eadf86d8b878d4c37bc5640e53e3}
       \strng{bibnamehash}{0a94eadf86d8b878d4c37bc5640e53e3}
       \strng{authorbibnamehash}{0a94eadf86d8b878d4c37bc5640e53e3}
       \strng{authornamehash}{0a94eadf86d8b878d4c37bc5640e53e3}
       \strng{authorfullhash}{0a94eadf86d8b878d4c37bc5640e53e3}
+      \strng{authorfullhashraw}{0a94eadf86d8b878d4c37bc5640e53e3}
       \field{labelalpha}{Hat02}
       \field{sortinit}{H}
       \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
@@ -244,7 +258,7 @@
       \field{title}{Algebraic Topology}
       \field{year}{2002}
     \endentry
-    \entry{Landweber2005}{misc}{}
+    \entry{Landweber2005}{misc}{}{}
       \name{author}{1}{}{%
         {{hash=0a6685421ec45d8420d45a45af97a23e}{%
            family={Landweber},
@@ -254,10 +268,12 @@
       }
       \strng{namehash}{0a6685421ec45d8420d45a45af97a23e}
       \strng{fullhash}{0a6685421ec45d8420d45a45af97a23e}
+      \strng{fullhashraw}{0a6685421ec45d8420d45a45af97a23e}
       \strng{bibnamehash}{0a6685421ec45d8420d45a45af97a23e}
       \strng{authorbibnamehash}{0a6685421ec45d8420d45a45af97a23e}
       \strng{authornamehash}{0a6685421ec45d8420d45a45af97a23e}
       \strng{authorfullhash}{0a6685421ec45d8420d45a45af97a23e}
+      \strng{authorfullhashraw}{0a6685421ec45d8420d45a45af97a23e}
       \field{labelalpha}{Lan05}
       \field{sortinit}{L}
       \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
@@ -276,7 +292,7 @@
       \verb https://arxiv.org/abs/math/0504555
       \endverb
     \endentry
-    \entry{Perko2001}{book}{}
+    \entry{Perko2001}{book}{}{}
       \name{author}{1}{}{%
         {{hash=2e86fbceb5185d82a8b0e6fccbdf1691}{%
            family={Perko},
@@ -292,10 +308,12 @@
       }
       \strng{namehash}{2e86fbceb5185d82a8b0e6fccbdf1691}
       \strng{fullhash}{2e86fbceb5185d82a8b0e6fccbdf1691}
+      \strng{fullhashraw}{2e86fbceb5185d82a8b0e6fccbdf1691}
       \strng{bibnamehash}{2e86fbceb5185d82a8b0e6fccbdf1691}
       \strng{authorbibnamehash}{2e86fbceb5185d82a8b0e6fccbdf1691}
       \strng{authornamehash}{2e86fbceb5185d82a8b0e6fccbdf1691}
       \strng{authorfullhash}{2e86fbceb5185d82a8b0e6fccbdf1691}
+      \strng{authorfullhashraw}{2e86fbceb5185d82a8b0e6fccbdf1691}
       \field{labelalpha}{Per01}
       \field{sortinit}{P}
       \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
@@ -311,7 +329,42 @@
       \field{pages}{557}
       \range{pages}{1}
     \endentry
-    \entry{Steenrod1967}{article}{}
+    \entry{Salamon1985}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=ffa6ea9470e7e504315bbab9117eaee6}{%
+           family={Salamon},
+           familyi={S\bibinitperiod},
+           given={Dietmar},
+           giveni={D\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {American Mathematical Society}%
+      }
+      \strng{namehash}{ffa6ea9470e7e504315bbab9117eaee6}
+      \strng{fullhash}{ffa6ea9470e7e504315bbab9117eaee6}
+      \strng{fullhashraw}{ffa6ea9470e7e504315bbab9117eaee6}
+      \strng{bibnamehash}{ffa6ea9470e7e504315bbab9117eaee6}
+      \strng{authorbibnamehash}{ffa6ea9470e7e504315bbab9117eaee6}
+      \strng{authornamehash}{ffa6ea9470e7e504315bbab9117eaee6}
+      \strng{authorfullhash}{ffa6ea9470e7e504315bbab9117eaee6}
+      \strng{authorfullhashraw}{ffa6ea9470e7e504315bbab9117eaee6}
+      \field{labelalpha}{Sal85}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Transactions of the American Mathematical Society}
+      \field{number}{1}
+      \field{title}{Connected simple systems and the {Conley} index of isolated invariant sets}
+      \field{volume}{291}
+      \field{year}{1985}
+      \field{pages}{1\bibrangedash 41}
+      \range{pages}{41}
+      \verb{doi}
+      \verb 10.1090/S0002-9947-1985-0797044-3
+      \endverb
+    \endentry
+    \entry{Steenrod1967}{article}{}{}
       \name{author}{1}{}{%
         {{hash=ed2ec7ecef08adf709948d768edd95c1}{%
            family={Steenrod},
@@ -324,10 +377,12 @@
       }
       \strng{namehash}{ed2ec7ecef08adf709948d768edd95c1}
       \strng{fullhash}{ed2ec7ecef08adf709948d768edd95c1}
+      \strng{fullhashraw}{ed2ec7ecef08adf709948d768edd95c1}
       \strng{bibnamehash}{ed2ec7ecef08adf709948d768edd95c1}
       \strng{authorbibnamehash}{ed2ec7ecef08adf709948d768edd95c1}
       \strng{authornamehash}{ed2ec7ecef08adf709948d768edd95c1}
       \strng{authorfullhash}{ed2ec7ecef08adf709948d768edd95c1}
+      \strng{authorfullhashraw}{ed2ec7ecef08adf709948d768edd95c1}
       \field{labelalpha}{Ste67}
       \field{sortinit}{S}
       \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
@@ -344,7 +399,7 @@
       \verb 10.1307/mmj/1028999711
       \endverb
     \endentry
-    \entry{strickland_cgwh}{misc}{}
+    \entry{strickland_cgwh}{misc}{}{}
       \name{author}{1}{}{%
         {{hash=b1625380a6ace09f6090438d612ba2b5}{%
            family={Strickland},
@@ -354,10 +409,12 @@
       }
       \strng{namehash}{b1625380a6ace09f6090438d612ba2b5}
       \strng{fullhash}{b1625380a6ace09f6090438d612ba2b5}
+      \strng{fullhashraw}{b1625380a6ace09f6090438d612ba2b5}
       \strng{bibnamehash}{b1625380a6ace09f6090438d612ba2b5}
       \strng{authorbibnamehash}{b1625380a6ace09f6090438d612ba2b5}
       \strng{authornamehash}{b1625380a6ace09f6090438d612ba2b5}
       \strng{authorfullhash}{b1625380a6ace09f6090438d612ba2b5}
+      \strng{authorfullhashraw}{b1625380a6ace09f6090438d612ba2b5}
       \field{labelalpha}{Str}
       \field{sortinit}{S}
       \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
@@ -367,7 +424,7 @@
       \field{note}{abgerufen am 25.\ Juni 2026}
       \field{title}{The Category of {CGWH} Spaces}
     \endentry
-    \entry{tomdieck2008algebraic}{book}{}
+    \entry{tomdieck2008algebraic}{book}{}{}
       \name{author}{1}{}{%
         {{hash=b94062694640341ff7681aac676f4cee}{%
            family={{tom Dieck}},
@@ -380,10 +437,12 @@
       }
       \strng{namehash}{b94062694640341ff7681aac676f4cee}
       \strng{fullhash}{b94062694640341ff7681aac676f4cee}
+      \strng{fullhashraw}{b94062694640341ff7681aac676f4cee}
       \strng{bibnamehash}{b94062694640341ff7681aac676f4cee}
       \strng{authorbibnamehash}{b94062694640341ff7681aac676f4cee}
       \strng{authornamehash}{b94062694640341ff7681aac676f4cee}
       \strng{authorfullhash}{b94062694640341ff7681aac676f4cee}
+      \strng{authorfullhashraw}{b94062694640341ff7681aac676f4cee}
       \field{labelalpha}{tom08}
       \field{sortinit}{t}
       \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}

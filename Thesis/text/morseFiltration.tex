@@ -538,17 +538,18 @@ Now only the statement about the orientation preservation of $g_q$ at a neighbou
 \begin{figure}
 	\centering
 	\includegraphics[width=0.7\textwidth]{text/images/induceOrientationsOnTransversDisc.jpg}
+
 	\caption{The definition of the transverse $\Sigma$ from Lemma \ref{lem:morseFilt-canonicalGeneratorsOnTransversalDisks}.}
 \end{figure}
 \begin{lemma}\label{lem:morseFilt-canonicalGeneratorsOnTransversalDisks}
-	Let $p\in Crit(f)$ with $n\coloneq \ind(p)\geq 1$, let $(N,L)$ be an index pair of $\{p\}$ and let $\Sigma \subseteq N$ with $\partial \Sigma \subseteq L$ be as in Lemma \ref{lem:morseFiltr-orientationClassOfADisk}. Assume 
-	\begin{enumerate}[(i)]
+	Let $q\in \Crit(f)$ with $n\coloneq \ind(q)\geq 1$, let $(N,L)$ be an index pair of $\{q\}$ and let $\Sigma \subseteq N$ with $\partial \Sigma \subseteq L$ be as in Lemma \ref{lem:morseFiltr-orientationClassOfADisk}. Assume 
+	\begin{enumerate}[(i)] 
 		\item $\Sigma \cap W(\to p)=\{x\}$ with $x\in g(U)$ and $T_x\Sigma \oplus T_xW(\to p)=T_xM$, ($\Sigma$ is transversal)
-		\item for every $s\geq 0$ there is a neighbourhood $U_s$ of $x$ in $\Sigma$ with $\phi_[0,s](U_s)\subseteq N\setminus L$.
+		\item for every $s\geq 0$ there is a neighbourhood $U_s$ of $x$ in $\Sigma$ with $\phi_{[0,s]}(U_s)\subseteq N\setminus L$.
 	\end{enumerate}
 	Orient $\Sigma\setminus \partial \Sigma$ such that the isomorphism $T_x\Sigma \to Q_x^p$ is orientation preserving. Then for the inclusion $i:(\Sigma,\partial \Sigma)\to (N,L)$
 	\begin{equation*}
-		i^*\left(\alpha_p^{(N,L)}\right)=o_{\Sigma}\,.
+		i^*\left(\alpha_q^{(N,L)}\right)=o_{\Sigma}\,.
 	\end{equation*}
 \end{lemma}
 \begin{remark}
@@ -559,40 +560,94 @@ Now only the statement about the orientation preservation of $g_q$ at a neighbou
 	\end{enumerate}
 \end{remark}
 \begin{proof}[Proof of Lemma \ref{lem:morseFilt-canonicalGeneratorsOnTransversalDisks}]
-	We proof the Lemma in three steps. First we introduce a canonical generator on a disk in the unstable manifold. Then we find a way to expand it and as the third step we define the generator for a general $\Sigma$:
+	We prove the Lemma in three steps. First we restriced the statement to the easier case, where $\Sigma\subseteq W(q\to)$. Then we define a new chart such that the stable manifold is not just a graph of a function, but a linear subspace. This makes sure that the projection onto the unstable coordinates collapses the stable part to a point which finally in step 3 generalizes the statement for arbitrary $\Sigma$:
 
-	\textit{Step 1}. Let $\chi=(\chi_s,\chi_u)$ be a chart arround $p$ such that 
+	\textit{Step 1}. Let $\chi=(\chi_s,\chi_u)$ be a chart around $q$ such that 
 	
 	\begin{enumerate}
-		\item $W(q\to)$ is the graph of function over the unstable coordinats,
+		\item $W(q\to)$ is the graph of function over the unstable coordinates,
 		\item the box $(N_\chi,L_\chi)$ defined as 
 	\begin{equation*}
 		(\chi^{-1}(D^s_{\epsilon}\times D^u_{\epsilon}), \chi^{-1}(D^s_{\epsilon}\times \partial D^u_{\epsilon}))
 	\end{equation*} is a regular index pair of $\{q\}$.
-		\item $\diff \chi_q=\diff \psi_q$ where $\psi$ is a refind Morse chart.
+		\item $\epsilon$ is small enough such that $W(q\to)\cap N_\chi$ is the graph of the function from above.
+		\item $\diff \chi_q=\diff \psi_q$ where $\psi$ is a refined Morse chart.
 	\end{enumerate}
-	 The existence of such a function follows from the local unstable manifold theorem \ref{lem:morse-localUnStableManifoldTheorem}.Let  $\kappa_{\chi}$ be the map defined as 
+	 The existence of such a chart follows from the local unstable manifold theorem \ref{lem:morse-localUnStableManifoldTheorem}.Let  $\kappa_{\chi}$ be the map defined as 
 	 \begin{equation*}
 		\kappa_{\chi} \coloneq  \restr{\diff \chi^{-1}}{0}\circ R_0\circ s\circ pr_u\circ \chi
-	 \end{equation*} similar to the construction of $\kappa_q$ in Remark \ref{rem:morseFiltr-morphismToCanonicalIntegers}. Let $\Sigma$ be a disk contained in $W(q\to)$ and hence $\Sigma \cap W(\to q)=q$. Near $q$ and for large $t>0$ the homotopy equivalence $c:(N,L) \to (N_\chi,L_\chi)$ is given by $y\mapsto[\phi_{3t}(y)]$. Define $i:(\Sigma,\partial \Sigma) \to (N,L)$ to be the inclusion. Then consider the function $h\coloneq \kappa_{\chi}\circ c\circ i$. If $h(y)=0$, then by definition of $\kappa_{\chi}$ we know that $c\circ i(y)\in T^s_qM\times \{0\}$. And since $y\in \Sigma\subseteq W(q\to)$, and $c$ restricts to a map from $W(q\to)$ to $W(q\to)$ (restrictied to the right domain, and image), we know that $y\in W(q\to)\cap T^s_qM\times \{0\}$. Finally, we assumed that $W(q\to)$ was the graph of the unstable coordinates and hence, there is only $p\in W(q\to)\cap T^s_qM\times \{0\}$. Thereby $y=q$ and $0$ has a unique preimage under $h$. Furthermore, $\restr{\diff h}{q}$ is an endomorphism on $T^u_qM$. We can calculate its determinant by calculating the jacobean determinants of $c\circ i$ and $\kappa_\chi$ in $q$ (resp. in the origin) in a refind Morse chart seperatly: 
+	 \end{equation*} similar to the construction of $\kappa_q$ in Remark \ref{rem:morseFiltr-morphismToCanonicalIntegers}. Let $\Sigma$ be a disk contained in $W(q\to)$ and hence $\Sigma \cap W(\to q)=q$. Near $q$ and for large $t>0$ the homotopy equivalence $c:(N,L) \to (N_\chi,L_\chi)$ is given by $y\mapsto[\phi_{3t}(y)]$(Compare Theorem \ref{thm:morseFiltr-homotopyEquivalenceOfIndexPairs} and notice that $q$ is in the interior of both $(N\setminus L)$ and $(N_\chi\setminus L_\chi$)). Define $i:(\Sigma,\partial \Sigma) \to (N,L)$ to be the inclusion. 
+	 Then consider the function 
+	 \begin{equation*}
+	 h\coloneq \underbrace{\restr{\diff \chi^{-1}}{0}\circ R_0\circ s\circ pr_u\circ \chi}_{\kappa_\chi}\circ c\circ i: (\Sigma /\partial \Sigma)\to (\overline{T^u_qM})\,
+	 \end{equation*} If $h(y)=0$, then $y$ cannot be $[\partial \Sigma]$ as that point end at ionfinity. 
+	 By definition of $\kappa_{\chi}$ we know that $\chi\circ c\circ i(y)\in D^s_\epsilon \times \{0\}$. 
+	 And since $y\in \Sigma\subseteq W(q\to)$, and $c$ restricts to a map from $W(q\to)$ to $W(q\to)$ (restrictied to the right domain, and image), we know that $\chi\circ c \circ i(y)\in \chi(W(q\to))\cap D^s_\epsilon \times \{0\}$. 
+	 Finally, we assumed that $W(q\to)$ was the graph of the unstable coordinates in $\chi$ and hence, there is only one $x\in D^s_\epsilon \times \{0\}\cap \chi(W(q\to))$, which is $(0,0)$. Hence $\phi_{3t}(y)=q$ which is a fixpoint of the flow and thereby, $y=q$ and $0$ has a unique preimage under $h$. Furthermore, $\restr{\diff h}{q}$ is an endomorphism on $T^u_qM$. We can calculate its determinant by calculating the jacobean determinants of $c\circ i$ and $\kappa_\chi$ in $q$ (resp. in the origin) in a refined Morse chart seperately: 
 	 \begin{enumerate}
-		\item The function $\restr{\diff c\circ i}{q}$ (restricted in its image to $T^u_qM$) has positive determinand which follows from the flow in a refined morse cahrt in a critical point restricted to the unstable space has a differential that is diagonal with positive entrys. This was calculated in Remark \ref{rem:morse-jacobianOfTheFlowInRefinedMorsechart}.
+		\item The function $\restr{\diff (c\circ i)}{q}$ (restricted in its image to $T^u_qM$) has positive determinant which follows from the flow in a refined morse chart in a critical point restricted to the unstable space has a differential that is diagonal with positive entries. This was calculated in Remark \ref{rem:morse-jacobianOfTheFlowInRefinedMorsechart}.
 		\item The function $\kappa_\chi$ can be differentiated in $q$:
 		\begin{equation*}
-			\diff \kappa_{\chi}=\diff \Big(\restr{\diff \chi^{-1}}{o}\circ R_0\circ s\circ pr_u\circ \chi \Big)\,
+			\diff \kappa_{\chi}=\diff \Big(\restr{\diff \chi^{-1}}{0}\circ R_0\circ s\circ pr_u\circ \chi \Big)\,
 		\end{equation*}
-		 where $\iota\coloneq\restr{\diff\chi^{-1}}{0}\circ R_0:\{0\}\times\R^{\lambda}\to T^u_qM$ is a linear isomorphism (since $\restr{\diff\chi}{q}$ maps $T^u_qM$ onto the unstable coordinate plane) and $s$ is the radial stretching with $\restr{\diff s}{0}=\lambda \id$, where $\lambda>0$. On $T^u_qM$ the map $\mathrm{pr}_u\circ\restr{\diff\chi}{q}$ is the inverse of $\iota$, so, identifying $T_0T^u_qM$ with $T^u_qM$,
+		 where $\iota\coloneq\restr{\diff\chi^{-1}}{0}\circ R_0:\{0\}\times\R^{n}\to T^u_qM$ is a linear isomorphism (since $\restr{\diff\chi}{q}$ maps $T^u_qM$ onto the unstable coordinate plane) and $s$ is the radial stretching with $\restr{\diff s}{0}=\lambda \id$, where $\lambda>0$. On $T^u_qM$ the map $\mathrm{pr}_u\circ\restr{\diff\chi}{q}$ is the inverse of $\iota$, so, identifying $T_0T^u_qM$ with $T^u_qM$,
 \begin{equation*}
-	\restr{\diff h}{p}=\lambda\,\restr{\diff\phi_{3t}}{q}\Big|_{T^u_qM}\in\operatorname{End}(T^u_qM)\,.
+	\restr{\diff h}{q}=\lambda\,\restr{\diff\phi_{3t}}{q}\Big|_{T^u_qM}\in\operatorname{End}(T^u_qM)\,.
 \end{equation*}
-Its determinant is again positive, as the flow restricted to the unstable tangend space of a critical point is diagonal with positive entries.
+Its determinant is again positive, as the flow restricted to the unstable tangent space of a critical point is diagonal with positive entries.
 	 \end{enumerate}
-Hence, $\restr{\diff h}{q}$ has positive determinant and Lemma \ref{lem:morseFiltr-orientationClassOfADisk} gives us the equiality
+Hence, $\restr{\diff h}{q}$ has positive determinant and Lemma \ref{lem:morseFiltr-orientationClassOfADisk} gives us the equality
 \begin{equation*}
 	i^*\circ c^*\circ \kappa_{\chi}^*(\beta_{T^u_qM})=h^*(\beta_{T^u_qM})=o_{\Sigma}\,.
-\end{equation*}This concludes the proof for the special case, where $\Sigma$ is contained in $(q\to)$.
-\textit{Step 2} We know by the local unstable manifold theorem, that for our refined morse chart $\psi$ there exists a smooth $g_s$ such that $\psi \big(W(\to q)\big)$ is the graph of $g_s$ with $g_s(0)=0$ and $\restr{\diff g_s }{0}=0$. The chart $\tilde{\psi}\coloneq (\psi_s,\psi_u-g_s\circ \psi_s)$ satisfies $\restr{\diff \tilde{\psi}}{q}=\restr{\diff \psi}{q}$, $W(\to p)=\tilde{\psi}^{-1}(\R^{m-n}\times \{0\})$ (locally), $W(p\to)$ is still the graph of a function over the unstable coordinates and by Remark \ref{rem:morseFiltr-indexPairForDifferentChart} , a small $\epsilon$, its box $(N_{\tilde{\psi}},L_{\tilde{\psi}})$ is an index pair. We claim now, that $\kappa_{\tilde{\psi}}$ is a member of the canonical generator $(\alpha_q)_{\#}$.\todo{hier gehts weiter!}
+\end{equation*} This concludes the proof for the special case, where $\Sigma$ is contained in $(q\to)$.
+
+So far we have seen that for any chart $\chi$ that satisfies the properties from Step 1 there is the equality above. If we choose $\chi$ to be a refined morse chart, then $\kappa_{\chi}^*(\beta_{T^u_qM})=\alpha_q^{(N_\chi,L_chi)}$ is a canonical generator and a member of $(\alpha_q)_{\#}$.
+
+\textit{Step 2} We know by the local unstable manifold theorem, that for our refined morse chart $\psi$ there exists a smooth $g_s$ such that $\psi \big(W(\to q)\big)$ is the graph of $g_s$ with $g_s(0)=0$ and $\restr{\diff g_s }{0}=0$. The chart $\tilde{\psi}\coloneq (\psi_s,\psi_u-g_s\circ \psi_s)$ satisfies $\restr{\diff \tilde{\psi}}{q}=\restr{\diff \psi}{q}$, $W(\to q)=\tilde{\psi}^{-1}(\R^{m-n}\times \{0\})$ (locally), $W(q\to)$ is still the graph of a function over the unstable coordinates and by Remark \ref{rem:morseFiltr-indexPairForDifferentChart} ,for small $\epsilon$, its box $(N_{\tilde{\psi}},L_{\tilde{\psi}})$ is an index pair. We claim now, that $\kappa_{\tilde{\psi}}^*(\beta_{T^u_qM})$ is a member of the canonical generator $(\alpha_q)_{\#}$.
+Let $E\coloneq W(q\to)\cap N_\psi$, be the unstable disk in the box of $\psi$. In the chart $\psi$, $E$ is the graph of a map 
+\begin{equation*}
+	e:D^u_\epsilon\to D^s_\epsilon 
+\end{equation*} \todo{Bild einfügen}  Now we define the deformation homotopy for $t\in[0,1]$
+\begin{equation*}
+	H_t(l,x)\coloneq \big((1-t)l+te(x),x\big)
+\end{equation*} that shows that $(E,\partial E)$ is a strong deformation retract of $(N_\psi,L_\psi)$ onto and hence induces an isomorphism $K^{-n}(N_\psi,L_\psi)\to K^{-n}(E,\partial E)$.
+Now we apply Step 1 to the two charts $\chi=\psi$ and $\chi=\tilde{\psi}$ with $\Sigma=E$, and $(N,L)=(N_\psi,L_\psi)$. This tells us that pulling back the canonical generator along both paths in the diagram 
+\begin{center}
+\begin{tikzcd}
+                                      &                                                           & {(N_{\tilde{\psi}},L_{\tilde{\psi}})} \arrow[rd, "\kappa_{\tilde{\psi}}"] &                                  \\
+{(E,\partial E)} \arrow[r, "i", hook] & {(N_\psi,L_\psi)} \arrow[ru, "c_1"] \arrow[rd, "c_2\simeq \id"] &                                                                           & {(\overline{T^u_qM},\{\infty\})} \\
+                                      &                                                           & {(N_\psi,L_\psi)} \arrow[ru, "\kappa_{\psi}=\kappa_q"']                   &                                 
+\end{tikzcd}
+\end{center} induce the same $o_E$. Now $c_2\simeq \id$ and the inclusion $i$ induces an isomorphism by the deformation above. Hence, 
+\begin{equation*}
+	c_1^*\circ \kappa_{\tilde{\psi}}^*(\beta_{T^u_qM})=\kappa_q^*(\beta_{T^u_qM})=\alpha_q^{(N_\psi,L_\psi)}\,.
+\end{equation*}
+
+But the canonical generators are compatible with the maps $c$ and $c_1^*$ is an isomorphism, we know that $\alpha_q^{(N_{\tilde{\psi}},L_{\tilde{\psi}})}$ is the unique element with $c_1^*(\alpha_q^{(N_{\tilde{\psi}},L_{\tilde{\psi}})})=\alpha_q^{(N_{{\psi}},L_{{\psi}})}$. Thereby 
+\begin{equation*}
+	\kappa_{\tilde{\psi}}^*(\beta_{T^u_qM})=\alpha_q^{(N_{\tilde{\psi}},L_{\tilde{\psi}})}\,.
+\end{equation*}
+
+\textit{Step 3} Now we assume $\Sigma$ to just satisfy the Lemmas conditions, use again $\tilde{\psi}$ and define the map on the quotients
+ \begin{equation*}
+	h\coloneq \underbrace{\restr{\diff \tilde{\psi}^{-1}}{0}\circ R_0\circ s\circ pr_u\circ \tilde{\psi}}_{\kappa_{\tilde{\psi}}}\circ c\circ i
+ \end{equation*} with $c:(N,L)\to (N_{\tilde{\psi}},L_{\tilde{\psi}})$ being the canonical homotopy equivalence as in Step 1. If $h(y)=0$, then similar to before, we argue, that $h(y)=0$ means that $\tilde{\psi}\circ c\circ i(y)\in D^s_\epsilon\times \{0\}$ which in turn means that $c(y)=\phi_{3t}(y)\in \tilde{\psi}^{-1}(D^s_\epsilon\times\{0\})$. By definition of $\tilde{\psi}$ we made sure that $W(\to q)\supseteq \tilde{\psi}^{-1}(D^s_\epsilon\times\{0\})$. 
+ Thereby, our $y\in \Sigma\cap W(\to q)=\{x\}$ by requirements on $\Sigma$. By (ii) and since $\phi_{[t,3t]}(x)$ are close to $q$ for large $t$ our map $h$ equals $h=\kappa_{\tilde{\psi}}\circ \phi_{3t}$ near $x$. 
+ Due to the projection $pr_u$, $\kappa_{\tilde{\psi}}$ is constant on $W(\to q)$ (for a small enough box), and the flow $\phi_{3t}$ preserves $W(\to q)$. Thereby, the differential factors through the kernel of $\diff( pr_u \circ \tilde{\psi})_{\phi_{3t}(x)}=T_{\phi_{3t}(x)}W(\to q)$. And since $\Sigma$ intersects $W(\to q)$ transversally  we factor through the composition
+ \begin{equation*}
+	\restr{\diff h}{x}:T_x\Sigma \, \xrightarrow{\cong}\, Q^q_x \, \xrightarrow{[\diff \phi_{3t}]} \, Q^q_{\phi_{3t}(x)} \, \xrightarrow{[\diff \kappa_{\tilde{\psi}}]}  \, T^u_qM \,.
+ \end{equation*} Now the first isomorphism is orientation preserving, by the choice of orientation on $\Sigma$. 
+ The sign of $\det([\diff \phi_s])$ (as a map between oriented vector spaces) is continuous in $s$ (as it is calculated by the sign of the determinant of a map that depends continuously on $s$), where the bases are induced by a positive global frame (existence follows from contractibility of the base space) and hence they depend continuous on the base point. For $s=0$ the sign is positive and thereby, the second map is orientation preserving.
+  Finally, the sign of $[\diff \kappa_{\tilde{\psi}}]_y$ (as an isomorphism between oriented vector spaces for all $y$) is also continuous in $y$ (on the connected local stable disk) and equals $1$ at $y=q$, as 
+ \begin{equation*}
+	[\diff \kappa_{\tilde{\psi}}]_q:Q^q_q\cong T^u_qM \to T^u_qM
+ \end{equation*} is given by the identity together with the differential of the stretching of the origin. Thereby, the sign of $\det \restr{\diff h}{x}=1$. Lemma \ref{lem:morseFiltr-orientationClassOfADisk} gives us 
+ \begin{equation*}
+	o_\Sigma=h^*(\beta_{T^u_qM})=i^*\circ c^* \circ \kappa_{\tilde{\psi}}^*(\beta_{T^u_qM})
+ \end{equation*}
+ Then, Step 2 gives us that $\kappa_{\tilde{\psi}}^*(\beta_{T^u_qM})=\alpha_q^{(N_{\tilde{psi}},L_{\tilde{psi}})}\in (\alpha_q)_{\#}$. Thereby $c^* \circ \kappa_{\tilde{\psi}}^*(\beta_{T^u_qM})=\alpha_q^{(N,L)}$ by definition. This finally concludes the proof.
 \end{proof}
+\todo{def orthogonal frame}
 
 
 \begin{proof}[Proof of Theorem \ref{thm:morseFilt-commutingMorsecoboundary}]
