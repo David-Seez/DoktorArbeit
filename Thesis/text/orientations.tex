@@ -55,7 +55,7 @@ be a short exact sequence of vector spaces and $\mathfrak{a}$ be a basis of $A$,
 	0&Q
 \end{pmatrix}$, where $*$ depends on the chosen lift. Hence the corresponding elements in $\det(B)$ differ by the product $\det(P)\det(Q)$. 
 \end{remark}
-\begin{definition}
+\begin{definition}\label{def:orient-orientedVectorBundle}
 	For a rank $r$ vector bundle $E\to X$ we set $\det(E)\coloneq \Lambda^r(E)$. An orientation is an equivalence class of a non-vanishing section into the determinant bundle, where two sections are equivalent if they differ by multiplication of a positive scalar valued function. $E$ is orientable if such a section exists, i.e. if $\det(E)$ is trivial. An orientation of a bundle restricts to an orientation in each fibre.
 \end{definition}
 
@@ -68,6 +68,13 @@ be a short exact sequence of vector spaces and $\mathfrak{a}$ be a basis of $A$,
 \begin{proof}
 	Two orientations over $E$ are given as nowhere-vanishing sections $s,s'$. The quotient $x\mapsto \frac{s}{s'}$ is continuous and its image is contained in $\R\setminus \{0\}$. Hence the sign of the quotient is a continuous function into $\{-1,1\}$. Since $X$ is connected we conclude that the sign of said quotient is a constant function. Thereby, if the sections induce the same orientation, they differ by multiplication of the positive number $\frac{s(x)}{s'(x)}$ and then the sign of $\frac{s}{s'}$ is globally one. The surjectivity is clear by mapping the sections $s$ and $-s$.
 \end{proof}
+
+\begin{definition}
+    Let $\pi: E\to X$ and $\pi':E'\to X'$ be two oriented vector bundles, $f:X\to X'$ continouos, and $\Phi:E\to E'$ a morphism of vector bundles over $f$ such that for all $x$, $\Phi_x$ is an isomorphism of vector bundles. Then we call $\Phi$ orientation preserving, if and only if $\Phi_x:E_x\to E'_{f(x)}$ is an orientation preserving map between oriented vector spaces, that inherit their orientation from the bundles via Lemma \ref{def:orient-orientedVectorBundle} for all $x\in X$. 
+\end{definition}
+\begin{proposition}[Equivalent Definition]\label{def:orient-orientedMorphismOfBundlesEquivalentDef}
+    Let $s$ and $t$ be non-vanishing sections into the determinant bundle that represent orientations of the oriented vector bundles $\pi: E\to X$ and $\pi':E'\to X'$, $f:X\to Y$ be continuous and $\Phi: E\to E'$ be a bundle morphism over $f$. Then for all $x\in X$ there exists a $\lambda(x)\in \R\setminus \{0\}$ such that $\Lambda^{\rank(E)}(\Phi)(s(x))=\lambda(x)t(f(x))$. The map $x\mapsto \lambda(x)$ is continouos, as $\lambda=\frac{\Lambda^{\rank(E)}(\Phi)\circ s}{t\circ f}$ is continouos (one can check this in a local frame of $\det(E')$) and non-vanishing. Thereby its sign is locally constand. Hence, if $X$ is connected, then $\Phi$ is oriented, if for \textbf{any} $x\in X$ $\Phi_x$ is an orientation preserving map between oriented vector spaces, that inherit their orientation from the bundles via Lemma \ref{def:orient-orientedVectorBundle}
+\end{proposition}
 \begin{proposition}
 	Let 
 	\begin{center}

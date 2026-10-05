@@ -228,6 +228,18 @@ Analogously to the definition of a smooth manifold, we start by defining familie
 \end{center}
 \end{remark}
 
+\begin{definition}[Morphism of Vector Bundles over Different Base Spaces]
+Let $\pi:E\to X$ and $\pi':E'\to X'$ be two vector bundles and $f:X\to Y$ continuous. A \textbf{bundle morphism over $f$} is a map continouos map $\Phi:E\to E'$ such that 
+\begin{equation*}
+	f\circ \pi=\pi'\circ \Phi
+\end{equation*} and for all $x$, the restriction $\phi_x:E_x\to E'_{f(x)}$ is a linear map. 
+\end{definition}
+\begin{remark}
+	Notice how a bundle morphism $\phi$ always factors over the pullback $f^*(E')$. Furthermore, if $\phi_x$ is an isomorphism for all $x$, then $E\cong f^*(E')$.
+\end{remark}
+\begin{remark}
+	In the context of K-Thery, bundle maps will always be homomorphisms between two vector bundles over the same base space. Hence, we omitt the \textit{over the same base space}. If a bundle map appears that is not over the same base space, we will note that explicitly.
+\end{remark}
 
 \begin{remark}
 	Let $\pi:E\to X$ be a vector bundle. Then the space of sections $\Gamma(E)$ is a (in general, infinite-dimensional) $\R$-vector space. Furthermore, and more relevant to the purposes of this thesis, we view $\Gamma(E)$ (and $\Gamma(U)$ for open subsets) as a $C(X)$ (or $C(U)$) module.  The latter denotes the ring of continuous functions from $E$ (or $U$) to $\R$. 
@@ -268,6 +280,9 @@ Henceforth we suppress the differentiable structure from the notation.
 		\diff f: TM &\to TM' ~,\diff f_p(\xi_p)(g_p)=\xi((g\circ f)_p)
 	\end{align*}Here, $\xi_p\in T_pM$, $g_p\in \mathcal{E}_p(M')$. The function $\diff f$ is called the \textbf{derivative} or \textbf{pushforward} of $f$.
 \end{definition}
+\begin{remark}
+	Notice how the pushforeward $\diff f$ is a bundle morphism over $f$ with the base spaces being $M$ and $M'$. 
+\end{remark}
 \begin{definition}[Smooth Vector Bundles]
 	A \textbf{smooth vector bundle of rank $r$ } is a surjection $\pi: E \to M$ where the codomain (or base space) is a smooth manifold together with a family of continuous functions (or local trivialisations )
 \begin{equation*}

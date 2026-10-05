@@ -177,8 +177,8 @@ We know the K-group of such a pair to be:
 	
 	Hence, if $T^u_qM$ is oriented, Corollary \ref{cor:orient-vectorspaceOrientationInducesKtheoreticOrientation} gives us just what we need, making the map canonical. The generator is then given by pulling back the generator of $K^{-\ind_p}(\overline{T^u_qM})$ along the map of pairs:
 	\begin{align*}
-	 \kappa_q\coloneq  \restr{\diff \phi^{-1}}{0}\circ R_0\circ s\circ pr_u \circ \phi	\,:\,(\phi^{-1}( D^{s }_\epsilon\times  D^{u }_\epsilon),\phi^{-1}( D^{ s}_\epsilon\times \partial D^{u}_\epsilon))  \to (\overline{T^u_qM},\{\infty\})
-	\end{align*} where $pr_u$ is the projection onto the unstable coordinates and $s$ is the stretching $x\mapsto x\cdot (\frac{1}{\epsilon}-\norm{x}-\frac{1}{\epsilon})$ with $\restr{\diff s}{0}=\frac{1}{\epsilon}\Idm$. We call such a generator the \textbf{standart generator at $q$}.
+	 \kappa_q\coloneq  \restr{\diff \phi^{-1}}{0}\circ R_0\circ s\circ \mathrm{pr}_u \circ \phi	\,:\,(\phi^{-1}( D^{s }_\epsilon\times  D^{u }_\epsilon),\phi^{-1}( D^{ s}_\epsilon\times \partial D^{u}_\epsilon))  \to (\overline{T^u_qM},\{\infty\})
+	\end{align*} where $\mathrm{pr}_u$ is the projection onto the unstable coordinates and $s$ is the stretching $x\mapsto x\cdot (\frac{1}{\epsilon}-\norm{x}-\frac{1}{\epsilon})$ with $\restr{\diff s}{0}=\frac{1}{\epsilon}\Idm$. We call such a generator the \textbf{standart generator at $q$}.
 \end{remark}
 
 
@@ -244,7 +244,7 @@ Before we can proof this theorem we need the following Lemma:
 	
 	
 	Furthermore, we assume $W(q\to)$ to be oriented with respect to the orientation of $T^u_qM$ as in Proposition \ref{prop:morse-OrientedUnstableSpaces}. Let $Q^p\coloneq \restr{TM}{W(\to p)}\Big/ TW(\to p)$ be oriented with respect to $T^u_pM$ as in Proposition \ref{prop:morse-orientTheQuotient}.
-	For an oriented real vector space $V$ of dimension $n$, let $\beta_V\in K^{-n}(\overline{V})$ denote its K-theoretic orientation from Corollary \ref{cor:orient-vectorspaceOrientationInducesKtheoreticOrientation}. For an index pair $(N,L)$ of $\{p\}$ let $\alpha^{(N,L)}_p\in K^{-\ind_p}(N,L)$ denote the canonical generator from Remark \ref{rem:morseFiltr-morphismToCanonicalIntegers}, i.e.\ the pullback of $\kappa_p^*(\beta_{T^u_pM})$ along the homotopy equivalence of Theorem \ref{thm:morseFiltr-homotopyEquivalenceOfIndexPairs} from $(N,L)$ to the standart index pair and $\kappa_v= \kappa_q\coloneq R_0\circ \restr{\diff \phi^{-1}}{0}\circ s\circ pr_u \circ \phi$. \todo{später}
+	For an oriented real vector space $V$ of dimension $n$, let $\beta_V\in K^{-n}(\overline{V})$ denote its K-theoretic orientation from Corollary \ref{cor:orient-vectorspaceOrientationInducesKtheoreticOrientation}. For an index pair $(N,L)$ of $\{p\}$ let $\alpha^{(N,L)}_p\in K^{-\ind_p}(N,L)$ denote the canonical generator from Remark \ref{rem:morseFiltr-morphismToCanonicalIntegers}, i.e.\ the pullback of $\kappa_p^*(\beta_{T^u_pM})$ along the homotopy equivalence of Theorem \ref{thm:morseFiltr-homotopyEquivalenceOfIndexPairs} from $(N,L)$ to the standart index pair and $\kappa_v= \kappa_q\coloneq R_0\circ \restr{\diff \phi^{-1}}{0}\circ s\circ \mathrm{pr}_u \circ \phi$. \todo{später}
 
 	Let $(\alpha_p)_{\#}$ be a generator of $K^{\lambda_p}_{\#}(\mathcal{IP}_p)$ meaning that $(\alpha_p)_{\#}$ is a family of generators for all groups in $K^{\lambda_p}_{\#}(\mathcal{IP}_p)$ that transform into each other under the canonical group isomorphisms.
  Notice that $(\alpha_p)_{\#}$ is induced by any of its elements.
@@ -575,11 +575,11 @@ Now only the statement about the orientation preservation of $g_q$ at a neighbou
 	\end{enumerate}
 	 The existence of such a chart follows from the local unstable manifold theorem \ref{lem:morse-localUnStableManifoldTheorem}.Let  $\kappa_{\chi}$ be the map defined as 
 	 \begin{equation*}
-		\kappa_{\chi} \coloneq  \restr{\diff \chi^{-1}}{0}\circ R_0\circ s\circ pr_u\circ \chi
+		\kappa_{\chi} \coloneq  \restr{\diff \chi^{-1}}{0}\circ R_0\circ s\circ \mathrm{pr}_u\circ \chi
 	 \end{equation*} similar to the construction of $\kappa_q$ in Remark \ref{rem:morseFiltr-morphismToCanonicalIntegers}. Let $\Sigma$ be a disk contained in $W(q\to)$ and hence $\Sigma \cap W(\to q)=q$. Near $q$ and for large $t>0$ the homotopy equivalence $c:(N,L) \to (N_\chi,L_\chi)$ is given by $y\mapsto[\phi_{3t}(y)]$(Compare Theorem \ref{thm:morseFiltr-homotopyEquivalenceOfIndexPairs} and notice that $q$ is in the interior of both $(N\setminus L)$ and $(N_\chi\setminus L_\chi$)). Define $i:(\Sigma,\partial \Sigma) \to (N,L)$ to be the inclusion. 
 	 Then consider the function 
 	 \begin{equation*}
-	 h\coloneq \underbrace{\restr{\diff \chi^{-1}}{0}\circ R_0\circ s\circ pr_u\circ \chi}_{\kappa_\chi}\circ c\circ i: (\Sigma /\partial \Sigma)\to (\overline{T^u_qM})\,
+	 h\coloneq \underbrace{\restr{\diff \chi^{-1}}{0}\circ R_0\circ s\circ \mathrm{pr}_u\circ \chi}_{\kappa_\chi}\circ c\circ i: (\Sigma /\partial \Sigma)\to (\overline{T^u_qM})\,
 	 \end{equation*} If $h(y)=0$, then $y$ cannot be $[\partial \Sigma]$ as that point end at ionfinity. 
 	 By definition of $\kappa_{\chi}$ we know that $\chi\circ c\circ i(y)\in D^s_\epsilon \times \{0\}$. 
 	 And since $y\in \Sigma\subseteq W(q\to)$, and $c$ restricts to a map from $W(q\to)$ to $W(q\to)$ (restrictied to the right domain, and image), we know that $\chi\circ c \circ i(y)\in \chi(W(q\to))\cap D^s_\epsilon \times \{0\}$. 
@@ -588,7 +588,7 @@ Now only the statement about the orientation preservation of $g_q$ at a neighbou
 		\item The function $\restr{\diff (c\circ i)}{q}$ (restricted in its image to $T^u_qM$) has positive determinant which follows from the flow in a refined morse chart in a critical point restricted to the unstable space has a differential that is diagonal with positive entries. This was calculated in Remark \ref{rem:morse-jacobianOfTheFlowInRefinedMorsechart}.
 		\item The function $\kappa_\chi$ can be differentiated in $q$:
 		\begin{equation*}
-			\diff \kappa_{\chi}=\diff \Big(\restr{\diff \chi^{-1}}{0}\circ R_0\circ s\circ pr_u\circ \chi \Big)\,
+			\diff \kappa_{\chi}=\diff \Big(\restr{\diff \chi^{-1}}{0}\circ R_0\circ s\circ \mathrm{pr}_u\circ \chi \Big)\,
 		\end{equation*}
 		 where $\iota\coloneq\restr{\diff\chi^{-1}}{0}\circ R_0:\{0\}\times\R^{n}\to T^u_qM$ is a linear isomorphism (since $\restr{\diff\chi}{q}$ maps $T^u_qM$ onto the unstable coordinate plane) and $s$ is the radial stretching with $\restr{\diff s}{0}=\lambda \id$, where $\lambda>0$. On $T^u_qM$ the map $\mathrm{pr}_u\circ\restr{\diff\chi}{q}$ is the inverse of $\iota$, so, identifying $T_0T^u_qM$ with $T^u_qM$,
 \begin{equation*}
@@ -630,22 +630,27 @@ But the canonical generators are compatible with the maps $c$ and $c_1^*$ is an 
 
 \textit{Step 3} Now we assume $\Sigma$ to just satisfy the Lemmas conditions, use again $\tilde{\psi}$ and define the map on the quotients
  \begin{equation*}
-	h\coloneq \underbrace{\restr{\diff \tilde{\psi}^{-1}}{0}\circ R_0\circ s\circ pr_u\circ \tilde{\psi}}_{\kappa_{\tilde{\psi}}}\circ c\circ i
+	h\coloneq \underbrace{\restr{\diff \tilde{\psi}^{-1}}{0}\circ R_0\circ s\circ \mathrm{pr}_u\circ \tilde{\psi}}_{\kappa_{\tilde{\psi}}}\circ c\circ i
  \end{equation*} with $c:(N,L)\to (N_{\tilde{\psi}},L_{\tilde{\psi}})$ being the canonical homotopy equivalence as in Step 1. If $h(y)=0$, then similar to before, we argue, that $h(y)=0$ means that $\tilde{\psi}\circ c\circ i(y)\in D^s_\epsilon\times \{0\}$ which in turn means that $c(y)=\phi_{3t}(y)\in \tilde{\psi}^{-1}(D^s_\epsilon\times\{0\})$. By definition of $\tilde{\psi}$ we made sure that $W(\to q)\supseteq \tilde{\psi}^{-1}(D^s_\epsilon\times\{0\})$. 
  Thereby, our $y\in \Sigma\cap W(\to q)=\{x\}$ by requirements on $\Sigma$. By (ii) and since $\phi_{[t,3t]}(x)$ are close to $q$ for large $t$ our map $h$ equals $h=\kappa_{\tilde{\psi}}\circ \phi_{3t}$ near $x$. 
- Due to the projection $pr_u$, $\kappa_{\tilde{\psi}}$ is constant on $W(\to q)$ (for a small enough box), and the flow $\phi_{3t}$ preserves $W(\to q)$. Thereby, the differential factors through the kernel of $\diff( pr_u \circ \tilde{\psi})_{\phi_{3t}(x)}=T_{\phi_{3t}(x)}W(\to q)$. And since $\Sigma$ intersects $W(\to q)$ transversally  we factor through the composition
+ Due to the projection $\mathrm{pr}_u$, $\kappa_{\tilde{\psi}}$ is constant on $W(\to q)$ (for a small enough box), and the flow $\phi_{3t}$ preserves $W(\to q)$. Thereby, the differential factors through the kernel of $\diff( \mathrm{pr}_u \circ \tilde{\psi})_{\phi_{3t}(x)}=T_{\phi_{3t}(x)}W(\to q)$. And since $\Sigma$ intersects $W(\to q)$ transversally  we factor through the composition
  \begin{equation*}
 	\restr{\diff h}{x}:T_x\Sigma \, \xrightarrow{\cong}\, Q^q_x \, \xrightarrow{[\diff \phi_{3t}]} \, Q^q_{\phi_{3t}(x)} \, \xrightarrow{[\diff \kappa_{\tilde{\psi}}]}  \, T^u_qM \,.
- \end{equation*} Now the first isomorphism is orientation preserving, by the choice of orientation on $\Sigma$. 
- The sign of $\det([\diff \phi_s])$ (as a map between oriented vector spaces) is continuous in $s$ (as it is calculated by the sign of the determinant of a map that depends continuously on $s$), where the bases are induced by a positive global frame (existence follows from contractibility of the base space) and hence they depend continuous on the base point. For $s=0$ the sign is positive and thereby, the second map is orientation preserving.
-  Finally, the sign of $[\diff \kappa_{\tilde{\psi}}]_y$ (as an isomorphism between oriented vector spaces for all $y$) is also continuous in $y$ (on the connected local stable disk) and equals $1$ at $y=q$, as 
- \begin{equation*}
-	[\diff \kappa_{\tilde{\psi}}]_q:Q^q_q\cong T^u_qM \to T^u_qM
- \end{equation*} is given by the identity together with the differential of the stretching of the origin. Thereby, the sign of $\det \restr{\diff h}{x}=1$. Lemma \ref{lem:morseFiltr-orientationClassOfADisk} gives us 
+ \end{equation*} 
+ 
+ 
+ 
+ Now the first isomorphism is orientation preserving, by the choice of orientation on $\Sigma$. 
+
+ Since $\phi_s$ preserves $W(\to q)$, its differential induces a bundle morphism $[\diff\phi_s]:Q^q\to Q^q$ over $\restr{\phi_s}{W(\to q)}$ which is an isomorphism on every fibre. As $W(\to q)$ is connected, by Proposition \ref{def:orient-orientedMorphismOfBundlesEquivalentDef} it suffices to check that $[\diff\phi_s]$ is orientation preserving at a single point. We take $q$: since $\phi_s(q)=q$, the map $[\diff\phi_s]_q$ is an endomorphism of $Q^q_q$, and with respect to the basis $([\partial_i(q)])_i$ given by the unstable coordinate vectors of the refined Morse chart it is diagonal with entries $e^{2\mu_is}>0$ by Remark \ref{rem:morse-jacobianOfTheFlowInRefinedMorsechart}. Hence it has positive determinant, and $[\diff\phi_{3t}]$ is orientation preserving (note $3t>0$).
+
+ Similarly, $\kappa_{\tilde\psi}$ is constant $0$ on the local stable disk $W(\to q)\cap N_{\tilde\psi}$, and its differential induces a bundle morphism $[\diff\kappa_{\tilde\psi}]$ from $\restr{Q^q}{W(\to q)\cap N_{\tilde\psi}}$ to the oriented vector space $T^u_qM$ (a bundle over the point $0$). It is an isomorphism on every fibre, since $\mathrm{pr}_u\circ\restr{\diff\tilde\psi}{y}$ is surjective with kernel $T_yW(\to q)$ and $\tilde\psi_u(y)=0$. The local stable disk is connected, and at $y=q$, under the identification $Q^q_q=T_qM/T^s_qM\cong T^u_qM$ by which $Q^q$ is oriented (Proposition \ref{prop:morse-orientTheQuotient}), $[\diff\kappa_{\tilde\psi}]_q$ is the endomorphism $\lambda\id$ of $T^u_qM$ with $\lambda>0$. Hence $[\diff\kappa_{\tilde\psi}]$ is orientation preserving, and so is the composition $\restr{\diff h}{x}$.
+
+ Lemma \ref{lem:morseFiltr-orientationClassOfADisk} gives us 
  \begin{equation*}
 	o_\Sigma=h^*(\beta_{T^u_qM})=i^*\circ c^* \circ \kappa_{\tilde{\psi}}^*(\beta_{T^u_qM})
  \end{equation*}
- Then, Step 2 gives us that $\kappa_{\tilde{\psi}}^*(\beta_{T^u_qM})=\alpha_q^{(N_{\tilde{psi}},L_{\tilde{psi}})}\in (\alpha_q)_{\#}$. Thereby $c^* \circ \kappa_{\tilde{\psi}}^*(\beta_{T^u_qM})=\alpha_q^{(N,L)}$ by definition. This finally concludes the proof.
+ Then, Step 2 gives us that $\kappa_{\tilde{\psi}}^*(\beta_{T^u_qM})=\alpha_q^{(N_{\tilde{\psi}},L_{\tilde{\psi}})}\in (\alpha_q)_{\#}$. Thereby $c^* \circ \kappa_{\tilde{\psi}}^*(\beta_{T^u_qM})=\alpha_q^{(N,L)}$ by definition. This finally concludes the proof.
 \end{proof}
 \todo{def orthogonal frame}
 
