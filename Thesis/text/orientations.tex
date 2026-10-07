@@ -24,8 +24,8 @@ v_1\wedge \dots \wedge v_{\dim(V)}&\mapsto f(v_1)\wedge \dots \wedge f(v_{\dim(V
 \begin{remark}\label{rem:orient-calculateDeterminatViaMatrixDeterminant}
 	From linear algebra we know, that we can calculate $\det(f)=\det(M^{\mathfrak{b}}_\mathfrak{b}(f))$, where $\mathfrak{b}$ is an ordered basis of $V$. Since the determinant of a matrix commutes with taking products, we have that the determinant is invariant under conjugation of linear endomorphisms.
 \end{remark}
-\begin{definition}
-    Let $(V,[\mathfrak{o}])$ and $(W,[\mathfrak{p}])$ be oriented vector spaces. We call a linear isomorphism $f:V\to W$ between two orineted vector spaces \textbf{orientation preserving}, if  $[\Lambda^{\dim(V)}(f)(\mathfrak{o})]=[\mathfrak{v}]$. Let $o$ and $p$ denote the basis induced from $\mathfrak{o}$ resp. $\mathfrak{p}$. Then by the Remark \ref{rem:orient-calculateDeterminatViaMatrixDeterminant} the map $f$ is orientation preserving, if and only if $\det(M^o_p(f))$ is positive.
+\begin{definition} \label{def:oeient-SignOfAAbstractLinearMap}
+    Let $(V,[\mathfrak{o}])$ and $(W,[\mathfrak{p}])$ be oriented vector spaces. We call a linear isomorphism $f:V\to W$ between two orineted vector spaces \textbf{orientation preserving}, if  $[\Lambda^{\dim(V)}(f)(\mathfrak{o})]=[\mathfrak{v}]$. Let $o$ and $p$ denote the basis induced from $\mathfrak{o}$ resp. $\mathfrak{p}$. Then by the Remark \ref{rem:orient-calculateDeterminatViaMatrixDeterminant} the map $f$ is orientation preserving, if and only if $\det(M^\mathfrak{o}_\mathfrak{p}(f))$ is positive. We define the sing of $f$ (and sometimes even the seign of $\det(f)$) to be the sign of $\det(M^\mathfrak{o}_\mathfrak{p}(f))$.
 \end{definition}
 \begin{definition}[Orientation and Exact Sequences]\todo{FIX}
 A short exact sequence of vector spaces 
@@ -374,7 +374,24 @@ Any finite dimensional real vector space $V$ is homeomoprhic to $\R^n$ via the c
 \begin{proof}
     The statement follows imidiatly from Proposition \ref{prop:linearyTheDeterminandDertermines}.
 \end{proof}
-
+\begin{corollary}\label{cor:orient-mapsbetweenabstractVectorSpacesOnKOrientations}
+    Let $f:V\to W$ be a linear isomorphism between oriented vector spaces $(V,\mathfrak{a})$ and $(W,\mathfrak{b})$. Let $\beta_V$ be the K-Theoretic orientation of $V$ and $\beta_W$ of $W$. Then 
+    \begin{equation*}
+       \overline{f}^*(\beta_W)\,=\, \sign \det(f)\cdot (\beta _V)\,,
+    \end{equation*} where $\sign \det (f)$ denotes the sign of $f$ as in Definition \ref{def:oeient-SignOfAAbstractLinearMap}.
+\end{corollary}
+\begin{proof}
+    Let $\kappa_V:V\to \R^n$ and $\kappa_W:W\to \R^n$ be positive coordinate maps.
+    By Proposition \ref{prop:linearyTheDeterminandDertermines} we know that \begin{equation*}
+        (\overline{\kappa_W}\circ \overline{f} \circ \overline{\kappa_V}^{-1})^*\,=\,\sign \det(f)\cdot \id
+    \end{equation*} Now $\beta_V=\overline{\kappa_V}^*(\beta_{\R^n})$ and  $\beta_W=\overline{\kappa_W}^*(\beta_{\R^n})$. This concludes the proof, as
+    \begin{align*}
+        \overline{f}^*(\beta_W)
+        &=(\overline{\kappa_V}^*\circ (\overline{\kappa_V}^*)^{-1})\circ \overline{f}^*\circ\big(\overline{\kappa_W}^*(\beta_{\R^n})\big)\\
+        &=\overline{\kappa_V}^*\circ (\overline{\kappa_W} \circ \overline{f} \circ \overline{\kappa_V}^{-1})^*\beta_{\R^n}\\
+        &=\sign \det(f)\,\overline{\kappa_V}^*\,\beta_{\R^n}=\sign \det(f)\,\beta_V\,.
+    \end{align*}
+\end{proof}
 
 \begin{lemma}[Multiplication]\label{lem:orient-multiplication}
     Let $V,W$ be oriented real vector spaces of dimension $n,m$ and give $V\oplus W$ the orientation by placing the orientation of $V$ infront of the one of $W$. 

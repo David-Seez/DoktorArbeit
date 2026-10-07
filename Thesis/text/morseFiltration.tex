@@ -634,17 +634,27 @@ But the canonical generators are compatible with the maps $c$ and $c_1^*$ is an 
  \end{equation*} with $c:(N,L)\to (N_{\tilde{\psi}},L_{\tilde{\psi}})$ being the canonical homotopy equivalence as in Step 1. If $h(y)=0$, then similar to before, we argue, that $h(y)=0$ means that $\tilde{\psi}\circ c\circ i(y)\in D^s_\epsilon\times \{0\}$ which in turn means that $c(y)=\phi_{3t}(y)\in \tilde{\psi}^{-1}(D^s_\epsilon\times\{0\})$. By definition of $\tilde{\psi}$ we made sure that $W(\to q)\supseteq \tilde{\psi}^{-1}(D^s_\epsilon\times\{0\})$. 
  Thereby, our $y\in \Sigma\cap W(\to q)=\{x\}$ by requirements on $\Sigma$. By (ii) and since $\phi_{[t,3t]}(x)$ are close to $q$ for large $t$ our map $h$ equals $h=\kappa_{\tilde{\psi}}\circ \phi_{3t}$ near $x$. 
  Due to the projection $\mathrm{pr}_u$, $\kappa_{\tilde{\psi}}$ is constant on $W(\to q)$ (for a small enough box), and the flow $\phi_{3t}$ preserves $W(\to q)$. Thereby, the differential factors through the kernel of $\diff( \mathrm{pr}_u \circ \tilde{\psi})_{\phi_{3t}(x)}=T_{\phi_{3t}(x)}W(\to q)$. And since $\Sigma$ intersects $W(\to q)$ transversally  we factor through the composition
+
+ \begin{center}
+	\begin{tikzcd}
+T_x\Sigma \arrow[r, "\restr{\diff h}{x}"] \arrow[d, "\cong"'] & T^u_qM{}                                                                \\
+ Q^q_x \arrow[r, "{[\diff \phi_{3t}]}"]                       &  Q^q_{\phi_{3t}(x)} \arrow[u, "{[\diff \kappa_{\tilde{\psi}}]}"']
+\end{tikzcd}
+ \end{center}
+ \begin{comment}
  \begin{equation*}
-	\restr{\diff h}{x}:T_x\Sigma \, \xrightarrow{\cong}\, Q^q_x \, \xrightarrow{[\diff \phi_{3t}]} \, Q^q_{\phi_{3t}(x)} \, \xrightarrow{[\diff \kappa_{\tilde{\psi}}]}  \, T^u_qM \,.
+	\restr{\diff h}{x}:T_x\Sigma \, \xrightarrow{\cong}\,
+	 \, \xrightarrow{[\diff \phi_{3t}]} \, Q^q_{\phi_{3t}(x)} \, \xrightarrow{[\diff \kappa_{\tilde{\psi}}]}  \, T^u_qM \,.
  \end{equation*} 
  
+ \end{comment}
  
  
  Now the first isomorphism is orientation preserving, by the choice of orientation on $\Sigma$. 
 
  Since $\phi_s$ preserves $W(\to q)$, its differential induces a bundle morphism $[\diff\phi_s]:Q^q\to Q^q$ over $\restr{\phi_s}{W(\to q)}$ which is an isomorphism on every fibre. As $W(\to q)$ is connected, by Proposition \ref{def:orient-orientedMorphismOfBundlesEquivalentDef} it suffices to check that $[\diff\phi_s]$ is orientation preserving at a single point. We take $q$: since $\phi_s(q)=q$, the map $[\diff\phi_s]_q$ is an endomorphism of $Q^q_q$, and with respect to the basis $([\partial_i(q)])_i$ given by the unstable coordinate vectors of the refined Morse chart it is diagonal with entries $e^{2\mu_is}>0$ by Remark \ref{rem:morse-jacobianOfTheFlowInRefinedMorsechart}. Hence it has positive determinant, and $[\diff\phi_{3t}]$ is orientation preserving (note $3t>0$).
 
- Similarly, $\kappa_{\tilde\psi}$ is constant $0$ on the local stable disk $W(\to q)\cap N_{\tilde\psi}$, and its differential induces a bundle morphism $[\diff\kappa_{\tilde\psi}]$ from $\restr{Q^q}{W(\to q)\cap N_{\tilde\psi}}$ to the oriented vector space $T^u_qM$ (a bundle over the point $0$). It is an isomorphism on every fibre, since $\mathrm{pr}_u\circ\restr{\diff\tilde\psi}{y}$ is surjective with kernel $T_yW(\to q)$ and $\tilde\psi_u(y)=0$. The local stable disk is connected, and at $y=q$, under the identification $Q^q_q=T_qM/T^s_qM\cong T^u_qM$ by which $Q^q$ is oriented (Proposition \ref{prop:morse-orientTheQuotient}), $[\diff\kappa_{\tilde\psi}]_q$ is the endomorphism $\lambda\id$ of $T^u_qM$ with $\lambda>0$. Hence $[\diff\kappa_{\tilde\psi}]$ is orientation preserving, and so is the composition $\restr{\diff h}{x}$.
+ Similarly, $\kappa_{\tilde\psi}$ is constant $0$ on the local stable disk $W(\to q)\cap N_{\tilde\psi}$, and its differential induces a bundle morphism $[\diff\kappa_{\tilde\psi}]$ from $\restr{Q^q}{W(\to q)\cap N_{\tilde\psi}}$ to the oriented vector space $T^u_qM$ (a bundle over the point $0$). It is an isomorphism on every fibre, since $\mathrm{pr}_u\circ\restr{\diff\tilde\psi}{y}$ is surjective with kernel $T_yW(\to q)$ and $\tilde\psi_u(y)=0$. The local stable disk is connected, and at $y=q$, under the identification $Q^q_q=T_qM/T^s_qM\cong T^u_qM$ by which $Q^q$ is oriented (Proposition \ref{prop:morse-orientTheQuotient}), $[\diff\kappa_{\tilde\psi}]_q$ is the endomorphism $\lambda\id$ of $T^u_qM$ with $\lambda>0$. Hence $[\diff\kappa_{\tilde\psi}]$ is orientation preserving, and so is the composition $\restr{\diff h}{x}$. 
 
  Lemma \ref{lem:morseFiltr-orientationClassOfADisk} gives us 
  \begin{equation*}
@@ -652,7 +662,156 @@ But the canonical generators are compatible with the maps $c$ and $c_1^*$ is an 
  \end{equation*}
  Then, Step 2 gives us that $\kappa_{\tilde{\psi}}^*(\beta_{T^u_qM})=\alpha_q^{(N_{\tilde{\psi}},L_{\tilde{\psi}})}\in (\alpha_q)_{\#}$. Thereby $c^* \circ \kappa_{\tilde{\psi}}^*(\beta_{T^u_qM})=\alpha_q^{(N,L)}$ by definition. This finally concludes the proof.
 \end{proof}
-\todo{def orthogonal frame}
+
+
+
+
+
+
+\begin{lemma}[Connecting Homomorphism along a Collar]\label{lem:morseFilt-connectingHomomorphismAlongACollar}
+Let $(X,Y)$ be a compact pair (such that the inclusion $Y\to X$ is a cofibration) and $X$ well pointed by $y_0\in Y$. Let $s:X\to [0,1]$ be continuous with $s^{-1}(0)=Y$ and let $r:s^{-1}([0,1))\to Y$ be a continuous retraction. Define, with $S^1=I/\partial I$,	
+
+\begin{equation*}
+	\overline{k}:X/Y \to \Sigma Y=S^1\wedge Y\,, \quad
+	\overline{k}([z])\coloneq
+		\begin{cases}
+			[1-s(z),r(z)] &\text{if } s(z)<1\,,\\
+			* 			  &\text{if } s(z)=1 \,.
+		\end{cases}
+\end{equation*}
+Then for all $n\geq 1$ the connecting homomorphism $\delta :\tilde{K}^{-n}(Y)\to K^{-n+1}(X,Y)$ of Definition \ref{def:kTheo-connectingHomomorphism} satisfies
+
+\begin{equation*}
+	\delta=(-1)^n\cdot \overline{k}^*\circ \sigma_n\,,
+\end{equation*} where $\sigma_n\coloneq (\phi_{n-1,1} \wedge \id_Y)^*:\tilde{K}^{-n}(Y)= \tilde{K}(S^n\wedge Y)\to \tilde{K}(S^{n-1}\wedge S^1\wedge Y) \cong \tilde{K}^{-(n-1)}(\Sigma Y)$ is the identification via the map $\phi_{l,r}:S^l\wedge S^r\to S^{l+r}$ from Definition \ref{def:ktheo-wedgeOfShoperesIsSphere} together with the associativity of the wedge product and $\overline{k}^*$ denotes $(\id_{S^{n-1}}\wedge \overline{k})^*$.
+\end{lemma}
+\begin{proof}
+	Let $n=1$. With the notation of Definition \ref{def:kTheo-connectingHomomorphism} let 
+	\begin{enumerate}[(i)]
+		\item $\overline{m}:X\cup CY \to (X \cup CY )/X\cong CY \big/ Y$
+		\item $l:CY \big/ Y\to \Sigma Y\,, $ given by $[y,t]\mapsto [t,y]$ as in Proposition \ref{prop:kTheo-coneIsFunctorAndCYoverYIsRedSuspension}.
+		\item $\delta=(\pi^*)^{-1}\circ \overline{m}^* \circ l^*\circ \sigma_1$. This is the same map as in Definition \ref{def:kTheo-connectingHomomorphism}. We split $\theta$ into two parts and moved one part to our definition of $\overline{m}$ (The part that used to be the map $T:(X \cup CY )/(X)\cong CY \big/ Y$) and the second part is our map $l$.
+	\end{enumerate} 
+	Now for $\mu\in [0,1]$ we define the map $H_\mu:X\cup CY \to \Sigma Y$ by
+	\begin{equation*}
+		H_\mu([y,t])\coloneq [(1-\mu)t,y] \,\text{ on }CY\,, \quad 
+		H_\mu(z)\coloneq [(1-\mu)+\mu s(z),r(z)]\, \text{ on }X
+	\end{equation*} (and $*$ if $s(z)=1$). The map $H_\mu$ is well-defined as both formulas agree on $Y$, continuous (for all, and in $\mu$) as $s(z)\to 1, H_\mu(z)\to [\partial I]$ and pointed. Furthermore, $H_0=l\circ \overline{m}$:
+	\begin{itemize}
+		\item On $X$: $l\circ \overline{m}(x)=*$ and $H_0(x)=[1,r(x)]=*$
+		\item On $CY$: $l\circ \overline{m}([y,t])=[t,y]$ and $H_0([y,t])=[t,y]\,,$
+	\end{itemize} and 
+	$H_1=(R\wedge 1)\circ \overline{k}\circ \pi$ with the Reflection $R(t)=(1-t)$ and the quotient map $\pi: X\cup CY\to X /Y$:
+	\begin{itemize}
+		\item On $CY$: $(R\wedge 1)\circ \overline{k}\circ \pi ([y,t])=(R\wedge 1)\circ \overline{k}([\underbrace{Y}_{=s^{-1}(0)}])=(R\wedge 1)([1,\underbrace{y'}_{y'\in Y}])=[0,y']=[0,y]=H_1([y,t])$
+		\item On $X$: $(R\wedge 1)\circ \overline{k}\circ \pi (x)=(R\wedge 1)[1-s(x),r(x)]=[s(x),r(x)]=H_1(x)\,.$
+	\end{itemize}
+	Hence, by the homotopy invariance and Corollary \ref{lem:kTheo-inversesInKGivenByHomotopicallyMethods}:
+	\begin{equation*}
+		\overline{m}^* \circ l^*=\pi^*\circ \overline{k}^*\circ (R\wedge 1)^*=-\pi^*\circ \overline{k}^*\quad \Rightarrow \quad \delta=-\overline{k}^*\circ \sigma_1\,.
+	\end{equation*} 
+	For $n\geq 2$, $\delta$ is by definition the connecting homomorphism of $(S^{n-1}\wedge X,S^{n-1}\wedge Y)$. Define the map $H'_\mu: (S^{n-1}\wedge X) \cup C(S^{n-1}\wedge Y)\to S^1\wedge S^{n-1}\wedge Y$:
+
+	\begin{equation*}
+		H'_\mu([[v,y],t])\coloneq[(1-\mu)t,v,y]\,,\quad 
+		H'_\mu([v,x])\coloneq \begin{cases*}
+			[(1-\mu)+\mu s (x),v,r(x)]& \text{ if }s(x)<1 \,,\\
+			*&\text{ if }s(x)=1\,.
+		\end{cases*}
+	\end{equation*}
+	Similar to $H_\mu$, the map $H'$ is a pointed homotopy from $l\circ \overline{m}$ to $(R\wedge 1)\circ \overline{k_n}\circ \pi$ where 
+	\begin{equation*}
+		\overline{k_n}:S^{n-1}\wedge (X/Y)\to S^1\wedge S^{n-1}\wedge Y\,,
+		[v,x]\mapsto [1-s(x),v,r(x)]\,,
+	\end{equation*} so $\delta=-\overline{k_n}^*\circ (\phi_{1,n-1}\wedge \id_Y)^*$. Now $\overline{k_n}=(P\wedge \id_Y)\circ (\id_{S^{n-1}}\wedge \overline{k})$
+	 where $P:S^{n-1}\wedge S^1\to S^1 \wedge S^{n-1}$ is given by swapping the factors.
+	 Now consider the following commuting diagram
+	\begin{center}
+		\begin{tikzcd}
+			S^{n-1}\wedge S^1 \wedge Y\arrow[r,"~P\wedge \id_Y~"]					\arrow [d,"\phi_{n-1,1}\wedge\id_{Y}"']& S^1\wedge S^{n-1} \wedge Y\arrow[d,"\phi_{1,n-1}\wedge\id_{Y}"]\\
+			S^n		\wedge Y		  \arrow[d,"\overline{\pi_S}\wedge\id_{Y}"']	\arrow[r,"B"]& S^n \wedge Y \arrow[d,"\overline{\pi_S}\wedge\id_{Y}"]\\
+			\overline{\R^n}\wedge Y\arrow[r,"\overline{A}\wedge \id_Y"]& \overline{\R^n} \wedge Y
+		\end{tikzcd}
+	\end{center} The middle arrow $B\coloneq (\phi_{1,n-1}\circ P\circ (\phi_{n-1,1})^{-1})\wedge \id_Y$ is given by going around the top and commutes by definition. 
+	The bottom square commutes by definition of $A$ together with the naturality of the map $\Xi$ that builds up the $\phi_{l,r}=(\overline{\pi_S^{l+r}})^{-1}\circ \Xi^{-1}\circ (\overline{\pi_S^l}\wedge \overline{\pi_S^r})=(\overline{\pi_S^{l+r}})^{-1}\circ\overline{ (\pi_S^l\times \pi_S^r)}\circ \Xi^{-1}$. (The notation and definition is from Definition \ref{def:ktheo-wedgeOfShoperesIsSphere}) (We omittet the identification of $\R^l\times \R^r=\R^{l+r}$). Now $B=B'\wedge \id_Y$ with 
+	\begin{equation*}
+		B'\,=\,(\overline{\pi_S^{n}})^{-1}\circ\underbrace{\overline{ (\pi_S^{n-1}\times \pi_S^1)}\circ \Xi^{-1}\circ P \circ \Xi\circ \overline{ (\pi_S^1\times \pi_S^{n-1})}^{-1}}_{A:~~\overline{\R^n}\,\to \, \overline{\R^n}}\circ   (\overline{\pi_S^n})
+	\end{equation*}
+	 Finally the linear map $A$ is given by moving the last coordinate to the front and hence has determinant $(-1)^{n-1}$.  Hence, by Lemma \ref{lem:orient-linearMapsOnSmashProducts} we conclude that $(\overline{A}\wedge \id_Y)^*=(-1)^{n-1}\cdot \id$. Hence $B^*=(\overline{\pi_S}\wedge \id_Y)^*\circ (-1)^{n-1}\cdot \id\circ {(\overline{\pi_S}\wedge \id_Y)^*}^{-1}=(-1)^{n-1}\cdot \id$, as it is the conjugation of $(\overline{A}\wedge \id_Y)^*$ via an isomorphism (Alternativly one could say that $\pm \id$ commutes with grop homomorphisms). As the top square commutes we have
+	\begin{equation*}
+		 (P\wedge \id_Y)^*\circ (\phi_{1,n-1}\wedge \id_Y)^*=(-1)^{n-1}(\phi_{n-1,1}\wedge \id_Y)^*\,.
+	\end{equation*} 
+	
+	Putting everything together we conclude that 
+	
+	\begin{align*}
+		\delta 
+		&=-\overline{k_n}^*\circ (\phi_{1,n-1}\wedge \id_Y)^* \\
+		&=-(\id_{S^{n-1}} \wedge \overline{k})^*\circ \underbrace{(P\wedge \id_Y)^*\circ  (\phi_{1,n-1}\wedge \id_Y)^*}_{=(-1)^{n-1}(\phi_{n-1,1}\wedge \id_Y)^*}\\
+		&=(-1)^{n}(\id_{S^{n-1}}\wedge \overline{k})^*\circ \underbrace{(\phi_{n-1,1}\wedge \id_Y)^*}_{\sigma_n}
+	\end{align*}
+
+\end{proof}
+
+\begin{lemma}
+	Let $V$ be an oriented real vector space of dimension $n\geq 1$, let $g:(0,1)\to \R$ be an orientation preserving diffeomorphism where $(0,1)$ is oriented as a subspace of $\R$ (e.g. $g(t)\coloneq \tan(\pi(t-\frac{1}{2}))$) and 
+	\begin{equation*}
+		G_V:\Sigma \overline{V}=S^1\wedge \overline{V}\to \overline{\R\oplus V}\,,
+		\quad [t,v]\mapsto (g(t),v)\,.
+	\end{equation*} Then $G_V$ is a homeomorphism by Lemma \ref{lem:orient-compactificationOfProduct}. We can orient $\R\oplus V$ by putting $\R$ in front. Let $b=\bottg \boxtimes (-)$ be the Bott map. Then there is an $e_n\in \{\pm 1\}$, depending only on $n$, with 
+
+	\begin{equation*}
+		b(\sigma_n(\beta_V))=e_n\cdot G_V^*(\beta_{\R\oplus V})\quad \in \tilde{K}^{-(n+1)}(\Sigma \overline{V})\,,
+	\end{equation*}
+	 where $\sigma_n\coloneq (\phi_{n-1,1} \wedge \id_\overline{V})^*:\tilde{K}^{-n}(\overline{V})= \tilde{K}(S^n\wedge \overline{V})\to \tilde{K}(S^{n-1}\wedge S^1\wedge \overline{V}) \cong \tilde{K}^{-(n-1)}(\Sigma \overline{V})$ similar to Lemma \ref{lem:morseFilt-connectingHomomorphismAlongACollar}.
+\end{lemma}
+\begin{proof}
+	Both sides of the equation are generators of $\tilde{K}^{-(n+1)}(\Sigma \overline{V}) \cong \Z$, as isomorphisms map generators to generators and the isomorphism to $\Z$ follows from $\Sigma \overline{V}\simeq S^{n+1}$. Hence both sides agree up to a sign $e(V)$:
+	\begin{equation*}
+		b(\sigma_n(\beta_V))=e(V) G_V^*(\beta_{\R\oplus V})\quad \in \tilde{K}^{-(n+1)}(\Sigma \overline{V})
+	\end{equation*}
+
+	In the notation of Lemma \ref{lem:orient-compactificationOfProduct}, the map $G_V$ is given by $ \Xi^{-1}\circ (\overline{g}\wedge \id_{\overline{V}})$, where $\overline{g}$ is the extension $I/\partial I\to \overline{\R}$ of $g$ with $\overline{g}(\infty)=\infty$.
+	Let $A$ be an isomorphism $V\to W$. Then using the naturality of $\Xi$ (we omit its indices) we can conclude that:
+	\begin{align*}
+		G_W\circ (\id \wedge \overline{A})
+		&=\Xi^{-1}\circ (\overline{g}\wedge \id_{\overline{W}})\circ (\id \wedge \overline{A})\\
+		&=\overline{({g}\times \id_{{W}})}\circ \Xi^{-1} \circ (\id \wedge \overline{A})\\
+		&=\overline{({g}\times \id_{{W}})} \circ \overline{(\id \times A)}\circ \Xi^{-1} \\
+		&=\overline{(\id \oplus A)}\circ {\overline{({g}\times \id_V})} \circ \Xi^{-1} \\
+		&=\overline{(\id \oplus A)}\circ \underbrace{\Xi^{-1} \circ {(\overline{g}\wedge \overline{\id_{{V}}})}  }_{G_V} 
+	\end{align*}
+
+	Now by Corollary \ref{cor:orient-mapsbetweenabstractVectorSpacesOnKOrientations} we know that 
+	$\overline{A}^*\beta_W=\sign(\det(A))\beta_V$ and $\overline{\id\oplus A}^*(\beta_{\R\oplus W})=\sign\det(A)\beta _{\R\oplus V}$.
+	Now $b$ and $\sigma_n$ are natural, hence commute with topological induced maps:
+	\begin{align*}
+		(\id\wedge \overline{A})^* \circ b\circ \sigma_n (\beta_W)
+		&=b\circ \sigma_n\circ (\overline{A}^*\beta_W)=\sign \det(A) \cdot b\circ \sigma_n (\beta_V)\\
+		(\id\wedge \overline{A})^* \circ G_W^*(\beta_{\R\oplus W})
+		&=(G_W\circ (\id \wedge \overline{A}))^*\beta_{\R\oplus W}
+		=G_V^*\circ\overline{ (\id \oplus {A})}^*\beta_{\R\oplus W}\\
+		&=\sign(\det(A))\cdot G_V^*\beta_{\R\oplus V}
+	\end{align*}
+	We now claim that for fixed $n$ the signs $e(V)$ and $e(W)$ defined above agree (and are thereby independent of the chosen vector space). For this we consider the diagram below, that commutes by the considerations above (naturality of $b$ and $\sigma_n$ and $\Xi$):
+\begin{center}
+	\begin{tikzcd}
+	\rK^{-n}(\overline W) \arrow[r,"b\circ\sigma_n"] \arrow[d,"\overline A^*"'] & \rK^{-(n+1)}(\Sigma\overline W) \arrow[d,"(\id\wedge\overline A)^*"] & \rK^{-(n+1)}(\overline{\R\oplus W}) \arrow[l,"G_W^*"'] \arrow[d,"\overline{\id\oplus A}^*"] \\
+	\rK^{-n}(\overline V) \arrow[r,"b\circ\sigma_n"'] & \rK^{-(n+1)}(\Sigma\overline V) & \rK^{-(n+1)}(\overline{\R\oplus V}) \arrow[l,"G_V^*"]
+\end{tikzcd}\end{center}
+This lets us compute:
+
+
+\begin{align*}
+	(\id \wedge \overline{A})^*\circ (b \circ \sigma_n)(\beta_W)
+	&= \sign \det (A)\cdot \underbrace{ b\circ \sigma_n (\beta_V)}_{e(V) G_V^*(\beta_{\R\oplus V}) }\\
+	&= e(V) \cdot \underbrace{\sign \det (A)\cdot G_V^*(\beta_{\R\oplus V}) }_{(\id\wedge \overline{A})^* \circ G_W^*(\beta_{\R\oplus W})}\\
+	&=e(V) \cdot (\id\wedge \overline{A})^* \circ G_W^*(\beta_{\R\oplus W})
+\end{align*} Now applying $((\id \wedge \overline{A})^*)^{-1}$ from the left (which exists as it is induced by a homeomorphism) gives us that the sign $e(V)$ satisfies the definition of $e(W)$ making them equal. Thereby $e(V)$ is independent of $V$ and only depends on $n$ (and potentially $g$). Finally, it is invariant under the choice of orientation preserving diffeomorphism $g$, as any two such maps $g_0$ and $g_1$ are homotopic via the homotopy $(1-s)g_0+sg_1$ that extends to a homotopy of the compactifications. Hence $(G_V)^*$ and thus $e(V)$ do not depend on $g$.
+\end{proof}
+
+
+
 
 
 \begin{proof}[Proof of Theorem \ref{thm:morseFilt-commutingMorsecoboundary}]
