@@ -519,7 +519,7 @@ Now only the statement about the orientation preservation of $g_q$ at a neighbou
 
 
 
-\begin{remark}
+\begin{remark}\label{rem:morseFiltr-orientDQwithGQ}
 	We can apply the Lemma above to the pair $(D_q,S(q\to))$ together with $g=g_q$, and $U=U_q$ from Lemma \ref{lem:morseFilt-flowTimeAndProjectionToLevelSets} (c). 
 \end{remark}
 
@@ -532,7 +532,7 @@ Now only the statement about the orientation preservation of $g_q$ at a neighbou
 \begin{proof}
 	This follows directly from $pr\circ \restr{\diff  J_x}{0}\circ R_0:\mathcal{N}_x\to Q_x^p$ being a bundle isomorphism. Hence it either is orientation preserving in all fibers, or reversing in all fibers (due to the connected base space). If the latter happens, we redefine $J$ by composing it with a map $\rho$ that reflects, say the first coordinate: Here we choose a global orthonormal trivialisation of $\mathcal{N}$ (which exists since the base space $B_p$ is contractible) such that $\rho$ maps the domain of the tubular embedding isomorphically onto itself. 
 \end{proof}
-\begin{remark}
+\begin{remark}\label{rem:morseFilt-}
 	For a fiber $V_j$ of the tubular neighbourhood from Lemma \ref{lem:morseFilt-npIsTubular} with center $x_j$, we can apply the Lemma \ref{lem:morseFiltr-orientationClassOfADisk} with $U=S^n\setminus \{S\}$ and $g_j$ given by the oriented tubular embedding composed with the inverse of $v\mapsto \pi^{-1}_S\left(\frac{v}{1-\norm{v}}\right)$. Then $g_j(N)=x_j$ for the north pole $N$ and $h_j\coloneq \overline{\kappa_V^{-1}}\circ \overline{\pi_S}\circ g_j^{-1}$ is a map where we can apply the Lemma \ref{lem:morseFiltr-orientationClassOfADisk} above with $h^{-1}(0)=\{x_j\}$ to conclude that $h^*_j(\beta_V)=o_{V_j}$.(It is easy to see that $h_j$ is locally a diffeomorphism and $h$ as invertable differential in the origin.)
 \end{remark}
 \begin{figure}
@@ -753,7 +753,7 @@ Then for all $n\geq 1$ the connecting homomorphism $\delta :\tilde{K}^{-n}(Y)\to
 
 \end{proof}
 
-\begin{lemma}
+\begin{lemma}\label{lem:morseFiltr-bottMapOnOrientedSuspension}
 	Let $V$ be an oriented real vector space of dimension $n\geq 1$, let $g:(0,1)\to \R$ be an orientation preserving diffeomorphism where $(0,1)$ is oriented as a subspace of $\R$ (e.g. $g(t)\coloneq \tan(\pi(t-\frac{1}{2}))$) and 
 	\begin{equation*}
 		G_V:\Sigma \overline{V}=S^1\wedge \overline{V}\to \overline{\R\oplus V}\,,
@@ -814,7 +814,44 @@ This lets us compute:
 \end{proof}
 
 
+\begin{remark}
+ Let $e_n$ be the sign from Lemma \ref{lem:morseFiltr-bottMapOnOrientedSuspension}. Then $e_n=(-1)^n$.
+\end{remark}
+\begin{proof}
+	By Lemma \ref{lem:orient-multiplication} we know that $\beta_{\R\oplus V}=\Xi^*(\beta_{\R}\boxtimes \beta_V)$. Now with $G_V=\Xi^{-1}(\overline{g}\wedge \id)$ and by naturality of $\boxtimes$ we have that
+	\begin{equation*}
+		G^*_V(\beta_{\R\oplus V})=(\overline{g}\wedge \id)^*(\beta_{\R}\boxtimes \beta_V)=(\overline{g}^*\beta_\R)\boxtimes \beta_V =\beta_1\boxtimes \beta_V
+	\end{equation*}
+	On the other side we have $b \circ \sigma_n(\beta_V)=\beta \boxtimes (\sigma_n(\beta_V))$. Now for any $x\in \rK^{-n}(Y)$ we have
+	\begin{equation*}
+		\beta \boxtimes \sigma_n(x)=(-1)^n\beta_1 \boxtimes_{1,n} x \,\in\, \rK^{-(n+1)}(\Sigma Y)\,.
+	\end{equation*}  As both sides are pullbacks of the same product (in the 0th degree) $\beta\boxtimes_{0,0} x\in \rK(S^1\wedge S^1\wedge S^n\wedge Y)$ via two different maps
+	\begin{equation*}
+		S^{n+1}\wedge S^1\wedge Y \to S^1\wedge S^1\wedge S^n\wedge Y.
+	\end{equation*} By definition, $\sigma_n$ takes the last coordinate of the $S^n$ part and maps it to the $S^1$ part. If we give all the coordinates names the left side acts as
+	\begin{align*}
+		S^{n+1}\wedge S^1\wedge Y &\to S^1\wedge S^1\wedge S^n\wedge Y \\
+		(d_1,\dots d_{n+1},s_1,y)&\mapsto(\underbrace{d_1}_{S^1},\underbrace{d_2}_{S^1},\underbrace{d_3,\dots,d_{n+1},s_1}_{S^{n}},\underbrace{y}_{Y})
+	\end{align*} where $d_1$ and $d_2$ correspond to $\beta$. 
+	
+	The right side is defined in Definition \ref{def:kTheo-lowerExternalProduct} as the reduced external product pulled back along a switch of coordinates that swiches the sphere $S^n$ coming from $x\in \rK(S^n\wedge Y)$ with the sphere $S^1$ corresponding to $\beta_1$, or in our notation:
+		\begin{align*}
+		S^{n+1}\wedge S^1\wedge Y &\to S^1\wedge S^1\wedge S^n\wedge Y \\
+		(d_1,\dots d_{n+1},s_1,y)&\mapsto (\underbrace{d_1}_{S^1},\underbrace{s_1}_{S^1},\underbrace{d_2,d_{n+1}}_{S^n},\underbrace{y}_{Y})
+	\end{align*}
 
+	Hence, we can translate $\beta_1 \boxtimes \sigma_n(x)$ into $\beta \boxtimes_{1,n} x$ by pulling back along $P\wedge \id_Y$ , whilst $P$ as a linear map between vector spaces has determinant $(-1)^n$ ( we need to move $s_1$ past $n$ basis vectors corresponding to $d_2,\dots d_{n+1}$), letting us apply Lemma \ref{lem:orient-linearMapsOnSmashProducts} to conclude its pullback is the identity times $(-1)^n$. With $x=\beta_V$ we have that
+	\begin{equation*}
+		b\circ \sigma_n(\beta_V)=(-1)^n\beta_1\boxtimes \beta_V=(-1)^nG_V^*\beta_{\R\oplus V}
+	\end{equation*}
+	and hence $e_n=(-1)^n$.
+\end{proof}
+\begin{lemma}\label{lem:morseFiltr-contributionOfASigleFlowLine}
+	Let $n\coloneq \ind_p\geq 1$, $V_j\subseteq S(q\to)$ a fiber of the tubular neighbourhood $N_p$ with center $x_j\in W(q\to p)$ and denote the flow line through $x_j$ by $\gamma_j\in \mathcal{M}(q\to p)$. Orient $V_j$ such that for an orientation preserving scaling $g:\R^n\to D_{\epsilon}(0)$ the map $h_j\coloneq J\circ g \circ \pi_S^{-1}:S^n\to V_j$ is orientation preserving, where $J$ denotes an oriented tubular embedding as in Lemma \ref{lem:filt-orientedTubularEmbedding}. Let $l_j:S(q\to)\to V_j\partial V_j$ be the collap and $\delta$ be the connecting homomorphism of the pair $(D_q,S(q\to))$. Then 
+	\begin{equation*}
+		b\circ \delta\circ l^*(o_{V_j})=e(\gamma)o_{D_q}\,,
+	\end{equation*} where $o_{D_q}=g_q^{-1}(\beta_{n+1})$ with $g_q:S^{n+1}\to D_q/\partial S(q\to)$ as in Lemma \ref{lem:morseFilt-flowTimeAndProjectionToLevelSets} (c). 
+\end{lemma}
 
 
 \begin{proof}[Proof of Theorem \ref{thm:morseFilt-commutingMorsecoboundary}]

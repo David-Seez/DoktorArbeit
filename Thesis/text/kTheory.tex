@@ -861,10 +861,7 @@ This concludes the calculation of $\pi_S^{-1}\circ \pi_s=\id$ and $\pi_s\circ\pi
 	\begin{equation*}
 		(A\setminus \{a_0\}\times B\setminus\{b_0\})\to (B\setminus \{b_0\}\times A\setminus\{a_0\})
 	\end{equation*}
-	For the kommutativity we can proceed in the same way:
-	\begin{align}
-		A\wedge B \cong \overline{(A\wedge B)^{\circ}}\cong \overline{(B\wedge A)^{\circ}}\cong B \wedge A
-	\end{align}
+
 \end{lemma}
 \begin{proof}
 	Notice how for all compact pointed spaces $(X,x_0)$ the identyty (and $x_0\mapsto \infty)$ is a natural homeomorphism $\overline{X\setminus \{x_0\}}\cong X$ and we denote $X^\circ \coloneq X\setminus \{x_0\}$. Furthermore, the smash product of compact spaces is again compact (as it is a quotient of a closes space). Hence we can just calculate
@@ -877,6 +874,10 @@ This concludes the calculation of $\pi_S^{-1}\circ \pi_s=\id$ and $\pi_s\circ\pi
 		& \cong A\wedge (B\wedge V)\,.
 	\end{align*} 
 
+		For the kommutativity we can proceed in the same way:
+	\begin{align}
+		A\wedge B \cong \overline{(A\wedge B)^{\circ}}\cong \overline{(B\wedge A)^{\circ}}\cong B \wedge A
+	\end{align}
 \end{proof}
 \begin{remark}
 	The statement about associativity can be extended to the category of $\mathbf{CGWH}^*_{\mathbf{cof}}$, but not all pointed topological spaces. \todo{ref einfügen}
@@ -886,10 +887,28 @@ This concludes the calculation of $\pi_S^{-1}\circ \pi_s=\id$ and $\pi_s\circ\pi
 	Let $\pi_s^n$ denote the compactified stereographical projection $\overline{S^n}\to \overline{\R^n}$ 
 	With those methods we can now define the homeomorphism 
 	\begin{equation*}
-		(\pi_s^{n+m})^{-1}\circ \Xi^{-1}\circ (\pi_s^n)\wedge (\pi_s^m) :S^n\wedge S^m \to S^{n+m}\,.
+		\Upsilon_{n,m}\, \coloneq \,(\pi_s^{n+m})^{-1}\circ \Xi^{-1}\circ (\pi_s^n)\wedge (\pi_s^m) :S^n\wedge S^m \to S^{n+m}\,.
 	\end{equation*} Often we will identify smash product of spheres and for those identification we will always use this homeomophism. For the composition to make sence we identify $\R^n\times \R^m$ with $\R^{n+m}$ (also for $n$ or $m$ equal zero.)
 \end{definition}
-
+\begin{remark}[Assoziativity of $\Upsilon$]\label{rem:kTheo-AssoziativityOfUspilon}
+	Let $\Upsilon$ be the map from Definition \ref{def:ktheo-wedgeOfShoperesIsSphere}, and 
+		\begin{equation*}
+			AS:(S^k\wedge S^l)\wedge S^m \to S^k\wedge ( S^l\wedge S^m)
+		\end{equation*}
+	denote the associativity map of the wedge product from Lemma \ref{lem:kTheo-SmaschIsAssociative}. Then for all $k,l,m\in \N$ we have
+	\begin{equation*}
+		\Upsilon_{k+l,m}\circ \big(\Upsilon_{k,l}\wedge \id_{S^m}\big)\,=\, \Upsilon_{k,l+m}\circ \big(\id_{S^k}\wedge \Upsilon_{l,m}\big)\circ AS\,.
+	\end{equation*}
+\end{remark}
+\begin{proof}
+	We will pointwise compare the maps. Both sides map the basepoint to the basepoint. Now assume that $x\in (S^k\wedge S^l)\wedge S^m$ is not the basepoint. Then $x=[[u,v],w]$ with $u,v,w \nequal S$ where $S$ is the South pole. Let $a=\pi_S(u),\, b=\pi_S(v),\,c=\pi_s(w)$. Since $\Xi$ is the identity outside of the base points we know that the left side reads
+	\begin{equation*}
+		\pi_S^{-1}((a,b),c)=\pi_S^{-1}(a,b,c)\,,
+	\end{equation*}whilst the right side reads
+	\begin{equation*}
+		\pi_S^{-1}(a,(b,c))=\pi_S^{-1}(a,b,c)\,.
+	\end{equation*}(Remember, that we omitted the identification of $\R^n\times \R^m\to \R^{n+m})$.
+\end{proof}
 \begin{definition}
 	Let $(X,x_0)$ be a pointed topological space. We define the \textbf{reduced suspension} of $X$ to be 
 	\begin{equation*}
@@ -1890,6 +1909,65 @@ By example \ref{ex:kTheo-LineBundlesSatlquadequalslPlusl} we know that for any l
 	\end{equation*}
 	and by corollary \ref{cor:kTheo-splittingAndConnectionWedgeAndProduct} we know that $q_{A,B}$ is injective. Hence, $Q'^{*}$ is injective, which proves the claim.
 \end{proof}
+
+\begin{definition}[Lower External Product] \label{def:kTheo-lowerExternalProduct}
+
+	Let $a\in \rK^{-n}(X)=\rK(S^n\wedge X)$ and $b\in \rK^{-m}(Y)=\rK(S^m\wedge Y)$. 
+	Then we define $a\boxtimes_{n,m}b\in \rK^{-n-m}(X\wedge Y)$ in three steps:
+	\begin{enumerate}
+		\item First we apply the classical reduced external product:
+		\begin{equation*}
+			a\boxtimes b \,\in \,\rK(S^n\wedge X\wedge S^m\wedge Y)
+		\end{equation*}
+		\item Let $\tau: S^n\wedge X\wedge S^m\wedge Y \to S^n\wedge  S^m\wedge X \wedge Y$ be the map that swaps $S^m$ and $X$. Then:
+			\begin{equation*}
+				\tau^*(a\boxtimes b)\,\in\,\rK(S^n\wedge  S^m\wedge X\wedge Y)
+			\end{equation*}
+		\item Lastly we apply $\Upsilon_{n,m}^{-1}\wedge\id_{X\wedge Y}$ where $\Upsilon:S^n\wedge S^m\to S^{n+m}$ is the map from Definition \ref{def:ktheo-wedgeOfShoperesIsSphere}, to get:
+			\begin{equation*}
+				a\boxtimes_{n,m}b\,\coloneq\, \big(\Upsilon_{n,m}^{-1}\wedge\id_{X\wedge Y}\big)^*\circ  \tau^* \,(a\boxtimes b) \,\in \rK^{-(n+m)}(X\wedge Y)
+			\end{equation*}
+	\end{enumerate}
+\end{definition}
+
+\begin{remark}
+	The lower external product is associative , meaning that for $a\in \rK^{-k}(X),\,b\in \rK^{-l}(Y)\,,c\in \rK^{-m}(Z)$ we have
+	\begin{equation*}
+		(a\boxtimes_{k,l}b)\boxtimes_{k+l,m}c\,=\,a\boxtimes_{l,k+m}(b\boxtimes_{k,m}c)\,,
+	\end{equation*}
+	and natural, meaning that for $f:X\to X'$ and $g:Y\to Y'$
+	\begin{equation*}
+		f^*(a)\boxtimes_{n,m}g^*(b)\,=\, (f\wedge g)^*(a \boxtimes_{n,m} b)\,.
+	\end{equation*}
+\end{remark}
+\begin{proof}
+	We start with the associativity: Let $a\in \rK^{-k}(X),\,b\in \rK^{-l}(Y)\,,c\in \rK^{-m}(Z)$. Let
+	\begin{equation*}
+		\Phi_{k,l}\coloneq \tau\circ \left(\Upsilon^{-1}_{k,l}\wedge \id_{X\wedge Y}\right):(S^{k+l}\wedge X\wedge Y)\to (S^k\wedge X \wedge S^l \wedge Y)\,.
+	\end{equation*}
+	Then we get the shorter form of the lower external product $a\boxtimes_{k,l}b=\Phi_{k,l}^*(a\boxtimes b)$, helping us to calculate:
+\begin{align*}
+	(a\boxtimes_{k,l}b)\boxtimes_{k+l,m}c 
+		&=\Phi_{k+l,m}^*\big(\Phi_{k,l}^*(a\boxtimes b)\boxtimes (\id_{S^m\wedge Z})^*c\big)\\
+		&=\big(\underbrace{(\Phi_{k,l}\wedge \id_{S^m\wedge Z})\circ \Phi_{k+l,m}}_{\eqcolon L}\big)^*((a\boxtimes b)\boxtimes c)\,.
+\end{align*} The last equiality is the naturality of the reduced external product.
+Similarly, we rewrite the other order:
+\begin{equation*}
+	a\boxtimes_{k,l+m}(b\boxtimes_{l,m}c)=\big(\underbrace{(\id_{S^k\wedge X}\wedge \Phi_{l,m})\circ \Phi_{k,l+m}}_{\eqcolon R}\big)^*(a\boxtimes (b\boxtimes c))\,.
+\end{equation*}
+By the associativity of the reduced external product we know that $(a\boxtimes b)\boxtimes c=AS^*(a\boxtimes (b\boxtimes c))$. 
+So what we need now is to show that $AS\circ L=R$ as maps 
+\begin{equation*}
+	S^{k+l+m}\wedge X\wedge Y \wedge Z\to S^k\wedge X\wedge S^l \wedge Y\wedge S^m\wedge Z
+\end{equation*} modulo the identification $(X\wedge X)\wedge Z=X\wedge (Y\wedge Z)$. This can be done pointwise by calculating the image and using the associativity of $\Upsilon$ from Remark \ref{rem:kTheo-AssoziativityOfUspilon}. Both sides of the equation map a point $[p,x,y,z]$ that is not the basepoint with $\pi_S(p)=(\alpha,\beta,\gamma)\in \R^k\times \R^l\times \R^m$ to
+\begin{equation*}
+	[\pi^{-1}_S (\alpha),x,\pi_S^{-1}(\beta),y,\pi_S^{-1}(\gamma),z]\,.
+\end{equation*}
+
+Finally, the naturality is shorter and follows from the naturality of $\boxtimes$ and $\Phi_{k,l}$, which in turn follows from the naturality of $\Xi$, together with the naturalitys of the swapping $\tau$.
+\end{proof}
+
+
 \begin{remark}\label{rem:kTheo-neutralELementExternalProduct}
 	Let $\zeta$ be the vector bundle  over $S^0=\{-1,+1\}$ that is $\underline{1}$ over $-1$ and $\underline{0}$ over $+1$. Then $[\xi]$ is a generator of $\tilde{K}(S^0)$, as any bundle that is in the cernal of the inclusion of $+1$ is $\underline{0}$ over $+1$, and trivial over $\{-1\}$. Let $\xi\in \tilde{K}(Y)$ be represented by $\xi=[\xi_1]-[\xi_2]$ such that $\xi_i$ are vector bundles $(i=1,2)$ over a pointed topological space $Y$. Then for $i=1,2$:
 	\begin{equation*}
@@ -1985,10 +2063,14 @@ By example \ref{ex:kTheo-LineBundlesSatlquadequalslPlusl} we know that for any l
     \end{equation*}
     for the homeomorphism of Definition \ref{def:ktheo-wedgeOfShoperesIsSphere},
     we define inductively
-    \begin{equation*}
-        \bottg_n\coloneq \left(\Upsilon_{1,n-1}^{*}\right)^{-1}
-        \left(\bottg_1\boxtimes \bottg_{n-1}\right)\in \tilde{K}^{}(S^{2n}) \cong \tilde{K}^{-n}(S^{n})\,.
-    \end{equation*}
+	\begin{equation*}
+		\beta_n\coloneq (\id_{S^n}\wedge \Upsilon^{-1}_{1,n-1})\beta_1\boxtimes_{1,n-1}\beta_{n-1}\in \tilde{K}^{-n}(S^n)
+	\end{equation*}
+ Or alternatively, using the associativity of $\Upsilon$ from Remark \ref{rem:kTheo-AssoziativityOfUspilon} we can rewrite this to be 
+	\begin{equation*}
+		\bottg_n=\Upsilon^n(\underbrace{\beta_1\boxtimes \cdots \boxtimes \beta_1}_{n\text{-times}}),
+	\end{equation*} where $\Upsilon^n:\underbrace{S^2\wedge \cdots \wedge S^2}_{n\text{-times}}\to S^{2n}$ denotes iterative application of $S^1\wedge S^l\to S^{1+l}$ that keeps the order of the coordinates.
+
     By Theorem \ref{thm:Ktheo-BottPeriodicity}, the external product
     with $\bottg_1$ is an isomorphism, so each $\bottg_n$ is a generator.
 \end{definition}
