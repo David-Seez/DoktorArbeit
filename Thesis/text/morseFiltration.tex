@@ -532,8 +532,13 @@ Now only the statement about the orientation preservation of $g_q$ at a neighbou
 \begin{proof}
 	This follows directly from $pr\circ \restr{\diff  J_x}{0}\circ R_0:\mathcal{N}_x\to Q_x^p$ being a bundle isomorphism. Hence it either is orientation preserving in all fibers, or reversing in all fibers (due to the connected base space). If the latter happens, we redefine $J$ by composing it with a map $\rho$ that reflects, say the first coordinate: Here we choose a global orthonormal trivialisation of $\mathcal{N}$ (which exists since the base space $B_p$ is contractible) such that $\rho$ maps the domain of the tubular embedding isomorphically onto itself. 
 \end{proof}
-\begin{remark}\label{rem:morseFilt-}
-	For a fiber $V_j$ of the tubular neighbourhood from Lemma \ref{lem:morseFilt-npIsTubular} with center $x_j$, we can apply the Lemma \ref{lem:morseFiltr-orientationClassOfADisk} with $U=S^n\setminus \{S\}$ and $g_j$ given by the oriented tubular embedding composed with the inverse of $v\mapsto \pi^{-1}_S\left(\frac{v}{1-\norm{v}}\right)$. Then $g_j(N)=x_j$ for the north pole $N$ and $h_j\coloneq \overline{\kappa_V^{-1}}\circ \overline{\pi_S}\circ g_j^{-1}$ is a map where we can apply the Lemma \ref{lem:morseFiltr-orientationClassOfADisk} above with $h^{-1}(0)=\{x_j\}$ to conclude that $h^*_j(\beta_V)=o_{V_j}$.(It is easy to see that $h_j$ is locally a diffeomorphism and $h$ as invertable differential in the origin.)
+\begin{remark}\label{rem:morseFilt-OrientVjWithFunctions}
+	Let $V_j$ be a fibre of the tubular neighbourhood from Lemma \ref{lem:morseFilt-npIsTubular} that intersects $S(q\to)$ in $x_j$. Now we orient $V_j$ such that the quotient map $T_{x_j}V_j\to (T_{x_j}M)/(T_{x_j}W(\to p)=Q^p_{x_j}$ is orientation preserving. Then $V_j$ is the image of a fiber of the tubular embedding $J:\mathcal{N}^\epsilon \to M$, where $\mathcal{N}^\epsilon$ denotes the tube arround the $0$ section of radius $\epsilon$ in the normal bundle $\mathcal{N}$. Let $r_j$ be the radial map $\mathcal{N_{x_j}}\to \mathcal N_{x_j}^\epsilon$ (the inverse of $v\mapsto (\frac{1}{\epsilon -\norm{v}})$), and let $\mathfrak{p}_j$ be an oriented basis of the normal bundle $\mathcal{N}$. Finally, let $J$ be an oriented Tubular embedding.
+	Then we define 
+	\begin{equation*}
+		g_j\coloneq \overline{J_{x_0}}  \circ \overline{r_j}\circ \overline{\kappa_{\mathfrak{p}_j}}\circ \overline{\pi_S}:S^n\to V_j/\partial V_j\,.
+	\end{equation*} 
+	 Arround the north pole, the map $g_j$ is a diffeomorphism orientation preserving, as $\overline{\pi_S}$ is, and so is $J_{x_0}\circ r_j\circ \kappa_{\mathfrak{p}_j}$ (which is true by Lemma \ref{lem:filt-orientedTubularEmbedding}). Hence, their compactifications are orientation preserving. Now for any oriented vector space $V$ we define $h_j:\overline{\kappa_V^{-1}}\circ \overline{\pi_S}\circ g_j^{-1}$. in this setup, we can apply the Lemma \ref{lem:morseFiltr-orientationClassOfADisk} above with $h^{-1}(0)=\{x_j\}$ to conclude that $h^*_j(\beta_V)=o_{V_j}=(g_j^{-1})^*(\beta_n)$.(It is easy to see that $h_j$ is locally a diffeomorphism and $h$ as invertable differential in the origin.)
 \end{remark}
 \begin{figure}
 	\centering
@@ -663,6 +668,39 @@ T_x\Sigma \arrow[r, "\restr{\diff h}{x}"] \arrow[d, "\cong"'] & T^u_qM{}        
  Then, Step 2 gives us that $\kappa_{\tilde{\psi}}^*(\beta_{T^u_qM})=\alpha_q^{(N_{\tilde{\psi}},L_{\tilde{\psi}})}\in (\alpha_q)_{\#}$. Thereby $c^* \circ \kappa_{\tilde{\psi}}^*(\beta_{T^u_qM})=\alpha_q^{(N,L)}$ by definition. This finally concludes the proof.
 \end{proof}
 
+
+
+\begin{definition}
+	Let	$\phi_{l,r}:S^l\wedge S^r\to S^{l+r}$ be the map from Definition \ref{def:ktheo-wedgeOfShoperesIsSphere}.
+	Then the map 
+		\begin{equation*}
+			\sigma_n:\tilde{K}^{-n}(Y)\to \tilde{K}^{-n+1}(\Sigma Y) 
+		\end{equation*}
+	given by the identifications
+	\begin{equation*}
+		\sigma_n: \tilde{K}^{-n}(Y)=\tilde{K}(S^n\wedge Y) \xrightarrow{(\phi_{n-1,1}\wedge\id_Y)^*}\tilde{K}(S^{n-1}\wedge S^1\wedge Y)=\tilde{K}^{-n+1}(\Sigma Y)
+	\end{equation*}
+	is natural, meaning for any $f:Y\to Y'$ the diagram 
+	\begin{center}
+		\begin{tikzcd}
+			\tilde{K}^{-n}(Y') \arrow[r, "\sigma_n"] \arrow[d, "f^*"] & \tilde{K}^{-n+1}(\Sigma Y') \arrow[d, "\Sigma(f)^*"] \\
+			\tilde{K}^{-n}(Y) \arrow[r, "\sigma_n"]                 & \tilde{K}^{-n+1}(\Sigma Y)                        
+		\end{tikzcd}
+	\end{center} comutes.
+\end{definition}
+\begin{proof}
+	This follows directly from the definitions. Remember that $\Sigma(f):S^1\wedge Y\to S^1\wedge Y'$ is given by $\id_{S^1}\wedge f$, and \begin{equation*}
+		\Sigma(f)^*:\tilde{K}^{-n+1}(\Sigma Y')=\tilde{K}(S^{-n+1}\wedge \Sigma Y')\xrightarrow{(\id_{S^{n-1}}\wedge \id_{S^1} \wedge f)^*} \tilde{K}(S^{-n+1}\wedge \Sigma Y)=\tilde{K}^{-n+1}(\Sigma Y)
+	\end{equation*}
+	Now there is the obvious equality 
+	\begin{equation*}
+		(\phi_{n-1,1})\circ (\id_{S^{n-1}}\wedge S^1)=(\id_{S^n})\circ \phi_{n-1,1}
+	\end{equation*} That follows from the definition of $\phi_{l,r}=\pi_S^{l+r}\circ \Xi^{-1}\circ (\pi_S^l\wedge \pi_S^r)$ together with the naturality of $\Xi$.
+But then we can just calculate
+	\begin{align*}
+		\Sigma(f)^*\circ \sigma_n=\big((\phi_{n-1,1}\wedge \id_Y)\circ (\id_{S^{n-1}}\wedge \id_{S^1}\wedge f)\big)^*=\big((\id_{S^n}\wedge f)\circ \phi_{n-1,1}\wedge \id_Y\big)^*=\sigma_n\circ f^*
+	\end{align*}
+\end{proof}
 
 
 
@@ -847,11 +885,67 @@ This lets us compute:
 	and hence $e_n=(-1)^n$.
 \end{proof}
 \begin{lemma}\label{lem:morseFiltr-contributionOfASigleFlowLine}
-	Let $n\coloneq \ind_p\geq 1$, $V_j\subseteq S(q\to)$ a fiber of the tubular neighbourhood $N_p$ with center $x_j\in W(q\to p)$ and denote the flow line through $x_j$ by $\gamma_j\in \mathcal{M}(q\to p)$. Orient $V_j$ such that for an orientation preserving scaling $g:\R^n\to D_{\epsilon}(0)$ the map $h_j\coloneq J\circ g \circ \pi_S^{-1}:S^n\to V_j$ is orientation preserving, where $J$ denotes an oriented tubular embedding as in Lemma \ref{lem:filt-orientedTubularEmbedding}. Let $l_j:S(q\to)\to V_j\partial V_j$ be the collap and $\delta$ be the connecting homomorphism of the pair $(D_q,S(q\to))$. Then 
+	Let $n\coloneq \ind_p\geq 1$, $V_j\subseteq S(q\to)$ a fiber of the tubular neighbourhood $N_p$ with center $x_j\in W(q\to p)$ and denote the flow line through $x_j$ by $\gamma_j\in \mathcal{M}(q\to p)$. Orient $V_j$ such that the quotient map $T_{x_j}V_j \to Q^p_{x_j}$ is orientation preserving.(it is easy to see that it is an isomorphism). Let $l_j:S(q\to)\to V_j/\partial V_j$ be the collap and $\delta$ be the connecting homomorphism of the pair $(D_q,S(q\to))$. Then 
 	\begin{equation*}
 		b\circ \delta\circ l^*(o_{V_j})=e(\gamma)o_{D_q}\,,
-	\end{equation*} where $o_{D_q}=g_q^{-1}(\beta_{n+1})$ with $g_q:S^{n+1}\to D_q/\partial S(q\to)$ as in Lemma \ref{lem:morseFilt-flowTimeAndProjectionToLevelSets} (c). 
+	\end{equation*} where $o_{D_q}=(g_q^{-1})^*(\beta_{n+1})$ with $g_q:S^{n+1}\to D_q/\partial S(q\to)$ as in Lemma \ref{lem:morseFilt-flowTimeAndProjectionToLevelSets} (c), and $o_V=(g_j^{-1})^*(\beta_n)$ as in Remark \ref{rem:morseFilt-OrientVjWithFunctions}. Said different, the diagram commutes:
+	\begin{center}
+		\begin{tikzcd}
+\tilde{K}^n(V_j/\partial V_j) \arrow[r,"l_j^*"] \arrow[rrd, "o_V\mapsto e(\gamma_j)(o_{D_q})"', sloped, pos=0.5] & \tilde{K}^{-n}(S(q\to)) \arrow[r, "\delta"] & {\tilde{K}^{-n+1}(D_q,S(q\to))} \arrow[d, "b"] \\
+                                                                                        &                                             & {\tilde{K}^{-(n+1)}(D_q,S(q\to))}             
+\end{tikzcd}
+	\end{center}
 \end{lemma}
+
+\begin{proof}By Lemma \ref{lem:morseFilt-flowTimeAndProjectionToLevelSets} we know that the map $g_q$ restricts to an orientation preserving diffeomorphism over the set $\{x\in D_q \mid \tau(x)>T_q\}$ for some $T_q\geq 0$.Let $T_0>2T_q$ and define the maps 
+	\begin{equation*}
+		s:D_q\to [1,\infty)\,,\quad x\mapsto \min\{\frac{\tau(x)}{T_0},1\}
+	\end{equation*}
+and 
+\begin{equation*}
+	r:D_q\to S(q\to)\,,\quad x\mapsto \rho(x)\,.
+\end{equation*}
+Now we consider the vectorspace $Q_{x_j}^p$ and its corresponding generator $o_{V_j}=h_j^*(\beta_{Q_{x_j}^p})$ where $h_j$ is the mapping $(V_j/\partial V_j)\to \overline{Q_{x_j}^p}$ Now we want to calculate the connecting homomorphism along the collar $S(q)$ in $D_q$ letting us apply Lemma \ref{lem:morseFilt-connectingHomomorphismAlongACollar}, to the pair with the map $s$ and $r$.
+Furthermore, the naturality of $\sigma_n$ and $b$ let us deduce
+that
+\begin{align*}
+	b\circ \delta \circ l_j^*\circ h_j^*(\beta_{Q_{x_j}^p})
+	&=(-1)^n\cdot b\circ \overline{k}^*\circ \sigma_n \circ l_j^*\circ h_j^*(\beta_{Q_{x_j}^p})\\
+	&=(-1)^n\cdot (\Sigma(h_j\circ l_j)\circ \overline{k})^* b \circ \sigma_n(\beta_{Q_{x_j}^p})\\
+	&=(\underbrace{G_V\circ \Sigma(h_j\circ l_j)\circ \overline{k}}_{\coloneq F})^*(\beta_{\R\oplus Q_{x_j}^p})
+\end{align*}
+Now we can calculate $F: D_q\big/S(q\to )\to \overline{R\oplus Q^p_{x_j}}$ explicitly:
+\begin{equation*}
+	F(z)\mapsto \begin{cases}
+		[g(1-s(z)),h_j\circ l_j\circ r(z)]&\text{ if }s(z) \text{ and }z\notin S(q\to)<1\Leftrightarrow 0<\tau(x)<T_0\\
+		[S(q\to)]& \text{else}\,,
+	\end{cases}
+\end{equation*} where $g$ denotes a orientation preserving diffeomorphism $(0,1)\to \R$. 
+Gemoetrically, the map $g(1-s(z))$ increases, as we move towards $S(q\to)$. This is the place, where we make sure to point the first basis vector downward, and builds the geometric bridge to the morse co-boundary map. But now $F(z)=0$, if and only if $s(z)=1$ meaning that $2\tau(z)=T_0$ and $\rho(z)=x_j$ meaning that $F^{-1}(0)=\{\phi_{-\frac{1}{2}T_0}(x_j)\}=\{\hat{x_j\}}$. Let $(w_1,\dots ,w_n)$ be a positive basis of $T_{x_j}V_j=T_{x_j}S(q\to)$. By Lemma \ref{lem:morseFilt-flowTimeAndProjectionToLevelSets} (a) and (b) we have that $\diff(\tau)(-\grad(f))=-1$ and $s(\hat{x_j}=\frac{1}{2})$. Hence, 
+\begin{equation*}
+	\diff_{\hat{x_j}} (g(1-s(z)))(-\grad_{\hat{x_j}}(f))=g'(\frac{1}{2})\cdot \frac{1}{T_0}\,.
+\end{equation*} And since
+ $\diff \rho (-\grad(f))=0$ we have
+\begin{equation*}
+\restr{\diff F}{\hat{x_j}}(-\grad_{\hat{x_j}}(f))=\Big(g'(\frac{1}{2})\cdot \frac{1}{T_0},0\Big)\,.
+\end{equation*} Similar we calculate
+\begin{equation*}
+	\restr{\diff F}{\hat{x_j}}(\restr{\diff_{\phi_{-\frac{T_0}{2}}}{\hat{x_j}}w_i})=\Big(0,\restr{\diff h_j}{x_j}w_i \Big)\,.
+\end{equation*}
+Since $h_j$ is locally a diffeomorphism, and $g$ was choosen to be one, we get basis 
+\begin{align*}
+	&\Big(	\restr{\diff F}{\hat{x_j}} (g(1-s(z)))(-\grad_{\hat{x_j}}(f))\,,\,\restr{\diff F}{\hat{x_j}}(\restr{\diff_{\phi_{-\frac{T_0}{2}}}{\hat{x_j}}w_1})\,,\,\dots\,,\, \restr{\diff F}{\hat{x_j}}(\restr{\diff_{\phi_{-\frac{T_0}{2}}}{\hat{x_j}}w_n})\Big) \\
+	=&\restr{\diff F}{\hat{x_j}}\Big(-\grad_{\hat{x_j}},\diff_{\phi_{-\frac{T_0}{2}}w_1},\dots,\diff_{\phi_{-\frac{T_0}{2}}w_n}\Big)
+\end{align*} of $\R\oplus Q^p_{x_j}$. This basis is positive, as long as $\restr{\diff h_j}{x_j}:T_{x_j}(V_j)\to Q^p_{x_j}$ is orientation preserving which we already figured ou to be true in Lemma \ref{rem:morseFilt-OrientVjWithFunctions}. Hence, we introduced a positive basis via $\restr{\diff F}{\hat{x_j}}$. Hence, the map itself is orientation preserving, if and only if the basis 
+ 
+\begin{equation*}
+	\Big(-\grad_{\hat{x}_j},\;
+	\restr{\diff \phi_{-\frac{T_0}{2}}}{\hat{x}_j}\, w_1,\;\dots,\;
+	\restr{\diff \phi_{-\frac{T_0}{2}}}{\hat{x}_j}\, w_n\Big)
+\end{equation*}
+is positive in $T_{\hat{x_j}}W(q\to)$.
+ This basis is part of an oriented frame given by $(y)$
+\end{proof}
 
 
 \begin{proof}[Proof of Theorem \ref{thm:morseFilt-commutingMorsecoboundary}]
