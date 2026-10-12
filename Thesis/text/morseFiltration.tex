@@ -184,7 +184,7 @@ We know the K-group of such a pair to be:
 
 
 	
-\begin{example}[A Map of K-Groups]
+\begin{definition}[A Map of K-Groups]\label{def:morseFiltr-aMapOfKGroups}
 	Let $f:M\to \R$ be a Morse-Smale function on a smooth compact Riemannian manifold $(M,g)$. Let $q\in \Crit_k(f)$ and $p\in \Crit_{k-1}(f)$. Assume for a moment we already have a regular index pair $(N_2,N_0)$ of the isolated compact subset $S=W(p\to q)\cup\{p,q\}$. 
 	For a $c\in (f(p),f(q))$, we set $N_1=N_0\cup (N_2 \cap M^c)$, where $M^c$ is the sublevel set. Clearly now $(N_2,N_1)$ is a regular index pair of $q$ and $(N_1,N_0)$ is a regular index pair of $p$.
 	
@@ -198,7 +198,7 @@ We know the K-group of such a pair to be:
 \end{equation*} 
 
 Due to the naturality of the triple connecting homomorphism, the inclusion and the collapsing, any list of topological triples $(X,Y,Z)$ such that $(X,Y)$ is a regular index pair of $\{q\}$, $(Y,Z)$ of $\{p\}$ and $(X,Z)$ of $W(q\to p)\cup \{q\}\cup \{p\}$ for all $q\in \Crit_k(f),p\in \Crit_{k-1}(f)$ gives rise to the same morphism of canonical isomorphism classes.
-\end{example}	
+\end{definition}	
 
 
 \subsection{Commuting Boundary Maps}
@@ -891,7 +891,7 @@ This lets us compute:
 	\end{equation*} where $o_{D_q}=(g_q^{-1})^*(\beta_{n+1})$ with $g_q:S^{n+1}\to D_q/\partial S(q\to)$ as in Lemma \ref{lem:morseFilt-flowTimeAndProjectionToLevelSets} (c), and $o_V=(g_j^{-1})^*(\beta_n)$ as in Remark \ref{rem:morseFilt-OrientVjWithFunctions}. Said different, the diagram commutes:
 	\begin{center}
 		\begin{tikzcd}
-\tilde{K}^n(V_j/\partial V_j) \arrow[r,"l_j^*"] \arrow[rrd, "o_V\mapsto e(\gamma_j)(o_{D_q})"', sloped, pos=0.5] & \tilde{K}^{-n}(S(q\to)) \arrow[r, "\delta"] & {\tilde{K}^{-n+1}(D_q,S(q\to))} \arrow[d, "b"] \\
+\tilde{K}^n(V_j/\partial V_j) \arrow[r,"l_j^*"] \arrow[rrd, "o_{V_j}\mapsto e(\gamma_j)(o_{D_q})"', sloped, pos=0.5] & \tilde{K}^{-n}(S(q\to)) \arrow[r, "\delta"] & {\tilde{K}^{-n+1}(D_q,S(q\to))} \arrow[d, "b"] \\
                                                                                         &                                             & {\tilde{K}^{-(n+1)}(D_q,S(q\to))}             
 \end{tikzcd}
 	\end{center}
@@ -908,12 +908,12 @@ and
 Now we consider the vectorspace $Q_{x_j}^p$ and its corresponding generator $o_{V_j}=h_j^*(\beta_{Q_{x_j}^p})$ where $h_j$ is the mapping $(V_j/\partial V_j)\to \overline{Q_{x_j}^p}$ Now we want to calculate the connecting homomorphism along the collar $S(q)$ in $D_q$ letting us apply Lemma \ref{lem:morseFilt-connectingHomomorphismAlongACollar}, to the pair with the map $s$ and $r$.
 Furthermore, the naturality of $\sigma_n$ and $b$ let us deduce
 that
-\begin{align*}
+\begin{align}
 	b\circ \delta \circ l_j^*\circ h_j^*(\beta_{Q_{x_j}^p})
-	&=(-1)^n\cdot b\circ \overline{k}^*\circ \sigma_n \circ l_j^*\circ h_j^*(\beta_{Q_{x_j}^p})\\
-	&=(-1)^n\cdot (\Sigma(h_j\circ l_j)\circ \overline{k})^* b \circ \sigma_n(\beta_{Q_{x_j}^p})\\
-	&=(\underbrace{G_V\circ \Sigma(h_j\circ l_j)\circ \overline{k}}_{\coloneq F})^*(\beta_{\R\oplus Q_{x_j}^p})
-\end{align*}
+	&=(-1)^n\cdot b\circ \overline{k}^*\circ \sigma_n \circ l_j^*\circ h_j^*(\beta_{Q_{x_j}^p})\label{eq:morseFiltr-boundaryMorphismInASingleFlowLine}\\
+	&=(-1)^n\cdot (\Sigma(h_j\circ l_j)\circ \overline{k})^* b \circ \sigma_n(\beta_{Q_{x_j}^p}) \notag\\
+	&=(\underbrace{G_V\circ \Sigma(h_j\circ l_j)\circ \overline{k}}_{\coloneq F})^*(\beta_{\R\oplus Q_{x_j}^p}) \notag
+\end{align}
 Now we can calculate $F: D_q\big/S(q\to )\to \overline{R\oplus Q^p_{x_j}}$ explicitly:
 \begin{equation*}
 	F(z)\mapsto \begin{cases}
@@ -921,7 +921,7 @@ Now we can calculate $F: D_q\big/S(q\to )\to \overline{R\oplus Q^p_{x_j}}$ expli
 		[S(q\to)]& \text{else}\,,
 	\end{cases}
 \end{equation*} where $g$ denotes a orientation preserving diffeomorphism $(0,1)\to \R$. 
-Gemoetrically, the map $g(1-s(z))$ increases, as we move towards $S(q\to)$. This is the place, where we make sure to point the first basis vector downward, and builds the geometric bridge to the morse co-boundary map. But now $F(z)=0$, if and only if $s(z)=1$ meaning that $2\tau(z)=T_0$ and $\rho(z)=x_j$ meaning that $F^{-1}(0)=\{\phi_{-\frac{1}{2}T_0}(x_j)\}=\{\hat{x_j\}}$. Let $(w_1,\dots ,w_n)$ be a positive basis of $T_{x_j}V_j=T_{x_j}S(q\to)$. By Lemma \ref{lem:morseFilt-flowTimeAndProjectionToLevelSets} (a) and (b) we have that $\diff(\tau)(-\grad(f))=-1$ and $s(\hat{x_j}=\frac{1}{2})$. Hence, 
+Gemoetrically, the map $g(1-s(z))$ increases, as we move towards $S(q\to)$. This is the place, where we make sure to point the first basis vector downward, and builds the geometric bridge to the morse co-boundary map. But now $F(z)=0$, if and only if $s(z)=1$ meaning that $2\tau(z)=T_0$ and $\rho(z)=x_j$ meaning that $F^{-1}(0)=\{\phi_{-\frac{1}{2}T_0}(x_j)\}=\{\hat{x_j\}}$. Let $(w_1,\dots ,w_n)$ be a positive basis of $T_{x_j}V_j=T_{x_j}S(q\to)$. By Lemma \ref{lem:morseFilt-flowTimeAndProjectionToLevelSets} (a) and (b) we have that $\diff(\tau)(-\grad(f))=-1$ and $s(\hat{x_j})=\frac{1}{2}$. Hence, 
 \begin{equation*}
 	\diff_{\hat{x_j}} (g(1-s(z)))(-\grad_{\hat{x_j}}(f))=g'(\frac{1}{2})\cdot \frac{1}{T_0}\,.
 \end{equation*} And since
@@ -930,22 +930,36 @@ Gemoetrically, the map $g(1-s(z))$ increases, as we move towards $S(q\to)$. This
 \restr{\diff F}{\hat{x_j}}(-\grad_{\hat{x_j}}(f))=\Big(g'(\frac{1}{2})\cdot \frac{1}{T_0},0\Big)\,.
 \end{equation*} Similar we calculate
 \begin{equation*}
-	\restr{\diff F}{\hat{x_j}}(\restr{\diff_{\phi_{-\frac{T_0}{2}}}{\hat{x_j}}w_i})=\Big(0,\restr{\diff h_j}{x_j}w_i \Big)\,.
+	\restr{\diff F}{\hat{x}_j}(\restr{\diff_{\phi_{-(\sfrac{T_0}{2})}}}{{x_j}}w_i)=\Big(0,\restr{\diff h_j}{x_j}w_i \Big)\,.
 \end{equation*}
 Since $h_j$ is locally a diffeomorphism, and $g$ was choosen to be one, we get basis 
 \begin{align*}
-	&\Big(	\restr{\diff F}{\hat{x_j}} (g(1-s(z)))(-\grad_{\hat{x_j}}(f))\,,\,\restr{\diff F}{\hat{x_j}}(\restr{\diff_{\phi_{-\frac{T_0}{2}}}{\hat{x_j}}w_1})\,,\,\dots\,,\, \restr{\diff F}{\hat{x_j}}(\restr{\diff_{\phi_{-\frac{T_0}{2}}}{\hat{x_j}}w_n})\Big) \\
-	=&\restr{\diff F}{\hat{x_j}}\Big(-\grad_{\hat{x_j}},\diff_{\phi_{-\frac{T_0}{2}}w_1},\dots,\diff_{\phi_{-\frac{T_0}{2}}w_n}\Big)
-\end{align*} of $\R\oplus Q^p_{x_j}$. This basis is positive, as long as $\restr{\diff h_j}{x_j}:T_{x_j}(V_j)\to Q^p_{x_j}$ is orientation preserving which we already figured ou to be true in Lemma \ref{rem:morseFilt-OrientVjWithFunctions}. Hence, we introduced a positive basis via $\restr{\diff F}{\hat{x_j}}$. Hence, the map itself is orientation preserving, if and only if the basis 
- 
-\begin{equation*}
-	\Big(-\grad_{\hat{x}_j},\;
-	\restr{\diff \phi_{-\frac{T_0}{2}}}{\hat{x}_j}\, w_1,\;\dots,\;
-	\restr{\diff \phi_{-\frac{T_0}{2}}}{\hat{x}_j}\, w_n\Big)
-\end{equation*}
+	&\Big(	\restr{\diff F}{\hat{x_j}} (g(1-s(z)))(-\grad_{\hat{x_j}}(f))\,,\,\restr{\diff F}{\hat{x_j}}(\restr{\diff_{\phi_{-(\sfrac{T_0}{2})}}}{{x_j}}w_1)\,,\,\dots\,,\, \restr{\diff F}{\hat{x_j}}(\restr{\diff_{\phi_{-(\sfrac{T_0}{2})}}}{{x_j}}w_n)\Big) \\
+	=&\restr{\diff F}{\hat{x_j}}\Big(-\grad_{\hat{x_j}},\restr{\diff_{\phi_{-(\sfrac{T_0}{2})}}}{{x_j}}w_1,\dots,\restr{\diff_{\phi_{-(\sfrac{T_0}{2})}}}{{x_j}}w_n\Big)
+\end{align*} of $\R\oplus Q^p_{x_j}$. This basis is positive, as long as $\restr{\diff h_j}{x_j}:T_{x_j}(V_j)\to Q^p_{x_j}$ is orientation preserving which we already figured ou to be true in Lemma \ref{rem:morseFilt-OrientVjWithFunctions}. Hence, we introduced a positive basis via $\restr{\diff F}{\hat{x_j}}$. Hence, the map $\restr{\diff f}{\hat{x}_j}$ is orientation preserving, if and only if the basis 
+\begin{align*}
+	&\Big(-\grad_{\hat{x}_j},\restr{\diff_{\phi_{-(\sfrac{T_0}{2})}}}{{x_j}}w_1,\dots,\restr{\diff_{\phi_{-(\sfrac{T_0}{2})}}}{{x_j}}w_n\Big)\\
+	&\Big(-\grad_{\phi_{-(\sfrac{T_0}{2})}(x_j)},\restr{\diff_{\phi_{-(\sfrac{T_0}{2})}}}{{x_j}}w_1,\dots,\restr{\diff_{\phi_{-(\sfrac{T_0}{2})}}}{{x_j}}w_n\Big)
+\end{align*}
 is positive in $T_{\hat{x_j}}W(q\to)$.
- This basis is part of an oriented frame given by $(y)$
+ This basis is part of an oriented local frame over $\{\phi_{-s}(x_j)\mid s\in[0,\infty)\}\subset D_q$. In $s=0$ this frame gives us the basis
+\begin{equation*}
+	(-\grad_{x_j}(f),w_1,\dots,w_n)
+\end{equation*} Which is an oriented basis of $TW(q\to)$ that carries the same orientation, as the fiber over $x_j$ in the oriented bundle that inherits its orientation via the exact sequence
+\begin{center}
+	\begin{tikzcd}
+		0\arrow[r] &{T\gamma_j}\arrow[r,"i"]&\restr{TW(q\to)}{\gamma_j} \arrow[r,"p"] &\restr{TM \big/ TW(\to p)}{\gamma_j} \arrow[r]&0
+	\end{tikzcd}
+\end{center}
+Hence, local frame is oriented for all $s$, iff the frame is oriented for $s=1$, which happens, if the induced orientation of the exact sequence agrees with the one in $W(q\to)$. Hence, the orientability of $\restr{\diff f}{\hat{x}_j}$ is equivalent to $e(\gamma_j)=1$. 
+
+We can now continue our calculation in equation (\ref{eq:morseFiltr-boundaryMorphismInASingleFlowLine}) and apply Lemma \ref{lem:morseFiltr-orientationClassOfADisk} to conclude that 
+\begin{equation*}
+	b\circ \delta \circ l_j^*\circ \underbrace{h_j^*(\beta_{Q_{x_j}^p})}_{(o_{V_j})}=e(\gamma_j)(\beta_{0_{D_q}})\,.
+\end{equation*}
+
 \end{proof}
+\todo{local frames are oriented with respect to the subspace orientation, iff in any fiber, the base is oriented}
 
 
 \begin{proof}[Proof of Theorem \ref{thm:morseFilt-commutingMorsecoboundary}]
@@ -968,17 +982,20 @@ is positive in $T_{\hat{x_j}}W(q\to)$.
 				{K^{-\lambda_p}\left[ S(q\to),S(q\to)\setminus \bigcup\limits_j \inti(V_j) \right]} \arrow[r, "\delta_{triple}^2"] \arrow[d, "i_j^*"', shift right=2] & {K^{-\lambda_q}\left[W(q\to)\cap N_q,S(q\to) \right]}       \\
 				{K^{-\lambda_p}\left[ V_j,\partial V_j \right]} \arrow[ru, "f^j"'] \arrow[u, "c_j^*"']                                                  &                                                            
 			\end{tikzcd} 
+			\label{diag:morseFiltr-boundaryMapsummonds}
 		\end{fdiagram}
 		Now $i^*_{C,B}$ is an isomorphism, because the collapsing of the tubular neighbourhood $N_q$ induces a homotopy equivalence
 		\begin{equation*}
 			\frac{N_q\cup N_p}{N_p\cap L_q}		 	\, \cong \, 
 			 \frac{N_q}{L_q}		  				\; \to   \; 
 			\frac{W(q\to)\cap M_c}{L_q\cap W(q\to)} \, \cong \, \frac{W(q\to)\cap N_q}{S(q\to)}
-		\end{equation*} that is inverse to the inclusion (once the pairs are viewed as pointed quotients). For the rest of the proof we will often argue in similar ways by identifying pairs and there pointed spaces given by quotiening the subspace. This is justified, as the K-theory of a pair is defined to be the K theory of said quotiont, and this helps us in the proof as we can write down maps of pointed spaces, that would not be continuous as maps of pairs.
+		\end{equation*} that is inverse to the inclusion (once the pairs are viewed as pointed quotients).
+		
 		Due to the quotient
 		\begin{equation*}
 			S(q\to)\Big/S(q\to)\setminus \bigcup\limits_j \inti(V_j)\cong \bigvee_j \big(V_j/\partial V_j\big)\,
 		\end{equation*}being a pointed sum, the map $\delta^2_{triple}$ is a sum of the functions $f^j\circ i_j^*$ where the $f^j:K^{-\lambda_p}\left[ V_j,\partial V_j \right]\to K^{-\lambda_q}\left[W(q\to)\cap N_q,S(q\to) \right]$ are defined to be $\delta^2_{triple}\circ c_j^*$.
+		
 		Now we will inspect said composition more closely, for which we need to dive into the definition of the triple connecting homomorphism, which was given by the composition of the connecting homomophism of the pair after the pullback alng the inclusion:
 \begin{fdiagram}
 \begin{adjustbox}{max width=\textwidth}
@@ -993,14 +1010,36 @@ is positive in $T_{\hat{x_j}}W(q\to)$.
 
 \end{adjustbox}
 \end{fdiagram}
-If we already start by identifying $K^{-\lambda_p}\left[ V_j,\partial V_j \right]$ with $K^{-\lambda_p+1}\left[ S \wedge(V_j,\partial V_j) \right]$\todo{def wedge of a pair!} we have that the composition
+Now notice that the composition $i_1^*\circ c_j^*$ is induced by the collapsing map 
 \begin{equation*}
-	(\id \wedge l_1)^*\coloneq i_1^*\circ c_j^*:K^{-\lambda_p+1}\left[ S \wedge(V_j,\partial V_j) \right] \to K^{-\lambda_p+1}\left[S\wedge\big( S(q\to)\big) \right]
-\end{equation*} is induced by the collapsing map 
-\begin{equation*}
-	l_1:(S(q\to)) \to (V_j\big/ \partial V_j)\,.
+	l_j:(S(q\to)) \to (V_j\big/ \partial V_j)\,.
 \end{equation*} 
-This brings us into the following setup: 
+Hence, $f_j=\delta\circ l_j^*$. Now by diagramm \ref{diag:morseFiltr-boundaryMapsummonds} together with Theorem \todo{label additivität von K theorie} we know that 
+		 \begin{equation*}
+			b \circ \delta^1_{triple}=(i^*_{C,B})^{-1} \sum_j f^j\circ i_j^*\circ i_{B,A}^*=(i^*_{C,B})^{-1} \sum_j \delta\circ l_j^*\big(i_j^*\circ i_{B,A}^*\big)\,.
+		 \end{equation*}
+
+Let $\alpha_p^{(B,A)}\in \alpha_{\#}(q)$ be a representant of a generator. Then $\Delta^{k-1}$ is induced by the sum of maps where each summand is a map given by $b\circ \delta_{triple}$. 
+ Hence, we want to calculate:
+ \begin{equation*}
+	b\circ \delta_{triple}(\alpha_p^{(B,A)})=(i^*_{C,B})^{-1} \sum_j b\circ \delta\circ l_j^*\big(i_j^*\circ i_{B,A}^*\alpha_p^{(B,A)}\big)\,.
+ \end{equation*}Here we used, that $b$ commutes with pullbacks.
+Now we have the two datums that are adapted to Lemma \ref{lem:morseFilt-canonicalGeneratorsOnTransversalDisks}:
+\begin{enumerate}
+	\item $(V_j,\partial V_j)$ where condition one is assured by the Smale condition on $f$, together with the splitting $T_{x_j}W(\to p)=-\grad_{x_j}+ T_{x_j}V_j $ (which is deduced by a dimension count). The second condition follows from continuity of the flow: $f(\phi_{T+s}(x_j))>a>a-\epsilon$ for all $s\geq 0$. Hence by cojntinuity, for every $s$ there is a small neighbourhood $U_s$ such that $\phi_[0,s]U_s\subseteq N_p\setminus L_p$.
+	\item $(D_q,S(q\to))$ , where $D_q\subseteq C$. The first propertie is almost trivial, as $T_qD_q=T^u_qM$ which is a direct sum $T_qM=T_q^uM\oplus T^s_qM$ where the second summand is the tangend space of the stable manifold of $q$ in $q$. The second property is again true by continuity of the flow, for which $q$ is a fixed point. 
+\end{enumerate}
+The Lemma \ref{lem:morseFilt-canonicalGeneratorsOnTransversalDisks} gives us then: 
+\begin{enumerate}
+	\item $\big(i_j^*\circ i_{B,A}^*\alpha_p^{(B,A)}\big)=o_{V_j}$ and
+	\item $i^*_{C,B}\alpha_q^{C,B}=o_{D_Q}$.
+\end{enumerate} Now we can apply Lemma \ref{lem:morseFiltr-contributionOfASigleFlowLine} to calculate
+\begin{equation*}
+	b\circ \delta_{triple}(\alpha_p^{(B,A)})=(i^*_{C,B})^{-1} \sum_j b\circ \delta\circ l_j^*\big(o_{V_j}\big)=(i^*_{C,B})^{-1} \sum_j e(\gamma_j)o_{D_q}=\sum_j e(\gamma_j) \alpha_q^{C,B}\,.
+\end{equation*}
+Now summing over all $q$ gives the result.
+\end{proof}
+\begin{comment}
 
 \begin{fdiagram}
 	\begin{adjustbox}{max width=\textwidth}
@@ -1041,7 +1080,9 @@ With this we can define the homomorphism $\tilde{f_p}: (I\times V_j \big/ \parti
  Now lets fix $(\alpha_p)_{\#}$ to be the generator induced in Remark \ref{rem:morseFiltr-morphismToCanonicalIntegers} and hence given by the generator $\alpha_p=\kappa_p^*(\mathfrak{b}_q)$ of $K^{\lambda_p}(\phi^{-1}( D^{s }_\epsilon\times  D^{u }_\epsilon),\phi^{-1}( D^{ s}_\epsilon\times \partial D^{u}_\epsilon))$, where $\mathfrak{b}_q$ is the generator of $\tilde{K}^{\lambda_p}(\overline{T^u_qM})$ induced by the orientation of $T^u_qM$. Furthermore, let $\alpha_p^{(B,A)}\in (\alpha_p)_{\#}$ be the generator of $K^{-\lambda_p}\left[B,A\right]$. Let $\mathfrak{e}$ denote the generator of $K^{-\lambda_p+1}(\R^{\lambda_p+1})$ induced by the standart bases (and composed with a bott periodicity map).
 Then $f^p(\mathfrak{e})=i_j^*\circ i^*_{B,A}(\alpha_p^{(B,A)})$
 \end{proof}
-\begin{comment}
+
+
+
 \begin{definition}[Regular Index Pairs and a Filtration] 
 	As always let $f:M\to \R$ be a Morse-Smale function on a compact smooth Riemannian manifold $(M,g)$ of dimension $m$. Let $\phi_t:M\to M$ be the flow given by $-\grad f$. For $0\leq j\leq k\leq m$ define:
 	\begin{align*}
@@ -1057,4 +1098,5 @@ Then $f^p(\mathfrak{e})=i_j^*\circ i^*_{B,A}(\alpha_p^{(B,A)})$
 \begin{proof}
 	The proof is done by Dietmar Salamon and can be checked in \cite{Salamon1985} corollary 4.4. 
 \end{proof}
+
 \end{comment}
