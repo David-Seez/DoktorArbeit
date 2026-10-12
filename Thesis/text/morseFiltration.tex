@@ -132,6 +132,26 @@ This obviously becomes a new functor, where the tagging removed uniqueness probl
 \begin{remark}
 	Obviously, the procedure of postcomposing a functor works for any homotopy invariant functor from pointed topological spaces into any algebraic category and not just Abelian groups.
 \end{remark}
+\begin{definition}[Direct Sum in the Category of Canonical Isomorphism Classes]
+	Let $a_{\#}$ and $b_{\#}$ be canonical isomorphism classes of Abelien groups. Then we define the \textbf{direct sum} $a_{\#} \oplus b_{\#}$ as follows: 
+	The groups are given as all direct sums:
+	\begin{equation*}
+		\{a\oplus b \mid a\in a_{\#}\,, b\in b_{\#}\}
+	\end{equation*}and for two groups $(a_1\oplus b_1)$ and $ (a_2\oplus b_2)$ together with the morphisms $f_{a,a'}\in \hom(a,a')$ and $g_{b,b'}\in \hom(b,b')$ we define the morphism
+	\begin{equation*}
+		f=f_{a,a'}\oplus f_{b,b'}: (a_1\oplus b_1) \to (a_2\oplus b_2)
+	\end{equation*} that makes up the homomorphism set $\hom((a_1\oplus b_1),(a_2\oplus b_2))$.
+	The direct sum comes together with the inclusions $(i_a)_{\#}$ and $(i_b)_{\#}$ that are defined as follows: 
+	let $1_b\in b \in b_{\#}$. Then we define the morphism $(i_a)_{\#}=(a\mapsto (a,1_b))_{\#}$ to be the morphism induced by the natural inclsion of $a$ into $a\oplus b$. This is independent of the choosen $b\in b_{\#}$. Let $1_{b'}$ be the neutral element of another $b'\in b_{\#}$. Then the induced morphisms of canonical isomorphism classes agree, as all individual morphisms agree. This follows from the internal homomorphisms (for example $g_{b,b'}$) mapping $1_b\mapsto 1_{b'}$. 
+	This constuction together with the inclusions makes up the coproduct in $\CIAB$, as it satisfies the universal property: Let $c_{\#}$ be another canonical isomorphism class of Abelien groups, together with two morphisms $f_{\#}:a_{\#}\to c_{\#}$ and $g_{\#}: b_{\#}\to c_{\#}$. Then there exists a unique morphism $f_{\#}\oplus g_{\#}$ such that the diagram comutes:
+	\begin{center}
+		\begin{tikzcd}
+			a_{\#} \arrow[dr,"f_{\#}",bend left=30] \arrow[d,"(i_a)_{\#}"'] &\\
+			a_{\#} \oplus b_{\#} \arrow[r,"f_{\#}\oplus g_{\#}"]& c_{\#}\\
+			b_{\#} \arrow[u,"(i_b)_{\#}"] \arrow[ur,"g_{\#}"',bend right=30]&
+		\end{tikzcd}
+	\end{center}
+\end{definition}
 
 \begin{remark}[Critical points as isolated compact invariant subsets] \label{rem:morseFiltr-criticalPointsAsIsolatedCompactInvariantSubsets}
 	Let ${f:M\to \R}$ be a Morse function on a smooth Riemannian manifold $(M,g)$. Let $q\in \Crit_k(f)$. Around $q$ we have refined Morse charts $\phi:U \to \R^m\cong \R^{m-\lambda_q}\oplus \R^{\lambda_p}$ where  the splitting of $\R^m$ is taken such that $\diff \phi_q$ is expanding in $\R^{m-\lambda_q}$ and contracting in $\R^{\lambda_p}$. With this we can define the balls:
@@ -146,20 +166,20 @@ This index pair is in fact regular, since $(N_q,L_q)\simeq  (D^{ s}_\epsilon\tim
 Furthermore, the index pair $(N_q,L_q)$ is homotopically equivalent to $\overline{T^u_qM}$, which is clear, as $(D^{u}_{\epsilon},\partial D^{u}_{\epsilon} ) \simeq \overline{T^u_qM}$ by mapping $\R^{\lambda_q}\to T^u_qM$ via $\restr{\diff \phi^{-1}}{0}\circ R_0$, where $R_0:\R^m\to T_0\R^m$ is the linear identification from Derfinition \ref{def:vb-linearIdentification}. Finally, we just need to strech the ball to infinity. 
 
 
-We know the K-group of such a pair to be:
+We know the K-group of such a pair for any $l\in \N$ to be:
 	\begin{align} \label{eq: homology of index pair of critical point}
-		K^i(N_q,L_q)\cong K^i(\overline{T^u_qM})\cong \begin{cases}
+		K^{-i}(N_q,L_q)\cong \rK^{-i}(\overline{T^u_qM})\cong \begin{cases}
 			\Z & \text{if } i-k\in 2\Z,\\
 			0& \text{else. }
 		\end{cases}
 	\end{align}
 	Notice that for $k=0$ we need to consider $\partial D^k=\emptyset$ to get an index pair. That's why we let $\partial$ denote the manifold boundary instead of the topological boundary. However, now we can identify for all $k$: \begin{equation} \label{ kritical points as direct sum of homology groups}
-		C^{k}(M,\mathfrak{A},\tilde{K}^{l}(pt))=\bigoplus_{ \Crit_k(f)} \Z \cong \bigoplus_{q\in \Crit_k(f)} K^{-k}(N_q,L_q).
+		C^{k}(M,\mathfrak{A},\tilde{K}^{-l}(pt))=\bigoplus_{ \Crit_k(f)} \Z \cong \bigoplus_{q\in \Crit_k(f)} K^{-k}(N_q,L_q).
 	\end{equation}
 	Or using the language of connected simple systems, we have the identification 
 	\begin{equation} 
-		C^{k}(M,\mathfrak{A},\tilde{K}^{l}(pt))\cong \bigoplus_{q\in \Crit_k(f)} K_{\#}^{-k}(\mathcal{IP}_q)\,,
-	\end{equation}where the isomorphism can be read as an isomorphism of canonical isomorphism classes with the left-hand side vierwd as an object of $\CIAB$ consists of only one group.
+		C^{k}(M,\mathfrak{A},\tilde{K}^{-l}(pt))\cong \bigoplus_{q\in \Crit_k(f)} K_{\#}^{-k}(\mathcal{IP}_q)\,,
+	\end{equation}where the isomorphism can be read as an isomorphism of canonical isomorphism classes with the left-hand side viewed as an object of $\CIAB$ consists of only one group. 
 \end{remark}
 \begin{remark}\label{rem:morseFiltr-indexPairForDifferentChart}
 	For any chart $\chi$ that is centered at a critical point $q$ and $\epsilon>0$ we define the topological pair 
@@ -168,17 +188,31 @@ We know the K-group of such a pair to be:
 	\end{equation*}The argument that shows that $(N_\psi,L_\psi)$ is a reglar index pair of $q$ only needed that $\restr{\diff \psi}{q}$ splitts. Hence if $\restr{\diff \chi}{q}=\restr{\diff \psi}{q}$, we can conclude, that there is an $\epsilon>0$ such that $(N_\chi,L_\chi)$ is also a regular index pair.
 \end{remark}
 
-
-\begin{remark}\label{rem:morseFiltr-morphismToCanonicalIntegers}
-	Let $\underline{\Z}$ be the canonical isomorphism class of Abelian groups consisting only of the group $\Z$, and let $q$ be a critical point of index $\lambda_q$ in $M$. Then, Remark \ref{rem:morseFiltr-morphismInducedBySingleMap}, together with Remark \ref{rem:morseFiltr-criticalPointsAsIsolatedCompactInvariantSubsets} gives us the existence of a morphism for all $i\in \N$:
+\begin{definition}[Generators for Canonical Isomorphism Classes]
+	Let $a_{\#}$ be a canonical isomorphism class if Abelien groups. Let $a\in a_{\#}$, and let $S\subseteq a$ be a generating set of $a$. Then we call the set
 	\begin{equation*}
-		\tilde{K}^{-\lambda_q-2i}(\mathcal{IP}_{\{q\}})\to \underline{\Z}\,.
-	\end{equation*} Furthermore, this map is given by mapping a generator of $\tilde{K}^{-\lambda_q-2i}(N_q/L_q)$ to one, and hence uniquely determined, provided we have a canonical way to choose a generator of $\tilde{K}^{-\lambda_q-2i}(N_q/L_q)\cong \tilde{K}^{-\lambda_q-2i}(\overline{T^u_qM})$, where the isomorphism is natural and described in Remark \ref{rem:morseFiltr-criticalPointsAsIsolatedCompactInvariantSubsets}. 
-	
-	Hence, if $T^u_qM$ is oriented, Corollary \ref{cor:orient-vectorspaceOrientationInducesKtheoreticOrientation} gives us just what we need, making the map canonical. The generator is then given by pulling back the generator of $K^{-\ind_p}(\overline{T^u_qM})$ along the map of pairs:
+		S_{\#}\coloneq \{ G \mid G=f(S)\,,\text{where }f\in \hom(a,a')\text{ for all }a'\in a_{\#}\}
+	\end{equation*} a generating set of $a_{\#}$. Notice, that for all $a'\in a_{\#}$ there is a $G\in S_{\#}$ such that $G$ is a generating set of $a'$. 
+\end{definition}
+\begin{remark} \label{rem:MorseFiltr-canonicalIdentificationOfMorseChainGrou}
+	In Remark \ref{rem:morseFiltr-criticalPointsAsIsolatedCompactInvariantSubsets} we established an isomorphism for any $l\in \N$
+	\begin{equation*}
+		C^k(M,\mathfrak{A},\rK^{-l}(pt))\to \bigoplus_{q\in \Crit_k(f)}K^{-k}_{\#}(\mathcal{IP}_q)\,.
+	\end{equation*} Now notice, that the disjoint union of all index pairs $\sqcup_{q\in \Crit_k(f)} (N_q,L_q)$ is an index pair for $\Crit_k(f)$. 
+	Hence the group isomorphism given by the additivity of K-theory by Theorem \ref{thm:kTheo-pointedAdditivity} gives us a natural isomorphism 
+	\begin{equation*}
+		\bigoplus_{q\in \Crit_k(f)} \rK^{-k}(N_q/L_q) \to \rK^{-k}(\bigvee_{q\in \Crit_k(f)} (N_q/L_q))
+	\end{equation*} which in turn defines a natural isomorphism of isomorphism classes of groups
+	\begin{equation*}
+		\bigoplus_{q\in \Crit_k(f)}K^{-k}_{\#}(\mathcal{IP}_q) \to K^{-k}_{\#}(\mathcal{IP}_k)
+	\end{equation*}
+	Hence, there is an isomorphism 
+	\begin{equation*}
+		C^k(M,\mathfrak{A},\rK^{-l}(pt))\to K^{-k}_{\#}(\mathcal{IP}_k)\,.
+	\end{equation*} This isomorphism can be made natural. For this we need to establish a natural generating set of $K^{-k}_{\#}(\mathcal{IP}_k)$, which is done by defining a generating set for any (and thereby for all) groups in $K^{-k}_{\#}(\mathcal{IP}_k)$. We pick the group $\rK^{-k}(\bigvee_{q\in \Crit_k(f)} (N_q/L_q))$. Additivity tells us that a generating set is given by including generators of the summands $\rK^{-k}(N_q/L_q)$. Now for each summand we have the isomorphism $\tilde{K}^{-\lambda_q}(N_q/L_q)\cong \tilde{K}^{-\lambda_q}(\overline{T^u_qM})$, which is natural and described in Remark \ref{rem:morseFiltr-criticalPointsAsIsolatedCompactInvariantSubsets}. Hence, if $T^u_qM$ is oriented, Corollary \ref{cor:orient-vectorspaceOrientationInducesKtheoreticOrientation} gives us just what we need, making the map canonical. The generator is then given by pulling back the generator of $K^{-\ind_p}(\overline{T^u_qM})$ along the map of pairs:
 	\begin{align*}
 	 \kappa_q\coloneq  \restr{\diff \phi^{-1}}{0}\circ R_0\circ s\circ \mathrm{pr}_u \circ \phi	\,:\,(\phi^{-1}( D^{s }_\epsilon\times  D^{u }_\epsilon),\phi^{-1}( D^{ s}_\epsilon\times \partial D^{u}_\epsilon))  \to (\overline{T^u_qM},\{\infty\})
-	\end{align*} where $\mathrm{pr}_u$ is the projection onto the unstable coordinates and $s$ is the stretching $x\mapsto x\cdot (\frac{1}{\epsilon}-\norm{x}-\frac{1}{\epsilon})$ with $\restr{\diff s}{0}=\frac{1}{\epsilon}\Idm$. We call such a generator the \textbf{standart generator at $q$}.
+	\end{align*} where $\mathrm{pr}_u$ is the projection onto the unstable coordinates and $s$ is the stretching $x\mapsto x\cdot (\norm{x}\frac{1}{\epsilon-\norm{x}})$ with $\restr{\diff s}{0}=\frac{1}{\epsilon}\Idm$. \todo{notationen einführen worin die erzeuger leben!!}
 \end{remark}
 
 
@@ -1003,9 +1037,7 @@ We can now continue our calculation in equation (\ref{eq:morseFiltr-boundaryMorp
 \begin{tikzcd}
 {K^{-\lambda_p}\left[ V_j,\partial V_j \right]} \arrow[d, "c_j^*"] \arrow[rd, "f^j", bend left]                                                                 &                                                        \\
 {K^{-\lambda_p}\left[ S(q\to),S(q\to)\setminus \bigcup\limits_j \inti(V_j) \right]} \arrow[d, "i_1^*"] \arrow[r, "\delta_{triple}"]                             & {K^{-\lambda_p+1}\left[W(q\to)\cap N_p,S(q\to)\right]} \\
-{K^{-\lambda_p}\left[ S(q\to) \right]=K^{-\lambda_p+1}\left[S\wedge\big( S(q\to)\big) \right]} \arrow[ru, "\delta_{pair}", bend right] \arrow[d, "\theta^{-1}"] &                                                        \\
-{K^{-\lambda_p+1}\left[ W(q\to)\cap N_p \cup C\left( S(q\to)\right),W(q\to)\cap N_p \right]} \arrow[d, "m^*"]                                                   &                                                        \\
-{K^{-\lambda_p+1}\left[ W(q\to)\cap N_p \cup C\left( S(q\to)\right)\right]} \arrow[ruuu, "(\pi^{*})^{-1}"', bend right]                                         &                                                       
+{K^{-\lambda_p}\left[ S(q\to) \right]=K^{-\lambda_p+1}\left[S\wedge\big( S(q\to)\big) \right]} \arrow[ru, "\delta_{pair}", bend right] &                                              &                                                       
 \end{tikzcd}
 
 \end{adjustbox}
@@ -1037,7 +1069,8 @@ The Lemma \ref{lem:morseFilt-canonicalGeneratorsOnTransversalDisks} gives us the
 \begin{equation*}
 	b\circ \delta_{triple}(\alpha_p^{(B,A)})=(i^*_{C,B})^{-1} \sum_j b\circ \delta\circ l_j^*\big(o_{V_j}\big)=(i^*_{C,B})^{-1} \sum_j e(\gamma_j)o_{D_q}=\sum_j e(\gamma_j) \alpha_q^{C,B}\,.
 \end{equation*}
-Now summing over all $q$ gives the result.
+Now summing over all $q$ gives the final computation:
+
 \end{proof}
 \begin{comment}
 
