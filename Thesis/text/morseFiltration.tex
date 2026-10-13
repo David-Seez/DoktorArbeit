@@ -106,6 +106,12 @@ A \textbf{morphism} $\Phi:I\to J$ between two connected simple systems $I=(I_0,I
 \begin{definition}\label{def:morseFiltr-systemCategories}
 We denote the category of connected simple systems with their morphisms by $\CSS$ and similar we call the category of canonical isomorphism classes of Abelian groups by $\CIAB$, respectively, the category for rings by $\CIRing$.
 \end{definition}
+\begin{definition}
+	Let $a\in A$ be an element of an abelien group $A$, which is part of a canonical isomorphism class $A\in A_{\#}$. Then we a collection of elements 
+	\begin{equation*}
+		a_{\#}\coloneq \{f(a)\mid f\in \hom(A,A')\text{ for all }A'\in A_{\#}
+	\end{equation*} an \textbf{induced element of $a$ in $A_{\#}$}. Notice that for all $A'\in A_{\#}$ there is exactly one $a'\in a_{\#}$ that is contained in $A'$. 
+\end{definition}
 
 \begin{definition} \label{def:morseFiltr-postcomposedFunctor}
 	Let $G$ be an Abelian group and $X$ be any set. We can \textbf{tag} $G$ with $X$ by defining the set $G\times \{X\}$ and endowing it with the algebraic information from $G$. (for example we define $(g,X)\cdot (g',X)=(g\cdot_Gg',X)$). Let $f:G\to L$ be a homomorphism. Then $f$ induces a homomorphism between the tagged $G\times \{X\}$ and $L\times \{Y\}$ by sending $(g,X)\mapsto (f(g),Y)$.
@@ -212,7 +218,11 @@ We know the K-group of such a pair for any $l\in \N$ to be:
 	\end{equation*} This isomorphism can be made natural. For this we need to establish a natural generating set of $K^{-k}_{\#}(\mathcal{IP}_k)$, which is done by defining a generating set for any (and thereby for all) groups in $K^{-k}_{\#}(\mathcal{IP}_k)$. We pick the group $\rK^{-k}(\bigvee_{q\in \Crit_k(f)} (N_q/L_q))$. Additivity tells us that a generating set is given by including generators of the summands $\rK^{-k}(N_q/L_q)$. Now for each summand we have the isomorphism $\tilde{K}^{-\lambda_q}(N_q/L_q)\cong \tilde{K}^{-\lambda_q}(\overline{T^u_qM})$, which is natural and described in Remark \ref{rem:morseFiltr-criticalPointsAsIsolatedCompactInvariantSubsets}. Hence, if $T^u_qM$ is oriented, Corollary \ref{cor:orient-vectorspaceOrientationInducesKtheoreticOrientation} gives us just what we need, making the map canonical. The generator is then given by pulling back the generator of $K^{-\ind_p}(\overline{T^u_qM})$ along the map of pairs:
 	\begin{align*}
 	 \kappa_q\coloneq  \restr{\diff \phi^{-1}}{0}\circ R_0\circ s\circ \mathrm{pr}_u \circ \phi	\,:\,(\phi^{-1}( D^{s }_\epsilon\times  D^{u }_\epsilon),\phi^{-1}( D^{ s}_\epsilon\times \partial D^{u}_\epsilon))  \to (\overline{T^u_qM},\{\infty\})
-	\end{align*} where $\mathrm{pr}_u$ is the projection onto the unstable coordinates and $s$ is the stretching $x\mapsto x\cdot (\norm{x}\frac{1}{\epsilon-\norm{x}})$ with $\restr{\diff s}{0}=\frac{1}{\epsilon}\Idm$. \todo{notationen einführen worin die erzeuger leben!!}
+	\end{align*} where $\mathrm{pr}_u$ is the projection onto the unstable coordinates and $s$ is the stretching $x\mapsto  (\frac{x}{\epsilon-\norm{x}})$ with $\restr{\diff s}{0}=\frac{1}{\epsilon}\Idm$. So for every critical point $q\in \Crit_k(f)$ we get a generator of $\alpha_q\in \tilde{K}^{-\lambda_q}(N_q/L_q)$ which becomes an element in $K^{-k}_{\#}(\mathcal{IP}_k)$. 	
+	We denote said element as $(\alpha_q^{(N_q,L_q)})_{\#}$ and call it the \textbf{canonical generator corresponding} to $q$. Notice that we could have picked another refined Morse chart, or another $\epsilon$ and hence another index pair $(N_q',L_q')$ of $q$. This would give another generator $\alpha_q'{(N_q',L_q')}\in \tilde{K}^{-\lambda_q}(N_q'/L_q')$. However, as canonical generators, they would agree: For this we need to check the following: let $h:N_q/L_q\to N_q',L_q'$ be the homotopy equivalence from Theorem \ref{thm:morseFiltr-homotopyEquivalenceOfIndexPairs}. In their summands, $\alpha_q'{(N_q',L_q')}$ and $\alpha_q{(N_q,L_q)}$ are generators, and as $h^*$ induces an isomorphism we have $h^*(\alpha_q'{(N_q',L_q')})=\pm \alpha_q{(N_q,L_q)}$. So we need to show, that the sign here is $+$. Whilst we could brute force a calculation here using the single preimage Lemma \ref{lem:orient-singleRegularPreimage} we will later in Remark \ref{rem:morseFiltr-canonicalGeneratorsIndependOfChartAndEpsilon} proof said statement a bit more elegant.
+\end{remark}
+\begin{remark}
+The independence of the chosen Morse chart was the main motivation for introducing the language of canonical isomorphism classes. The book \cite{banyaga2004lectures} proofes the homotopy equivalence of all index pairs and proceeds much as we do to show that singular homology and Morse homology are isomorphic, albeit in singular homology rather than complex K-theory. They also introduce a generator for an index pair by orientation and a Morse chart, but do not show the invariance of said chart (compare \cite[Example 7.17]{banyaga2004lectures}). Whilst this is no gap in the theory (the invariance is to be expected and the authors presumably considered it evident), without the language of canonical isomorphism classes, such an invariance is cumbersome even to state precisely.
 \end{remark}
 
 
@@ -550,6 +560,42 @@ Now only the statement about the orientation preservation of $g_q$ at a neighbou
 		g^*h^*(\beta_V)=\xi^*(\beta_n)=\sign \det \left(\restr{\diff h}{y}\right)\cdot \beta_n\,.
 	\end{equation*} Finally we can apply $(g^{-1})^*$ from the left to finish the proof.
 \end{proof}
+
+ \begin{remark}[Canonical Generators]\label{rem:morseFiltr-canonicalGeneratorsIndependOfChartAndEpsilon}
+	Let $\psi$ and $\tilde{\psi}$ be two refined oriented morse charts and $\epsilon,\tilde{\epsilon}>0$ such that the boxes
+	\begin{align*}
+		(N_q,L_q)&=(\psi^{-1}(D^s_\epsilon \times D^u_\epsilon)\,,\, \psi^{-1}(D^s_\epsilon \times \partial D^u_\epsilon))\quad \text{and}\\
+		(\tilde{N_q},\tilde{L_q})&=(\tilde{\psi^{-1}}(D^s_{\tilde{\epsilon}} \times D^u_{\tilde{\epsilon}})\,,\, \tilde{\psi}^{-1}(D^s_{\tilde{\epsilon}} \times \partial D^u_{\tilde{\epsilon}}))\\
+	\end{align*} are regular index pairs. Let furthermore 
+	\begin{align*}
+		\kappa_q\coloneq&  \restr{\diff \psi^{-1}}{0}\circ R_0\circ s\circ \mathrm{pr}_u \circ \psi	\,:\,(\psi^{-1}( D^{s }_\epsilon\times  D^{u }_\epsilon),\psi^{-1}( D^{ s}_\epsilon\times \partial D^{u}_\epsilon))  \to (\overline{T^u_qM},\{\infty\})\quad \text{and}\\
+		\tilde{\kappa}_q\coloneq & \restr{\diff \tilde{\psi}^{-1}}{0}\circ R_0\circ \tilde{s}\circ \mathrm{pr}_u \circ \tilde{\psi}	\,:\,(\psi^{-1}( D^{s }_\epsilon\times  D^{u }_\epsilon),\psi^{-1}( D^{ s}_\epsilon\times \partial D^{u}_\epsilon))  \to (\overline{T^u_qM},\{\infty\})\,,
+	\end{align*} such that $\alpha_q^{(N_q,L_q)}\coloneq \kappa_q^*(\beta_{T^u_qM})$ is a generator of $\rK^{-\ind(q)}(N_q,L_q)$ and 
+	$\tilde{\alpha}_q^{(\tilde{N}_q,\tilde{L}_q)}\coloneq \tilde{\kappa}_q^*(\beta_{T^u_qM})$ is a generator of $\rK^{-\ind(q)}(\tilde{N}_q,\tilde{L}_q)$. Then the induced elements $(\alpha_q^{(N_q,L_q)})_{\#}$ and $(\tilde{\alpha}_q^{(\tilde{N}_q,\tilde{L}_q)})_{\#}$ agree. 
+ \end{remark}
+ \begin{proof}
+	We start by assumeing $\epsilon$ small enough such that in the box $\psi(N_q)$, the image of the unstable manifold $\psi(W(q\to)\cap N_q)$ is the graph of a $C^1$-function $f: D^u_\epsilon\to D^s_\epsilon$. (If $\epsilon$ from the Remark was to big we defined a third index pair in this step. We will later show that the inuced generator of this one agrees with all other.) Now we define $\Sigma \coloneq f(D^u_\epsilon)$ to be oriented, via $T_q\Sigma=T^u_qM$. Let $\partial \Sigma \coloneq \Sigma \cap L_q$. Now let $j:(\Sigma,\partial \Sigma)\to (N_q,L_q)$ be the inclusion. Then we can apply Lemma \ref{lem:morseFiltr-orientationClassOfADisk} to the two maps:
+	\begin{equation*}
+    	\kappa_q\circ j\,,\quad \tilde{\kappa}_q\circ h\circ j\;:\;\Sigma/\partial\Sigma\to\overline{T^u_qM}\,.
+	\end{equation*}
+
+	\begin{itemize}
+		\item Restricted to $\Sigma$ the map $pr_u\circ \psi$ is injective with $f(q)=0$. Furthermore, one calculates that $\restr{\diff(\kappa_q\circ j)}{q}=\tfrac{1}{\epsilon}\Idm_{T^u_qM}$.
+		\item $\Sigma$ lies in $W^u(q)$, which is flow invariant, and on $\Sigma$ the map $h$ is either the
+    flow $\phi_{3t}$ or the collapse. For $\tilde{\epsilon}$ small, $W^u(q)\cap \tilde{N}_q$ is the graph of the local
+    unstable manifold in the chart $\tilde{\psi}$, so $\mathrm{pr}_u\circ\tilde{\psi}$ vanishes on it only at $q$.
+    Since $\phi_{3t}(x)=q$ if and only if $x=q$, we get $(\tilde{\kappa}_q\circ h\circ j)^{-1}(0)=\{q\}$.
+    Near $q$ we have $h=\phi_{3t}$, hence
+    $\restr{\diff(\tilde{\kappa}_q\circ h\circ j)}{q}=\tfrac{1}{\tilde{\epsilon}}\,\restr{\diff(\phi_{3t})_q}{T^u_qM}$.
+    This has positive determinant, as $\tau\mapsto \restr{\diff(\phi_{3\tau t})_q}{T^u_qM}$, $\tau\in[0,1]$,
+    is a path in $\mathrm{GL}(T^u_qM)$ starting at $\Idm$.
+	\end{itemize}
+	Thereby the Lemma \ref{lem:morseFiltr-orientationClassOfADisk} gives us 
+	\begin{equation*}
+		j^*\circ \kappa_q^*(\beta_{T^u_qM})=(\kappa_q\circ j)^*(\beta_{T^u_qM})=o_\sigma=(\tilde{\kappa}_q\circ h\circ j)(\beta_{T^u_qM})=j^*\circ h^*\circ \tilde{\kappa}_q^(\beta_{T^u_qM})
+	\end{equation*}
+	Now $j^*$ is an isomorphism, as it sends the generator $\beta_{T^u_qM}$ to a generator $o_\sigma$, letting us apply its inverse to conclude that $\alpha_q^{(N_q,L_q)}=\kappa_q^*(\beta_{T^u_qM})= h^*\circ \tilde{\kappa}_q^(\beta_{T^u_qM})=h^*(\alpha_q^{(\tilde{N}_q,\tilde{L}_q)})$. Now two induced elements in a canonical isomorphism class agree, if for any group, the corresponding element agrees. Hence, $(\alpha_q^{(N_q,L_q)})_{\#}=(\tilde{\alpha}_q^{(\tilde{N}_q,\tilde{L}_q)})_{\#}\,.$
+ \end{proof}
 
 
 
