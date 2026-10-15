@@ -139,25 +139,64 @@ This obviously becomes a new functor, where the tagging removed uniqueness probl
 	Obviously, the procedure of postcomposing a functor works for any homotopy invariant functor from pointed topological spaces into any algebraic category and not just Abelian groups.
 \end{remark}
 \begin{definition}[Direct Sum in the Category of Canonical Isomorphism Classes]
-	Let $a_{\#}$ and $b_{\#}$ be canonical isomorphism classes of Abelien groups. Then we define the \textbf{direct sum} $a_{\#} \oplus b_{\#}$ as follows: 
+	Let $A_{\#}$ and $B_{\#}$ be canonical isomorphism classes of Abelien groups. Then we define the \textbf{direct sum} $A_{\#} \oplus B_{\#}$ as follows: 
 	The groups are given as all direct sums:
 	\begin{equation*}
-		\{a\oplus b \mid a\in a_{\#}\,, b\in b_{\#}\}
-	\end{equation*}and for two groups $(a_1\oplus b_1)$ and $ (a_2\oplus b_2)$ together with the morphisms $f_{a,a'}\in \hom(a,a')$ and $g_{b,b'}\in \hom(b,b')$ we define the morphism
+		\{A\oplus B \mid A\in A_{\#}\,, B\in B_{\#}\}
+	\end{equation*}and for two groups $(A_1\oplus B_1)$ and $ (A_2\oplus B_2)$ together with the morphisms $f_{A,A'}\in \hom(A,A')$ and $g_{B,B'}\in \hom(B,B')$ we define the morphism
 	\begin{equation*}
-		f=f_{a,a'}\oplus f_{b,b'}: (a_1\oplus b_1) \to (a_2\oplus b_2)
-	\end{equation*} that makes up the homomorphism set $\hom((a_1\oplus b_1),(a_2\oplus b_2))$.
-	The direct sum comes together with the inclusions $(i_a)_{\#}$ and $(i_b)_{\#}$ that are defined as follows: 
-	let $1_b\in b \in b_{\#}$. Then we define the morphism $(i_a)_{\#}=(a\mapsto (a,1_b))_{\#}$ to be the morphism induced by the natural inclsion of $a$ into $a\oplus b$. This is independent of the choosen $b\in b_{\#}$. Let $1_{b'}$ be the neutral element of another $b'\in b_{\#}$. Then the induced morphisms of canonical isomorphism classes agree, as all individual morphisms agree. This follows from the internal homomorphisms (for example $g_{b,b'}$) mapping $1_b\mapsto 1_{b'}$. 
-	This constuction together with the inclusions makes up the coproduct in $\CIAB$, as it satisfies the universal property: Let $c_{\#}$ be another canonical isomorphism class of Abelien groups, together with two morphisms $f_{\#}:a_{\#}\to c_{\#}$ and $g_{\#}: b_{\#}\to c_{\#}$. Then there exists a unique morphism $f_{\#}\oplus g_{\#}$ such that the diagram comutes:
+		f=f_{A,A'}\oplus f_{B,B'}: (A_1\oplus B_1) \to (A_2\oplus B_2)
+	\end{equation*} that makes up the homomorphism set $\hom((A_1\oplus B_1),(A_2\oplus B_2))$.
+	The direct sum comes together with the inclusions $(i_A)_{\#}$ and $(i_B)_{\#}$ that are defined as follows: 
+	let $1_B\in B \in B_{\#}$. Then we define the morphism $(i_A)_{\#}=(a\mapsto (a,1_B))_{\#}$ to be the morphism induced by the natural inclsion of $A$ into $A\oplus B$. This is independent of the choosen $B\in B_{\#}$. Let $1_{B'}$ be the neutral element of another $B'\in B_{\#}$. Then the induced morphisms of canonical isomorphism classes agree, as all individual morphisms agree. This follows from the internal homomorphisms (for example $g_{B,B'}$) mapping $1_B\mapsto 1_{B'}$. 
+	This constuction together with the inclusions makes up the coproduct in $\CIAB$, as it satisfies the universal property: Let $C_{\#}$ be another canonical isomorphism class of Abelien groups, together with two morphisms $f_{\#}:A_{\#}\to C_{\#}$ and $g_{\#}: B_{\#}\to C_{\#}$. Then there exists a unique morphism $f_{\#}\oplus g_{\#}$ such that the diagram comutes:
 	\begin{center}
 		\begin{tikzcd}
-			a_{\#} \arrow[dr,"f_{\#}",bend left=30] \arrow[d,"(i_a)_{\#}"'] &\\
-			a_{\#} \oplus b_{\#} \arrow[r,"f_{\#}\oplus g_{\#}"]& c_{\#}\\
-			b_{\#} \arrow[u,"(i_b)_{\#}"] \arrow[ur,"g_{\#}"',bend right=30]&
+			A_{\#} \arrow[dr,"f_{\#}",bend left=30] \arrow[d,"(i_A)_{\#}"'] &\\
+			A_{\#} \oplus B_{\#} \arrow[r,"f_{\#}\oplus g_{\#}"]& C_{\#}\\
+			B_{\#} \arrow[u,"(i_B)_{\#}"] \arrow[ur,"g_{\#}"',bend right=30]&
+		\end{tikzcd}
+	\end{center} This morphism is induced by the direct sum of morphisms on all elements of the canonical isomorphism classes, meaning that $\pcomp{f}\oplus \pcomp{g}=\pcomp{(f\oplus g)}$. 
+\end{definition}
+\begin{remark}
+	Let $A_{\#}=(A_1)_{\#}\oplus (A_2)_{\#}$ be the direct sum of two canonical isomorphism classes. Then $A_{\#}$ comes with two canonical projection morphisms
+	\begin{equation*}
+		(pr_i)_{\#}: A_{\#} \to (A_i)_{\#} \,,\quad (i=1,2)
+	\end{equation*} that are induced by the projection $A_1\oplus A_2\to A_i$ for $i=1,2$ for any $A_1\oplus A_2\in A_{\#}$. Then, for any canonical isomorphism class $C_{\#}$ together with maps $\pcomp{(f_i)}: C_{\#} \to \pcomp{A_i}$ there is a unique morphism $\pcomp{(f_1)}\times \pcomp{f_2}:\pcomp{A}\to \pcomp{C}$ such that the diagram commutes
+	\begin{center}
+		\begin{tikzcd}
+			 \pcomp{(A_1)}&\\
+			\pcomp{A}\arrow[u,"\pcomp{(pr_1)}"] \arrow[d,"\pcomp{(pr_2)}"']&\pcomp{C}\arrow[ul,"\pcomp{(f_1)}"',bend right=30] \arrow[ld,"\pcomp{(f_2)}",bend left=30] \arrow[l,"\pcomp{(f_1)}\times \pcomp{f_2}"']\\
+			\pcomp{(A_2)}&
 		\end{tikzcd}
 	\end{center}
-\end{definition}
+	Again, the map $\pcomp{(f_1)}\times \pcomp{f_2}$ is induced by the product of the maps that induce the $\pcomp{(f_i)}$ and hence $\pcomp{(f_1)}\times \pcomp{f_2}=\pcomp{(f_1\times f_2)}$. 
+\end{remark}
+\begin{corollary}
+	Let $\pcomp{A}=\bigoplus_{i=1}^n\pcomp{(A_i)}$ be the direct sum of finitly many canonical isomorphism classes and let $\pcomp{C}$ be another canonical isomorphism class. If we are given a morphism $\pcomp{f}: \pcomp{A}\to \pcomp{C}$, we call the morphisms 
+	\begin{equation*}
+		\pcomp{(f_i)}: \pcomp{(A_i)}\to \pcomp{C}\,,\quad i=1,\dots n
+	\end{equation*} given by $\pcomp{f}\circ \pcomp{(i_i)}$ the \textbf{summand functions of $f$}. By the uniqueness of the universal property of the coproduct we know that 
+	\begin{equation*}
+		\pcomp{f}=\bigoplus_{i=1}^n \pcomp{(f_i)}=\pcomp{\big(\bigoplus_{i=1}^n f_i\big)}\,.
+	\end{equation*}
+	Similar, if we are given a function $\pcomp{g}:\pcomp{C}\to \pcomp{A}$ we call the functions
+	\begin{equation*}
+		\pcomp{(g_i)}\coloneq \pcomp{(pr_i)} \circ \pcomp{g} :\pcomp{C}\to \pcomp{(A_i)}
+	\end{equation*} the \textbf{factor functions of $g$}. Again by uniqueness we have 
+	\begin{equation*}
+		\pcomp{g}=\bigtimes_{i=1}^n \pcomp{(g^i)}=\pcomp{\big(\bigtimes_{i=1}^n g^i\big)}\,.
+	\end{equation*}
+	Now assume that we are given a function $f:\bigoplus_{i=1}^n\pcomp{(A_i)}\to \bigoplus_{j=1}^m \pcomp{(B_j)}$. Then we can look at all the factor functions of all summand functions to get
+	\begin{equation*}
+		\pcomp{(\pcomp{(f_i)})^j}=\pcomp{((f_i)^j)}:\pcomp{(A_i)}\to (\pcomp{B_j})\,.
+	\end{equation*}Similary, we could have looked at all the summands of all factor functions to get $\pcomp{((f^j)_i)}$. By definition we then have that 
+	\begin{equation*}
+		f=\bigoplus_{i=1}^n\big(
+			\bigtimes_{j=1}^m (f_i)^j
+		)=\bigtimes_{j=1}^m\big(\bigoplus_{i=1}^n (f^j)_i\big)
+	\end{equation*}
+\end{corollary}
 
 \begin{remark}[Critical points as isolated compact invariant subsets] \label{rem:morseFiltr-criticalPointsAsIsolatedCompactInvariantSubsets}
 	Let ${f:M\to \R}$ be a Morse function on a smooth Riemannian manifold $(M,g)$. Let $q\in \Crit_k(f)$. Around $q$ we have refined Morse charts $\phi:U \to \R^m\cong \R^{m-\lambda_q}\oplus \R^{\lambda_p}$ where  the splitting of $\R^m$ is taken such that $\diff \phi_q$ is expanding in $\R^{m-\lambda_q}$ and contracting in $\R^{\lambda_p}$. With this we can define the balls:
@@ -194,13 +233,13 @@ We know the K-group of such a pair for any $l\in \N$ to be:
 	\end{equation*}The argument that shows that $(N_\psi,L_\psi)$ is a reglar index pair of $q$ only needed that $\restr{\diff \psi}{q}$ splitts. Hence if $\restr{\diff \chi}{q}=\restr{\diff \psi}{q}$, we can conclude, that there is an $\epsilon>0$ such that $(N_\chi,L_\chi)$ is also a regular index pair.
 \end{remark}
 
-\begin{definition}[Generators for Canonical Isomorphism Classes]
+\begin{definition}
 	Let $a_{\#}$ be a canonical isomorphism class if Abelien groups. Let $a\in a_{\#}$, and let $S\subseteq a$ be a generating set of $a$. Then we call the set
 	\begin{equation*}
 		S_{\#}\coloneq \{ G \mid G=f(S)\,,\text{where }f\in \hom(a,a')\text{ for all }a'\in a_{\#}\}
 	\end{equation*} a generating set of $a_{\#}$. Notice, that for all $a'\in a_{\#}$ there is a $G\in S_{\#}$ such that $G$ is a generating set of $a'$. 
 \end{definition}
-\begin{remark} \label{rem:MorseFiltr-canonicalIdentificationOfMorseChainGrou}
+\begin{remark} \label{rem:MorseFiltr-ProductStruktureOfKIPk}
 	In Remark \ref{rem:morseFiltr-criticalPointsAsIsolatedCompactInvariantSubsets} we established an isomorphism for any $l\in \N$
 	\begin{equation*}
 		C^k(M,\mathfrak{A},\rK^{-l}(pt))\to \bigoplus_{q\in \Crit_k(f)}K^{-k}_{\#}(\mathcal{IP}_q)\,.
@@ -211,20 +250,50 @@ We know the K-group of such a pair for any $l\in \N$ to be:
 	\end{equation*} which in turn defines a natural isomorphism of isomorphism classes of groups
 	\begin{equation*}
 		\bigoplus_{q\in \Crit_k(f)}K^{-k}_{\#}(\mathcal{IP}_q) \to K^{-k}_{\#}(\mathcal{IP}_k)
-	\end{equation*}
+	\end{equation*} Hence, the class $K^{-k}_{\#}(\mathcal{IP}_k)$ satisfies the propertie of a coproduct with the maps
+	\begin{align*}
+		\pcomp{i_q}\coloneq \pcomp{(c_q^*)}:\rK^{-k}_{\#}(\mathcal{IP}_{q})&\to K^{-k}_{\#}(\mathcal{IP}_k) \quad\text{ where }\\
+		c: \bigvee_{r\in \Crit(k)}(N_r/L_r)& \to N_q/L_q\quad \text{ is the collapse,}
+	\end{align*}and the properties of the product with the mapsto
+	\begin{align*}
+		\pcomp{pr_q}\coloneq \pcomp{(i_q)^*}:K^{-k}_{\#}(\mathcal{IP}_k) &\to \rK^{-k}_{\#}(\mathcal{IP}_{q})\quad\text{ where }\\
+		i_q: N_q/L_q & \to \bigvee_{r\in \Crit(k)}(N_r/L_r)\text{ is the inclusion.}
+	\end{align*}
+\end{remark}
+
+
+
+
+\begin{remark}[Generators for Canonical Isomorphism Classes]\label{rem:MorseFiltr-canonicalIdentificationOfMorseChainGrou}
 	Hence, there is an isomorphism 
 	\begin{equation*}
 		C^k(M,\mathfrak{A},\rK^{-l}(pt))\to K^{-k}_{\#}(\mathcal{IP}_k)\,.
 	\end{equation*} This isomorphism can be made natural. For this we need to establish a natural generating set of $K^{-k}_{\#}(\mathcal{IP}_k)$, which is done by defining a generating set for any (and thereby for all) groups in $K^{-k}_{\#}(\mathcal{IP}_k)$. We pick the group $\rK^{-k}(\bigvee_{q\in \Crit_k(f)} (N_q/L_q))$. Additivity tells us that a generating set is given by including generators of the summands $\rK^{-k}(N_q/L_q)$. Now for each summand we have the isomorphism $\tilde{K}^{-\lambda_q}(N_q/L_q)\cong \tilde{K}^{-\lambda_q}(\overline{T^u_qM})$, which is natural and described in Remark \ref{rem:morseFiltr-criticalPointsAsIsolatedCompactInvariantSubsets}. Hence, if $T^u_qM$ is oriented, Corollary \ref{cor:orient-vectorspaceOrientationInducesKtheoreticOrientation} gives us just what we need, making the map canonical. The generator is then given by pulling back the generator of $K^{-\ind_p}(\overline{T^u_qM})$ along the map of pairs:
 	\begin{align*}
 	 \kappa_q\coloneq  \restr{\diff \phi^{-1}}{0}\circ R_0\circ s\circ \mathrm{pr}_u \circ \phi	\,:\,(\phi^{-1}( D^{s }_\epsilon\times  D^{u }_\epsilon),\phi^{-1}( D^{ s}_\epsilon\times \partial D^{u}_\epsilon))  \to (\overline{T^u_qM},\{\infty\})
-	\end{align*} where $\mathrm{pr}_u$ is the projection onto the unstable coordinates and $s$ is the stretching $x\mapsto  (\frac{x}{\epsilon-\norm{x}})$ with $\restr{\diff s}{0}=\frac{1}{\epsilon}\Idm$. So for every critical point $q\in \Crit_k(f)$ we get a generator of $\alpha_q\in \tilde{K}^{-\lambda_q}(N_q/L_q)$ which becomes an element in $K^{-k}_{\#}(\mathcal{IP}_k)$. 	
-	We denote said element as $(\alpha_q^{(N_q,L_q)})_{\#}$ and call it the \textbf{canonical generator corresponding} to $q$. Notice that we could have picked another refined Morse chart, or another $\epsilon$ and hence another index pair $(N_q',L_q')$ of $q$. This would give another generator $\alpha_q'{(N_q',L_q')}\in \tilde{K}^{-\lambda_q}(N_q'/L_q')$. However, as canonical generators, they would agree: For this we need to check the following: let $h:N_q/L_q\to N_q',L_q'$ be the homotopy equivalence from Theorem \ref{thm:morseFiltr-homotopyEquivalenceOfIndexPairs}. In their summands, $\alpha_q'{(N_q',L_q')}$ and $\alpha_q{(N_q,L_q)}$ are generators, and as $h^*$ induces an isomorphism we have $h^*(\alpha_q'{(N_q',L_q')})=\pm \alpha_q{(N_q,L_q)}$. So we need to show, that the sign here is $+$. Whilst we could brute force a calculation here using the single preimage Lemma \ref{lem:orient-singleRegularPreimage} we will later in Remark \ref{rem:morseFiltr-canonicalGeneratorsIndependOfChartAndEpsilon} proof said statement a bit more elegant.
+	\end{align*} where $\mathrm{pr}_u$ is the projection onto the unstable coordinates and $s$ is the stretching $x\mapsto  (\frac{x}{\epsilon-\norm{x}})$ with $\restr{\diff s}{0}=\frac{1}{\epsilon}\Idm$. So for every critical point $q\in \Crit_k(f)$ we get a generator of $\alpha_q\in \tilde{K}^{-\lambda_q}(N_q/L_q)$ which pulls back along the collapsoiing map $c_q^*(\alpha_q)\in \rK^{-k}(\bigvee_{r\in \Crit(k)}(N_q/L_r))$and then induces an element in $K^{-k}_{\#}(\mathcal{IP}_k)$. 	
+	We denote said element as $(\alpha_q^{(N_q,L_q)})_{\#}$ and call it the \textbf{canonical generator corresponding} to $q$. 
+	
+	Notice the abuse of notation here, where $(\alpha_q^{(N_q,L_q)})_{\#}$ can either be an element of $K^{-k}_{\#}(\mathcal{IP}_k)$, or a generator of $K^{-k}_{\#}(\mathcal{IP}_{\{q\}})$. Those two meanings are related in the following sense: 
+	\begin{align*}
+		\pcomp{(c_q^*)}((\alpha_q^{(N_q,L_q)})_{\#})=(\alpha_q^{(N_q,L_q)})_{\#}\in K^{-k}_{\#}(\mathcal{IP}_k)\\
+		\pcomp{(i_q^*)}((\alpha_q^{(N_q,L_q)})_{\#})=(\alpha_q^{(N_q,L_q)})_{\#}\in K^{-k}_{\#}(\mathcal{IP}_{\{q\}})
+	\end{align*}
 \end{remark}
+	We could have picked another refined Morse chart, or another $\epsilon$ and hence another index pair $(N_q',L_q')$ of $q$. This would give another generator $\alpha_q'^{(N_q',L_q')}\in \tilde{K}^{-\lambda_q}(N_q'/L_q')$. However, as canonical generators, they would agree: For this we need to check the following: let $h:N_q/L_q\to N_q',L_q'$ be the homotopy equivalence from Theorem \ref{thm:morseFiltr-homotopyEquivalenceOfIndexPairs}. In their summands, $\alpha_q'^{(N_q',L_q')}$ and $\alpha_q^{(N_q,L_q)}$ are generators, and as $h^*$ induces an isomorphism we have $h^*(\alpha_q'{(N_q',L_q')})=\pm \alpha_q^{(N_q,L_q)}$. So we need to show, that the sign here is $+$. Whilst we could brute force a calculation here using the single preimage Lemma \ref{lem:orient-singleRegularPreimage} we will later in Remark \ref{rem:morseFiltr-canonicalGeneratorsIndependOfChartAndEpsilon} proof said statement a bit more elegant.
 \begin{remark}
-The independence of the chosen Morse chart was the main motivation for introducing the language of canonical isomorphism classes. The book \cite{banyaga2004lectures} proofes the homotopy equivalence of all index pairs and proceeds much as we do to show that singular homology and Morse homology are isomorphic, albeit in singular homology rather than complex K-theory. They also introduce a generator for an index pair by orientation and a Morse chart, but do not show the invariance of said chart (compare \cite[Example 7.17]{banyaga2004lectures}). Whilst this is no gap in the theory (the invariance is to be expected and the authors presumably considered it evident), without the language of canonical isomorphism classes, such an invariance is cumbersome even to state precisely.
+The independence of the chosen Morse chart was the main motivation for introducing the language of canonical isomorphism classes. 
+The book \cite{banyaga2004lectures} proofes the homotopy equivalence of all index pairs and proceeds much as we do to show that singular homology and Morse homology are isomorphic, albeit in singular homology rather than complex K-theory. This is a written out version of Salamons proof of said statement in \cite{Salamon1990}. 
+Similar to us, they also introduce a generator for an index pair by orientation and a Morse chart, but do not show the invariance of said chart (compare \cite[Example 7.17]{banyaga2004lectures}). Whilst this is no gap in the theory (the invariance is to be expected and the authors presumably considered it evident), without the language of canonical isomorphism classes, such an invariance is cumbersome even to state precisely.
 \end{remark}
 
+\begin{definition}[From Morse to K-Theory]
+	Let $M$ be a smooth manifold wit the Morse datum $\mathfrak{A}$ and denote the one point pointed space by $pt$. Then for any $l\in \N$, on the generators $\Crit_k(f)$ we define the morphism of canonical Isomorphism calses, where the left side consists of only one group:
+	\begin{equation*}
+		\Chi: C^k(M,\mathfrak{A},\rK^{-l}(pt))\,\to\, \rK_{\#}^{-(k+l)}(\mathcal{IP}_k)\,,\quad q\mapsto (\alpha_q^{(N_q,L_q)})_{\#}\,.
+	\end{equation*}
+	Remark \ref{rem:MorseFiltr-canonicalIdentificationOfMorseChainGrou} ensures invaraiance of the choosen $\epsilon$ and refined Morse chart, that made up $(\alpha_q^{(N_q,L_q)})_{\#}$.
+\end{definition}
 
 
 	
@@ -238,21 +307,25 @@ The independence of the chosen Morse chart was the main motivation for introduci
     \end{equation*}
 	Now the disjoint union of the index pairs $(N_q,L_q)$ for all $q\in \Crit_{k}(f)$ is an index pair of $\Crit_{k}(f)$ itself. The collapsing maps $c_p:\bigvee _{p\in \Crit_{k-1}}\big(N_p/L_p\big)\to \big(N_p /L_p\big)$ together with the inclusions $i_q:\big(N_q/L_q\big)\to \bigvee_{q \in \Crit_{k}}(N_q/L_q)$ let us define the map 
 \begin{equation*}
-	\Delta^{k-1} \coloneq \Big(\sum_{q\in\Crit_{k}}\sum_{p\in \Crit_{k-1}} c_p\circ \big(b\circ \delta_{triple}^{p,q}\circ i_q\big)\Big)_{\#}: K^{-(k-1)}_{\#}(\mathcal{IP}_{k-1}) \to K^{-k}_{\#}(\mathcal{IP}_{k} )\,.
+	\Delta^{k-1} \coloneq \Big(\sum_{q\in\Crit_{k}}\sum_{p\in \Crit_{k-1}} c_p^*\circ \big(b\circ \delta_{triple}^{p,q}\circ i_q^*\big)\Big)_{\#}: K^{-(k-1)}_{\#}(\mathcal{IP}_{k-1}) \to K^{-k}_{\#}(\mathcal{IP}_{k} )\,.
 \end{equation*} 
 
 Due to the naturality of the triple connecting homomorphism, the inclusion and the collapsing, any list of topological triples $(X,Y,Z)$ such that $(X,Y)$ is a regular index pair of $\{q\}$, $(Y,Z)$ of $\{p\}$ and $(X,Z)$ of $W(q\to p)\cup \{q\}\cup \{p\}$ for all $q\in \Crit_k(f),p\in \Crit_{k-1}(f)$ gives rise to the same morphism of canonical isomorphism classes.
+\todo{alternative Definition using the language of sum and products of functions}
 \end{definition}	
+\begin{remark}[Invariance of the Choosen Triple]
+	
+\end{remark}
 
 
 \subsection{Commuting Boundary Maps}
 \begin{theorem}\label{thm:morseFilt-commutingMorsecoboundary}
-	Let $M$ be a smooth manifold with the Morse datum $\mathfrak{A}$, denote the one pointed topological space by $\{pt\}$. Then, for any $l\in \Z$ the following diagram comutes:
+	Let $M$ be a smooth manifold with the Morse datum $\mathfrak{A}$, denote the one pointed topological space by $pt$. Then, for any $l\in \Z$ the following diagram comutes:
 	\begin{equation}
 		\begin{tikzcd}\label{eq:morseFilt-commutingDiagramTheorem}
-			C^{k-1}(M,\mathfrak{A},K^l(pt)) \arrow[r,"\partial^{k-1}"] \arrow[d] 
+			C^{k-1}(M,\mathfrak{A},\rK^{-l}(pt)) \arrow[r,"\partial^{k-1}"] \arrow[d,"\Chi"'] 
 			& 
-			C^{k}(M,\mathfrak{A},K^l(pt)) \arrow[d]
+			C^{k}(M,\mathfrak{A},\rK^{-l}(pt)) \arrow[d,"\Chi"]
 			\\
 			K^{-(k-1)-l}_{\#}(\mathcal{IP}_{k-1}) \arrow[r,"\Delta^{k-1+l}"]& K^{-(k)-l}_{\#}(\mathcal{IP}_{k})
 		\end{tikzcd}
@@ -1051,8 +1124,8 @@ We can now continue our calculation in equation (\ref{eq:morseFiltr-boundaryMorp
 		\end{tikzcd}
 	\end{center}
 	Hence, we only need to proof the original statement for $l=0,1$.
-	For $l=1$ the bottom row of the diagram \ref{eq:morseFilt-commutingDiagramTheorem} is trivial, as the connected simple systems $\mathcal{IP}_k$ consists of spaces that are homotopically equivalent to $k$-spheres and we know by \ref{cor:kTheo-kGroupsOfTheSpheres} that $K^{-k-1}(S^k)\cong\tilde{K}(S^{2k+1})=0$. The same argument works for the image of $\Delta^k$ for $l=1$. So for the rest of the proof we assume $l=0$. Now since $N_p$ is a tubular neighbourhood of $W(\to p)\cap M^c$ we know that $N_p\cap S(q\to)$ consists of finitly many components $V_j$ and each component has one $\{x_j\}=W(q\to p)\cap V_j$. In fact, the proof of Lemma \ref{lem: The Main Lemma Np is tubular} shows that the $V_j$ are fibers of the normal neighbourhood of $W(\to p)$ inside $W(q\to)$ and hence homeomorphic to $\R$.\todo{referenz!}
-	Now we take the tiple $(C,B,A)$ from Lemma \ref{lem: The Main Lemma Np is tubular}. We have a map of triples: 
+	For $l=1$ the bottom row of the diagram \ref{eq:morseFilt-commutingDiagramTheorem} is trivial, as the connected simple systems $\mathcal{IP}_k$ consists of spaces that are homotopically equivalent to $k$-spheres and we know by \ref{cor:kTheo-kGroupsOfTheSpheres} that $K^{-k-1}(S^k)\cong\tilde{K}(S^{2k+1})=0$. The same argument works for the image of $\Delta^k$ for $l=1$. So for the rest of the proof we assume $l=0$. Now since $N_p$ is a tubular neighbourhood of $W(\to p)\cap M^c$ we know that $N_p\cap S(q\to)$ consists of finitly many components $V_j$ and each component has one $\{x_j\}=W(q\to p)\cap V_j$. In fact, the proof of Lemma \ref{lem:morseFilt-npIsTubular} shows that the $V_j$ are fibers of the normal neighbourhood of $W(\to p)$ inside $W(q\to)$ and hence homeomorphic to $\R$.\todo{referenz!}
+	Now we take the tiple $(C,B,A)$ from Definition \ref{def:morseFilt-setupCommutingDiff}. We have a map of triples: 
 	\begin{align*}
 			\left( ~W(q\to)\cap N_q ~,~S(q\to)~,~S(q\to ) \setminus \bigcup\limits_j\inti(V_j) ~\right) \to (C,B,A)
 		\end{align*} giving us a commuting diagramm (the square bracets for the input of the K funktors $K[-]$ are choosen for readability and have no deeper meaning)
@@ -1115,7 +1188,8 @@ The Lemma \ref{lem:morseFilt-canonicalGeneratorsOnTransversalDisks} gives us the
 \begin{equation*}
 	b\circ \delta_{triple}(\alpha_p^{(B,A)})=(i^*_{C,B})^{-1} \sum_j b\circ \delta\circ l_j^*\big(o_{V_j}\big)=(i^*_{C,B})^{-1} \sum_j e(\gamma_j)o_{D_q}=\sum_j e(\gamma_j) \alpha_q^{C,B}\,.
 \end{equation*}
-Now summing over all $q$ gives the final computation:
+Now we need to sort out the algebraic definition of $\Delta$ and then we are done!
+
 
 \end{proof}
 \begin{comment}
