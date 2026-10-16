@@ -295,6 +295,61 @@ Similar to us, they also introduce a generator for an index pair by orientation 
 	Remark \ref{rem:MorseFiltr-canonicalIdentificationOfMorseChainGrou} ensures invaraiance of the choosen $\epsilon$ and refined Morse chart, that made up $(\alpha_q^{(N_q,L_q)})_{\#}$.
 \end{definition}
 
+\begin{definition}[Adapted Lyapunov Function]\label{def:morseFilt-adaptedLyapunov}
+	An \textbf{adapted Lyapunov function} for the Morse-Smale pair $(f,g)$ (where $g$ denotes the metric and $f$ the Morse function) is a smooth function 
+	$\ell :M\to \R$ such that
+	\begin{enumerate}[(i)]
+		\item $\diff \ell (-\grad (f))<0$ on $M\setminus \Crit(f)$,
+		\item $\ell(r)=\ind_r(f)$ for all $r\in \Crit(f)$,
+		\item every $r\in \Crit(f)$ has a neighbourhood on wich $\ell-f$ is constant.
+	\end{enumerate} 
+\end{definition}
+\begin{proposition}\label{prop:morseFiltr-existenceAdaptedLyapunov}
+	An adapted Lyapunov function exists.
+\end{proposition}
+\begin{proof}
+	We apply \cite[Theorem B]{Smale1961OnGradient} to the vector field $X=\grad(f)$, which satisfies the needed conditions: For such a setup, Smales Theorem gives us a function $F$ that satisfies
+	\begin{enumerate}[(a)]
+		\item The critical points of $F$ are the critical points of $X$ (and thereby, in our case of $f$) and $F$ coincides with $f+c$ for $c\in \R$ in small neigbhourhoods of those critical points,
+		\item $X$ is transversal to $F$ at levelsets outside of critical points.
+		\item $F(r)=\ind_f(r)$ for all $r\in \Crit(F)=\Crit(f)$.
+	\end{enumerate} By (a), $\diff F(\grad(f))=\diff f (\grad(f))=\norm{\grad(f)}^2$ near critical points. Outside of critical points we have that $\diff F (-\grad(f))\neq 0$ and as for $\dim(M)\geq2$ this set is connected, we conclude that $\diff F (-\grad(f))>0$ there also. If $\dim(M)=1$ we can argue similarly in each connected component that contains a point close to a critical point. Hence, all properties of an adapted Lyapunov function are satisfied by $\ell\coloneq F$.
+\end{proof}
+
+\begin{definition}[Sublevel Index Triple]\label{def:morseFilt-sublevelTriple}
+	Let $p\in \Crit_{k-1}(f)$, $q\in \Crit_k(f)$ and $S_{pq}\coloneq W(q\to p)\cup \{p,q\}$. 
+	An  \textbf{index triple} for $(p,q)$ is a triple $Z\subseteq Y\subseteq X$ of compact sets such that $(X,Z)$ is an index pair of $S_{qp}$, $(X,Y)$ is an index pair of $\{q\}$ and $(
+	Y,Z)$ is an index pair of $\{p\}$. It is called a \textbf{sublevel triple} if moreover
+	\begin{equation*}
+		Y=Z\cup \big(X\cap  \ell^{-1}(-\infty,c]\big)\qquad \text{for some }c\in(k-1,k)\,.
+	\end{equation*}
+\end{definition}
+\begin{lemma}\label{morseFiltr-sublevelTripoleGivePairs}
+	Let $(X,Z)$ be an index pair of $S_{qp}$, $c\in (k-1,k)$ and$ Y=Z\cup \big(X\cap  \ell^{-1}(-\infty,c]\big)$. Then $(X,Y,Z)$ is a sublevel triple.
+\end{lemma}
+\begin{proof}
+	We need to check the three axioms for the two pairs $(X,Y)$ and $(Y,Z)$. We start checking the axioms for $(X,Y)$:
+	\begin{enumerate}[1.]
+		\item Assume that $x\in I(\overline{X\setminus Y})$. Then $x\in I(\overline{X\setminus Z})$ and thereby $x=q$, or $x\in W(q\to p)$. But the latter cannot be true, as for all $x\in W(q\to p)$, there is a $t>0$ such that $f(\phi_t(x))<c$. Hence $x=q$.
+		\item Assume that $Y$ would not be positively invariant in $X$. Then there would be an $x\in \ell^{-1}(-\infty,c]$ (since $Z$ is positively invarient), and such that $f(\phi_{t}(x))>c\geq f(x)$ which cannot happen, as $f$ decreases along flow lines.
+		\item Finally, as $Y$ contains $Z$, the exit set property is trivially satisfied.
+	\end{enumerate}
+	Now for $(Y,Z)$:
+	\begin{enumerate}
+		\item This is shown by the same argument as for $(X,Y)$.
+		\item $Z$ is positively invariant in $X$ and $Y\subseteq X$. Hence $Z$ is positively invariant in $Y$.
+		\item $Z$ is an exit set of $X$ and thereby also of $Y$, as the latter is again contained in $X$.
+	\end{enumerate}
+\end{proof}
+
+\begin{lemma}[Flow Maps and Triples]\label{lem:morseFiltr-flowMapOfTriples}
+	Let $(X,Y,Z)$ be an index triple and $(\tilde{X},\tilde{Y},\tilde{Z})$ be a sublevel triple for $(p,q)$, with level $\tilde{c}$. Dentote by $h_t,\,h^p_t,\, h^q_t$ the maps of Theorem \ref{thm:morseFiltr-homotopyEquivalenceOfIndexPairs}for the index pairs $(X,Z)\to (\tilde{X},\tilde{Z})$ of $S_{qp}$,  $(Y,Z)\to (\tilde{Y},\tilde{Z})$ of $\{p\}$ and  $(X,Y)\to (\tilde{X},\tilde{Y})$ of $\{q\}$. Then there exists a $T_0$ such that for all $t\geq T_0$:
+	\begin{enumerate}[(i)]
+		\item $h_t(Y/Z)\subseteq \tilde{Y}/\tilde{Z}$,
+		\item $\restr{h_t}{Y/Z}=h^p_t$,
+		\item the map $X/Y \to \tilde{X}/\tilde{Y}$ iunduced by $h_t$ equals $h^q_t$.
+	\end{enumerate}
+\end{lemma}
 
 	
 \begin{definition}[A Map of K-Groups]\label{def:morseFiltr-aMapOfKGroups}
