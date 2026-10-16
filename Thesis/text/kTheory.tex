@@ -1680,6 +1680,35 @@ Furthermore, the yellow sequence is a chain complex which we need to verify at t
 	\end{equation*} This splitting is naturally dependent on the retraction map. 
 \end{corollary}
 \subsection{New Perspective on the K-Connecting Homomorphism}
+\begin{definition}[Homotopy Cofiber]
+	For a based map $f:X\to Y$ beween two based spaces $(X,x_0)$ and $(Y,y_0)$ we define the \textbf{homotopy cofiber} $Cf$ to be 
+	\begin{equation*}
+		Cf\coloneq Y\cup_f CX\,,
+	\end{equation*}meaning $Y$ glued to the base of the cone over $X$ via $f$. In other words, 
+	\begin{equation*}
+		Cf=\big(Y\sqcup I\times X\big)\big/ (x,1)\sim (x_0,1)\text{, and }\,(x,0)\sim f(x)\; \forall x\in X
+	\end{equation*}
+\end{definition}
+Out notation of $(X\cup CY)$ for a pair $(X,Y)$ is the same as the homotopy cofiber $Ci_Y$ with respect to the inclusion $i_Y:Y\to X$.
+
+\begin{remark}
+	The inclusion $i:Y\to Cf$ is a cofibration for all $f$.  
+\end{remark}
+\begin{proof}
+	For a proof compare chapter 4 in \cite{May1999}. The argument here is that $Cf$ is a pushout of $f$ and the cofibration $x\to CX$. 
+\end{proof}
+\begin{definition}
+	Let $f:X\to Y$ be a continuous map of pointed spaces, $i:Y\to Cf$ be the inclusion and $\pi:Cf\to Cf/Y \cong \Sigma X$ be the projection composed with the homeomorphism $Cf/Y\to \Sigma X$ that is given by the collaps of $Y$ (respectifely the collapse of $X\times \{0\}$). Then the sequence 
+	\begin{center}
+		\begin{adjustbox}{width=\textwidth}
+		\begin{tikzcd}
+			X \arrow[r,"f"]&Y\arrow[r,"i"]&Cf\arrow[r,"\pi"]& \Sigma X \arrow[r,"-\Sigma f"]&\Sigma Y
+			\arrow[r,"-\Sigma i"]&\Sigma C f \arrow[r,"-\Sigma \pi "]&\Sigma^2 X \arrow[r,"\Sigma ^2 Y"]&\Sigma ^2 Y \arrow[r]&\cdots
+		\end{tikzcd}
+	\end{adjustbox}
+	\end{center} 
+	where $-\Sigma f(x,t)=(f(x),1-t)$ is called the \textbf{Puppe Sequence}.
+\end{definition}
 
 Hier hätte ich gerne die Puppe Sequence, und i.A. puppe seuqence + halb exacter Functor der über hTop factorisiert -> long exact sequence 
 \subsection{Product Structures}
