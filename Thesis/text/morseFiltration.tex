@@ -341,15 +341,32 @@ Similar to us, they also introduce a generator for an index pair by orientation 
 		\item $Z$ is an exit set of $X$ and thereby also of $Y$, as the latter is again contained in $X$.
 	\end{enumerate}
 \end{proof}
+\begin{lemma}\label{lem:morseFiltr-kompactImpliesTwichImpliesU}
+	Let $\phi$ be a flow on $M$ (which is a locally compact metric space or in our case a smooth manifold), $K\subseteq M$ be compact and $U$ be an open set in $K$ containing the maximal invariant subset $I(K)$. Then there exists a $T>0$ with:
+
+	\begin{equation*}
+		\phi_{[-T,T]}(x)\subseteq K \qquad \Leftrightarrow\qquad x\in U
+	\end{equation*}
+\end{lemma}
+\begin{proof}
+	The contradiction would imply that for all $T$ there would be an $x$ such that $\phi_{[-T,T]}(x)\subseteq K$ but $x\notin U$. With this we define the sequence $x_n$ such that $\phi_{[-n,n]}(x_n)\in K$ but $x_n\notin U$. Now decending to a subsequence gives us a sequence $x_n$ that converges in $K\setminus U$ to a point $x$. Continuity of the flow implies that $\phi_\R(x)\subseteq K$ and hence $x\in I(K)$ which implies that $U$ was not a neighbourhood of $I(K)$. Hence, by contraposition, the original claim follows.
+\end{proof}
 
 \begin{lemma}[Flow Maps and Triples]\label{lem:morseFiltr-flowMapOfTriples}
-	Let $(X,Y,Z)$ be an index triple and $(\tilde{X},\tilde{Y},\tilde{Z})$ be a sublevel triple for $(p,q)$, with level $\tilde{c}$. Dentote by $h_t,\,h^p_t,\, h^q_t$ the maps of Theorem \ref{thm:morseFiltr-homotopyEquivalenceOfIndexPairs}for the index pairs $(X,Z)\to (\tilde{X},\tilde{Z})$ of $S_{qp}$,  $(Y,Z)\to (\tilde{Y},\tilde{Z})$ of $\{p\}$ and  $(X,Y)\to (\tilde{X},\tilde{Y})$ of $\{q\}$. Then there exists a $T_0$ such that for all $t\geq T_0$:
+	Let $(X,Y,Z)$ be an index triple and $(\tilde{X},\tilde{Y},\tilde{Z})$ be a sublevel triple for $(p,q)$, with level $\tilde{c}$. Dentote by $h_t,\,h^p_t,\, h^q_t$ the maps of Theorem \ref{thm:morseFiltr-homotopyEquivalenceOfIndexPairs} for the index pairs $(X,Z)\to (\tilde{X},\tilde{Z})$ of $S_{qp}$,  $(Y,Z)\to (\tilde{Y},\tilde{Z})$ of $\{p\}$ and  $(X,Y)\to (\tilde{X},\tilde{Y})$ of $\{q\}$. Then there exists a $T_0$ such that for all $t\geq T_0$:
 	\begin{enumerate}[(i)]
 		\item $h_t(Y/Z)\subseteq \tilde{Y}/\tilde{Z}$,
 		\item $\restr{h_t}{Y/Z}=h^p_t$,
-		\item the map $X/Y \to \tilde{X}/\tilde{Y}$ iunduced by $h_t$ equals $h^q_t$.
+		\item the map $X/Y \to \tilde{X}/\tilde{Y}$ induced by $h_t$ equals $h^q_t$.
 	\end{enumerate}
 \end{lemma}
+\begin{proof}
+	Let $x\in Y\setminus Z$ with $\phi_{[0,2t]}(x)\subseteq X\setminus Z$. The positive invariance of $Y$ in $X$ implies that $\phi_{[0,2t]}(x)\in Y\setminus Z$. By Lemma \ref{lem:morseFiltr-kompactImpliesTwichImpliesU} applied to $K\coloneq \overline{Y\setminus Z}$ with $U\coloneq \{l<\tilde{c}\}\cap K$ and $t$ big enough implies that $\phi_t(x)\in U$. Hence, $\ell(\phi_t(x))<\tilde{c}$ and as $\ell$ decreases along $\phi$, we conclude that $\ell(\phi_{[t,3t]})<\tilde{c}$. Thereby for our $x$ the conditions 
+	\begin{equation*}
+		\phi_{[t,3t]}(x)\in \tilde{X}\setminus \tilde{Z}\qquad\text{and}\qquad \phi_{[t,3t]}(x)\in \tilde{Y}\setminus \tilde{Z}
+	\end{equation*} are equivalent, for $t$ big enough. This implies $(i)$ and also $(ii)$, as the maps are given by the same case distinctions.
+	Now for the last statement: The induced map $\overline{h_t}:X/Y\to \tilde{X}/\tilde{Y}$ is well defined by $(i)$.
+\end{proof}
 
 	
 \begin{definition}[A Map of K-Groups]\label{def:morseFiltr-aMapOfKGroups}
