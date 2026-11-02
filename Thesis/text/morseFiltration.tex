@@ -259,11 +259,11 @@ We know the K-group of such a pair for any $l\in \N$ to be:
 	\end{equation*} Hence, the class $K^{-k}_{\#}(\mathcal{IP}_k)$ satisfies the propertie of a coproduct with the maps
 	\begin{align*}
 		\pcomp{i_q}\coloneq \pcomp{(c_q^*)}:\rK^{-k}_{\#}(\mathcal{IP}_{q})&\to K^{-k}_{\#}(\mathcal{IP}_k) \quad\text{ where }\\
-		c: \bigvee_{r\in \Crit(k)}(N_r/L_r)& \to N_q/L_q\quad \text{ is the collapse,}
+		c: \bigvee_{r\in \Crit_k}(N_r/L_r)& \to N_q/L_q\quad \text{ is the collapse,}
 	\end{align*}and the properties of the product with the mapsto
 	\begin{align*}
 		\pcomp{pr_q}\coloneq \pcomp{(i_q)^*}:K^{-k}_{\#}(\mathcal{IP}_k) &\to \rK^{-k}_{\#}(\mathcal{IP}_{q})\quad\text{ where }\\
-		i_q: N_q/L_q & \to \bigvee_{r\in \Crit(k)}(N_r/L_r)\text{ is the inclusion.}
+		i_q: N_q/L_q & \to \bigvee_{r\in \Crit_k}(N_r/L_r)\text{ is the inclusion.}
 	\end{align*}
 \end{remark}
 
@@ -277,7 +277,7 @@ We know the K-group of such a pair for any $l\in \N$ to be:
 	\end{equation*} This isomorphism can be made natural. For this we need to establish a natural generating set of $K^{-k}_{\#}(\mathcal{IP}_k)$, which is done by defining a generating set for any (and thereby for all) groups in $K^{-k}_{\#}(\mathcal{IP}_k)$. We pick the group $\rK^{-k}(\bigvee_{q\in \Crit_k(f)} (N_q/L_q))$. Additivity tells us that a generating set is given by including generators of the summands $\rK^{-k}(N_q/L_q)$. Now for each summand we have the isomorphism $\tilde{K}^{-\lambda_q}(N_q/L_q)\cong \tilde{K}^{-\lambda_q}(\overline{T^u_qM})$, which is natural and described in Remark \ref{rem:morseFiltr-criticalPointsAsIsolatedCompactInvariantSubsets}. Hence, if $T^u_qM$ is oriented, Corollary \ref{cor:orient-vectorspaceOrientationInducesKtheoreticOrientation} gives us just what we need, making the map canonical. The generator is then given by pulling back the generator of $K^{-\ind_p}(\overline{T^u_qM})$ along the map of pairs:
 	\begin{align*}
 	 \kappa_q\coloneq  \restr{\diff \phi^{-1}}{0}\circ R_0\circ s\circ \mathrm{pr}_u \circ \phi	\,:\,(\phi^{-1}( D^{s }_\epsilon\times  D^{u }_\epsilon),\phi^{-1}( D^{ s}_\epsilon\times \partial D^{u}_\epsilon))  \to (\overline{T^u_qM},\{\infty\})
-	\end{align*} where $\mathrm{pr}_u$ is the projection onto the unstable coordinates and $s$ is the stretching $x\mapsto  (\frac{x}{\epsilon-\norm{x}})$ with $\restr{\diff s}{0}=\frac{1}{\epsilon}\Idm$. So for every critical point $q\in \Crit_k(f)$ we get a generator of $\alpha_q\in \tilde{K}^{-\lambda_q}(N_q/L_q)$ which pulls back along the collapsoiing map $c_q^*(\alpha_q)\in \rK^{-k}(\bigvee_{r\in \Crit(k)}(N_q/L_r))$and then induces an element in $K^{-k}_{\#}(\mathcal{IP}_k)$. 	
+	\end{align*} where $\mathrm{pr}_u$ is the projection onto the unstable coordinates and $s$ is the stretching $x\mapsto  (\frac{x}{\epsilon-\norm{x}})$ with $\restr{\diff s}{0}=\frac{1}{\epsilon}\Idm$. So for every critical point $q\in \Crit_k(f)$ we get a generator of $\alpha_q\in \tilde{K}^{-\lambda_q}(N_q/L_q)$ which pulls back along the collapsoiing map $c_q^*(\alpha_q)\in \rK^{-k}(\bigvee_{r\in \Crit_k}(N_q/L_r))$and then induces an element in $K^{-k}_{\#}(\mathcal{IP}_k)$. 	
 	We denote said element as $(\alpha_q^{(N_q,L_q)})_{\#}$ and call it the \textbf{canonical generator corresponding} to $q$. 
 	
 	Notice the abuse of notation here, where $(\alpha_q^{(N_q,L_q)})_{\#}$ can either be an element of $K^{-k}_{\#}(\mathcal{IP}_k)$, or a generator of $K^{-k}_{\#}(\mathcal{IP}_{\{q\}})$. Those two meanings are related in the following sense: 
@@ -450,8 +450,8 @@ S_k\coloneq \Crit_k(f)\cup\Crit_{k-1}(f)\cup\bigcup_{q\in\Crit_k,\,p\in\Crit_{k-
 \begin{tikzcd}
 {K^{-l-1}(\tilde{Y},\tilde{Z})} \arrow[rd, Rightarrow] \arrow[ddd] \arrow[rrrr, "{\delta_{triple}^{(\tilde{X},\tilde{Y},\tilde{Z})}}"] &                                                                                            &                                                                         &                                                          & {K^{-l}(\tilde{X},\tilde{Y})} \arrow[lld, Rightarrow] \arrow[ddd] \\
                                                                                                                                        & {K^{-l-1}(\tilde{Y}/\tilde{Z},*)} \arrow[d, "(h_t^{k-1})^*"'] \arrow[r, "\delta_{triple}"] & {K^{-l}(\tilde{X}/\tilde{Z},\tilde{Y}/\tilde{Z})} \arrow[r, Rightarrow] & {K^{-l}(\tilde{X}/\tilde{Y},*)} \arrow[d, "(h_t^{k})^*"] &                                                                   \\
-                                                                                                                                       & {K^{-l-1}(Y/Z,*)} \arrow[r, "\delta_{triple}"']                                            & {K^{-l-1}(X/Z,Y/Z)} \arrow[r, no head, Rightarrow]                     & {K^{-l-1}(X/Y,*)}                                       &                                                                   \\
-{K^{-l-1}(Y,Z)} \arrow[rrrr, "{\delta_{triple}^{(X,Y,Z)}}"'] \arrow[ru, Rightarrow]                                                    &                                                                                            &                                                                         &                                                          & {K^{-l-1}(Y,Z)} \arrow[llu, Rightarrow]                          
+                                                                                                                                       & {K^{-l-1}(Y/Z,*)} \arrow[r, "\delta_{triple}"']                                            & {K^{-l}(X/Z,Y/Z)} \arrow[r, no head, Rightarrow]                     & {K^{-l}(X/Y,*)}                                       &                                                                   \\
+{K^{-l-1}(Y,Z)} \arrow[rrrr, "{\delta_{triple}^{(X,Y,Z)}}"'] \arrow[ru, Rightarrow]                                                    &                                                                                            &                                                                         &                                                          & {K^{-l}(Y,Z)} \arrow[llu, Rightarrow]                          
 \end{tikzcd}			\end{adjustbox}
 			\end{center} where
 		\begin{equation*}
@@ -463,45 +463,22 @@ S_k\coloneq \Crit_k(f)\cup\Crit_{k-1}(f)\cup\bigcup_{q\in\Crit_k,\,p\in\Crit_{k-
 				% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAGkA9YAWgZ4CMAXwAUAHTF4GsYAE0hAeglSZALSGkAVAEoQG9Jlz5CKMgKq1GLNl179hI2QtVbd+kBmx4CRAeQv0zKyIHNx8ospY0jDAABqKkdHA6qSJMvJKklFqQm6kBl7GvqTm1IHWIbZ8gqKxzqROqtp5BUY+KABM-mVWwaF2EVlJ8ZkqMfKuevkeht4myF2llkE2Yfa1CrKubhYwUADm8ESgAGYAThAAtkhkIDgQSH7LFSAiABYA+jjcANY12pxNCBqAw6AAjGAMAAKsyKITOWH2bxwwJAELAUCQPAAbMR3OcrjdqPckF1nn0JLAGDg6B9gDgEWgGDAhFNThdrogniTEABmHorEKUyE0ukMrBMlmo0EQ6Gw9ogBFIlH4jmk4kPRAAFhBWDAfSgECYYOZqLeMDomMQYCYDAYxLoUTYkH1bJABM5-LumoArLrXSFDcbTdRzZbnQRWA6nSEXaxVYTtRqkH7yWx3l9frlAW6PUTvY9qOirbzbuU+p9vkCE5yyTyveW2JWc0IKEIgA
 \begin{tikzcd}
 {K^{-l-1}(\tilde{Y}/\tilde{Z},*)} \arrow[d, "(h_t^{k-1})^*"', bend right=60] \arrow[r, "\delta_{triple}"] \arrow[d, "h_t^*", bend left] & {K^{-l}(\tilde{X}/\tilde{Z},\tilde{Y}/\tilde{Z})} \arrow[r, Rightarrow] \arrow[d, "h_t^*"] & {K^{-l}(\tilde{X}/\tilde{Y},*)} \arrow[d, "(h_t^{k})^*"] \\
-{K^{-l-1}(Y/Z,*)} \arrow[r, "\delta_{triple}"']                                                                                         & {K^{-l-1}(X/Z,Y/Z)} \arrow[r, no head, Rightarrow]                                        & {K^{-l-1}(X/Y,*)}                                      
+{K^{-l-1}(Y/Z,*)} \arrow[r, "\delta_{triple}"']                                                                                         & {K^{-l}(X/Z,Y/Z)} \arrow[r, no head, Rightarrow]                                        & {K^{-l}(X/Y,*)}                                      
 \end{tikzcd}
-			\end{center}where the outside commutes by Lemma \ref{lem:morseFiltr-flowMapOfTriples} and the inside square commutes, as $h_t$ is a map of triples.
+			\end{center}where the outside commutes by Lemma \ref{lem:morseFiltr-flowMapOfTriples} and the inside square commutes, as $h_t$ is a map of triples. Let $x_\#\in K^{-l-1}_\#(\mathcal{IP}_{k-1})$ with representatives
+	$\tilde x\in K^{-l-1}(\tilde Y,\tilde Z)$ and $x\in K^{-l-1}(Y,Z)$, i.e.
+	$x=(h^{k-1}_t)^*\tilde x$. If we denote the map $\Delta^{k-1}$ coming from any index tiple $(A,B,C)$ by $\Delta_{(A,B,C)}$ we can calculate using the established commutativity, the naturality of the bott isomorphism $b$ and identifying $h_t^*$ and $(h_t^k)^*$:
+	\begin{align*}
+		\Delta^{k-1}_{(X,Y,Z)}(\pcomp{x})
+			&=\pcomp{\Big(b\circ \delta_{triple}(x)\Big)}\\
+			&=\pcomp{\Big(b\circ \delta_{triple}\circ (h^{k-1}_t)^*(\tilde x)\Big)} \\
+			&=\pcomp{\Big(b\circ (h_t)^*\circ \delta_{triple}(\tilde x)\Big)} \\
+			&=\pcomp{\Big((h_t^k)^* \circ  b\circ \delta_{triple}(\tilde x)\Big)} \\
+			&=\Delta^{k-1}_{(\tilde{X},\tilde{Y},\tilde{Z})}(\pcomp{x})\,.
+	\end{align*}
+For two arbitrary index triples $(X_i,Y_i,Z_i)$, $i=1,2$ we can now choose a sublevel triple (existence is assured by Lemma \ref{morseFiltr-sublevelTripoleGivePairs}) and apply the argument to both triples to deduce: $\Delta^{k-1}_{(X_1,Y_1,Z_1)}=\Delta^{k-1}_{(X_2,Y_2,Z_2)}$.
 \end{proof}
-	\begin{remark}
-		Let $(X,Y,Z)$ be an index triple and $(\tilde{X},\tilde{Y}\tilde{Z})$ be a sublevel triple for $S_k$. The quotient map 
-			$q_Z:(X,Y,Z)\to (X/Z,Y/Z,*)$
-		is a map of triples, that (composed with the needed quotients) induces isomorphisms \begin{equation*}
-			K^{-l}(X,Y)\cong \rK^{-l}(X/Y)\qquad \text{and}\qquad K^{-l}(Y,Z)\cong \rK^{-l}(Y/Z)\,.
-		\end{equation*} Hence, naturality of the triple connecting homomorphism gives the commuting diagram
-		\begin{center}
-			\begin{tikzcd}
-				 K^{-l-1}(Y/Z,*)=\rK^{-l}(Y/Z)\arrow[r,"\delta_{triple}"]\arrow[d,"q_Z^*"]
-				 	&	K^{-l}(X/Z,Y/Z)\cong K^{-l}(X,Y)\arrow[d,"q_Z^*"]\\
-				K^{-l-1}(Y,Z)\arrow[r,"\delta_{triple}"]&K^{-l}(X,Y)
-			\end{tikzcd}
-		\end{center}
-	\end{remark} 
-\begin{comment}
-\begin{definition}[A Map of K-Groups]
-	Let $f:M\to \R$ be a Morse-Smale function on a smooth compact Riemannian manifold $(M,g)$. Let $q\in \Crit_k(f)$ and $p\in \Crit_{k-1}(f)$. Assume for a moment we already have a regular index pair $(N_2,N_0)$ of the isolated compact subset $S=W(p\to q)\cup\{p,q\}$. 
-	For a $c\in (f(p),f(q))$, we set $N_1=N_0\cup (N_2 \cap M^c)$, where $M^c$ is the sublevel set. Clearly now $(N_2,N_1)$ is a regular index pair of $q$ and $(N_1,N_0)$ is a regular index pair of $p$.
 	
-	Furthermore, we have the triple connecting homomorphism $\delta_{triple}^{p,q}: K^{-\ind_p}(N_1,N_0) \to K^{-\ind_p+1}(N_2,N_1)$, which we can compose with the Bott periodicity map $b\coloneq \beta \boxtimes (-)$. This lets us induce the map:
-	\begin{equation*}
-	 \Big(b\circ \delta_{triple}^{p,q}\Big)_{\#}:K^{-\ind_p}_{\#}(\mathcal{IP}_{\{p\}})\to K^{-\ind_q}_{\#}(\mathcal{IP}_{\{q\}})
-    \end{equation*}
-	Now the disjoint union of the index pairs $(N_q,L_q)$ for all $q\in \Crit_{k}(f)$ is an index pair of $\Crit_{k}(f)$ itself. The collapsing maps $c_p:\bigvee _{p\in \Crit_{k-1}}\big(N_p/L_p\big)\to \big(N_p /L_p\big)$ together with the inclusions $i_q:\big(N_q/L_q\big)\to \bigvee_{q \in \Crit_{k}}(N_q/L_q)$ let us define the map 
-\begin{equation*}
-	\Delta^{k-1} \coloneq \Big(\sum_{q\in\Crit_{k}}\sum_{p\in \Crit_{k-1}} c_p^*\circ \big(b\circ \delta_{triple}^{p,q}\circ i_q^*\big)\Big)_{\#}: K^{-(k-1)}_{\#}(\mathcal{IP}_{k-1}) \to K^{-k}_{\#}(\mathcal{IP}_{k} )\,.
-\end{equation*} 
-
-Due to the naturality of the triple connecting homomorphism, the inclusion and the collapsing, any list of topological triples $(X,Y,Z)$ such that $(X,Y)$ is a regular index pair of $\{q\}$, $(Y,Z)$ of $\{p\}$ and $(X,Z)$ of $W(q\to p)\cup \{q\}\cup \{p\}$ for all $q\in \Crit_k(f),p\in \Crit_{k-1}(f)$ gives rise to the same morphism of canonical isomorphism classes.
-\todo{alternative Definition using the language of sum and products of functions}
-\end{definition}	
-\begin{remark}[Invariance of the Choosen Triple]
-	
-\end{remark}
-\end{comment}
 
 
 \subsection{Commuting Boundary Maps}
@@ -517,7 +494,104 @@ Due to the naturality of the triple connecting homomorphism, the inclusion and t
 		\end{tikzcd}
 	\end{equation}
 \end{theorem}
-Before we can proof this theorem we need the following Lemma:
+The proof of this statment will be take the most part of the rest of this section. We start by defining spaces that we well need throughout the rest of the section:
+
+\begin{definition}[The Global Setup]\label{def:morseFilt-globalSetup}
+	Let $(M,g)$ be a smooth Riemannian manifold with the Morse Smale function $f$ and orientations $\mathfrak{o}_r$ os all unstable tangend spaces $T^u_r$ for $r\in \Crit$. Now we fix $k$, $c\in (k-1,k)$, $\epsilon \in (0,1)$ and $T>0$. With this define the sub- and superlevel sets 
+	\begin{equation*}
+		M_c\coloneq \ell^{-1}[c,\infty)=\{\ell \geq c\}\qquad \text{ and }\qquad M^c\coloneq \ell^{-1}(-\infty,c]=\{\ell \leq c\}\,
+	\end{equation*} 
+	\begin{align*}
+		N^k
+		&\coloneq \{x\in M_c \mid \ell(\phi_{-T}x)\le k+\epsilon\}, &
+		L^k
+		&\coloneq N^k\cap\ell^{-1}(c),\\
+		N^{k-1} &\coloneq \{x\in M^c \mid \ell(\phi_{T}x)\ge k-1-\epsilon\}, &
+		L^{k-1} &\coloneq \{x\in N^{k-1}\mid \ell(\phi_T x)=k-1-\epsilon\},
+	\end{align*}and the \textbf{global triple}
+	\begin{equation*}
+		C_k\coloneq N^k\cup N^{k-1},\qquad
+		B_k\coloneq N^{k-1}\cup L^k,\qquad
+		A_k\coloneq L^{k-1}\cup\big(L^k\setminus N^{k-1}\big).
+	\end{equation*}
+	For the following proof we also define 
+	\begin{equation*}
+		S(q\to) \coloneq W(q\to)\cap f^{-1}(c),\qquad
+		D_q \coloneq W(q\to)\cap M_c\,.
+	\end{equation*}
+	\todo{Hier die benötigten konventionen/oprienbtierungen einfügen}
+\end{definition}
+\begin{lemma}[Cantor's Intersection Theorem]\label{lem:morseFiltr-cantorsIntersectionTheorem}
+	Let $C_k$ be a family of compact spaces non-empty such that $C_k\supseteq C_{k+1}$ for all $k\in I$, where $I$ is an ordered set containing smallest element $1\in I$. Then the intersection 
+	$\bigcap_{k\in I} C_k \neq \emptyset$ is non-empty.
+\end{lemma}
+\begin{proof}
+	Assume the opposite, that $\bigcup_{k\in I} C_k=\emptyset$.
+	 As we defined compact spaces to be hausdorff, we can conclude that all $C_k$ are closed and thereby $U_k\coloneq C_1\setminus C_k$ is open in $C_1$. Now by our assumption, the $U_k$ cover $C_1$ (for every $x\in C_1$ there exists a $k\in I$ such that $x\notin C_k$ and hence $x\in U_k$). As $C_1$ is compact, there is a finite ascending subfamiliy that already covers $C_1=U_{k_1}\cup \cdots \cup U_{k_m}$, where ascending means that $U_{k_i}\subseteq U_{k_{i+1}}$. Hence, $C_1=U_{k_m}=C_1\setminus C_{k_m}$ (notice, that we used existence of maximum elements in finite ordered sets), and as $C_{k_m} \subseteq C_1$ this implies that $C_{k_m}=\emptyset$ which contradicts our assumtion. Hence, by contraposition, we arrived at the statement. 
+\end{proof}
+\begin{lemma}[Splitting into Pieces]\label{lem:morseFilt-piecesOfGlobalSetup}
+	Choose pairwise disjoint open subsets $U_q\supseteq D_q$ ($q\in \Crit_k(f)$)and $U_p\subseteq W(\to p)\cap M^c$ ($p\in \Crit_{k-1}(f)$). For $T$ large enough 
+	$N^k\subseteq \bigsqcup_q U_q$ and $N^{k-1}\subseteq \bigsqcup_p U_p$. In this setting
+	\begin{equation*}
+		N_q\coloneq N^k 	\cap U_q, \quad L_q \coloneq L^k    \cap U_q,\quad 
+		N_p\coloneq N^{k-1} \cap U_p, \quad L_p \coloneq L^{k-1}\cap U_p
+	\end{equation*} are compact, $N^k=\bigsqcup_qN_q$, $L^k=\bigsqcup_q L_q$, $N^{k-1}=\bigsqcup_p N_p$ and $L^{k-1}=\bigsqcup_p L_p$.
+\end{lemma}
+\begin{proof}
+	Notice, that the limit $\bigcap_{T\in \R_{>0}} N^k=\bigsqcup_q D_q$: If $x\in D_q$ then $\phi_{-T}\in D_q$ for all $T$ and hence $x\in \bigcap_{T\in \R_{>0}} N^k$. Is on the other hand $x\notin D_q$ for any $q\in \Crit_k$ hence $x\notin W(q\to)\cap M^c$, then $x\in W(r\to)$ for some $r$ with $\ind(r)\neq k$, and as $\ell(r)\geq \ell(x)>{k-1}$, we know that $\ind(r)>k$. Thereby, $\phi_{-T}(x)$ approaches $r$ implying that $\ell(\phi_{-T}(x))$ approaches $\ind(r)\geq{k+1}$ and hence, for $T$ big enough $\ell(\phi_{-T}(x))\geq k+\epsilon$, concluding that indeed $\bigcap_{T\in \R_{>0}} N^k=\bigsqcup_q D_q$.
+
+
+	Now the $D_q$ themself are compact, as by the $\lambda$-Lemma, the boundary of $D_q$ is given by unstably manifolds of critical points of lower degree. Hence, their $\ell$-value is below $c$ and we could rewrite our intersection $W(q\to)\cap M^c$ to become $\overline{W(q\to)\cap M^c}$ which in turn is the intersection of two compact spaces and thereby compact again.
+
+
+	Finally, For every $T$, the $N^k_T$ are compact (as they are given by a closed condition on a compact manifold). Hence, if we assume $T$ to be increasing to infinity, we have a decending family of compact spaces that approaces $\bigsqcup_q D_q$. Assume that $N^k_T$ would never be contained in our neighbourhoof $\bigcup_q U_q$. Then for all $T$, $N^k_T\setminus U$ would be non-empt, compact, and again a decending family, meaning that the intersection $\bigcap_T (N^k_T\setminus U)\neq \emptyset$ by Cantor's intersection Theorem \ref{lem:morseFiltr-cantorsIntersectionTheorem}. This however contradicts that the $N^k_T$ approach $\bigsqcup_q D_q$.
+
+	The same argument (where instead of the $-T$-limit we take toe $T$-limit) shows that $N^k$ is contained in an open neighbourhood $\bigsqcup_p U_p$ for $T$ big enough. The rest of the lemma follows imidiatly from the fact that the intersections seperate disjoint pieces of a compact space, which are compact themself.
+\end{proof}
+From now on, the notations from Definition \ref{def:morseFilt-globalSetup} and Lemma \ref{lem:morseFilt-piecesOfGlobalSetup} is used.
+
+\begin{lemma}[The Global Triple]\label{lem:morseFilt-globalTriple}
+	For $\epsilon$ small and $T$ large: 
+	\begin{enumerate}[(i)]
+		\item $A_k$ is closed, and $(C_k,A_k)$ is an index pair of $S_k$.
+		\item $B_k=A_k\cup \big(C_k \cap \ell^{-1}(-\infty,c]\big)$, hence $(C_k,B_k,A_k)$ is a sublevel triple for $S_k$.
+		\item the inclusions induce homeomorphisms:
+			\begin{equation*}
+				\bigvee_q N_q/L_q = N^k/L^k \xrightarrow{\ \cong \ } C_k/B_k\,,\qquad
+				\bigvee_p N_p/L_p = N^{k-1}/L^{k-1} \xrightarrow{\ \cong \ }B_k/A/k\,. 
+			\end{equation*}
+		\item $(N_q,L_q)$ is an index pair of $\{ q\}$ and $(N_p,L_p)$ of $\{p\}$.
+		\item For every neighbourhoof $U$ of $W(\to p)\cap \ell^{-1}(c)$ that is open in $\ell^{-1}(c)$ there is a $T$ such that $N_p\cap \ell^{-1}(c)\subseteq U$.
+	\end{enumerate}
+\end{lemma}
+\begin{proof}
+	$A_k$ is colsed, as $L^{k-1}$ is closed and the closure 
+	\begin{equation*}
+		\overline{L^k\setminus N^{k-1}}=L^k\setminus \inti( \underbrace{N^{k-1} \cap L^k}_{N^{k-1}\cap \ell^{-1}(c)})=L^k\setminus N^{k-1}\cap \partial N^{k-1}\cap L^k
+	\end{equation*} is only gaining the points $\partial N^{k-1}\cap L^k=\{\ell \circ \phi_T=k-1-\epsilon\}\subseteq L$ which are already in $L^{k-1}$. 
+	
+	(i) We need to check the three properties:
+	\begin{enumerate}
+		\item  It is clear that for all $T$ and $\epsilon$ $S_k\subseteq \inti(A_k \setminus C_k)$, as $N^k \cup N^{k-1}$ give an open neighbourhood of the closed $S_k$, and $A_k\subseteq \partial N^k\cup N^{k-1}$. The latter is true, as any element  $x\in A_k$ is either in $L^{k-1}\subseteq \partial N^{k-1}\setminus \overline{N^k}$, or in $L^{k-1}\setminus N^{k-1}$. But $L^{k-1}\setminus N^{k-1}\subseteq \partial N^k \setminus  \overline{N^{k-1}}$. Since $S_k$ is invariant, we have that for all $T,\epsilon$ $S_k\subseteq I(\overline{C_k\setminus A_k})$. Now for any $T>0$, and any $\epsilon \in (0,1)$ $x\in C_k\in \ell^{-1}(k-1-\epsilon,k+\epsilon)$. The flow invariant subset $I(\overline{C_k\setminus A_k})$ is contained in the flow invariant subset $I(\overline{\ell^{-1}(k-1-\epsilon,k+\epsilon)})\subseteq I(\ell^{-1}(k-2,k-1))$.
+	For any $x\in \ell^{-1}(k-2,k-1)$, the limit $\lim_{s\to \pm \infty} \phi_s(x)$ either stays in the cylinder $\ell^{-1}(k-2,k-1)$ and thereby $x\in W(q\to p)\subseteq S_k$ for some $q\in \Crit_k$, $p\in \Crit_{k-1}$, or it leaves the cylinder. Hence, $I(\overline{C_k\setminus A_k}) \subseteq S_k$ and with the containmend above we can conclude, that $S_k=I(\overline{C_k\setminus A_k})$.
+		\item  The positive invariance of $A_k$ in $C_k$ is a direct consequence of $\ell$ decending along the flow $\phi_s$.
+		\item The exit set property is also a direct consequence of $\ell$ decending along the flow $\phi_s$.
+	\end{enumerate}
+
+	(ii) This is just a reformulation:
+	\begin{equation*}
+		A_k\cup \underbrace{(C_k\cap \ell^{-1}[-\infty,c))}_{=C_k\cap M^c=N^{k-1}\cup L^k}=\underbrace{L^{k-1}}_{\subseteq N^{k-1}}\cup (L^k\setminus N^{k-1})\cup N^{k-1} \cup L^k =L^k\cup N^{k-1}
+	\end{equation*}
+	(iii) Obviously $N^k/L^k \to C_k / B_k$ is a homeomorphism, as the inclusion induces a continuous bijection between two compact and Hausdorff spaces. The same argument works for $N^{k-1}/L^{k-1}\to B^k/ A_k$ once we realice, that if $x\in B^k$ but $x\notin N^{k-1}$ then $x\in L^k\setminus N^{k-1}\subseteq A_k$. 
+
+	(iv) By (ii) and Lemma \ref{morseFiltr-sublevelTripoleGivePairs} (together with (iii) )we know that $(C_k,B_k)$ is an index pair for $\Crit_k$ and $C_k=\sqcup_q N_q$, where the $N_q$ are closed and open in $C_k$. Hence, $(N_q,B_k\cap N_q)$ is an index pair of $\{q\}$, as all properties translate to the smapper space that only contains $\{q\}$ as an invariant subset and finally 
+		\begin{equation*}
+			B_k\cap N_q=(N^{k-1}\cup L^k)\cap N_q=\underbrace{(N^{k-1}\cap N_q)}_{\subseteq (N^k\cap N^{k-1})\cap N_q \subseteq L^k \cap N_q}\cup (L^k\cap N_q)=L_q
+		\end{equation*}
+		Hence, $(N_q,B_k\cap N_q)=(N_q,L_q)$ is an index pair of $\{q\}$ and similar we can show that $(N_p,L_q)$ is an index pair of $\{p\}$.
+
+	(v) Similar to the proof of Lemma \ref{lem:morseFilt-piecesOfGlobalSetup}: Assume that $T$ is increasing to infinity. Notice how the intersection $\bigcap_T (N_p \cal \ell^{-1}(c))=(W(\to p)\cup \{p\})\cap \ell^{-1}(c)$. Let $U$ be a neighbourhood of $W(\to p)\cap \ell^{-1}(c)$ and assume that for all $T$, the intersection $\big(N_p\cap \ell^{-1}(c)\big)\cap U^c\neq \emptyset$ where $U^c$ denotes the complement of $U$. Then by Canotrs intersection Theorem \ref{lem:morseFiltr-cantorsIntersectionTheorem}, the intersection $\cap_T \big(N_p\cap \ell^{-1}(c)\big)\cap U^c \neq \emptyset$ which contradicts $\cap_T (N_p \cal \ell^{-1}(c))=(W(\to p)\cup \{p\})\cap \ell^{-1}(c)$ and thereby the final statement is shown.
+\end{proof}
 
 \begin{definition}[Definitions and Setup]\label{def:morseFilt-setupCommutingDiff}
 	We work in a compact, Riemanian, smooth manifold $(M,g)$ of dimension $m$ together with a Morse-Smale function 
