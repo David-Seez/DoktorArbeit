@@ -178,7 +178,7 @@ This obviously becomes a new functor, where the tagging removed uniqueness probl
 	\end{center}
 	Again, the map $\pcomp{(f_1)}\times \pcomp{f_2}$ is induced by the product of the maps that induce the $\pcomp{(f_i)}$ and hence $\pcomp{(f_1)}\times \pcomp{f_2}=\pcomp{(f_1\times f_2)}$. 
 \end{remark}
-\begin{corollary}
+\begin{corollary}\label{cor:morseFilt-summandsAndFactorsOfMorphisms}
 	Let $\pcomp{A}=\bigoplus_{i=1}^n\pcomp{(A_i)}$ be the direct sum of finitly many canonical isomorphism classes and let $\pcomp{C}$ be another canonical isomorphism class. If we are given a morphism $\pcomp{f}: \pcomp{A}\to \pcomp{C}$, we call the morphisms 
 	\begin{equation*}
 		\pcomp{(f_i)}: \pcomp{(A_i)}\to \pcomp{C}\,,\quad i=1,\dots n
@@ -201,6 +201,10 @@ This obviously becomes a new functor, where the tagging removed uniqueness probl
 		f=\bigoplus_{i=1}^n\big(
 			\bigtimes_{j=1}^m (f_i)^j
 		)=\bigtimes_{j=1}^m\big(\bigoplus_{i=1}^n (f^j)_i\big)
+	\end{equation*}
+	Note that by associativity of functions we have the equality that allows us to simplify the notation
+	\begin{equation*}
+		(f_i)^j=\pcomp{pr_j}\circ \pcomp{f}\circ \pcomp{i_i}=(f^j)_i\eqcolon f_i^j\,.
 	\end{equation*}
 \end{corollary}
 
@@ -437,8 +441,8 @@ S_k\coloneq \Crit_k(f)\cup\Crit_{k-1}(f)\cup\bigcup_{q\in\Crit_k,\,p\in\Crit_{k-
 
 	For $p\in \Crit_{k-1}(f)$ and $q\in \Crit_k(f)$ we call
 	\begin{equation*}
-		\pcomp{\Delta^{p,q}}\coloneq \pcomp{(pr_q)}\circ \Delta^{k-1}\circ \pcomp{(i_p)}:\pcomp{K^{-(k+1)}}(\mathcal{IP}_{p})\to \pcomp{K^{-k}}(\mathcal{IP}_q)
-	\end{equation*} the \textbf{components} of $\Delta^{k-1}$ (summand and factor functions with respect to remark \ref{rem:MorseFiltr-ProductStruktureOfKIPk}).
+		\pcomp{(\Delta^{k-1})^{q}_p}\coloneq \pcomp{(pr_q)}\circ \Delta^{k-1}\circ \pcomp{(i_p)}:\pcomp{K^{-(k+1)}}(\mathcal{IP}_{p})\to \pcomp{K^{-k}}(\mathcal{IP}_q)
+	\end{equation*} the \textbf{components} of $\Delta^{k-1}$ (summand and factor functions with respect to Corollary \ref{cor:morseFilt-summandsAndFactorsOfMorphisms}).
 \end{definition}
 \begin{remark}[Invariance of the Chosen Triple]\label{rem:morseFiltr-invarianceOfTriple}
 	The map $\Delta^{k-1}$ does not depend on the choosen index triple.
@@ -592,7 +596,49 @@ From now on, the notations from Definition \ref{def:morseFilt-globalSetup} and L
 
 	(v) Similar to the proof of Lemma \ref{lem:morseFilt-piecesOfGlobalSetup}: Assume that $T$ is increasing to infinity. Notice how the intersection $\bigcap_T (N_p \cal \ell^{-1}(c))=(W(\to p)\cup \{p\})\cap \ell^{-1}(c)$. Let $U$ be a neighbourhood of $W(\to p)\cap \ell^{-1}(c)$ and assume that for all $T$, the intersection $\big(N_p\cap \ell^{-1}(c)\big)\cap U^c\neq \emptyset$ where $U^c$ denotes the complement of $U$. Then by Canotrs intersection Theorem \ref{lem:morseFiltr-cantorsIntersectionTheorem}, the intersection $\cap_T \big(N_p\cap \ell^{-1}(c)\big)\cap U^c \neq \emptyset$ which contradicts $\cap_T (N_p \cal \ell^{-1}(c))=(W(\to p)\cup \{p\})\cap \ell^{-1}(c)$ and thereby the final statement is shown.
 \end{proof}
-
+\begin{definition}[Lokal Triple]\label{def:morseFiltr-localTriplaABC}
+	We define the local triple 
+	\begin{equation*}
+		C^{qp}\coloneq N_q\cup N_p\,\qquad B^{qp}\coloneq N_p\cup L_q\,,\qquad A^{qp}\Coloneq L_p \cup (L_q\setminus N_p)\,.
+	\end{equation*}
+\end{definition}
+\begin{lemma}[Restricting to Summands]\label{lem:morseFiltr-restrictingToSummand}
+	Let $i_q:N_q/L_q \to \bigvee_{q'\in \Crit_k}N_{q'}/L_{q'}$ be the inclusion of a summand and $c_p:\bigvee_{p'\in \Crit_{k-1}}N_{p'}/L_{p'}\to N_p/L_p$ the collaps of everything but one summand. Under the identifications of Lemma \ref{lem:morseFilt-globalTriple}(iii) and $C^{qp}/B^{qp}=N_q/L_q$, $B^{qp}/A^{qp}=N_p/L_p$,
+	\begin{equation*}
+		i_q^* \circ \delta_{triple}^{(C_k,B_k,A_k)}\circ c_p^*\;=\; \delta_{triple}^{(C^{qp},B^{qp},A^{qp})}\,.
+	\end{equation*}
+	In particular,
+		$\pcomp{(\Delta^{k-1})^{q}_p} = \pcomp{\big(b\circ \delta_{triple}^{(C^{qp},B^{qp},A^{qp})} \big)}$.
+\end{lemma}
+\begin{figure}
+	\begin{center}
+		\includegraphics[width=0.7\textwidth]{text/images/restrictingToASummand.png}
+	\caption{The triples of Proof of Lemma \ref{lem:morseFiltr-restrictingToSummand}.}\label{fig:MorseFiltr-theTriplesInRestrictionOfSummondsProof}
+	\end{center}
+\end{figure}
+\begin{proof}
+	This does not follow immidiatly, as the inclusion $(\qp{C},\qp{B},\qp{A})\hookrightarrow (C_k,B_k,A_k)$ is not a map of triples. This can be seen as there are elements in $L_q\setminus N_q$ that fo not live in $A_k$ but in $B_k$ (Compare Figure \ref{fig:MorseFiltr-theTriplesInRestrictionOfSummondsProof}, where the proplematic area is marked). So we go through intermediate triples
+		\begin{align*}
+			T_q &\coloneq \big(N_q \cup N^{k-1},\; L_q \cup N^{k-1},\; L^{k-1}\cup (L_q \setminus N^{k-1})\big)\,,\\
+			W   &\coloneq \big(N_q\cup N^{k-1},\; L_q\cup N^{k-1},\;
+						       L_p\cup \bigcup_{p'\in \Crit_{k-1}\setminus\{p\}}N_{p'}\cup (L_q\setminus N^{k-1})\big)\,,
+		\end{align*}
+	and get the maps of triples (all induced by the inclusions)
+	\begin{equation*}
+		(C_k,B_k,A_k)\xleftarrow{\ \iota_1\ }T_q \xrightarrow{\ \iota_2 \ } W \xleftarrow{ \ \iota_3 \ }(\qp{C},\qp{B},\qp{A})
+	\end{equation*}
+	In the quotient of the first two summands of the triples, the maps induce 
+	$i_q$, $\id_{N_q/ L_q}$ and $ \id_{N_q/ L_q}$. In the quotients of the second and third summands of the triples the three maps induce the maps
+	$\id_{N^{k-1}/L^{k-1}}$, $c_p$ and $\id_{N_p/L_p}$. 
+	Here we always identified the quotiends of the second by the third summands of the triples with $N^{k-1}/L^{k-1}$ 
+	respectifely with $N_p/L_p$ via the inclusion as in Lemma \ref{lem:morseFilt-globalTriple} (iii). Now naturality of the triple connecting homomorphism gives
+	\begin{equation*}
+		\delta_{triple}^{T_q}=i_q^* \circ \delta^{(C_k,B_k,A_k)}_{triple},\qquad
+		\delta_{triple}^{T_q} \circ c_p^*=\delta_{triple}^{W}\,,\qquad
+		\delta_{triple}^{(C^{qp},B^{qp},A^{qp})}=\delta_{triple}^W\,. \qedhere
+	\end{equation*}
+\end{proof}
+ \begin{comment}
 \begin{definition}[Definitions and Setup]\label{def:morseFilt-setupCommutingDiff}
 	We work in a compact, Riemanian, smooth manifold $(M,g)$ of dimension $m$ together with a Morse-Smale function 
 	\begin{align}
@@ -792,6 +838,7 @@ From now on, the notations from Definition \ref{def:morseFilt-globalSetup} and L
 		\item $N_p$ is a tubular neighbourhood of $W(\to p)\cap M^c$.\label{lem: enum: 5}
 	\end{enumerate}
 \end{lemma}
+ \end{comment}
 
 \begin{figure}
 	\includegraphics[width=0.49\textwidth]{text/images/TauAndRho.jpg}
