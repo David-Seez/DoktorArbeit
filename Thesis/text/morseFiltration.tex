@@ -178,25 +178,32 @@ This obviously becomes a new functor, where the tagging removed uniqueness probl
 	\end{center}
 	Again, the map $\pcomp{(f_1)}\times \pcomp{f_2}$ is induced by the product of the maps that induce the $\pcomp{(f_i)}$ and hence $\pcomp{(f_1)}\times \pcomp{f_2}=\pcomp{(f_1\times f_2)}$. 
 \end{remark}
+\begin{proposition}[Biproducts]\label{prop:morseFiltr-biproduct}
+	Let $(A,i_j:A_j\to A)$ be a finite coproduct where $i_j$ denote the inclusions. By the universel property, any $x\in A$ has a unique description $x=\sum_ji_j(a_j)$. To see this, assume that $A'\subseteq A$ would be the subgroup of those $x$ that are such linear combinations. Now we have the two functions $p,0:A\to A/A'$, where $p$ is the quotient map and $0$ the trival map. the $A_i$ all include into $A/A'$ and both, the $0$ map and $p$ satisfy that $0\circ i_j=0=p\circ i_j$. by the uniqueness of the universal property we conclude that $p=0$ and thereby $A/A'=0$. Hence the description exists for all $x$. The uniqueness is deduced by fixing a $k$ and defining $f_k=\id_{A_k}:A_k\to A_k$ and $f_j=0$ $(j\neq k)A_j\to A_k$. The universal property gives us a uniqe map $pr_k:A\to A_k$ such that $pr_k \circ i_j=f_j$. Then $pr_k(\sum_ji_j(a_j)) =a_k$. If we argue the same for all $k$ we get that the $a_j$ are all unique. 
+
+	Furthermore, $(A,pr_j)$ satisfies the universal property of the product: If $f_j:B\to A_j$, then $\sum_j i_j\circ f_j$ is the function that composed with any $pr_j$ gives back $f_j$ by definition of $pr_j$. The uniqueness follows from the unique description $x=\sum_ji_j(a_j)$.
+
+	On the other hand, if we are given a finite product $(A,pr_j:A\to A_j)$, we can define the functions $f_j:A_k\to A_j$ that are given by the identity for $k=j$ and trivial else. Then the universal property gives us functions $i_k:A_k\to A$ such that $pr_j\circ i_k=f_k$. Then $(A,i_j)$ is a coproduct and if we are given functinos $f_j:A_j\to B$ for all $j$, the function $ f=\sum_j f_j\circ pr_j$  satisfies the universal property.
+\end{proposition}
 \begin{corollary}\label{cor:morseFilt-summandsAndFactorsOfMorphisms}
-	Let $\pcomp{A}=\bigoplus_{i=1}^n\pcomp{(A_i)}$ be the direct sum of finitly many canonical isomorphism classes and let $\pcomp{C}$ be another canonical isomorphism class. If we are given a morphism $\pcomp{f}: \pcomp{A}\to \pcomp{C}$, we call the morphisms 
+	Let $\pcomp{A}=\bigoplus_{i=1}^n\pcomp{(A_i)}=\bigtimes_{i=1}^n\pcomp{A_i}$ be the direct sum (and thereby also product) of finitly many canonical isomorphism classes and let $\pcomp{C}$ be another canonical isomorphism class. If we are given a morphism $\pcomp{f}: \pcomp{A}\to \pcomp{C}$, we call the morphisms 
 	\begin{equation*}
 		\pcomp{(f_i)}: \pcomp{(A_i)}\to \pcomp{C}\,,\quad i=1,\dots n
 	\end{equation*} given by $\pcomp{f}\circ \pcomp{(i_i)}$ the \textbf{summand functions of $f$}. By the uniqueness of the universal property of the coproduct we know that 
 	\begin{equation*}
-		\pcomp{f}=\bigoplus_{i=1}^n \pcomp{(f_i)}=\pcomp{\big(\bigoplus_{i=1}^n f_i\big)}\,.
+		\pcomp{f}=\bigoplus_{i=1}^n \pcomp{(f_i)}=\pcomp{\big(\bigoplus_{i=1}^n f_i\big)}=\pcomp{\left(\sum_i f_i\circ pr_i\right)}\,.
 	\end{equation*}
-	Similar, if we are given a function $\pcomp{g}:\pcomp{C}\to \pcomp{A}$ we call the functions
+	Similar (as any coproduct is also a product), if we are given a function $\pcomp{g}:\pcomp{C}\to \pcomp{A}$ we call the functions
 	\begin{equation*}
 		\pcomp{(g_i)}\coloneq \pcomp{(pr_i)} \circ \pcomp{g} :\pcomp{C}\to \pcomp{(A_i)}
 	\end{equation*} the \textbf{factor functions of $g$}. Again by uniqueness we have 
 	\begin{equation*}
-		\pcomp{g}=\bigtimes_{i=1}^n \pcomp{(g^i)}=\pcomp{\big(\bigtimes_{i=1}^n g^i\big)}\,.
+		\pcomp{g}=\bigtimes_{i=1}^n \pcomp{(g^i)}=\pcomp{\big(\bigtimes_{i=1}^n g^i\big)}=\pcomp{\left( \sum_i i_i\circ g^i\right)}\,.
 	\end{equation*}
 	Now assume that we are given a function $f:\bigoplus_{i=1}^n\pcomp{(A_i)}\to \bigoplus_{j=1}^m \pcomp{(B_j)}$. Then we can look at all the factor functions of all summand functions to get
 	\begin{equation*}
 		\pcomp{(\pcomp{(f_i)})^j}=\pcomp{((f_i)^j)}:\pcomp{(A_i)}\to (\pcomp{B_j})\,.
-	\end{equation*}Similary, we could have looked at all the summands of all factor functions to get $\pcomp{((f^j)_i)}$. By definition we then have that 
+	\end{equation*} Similary, we could have looked at all the summands of all factor functions to get $\pcomp{((f^j)_i)}$. By definition we then have that 
 	\begin{equation*}
 		f=\bigoplus_{i=1}^n\big(
 			\bigtimes_{j=1}^m (f_i)^j
@@ -205,6 +212,9 @@ This obviously becomes a new functor, where the tagging removed uniqueness probl
 	Note that by associativity of functions we have the equality that allows us to simplify the notation
 	\begin{equation*}
 		(f_i)^j=\pcomp{pr_j}\circ \pcomp{f}\circ \pcomp{i_i}=(f^j)_i\eqcolon f_i^j\,.
+	\end{equation*} If we now write it down explicitly, we have 
+	\begin{equation*}
+		f= \sum_{i=1}^n\sum_{j=1}^m i_j \circ f^j_i \circ pr_i\,.
 	\end{equation*}
 \end{corollary}
 

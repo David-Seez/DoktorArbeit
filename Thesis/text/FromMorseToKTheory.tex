@@ -309,7 +309,7 @@ From now on, the notations from Definition \ref{def:morseFilt-globalSetup} and L
 \begin{definition}[Lokal Triple]\label{def:morseFiltr-localTriplaABC}
 	We define the local triple 
 	\begin{equation*}
-		C^{qp}\coloneq N_q\cup N_p\,\qquad B^{qp}\coloneq N_p\cup L_q\,,\qquad A^{qp}\Coloneq L_p \cup (L_q\setminus N_p)\,.
+		C^{qp}\coloneq N_q\cup N_p\,\qquad B^{qp}\coloneq N_p\cup L_q\,,\qquad A^{qp}\coloneq L_p \cup (L_q\setminus N_p)\,.
 	\end{equation*}
 \end{definition}
 \begin{lemma}[Restricting to Summands]\label{lem:morseFiltr-restrictingToSummand}
@@ -319,9 +319,9 @@ From now on, the notations from Definition \ref{def:morseFilt-globalSetup} and L
 	\end{equation*}
 	In particular,
 		$\pcomp{(\Delta^{k-1})^{q}_p} = \pcomp{\big(b\circ \delta_{triple}^{(C^{qp},B^{qp},A^{qp})} \big)}$, or globally:
-        \begin{equation*}
-            \Delta^{k-1}=\sum_q\left(\sum_p \left(\pcomp{c_p^*} \circ \pcomp{(\Delta^{k-1})^{q}_p}\right)\pcomp{i_q^*}\right)= \sum_q\sum_p \left( \pcomp{c_p^*}\circ \pcomp{(b \circ \delta_{triple}^{(C^{qp},B^{qp},A^{qp})})}\circ \pcomp{i_q^*} \right)
-        \end{equation*}
+		\begin{equation*}
+			 \Delta^{k-1}=
+		\end{equation*}
 \end{lemma}
 \begin{figure}
 	\begin{center}
@@ -348,9 +348,27 @@ From now on, the notations from Definition \ref{def:morseFilt-globalSetup} and L
 	\begin{equation*}
 		\delta_{triple}^{T_q}=i_q^* \circ \delta^{(C_k,B_k,A_k)}_{triple},\qquad
 		\delta_{triple}^{T_q} \circ c_p^*=\delta_{triple}^{W}\,,\qquad
-		\delta_{triple}^{(C^{qp},B^{qp},A^{qp})}=\delta_{triple}^W\,. \qedhere
+		\delta_{triple}^{(C^{qp},B^{qp},A^{qp})}=\delta_{triple}^W\,. 
 	\end{equation*}
+	Now by definition (compare Corollary \ref{cor:morseFilt-summandsAndFactorsOfMorphisms}), and the calculations of Remark \ref{rem:MorseFiltr-ProductStruktureOfKIPk} we calculate
+	\begin{align*}
+		(\Delta^{k-1})^{q}_p
+		&=\pcomp{pr_q}circ \Delta^{k-1}\circ \pcomp{i_p}\\
+		&= \pcomp{i_q^*}\circ \pcomp{\left(b\circ \delta^{(C_k,B_k,A_k)}_{triple}\right)} \circ \pcomp{c^*_p}\\
+		&=\pcomp{b}\circ \pcomp{i_q^*}\circ \pcomp{ \delta^{(C_k,B_k,A_k)}_{triple}} \circ \pcomp{c^*_p}\\
+		&=\pcomp{b}\circ \pcomp{\delta_{triple}^{T_q}} \circ \pcomp{c^*_p}\\
+		&=\pcomp{b}\circ \pcomp{\delta_{triple}^{W}}\\
+		&=\pcomp{\left(b\circ \delta_{triple}^{(C^{qp},B^{qp},A^{qp})}\right)}
+	\end{align*}
+	The global statement is just the calculation (again with Corollary \ref{cor:morseFilt-summandsAndFactorsOfMorphisms} and  Remark \ref{rem:MorseFiltr-ProductStruktureOfKIPk}): 
+	\begin{align*}
+			 \Delta^{k-1}
+			 &=\sum_p\left(\sum_q \left(\pcomp{i_q} \circ \pcomp{(\Delta^{k-1})^{q}_p}\right)\pcomp{pr_p}\right)\\
+			 &=\sum_p\left(\sum_q \left(\pcomp{c^*_q} \circ \pcomp{(\Delta^{k-1})^{q}_p}\right)\pcomp{i^*_p}\right)\\
+			 &=\sum_p \sum_q \pcomp{ \left(c^*_q\circ \left(b\circ \delta_{triple}^{(C^{qp},B^{qp},A^{qp})}\right) \circ i^*_p\right)}
+	\end{align*}
 \end{proof}
+
  \begin{comment}
 \begin{definition}[Definitions and Setup]\label{def:morseFilt-setupCommutingDiff}
 	We work in a compact, Riemanian, smooth manifold $(M,g)$ of dimension $m$ together with a Morse-Smale function 
@@ -1208,37 +1226,40 @@ We can now continue our calculation in equation (\ref{eq:morseFiltr-boundaryMorp
 	Hence, we only need to proof the original statement for $l=0,1$.
 	For $l=1$ the bottom row of the diagram \ref{eq:morseFilt-commutingDiagramTheorem} is trivial, as the connected simple systems $\mathcal{IP}_k$ consists of spaces that are homotopically equivalent to $k$-spheres and we know by \ref{cor:kTheo-kGroupsOfTheSpheres} that $K^{-k-1}(S^k)\cong\tilde{K}(S^{2k+1})=0$. The same argument works for the image of $\Delta^k$ for $l=1$. So for the rest of the proof we assume $l=0$.
     
-    By Lemma \ref{lem:morseFiltr-restrictingToSummand}, we have that
-            \begin{equation*}
-            \Delta^{k-1}= \sum_q\sum_p \left( \pcomp{c_p^*}\circ \pcomp{(b \circ \delta_{triple}^{(C^{qp},B^{qp},A^{qp})})}\circ \pcomp{i_q^*} \right)
-        \end{equation*}
-    And evaluating the composition $ \Delta^{k-1} \circ \Chi(p)$ for any generator $p$ of $C^{k}(M,\mathfrak{A},\rK^{}(pt))$ yealds 
+    By Lemma \ref{lem:morseFiltr-restrictingToSummand}, we have that the composition $ \Chi^{-1}\circ \Delta^{k-1} \circ \Chi$ yealds 
     \begin{align*}
-        \Delta^{k-1} \circ \Chi(p)
-        &=\sum_q\sum_p \left( \pcomp{c_p^*}\circ \pcomp{(b \circ \delta_{triple}^{(C^{qp},B^{qp},A^{qp})})}\circ \pcomp{i_q^*}((\alpha_p^{(B^{qp},A^{qp})})_{\#}) \right)\\
-        &=\sum_q\sum_p \left( \pcomp{c_p^*}\circ \pcomp{(b \circ \delta_{triple}^{(C^{qp},B^{qp},A^{qp})})}(\underbrace{\pcomp{(\alpha_p)}}_{\in \rK^{-(k-1)}(B^{qp}/A^{qp})}) \right)
-    \end{align*}
+        \Chi^{-1}\Delta^{k-1} \circ \Chi
+        &=\sum_p \sum_q  \Chi^{-1}\circ \pcomp{ \left(c^*_q\circ \left(b\circ \delta_{triple}^{(C^{qp},B^{qp},A^{qp})}\right) \circ i^*_p\right)}\circ \Chi
+    \end{align*} If we give this map a generator $p$, this calculates to
+	\begin{equation*}
+		\Chi^{-1}\Delta^{k-1} \circ \Chi (p) 
+        =\sum_q  \Chi^{-1}\circ \pcomp{ \left(c^*_q\circ \left(b\circ \delta_{triple}^{(C^{qp},B^{qp},A^{qp})}\right) \underbrace{(\alpha_p)}_{\in K^{-(k+1)}(B^{qp},A^{qp})}\right)}
+	\end{equation*}
+	On the other hand, by the definition of the Morse coboundary operator (after identifying the form $\eta_q$ with $q$ we get )$\partial^{k-1}(p)=\sum_{q\in\Crit_k(f)}n(q,p)q$. So the goal is to show for all $q\in \Crit_k(f)$:
+	\begin{equation*}
+		\Chi^{-1} \circ c^*_q\circ \underbrace{\left(b\circ \delta_{triple}^{(C^{qp},B^{qp},A^{qp})}\right)(\alpha_p)}_{\in K^{-k}(C^{qp},B^{qp})=\langle \alpha_q\rangle}=n(q,p)q\,.
+	\end{equation*}
+	Obviously, $\Chi^{-1} \circ c^*_q(\alpha_q)=q$. Thereby, if $\left(b\circ \delta_{triple}^{(C^{qp},B^{qp},A^{qp})}\right)(\alpha_p)=k \alpha_q$, we have that $\Chi^{-1} \circ c^*_q\circ \underbrace{\left(b\circ \delta_{triple}^{(C^{qp},B^{qp},A^{qp})}\right)(\alpha_p)}_{\in K^{-k}(C^{qp},B^{qp})=\langle \alpha_q\rangle}=k\cdot q$. So we need to show that the coefficient $k$ equals $n(q,p)$.
+
+
+	Let $V_j$ be the transversal discs of Remark \ref{def:morseFiltr-defiunitionVj}. By Lemma \ref{lem:morseFilt-globalTriple}(v) we may choose $T$ big enough such that $N_q\cap S(q\to)\subseteq \bigcup_j \inti(V_j)$.
+
     
-    
-    Now since $N_p$ is a tubular neighbourhood of $W(\to p)\cap M^c$ we know that $N_p\cap S(q\to)$ consists of finitly many components $V_j$ and each component has one $\{x_j\}=W(q\to p)\cap V_j$. In fact, the proof of Lemma \ref{lem:morseFilt-npIsTubular} shows that the $V_j$ are fibers of the normal neighbourhood of $W(\to p)$ inside $W(q\to)$ and hence homeomorphic to $\R$.\todo{referenz!}
-	Now we take the tiple $(C,B,A)$ from Definition \ref{def:morseFilt-setupCommutingDiff}. We have a map of triples: 
+    We now have a map of triples: 
 	\begin{align*}
-			\left( ~W(q\to)\cap N_q ~,~S(q\to)~,~S(q\to ) \setminus \bigcup\limits_j\inti(V_j) ~\right) \to (C,B,A)
+			\left( ~W(q\to)\cap N_q ~,~S(q\to)~,~S(q\to ) \setminus \bigcup\limits_j\inti(V_j) ~\right) \to (C^{qp},B^{qp},A^{qp})
 		\end{align*} giving us a commuting diagramm (the square bracets for the input of the K funktors $K[-]$ are choosen for readability and have no deeper meaning)
 		\begin{fdiagram}
 			\begin{tikzcd}
-				{K^{-\lambda_p}\left[ B,A \right]} \arrow[r, "\delta_{triple}^1"] \arrow[d, "{i_{B,A}^*}"]                                                            & {K^{-\lambda_q}\left[C, B \right]} \arrow[d, "{i_{C,B}^*}"] \\
+				{K^{-\lambda_p}\left[ B^{qp},A^{qp} \right]} \arrow[r, "\delta_{triple}^1"] \arrow[d, "{i_{B^{qp},A^{qp}}^*}"]                                                            & {K^{-\lambda_q}\left[C^{qp}, B^{qp} \right]} \arrow[d, "{i_{C^{qp},B^{qp}}^*}"] \\
 				{K^{-\lambda_p}\left[ S(q\to),S(q\to)\setminus \bigcup\limits_j \inti(V_j) \right]} \arrow[r, "\delta_{triple}^2"] \arrow[d, "i_j^*"', shift right=2] & {K^{-\lambda_q}\left[W(q\to)\cap N_q,S(q\to) \right]}       \\
 				{K^{-\lambda_p}\left[ V_j,\partial V_j \right]} \arrow[ru, "f^j"'] \arrow[u, "c_j^*"']                                                  &                                                            
 			\end{tikzcd} 
 			\label{diag:morseFiltr-boundaryMapsummonds}
 		\end{fdiagram}
-		Now $i^*_{C,B}$ is an isomorphism, because the collapsing of the tubular neighbourhood $N_q$ induces a homotopy equivalence
-		\begin{equation*}
-			\frac{N_q\cup N_p}{N_p\cap L_q}		 	\, \cong \, 
-			 \frac{N_q}{L_q}		  				\; \to   \; 
-			\frac{W(q\to)\cap M_c}{L_q\cap W(q\to)} \, \cong \, \frac{W(q\to)\cap N_q}{S(q\to)}
-		\end{equation*} that is inverse to the inclusion (once the pairs are viewed as pointed quotients).
+		Now $i^*_{C^{qp},B^{qp}}$ is an isomorphism: First we notice that the inclusion $i_{C^{qp},B^{qp}}$ factors over $(N_q,L_q)$: 
+		$(W(q\to)\cap N_q,S(q\to))=(D_q,S(q\to))$ is contained in $(N_q,L_q)$, as $N_q=N^k\cap U_q$ where $U_q$ was a neighbourhood of $D_q$ and $N^k$ containes $D_q$ by definition. Furthermore  $(N_q,L_q)$ is contained in $(C^{qp},B^{qp})=(N_q\cup N_p,L_q \cup N_p)$ by definition again. 
+		Let $i: (D_q,S(q\to)) \to (N_q,L_q)$ and $j:  (N_q,L_q) \to (C^{qp},B^{qp})$ demote the inclusions. Then obviously, $j^*$ is an isomorphism (the pairs viewed as pointed spaces where the second is qoutiend out are homeomorphic). Hence, $ i^*_{C^{qp},B^{qp}}$ is an isomorphism if $i^*:K^{-k}(N_q,L_q)\to K^{-k}(D_q,S(q\to))$ is an isomorphism. Notice how the image and domain of $i^*$ are infinit cyclic. The first is generated by $\alpha_q$ and the second by $o_{D_q}$ (The element $o_{D_q}$ is defined in Remark \ref{rem:morseFiltr-orientDQwithGQ}). Lemma \ref{lem:morseFilt-canonicalGeneratorsOnTransversalDisks} gives us now that $i^*(\alpha_q)=o_{D_q}$. Hence $i^*$ maps generators to generators and is thereby an isomorphism. 
 		
 		Due to the quotient
 		\begin{equation*}
