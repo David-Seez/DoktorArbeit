@@ -183,6 +183,9 @@ S_k\coloneq \Crit_k(f)\cup\Crit_{k-1}(f)\cup\bigcup_{q\in\Crit_k,\,p\in\Crit_{k-
 	\end{align*}
 For two arbitrary index triples $(X_i,Y_i,Z_i)$, $i=1,2$ we can now choose a sublevel triple (existence is assured by Lemma \ref{morseFiltr-sublevelTripoleGivePairs}) and apply the argument to both triples to deduce: $\Delta^{k-1}_{(X_1,Y_1,Z_1)}=\Delta^{k-1}_{(X_2,Y_2,Z_2)}$.
 \end{proof}
+\begin{remark}
+	
+\end{remark}
 	
 
 
@@ -1236,8 +1239,8 @@ We can now continue our calculation in equation (\ref{eq:morseFiltr-boundaryMorp
         =\sum_q  \Chi^{-1}\circ \pcomp{ \left(c^*_q\circ \left(b\circ \delta_{triple}^{(C^{qp},B^{qp},A^{qp})}\right) \underbrace{(\alpha_p)}_{\in K^{-(k+1)}(B^{qp},A^{qp})}\right)}
 	\end{equation*}
 	On the other hand, by the definition of the Morse coboundary operator (after identifying the form $\eta_q$ with $q$ we get )$\partial^{k-1}(p)=\sum_{q\in\Crit_k(f)}n(q,p)q$. So the goal is to show for all $q\in \Crit_k(f)$:
-	\begin{equation*}
-		\Chi^{-1} \circ c^*_q\circ \underbrace{\left(b\circ \delta_{triple}^{(C^{qp},B^{qp},A^{qp})}\right)(\alpha_p)}_{\in K^{-k}(C^{qp},B^{qp})=\langle \alpha_q\rangle}=n(q,p)q\,.
+	\begin{equation*} 
+		\Chi^{-1} \circ c^*_q\circ \underbrace{\left(b\circ \delta_{triple}^{(C^{qp},B^{qp},A^{qp})}\right)(\alpha_p)}_{\in K^{-k}(C^{qp},B^{qp})=\langle \alpha_q\rangle}\overunderset{to}{show}{=}n(q,p)q\,.
 	\end{equation*}
 	Obviously, $\Chi^{-1} \circ c^*_q(\alpha_q)=q$. Thereby, if $\left(b\circ \delta_{triple}^{(C^{qp},B^{qp},A^{qp})}\right)(\alpha_p)=k \alpha_q$, we have that $\Chi^{-1} \circ c^*_q\circ \underbrace{\left(b\circ \delta_{triple}^{(C^{qp},B^{qp},A^{qp})}\right)(\alpha_p)}_{\in K^{-k}(C^{qp},B^{qp})=\langle \alpha_q\rangle}=k\cdot q$. So we need to show that the coefficient $k$ equals $n(q,p)$.
 
@@ -1282,15 +1285,15 @@ Now notice that the composition $i_1^*\circ c_j^*$ is induced by the collapsing 
 \begin{equation*}
 	l_j:(S(q\to)) \to (V_j\big/ \partial V_j)\,.
 \end{equation*} 
-Hence, $f_j=\delta\circ l_j^*$. Now by diagramm \ref{diag:morseFiltr-boundaryMapsummonds} together with Theorem \todo{label additivität von K theorie} we know that 
+Hence, $f_j=\delta\circ l_j^*$. Now by diagramm \ref{diag:morseFiltr-boundaryMapsummonds} together with Theorem \ref{thm:kTheo-pointedAdditivity} we know that 
 		 \begin{equation*}
 			b \circ \delta^1_{triple}=(i^*_{C,B})^{-1} \sum_j f^j\circ i_j^*\circ i_{B,A}^*=(i^*_{C,B})^{-1} \sum_j \delta\circ l_j^*\big(i_j^*\circ i_{B,A}^*\big)\,.
 		 \end{equation*}
 
-Let $\alpha_p^{(B,A)}\in \alpha_{\#}(q)$ be a representant of a generator. Then $\Delta^{k-1}$ is induced by the sum of maps where each summand is a map given by $b\circ \delta_{triple}$. 
+Let $\alpha_p^{(B^{qp},A^{qp})}\in (\alpha_q)_{\#}$ be a representant of a generator. Then $\Delta^{k-1}$ is induced by the sum of maps where each summand is a map given by $b\circ \delta_{triple}$. 
  Hence, we want to calculate:
  \begin{equation*}
-	b\circ \delta_{triple}(\alpha_p^{(B,A)})=(i^*_{C,B})^{-1} \sum_j b\circ \delta\circ l_j^*\big(i_j^*\circ i_{B,A}^*\alpha_p^{(B,A)}\big)\,.
+	b\circ \delta_{triple}(\alpha_p^{(B^{qp},A^{qp})})=(i^*_{C^{qp},B^{qp}})^{-1} \sum_j b\circ \delta\circ l_j^*\big(i_j^*\circ i_{B^{qp},A^{qp}}^*\alpha_p^{(B^{qp},A^{qp})}\big)\,.
  \end{equation*}Here we used, that $b$ commutes with pullbacks.
 Now we have the two datums that are adapted to Lemma \ref{lem:morseFilt-canonicalGeneratorsOnTransversalDisks}:
 \begin{enumerate}
@@ -1299,14 +1302,17 @@ Now we have the two datums that are adapted to Lemma \ref{lem:morseFilt-canonica
 \end{enumerate}
 The Lemma \ref{lem:morseFilt-canonicalGeneratorsOnTransversalDisks} gives us then: 
 \begin{enumerate}
-	\item $\big(i_j^*\circ i_{B,A}^*\alpha_p^{(B,A)}\big)=o_{V_j}$ and
-	\item $i^*_{C,B}\alpha_q^{C,B}=o_{D_Q}$.
-\end{enumerate} Now we can apply Lemma \ref{lem:morseFiltr-contributionOfASigleFlowLine} to calculate
-\begin{equation*}
-	b\circ \delta_{triple}(\alpha_p^{(B,A)})=(i^*_{C,B})^{-1} \sum_j b\circ \delta\circ l_j^*\big(o_{V_j}\big)=(i^*_{C,B})^{-1} \sum_j e(\gamma_j)o_{D_q}=\sum_j e(\gamma_j) \alpha_q^{C,B}\,.
-\end{equation*}
-Now we need to sort out the algebraic definition of $\Delta$ and then we are done!
-
+	\item $\big(i_j^*\circ i_{B^{qp},A^{qp}}^*\alpha_p^{(B^{qp},A^{qp})}\big)=o_{V_j}$ and
+	\item $i^*_{C^{qp},B^{qp}}\alpha_q^{C^{qp},B^{qp}}=o_{D_Q}$.
+\end{enumerate} Now, we can apply Lemma \ref{lem:morseFiltr-contributionOfASigleFlowLine} to calculate
+\begin{align*}
+	b\circ \delta_{triple}(\alpha_p^{(B^{qp},A^{qp})})
+	&=(i^*_{C^{qp},B^{qp}})^{-1} \sum_j b\circ \delta\circ l_j^*\big(o_{V_j}\big)\\
+	&=(i^*_{C^{qp},B^{qp}})^{-1} \sum_j e(\gamma_j)o_{D_q}
+	&=\sum_j e(\gamma_j) \alpha_q^{C^{qp},B^{qp}}\\
+	&=n(q,p) \alpha_q^{C^{qp},B^{qp}}
+\end{align*}
+By the earlyer considerations we are done, as we have shown that the 
 
 \end{proof}
 \begin{comment}
