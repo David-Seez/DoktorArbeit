@@ -134,11 +134,17 @@ S_k\coloneq \Crit_k(f)\cup\Crit_{k-1}(f)\cup\bigcup_{q\in\Crit_k,\,p\in\Crit_{k-
 	As this cannot happen, we are done. 
 \end{proof}
 \begin{definition}[A Map of K-goups]\label{def:morseFiltr-aMapOfKGroups}
-	For an index triple $(X,Y,Z)$ for $S_k$ we have $(Y,Z)\in \mathcal{IP_{k-1 }}$ and $(X,Y)\in \mathcal{IP}_k$, and we define 
+	For an index triple $(X,Y,Z)$ for $S_k$ we have $(Y,Z)\in \mathcal{IP_{k-1 }}$ and $(X,Y)\in \mathcal{IP}_k$, and we define for $k\geq 2$
 	\begin{equation*}
 		\Delta^{k-1}\coloneq \big(b\circ \delta_{triple}\big)_{\#}:
 		\pcomp{K^{-(k-1)}}(\mathcal{IP}_{k-1})\to  \pcomp{K^{-k}}(\mathcal{IP}_k)\,,
-	\end{equation*} where $\delta_{triple}:K^{-k+1}(Y,Z)\to K^{-k+2}(X,Y)$ is the triple connecting homomorphism and $b=\bottmap[]$. This map will turn out to be invariant unter the choosen index triple (compare Remark \todo{ref}). Index triples exist by Lemma \ref{morseFiltr-sublevelTripoleGivePairs}, together with the existence of index pairs of $S_k$ by Remark \ref{rem:morseFiltr-existenceOfIndexPairs}.
+	\end{equation*} where $\delta_{triple}:K^{-k+1}(Y,Z)\to K^{-k+2}(X,Y)$ is the triple connecting homomorphism and $b=\bottmap[]$. 
+	For $k=1$ we just rearrange the order to get 
+	\begin{equation*}
+		\Delta^{0}\coloneq \big( \delta_{triple}\circ b\big)_{\#}:
+		\pcomp{K^{-(k-1)}}(\mathcal{IP}_{k-1})\to  \pcomp{K^{-k}}(\mathcal{IP}_k)\,,
+	\end{equation*} (notice by naturality, the ordere here doesnt really matter. We just need to make sure, that the triple connecting homomorphism is defined.)
+	This map will turn out to be invariant unter the choosen index triple (compare Remark \todo{ref}). Index triples exist by Lemma \ref{morseFiltr-sublevelTripoleGivePairs}, together with the existence of index pairs of $S_k$ by Remark \ref{rem:morseFiltr-existenceOfIndexPairs}.
 
 	For $p\in \Crit_{k-1}(f)$ and $q\in \Crit_k(f)$ we call
 	\begin{equation*}
@@ -729,7 +735,7 @@ Now only the statement about the orientation preservation of $g_q$ at a neighbou
 \end{remark}
 
 \begin{definition}\label{def:morseFiltr-defiunitionVj}[Orientation of $V_j$]
-	Let $p$ be a critical point of index $k-1$, and $q$ one of index $k$. Then their are only finitely many $x_1,\dots,x_r\in W(q\to p)\cap S(q\to)$. At each $x_j$ we have that $T_{x_j}W(q\to)=T_{x_j}S(q\to)\oplus \langle \grad_{x_j}(f)\rangle_{\R}$ (follows by counting the dimension) and the gradient of $f$ in $x_j$ is contained in $T_{x_j}W(\to p)$. Thereby we can envoke the Morse-Smale condition on $f$ to deduce
+	Let $p$ be a critical point of index $k-1$, and $q$ one of index $k$ (and assume $k\geq 1$). Then their are only finitely many $x_1,\dots,x_r\in W(q\to p)\cap S(q\to)$. At each $x_j$ we have that $T_{x_j}W(q\to)=T_{x_j}S(q\to)\oplus \langle \grad_{x_j}(f)\rangle_{\R}$ (follows by counting the dimension) and the gradient of $f$ in $x_j$ is contained in $T_{x_j}W(\to p)$. Thereby we can envoke the Morse-Smale condition on $f$ to deduce
 	\begin{equation*}
 		T_{x_j}S(q\to)\oplus T_{x_j}W(\to p)=T_{x_j}M\,.
 	\end{equation*} Thus, the quotient map $T_{x_j}S(q\to)\to Q^p_{x_j}$ is an isomorphism, where $Q^p\coloneq \restr{TM}{W(\to p)}\Big/ TW(\to p)$ is oriented with respect to $T^u_pM$ as in Proposition \ref{prop:morse-orientTheQuotient}. Hence, we get a orientation in each $T_{x_j}S(q\to)$, which lets us orient the open neighbourhood $O_j\subseteq S(q\to)$ of $x_j$. Assume $\chi_j:O_j\to \R^n$ to be a global chart of said neighbourhood that is oriented.\begin{quote}
@@ -746,6 +752,7 @@ Now only the statement about the orientation preservation of $g_q$ at a neighbou
     h_j:\overline{\kappa_V^{-1}}\circ \overline{\pi_S}\circ g_j^{-1}\;:\;  
     V_j/\partial V_j  W  \to     
     \end{equation*}. This map is orientation preserving, as $\overline{\kappa_V^{-1}}$ and $g_j^{-1}$ are and in this setup, we can apply the Lemma \ref{lem:morseFiltr-orientationClassOfADisk} above with $h^{-1}(0)=\{x_j\}$ to conclude that $h^*_j(\beta_V)=o_{V_j}=(g_j^{-1})^*(\beta_n)$.(It is easy to see that $h_j$ is locally a diffeomorphism and $h$ has an invertable differential in the origin.) \todo{ Bildchen?}
+	Just as a reminder i want to emphasis the case $k=1$. Then $S(q\to)$ is a collection of points and hence, the $V_j$ are points. Their orientation is an assignement of a sign, that equals the orientation of $T^u_pM$ (which is just a sign aswell) 
 \end{definition}
 
 
@@ -1227,7 +1234,7 @@ We can now continue our calculation in equation (\ref{eq:morseFiltr-boundaryMorp
 		\end{tikzcd}
 	\end{center}
 	Hence, we only need to proof the original statement for $l=0,1$.
-	For $l=1$ the bottom row of the diagram \ref{eq:morseFilt-commutingDiagramTheorem} is trivial, as the connected simple systems $\mathcal{IP}_k$ consists of spaces that are homotopically equivalent to $k$-spheres and we know by \ref{cor:kTheo-kGroupsOfTheSpheres} that $K^{-k-1}(S^k)\cong\tilde{K}(S^{2k+1})=0$. The same argument works for the image of $\Delta^k$ for $l=1$. So for the rest of the proof we assume $l=0$.
+	For $l=1$ the bottom row of the diagram \ref{eq:morseFilt-commutingDiagramTheorem} is trivial, as the connected simple systems $\mathcal{IP}_k$ consists of spaces that are homotopically equivalent to $k$-spheres and we know by \ref{cor:kTheo-kGroupsOfTheSpheres} that $K^{-k-1}(S^k)\cong\tilde{K}(S^{2k+1})=0$. The same argument works for the image of $\Delta^k$ for $l=1$. So for the rest of the proof we assume $l=0$. 
     
     By Lemma \ref{lem:morseFiltr-restrictingToSummand}, we have that the composition $ \Chi^{-1}\circ \Delta^{k-1} \circ \Chi$ yealds 
     \begin{align*}
@@ -1254,12 +1261,13 @@ We can now continue our calculation in equation (\ref{eq:morseFiltr-boundaryMorp
 		\end{align*} giving us a commuting diagramm (the square bracets for the input of the K funktors $K[-]$ are choosen for readability and have no deeper meaning)
 		\begin{fdiagram}
 			\begin{tikzcd}
-				{K^{-\lambda_p}\left[ B^{qp},A^{qp} \right]} \arrow[r, "\delta_{triple}^1"] \arrow[d, "{i_{B^{qp},A^{qp}}^*}"]                                                            & {K^{-\lambda_q}\left[C^{qp}, B^{qp} \right]} \arrow[d, "{i_{C^{qp},B^{qp}}^*}"] \\
-				{K^{-\lambda_p}\left[ S(q\to),S(q\to)\setminus \bigcup\limits_j \inti(V_j) \right]} \arrow[r, "\delta_{triple}^2"] \arrow[d, "i_j^*"', shift right=2] & {K^{-\lambda_q}\left[W(q\to)\cap N_q,S(q\to) \right]}       \\
-				{K^{-\lambda_p}\left[ V_j,\partial V_j \right]} \arrow[ru, "f^j"'] \arrow[u, "c_j^*"']                                                  &                                                            
+				{K^{-\lambda_p}\left[ B^{qp},A^{qp} \right]} \arrow[r, "b\circ \delta_{triple}^1"] \arrow[d, "{i_{B^{qp},A^{qp}}^*}"]                                                            & {K^{-\lambda_q}\left[C^{qp}, B^{qp} \right]} \arrow[d, "{i_{C^{qp},B^{qp}}^*}"] \\
+				{K^{-\lambda_p}\left[ S(q\to),S(q\to)\setminus \bigcup\limits_j \inti(V_j) \right]} \arrow[r, "b \circ \delta_{triple}^2"] \arrow[d, "i_j^*"', shift right=2] & {K^{-\lambda_q}\left[W(q\to)\cap N_q,S(q\to) \right]}       \\
+				{K^{-\lambda_p}\left[ V_j,\partial V_j \right]} \arrow[ru, "b\circ f^j"'] \arrow[u, "c_j^*"']                                                  &                                                            
 			\end{tikzcd} 
 			\label{diag:morseFiltr-boundaryMapsummonds}
 		\end{fdiagram}
+		(for the case $k-1=\ind(p)=0$ we have the same argument, where we interchange the order $b\circ (-)\to (-)\circ b$ such that the triple boundary maps are all defined). 
 		Now $i^*_{C^{qp},B^{qp}}$ is an isomorphism: First we notice that the inclusion $i_{C^{qp},B^{qp}}$ factors over $(N_q,L_q)$: 
 		$(W(q\to)\cap N_q,S(q\to))=(D_q,S(q\to))$ is contained in $(N_q,L_q)$, as $N_q=N^k\cap U_q$ where $U_q$ was a neighbourhood of $D_q$ and $N^k$ containes $D_q$ by definition. Furthermore  $(N_q,L_q)$ is contained in $(C^{qp},B^{qp})=(N_q\cup N_p,L_q \cup N_p)$ by definition again. 
 		Let $i: (D_q,S(q\to)) \to (N_q,L_q)$ and $j:  (N_q,L_q) \to (C^{qp},B^{qp})$ demote the inclusions. Then obviously, $j^*$ is an isomorphism (the pairs viewed as pointed spaces where the second is qoutiend out are homeomorphic). Hence, $ i^*_{C^{qp},B^{qp}}$ is an isomorphism if $i^*:K^{-k}(N_q,L_q)\to K^{-k}(D_q,S(q\to))$ is an isomorphism. Notice how the image and domain of $i^*$ are infinit cyclic. The first is generated by $\alpha_q$ and the second by $o_{D_q}$ (The element $o_{D_q}$ is defined in Remark \ref{rem:morseFiltr-orientDQwithGQ}). Lemma \ref{lem:morseFilt-canonicalGeneratorsOnTransversalDisks} gives us now that $i^*(\alpha_q)=o_{D_q}$. Hence $i^*$ maps generators to generators and is thereby an isomorphism. 
@@ -1269,7 +1277,7 @@ We can now continue our calculation in equation (\ref{eq:morseFiltr-boundaryMorp
 			S(q\to)\Big/S(q\to)\setminus \bigcup\limits_j \inti(V_j)\cong \bigvee_j \big(V_j/\partial V_j\big)\,
 		\end{equation*}being a pointed sum, the map $\delta^2_{triple}$ is a sum of the functions $f^j\circ i_j^*$ where the $f^j:K^{-\lambda_p}\left[ V_j,\partial V_j \right]\to K^{-\lambda_q}\left[W(q\to)\cap N_q,S(q\to) \right]$ are defined to be $\delta^2_{triple}\circ c_j^*$.
 		
-		Now we will inspect said composition more closely, for which we need to dive into the definition of the triple connecting homomorphism, which was given by the composition of the connecting homomophism of the pair after the pullback alng the inclusion:
+		Now we will inspect said composition more closely, for which we need to dive into the definition of the triple connecting homomorphism, which was given by the composition of the connecting homomophism of the pair after the pullback alng the inclusion. Now assume $k-1=\ind(p)\geq 1$. 
 \begin{fdiagram}
 \begin{adjustbox}{max width=\textwidth}
 
@@ -1285,7 +1293,14 @@ Now notice that the composition $i_1^*\circ c_j^*$ is induced by the collapsing 
 \begin{equation*}
 	l_j:(S(q\to)) \to (V_j\big/ \partial V_j)\,.
 \end{equation*} 
-Hence, $f_j=\delta\circ l_j^*$. Now by diagramm \ref{diag:morseFiltr-boundaryMapsummonds} together with Theorem \ref{thm:kTheo-pointedAdditivity} we know that 
+Hence, $f_j=\delta\circ l_j^*$. (for all $k\geq 2$). 
+In the case $k=1$, the $f_j$ where defined after $b$ and hence had the domain and codomain 
+\begin{equation*}
+	f_j:K^{-\lambda_p-2}\left[ V_j,\partial V_j \right] \to K^{-\lambda_p-1}\left[W(q\to)\cap N_p,S(q\to)\right]
+\end{equation*} where the argument works again letting us conclude that 
+even for $k=1$, $f_j=\delta\circ l_j^*$.
+
+Again, we assume $k\geq2 $: By diagramm \ref{diag:morseFiltr-boundaryMapsummonds} together with Theorem \ref{thm:kTheo-pointedAdditivity} we know that 
 		 \begin{equation*}
 			b \circ \delta^1_{triple}=(i^*_{C,B})^{-1} \sum_j f^j\circ i_j^*\circ i_{B,A}^*=(i^*_{C,B})^{-1} \sum_j \delta\circ l_j^*\big(i_j^*\circ i_{B,A}^*\big)\,.
 		 \end{equation*}
@@ -1308,11 +1323,97 @@ The Lemma \ref{lem:morseFilt-canonicalGeneratorsOnTransversalDisks} gives us the
 \begin{align*}
 	b\circ \delta_{triple}(\alpha_p^{(B^{qp},A^{qp})})
 	&=(i^*_{C^{qp},B^{qp}})^{-1} \sum_j b\circ \delta\circ l_j^*\big(o_{V_j}\big)\\
-	&=(i^*_{C^{qp},B^{qp}})^{-1} \sum_j e(\gamma_j)o_{D_q}
+	&=(i^*_{C^{qp},B^{qp}})^{-1} \sum_j e(\gamma_j)o_{D_q}\\
 	&=\sum_j e(\gamma_j) \alpha_q^{C^{qp},B^{qp}}\\
 	&=n(q,p) \alpha_q^{C^{qp},B^{qp}}
 \end{align*}
-By the earlyer considerations we are done, as we have shown that the 
+By the earlyer considerations we are done for the case where $k\geq 2$. 
+
+
+Now back to the case $k=1$, that is $\ind(p)=0$ and $\ind(q)=1$. Here $T^u_pM=0$ and $\det(T^u_pM)=\R$, so the chosen orientation of $T^u_pM$ is a sign $s_p\in\{\pm 1\}$. The definitions that were made for positive index extend to this case as follows:
+\begin{enumerate}[(i)]
+	\item A pair $(X,\emptyset)$ is read as the pointed space $X^+=X\sqcup\{+\}$. In particular $K^{-n}(X)=\tilde{K}^{-n}(X^+)$ and $K^{-n}(X,Y)=K^{-n}(X^+,Y^+)$.
+	\item $\overline{T^u_pM}=S^0$, where $0\in T^u_pM$ is the point that is not the base point, and $\beta_{T^u_pM}\coloneq s_p\cdot \beta_0\in \tilde{K}^0(S^0)$.
+	\item $V_j=\{x_j\}$, $\partial V_j=\emptyset$ and $V_j/\partial V_j=V_j^+$. Let $u_j:S^0\to V_j^+$ be the pointed bijection. As $T_{x_j}V_j=0=Q^p_{x_j}$ carries the orientation $s_p$, we put $o_{V_j}\coloneq s_p\cdot (u_j^{-1})^*(\beta_0)$.
+	\item $W(q\to)$ is one dimensional and $-\grad(f)$ is a nowhere vanishing vector field on $\gamma_j\subseteq W(q\to)$. The comparison of the orientation of $W(q\to)$ with $-\grad(f)\wedge s_p$ reads: $e(\gamma_j)=s_p$ if $-\grad_x(f)$ is a positive basis of $T_xW(q\to)$ for $x\in \gamma_j$, and $e(\gamma_j)=-s_p$ otherwise.
+\end{enumerate}
+By the first part of the proof (with $b$ applied first) we have to calculate
+\begin{equation*}
+	\delta_{triple}\circ b\,(\alpha_p^{(B^{qp},A^{qp})})=(i^*_{C^{qp},B^{qp}})^{-1} \sum_j \delta\circ l_j^*\circ b\big(i_j^*\circ i_{B^{qp},A^{qp}}^*\alpha_p^{(B^{qp},A^{qp})}\big)\,,
+\end{equation*}
+where $\delta:K^{-2}(S(q\to))\to K^{-1}(D_q,S(q\to))$ is the connecting homomorphism of the pair and $l_j:S(q\to)^+\to V_j^+$ is the collapse, which is the identity on $x_j$ and maps everything else to the base point. We proceed in three steps.
+ 
+\emph{Step 1: $i_j^*\circ i_{B^{qp},A^{qp}}^*\alpha_p^{(B^{qp},A^{qp})}=o_{V_j}$.}
+The composition $i_{B^{qp},A^{qp}}\circ i_j$ is the inclusion $\iota_{x_j}:(\{x_j\},\emptyset)\to (B^{qp},A^{qp})$. Since $x_j\in W(\to p)$, the map
+\begin{equation*}
+	H:[0,1]\to M\,,\quad H(t)\coloneq \phi_{\frac{t}{1-t}}(x_j) \text{ for } t<1\,,\quad H(1)\coloneq p
+\end{equation*}
+is a continuous path from $x_j$ to $p$. For all $t\geq 0$ we have $\phi_t(x_j)\in M^c$ and $f(\phi_{T}(\phi_t(x_j)))>a>a-\epsilon$, hence $H(t)\in N_p\setminus L_p$. As $H(t)\in N_p$, it is not contained in $L_q\setminus N_p$ either, so the path $H$ lies in $B^{qp}\setminus A^{qp}$. Therefore $H$ is a homotopy of maps of pairs $(\{pt\},\emptyset)\to(B^{qp},A^{qp})$ from $\iota_{x_j}$ to the inclusion $\iota_p$ of $p$, and $\iota_{x_j}^*=\iota_p^*$ after identifying $\{x_j\}^+\cong S^0\cong \{p\}^+$.
+ 
+By definition $\alpha_p^{(B^{qp},A^{qp})}=c^*\kappa_p^*(\beta_{T^u_pM})$, where $c$ is the canonical homotopy equivalence to the standard index pair. The point $p$ is a fixed point of the flow, so $c(p)=p$, and $\kappa_p(p)=0\in T^u_pM$. Thus $\kappa_p\circ c\circ \iota_p:\{p\}^+\to \overline{T^u_pM}=S^0$ is the pointed bijection and by (ii) and (iii)
+\begin{equation*}
+	\iota_{x_j}^*\alpha_p^{(B^{qp},A^{qp})}=\iota_{p}^*\alpha_p^{(B^{qp},A^{qp})}=s_p\cdot (u_j^{-1})^*(\beta_0)=o_{V_j}\,.
+\end{equation*}
+ 
+\emph{Step 2: Reduction to a map $F_j:D_q/S(q\to)\to\overline{\R}$.}
+We apply Lemma \ref{lem:morseFilt-connectingHomomorphismAlongACollar} with $n=2$ to the pair $(X,Y)\coloneq(D_q^+,S(q\to)^+)$, which is pointed by $+$ and satisfies $X/Y=D_q/S(q\to)$. Let $T_q$ be the constant of Lemma \ref{lem:morseFilt-flowTimeAndProjectionToLevelSets} (c), choose $T_0>2T_q$ and define, exactly as in the proof of Lemma \ref{lem:morseFiltr-contributionOfASigleFlowLine},
+\begin{equation*}
+	s:X\to[0,1]\,,\quad s(x)\coloneq\min\Big\{\frac{\tau(x)}{T_0},1\Big\}\,,\quad s(+)\coloneq 0\,,
+	\qquad
+	r:s^{-1}[0,1)\to Y\,,\quad r(x)\coloneq \rho(x)\,,\quad r(+)\coloneq +\,.
+\end{equation*}
+Then $s^{-1}(0)=Y$ and $r$ is a continuous retraction, so the Lemma gives $\delta=(-1)^2\,\overline{k}^*\circ\sigma_2=\overline{k}^*\circ\sigma_2$.
+ 
+Put $\lambda_j\coloneq u_j^{-1}\circ l_j:Y\to S^0$. Since $b$ and $\sigma_2$ are natural, we get
+\begin{equation*}
+	\delta\circ l_j^*\circ b\,(o_{V_j})
+	=s_p\cdot \overline{k}^*\circ\sigma_2\circ\lambda_j^*\big(b(\beta_0)\big)
+	=s_p\cdot \big((\id_{S^1}\wedge\lambda_j)\circ\overline{k}\big)^*\,\sigma_2\big(b(\beta_0)\big)\,.
+\end{equation*}
+As $\beta_0$ is the unit, $b(\beta_0)=\beta\boxtimes\beta_0=\beta\in\tilde{K}(S^2\wedge S^0)=\tilde{K}(S^2)$, and $\sigma_2$ is the pullback along the homeomorphism $S^1\wedge S^1\to S^2$ of Definition \ref{def:ktheo-wedgeOfShoperesIsSphere}. Hence, by Definition \ref{def:ktheo-higherBottGenerators},
+\begin{equation*}
+	\sigma_2\big(b(\beta_0)\big)=\beta_1\in\tilde{K}^{-1}(S^1)\,.
+\end{equation*}
+Here the suspension coordinate $S^1=I/\partial I$ is identified with the sphere $S^1$ as in the proof of Remark \ref{rem:morseFilt-calculationOfe}, that is via $\overline{g}$ for an orientation preserving diffeomorphism $g:(0,1)\to\R$, such that $\beta_1=\overline{g}^*(\beta_\R)$. Define
+\begin{equation*}
+	F_j\coloneq \overline{g}\circ(\id_{S^1}\wedge\lambda_j)\circ\overline{k}\;:\;D_q/S(q\to)\to\overline{\R}\,.
+\end{equation*}
+Unravelling the definition of $\overline{k}$ we get
+\begin{equation*}
+	F_j([z])=\begin{cases}
+		g\Big(1-\frac{\tau(z)}{T_0}\Big) & \text{ if } 0<\tau(z)<T_0 \text{ and } \rho(z)=x_j\,,\\
+		\infty & \text{ else}\,,
+	\end{cases}
+\end{equation*}
+and the calculation above reads
+\begin{equation*}
+	\delta\circ l_j^*\circ b\,(o_{V_j})=s_p\cdot F_j^*(\beta_\R)\,.
+\end{equation*}
+ 
+\emph{Step 3: $F_j^*(\beta_\R)=s_p\cdot e(\gamma_j)\cdot o_{D_q}$.}
+We apply Lemma \ref{lem:morseFiltr-orientationClassOfADisk} with $n=1$ to $(\Sigma,\partial\Sigma)=(D_q,S(q\to))$, $g=g_q$ and $U=U_q$ as in Remark \ref{rem:morseFiltr-orientDQwithGQ}, the oriented vector space $V=\R$ and $h=F_j$. Let $\hat{x}_j\coloneq\phi_{-\frac{1}{2}T_0}(x_j)$. Since $g$ is injective, $F_j([z])=g(\sfrac{1}{2})$ holds if and only if $\tau(z)=\sfrac{T_0}{2}$ and $\rho(z)=x_j$, so
+\begin{equation*}
+	F_j^{-1}\big(g(\sfrac{1}{2})\big)=\{\hat{x}_j\}\,,
+\end{equation*}
+and $\tau(\hat{x}_j)=\sfrac{T_0}{2}>T_q$ shows $\hat{x}_j\in W_q=g_q(U_q)$. Near $\hat{x}_j$ the map $F_j$ is given by $z\mapsto g(1-\sfrac{\tau(z)}{T_0})$, which is smooth, and with $\diff\tau(-\grad(f))=-1$ from Lemma \ref{lem:morseFilt-flowTimeAndProjectionToLevelSets} (a) we get
+\begin{equation*}
+	\restr{\diff F_j}{\hat{x}_j}\big(-\grad_{\hat{x}_j}(f)\big)=g'(\sfrac{1}{2})\cdot\frac{1}{T_0}>0\,.
+\end{equation*}
+Thus $\restr{\diff F_j}{\hat{x}_j}:T_{\hat{x}_j}W(q\to)\to\R$ is invertible, and it is orientation preserving if and only if $-\grad_{\hat{x}_j}(f)$ is a positive basis of $T_{\hat{x}_j}W(q\to)$. By (iv) this means $\sign\det\big(\restr{\diff F_j}{\hat{x}_j}\big)=s_p\cdot e(\gamma_j)$ and the Lemma gives
+\begin{equation*}
+	F_j^*(\beta_\R)=s_p\cdot e(\gamma_j)\cdot o_{D_q}\,.
+\end{equation*}
+ 
+\emph{Conclusion.} Combining the three steps with $s_p^2=1$ and $i^*_{C^{qp},B^{qp}}\alpha_q^{(C^{qp},B^{qp})}=o_{D_q}$ we get
+\begin{align*}
+	\delta_{triple}\circ b\,(\alpha_p^{(B^{qp},A^{qp})})
+	&=(i^*_{C^{qp},B^{qp}})^{-1} \sum_j \delta\circ l_j^*\circ b\,\big(o_{V_j}\big)\\
+	&=(i^*_{C^{qp},B^{qp}})^{-1} \sum_j s_p\cdot s_p\cdot e(\gamma_j)\, o_{D_q}\\
+	&=\sum_j e(\gamma_j)\, \alpha_q^{(C^{qp},B^{qp})}\\
+	&=n(q,p)\, \alpha_q^{(C^{qp},B^{qp})}\,,
+\end{align*}
+which finishes the case $k=1$.
+
 
 \end{proof}
 \begin{comment}
