@@ -556,7 +556,7 @@ If we build the direct limit of sets and all the maps of the direct system are i
 	This is a direct application of Lemma \ref{lem:kTheo-colimUndHomVertauschen}.
  \end{proof}
  \subsection{K-Theory as a Cohomology Theory}
- \begin{definition}
+ \begin{definition}\label{def:kTheo-SetupOfThePairAndPointedSpaces}
 	We need the following categories of topological spaces:
 	\begin{itemize}
 		\item $\TopC$ is the category of compact spaces.
@@ -807,7 +807,7 @@ the sections $c_X^*, c_Y^*$) controls the $K(x_0)$-summand.
     \end{align*}
 This concludes the calculation of $\pi_S^{-1}\circ \pi_s=\id$ and $\pi_s\circ\pi_S^{-1}=\id$ can be calculated in a similar manner.
 \end{definition}
-\begin{definition}[One-Point Compactification]
+\begin{definition}[One-Point Compactification]\label{def:kTheo-onePointCompactification}
 	For a topological space $X$ we define $\overline{X}\coloneq X\sqcup \{\infty\}$, where open sets are either open subsets of $X$, or sets of the form $\{\infty\} \sqcup X\setminus C$ where $C$ is compact and closed in $X$. For non compact Hausdorff spaces this is the one-point compactification that is characterised by being the unique (up to homeomorphism) compactification that contains $X$ and one more point. If $X$ is already compact, then $\{\infty\}$ is an open subset of $\overline{X}$ (just choose $C=K$) and thereby isolated. Hence $ \overline{X}$ is the pointing of $X$ given by $(X,[\emptyset])$ from Corollary \ref{cor:kTheo-unpointedReducedIsNonReduced}.
 \end{definition}
 \begin{lemma}[Open subspaces of compact spaces]\label{lem:orient-quotientIsCompactification}

@@ -217,7 +217,7 @@ K theoretic orientation relies on bases induced generators of the K group of the
 
 
 \begin{definition}[K-theoretic orientations]
-     We define a \textbf{K-theoretic orientation} of a finite dimensional real vector space $V$ to be a generator of the group $\tilde{K}^{-m}(\overline{V})$. As a sainity check we can confirm: since $\overline{V}\cong S^m$ we are looking at a generator of a group isomorphic to $\tilde{K}(S^{2m})\cong \Z$, which has two possible generators.
+     We define a \textbf{K-theoretic orientation} of a $m<\infty$ dimensional real vector space $V$ to be a generator of the group $\tilde{K}^{-m}(\overline{V})$. As a sainity check we can confirm: since $\overline{V}\cong S^m$ we are looking at a generator of a group isomorphic to $\tilde{K}(S^{2m})\cong \Z$, which has two possible generators.
 \end{definition}
 
 
@@ -367,16 +367,19 @@ Finally, we can compare the induced generators: for this we denote $\beta_v\colo
 
 
 \begin{corollary}\label{cor:orient-vectorspaceOrientationInducesKtheoreticOrientation}
-Any finite dimensional real vector space $V$ is homeomoprhic to $\R^n$ via the coordinate map $\kappa_v$ that maps each vector to its coordinate representation. With this we can introduce a K-theoretic orientation from an ordered basis via the composition: 
+Any finite dimensional non trivial real vector space $V$ is homeomoprhic to $\R^n$ via the coordinate map $\kappa_v$ that maps each vector to its coordinate representation. With this we can introduce a K-theoretic orientation from an ordered basis via the composition: 
    \begin{center}
 \begin{tikzcd}
 \tilde{K}^{-n}(S^n) \arrow[r, "\overline{(\pi_S^{-1})}^*"] & \tilde{K}^{-n}(\overline{\R^n}) \arrow[r, " \overline{\kappa}_v^*"] & \tilde{K}^{-n}(\overline{V})
 \end{tikzcd}
-   \end{center} With this we can map the bott generator $\beta$ from Definition \ref{def:kTheo-BottGenerator} to a generator of $\tilde{K}^{-n}(\overline{V})$ and hence induce a K-Theoretic orientation. This orientation only depends on the orientation of $V$ and two different orientations induce different K-theoretic orientations
+   \end{center} With this we can map the bott generator $\beta$ from Definition \ref{def:kTheo-BottGenerator} to a generator of $\tilde{K}^{-n}(\overline{V})$ and hence induce a K-Theoretic orientation. This orientation only depends on the orientation of $V$ and two different orientations induce different K-theoretic orientations.
 \end{corollary}
 \begin{proof}
     The statement follows imidiatly from Proposition \ref{prop:linearyTheDeterminandDertermines}.
 \end{proof}
+\begin{corollary} \label{def:orient-InducedOrientationTrivialVectorspace}
+    We extend this induction of orientation to the trivial case as follows: If $V=0$, then an orientation is a generator of $\Lambda^0(0)=\R$. Hence the orientation $s\in \{\pm 1\}$. By definition \ref{def:kTheo-onePointCompactification}$\overline{V}=\{0\}\sqcup\{\infty\}\cong S^0$, where the homeomorphism sends $\infty$ to the base point. We then define $\beta_{V}=s\beta_0$ which is the $s$ times the trivial bundle over $0$ and the $0$ bundle over $\infty$.   
+\end{corollary}
 \begin{corollary}\label{cor:orient-mapsbetweenabstractVectorSpacesOnKOrientations}
     Let $f:V\to W$ be a linear isomorphism between oriented vector spaces $(V,\mathfrak{a})$ and $(W,\mathfrak{b})$. Let $\beta_V$ be the K-Theoretic orientation of $V$ and $\beta_W$ of $W$. Then 
     \begin{equation*}
