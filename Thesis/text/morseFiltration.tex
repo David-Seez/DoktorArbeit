@@ -341,10 +341,37 @@ Similar to us, they also introduce a generator for an index pair by orientation 
 	\end{enumerate} By (a), $\diff F(\grad(f))=\diff f (\grad(f))=\norm{\grad(f)}^2$ near critical points. Outside of critical points we have that $\diff F (-\grad(f))\neq 0$ and as for $\dim(M)\geq2$ this set is connected, we conclude that $\diff F (-\grad(f))>0$ there also. If $\dim(M)=1$ we can argue similarly in each connected component that contains a point close to a critical point. Hence, all properties of an adapted Lyapunov function are satisfied by $\ell\coloneq F$.
 \end{proof}
 
+\begin{definition}[Sublevelsets give a Filtration]\label{def:morseFiltr-aFiltrationOfSublevelsets}
+		As always let $f:M\to \R$ be a Morse-Smale function on a compact smooth Riemannian manifold $(M,g)$ of dimension $m$. Let $\phi_t:M\to M$ be the flow given by $-\grad f$. 
+	Furthermore define $c_k\in (k,k+1)$. Then the sublevelsets $M^{c_k}\coloneq \ell^{-1}(-\infty,c_k]$ are closed and give a filtration
+	\begin{equation*}
+		\emptyset\;=\;M^{c_{-1}}\;\subseteq\; M^{c_0}\;\subseteq\; M^{c_1}\;\subseteq \;\cdots \;\subseteq \;M^{c_{m-1}}\;\subseteq\; M^{m}\;=M\,.
+	\end{equation*}
+\end{definition}
+
+\begin{definition}Let $f:M\to \R$ be a Morse-Smale function on a compact smooth Riemannian manifold $(M,g)$ of dimension $m$.
+	For $0\leq j\leq k\leq m$ define:
+	\begin{align*}
+		W(k,j)=\bigcup_{j\leq \lambda_p \leq \lambda_q\leq k} W(q \to p).
+	\end{align*}
+\end{definition}
+\begin{corollary}
+	The Filtration from definition \ref{def:morseFiltr-aFiltrationOfSublevelsets} satisfies: 
+	For $0\leq j\leq k\leq m$ we have that the pair $(M^{c_k},M^{c_j})$ is a compact index pair of $W(j,k+1)$
+\end{corollary}
+\begin{proof}
+	We need to check the three properties of a compact index pair. (compactnes is clear, by the definitinon of the sublevelsets as they are closed spaces in a compact space)
+	\begin{enumerate}
+		\item  First we need to show that the maximal invcariant subset in the closure of $M^{c_k}/M^{c_j}$ is given by $W(j,k+1)$. For $\epsilon>0$ small enough we have that $x\in \overline{M^{c_k}/M^{c_j}}$ implies that $j+\epsilon < \ell(x)<k+1-\epsilon$ or equivalent $x\in \ell^{-1}[j+\epsilon,k+1-\epsilon]$. Hence by definition, the only critical points $q$ contained in $\overline{M^{c_k}/M^{c_j}}$ satisfy $\ind_q(f)\in \{j,\dots, k+1\}$. Now assume that $x$ is contained in the invariant subset, meaning that  $\phi_t(x)\in \overline{M^{c_k}/M^{c_j}}$ for all $t$. By the closedness, the same holds for the two limits $\lim_{t\mapsto \pm \infty}(\phi_t(x))\in \Crit(f)$, which are critical points by Proposition \ref{prop:morse-limitsAreCritical}. Thereby, there are some $q,p$ with $\ind_q(f),\ind_p(f)\in  \{j,\dots, k+1\}$ such that $x\in W(q,p)\subseteq W(j,k+1)$.
+		\item The positive invariance follows from $\ell$ decreasing along flow lines, which in turn is a result from the first property in the definition of $\ell$, as the map $t\mapsto \ell(\phi_t(x))$ has as a differential $\diff \ell (-\grad_{\phi_t(x)}(f))<0$. 
+		\item The exit set property is also a direct result of $\ell$ decreasing along a flow line. 
+	\end{enumerate}
+\end{proof}
+
 \begin{definition}[Sublevel Index Triple]\label{def:morseFilt-sublevelTriple}
 	Let 
 \begin{equation*}
-S_k\coloneq \Crit_k(f)\cup\Crit_{k-1}(f)\cup\bigcup_{q\in\Crit_k,\,p\in\Crit_{k-1}}W(q\to p
+S_k\coloneq W(k-1,k)= \Crit_k(f)\cup\Crit_{k-1}(f)\cup\bigcup_{q\in\Crit_k,\,p\in\Crit_{k-1}}W(q\to p
 )\,.
 \end{equation*}
 	An  \textbf{index triple} for $S_k$ is a triple $Z\subseteq Y\subseteq X$ of compact sets such that $(X,Z)$ is an index pair of $S_{k}$, $(X,Y)$ is an index pair of $\Crit_{k}(f)$ and $(

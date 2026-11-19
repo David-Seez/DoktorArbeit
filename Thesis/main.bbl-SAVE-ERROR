@@ -292,6 +292,39 @@
       \verb https://arxiv.org/abs/math/0504555
       \endverb
     \endentry
+    \entry{May1999}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=bc5edf523100fc6c87752e43e8bbce30}{%
+           family={May},
+           familyi={M\bibinitperiod},
+           given={J.\bibnamedelimi Peter},
+           giveni={J\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Chicago, IL}%
+      }
+      \list{publisher}{1}{%
+        {University of Chicago Press}%
+      }
+      \strng{namehash}{bc5edf523100fc6c87752e43e8bbce30}
+      \strng{fullhash}{bc5edf523100fc6c87752e43e8bbce30}
+      \strng{fullhashraw}{bc5edf523100fc6c87752e43e8bbce30}
+      \strng{bibnamehash}{bc5edf523100fc6c87752e43e8bbce30}
+      \strng{authorbibnamehash}{bc5edf523100fc6c87752e43e8bbce30}
+      \strng{authornamehash}{bc5edf523100fc6c87752e43e8bbce30}
+      \strng{authorfullhash}{bc5edf523100fc6c87752e43e8bbce30}
+      \strng{authorfullhashraw}{bc5edf523100fc6c87752e43e8bbce30}
+      \field{labelalpha}{May99}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{978-0-226-51183-2}
+      \field{pagetotal}{243}
+      \field{series}{Chicago Lectures in Mathematics}
+      \field{title}{A Concise Course in Algebraic Topology}
+      \field{year}{1999}
+    \endentry
     \entry{Perko2001}{book}{}{}
       \name{author}{1}{}{%
         {{hash=2e86fbceb5185d82a8b0e6fccbdf1691}{%
@@ -348,6 +381,7 @@
       \strng{authornamehash}{ffa6ea9470e7e504315bbab9117eaee6}
       \strng{authorfullhash}{ffa6ea9470e7e504315bbab9117eaee6}
       \strng{authorfullhashraw}{ffa6ea9470e7e504315bbab9117eaee6}
+      \field{extraname}{1}
       \field{labelalpha}{Sal85}
       \field{sortinit}{S}
       \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
@@ -362,6 +396,75 @@
       \range{pages}{41}
       \verb{doi}
       \verb 10.1090/S0002-9947-1985-0797044-3
+      \endverb
+    \endentry
+    \entry{Salamon1990}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=5bbf32180f912823cbd140f9aadceac7}{%
+           family={Salamon},
+           familyi={S\bibinitperiod},
+           given={Dietmar\bibnamedelima A.},
+           giveni={D\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+      }
+      \strng{namehash}{5bbf32180f912823cbd140f9aadceac7}
+      \strng{fullhash}{5bbf32180f912823cbd140f9aadceac7}
+      \strng{fullhashraw}{5bbf32180f912823cbd140f9aadceac7}
+      \strng{bibnamehash}{5bbf32180f912823cbd140f9aadceac7}
+      \strng{authorbibnamehash}{5bbf32180f912823cbd140f9aadceac7}
+      \strng{authornamehash}{5bbf32180f912823cbd140f9aadceac7}
+      \strng{authorfullhash}{5bbf32180f912823cbd140f9aadceac7}
+      \strng{authorfullhashraw}{5bbf32180f912823cbd140f9aadceac7}
+      \field{extraname}{2}
+      \field{labelalpha}{Sal90}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Bull. London Math. Soc.}
+      \field{note}{Bulletin of the London Mathematical Society, 22(2):113–140 (1990)}
+      \field{number}{2}
+      \field{title}{Morse theory, the Conley index and Floer homology}
+      \field{volume}{22}
+      \field{year}{1990}
+      \field{pages}{113\bibrangedash 140}
+      \range{pages}{28}
+      \verb{doi}
+      \verb 10.1112/blms/22.2.113
+      \endverb
+    \endentry
+    \entry{Smale1961OnGradient}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=394b6b61c0209947040512295d62d07d}{%
+           family={Smale},
+           familyi={S\bibinitperiod},
+           given={Stephen},
+           giveni={S\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Princeton University Press}%
+      }
+      \strng{namehash}{394b6b61c0209947040512295d62d07d}
+      \strng{fullhash}{394b6b61c0209947040512295d62d07d}
+      \strng{fullhashraw}{394b6b61c0209947040512295d62d07d}
+      \strng{bibnamehash}{394b6b61c0209947040512295d62d07d}
+      \strng{authorbibnamehash}{394b6b61c0209947040512295d62d07d}
+      \strng{authornamehash}{394b6b61c0209947040512295d62d07d}
+      \strng{authorfullhash}{394b6b61c0209947040512295d62d07d}
+      \strng{authorfullhashraw}{394b6b61c0209947040512295d62d07d}
+      \field{labelalpha}{Sma61}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Annals of Mathematics}
+      \field{number}{1}
+      \field{title}{On Gradient Dynamical Systems}
+      \field{volume}{74}
+      \field{year}{1961}
+      \field{pages}{199\bibrangedash 206}
+      \range{pages}{8}
+      \verb{doi}
+      \verb 10.2307/1970311
       \endverb
     \endentry
     \entry{Steenrod1967}{article}{}{}
