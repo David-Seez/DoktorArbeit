@@ -3,14 +3,17 @@
 \begin{definition}\label{def: Exact Couple giving A Morse Sps} Let $M$ be a smooth manifold with Morse data and
 	\begin{equation*}
 		\emptyset=:N_{-1}\subset N_0\subset N_1\subset \cdots \subset N_{m-1}\subset N_m=M,
-	\end{equation*} be the filtration constructed in definition \ref{def:morseFiltr-aFiltrationOfSublevelsets}, i.e. $N_k=M^c$ where $c\in (k,k+1)$. Then for $p,q\in \N$ we define the Groups
+	\end{equation*} be the filtration constructed in definition \ref{def:morseFiltr-aFiltrationOfSublevelsets}, i.e. $N_k=M^c$ where $c\in (k,k+1)$. Then for $p,q\in \Z$ we define the Groups
 	\begin{equation*}
-		\begin{array}{llll}
-			D^{p,q} & \coloneq K^{-(p+q)}(N_p)&
-			~\text{and}~&D \coloneq \bigoplus_{p,q}D^{p,q}\\
-			E^{p,q} & \coloneq K^{-(p+q)}(N_p,N_{p-1})
-			&~\text{and}~ &E\coloneq \bigoplus_{p,q}E^{p,q}
+		\begin{array}{lllll}
+			D^{p,q} & \coloneq K^{-(p+q)}(N_p)&\text{ if }p,q\in \N
+			~\text{and}~&D^{p,q}=0 & \text{ else}\\
+			E^{p,q} & \coloneq K^{-(p+q)}(N_p,N_{p-1})&\text{ if }p,q\in \N
+			~\text{and}~&D^{p,q}=0 & \text{ else}
 		\end{array}
+	\end{equation*}
+	Finally we Define\begin{equation*}
+		D \coloneq \bigoplus_{p,q}D^{p,q}\,,\qquad \text{ and }\qquad E\coloneq \bigoplus_{p,q}E^{p,q}\,.
 	\end{equation*}
 	Now we have the (modified) exact sequence from the pair $(N_p,N_{p-1})$:
 	\begin{center}
@@ -31,7 +34,7 @@
 		\end{adjustbox}
 	\end{center}
 	This is exact in the top row, as it is the exact sequence of a pair. Now its just a diagramm chasing to get the original statement: $y=b(x)\in \im(b\circ \delta_{p,q})$ is equivalent to $x\in \im(\delta_{p,q}^*)$ is equivalent to $j_{p,q}^*(x)=0$ which is equivalent to $b\circ j_{p,q}^*(x)=0$ which is equivalent to $j_{p,q}^*(y)=j_{p,q}^*\circ b(x)=0$. Hence, the kernal of $j_{p,q}^*$ equals the image of $b\circ \delta_{p,q}$. The same argument works in the case $q+p=1$
-	With this we define the maps
+	With this we define the maps 
 	\begin{equation*}
 		\begin{array}{lll|l}
 			&&&\text{bidegree}\\
@@ -43,8 +46,8 @@
 			\gamma&\coloneq \mathop{\oplus}\limits_{p,q}~j_{p,q}^*:&E\to D&(0,0)
 		\end{array}
 	\end{equation*}
-	
-	Obviously by definition the triangle is exact in every cornder:
+	Again, if $p$ or $q$ is negative, we obviously define the summands to be the $0$ map. 
+	By the modified exact sequence above, the triangle is exact in every corner:
 	\begin{center}
 		\begin{tikzcd}
 			D\arrow[rr,"\alpha"]&&D\arrow[dl,"\beta"]\\
@@ -53,16 +56,22 @@
 	\end{center}
 Finally we define $d\coloneq \beta\circ \gamma$.
 \end{definition}
+\begin{figure}
+	\includegraphics[width=\textwidth]{text/images/ExactCoupleHandDrawn.png}
+	\caption{A sketch of the three bigraded groups and the maps $\alpha$, $\beta$ and $\gamma$, but only $\alpha_{4,0}$, $\beta_{3,1}$ and $\gamma_{4,1}$ is shown.}
+	\includegraphics[width=\textwidth]{text/images/TheExactCoupleRenderd.jpg}
+	\caption{A rendernig of the exact couple from the inside.}
+\end{figure}
 
 \begin{definition}[Categorie of Exact Couples]
 	We define the categorie $\ExCoup$ as follows:
-	The objects are exact couples, i.e. quintibles $(D,E,\alpha,\beta,\gamma)$ where $D,E$ are groups (or objects in an abelian categorie), such that the triangle is exact:
+	The objects are exact couples, i.e. quintibles $(D,E,\alpha,\beta,\gamma)$ where $D,E$ are groups (or objects in an abelian categorie), such that the triangle is exact in every corner:
 	\begin{center}
 		\begin{tikzcd}
 			D\arrow[rr,"\alpha"]&&D\arrow[dl,"\beta"]\\
 			&E \arrow[ul,"\gamma"]&
 		\end{tikzcd}
-	\end{center}.Given another exact couple $(D',E',\alpha',\beta',\gamma')$ we define a morphism from one to another to be a touple of morphisms $(f:D\to D',g:E\to E')$ such that the following diagram commutes:
+	\end{center}Given another exact couple $(D',E',\alpha',\beta',\gamma')$ we define a morphism from one to another to be a touple of morphisms $(f:D\to D',g:E\to E')$ such that the following diagram commutes:
 	\begin{center}
 		\begin{tikzcd}
 			D \arrow[r,"\alpha"]\arrow[d,"f"]& D \arrow[d,"f"] \arrow[r,"\beta"]&E \arrow[d,"g"] \arrow[r,"\gamma"]&D\arrow[d,"f"]\\
@@ -107,8 +116,16 @@ Finally we define $d\coloneq \beta\circ \gamma$.
 	We can now iterate this procedure to get a list of spaces with maps
 	$ (E,d),(E',d'),(E'',d'')\dots$ or often written as $(E_1,d_1),(E_2,d_2),\dots$ which is called a \textbf{spectral sequence}. Notice how $E_{r+1}$ is given by $(E_r,d_r)$ whilst $d_{r+1}$ needs further information. Whilst the spectral sequence is defined inductively, the needed information is not captured in $(E_r,d_r)_r$ but rather in the exact couple. Or said differently, we get a sequence of exact couples $(E_r,D_r,\alpha_r,\beta_r,\gamma_r)$ from which we can get the spectral sequence. We can reformulate the maps as follows:
 	\begin{equation*}
-		D_r= \alpha^{r-1}(D),\quad E_r=\ker d_{r-1}\big/ \im d_{r-1},\quad  \alpha_r= \restr{\alpha}{ \alpha^{r-1}(D)} ,\quad \beta_r =[\beta \circ  \alpha^{1-r}], \quad \gamma_r= \gamma, \quad  d_r= \beta_r\circ \gamma_r
-	\end{equation*} $\alpha^{1-r}$ means taking the preimage by alpha $1-r$ times. The well definition of this formulation was proven earlier. 
+	\adjustbox{max width=\textwidth}{$\displaystyle
+			D_r= \alpha^{r-1}(D),\quad
+			E_r=\ker d_{r-1}\big/ \im d_{r-1},\quad
+			\alpha_r= \restr{\alpha}{\alpha^{r-1}(D)},\quad
+			\beta_r =[\beta \circ \alpha^{1-r}],\quad
+			\gamma_r= \gamma,\quad
+			d_r= \beta_r\circ \gamma_r
+		$}
+	\end{equation*}
+	 $\alpha^{1-r}$ means taking the preimage by alpha $1-r$ times. The well definition of this formulation was proven earlier. 
 	The bidegree of the maps is easy to deduct from the formulations above:
 	\begin{equation*}
 		\begin{array}{lll}
@@ -187,13 +204,13 @@ Finally we define $d\coloneq \beta\circ \gamma$.
 \end{proof}
 Now we refomulate the corollary \ref{cor: explicit pages of exact sequences arising from exact couples} for the infinity page. We have the constant sequence of groups $E_r=E_{r+1}=\cdots$ and by the corollary we have
 \begin{equation*}
-	\frac{\gamma{-1}(\alpha^rD)}{\beta(\ker{\alpha^r})}=\frac{\gamma{-1}(\alpha^{r+1}D)}{\beta(\ker{\alpha^{r+1}})}=\frac{\gamma{-1}(\alpha^{r+2}D)}{\beta(\ker{\alpha^{r+2}})}=\cdots
+	\frac{\gamma^{-1}(\alpha^rD)}{\beta(\ker{\alpha^r})}=\frac{\gamma^{-1}(\alpha^{r+1}D)}{\beta(\ker{\alpha^{r+1}})}=\frac{\gamma^{-1}(\alpha^{r+2}D)}{\beta(\ker{\alpha^{r+2}})}=\cdots
 \end{equation*}
 Hence in our later inspections of $E_{\infty}$ we can assume $r$ to be arbitrary big.
 \begin{lemma}[The last page]
 	In our spectral sequence, we have that
 	\begin{equation*}
-		E_{\infty}^{p,q}=\frac{\ker[K^{p+q}(M)\to K^{p+q}(N_{p-1})]}{\ker[K^{p+q}(M)\to K^{p+q}(N_{p1})]}
+		E_{\infty}^{p,q}=\frac{\ker[K^{-(p+q)}(M)\to K^{-(p+q)}(N_{p-1})]}{\ker[K^{-(p+q)}(M)\to K^{-(p+q)}(N_{p1})]}
 	\end{equation*}
 \end{lemma}
 \begin{proof}
