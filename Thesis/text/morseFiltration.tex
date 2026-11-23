@@ -310,3 +310,225 @@ The book \cite{banyaga2004lectures} proofes the homotopy equivalence of all inde
 Similar to us, they also introduce a generator for an index pair by orientation and a Morse chart, but do not show the invariance of said chart (compare \cite[Example 7.17]{banyaga2004lectures}). Whilst this is no gap in the theory (the invariance is to be expected and the authors presumably considered it evident), without the language of canonical isomorphism classes, such an invariance is cumbersome even to state precisely. 
 \end{remark}
 
+
+
+\begin{definition}[From Morse to K-Theory] \label{def:MorseFiltr:TheIdentificationChi}
+	Let $M$ be a smooth manifold wit the Morse datum $\mathfrak{A}$ and denote the one point pointed space by $pt$. Then for any $l\in \N$, on the generators $\Crit_k(f)$ we define the morphism of canonical Isomorphism calses, where the left side consists of only one group:
+	\begin{equation*}
+		\Chi: C^k(M,\mathfrak{A},\rK^{-l}(pt))\,\to\, \rK_{\#}^{-(k+l)}(\mathcal{IP}_k)\,,\quad q\mapsto (\alpha_q^{(N_q,L_q)})_{\#}\,.
+	\end{equation*}
+	Remark \ref{rem:MorseFiltr-canonicalIdentificationOfMorseChainGrou} ensures invaraiance of the choosen $\epsilon$ and refined Morse chart, that made up $(\alpha_q^{(N_q,L_q)})_{\#}$.
+\end{definition}
+
+\begin{definition}[Adapted Lyapunov Function]\label{def:morseFilt-adaptedLyapunov}
+	An \textbf{adapted Lyapunov function} for the Morse-Smale pair $(f,g)$ (where $g$ denotes the metric and $f$ the Morse function) is a smooth function 
+	$\ell :M\to \R$ such that
+	\begin{enumerate}[(i)]
+		\item $\diff \ell (-\grad (f))<0$ on $M\setminus \Crit(f)$,
+		\item $\ell(r)=\ind_r(f)$ for all $r\in \Crit(f)$,
+		\item every $r\in \Crit(f)$ has a neighbourhood on wich $\ell-f$ is constant.
+	\end{enumerate} 
+\end{definition}
+\begin{proposition}\label{prop:morseFiltr-existenceAdaptedLyapunov}
+	An adapted Lyapunov function exists.
+\end{proposition}
+\begin{proof}
+	We apply \cite[Theorem B]{Smale1961OnGradient} to the vector field $X=\grad(f)$, which satisfies the needed conditions: For such a setup, Smales Theorem gives us a function $F$ that satisfies
+	\begin{enumerate}[(a)]
+		\item The critical points of $F$ are the critical points of $X$ (and thereby, in our case of $f$) and $F$ coincides with $f+c$ for $c\in \R$ in small neigbhourhoods of those critical points,
+		\item $X$ is transversal to $F$ at levelsets outside of critical points.
+		\item $F(r)=\ind_f(r)$ for all $r\in \Crit(F)=\Crit(f)$.
+	\end{enumerate} By (a), $\diff F(\grad(f))=\diff f (\grad(f))=\norm{\grad(f)}^2$ near critical points. Outside of critical points we have that $\diff F (-\grad(f))\neq 0$ and as for $\dim(M)\geq2$ this set is connected, we conclude that $\diff F (-\grad(f))>0$ there also. If $\dim(M)=1$ we can argue similarly in each connected component that contains a point close to a critical point. Hence, all properties of an adapted Lyapunov function are satisfied by $\ell\coloneq F$.
+\end{proof}
+
+\begin{definition}[Sublevelsets give a Filtration]\label{def:morseFiltr-aFiltrationOfSublevelsets}
+		As always let $f:M\to \R$ be a Morse-Smale function on a compact smooth Riemannian manifold $(M,g)$ of dimension $m$. Let $\phi_t:M\to M$ be the flow given by $-\grad f$. 
+	Furthermore define $c_k\in (k,k+1)$. Then the sublevelsets $M^{c_k}\coloneq \ell^{-1}(-\infty,c_k]$ are closed and give a filtration
+	\begin{equation*}
+		\emptyset\;=\;M^{c_{-1}}\;\subseteq\; M^{c_0}\;\subseteq\; M^{c_1}\;\subseteq \;\cdots \;\subseteq \;M^{c_{m-1}}\;\subseteq\; M^{m}\;=M\,.
+	\end{equation*}
+\end{definition}
+
+\begin{definition}Let $f:M\to \R$ be a Morse-Smale function on a compact smooth Riemannian manifold $(M,g)$ of dimension $m$.
+	For $0\leq j\leq k\leq m$ define:
+	\begin{align*}
+		W(k,j)=\bigcup_{j\leq \lambda_p \leq \lambda_q\leq k} W(q \to p).
+	\end{align*}
+\end{definition}
+\begin{corollary}
+	The Filtration from definition \ref{def:morseFiltr-aFiltrationOfSublevelsets} satisfies: 
+	For $0\leq j\leq k\leq m$ we have that the pair $(M^{c_k},M^{c_j})$ is a compact index pair of $W(j,k+1)$
+\end{corollary}
+\begin{proof}
+	We need to check the three properties of a compact index pair. (compactnes is clear, by the definitinon of the sublevelsets as they are closed spaces in a compact space)
+	\begin{enumerate}
+		\item  First we need to show that the maximal invcariant subset in the closure of $M^{c_k}/M^{c_j}$ is given by $W(j,k+1)$. For $\epsilon>0$ small enough we have that $x\in \overline{M^{c_k}/M^{c_j}}$ implies that $j+\epsilon < \ell(x)<k+1-\epsilon$ or equivalent $x\in \ell^{-1}[j+\epsilon,k+1-\epsilon]$. Hence by definition, the only critical points $q$ contained in $\overline{M^{c_k}/M^{c_j}}$ satisfy $\ind_q(f)\in \{j,\dots, k+1\}$. Now assume that $x$ is contained in the invariant subset, meaning that  $\phi_t(x)\in \overline{M^{c_k}/M^{c_j}}$ for all $t$. By the closedness, the same holds for the two limits $\lim_{t\mapsto \pm \infty}(\phi_t(x))\in \Crit(f)$, which are critical points by Proposition \ref{prop:morse-limitsAreCritical}. Thereby, there are some $q,p$ with $\ind_q(f),\ind_p(f)\in  \{j,\dots, k+1\}$ such that $x\in W(q,p)\subseteq W(j,k+1)$.
+		\item The positive invariance follows from $\ell$ decreasing along flow lines, which in turn is a result from the first property in the definition of $\ell$, as the map $t\mapsto \ell(\phi_t(x))$ has as a differential $\diff \ell (-\grad_{\phi_t(x)}(f))<0$. 
+		\item The exit set property is also a direct result of $\ell$ decreasing along a flow line. 
+	\end{enumerate}
+\end{proof}
+
+\begin{definition}[Sublevel Index Triple]\label{def:morseFilt-sublevelTriple}
+	Let 
+\begin{equation*}
+S_k\coloneq W(k-1,k)= \Crit_k(f)\cup\Crit_{k-1}(f)\cup\bigcup_{q\in\Crit_k,\,p\in\Crit_{k-1}}W(q\to p
+)\,.
+\end{equation*}
+	An  \textbf{index triple} for $S_k$ is a triple $Z\subseteq Y\subseteq X$ of compact sets such that $(X,Z)$ is an index pair of $S_{k}$, $(X,Y)$ is an index pair of $\Crit_{k}(f)$ and $(
+	Y,Z)$ is an index pair of $\Crit_{k-1}(f)$. It is called a \textbf{sublevel triple} if moreover
+	\begin{equation*}
+		Y=Z\cup \big(X\cap  \ell^{-1}(-\infty,c]\big)\qquad \text{for some }c\in(k-1,k)\,.
+	\end{equation*}
+\end{definition}
+\begin{lemma}\label{morseFiltr-sublevelTripoleGivePairs}
+	Let $(X,Z)$ be an index pair of $S_{k}$, $c\in (k-1,k)$ and $Y=Z\cup \big(X\cap  \ell^{-1}(-\infty,c]\big)$. Then $(X,Y,Z)$ is a sublevel triple.
+\end{lemma}
+\begin{proof}
+	We need to check the three axioms for the two pairs $(X,Y)$ and $(Y,Z)$. We start checking the axioms for $(X,Y)$:
+	\begin{enumerate}[1.]
+		\item Assume that $x\in I(\overline{X\setminus Y})$. Then $x\in I(\overline{X\setminus Z})$ and thereby $x=q$, or $x\in W(q\to p)$ for some $q\in \Crit_{k}(f)$, and $p\in \Crit_{k-1}(f)$. But the latter cannot be true, as for all $x\in W(q\to p)$, there is a $t>0$ such that $f(\phi_t(x))<c$. Hence $x=q$.
+		\item Assume that $Y$ would not be positively invariant in $X$. Then there would be an $x\in \ell^{-1}(-\infty,c]$ (since $Z$ is positively invarient), and such that $f(\phi_{t}(x))>c\geq f(x)$ which cannot happen, as $f$ decreases along flow lines.
+		\item Finally, as $Y$ contains $Z$, the exit set property is trivially satisfied.
+	\end{enumerate}
+	Now for $(Y,Z)$:
+	\begin{enumerate}
+		\item This is shown by the same argument as for $(X,Y)$.
+		\item $Z$ is positively invariant in $X$ and $Y\subseteq X$. Hence $Z$ is positively invariant in $Y$.
+		\item $Z$ is an exit set of $X$ and thereby also of $Y$, as the latter is again contained in $X$.
+	\end{enumerate}
+\end{proof}
+\begin{lemma}\label{lem:morseFiltr-kompactImpliesTwichImpliesU}
+	Let $\phi$ be a flow on $M$ (which is a locally compact metric space or in our case a smooth manifold), $K\subseteq M$ be compact and $U$ be an open set in $K$ containing the maximal invariant subset $I(K)$. Then there exists a $T>0$ with:
+
+	\begin{equation*}
+		\phi_{[-T,T]}(x)\subseteq K \qquad \Leftrightarrow\qquad x\in U
+	\end{equation*}
+\end{lemma}
+\begin{proof}
+	The contradiction would imply that for all $T$ there would be an $x$ such that $\phi_{[-T,T]}(x)\subseteq K$ but $x\notin U$. With this we define the sequence $x_n$ such that $\phi_{[-n,n]}(x_n)\in K$ but $x_n\notin U$. Now decending to a subsequence gives us a sequence $x_n$ that converges in $K\setminus U$ to a point $x$. Continuity of the flow implies that $\phi_\R(x)\subseteq K$ and hence $x\in I(K)$ which implies that $U$ was not a neighbourhood of $I(K)$. Hence, by contraposition, the original claim follows.
+\end{proof}
+
+\begin{lemma}[Flow Maps and Triples]\label{lem:morseFiltr-flowMapOfTriples}
+	Let $(X,Y,Z)$ be an index triple and $(\tilde{X},\tilde{Y},\tilde{Z})$ be a sublevel triple for $S_k$, with level $\tilde{c}$. Dentote by $h_t,\,h^{k-1}_t,\, h^k_t$ the maps of Theorem \ref{thm:morseFiltr-homotopyEquivalenceOfIndexPairs} for the index pairs $(X,Z)\to (\tilde{X},\tilde{Z})$ of $S_{k}$,  $(Y,Z)\to (\tilde{Y},\tilde{Z})$ of $\{p\}$ and  $(X,Y)\to (\tilde{X},\tilde{Y})$ of $\{q\}$. Then there exists a $T_0$ such that for all $t\geq T_0$:
+	\begin{enumerate}[(i)]
+		\item $h_t(Y/Z)\subseteq \tilde{Y}/\tilde{Z}$,
+		\item $\restr{h_t}{Y/Z}=h^{k-1}_t$,
+		\item the map $X/Y \to \tilde{X}/\tilde{Y}$ induced by $h_t$ equals $h^k_t$.
+	\end{enumerate}
+	This means that we can view $h_t:(X/Z,Y/Z,[Z])\to (\tilde{X}/\tilde{Z},\tilde{Y}/\tilde{Z},[\tilde{Z})$ as a map of triples, such that the two diagramms (where $q$ denotes thge quotient) commute: 
+	\begin{center}
+		\begin{tikzcd}
+			X/Y \arrow[d,"h^k_t"]&(X/Z,Y/Z)\arrow[d,"h_t"]\arrow[l,"q"]\\
+			\tilde{X}\tilde{Y}   & (\tilde{X}/\tilde{Z},\tilde{Y},\tilde{Z})\arrow[l,"q"]
+		\end{tikzcd}
+		\qquad
+				\begin{tikzcd}
+			Y/Z \arrow[d,"h^{k-1}_t"]&(Y/Z,[Z])\arrow[d,"h_t"]\arrow[l,"q"]\\
+			\tilde{Y}\tilde{Z}   & (\tilde{Y}/\tilde{Z},\tilde{Z})\arrow[l,"q"]
+		\end{tikzcd}
+	\end{center}
+	
+	in the first pair, it induces $h_t^k$ and in the second pair in induces $h_t^{k-1}$.
+\end{lemma}
+\begin{proof}
+	As a reminder: For two index pairs $(N,L)$ and $(\tilde{N},\tilde{L})$, the map $h:N/L\to \tilde{N}/\tilde{L}$ is given by 
+	\begin{equation*}
+		([x],t) \mapsto \begin{cases}
+[\phi_{3t}(x)] & \text{ if }\underbrace{ \phi_{[0,2t]}(x)\subseteq N\setminus L \text{ and } \phi_{[t,3t]}(x)\subseteq \tilde{N}\setminus \tilde{L}}_{P^{(N,l)}_{(\tilde{N},\tilde{L})}(t,x)}\\
+[\tilde{L}] &\text{ else}
+		\end{cases}
+	\end{equation*} where $t$ is big enough. The property that gives the case destinction is denoted by $P^{(N,l)}_{(\tilde{N},\tilde{L})}(t,x)$.
+	Let $x\in Y\setminus Z$ with $\phi_{[0,2t]}(x)\subseteq X\setminus Z$. The positive invariance of $Y$ in $X$ implies that $\phi_{[0,2t]}(x)\in Y\setminus Z$. By Lemma \ref{lem:morseFiltr-kompactImpliesTwichImpliesU} applied to $K\coloneq \overline{Y\setminus Z}$ with $U\coloneq \{l<\tilde{c}\}\cap K$ and $t$ big enough implies that $\phi_t(x)\in U$. Hence, $\ell(\phi_t(x))<\tilde{c}$ and as $\ell$ decreases along $\phi$, we conclude that $\ell(\phi_{[t,3t]})<\tilde{c}$. Thereby for our $x$ the conditions 
+	\begin{equation*}
+		\phi_{[t,3t]}(x)\in \tilde{X}\setminus \tilde{Z}\qquad\text{and}\qquad \phi_{[t,3t]}(x)\in \tilde{Y}\setminus \tilde{Z}
+	\end{equation*} are equivalent, for $t$ big enough, giving us that for $x\in Y\setminus Z$, the conditions are equal: $P^{(X,Z)}_{(\tilde{X},\tilde{Z})}(t,x)=P^{(X,Z)}_{(\tilde{Y},\tilde{Z})}(t,x)$. This implies $(i)$ and also $(ii)$, as the maps are given by the same case distinctions.
+	Now for the last statement: The induced map $\overline{h_t}:X/Y\to \tilde{X}/\tilde{Y}$ is well defined by $(i)$. Again, to check the equality of the induced map $\overline{h_t}$ and $h_t^q$ we go through the case destinctions in their definitions. This time, the conditions $P$ are not equivalent. And we go through the 4 possible cases: $P^{(X,Z)}_{(\tilde{X},\tilde{Z})}(t,x)$ and $P^{(X,Y)}_{(\tilde{X},\tilde{Y})}(t,x)$ are both true, are both false, or only one of them is true for $x\in X$. The first two conditions obviously give rise to the same functions. Now assume that $P^{(X,Z)}_{(\tilde{X},\tilde{Z})}(t,x)$ is true, whilst $P^{(X,Y)}_{(\tilde{X},\tilde{Y})}(t,x)$ is false. Then: 
+	\begin{equation*}
+		\text{either }\underbrace{\phi_{[0,2t]}(x)\begin{cases}
+			\subseteq X\setminus Z\\
+			\nsubseteq X\setminus Y
+		\end{cases}}_{Case 1}\qquad \text{,or }
+		\underbrace{\phi_{[t,3t]}(x)\begin{cases}
+			\subseteq \tilde{X}\setminus \tilde{Z}\\
+			\nsubseteq \tilde{X}\setminus \tilde{Y}
+		\end{cases}}_{Case 2}\,.
+	\end{equation*}
+	Case 1: There exists a $s\leq 2t$ such that $\phi_s(x)\in Y$. Positive invariance of $Y$ in $X$ gives us that $\phi_{2t}(x)\in Y$. Now $\phi_{[t,3t]}(x)\in \tilde{X}\setminus \tilde{Z}$ gives us by Lemma \ref{lem:morseFiltr-kompactImpliesTwichImpliesU} that $\phi_t(x)$ is close to $S_{k}$, and since $q\notin Y$, we have that the number $c_0\coloneq \max\{\restr{\ell}{Y\cap S_{k}}\}<k$ Hence, by the closenes to $S_{k}$ there exists a $\delta>0$ such that $\ell(\phi_{2t}(x))<c_0+\delta<k$ for $t$ big enough. 
+	On $\overline{\tilde{X}\setminus \tilde{Z}}\cap \ell^{-1}(\tilde{c},c_0)$ there critical points and hence $\ell$ is strictly decreasing. Using compactnes and the mean value theorem, we can conclude that there is a $\mu$ such that for every $x\in \overline{\tilde{X}\setminus \tilde{Z}}\cap \ell^{-1}(\tilde{c},c_0+\delta)$ and $s>0$, $\ell(x)-\ell(\phi_{s}(x))\geq \mu\cdot s$. Now we apply this idea to the intervall $[2t,3t]$ and assume that there is no $T$ big enough such that for all $t>T$, $\ell(\phi_{3t}(x))>\tilde{c}$. Then the whole curfe $\phi_{[t,3t]}(x)$ would live in $\overline{\tilde{X}\setminus \tilde{Z}}\cap \ell^{-1}(\tilde{c},c_0+\delta)$ and hence, 
+	\begin{equation*}
+		c_0+\delta -\tilde{c}\geq \ell(\phi_{2t}(x))-\ell(\phi_{3t}(x))\geq \mu\cdot t\,.
+	\end{equation*} This cannot be true for all $t$ as the right side is unbounded in $t$ whilst the left side is constant, giving us a contradiction. Hence, for $t$ big enough $\ell(\phi_{3t}(x))<\tilde{c}$ and hence $\ell(\phi_{3t}(x))\in \tilde{Y}$. Thereby, the induced map maps such a $(x,t)$ to $[\tilde{Y}]$, similar to $h^q_t$.
+
+	Case 2: In this case, there exists an $s<3t$ such that $\phi_s(x)\in \tilde{Y}$ and as $\tilde{Y}$ is defined as a sublevel set and $\ell$ decreases along the folow, $\phi_{3t}(x)\in \tilde{Y}$ and hence, the induced map from $h_t$ and $h^q_t$ map $(x,t)$ to $[\tilde{Y}]$.
+
+	Now the last Option we need to check is, if $P^{(X,Z)}_{(\tilde{X},\tilde{Z})}(t,x)$ is false, whilst $P^{(X,Y)}_{(\tilde{X},\tilde{Y})}(t,x)$ is true. This would mean that: 
+		\begin{equation*}
+		\text{either }\underbrace{\phi_{[0,2t]}(x)\begin{cases}
+			\nsubseteq X\setminus Z\\
+			\subseteq X\setminus Y
+		\end{cases}}_{\text{ not possible}}\qquad \text{,or }
+		\underbrace{\phi_{[t,3t]}(x)\begin{cases}
+			\nsubseteq \tilde{X}\setminus \tilde{Z}\\
+			\subseteq \tilde{X}\setminus \tilde{Y}
+		\end{cases}}_{\text{ not possible}}\,.
+	\end{equation*}
+	As this cannot happen, we are done. 
+\end{proof}
+\begin{definition}[A Map of K-goups]\label{def:morseFiltr-aMapOfKGroups}
+	For an index triple $(X,Y,Z)$ for $S_k$ we have $(Y,Z)\in \mathcal{IP_{k-1 }}$ and $(X,Y)\in \mathcal{IP}_k$, and we define for $k\geq 2$
+	\begin{equation*}
+		\Delta^{k-1}\coloneq \big(b\circ \delta_{triple}\big)_{\#}:
+		\pcomp{K^{-(k-1)}}(\mathcal{IP}_{k-1})\to  \pcomp{K^{-k}}(\mathcal{IP}_k)\,,
+	\end{equation*} where $\delta_{triple}:K^{-k+1}(Y,Z)\to K^{-k+2}(X,Y)$ is the triple connecting homomorphism and $b=\bottmap[]$. 
+	For $k=1$ we just rearrange the order to get 
+	\begin{equation*}
+		\Delta^{0}\coloneq \big( \delta_{triple}\circ b\big)_{\#}:
+		\pcomp{K^{-(k-1)}}(\mathcal{IP}_{k-1})\to  \pcomp{K^{-k}}(\mathcal{IP}_k)\,,
+	\end{equation*} (notice by naturality, the ordere here doesnt really matter. We just need to make sure, that the triple connecting homomorphism is defined.)
+	This map will turn out to be invariant unter the choosen index triple (compare Remark \todo{ref}). Index triples exist by Lemma \ref{morseFiltr-sublevelTripoleGivePairs}, together with the existence of index pairs of $S_k$ by Remark \ref{rem:morseFiltr-existenceOfIndexPairs}.
+
+	For $p\in \Crit_{k-1}(f)$ and $q\in \Crit_k(f)$ we call
+	\begin{equation*}
+		\pcomp{(\Delta^{k-1})^{q}_p}\coloneq \pcomp{(pr_q)}\circ \Delta^{k-1}\circ \pcomp{(i_p)}:\pcomp{K^{-(k+1)}}(\mathcal{IP}_{p})\to \pcomp{K^{-k}}(\mathcal{IP}_q)
+	\end{equation*} the \textbf{components} of $\Delta^{k-1}$ (summand and factor functions with respect to Corollary \ref{cor:morseFilt-summandsAndFactorsOfMorphisms}). Careful, $pr_q$ and $i_p$ are the group theoretic inclusion/projections, and $i_p= \pcomp{(c_p^*)}\neq \pcomp{(i_p^*)}$ by Remark \ref{rem:MorseFiltr-ProductStruktureOfKIPk}. 
+\end{definition}
+\begin{remark}[Invariance of the Chosen Triple]\label{rem:morseFiltr-invarianceOfTriple}
+	The map $\Delta^{k-1}$ does not depend on the choosen index triple.
+\end{remark}
+\begin{proof}
+		Let $(X,Y,Z)$ be an index triple and $(\tilde{X},\tilde{Y},\tilde{Z})$ be a sublevel triple for $S_k$. We now want to show, that the diagram
+\begin{center}\begin{adjustbox}{width=\textwidth}
+% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAGkA9YAWgZ4CMAXwAUAHTF4GsYAE0hpCVJkAtIQEoQC9Jlz5CKMgGYqtRizZde-YSNmkVm7SAzY8BIgNIDT9Zq0QObj5BUSUsaRg5IQB6cMjgNVIAKidSHTd9T1IAJl9zAKDrULsYlRS0jL0PFBzvfP9LYIYwyQiZAA1Y+NUFHqj5OLaEtUqXXXcDZDq86j8LQKsQ2w6y0lky9THXaqmjermCputW5SiuobPoiq108cya5H3Zs0bF5pLV+1TtiayUAAs5AaCyKfFO7XOfWGMnkvweUyBJkObzBNlE9kcWlMMCgAHN4ERQAAzABOEAAtkgyCAcBAkHUQAwsGBClAIEwAEYMVjUAAWMDoUCQYCYDAY1BwdAibEgrNuJPJVMQjLpSH2r1BIj5AH0cNwANahdScZIgagMOicmAMAAKfxqIFJWDxfJwCpAZMp1Ml9MQwjuXuVqr9QM1hQksAYUp1wBwzrQPKEHqD6t9SAArCjQZGbTG4wmk+amVabfaEWxna73c5U4gw2rEAA2C0stkc7m8kACoUisUS2nShiygisWtKzPpxAAdlb8sC7K5POLPeFgTlXalMvXo5TE+bU9n4bY2r1ho0pr33sQAA4p2HmfOQIvOyvBWvReLJUOR-Lx9eaUbO9j0CXNozoWN4ywRMYCEbhxBhKFFEQ65+kSDRk3-ZUvFpP0AE5swjMQo3zKCYLg4ARA6dYHHUZMLVLO0HQMJ0XTdK9lQI3DJyZNs2BfZd+XfPsv0HbdwF3LCkBwxsNUfdsly7VcRIHLdhx3P9A33YDGzwoQKCEIA
+\begin{tikzcd}
+{K^{-l-1}(\tilde{Y},\tilde{Z})} \arrow[rd, Rightarrow] \arrow[ddd] \arrow[rrrr, "{\delta_{triple}^{(\tilde{X},\tilde{Y},\tilde{Z})}}"] &                                                                                            &                                                                         &                                                          & {K^{-l}(\tilde{X},\tilde{Y})} \arrow[lld, Rightarrow] \arrow[ddd] \\
+                                                                                                                                       & {K^{-l-1}(\tilde{Y}/\tilde{Z},*)} \arrow[d, "(h_t^{k-1})^*"'] \arrow[r, "\delta_{triple}"] & {K^{-l}(\tilde{X}/\tilde{Z},\tilde{Y}/\tilde{Z})} \arrow[r, Rightarrow] & {K^{-l}(\tilde{X}/\tilde{Y},*)} \arrow[d, "(h_t^{k})^*"] &                                                                   \\
+                                                                                                                                       & {K^{-l-1}(Y/Z,*)} \arrow[r, "\delta_{triple}"']                                            & {K^{-l}(X/Z,Y/Z)} \arrow[r, no head, Rightarrow]                     & {K^{-l}(X/Y,*)}                                       &                                                                   \\
+{K^{-l-1}(Y,Z)} \arrow[rrrr, "{\delta_{triple}^{(X,Y,Z)}}"'] \arrow[ru, Rightarrow]                                                    &                                                                                            &                                                                         &                                                          & {K^{-l}(Y,Z)} \arrow[llu, Rightarrow]                          
+\end{tikzcd}			\end{adjustbox}
+			\end{center} where
+		\begin{equation*}
+			h_t^{k}:(X/Y,*)\to (\tilde{X}/\tilde{Y},*)\qquad \text{and}\qquad h_t^{k-1}:(Y/Z,*)\to (\tilde{Y}/\tilde{Z},*)
+		\end{equation*}
+		are the maps from Theorem \ref{thm:morseFiltr-homotopyEquivalenceOfIndexPairs}, viewed as maps of pairs. The outside vertical arrows are defind by the inside veritcal arrows. Thereby, the squares on the left and right commute by definition. The top and bottom sqare commute, as they are introduced by the quotient map 
+			$q_Z:(X,Y,Z)\to (X/Z,Y/Z,*)$, which is a map of triples. The double arrows are isomorphisms. The whole square commutes, if the inner rectangle commutes. However, we know by lemma \ref{lem:morseFiltr-flowMapOfTriples}, that both $h$ maps are induced by the same $h_t$ and hence we get the diagramm:
+			\begin{center}
+				% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAGkA9YAWgZ4CMAXwAUAHTF4GsYAE0hAeglSZALSGkAVAEoQG9Jlz5CKMgKq1GLNl179hI2QtVbd+kBmx4CRAeQv0zKyIHNx8ospY0jDAABqKkdHA6qSJMvJKklFqQm6kBl7GvqTm1IHWIbZ8gqKxzqROqtp5BUY+KABM-mVWwaF2EVlJ8ZkqMfKuevkeht4myF2llkE2Yfa1CrKubhYwUADm8ESgAGYAThAAtkhkIDgQSH7LFSAiABYA+jjcANY12pxNCBqAw6AAjGAMAAKsyKITOWH2bxwwJAELAUCQPAAbMR3OcrjdqPckF1nn0JLAGDg6B9gDgEWgGDAhFNThdrogniTEABmHorEKUyE0ukMrBMlmo0EQ6Gw9ogBFIlH4jmk4kPRAAFhBWDAfSgECYYOZqLeMDomMQYCYDAYxLoUTYkH1bJABM5-LumoArLrXSFDcbTdRzZbnQRWA6nSEXaxVYTtRqkH7yWx3l9frlAW6PUTvY9qOirbzbuU+p9vkCE5yyTyveW2JWc0IKEIgA
+\begin{tikzcd}
+{K^{-l-1}(\tilde{Y}/\tilde{Z},*)} \arrow[d, "(h_t^{k-1})^*"', bend right=60] \arrow[r, "\delta_{triple}"] \arrow[d, "h_t^*", bend left] & {K^{-l}(\tilde{X}/\tilde{Z},\tilde{Y}/\tilde{Z})} \arrow[r, Rightarrow] \arrow[d, "h_t^*"] & {K^{-l}(\tilde{X}/\tilde{Y},*)} \arrow[d, "(h_t^{k})^*"] \\
+{K^{-l-1}(Y/Z,*)} \arrow[r, "\delta_{triple}"']                                                                                         & {K^{-l}(X/Z,Y/Z)} \arrow[r, no head, Rightarrow]                                        & {K^{-l}(X/Y,*)}                                      
+\end{tikzcd}
+			\end{center}where the outside commutes by Lemma \ref{lem:morseFiltr-flowMapOfTriples} and the inside square commutes, as $h_t$ is a map of triples. Let $x_\#\in K^{-l-1}_\#(\mathcal{IP}_{k-1})$ with representatives
+	$\tilde x\in K^{-l-1}(\tilde Y,\tilde Z)$ and $x\in K^{-l-1}(Y,Z)$, i.e.
+	$x=(h^{k-1}_t)^*\tilde x$. If we denote the map $\Delta^{k-1}$ coming from any index tiple $(A,B,C)$ by $\Delta_{(A,B,C)}$ we can calculate using the established commutativity, the naturality of the bott isomorphism $b$ and identifying $h_t^*$ and $(h_t^k)^*$:
+	\begin{align*}
+		\Delta^{k-1}_{(X,Y,Z)}(\pcomp{x})
+			&=\pcomp{\Big(b\circ \delta_{triple}(x)\Big)}\\
+			&=\pcomp{\Big(b\circ \delta_{triple}\circ (h^{k-1}_t)^*(\tilde x)\Big)} \\
+			&=\pcomp{\Big(b\circ (h_t)^*\circ \delta_{triple}(\tilde x)\Big)} \\
+			&=\pcomp{\Big((h_t^k)^* \circ  b\circ \delta_{triple}(\tilde x)\Big)} \\
+			&=\Delta^{k-1}_{(\tilde{X},\tilde{Y},\tilde{Z})}(\pcomp{x})\,.
+	\end{align*}
+For two arbitrary index triples $(X_i,Y_i,Z_i)$, $i=1,2$ we can now choose a sublevel triple (existence is assured by Lemma \ref{morseFiltr-sublevelTripoleGivePairs}) and apply the argument to both triples to deduce: $\Delta^{k-1}_{(X_1,Y_1,Z_1)}=\Delta^{k-1}_{(X_2,Y_2,Z_2)}$.
+\end{proof}
+
+	
