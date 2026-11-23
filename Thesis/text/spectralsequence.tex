@@ -317,34 +317,42 @@ ntsAsIsolatedCompactInvariantSubsets}:
 	\end{align*}and the last homeomorphism is defined using the orientation of the unstable manifolds. 
 	In fact by Remark \ref{rem:MorseFiltr-canonicalIdentificationOfMorseChainGrou} we have a natural isomorphism
 	\begin{align}\label{def: The Map between E_1 and Morse chain group}
-		E^{p,q}_1&\cong \widetilde{K}^{p+q}(N_p\slash N_{p-1})\\
-		&\cong \bigoplus_{w\in \Crit_p(f)}\widetilde{K}^q(pt)=C^k(M,f,g,\mathfrak{o};\widetilde{K}^q(pt))\\
+		E^{p,q}_1&\cong \tilde{K}^{-(p+q)}(N_p\slash N_{p-1})\\
+		&\cong \bigoplus_{w\in \Crit_p(f)}\tilde{K}^{-q}(pt)=C^k(M,f,g,\mathfrak{o};\tilde{K}^{-q}(pt))\\
 	\end{align} Notice that this is trivial for all odd $q$ and naturally isomorphic for all even $q$. In sum we have the chain of horizontal isomorphisms:
 	\begin{fdiagram}\label{diag: first page comparison}
 		\begin{adjustbox}{width=\textwidth}
-			% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAFEA9YNUgRwC+AfQCMIAaXSZc+QihHkqtRizYAdNXgaxgAaQHc0AakEAKAHJC0GuAzpwAFgAJLPALQiBASnGSQGbDwCIgAmRWp6ZlZEEA0AIywAcwg0ZjghYAB3DSwwJw0AYQAnXCtTADMvAQ0tHX1OPlM0HB8JKUDZIgBmcOUotgLDAVMAWVINAFs6HAdyoroAa2AAQQkarG0YPQNG5q9WvwCZYJQyESVI1RiuHiMFQVFfduO5ZAVziJVo2M0NuoNbiITMNXMZPDY7I4XBk0N4nv5pEFXmEPn0rj8EslUkx0lkcnlCiUcDC7sNKtVfpttg0mi14Uckd1SKjLt9BoDhmNJtNZvMlqtxpT-jS9q0lDAoIl4ERQHMIBMkGQQDgIEgFGjvhpGGgHHR4XKFYh1SqkGENeo1HEYDg9W0QAbFdQTYgACyffoxKCiQz8AT6orytVO1WIACsdodiDNzoAbBGA4aesqQwB2eOB13BpCh93orUMHV0ADk-ozOeTSBjuc1lutxdLiazUfThpTTbjFAEQA
-			\begin{tikzcd}
-				{E^{p,q}_1} \arrow[r, "\alpha"] \arrow[d, "{d_1^{p,q}}"] & \widetilde{K}^{p+q}(N_p\slash N_{p-1}) \arrow[r, "\beta"] \arrow[d] & \bigoplus_{w\in \Crit_p(f)}\widetilde{K}^q(pt) \arrow[d] & {C^{p}(M,\mathfrak{A},\widetilde{K}^q(pt))} \arrow[d] \arrow[l] \\
-				{E^{p+1,q}_1} \arrow[r, "\alpha'"]                       & \widetilde{K}^{p+1+q}(N_{p+1}\slash N_{p}) \arrow[r, "\beta'"]      & \bigoplus_{w\in \Crit_{p+1}(f)}\widetilde{K}^q(pt)       & {C^{p+1}(M,\mathfrak{A},\widetilde{K}^q(pt))} \arrow[l]
-			\end{tikzcd}
+			% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAFEA9YNUgRwC+AfQCMIAaXSZc+QihHkqtRizYAdNXgaxgAaQHc0AakEAKAHJC0GuAzpwAFgAJLPALQiBASnGSQGbDwCIgAmRWp6ZlZEEABhQwFTAFlSDQBbOhwHADMAJzoAa2AAQQkNLR19Tj5TNBwvHwkpQNkiMhElSNUYrh4jBUFRX2aZYPlSDoiVaJByrG0YPQM+kRNE12NPGztHFyEeb2H-aSC5ZDDJ5Si2eJXElPTMnPyi0tTNecqDGrqG8SUYFAAObwIigPIQNJIMggHAQJAKK7dWZqRhoBx0I4QqGIRFwpBhJEzDQAIxgOExTRA2Oh1HxiAAzFNrjEoKJDPwBFjcpCEXT4YgACxUmmIQn0gCsIp5OKZsIFguZyI0aIxAHJubyhfykBKlcS1GSKRqBBQBEA
+\begin{tikzcd}
+{E^{(p,q)}_1} \arrow[r, "\alpha"] \arrow[d, "{d_1^{p,q}}"] & \tilde{K}^{-(p+q)}(N_p\slash N_{p-1}) \arrow[r, "\beta"] \arrow[d] & {C^{p}(M,\mathfrak{A},\tilde{K}^{-q}(pt))} \arrow[d] \\
+{E^{p+1,q}_1} \arrow[r, "\alpha'"]                       & \tilde{K}^{-(p+1+q)}(N_{p+1}\slash N_{p}) \arrow[r, "\beta'"]      & {C^{p+1}(M,\mathfrak{A},\tilde{K}^{-q}(pt))}        
+\end{tikzcd}
 		\end{adjustbox}
-		
 	\end{fdiagram}
+	Since $\tilde{K}^{p+q}(N_p\slash N_{p-1})\in K^{-(p+q)}_{\#}(\mathcal{IP}_{\Crit_p(f)})$ (and the same goes for $\tilde{K}^{-(p+1+q)}(N_{p+1}\slash N_{p})\in \tilde{K}_{\#}^{-(p+1+q)}(\mathcal{IP}_{\Crit_p(f)}$), and as $b\circ \delta_{triple}$ (respectifely $\delta_{triple}\circ b$ if $p=1$) induced $\Delta^k$ we have the commuting diagram
+	\begin{center}
+		% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAFEA9YNUgRwC+AfQCMIAaXSZc+QihHkqtRizYBpbgFoAFGgDUfAJTDgAHVMBiAdvMBbOjgAWAY0bAAkgAUT5gMIAnXCE0bQAzY0NxSRAMbDwCIgAmRWp6ZlZEEF9uNGsAWVI7B0dQ-zoAa2AAQQlzPAZYYDUBTj5dHENIiSk42SIyESU01UyuHj0FQVEonpkE+VJB1JUMkDqsBpgmluAdfREDY20AOSFxkQFzOAY6OEcAAlOeAUNzLDB79c3ts-MrLV0E0O1iKTlcDA83l+pgCQRC4QEMxi0nicmQySWynSbGy53yhVM9icpQq1VqpnqjWarXanXEShgUAA5vAiKBShBbEgyCAcBAkAosSM1qZGGhHHRoVYkRyuYhBXykMkhatzAAjGA4SVmSyI7ogWXc6iKxAAZmW2MyUFEOX4euihvlxv5iAALBbheYACIwBha7jle3s-ycpXOpAAVg9qtMaDo-jwjE45RlIbl5t5LvdKrYdAA5FKgwa00hsyaoznMurNfnC-SBEA
+\begin{tikzcd}
+{E^{p,q}_1} \arrow[r, "\alpha_{\#}"] \arrow[d, "{d_1^{p,q}}"] & K^{-(p+q)}_{\#}(\mathcal{IP}_{\Crit_p(f)}) \arrow[r, "\beta_{\#}"] \arrow[d, "\Delta^{k}"]                                & {C^{p}(M,\mathfrak{A},\tilde{K}^q(pt))} \arrow[d, "\partial^k"] \\
+{E^{p+1,q}_1} \arrow[r, "a'_{\#}"]                            & \tilde{K}^{-(p+1+q)}(N_{p+1}\slash N_{p})\in \tilde{K}_{\#}^{-(p+1+q)}(\mathcal{IP}_{\Crit_p(f)} \arrow[r, "\beta'_{\#}"] & {C^{p+1}(M,\mathfrak{A},\tilde{K}^q(pt))}                      
+\end{tikzcd}
+	\end{center}The Morse coboundary appears, as $\beta_{\#}$ and $\beta'_{\#}$ are inverses of the map $\Chi$ from Theorem \ref{eq:morseFilt-commutingDiagramTheorem}. This all lets us define a new spectral sequence:
 \end{corollary}
-By naturality of the triple boundary operator, that the second vertical map is the boundary operator composed with the bott periodicity map ($b\circ \delta_{triple}$ if $p\geq 2$ and $\delta_{triple}\circ b$ if $p=2$).
- Now on the next rug we can induce two maps. From the left to make the diagram commute and from the right. Do they agree? Or asked differently, is the map induced from the $d_1$ map the boundary operator of morse homology? We already answered this in theorem \ref{eq:morseFilt-commutingDiagramTheorem}, as the composition od $b$ and $\delta_{triple}$ (in both cases of the order) induce the map $\Delta^k$, which commutes with the Morse coboundary, as a map of canonical isomorphism classes and as such a map, it commutes for all representatives. This theorem lets us define a new spectral sequence as follows:
-
 
 
 \begin{definition}
-	Let $(D,E,\alpha,\beta,\gamma)$ be the exact couple from definition \ref{def: Exact Couple giving A Morse Sps}. Furthermore, let $\Psi\coloneq \oplus _{p,q}\Psi^{p,q}$ be the isomorphism from $E=\bigoplus_{p,q} E^{p,q}\to \bigoplus_{p,q} C^{p}(M,\mathfrak{A},\widetilde{K}^q(pt))$ that is defined in equation \ref{def: The Map between E_1 and Morse chain group}. Furthermore, let $\beta:K^{2s}(pt)\to \Z)$ be the isomorphisms induced from the bott generator. Then we define
-	\begin{equation*}
-		\Lambda: E \to \widetilde{E}\coloneq \bigoplus_{p,q} C(M,\mathfrak{A},\Z) \otimes_{\Z}
+	Let $(D,E,\alpha,\beta,\gamma)$ be the exact couple from definition \ref{def: Exact Couple giving A Morse Sps}. Furthermore, let $\Psi\coloneq \oplus _{p,q}\Psi^{p,q}$ be the isomorphism from $E=\bigoplus_{p,q} E^{p,q}\to \bigoplus_{p,q} C^{p}(M,\mathfrak{A},\tilde{K}^{-q}(pt))$ that is defined in equation \ref{def: The Map between E_1 and Morse chain group}. Furthermore, let $\phi:K^{-2s}(pt)\to \Z$ be the isomorphisms induced from the bott generators $\beta_{2s}\to 1$. Then we define the isomorphism
+	\begin{align*}
+	\Lambda: E^{p,q}\cong C^{p}(M,\mathfrak{A},\tilde{K}^{-q}(pt))=C^p(M,\mathfrak{A},\Z)\otimes \tilde{K}^{-q}(pt) &\to C^p(M,\mathfrak{A},\Z)\otimes_{\Z}
 		\begin{cases}
 			\Z &\text{ if $q$ is even,}\\
+			0 &\text{ if $q$ is odd}\,
+		\end{cases}\\
+\xi \otimes \zeta&\mapsto \begin{cases}
+	\xi \otimes\phi(\zeta)&\text{ if $q$ is even,}\\
 			0 &\text{ if $q$ is odd}\,.
-		\end{cases}
-	\end{equation*} Then define $\widetilde{D}\coloneq D$ and the new exact couple $(\widetilde{D},\widetilde{E},\widetilde{\alpha},\widetilde{\beta},\widetilde{\gamma})$ as follows:
+\end{cases}
+	\end{align*}Define $\widetilde{D}\coloneq D$ and the new exact couple $(\widetilde{D},\widetilde{E},\widetilde{\alpha},\widetilde{\beta},\widetilde{\gamma})$ as follows:
 	\begin{equation*}
 		\begin{array}{lll}
 			\widetilde{\alpha}&\coloneq\alpha                     &:~\widetilde{D} \to \widetilde{D}\\
@@ -355,3 +363,50 @@ By naturality of the triple boundary operator, that the second vertical map is t
 	This new exact couple gives rise to a spectral sequence $(\widetilde{E}_r,\widetilde{d}_r)_r$, where the first page is the Morse-chain group in all even $q$.
 	Hence, the second page is the Morse homology.
 \end{definition}
+
+
+\begin{corollary}[Periodicity in $q$]
+	The exact couple $(\widetilde{D},\widetilde{E},\widetilde{\alpha},\widetilde{\beta},\widetilde{\gamma})$ has periodicity in $q$ meaning that we have the isomophism of exact couples given by the identity functions
+	\begin{equation*}
+		f^{p,q}:\widetilde{E}^{p,q}\to \widetilde{E}^{p,q+2}
+	\end{equation*}
+	Here the notation might seem a bit strange. However, the summonds $\widetilde{E}^{p,q}$ and $\widetilde{E}^{p,q+2}$ are actually the same. They only differ by there inclsion map into $\widetilde{E}$. The pair 
+	\begin{equation*}
+	(f=\oplus_{p,q}f^{p,q}:\oplus_{p,q}\widetilde{E}^{p,q}:\widetilde{E}\to \widetilde{E}\,,\, g\coloneq \id: \widetilde{D}\to \widetilde{D})
+	\end{equation*} defines an isomorphism of exact couples. The compatibility with morphisms is clear. Since building up the spectral sequence is functorial we know that for all $p,q$ we have canonical (in the sence that they traslate $\widetilde{d}_r^{p,q}$ to $\widetilde{d}_r^{p,q+2}$) isomorphisms
+	\begin{equation*}
+		\widetilde{E}_r^{p,q}\cong \widetilde{E}_{r}^{p,q+2}\,.
+	\end{equation*} Furthermore, $\widetilde{E}_r^{p,q}=0$ for all odd $q$.
+\end{corollary}
+
+\begin{definition}
+	For $r>0$ we define $EM_r^p\coloneq\widetilde{E}^{p,0}_r$ and
+	\begin{equation*}
+		dM_r:EM_r^p\to EM_r^{p+r}; x\mapsto
+		\begin{cases}
+			0&\text{ if $r$ is even}\\
+			\widetilde{d_r^{p,0}}(x)\in \widetilde{E}_r^{p,-r+1}=EM_r^p&\text{ else. }
+		\end{cases}
+	\end{equation*} The last equality comes from the corollary above. Furthermore, we have a morphism of spectral sequences $(\widetilde{E_r},\widetilde{d_r})\to (EM_r,dM_r)$ by the maps
+	\begin{equation*}
+		f_r^{p,q}:\widetilde{E}^{p,q} \to EM^p_r; x\mapsto
+		\begin{cases}
+			0 & \text{ if $q$ is odd}\\
+			x \in EM_r=\widetilde{E}^{p,0}\cong \widetilde{E}^{p,q} &\text{ if $q$ is even.}
+		\end{cases}
+	\end{equation*}
+\end{definition}
+
+
+\begin{theorem}[Summary of the Specrtal Sequence]
+	For each Morse datum $(M,f,g,\mathfrak{A})$ together with a filtration $N_{-1}\subseteq N_0 \subseteq \cdots \subseteq N_{m-1} \subseteq N_m=M$ from (\ref{def:morseFiltr-aFiltrationOfSublevelsets}) there esists a Spectralsequence $(EM^p_r,dM^p_r)$ where each page is graded in $p$ such that
+	\begin{itemize}
+		\item The first page is the morse complex, hence the second page is the Morse homology
+		\item The spectral sequence becomes stationary and the infinity page is the associeted graded group of the K-groups meaning:
+		\begin{align*}
+			\bigoplus_{p\in 2\N\phantom{+1}} E_\infty ^p \text{ is a associated graded group to }K^0(M) \\
+			\bigoplus_{p\in 2\N+1} E_\infty ^p \text{ is a associated graded group to }K^1(M)\,.
+		\end{align*}
+	\end{itemize}
+	\end{theorem}
+	\todo{besser begründen!}
