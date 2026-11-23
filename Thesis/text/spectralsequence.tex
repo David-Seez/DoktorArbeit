@@ -58,7 +58,7 @@ Finally we define $d\coloneq \beta\circ \gamma$.
 \end{definition}
 \begin{figure}
 	\includegraphics[width=\textwidth]{text/images/ExactCoupleHandDrawn.png}
-	\caption{A sketch of the three bigraded groups and the maps $\alpha$, $\beta$ and $\gamma$, but only $\alpha_{4,0}$, $\beta_{3,1}$ and $\gamma_{4,1}$ is shown.}
+	\caption{A sketch of the three bigraded groups and the maps $\alpha$, $\beta$ and $\gamma$, but only $\alpha_{4,0}$, $\beta_{3,1}$ and $\gamma_{4,1}$ are shown.}
 	\includegraphics[width=\textwidth]{text/images/TheExactCoupleRenderd.jpg}
 	\caption{A rendernig of the exact couple from the inside.}
 \end{figure}
@@ -99,14 +99,16 @@ Finally we define $d\coloneq \beta\circ \gamma$.
 			\end{tikzcd}
 		\end{array}
 	\end{equation*} We again defnie $d'\coloneq \beta'\circ \gamma'$.
-	The derifing of a new exact couple as defined above defines an endofunctor which er denote by $Der$.
+	The derifing of a new exact couple as defined above defines an endofunctor which we denote by $Der$.
 \end{corollary}
 \begin{proof}
 	Let $(D,E,\alpha,\beta,\gamma)$ be the exact couple we started with and call the derived couple $(D',E',\alpha',\beta',\gamma')$.
 	First we show the well definition of $\beta$. Let $a\in D'=\alpha(a_1)=\alpha(a_2)$. Then $a_1-a_2\in \ker\alpha=\im \gamma $. Hence $\beta(a_1)-\beta(a_2)=\beta(a_1-a_2)\in \im (\beta\circ \gamma)=\im d$. Furthermore, since $\beta(a_1)\in \im \beta=\ker\gamma \subseteq \ker d$ we have that the map $\beta'$ is well defined. For the well definition of $\gamma'$ we ssume that $[b_1]=[b_2]\in E'$. But then the difference of $b_1$ and $b_2$ is zero in $E'$ meaning in the image oif $d$, which is again contained in the image of $\beta$ and thereby in the kernal of $\alpha$. This menas that under $\alpha$ the image of $b_1$ and $b_2$ agree.
 	Now to show that the derived couple is also exact one continuous the diagram yoga. We do exemplary the equality of the kernal of $\beta'$ with the image of $\alpha'$:
 	Assume that $\beta'(x)=0$. That means that $\beta(\tilde{x})\in \im d$ with $\alpha(\tilde{x})=x$. We now want to show that $x\in \alpha^2D$, and do this by showing that $\tilde{x}=\alpha(z)$ for some $z$. Now since $\beta(\tilde{x})\in \im d$ we have that $\beta(\tilde{x})=d(y)=\beta\circ \gamma(x)$ for some $y$. In other words, $\tilde{x}-\gamma(y)\in \ker \beta=\im \alpha$. Hence, $\tilde{x}-\gamma(y)=\alpha(z)$ for some $z$. But now applying $\alpha$ to both side and using that $\alpha\circ \gamma=0$ we can deduce that $\alpha^2(z)=\alpha(\tilde{x})$. This shows that the kernal of $\beta'$ is contained in the image of $\alpha'$. The other direction of the inclusion is easier: Let $a=\alpha(\tilde{a}) \in D'$. Then $\beta'\circ \alpha'(z)=[\beta(z)]=\beta\circ \alpha (\tilde{a})=0$. Similary one checks for exactnes in the other corners.
-	Now to show that we have an endofunktor we need to define what to do on morphisms. So assume that we have the two exact couples $(D,E,\alpha,\beta,\gamma)$ and $(\widetilde{D},\widetilde{E},\widetilde{\alpha},\widetilde{\beta},\widetilde{\gamma})$ with the morphisms $(f:D\to \widetilde{D},g:E\to \widetilde{E})$. We now need to define a morphism of exact couples $((f':D'\to \widetilde{D}',g:E'\to \widetilde{E}'))$ between the derived couples. For this we define:
+
+
+	To show that we have an endofunktor we need to define what to do on morphisms. So assume that we have the two exact couples $(D,E,\alpha,\beta,\gamma)$ and $(\widetilde{D},\widetilde{E},\widetilde{\alpha},\widetilde{\beta},\widetilde{\gamma})$ with the morphisms $(f:D\to \widetilde{D},g:E\to \widetilde{E})$. We now need to define a morphism of exact couples $((f':D'\to \widetilde{D}',g:E'\to \widetilde{E}'))$ between the derived couples. For this we define:
 	\begin{equation*}
 		f':D'\to \widetilde{D}'\,,\,x\mapsto f(x) \quad \text{and}\quad g:E'\to \widetilde{E}'\,,\, [x]\mapsto [g(x)]
 	\end{equation*} and check for well definition as maps and that the pair is a morphism of exact couples. The well definition of $f'$ follows directly from $f\circ \alpha=\widetilde{\alpha}\circ f$. For the well definition of $g'$ asume that $[x]=[y]\in E'$, meaning that $x-y\in \im d=\im \beta \circ \gamma$ hence for some $z$ we have that $x-y=\beta\circ \gamma(z)$ and hence $g(x-z)=g\circ \beta \circ \gamma (z)=\widetilde{\beta}\circ f\circ \gamma(z)=\widetilde{\beta}\circ \widetilde{\gamma}\circ g(z)\in \im \widetilde{d}$. This proofes the well definition.
@@ -125,17 +127,19 @@ Finally we define $d\coloneq \beta\circ \gamma$.
 			d_r= \beta_r\circ \gamma_r
 		$}
 	\end{equation*}
-	 $\alpha^{1-r}$ means taking the preimage by alpha $1-r$ times. The well definition of this formulation was proven earlier. 
-	The bidegree of the maps is easy to deduct from the formulations above:
+	 $\alpha^{1-r}$ means taking the preimage by alpha $1-r$ times. The well definition of this formulation was proven earlier.
+\end{definition}
+\begin{remark}
+	 Using the exact couple from Definition \ref{def:ExactCouplegivingAMorseSps} we can calculate the bidegree of the maps from the formulations above:
 	\begin{equation*}
 		\begin{array}{lll}
 			\alpha_r&\text{ has bidegree }& (-1,1)    \\
-			\beta_r &\text{ has bidegree }& (-r+2,r-1)\\
+			\beta_r &\text{ has bidegree }& (r,1-r)\\
 			\gamma_r&\text{ has bidegree }& (0,0)     \\
-			d_r     &\text{ has bidegree }& (r,+r+1)\\
+			d_r     &\text{ has bidegree }& (r,1-r)\\
 		\end{array}
 	\end{equation*}
-\end{definition}
+\end{remark}
 \begin{corollary}
 	We can define the categorie of spectral sequences $\SpS$ where the objects consist of families of pairs $(E_r,d_r)_r\in \Z$ where $E_r$ are groups (or objects in an abelian categorie) and $d_r$ are endomorphisms in $E_r$, such that $E_{r+1}\cong \frac{\ker{d_r}}{\im d_r}$. Morphisms between two spectral sequences $(E_r,d_r)_{r\in \N}\to (\widetilde{E_r},\widetilde{d_r})_{r\in \N}$ are families of morphisms $(f_r:E_r\to \widetilde{E_r})$ such that for all $r$ we have that $f_r\circ d_r=\widetilde{d_r}\circ f_r$.
 \end{corollary}
@@ -200,7 +204,7 @@ Finally we define $d\coloneq \beta\circ \gamma$.
 	\end{equation*} For this great enough $r$ we define $E_{\infty}\coloneq E_{r}$.
 \end{corollary}
 \begin{proof}
-	Notice how our original $E^{p,q}$ is supportet in a strip regarding $p$ which is fancy languare for saying that $E^{p,q}=0$ for $p>0$ and for $p\geq m$. These conditinos carry through the whole spectral sequence, as suceeding pages are quotients of preceeding ones respecting the grading. Now the map $d_r$ has bidegree $(r,-r+1)$, and hence $d_r=0$ since the domain or codomain is zero , if the $p$ grading is greater then the $p-$length of the supporting strip meaning $p>m$ which gives us the claimes $r\geq m+1$.
+	Notice how our original $E^{p,q}$ is supportet in a strip regarding $p$ which is fancy languare for saying that $E^{p,q}=0$ for $p>0$ and for $p\geq m$. These conditinos carry through the whole spectral sequence, as succeeding pages are quotients of preceeding ones respecting the grading. Now the map $d_r$ has bidegree $(r,-r+1)$, and hence $d_r=0$ since the domain or codomain is zero , if the $p$ grading is greater then the $p-$length of the supporting strip meaning $p>m$ which gives us the claimes $r\geq m+1$.
 \end{proof}
 Now we refomulate the corollary \ref{cor: explicit pages of exact sequences arising from exact couples} for the infinity page. We have the constant sequence of groups $E_r=E_{r+1}=\cdots$ and by the corollary we have
 \begin{equation*}
@@ -215,36 +219,40 @@ Hence in our later inspections of $E_{\infty}$ we can assume $r$ to be arbitrary
 \end{lemma}
 \begin{proof}
 	For each fixed $(p,q)$ there is an $r$ big enough such that $\alpha^r D^{p,q}=0$, since $\alpha^r$ has degree $-r$ in $p$, hence for $r>p$, $\alpha^r$ maps $D^{p,q}$ to something negative in $p$ and hence to the trivial group.
-	Thus $D=\cup_{r\geq 0}\ker \alpha^r$. Now the denominator of $E^{p,q}_r$ equals $\beta(\ker( \restr{\alpha^r}{D^{p+q-1,q-r}})$ and hence for $r$ big enough this equals the image of $\restr{\beta}{D^{p-1,q}}$ which in turn is the kernal of $\restr{\gamma}{E^{p,q}}$. For the numerator, we start by looking at $(\alpha^r D)^{p,q}=\alpha^rD^{p+r,q-r}$. Now $D^{p+r,q-r}=K^{p+q}(N_{p+n})$. Hence for $n$ big enough (such that $N_{p+n}=M$) we can calculate $\alpha^n(K^{p+q}(N_{p+n}))=\im(K^{p+q}(M)\to K^{p+q}(N_p))$. This results in the description\todo{is das wahr mit gamma eingeschränkt auf Epq?}
+	Thus $D=\bigcup_{r\geq 0}\ker \alpha^r$. Now the denominator of $E^{p,q}_r$ equals $\beta(\ker( \restr{\alpha^{r-1}}{D^{p-1,q}})$ and hence for $r$ big enough this equals the image of $\restr{\beta}{D^{p-1,q}}$ which in turn is the kernal of $\restr{\gamma}{E^{p,q}}$. For the numerator, we start by looking at $(\alpha^r D)^{p,q}=\alpha^rD^{p+r,q-r}$. Now $D^{p+r,q-r}=K^{-(p+q)}(N_{p+r})$. Hence for $r$ big enough (such that $N_{p+r}=M$) we can calculate $\alpha^r(K^{-(p+q)}(N_{p+r}))=\im(K^{-(p+q)}(M)\to K^{-(p+q)}(N_p))$. This results in the description
 	\begin{equation*}
 		E^{p,q}_\infty=\frac{\gamma^{-1}\big(\im(K^{p+q}(M)\to K^{p+q}(N_p))\big)}{\ker\restr{\gamma}{E^{p,q}}}
 	\end{equation*}
 	Next we define the groups
 	\begin{equation*}
-		L^{p,q}\coloneq \im(K^{p+q}(M)\to K^{p+q}(N_p)) \cap \im \gamma= \im(K^{p+q}(M)\to K^{p+q}(N_p)) \cap \ker \alpha
+		L^{p,q}\coloneq \im(K^{-(p+q)}(M)\to K^{-(p+q)}(N_p)) \cap \im \gamma= \im(K^{-(p+q)}(M)\to K^{-(p+q)}(N_p)) \cap \ker \alpha
 	\end{equation*}
 	And since we have for any $f$ and any subset $S$ of the  codomain of $f$ the equality $f^{-1}(S)=f^{-1}(S\cap \im f)$ holds,
-	we have in our setting $ E^{p,q}_\infty=\frac{L^{p,q}}{\ker(\restr{\gamma}{E^{p,q}})}$. Now the kernal of the funktion
+	we have in our setting $ E^{p,q}_\infty=\frac{\gamma^{-1}(L^{p,q})}{\ker(\restr{\gamma}{E^{p,q}})}$. Now the kernal of the funktion
 	\begin{equation*}
 		\tilde{\gamma}:\gamma^{-1} (L^{p,q})\to L^{p,q};~x\mapsto \gamma(x)
-	\end{equation*} equals $\ker \restr{\gamma}{E^{p,q}}$: Since $\gamma^{-1} (L^{p,q})\subseteq E^{p,q}$ the kernal of  $\tilde{\gamma}$ is clearly contained in $ker \restr{\gamma}{E^{p,q}}$. If on the other hand $\gamma(x)=0$ for $x\in E^{p,q}$ then $x\in \gamma^{-1}(0)$ and since zero is contained in $L^{p,q}$ we conclude that the two kernals are equal and hence we can apply the isomorphism theorem to get the isomorphism that is induced from $\gamma$:
+	\end{equation*} equals $\ker \restr{\gamma}{E^{p,q}}$: Since $\gamma^{-1} (L^{p,q})\subseteq E^{p,q}$ the kernal of  $\tilde{\gamma}$ is clearly contained in $ker \restr{\gamma}{E^{p,q}}$. If on the other hand $\gamma(x)=0$ for $x\in E^{p,q}$ then $x\in \gamma^{-1}(0)$ and since zero is contained in $L^{p,q}$ we conclude that the two kernals are equal. On the other hand, the map $\tilde{\gamma}$ is surjective, by the definition of $L^{p,q}$
+	
+	and hence we can apply the isomorphism theorem to get the isomorphism that is induced from $\gamma$:
 	
 	\begin{equation*}
-		E^{p,q}_\infty=\frac{L^{p,q}}{\ker(\restr{\gamma}{E^{p,q}})} \to L^{p,q}\,.
+		E^{p,q}_\infty=\frac{\gamma^{-1}(L^{p,q})}{\ker(\restr{\gamma}{E^{p,q}})} \to L^{p,q}\,.
 	\end{equation*}
 	Now finally we define the mapping
 	\begin{equation*}
-		\ker \left(K^{p+q}(M)\to K^{p+q}(N_{p-1})\right) \to L^{p,q}
+		\Phi:\;\ker \left(K^{p+q}(M)\to K^{p+q}(N_{p-1})\right) \to L^{p,q}
 		=\im(K^{p+q}(M)\to K^{p+q}(N_p)) \cap \ker \alpha\\
-	\end{equation*} That maps an element $x\in K^{p,q}(M)$ to the pullback of the inclusion $N_p\to M$. This map is well defined, since applying $\alpha$ to the image of an element from the domain is the same as the pullback of $x$ via the inclusion $N_{p-1}\to M$ and equlals zero by definition of the domain. Hence the original map maps into the kernal of alpha which proofs the well definition. This line of reasoning also shows the surjectivity since every element in $K^{p,q}(N_p)$ that comes from the whole $M$ and maps to zero if restricted to $N_{p-1}$ can be expressed as the pullback from the whole $M$ restricted to those, that vanish over $N_{p-1}$. TIts easy to see that the kernal of this surjection equals the kernal of the pullback
+	\end{equation*} That maps an element $x\in K^{p,q}(M)$ to its pullback along the inclusion $N_p\to M$. This map is well defined, since applying $\alpha$ to the image of an element from the domain is the same as the pullback of $x$ via the inclusion $N_{p-1}\to M$ and equlals zero by definition of the domain telling us that the construction maps into the kernal of $\alpha$ showing the well definition. This line of reasoning also shows the surjectivity of $\Phi$: Every element in $K^{p,q}(N_p)$ that comes from the whole $M$ and maps to zero if restricted to $N_{p-1}$ can be expressed as the pullback from the whole $M$ restricted to those, that vanish over $N_{p-1}$. It is easy to see that the kernal of $\Phi$ equals the kernal of the pullback
 	\begin{equation*}
 		K^{p,q}(M)\to K^{p,q}(N_p)\,,
 	\end{equation*} because ever element that pulls back to zero over $N_p$ also pulls back to zero over $N_{p-1}$, and the other containemend is trivially true.
-	To the surjection we can again apply the isomorphism theorem to get the isomorphism
+	To $\Phi$ we can again apply the isomorphism theorem to get the isomorphism
 	\begin{equation*}
 		\frac{\ker \left(K^{p+q}(M)\to K^{p+q}(N_{p-1})\right) }{\ker\left( K^{p,q}(M)\to K^{p,q}(N_p)\right)} \cong L^{p,q}\,,
 	\end{equation*} that is induced by the pullback of the inclusion. Together with the $\gamma$ induced isomorphism from $E_\infty^{p,q}\to L^{p,q}$ we conclude the proof.
 \end{proof}
+
+\todo{hier gehts weiter}
 \begin{definition}[Associated Graded Group]
 	Let $G$ be a group together with a finite filtration of subgroups $\{F^i\}_{i=-1,\dots,-m}$ for $i=-1,\dots m$ such that 
 	\begin{equation*}
