@@ -252,9 +252,8 @@ Hence in our later inspections of $E_{\infty}$ we can assume $r$ to be arbitrary
 	\end{equation*} that is induced by the pullback of the inclusion. Together with the $\gamma$ induced isomorphism from $E_\infty^{p,q}\to L^{p,q}$ we conclude the proof.
 \end{proof}
 
-\todo{hier gehts weiter}
 \begin{definition}[Associated Graded Group]
-	Let $G$ be a group together with a finite filtration of subgroups $\{F^i\}_{i=-1,\dots,-m}$ for $i=-1,\dots m$ such that 
+	Let $G$ be a group together with a finite filtration of subgroups $\{F^i\}_{i=-1,0,\dots,m}$ such that 
 	\begin{equation*}
 		G=F^{-1}\subseteq F^0 \subseteq F^1\subseteq \cdots \subseteq F^{m-1}\subseteq F^m=0
 	\end{equation*}
@@ -263,22 +262,96 @@ Hence in our later inspections of $E_{\infty}$ we can assume $r$ to be arbitrary
 		\gr(G)\coloneq \bigoplus_{i=0}^{m} F^{i-1}\big/ F^{i}\, .
 	\end{equation*} 
 	From $\gr(G)$ we can rebuild $G$ by rebuilding $\{F^i\}$ up to extension problems in the following way:
+\begin{equation*}
+\adjustbox{max width=\textwidth}{$
+\begin{array}{ll}
+  F^{m-1} & = F^{m-1}\big/F^{m} = \gr(G)_{m} \\[4pt]
+  F^{m-2} & \text{ is an extension }
+  \begin{tikzcd}[ampersand replacement=\&]
+    0 \arrow[r] \& F^{m-1} \arrow[r] \& F^{m-2} \arrow[r] \& F^{m-2}\big/F^{m-1} = \gr(G)_{m-1} \arrow[r] \& 0
+  \end{tikzcd} \\
+  F^{m-3} & \text{ is an extension }
+  \begin{tikzcd}[ampersand replacement=\&]
+    0 \arrow[r] \& F^{m-2} \arrow[r] \& F^{m-3} \arrow[r] \& F^{m-3}\big/F^{m-2} = \gr(G)_{m-2} \arrow[r] \& 0
+  \end{tikzcd} \\
+  \quad\vdots & \qquad\cdots \\
+  F^{-1} & \text{ is an extension }
+  \begin{tikzcd}[ampersand replacement=\&]
+    0 \arrow[r] \& F^{0} \arrow[r] \& F^{-1} \arrow[r] \& F^{-1}\big/F^{0} = \gr(G)_{0} \arrow[r] \& 0
+  \end{tikzcd}
+\end{array}
+$}
+\end{equation*} 
+\end{definition}
+
+\begin{corollary}
+	Define the groups
 	\begin{equation*}
-		\begin{array}{ll}
-			F^{m-1} & =F^{m-1}\big/F^m=\gr(G)_m \\
-			F^{m-2} &  \text{ is an extension } 
-			\begin{tikzcd}
-				0 \arrow[r] & F^{m-1} \arrow[r] & F^{m-2} \arrow[r] & F^{m-2}\big/F^{m-1}=\gr(G)_{m-1} \arrow[r] & 0
-				\end{tikzcd}\\
-		F^{m-1}&  \text{ is an extension } 
-		\begin{tikzcd}
-			0 \arrow[r] & F^{m-2} \arrow[r] & F^{m-3} \arrow[r] & F^{m-3}\big/F^{m-2}=\gr(G)_{m-2} \arrow[r] & 0
-		\end{tikzcd} \\
-		\vdots & \cdots\\
-		F^{-1}&  \text{ is an extension } 
-		\begin{tikzcd}
-			0 \arrow[r] & F^{0} \arrow[r] & F^{-1} \arrow[r] & F^{-1}\big/F^{0}=\gr(G)_{0} \arrow[r] & 0
-		\end{tikzcd}
-		\end{array}
+		F^lK^n(M)\coloneq \ker\left(K^{-n}(M)\to K^{-n}(N_l)\right)\,.
+	\end{equation*} Those give an decending filtration of the $n-th$ K-group of $M$:
+	\begin{equation*}
+		K^{-n}(M)=F^{-1}K^{-n}(M)\supseteq F^{0}K^{-n}(M)\supseteq \cdots \supseteq F^{m-1}K^n(M)\supseteq F^{m}K^n(M)=0\,.
 	\end{equation*}
+	Then by the corollary above we can conculde that
+	\begin{equation*}
+		E^{p,q}_r=\frac{F^{p-1}K^{-(p+q)}(M)}{F^pK^{-(p+q)}(M)}\,.
+	\end{equation*} Hence, the diagonals on the infinity page are the associated graded groups to $K^{p+q}(M)$ with respect to the filtration above.
+\end{corollary}
+
+
+\begin{corollary}[The first page]
+	In our setting we get the first page to be defined as the quotient
+	\begin{equation*}
+		E^{p,q}  \coloneq K^{-(p+q)}(N_p,N_{p-1})
+	\end{equation*}
+	Now since $(N_p,N_{p-1})$ is a regular index pair for $\Crit_p(f)$ we have a flow induced homotopiy equivalentce:
+	
+	\begin{equation*}
+		N_p\slash N_{p-1}
+		\simeq          \big(\bigcup_{w\in Crit_p(f)}D^u_\epsilon(w)\big) \slash (\bigcup_{w\in Crit_p(f)} \partial D^u_\epsilon(w)\big)
+		\cong           \bigvee_{w\in \Crit_p(f)}S^p
+	\end{equation*} Here, we use the definitions from Remark \ref{rem:morseFiltr-criticalPoi
+ntsAsIsolatedCompactInvariantSubsets}:
+	\begin{align*}
+		D^{u}_\epsilon (w)&~\coloneq~ \phi_w^{-1} \big(\{v\in T_w^{u }M | \norm{v}\leq \epsilon \} \big),
+	\end{align*}and the last homeomorphism is defined using the orientation of the unstable manifolds. 
+	In fact by Remark \ref{rem:MorseFiltr-canonicalIdentificationOfMorseChainGrou} we have a natural isomorphism
+	\begin{align}\label{def: The Map between E_1 and Morse chain group}
+		E^{p,q}_1&\cong \widetilde{K}^{p+q}(N_p\slash N_{p-1})\\
+		&\cong \bigoplus_{w\in \Crit_p(f)}\widetilde{K}^q(pt)=C^k(M,f,g,\mathfrak{o};\widetilde{K}^q(pt))\\
+	\end{align} Notice that this is trivial for all odd $q$ and naturally isomorphic for all even $q$. In sum we have the chain of horizontal isomorphisms:
+	\begin{fdiagram}\label{diag: first page comparison}
+		\begin{adjustbox}{width=\textwidth}
+			% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAFEA9YNUgRwC+AfQCMIAaXSZc+QihHkqtRizYAdNXgaxgAaQHc0AakEAKAHJC0GuAzpwAFgAJLPALQiBASnGSQGbDwCIgAmRWp6ZlZEEA0AIywAcwg0ZjghYAB3DSwwJw0AYQAnXCtTADMvAQ0tHX1OPlM0HB8JKUDZIgBmcOUotgLDAVMAWVINAFs6HAdyoroAa2AAQQkarG0YPQNG5q9WvwCZYJQyESVI1RiuHiMFQVFfduO5ZAVziJVo2M0NuoNbiITMNXMZPDY7I4XBk0N4nv5pEFXmEPn0rj8EslUkx0lkcnlCiUcDC7sNKtVfpttg0mi14Uckd1SKjLt9BoDhmNJtNZvMlqtxpT-jS9q0lDAoIl4ERQHMIBMkGQQDgIEgFGjvhpGGgHHR4XKFYh1SqkGENeo1HEYDg9W0QAbFdQTYgACyffoxKCiQz8AT6orytVO1WIACsdodiDNzoAbBGA4aesqQwB2eOB13BpCh93orUMHV0ADk-ozOeTSBjuc1lutxdLiazUfThpTTbjFAEQA
+			\begin{tikzcd}
+				{E^{p,q}_1} \arrow[r, "\alpha"] \arrow[d, "{d_1^{p,q}}"] & \widetilde{K}^{p+q}(N_p\slash N_{p-1}) \arrow[r, "\beta"] \arrow[d] & \bigoplus_{w\in \Crit_p(f)}\widetilde{K}^q(pt) \arrow[d] & {C^{p}(M,\mathfrak{A},\widetilde{K}^q(pt))} \arrow[d] \arrow[l] \\
+				{E^{p+1,q}_1} \arrow[r, "\alpha'"]                       & \widetilde{K}^{p+1+q}(N_{p+1}\slash N_{p}) \arrow[r, "\beta'"]      & \bigoplus_{w\in \Crit_{p+1}(f)}\widetilde{K}^q(pt)       & {C^{p+1}(M,\mathfrak{A},\widetilde{K}^q(pt))} \arrow[l]
+			\end{tikzcd}
+		\end{adjustbox}
+		
+	\end{fdiagram}
+\end{corollary}
+By naturality of the triple boundary operator, that the second vertical map is the boundary operator composed with the bott periodicity map ($b\circ \delta_{triple}$ if $p\geq 2$ and $\delta_{triple}\circ b$ if $p=2$).
+ Now on the next rug we can induce two maps. From the left to make the diagram commute and from the right. Do they agree? Or asked differently, is the map induced from the $d_1$ map the boundary operator of morse homology? We already answered this in theorem \ref{eq:morseFilt-commutingDiagramTheorem}, as the composition od $b$ and $\delta_{triple}$ (in both cases of the order) induce the map $\Delta^k$, which commutes with the Morse coboundary, as a map of canonical isomorphism classes and as such a map, it commutes for all representatives. This theorem lets us define a new spectral sequence as follows:
+
+
+
+\begin{definition}
+	Let $(D,E,\alpha,\beta,\gamma)$ be the exact couple from definition \ref{def: Exact Couple giving A Morse Sps}. Furthermore, let $\Psi\coloneq \oplus _{p,q}\Psi^{p,q}$ be the isomorphism from $E=\bigoplus_{p,q} E^{p,q}\to \bigoplus_{p,q} C^{p}(M,\mathfrak{A},\widetilde{K}^q(pt))$ that is defined in equation \ref{def: The Map between E_1 and Morse chain group}. Furthermore, let $\beta:K^{2s}(pt)\to \Z)$ be the isomorphisms induced from the bott generator. Then we define
+	\begin{equation*}
+		\Lambda: E \to \widetilde{E}\coloneq \bigoplus_{p,q} C(M,\mathfrak{A},\Z) \otimes_{\Z}
+		\begin{cases}
+			\Z &\text{ if $q$ is even,}\\
+			0 &\text{ if $q$ is odd}\,.
+		\end{cases}
+	\end{equation*} Then define $\widetilde{D}\coloneq D$ and the new exact couple $(\widetilde{D},\widetilde{E},\widetilde{\alpha},\widetilde{\beta},\widetilde{\gamma})$ as follows:
+	\begin{equation*}
+		\begin{array}{lll}
+			\widetilde{\alpha}&\coloneq\alpha                     &:~\widetilde{D} \to \widetilde{D}\\
+			\widetilde{\beta} &\coloneq \Lambda \circ \beta       &:~\widetilde{D} \to \widetilde{E}\\
+			\widetilde{\gamma}&\coloneq \gamma \circ \Lambda^{-1} &:~\widetilde{E} \to \widetilde{D}
+		\end{array}
+	\end{equation*} We get a morphism of exact couples from $(D,E, \alpha,\beta,\gamma)$ to $(\widetilde{D},\widetilde{E},\widetilde{\alpha},\widetilde{\beta},\widetilde{\gamma})$ that is given as $(\Lambda,\id_D)$.
+	This new exact couple gives rise to a spectral sequence $(\widetilde{E}_r,\widetilde{d}_r)_r$, where the first page is the Morse-chain group in all even $q$.
+	Hence, the second page is the Morse homology.
 \end{definition}
