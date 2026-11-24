@@ -6,9 +6,9 @@
 	\end{equation*} be the filtration constructed in definition \ref{def:morseFiltr-aFiltrationOfSublevelsets}, i.e. $N_k=M^c$ where $c\in (k,k+1)$. Then for $p,q\in \Z$ we define the Groups
 	\begin{equation*}
 		\begin{array}{lllll}
-			D^{p,q} & \coloneq K^{-(p+q)}(N_p)&\text{ if }p,q\in \N
+			D^{p,q} & \coloneq K^{-(p+q)}(N_p)&\text{ if }p+q\in \N
 			~\text{and}~&D^{p,q}=0 & \text{ else}\\
-			E^{p,q} & \coloneq K^{-(p+q)}(N_p,N_{p-1})&\text{ if }p,q\in \N
+			E^{p,q} & \coloneq K^{-(p+q)}(N_p,N_{p-1})&\text{ if }p+q\in \N
 			~\text{and}~&D^{p,q}=0 & \text{ else}
 		\end{array}
 	\end{equation*}
@@ -211,7 +211,7 @@ Now we refomulate the corollary \ref{cor: explicit pages of exact sequences aris
 	\frac{\gamma^{-1}(\alpha^rD)}{\beta(\ker{\alpha^r})}=\frac{\gamma^{-1}(\alpha^{r+1}D)}{\beta(\ker{\alpha^{r+1}})}=\frac{\gamma^{-1}(\alpha^{r+2}D)}{\beta(\ker{\alpha^{r+2}})}=\cdots
 \end{equation*}
 Hence in our later inspections of $E_{\infty}$ we can assume $r$ to be arbitrary big.
-\begin{lemma}[The last page]
+\begin{lemma}[The last page] \label{lem:SpectralSequence-theLastPageOfE}
 	In our spectral sequence, we have that
 	\begin{equation*}
 		E_{\infty}^{p,q}=\frac{\ker[K^{-(p+q)}(M)\to K^{-(p+q)}(N_{p-1})]}{\ker[K^{-(p+q)}(M)\to K^{-(p+q)}(N_{p1})]}
@@ -284,18 +284,34 @@ $}
 \end{equation*} 
 \end{definition}
 
-\begin{corollary}
+\begin{corollary}[Associated Graded Group of K Groups]\label{cor:spectralsequence-associatedGradedGroupAtInfinityOfE}
 	Define the groups
 	\begin{equation*}
-		F^lK^n(M)\coloneq \ker\left(K^{-n}(M)\to K^{-n}(N_l)\right)\,.
+		F^lK^{-n}(M)\coloneq \ker\left(K^{-n}(M)\to K^{-n}(N_l)\right)\,.
 	\end{equation*} Those give an decending filtration of the $n-th$ K-group of $M$:
 	\begin{equation*}
 		K^{-n}(M)=F^{-1}K^{-n}(M)\supseteq F^{0}K^{-n}(M)\supseteq \cdots \supseteq F^{m-1}K^n(M)\supseteq F^{m}K^n(M)=0\,.
 	\end{equation*}
-	Then by the corollary above we can conculde that
+	Then by Lemma \ref{lem:SpectralSequence-theLastPageOfE} we can conculde that
 	\begin{equation*}
 		E^{p,q}_r=\frac{F^{p-1}K^{-(p+q)}(M)}{F^pK^{-(p+q)}(M)}\,.
-	\end{equation*} Hence, the diagonals on the infinity page are the associated graded groups to $K^{p+q}(M)$ with respect to the filtration above.
+	\end{equation*} Hence, the diagonals on the infinity page are the associated graded groups to $K^{p+q}(M)$ with respect to the filtration above. Tr calculate that we can look at any diagonal ( lets say throght $(n,0)$) and get:
+	\begin{equation*}
+		\bigoplus_{r\in \Z}E^{n+r,-r}\,=\,\bigoplus_{r\in \Z}\frac{F^{n+r-1}K^{-n}(M)}{F^{n+r}K^{-n}(M)}\,=\,\bigoplus_{s=-n}^{m-n}\frac{F^{s-1}K^{-n}(M)}{F^{s}K^{-n}(M)}\,.
+	\end{equation*}
+\end{corollary}
+\begin{proposition}
+	For $r$ even we have
+	\begin{equation*}
+		F^rK^0(M)=F^{r+1}K^0(M)\,,\qquad\,
+		F^{r-1}K^1(M)=F^{r}K^1(M)
+	\end{equation*}
+\end{proposition}\todo{In Fromenkos Buch}
+\begin{proof}
+	 sollte ca 15 minuten dauern
+\end{proof}
+\begin{corollary}
+	The graded associated groups of $K^0(M)$ and $K^{-1}(M)$ look like...
 \end{corollary}
 
 
@@ -315,7 +331,7 @@ ntsAsIsolatedCompactInvariantSubsets}:
 	\begin{align*}
 		D^{u}_\epsilon (w)&~\coloneq~ \phi_w^{-1} \big(\{v\in T_w^{u }M | \norm{v}\leq \epsilon \} \big),
 	\end{align*}and the last homeomorphism is defined using the orientation of the unstable manifolds. 
-	In fact by Remark \ref{rem:MorseFiltr-canonicalIdentificationOfMorseChainGrou} we have a natural isomorphism
+	In fact by Remark \ref{rem:MorseFiltr-canonicalIdentificationOfMorseChainGrou} we have a natural isomorphism 
 	\begin{align}\label{def: The Map between E_1 and Morse chain group}
 		E^{p,q}_1&\cong \tilde{K}^{-(p+q)}(N_p\slash N_{p-1})\\
 		&\cong \bigoplus_{w\in \Crit_p(f)}\tilde{K}^{-q}(pt)=C^k(M,f,g,\mathfrak{o};\tilde{K}^{-q}(pt))\\
@@ -341,58 +357,65 @@ ntsAsIsolatedCompactInvariantSubsets}:
 
 
 \begin{definition}
-	Let $(D,E,\alpha,\beta,\gamma)$ be the exact couple from definition \ref{def: Exact Couple giving A Morse Sps}. Furthermore, let $\Psi\coloneq \oplus _{p,q}\Psi^{p,q}$ be the isomorphism from $E=\bigoplus_{p,q} E^{p,q}\to \bigoplus_{p,q} C^{p}(M,\mathfrak{A},\tilde{K}^{-q}(pt))$ that is defined in equation \ref{def: The Map between E_1 and Morse chain group}. Furthermore, let $\phi:K^{-2s}(pt)\to \Z$ be the isomorphisms induced from the bott generators $\beta_{2s}\to 1$. Then we define the isomorphism
-	\begin{align*}
-	\Lambda: E^{p,q}\cong C^{p}(M,\mathfrak{A},\tilde{K}^{-q}(pt))=C^p(M,\mathfrak{A},\Z)\otimes \tilde{K}^{-q}(pt) &\to C^p(M,\mathfrak{A},\Z)\otimes_{\Z}
-		\begin{cases}
-			\Z &\text{ if $q$ is even,}\\
-			0 &\text{ if $q$ is odd}\,
-		\end{cases}\\
-\xi \otimes \zeta&\mapsto \begin{cases}
-	\xi \otimes\phi(\zeta)&\text{ if $q$ is even,}\\
-			0 &\text{ if $q$ is odd}\,.
-\end{cases}
-	\end{align*}Define $\widetilde{D}\coloneq D$ and the new exact couple $(\widetilde{D},\widetilde{E},\widetilde{\alpha},\widetilde{\beta},\widetilde{\gamma})$ as follows:
+	Let $(D,E,\alpha,\beta,\gamma)$ be the exact couple from definition \ref{def: Exact Couple giving A Morse Sps}, and let 
 	\begin{equation*}
-		\begin{array}{lll}
-			\widetilde{\alpha}&\coloneq\alpha                     &:~\widetilde{D} \to \widetilde{D}\\
-			\widetilde{\beta} &\coloneq \Lambda \circ \beta       &:~\widetilde{D} \to \widetilde{E}\\
-			\widetilde{\gamma}&\coloneq \gamma \circ \Lambda^{-1} &:~\widetilde{E} \to \widetilde{D}
-		\end{array}
-	\end{equation*} We get a morphism of exact couples from $(D,E, \alpha,\beta,\gamma)$ to $(\widetilde{D},\widetilde{E},\widetilde{\alpha},\widetilde{\beta},\widetilde{\gamma})$ that is given as $(\Lambda,\id_D)$.
-	This new exact couple gives rise to a spectral sequence $(\widetilde{E}_r,\widetilde{d}_r)_r$, where the first page is the Morse-chain group in all even $q$.
-	Hence, the second page is the Morse homology.
+	\Psi=\bigoplus_{p,q}\Psi^{p,q}\colon\ E=\bigoplus_{p,q}E^{p,q}\;\xrightarrow{\ \cong\ }\;\bigoplus_{p,q}\underbrace{C^{p}\big(M,\mathfrak{A},\tilde{K}^{-q}(pt)\big)}_{=C^{p}(M,\mathfrak{A},\Z)\otimes\tilde{K}^{-q}(pt)}
+	\end{equation*}be the isomorphism from  equation \ref{def: The Map between E_1 and Morse chain group}. Put
+	
+\begin{equation*}
+		\Z_{(q)}\coloneq\begin{cases}
+			\Z & \text{if $q$ is even,}\\
+			0  & \text{if $q$ is odd,}
+		\end{cases}
+		\qquad\text{and}\qquad
+		\tilde{E}^{p,q}\coloneq C^{p}(M,\mathfrak{A},\Z)\otimes_{\Z}\Z_{(q)}\,,\quad
+		\tilde{E}\coloneq\bigoplus_{p,q}\tilde{E}^{p,q}\,.
+	\end{equation*}
+	Let $\phi_q\colon\tilde{K}^{-q}(pt)\to\Z_{(q)}$ be the isomorphism that sends the Bott generator $\beta_{q}$ to $1$ for even $q$ (for odd $q$ both groups are $0$). We define the isomorphism
+	\begin{equation*}
+		\Lambda\coloneq\bigoplus_{p,q}\Lambda^{p,q}\colon\ E\to\tilde{E}\,,\qquad
+		\Lambda^{p,q}\coloneq(\id\otimes\phi_q)\circ\Psi^{p,q}\,,
+	\end{equation*}
+	Now set $\tilde{D}\coloneq D$, $\tilde{\alpha}\coloneq\alpha$, $\tilde{\beta}\coloneq\Lambda\circ\beta$ and $\tilde{\gamma}\coloneq\gamma\circ\Lambda^{-1}$:
+	\begin{center}
+		\begin{tikzcd}[column sep=large]
+			\tilde{D} \arrow[rr,"\tilde{\alpha}"] & & \tilde{D} \arrow[dl,"\tilde{\beta}=\Lambda\circ\beta"]\\
+			& \tilde{E} \arrow[ul,"\tilde{\gamma}=\gamma\circ\Lambda^{-1}"] &
+		\end{tikzcd}
+	\end{center} We get a morphism of exact couples from $(D,E, \alpha,\beta,\gamma)$ to $(\tilde{D},\tilde{E},\tilde{\alpha},\tilde{\beta},\tilde{\gamma})$ that is given as $(\Lambda,\id_D)$.
+	This new exact couple gives rise to a spectral sequence $(\tilde{E}_r,\tilde{d}_r)_r$, where the first page is the Morse-chain group in all even $q$.
+	Hence, the second page is the Morse homology (in all even $q$). Since producing a spectral sequence is functorial, the isomorphism $\Lambda $ induces uisomorphisms of spectral sequences $(E_r,d_r)\to (\tilde{E}_r,\tilde{d}_r)$, which in turn gives us that the $\infty$-page of the new spectral sequence $(\tilde{E}_r,\tilde{d}_r)$ is still isomorphic to the associated graded group of the K-groups of $M$. 
 \end{definition}
 
 
 \begin{corollary}[Periodicity in $q$]
-	The exact couple $(\widetilde{D},\widetilde{E},\widetilde{\alpha},\widetilde{\beta},\widetilde{\gamma})$ has periodicity in $q$ meaning that we have the isomophism of exact couples given by the identity functions
+	The exact couple $(\tilde{D},\tilde{E},\tilde{\alpha},\tilde{\beta},\tilde{\gamma})$ has periodicity in $q$ meaning that we have the isomophism of exact couples given by the identity functions
 	\begin{equation*}
-		f^{p,q}:\widetilde{E}^{p,q}\to \widetilde{E}^{p,q+2}
+		f^{p,q}:\tilde{E}^{p,q}\to \tilde{E}^{p,q+2}
 	\end{equation*}
-	Here the notation might seem a bit strange. However, the summonds $\widetilde{E}^{p,q}$ and $\widetilde{E}^{p,q+2}$ are actually the same. They only differ by there inclsion map into $\widetilde{E}$. The pair 
+	Here the notation might seem a bit strange. However, the summonds $\tilde{E}^{p,q}$ and $\tilde{E}^{p,q+2}$ are actually the same. They only differ by there inclsion map into $\tilde{E}$. The pair 
 	\begin{equation*}
-	(f=\oplus_{p,q}f^{p,q}:\oplus_{p,q}\widetilde{E}^{p,q}:\widetilde{E}\to \widetilde{E}\,,\, g\coloneq \id: \widetilde{D}\to \widetilde{D})
-	\end{equation*} defines an isomorphism of exact couples. The compatibility with morphisms is clear. Since building up the spectral sequence is functorial we know that for all $p,q$ we have canonical (in the sence that they traslate $\widetilde{d}_r^{p,q}$ to $\widetilde{d}_r^{p,q+2}$) isomorphisms
+	(f=\oplus_{p,q}f^{p,q}:\tilde{E}\to \tilde{E}\,,\, g\coloneq \id: \tilde{D}\to \tilde{D})
+	\end{equation*} defines an isomorphism of exact couples. The compatibility with morphisms is clear. Since building up the spectral sequence is functorial we know that for all $p,q$ we have canonical (in the sence that they traslate $\tilde{d}_r^{p,q}$ to $\tilde{d}_r^{p,q+2}$) isomorphisms
 	\begin{equation*}
-		\widetilde{E}_r^{p,q}\cong \widetilde{E}_{r}^{p,q+2}\,.
-	\end{equation*} Furthermore, $\widetilde{E}_r^{p,q}=0$ for all odd $q$.
+		\tilde{E}_r^{p,q}\cong \tilde{E}_{r}^{p,q+2}\,.
+	\end{equation*} Furthermore, $\tilde{E}_r^{p,q}=0$ for all odd $q$.
 \end{corollary}
 
 \begin{definition}
-	For $r>0$ we define $EM_r^p\coloneq\widetilde{E}^{p,0}_r$ and
+	For $r>0$ and $p\in \Z$ we define $EM_r^p\coloneq\tilde{E}^{p,0}_r$ and
 	\begin{equation*}
 		dM_r:EM_r^p\to EM_r^{p+r}; x\mapsto
 		\begin{cases}
 			0&\text{ if $r$ is even}\\
-			\widetilde{d_r^{p,0}}(x)\in \widetilde{E}_r^{p,-r+1}=EM_r^p&\text{ else. }
+			\tilde{d_r^{p,0}}(x)\in \tilde{E}_r^{p+r,-r+1}\equiv EM_r^{p+r}&\text{ else. }
 		\end{cases}
-	\end{equation*} The last equality comes from the corollary above. Furthermore, we have a morphism of spectral sequences $(\widetilde{E_r},\widetilde{d_r})\to (EM_r,dM_r)$ by the maps
+	\end{equation*} The last identification comes from the periodicity induced endomorphism of our spectral sequence. Furthermore, we have a morphism of spectral sequences $(\tilde{E_r},\tilde{d_r})\to (EM_r,dM_r)$ by the maps
 	\begin{equation*}
-		f_r^{p,q}:\widetilde{E}^{p,q} \to EM^p_r; x\mapsto
+		f_r^{p,q}:\tilde{E}^{p,q} \to EM^p_r; x\mapsto
 		\begin{cases}
 			0 & \text{ if $q$ is odd}\\
-			x \in EM_r=\widetilde{E}^{p,0}\cong \widetilde{E}^{p,q} &\text{ if $q$ is even.}
+			x \in EM_r=\tilde{E}^{p,0}\cong \tilde{E}^{p,q} &\text{ if $q$ is even.}
 		\end{cases}
 	\end{equation*}
 \end{definition}
@@ -402,11 +425,37 @@ ntsAsIsolatedCompactInvariantSubsets}:
 	For each Morse datum $(M,f,g,\mathfrak{A})$ together with a filtration $N_{-1}\subseteq N_0 \subseteq \cdots \subseteq N_{m-1} \subseteq N_m=M$ from (\ref{def:morseFiltr-aFiltrationOfSublevelsets}) there esists a Spectralsequence $(EM^p_r,dM^p_r)$ where each page is graded in $p$ such that
 	\begin{itemize}
 		\item The first page is the morse complex, hence the second page is the Morse homology
-		\item The spectral sequence becomes stationary and the infinity page is the associeted graded group of the K-groups meaning:
+		\item The spectral sequence becomes stationary and the infinity page is isomorphic to the associeted graded group of the K-groups meaning:
 		\begin{align*}
 			\bigoplus_{p\in 2\N\phantom{+1}} E_\infty ^p \text{ is a associated graded group to }K^0(M) \\
-			\bigoplus_{p\in 2\N+1} E_\infty ^p \text{ is a associated graded group to }K^1(M)\,.
+			\bigoplus_{p\in 2\N+1} E_\infty ^p \text{ is a associated graded group to }K^{-1}(M)\,.
 		\end{align*}
 	\end{itemize}
 	\end{theorem}
-	\todo{besser begründen!}
+	\begin{proof}
+		The Spectral sequence $ (\tilde{E}_r,\tilde{d}_r)$ had for all even $q$ on the first page the morse cochain compley and hence the Morse homologie on the second page. Hence, the Spectral sequence $(EM_r,dM_r)$ inherits that property, as it equals $(\tilde{E}_r,\tilde{d}_r)$ for $q=0$. 
+		
+		The infinity page of $ (\tilde{E}_r,\tilde{d}_r)$ is isomorphic to 
+		\begin{equation*}
+		E_{\infty}^{p,q}=\frac{\ker[K^{-(p+q)}(M)\to K^{-(p+q)}(N_{p-1})]}{\ker[K^{-(p+q)}(M)\to K^{-(p+q)}(N_{p1})]}=\frac{F^{p-1}K^{-(p+q)}(M)}{F^pK^{-(p+q)}(M)}\,.
+	\end{equation*} which was calculated in Lemma \ref{lem:SpectralSequence-theLastPageOfE}. 
+	Here, $\{F^lK^{-n}(M)\}_{l=-1,\dots,m}$ is a filtration of $K^{-n}(M)  $. Hence, we can calculate the $\infty$-page of $(EM_r,dM_r)$:
+	\begin{equation*}
+			EM^p_{\infty}=\tilde{E}^{p,0}_{\infty}\cong E^{p,0}_{\infty}=\frac{F^{p-1}K^{-p}(M)}{F^pK^{-p}(M)}
+	\end{equation*}
+	We already saw in Corollary \ref{cor:spectralsequence-associatedGradedGroupAtInfinityOfE}, that the direct sum of the diagonals of the $\infty$-page of $(E_r,d_r)$ gives the associated graded group of $K^{-n}$: 
+	\begin{equation*}
+		\bigoplus_{r\in \Z}E^{n+r,-r}\,=\,\bigoplus_{r\in \Z}\frac{F^{n+r-1}K^{-n}(M)}{F^{n+r}K^{-n}(M)}\,=\,\bigoplus_{s=-n}^{m-n}\frac{F^{s-1}K^{-n}(M)}{F^{s}K^{-n}(M)}\,.
+	\end{equation*}
+	For $n=0$, and applying the priodicity we get:
+	\begin{equation*}
+		\bigoplus_{r\in \Z}E^{r,-r}\,=\, \bigoplus_{s=0}^{m}\frac{F^{s-1}K^{0}(M)}{F^{s}K^{0}(M)}\,.
+	\end{equation*}
+
+
+
+	Hence, let if we build the direct sum off all odd $p$ of $EM^p_{\infty}=\tilde{E}^{p,0}_{\infty}\cong E^{p,2s}_{\infty}$ (for any $s\in \Z$) we get:
+	\begin{equation*}
+		\bigoplus_{r\in2\Z+1}EM^{r}_{\infty} \cong \bigoplus_{r\in 2\Z+1}E^{r,-r-1}_{\infty}=\bigoplus_{r\in 2\Z+1}\frac{F^{r-1}K^{-1}(M)}{F^rK^{-1}(M)}
+	\end{equation*}
+	\end{proof}
