@@ -284,7 +284,7 @@ $}
 \end{equation*} 
 \end{definition}
 
-\begin{corollary}[Associated Graded Group of K Groups]\label{cor:spectralsequence-associatedGradedGroupAtInfinityOfE}
+\begin{definition}[Associated Graded Group of K Groups]\label{cor:spectralsequence-associatedGradedGroupAtInfinityOfE}
 	Define the groups
 	\begin{equation*}
 		F^lK^{-n}(M)\coloneq \ker\left(K^{-n}(M)\to K^{-n}(N_l)\right)\,.
@@ -299,19 +299,58 @@ $}
 	\begin{equation*}
 		\bigoplus_{r\in \Z}E^{n+r,-r}\,=\,\bigoplus_{r\in \Z}\frac{F^{n+r-1}K^{-n}(M)}{F^{n+r}K^{-n}(M)}\,=\,\bigoplus_{s=-n}^{m-n}\frac{F^{s-1}K^{-n}(M)}{F^{s}K^{-n}(M)}\,.
 	\end{equation*}
-\end{corollary}
+\end{definition}
 \begin{proposition}
-	For $r$ even we have
+	For $r\in 2\Z$ we have
 	\begin{equation*}
 		F^rK^0(M)=F^{r+1}K^0(M)\,,\qquad\,
 		F^{r-1}K^1(M)=F^{r}K^1(M)
 	\end{equation*}
-\end{proposition}\todo{In Fromenkos Buch}
+\end{proposition}
 \begin{proof}
-	 sollte ca 15 minuten dauern
+	Cosider the fragment of the exact triple sequence coming from the triple $(M,N_{r+1},N_{r})$
+	\begin{center}
+		\begin{tikzcd}
+			K^0(M,N_{r+1})\arrow[r]&	K^0(M,N_{r}) \arrow[r]&  	\underbrace{K^0(N_{r+1},N_r)}_{=0}
+		\end{tikzcd}
+	\end{center}where the last group is trivial, as it is the $0$th K group of the index pair of $\Crit_{r+1}$. The latter gives a quoptient that is homotopical equivalent to a bouket of $r+1$ dimensional spheres, which have (by oddness of $r+1$) trivial $0$-th K groups.
+	Thereby the map $K^0(M,N_{r+1}) \to 	K^0(M,N_{r})$ is a surjection. Now consider the fragment of the commutative ladder that vertically consists of the K-sequences of the pairs $(M,N_r)$ and $(M,N_{r+1})$ and the horizontal maps are induced from the inclusion $(M,N_r) \to(M,N_{r+1})$:
+	\begin{center}
+		\begin{tikzcd}
+			K^0(M,N_r)\arrow[r,"\alpha"] \arrow[d,"\epsilon"]	& K^0(M) \arrow[r,"\beta"]\arrow[d,"\id"]&K^0(N_r)\\
+			K^0(M,N_{r+1})\arrow[r,"\gamma"]&K^0(M) \arrow[r,"\eta"]&K^0(N_{r+1})
+		\end{tikzcd}
+	\end{center} Then $\epsilon$ is a surjection by the considarations above and hence $\im(\alpha)=\im(\gamma)$ leading to $\ker(\beta)=\ker(\eta)$ which is the same as $F^rK^0(M)=F^{r+1}K^0(M)$. For $K^1$ we use the same argument: In the diagram  
+\begin{center}
+		\begin{tikzcd}
+			K^{-1}(M,N_{r})\arrow[r]&	K^{-1}(M,N_{r-1}) \arrow[r]&  	\underbrace{K^{-1}(N_{r},N_{r-1})}_{=0}
+		\end{tikzcd}
+	\end{center} The last group is trivial, as it is the $-1$th K-group of a bouket of even dimensional spheres. Hence, we again get the surjectivity of the map $	K^{-1}(M,N_{r})\to	K^{-1}(M,N_{r-1})$ and we can use the latter (from the same incusion $(M,N_{r-1}) \to(M,N_{r})$ ):
+	\begin{center}
+		\begin{tikzcd}
+			K^{-1}(M,N_{r-1})\arrow[r,"\alpha"] \arrow[d,"\epsilon"]	& K^{-1}(M) \arrow[r,"\beta"]\arrow[d,"\id"]&K^{-1}(N_{r-1})\\
+			K^{-1}(M,N_{r})\arrow[r,"\gamma"]&K^{-1}(M) \arrow[r,"\eta"]&K^{-1}(N_{r})
+		\end{tikzcd}
+	\end{center}
+	By the same argument (again surjectivity in $\epsilon$ gives equality of the kernals of $\beta$ and $\eta$) we conclude that $F^{r-1}K^1(M)=F^{r}K^1(M)$.
+
 \end{proof}
-\begin{corollary}
-	The graded associated groups of $K^0(M)$ and $K^{-1}(M)$ look like...
+\begin{corollary}\label{cor:spectralsequence-gradingforK0AndK-1}
+	For $K^0$ we can deduce that for the filtration from Definition \ref{cor:spectralsequence-associatedGradedGroupAtInfinityOfE} all odd $l\in 2\Z$ (meaning $l-1$ is even)
+	\begin{equation*}
+		 \frac{F^{l-1}K^0(M)}{F^lK^0(M)}= \frac{F^{l}K^0(M)}{F^lK^0(M)}=0
+	\end{equation*}
+	and thereby the associated graded group of $K^0(M)$ with respect to the filtration is fiven by
+	\begin{equation*}
+		\gr(K^0(M))=\bigoplus_{r\in 2\Z} \frac{F^{r-1}K^0(M)}{F^rK^0(M)}
+	\end{equation*} and similar for $K^{-1}$ we get that for all even $l\in 2\Z$:
+	\begin{equation*}
+		 \frac{F^{l-1}K^0(M)}{F^lK^0(M)}= \frac{F^{l}K^0(M)}{F^lK^0(M)}=0
+	\end{equation*}
+	and thereby the associated graded group of $K^0(M)$ with respect to the filtration is fiven by
+	\begin{equation*}
+		\gr(K^{-1}(M))=\bigoplus_{r\in 2\Z+1} \frac{F^{r-1}K^0(M)}{F^rK^0(M)}\,.
+	\end{equation*}
 \end{corollary}
 
 
@@ -439,23 +478,13 @@ ntsAsIsolatedCompactInvariantSubsets}:
 		\begin{equation*}
 		E_{\infty}^{p,q}=\frac{\ker[K^{-(p+q)}(M)\to K^{-(p+q)}(N_{p-1})]}{\ker[K^{-(p+q)}(M)\to K^{-(p+q)}(N_{p1})]}=\frac{F^{p-1}K^{-(p+q)}(M)}{F^pK^{-(p+q)}(M)}\,.
 	\end{equation*} which was calculated in Lemma \ref{lem:SpectralSequence-theLastPageOfE}. 
-	Here, $\{F^lK^{-n}(M)\}_{l=-1,\dots,m}$ is a filtration of $K^{-n}(M)  $. Hence, we can calculate the $\infty$-page of $(EM_r,dM_r)$:
-	\begin{equation*}
-			EM^p_{\infty}=\tilde{E}^{p,0}_{\infty}\cong E^{p,0}_{\infty}=\frac{F^{p-1}K^{-p}(M)}{F^pK^{-p}(M)}
-	\end{equation*}
-	We already saw in Corollary \ref{cor:spectralsequence-associatedGradedGroupAtInfinityOfE}, that the direct sum of the diagonals of the $\infty$-page of $(E_r,d_r)$ gives the associated graded group of $K^{-n}$: 
-	\begin{equation*}
-		\bigoplus_{r\in \Z}E^{n+r,-r}\,=\,\bigoplus_{r\in \Z}\frac{F^{n+r-1}K^{-n}(M)}{F^{n+r}K^{-n}(M)}\,=\,\bigoplus_{s=-n}^{m-n}\frac{F^{s-1}K^{-n}(M)}{F^{s}K^{-n}(M)}\,.
-	\end{equation*}
-	For $n=0$, and applying the priodicity we get:
-	\begin{equation*}
-		\bigoplus_{r\in \Z}E^{r,-r}\,=\, \bigoplus_{s=0}^{m}\frac{F^{s-1}K^{0}(M)}{F^{s}K^{0}(M)}\,.
-	\end{equation*}
+	Here, $\{F^lK^{-n}(M)\}_{l=-1,\dots,m}$ is the filtration of $K^{-n}(M)  $ from Definition \ref{cor:spectralsequence-associatedGradedGroupAtInfinityOfE}.
 
-
-
-	Hence, let if we build the direct sum off all odd $p$ of $EM^p_{\infty}=\tilde{E}^{p,0}_{\infty}\cong E^{p,2s}_{\infty}$ (for any $s\in \Z$) we get:
+	If we build the direct sum off all even $p$ of $EM^p_{\infty}=\tilde{E}^{p,0}_{\infty}\cong E^{p,s}_{\infty}$ (for any $s\in 2\Z$) we get by Corollary \ref{cor:spectralsequence-gradingforK0AndK-1}:
 	\begin{equation*}
-		\bigoplus_{r\in2\Z+1}EM^{r}_{\infty} \cong \bigoplus_{r\in 2\Z+1}E^{r,-r-1}_{\infty}=\bigoplus_{r\in 2\Z+1}\frac{F^{r-1}K^{-1}(M)}{F^rK^{-1}(M)}
+		\bigoplus_{r\in2\Z}EM^{r}_{\infty} \cong \bigoplus_{r\in 2\Z}E^{r,-r}_{\infty}=\bigoplus_{r\in 2\Z}\frac{F^{r-1}K^{0}(M)}{F^rK^{0}(M)}=\gr(K^0(M))
+	\end{equation*} And similar, by the same argument of $EM^p_{\infty}=\tilde{E}^{p,0}_{\infty}\cong E^{p,s}_{\infty}$ (for any $s\in 2\Z$) we get by Corollary \ref{cor:spectralsequence-gradingforK0AndK-1}:
+	\begin{equation*}
+		\bigoplus_{r\in2\Z+1}EM^{r}_{\infty} \cong \bigoplus_{r\in 2\Z+1}E^{r,-r-1}_{\infty}=\bigoplus_{r\in 2\Z+1}\frac{F^{r-1}K^{-1}(M)}{F^rK^{-1}(M)}=\gr(K^{-1}(M))\,.
 	\end{equation*}
 	\end{proof}
