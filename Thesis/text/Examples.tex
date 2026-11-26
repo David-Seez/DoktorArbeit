@@ -113,7 +113,7 @@ We start with an easy example, but go through a lot of details, to get used to t
 		\begin{equation*}
 			\frac{\diff \phi_t(x)}{\diff t}=-\grad_{\phi_t(x)}(f)=-Ax\,.
 		\end{equation*} This concludes the proof.
-		Hence critical points in $\R\PP^n$ are eigenvalues of $A$. Hence, for the function to be Morse, we need the critical points to be isolated, meaning that all eigenspaces have dimension one. So we assume that the diagonal entries in $A$ are all different. For simplicity we assume that $\lambda_0<\lambda_1\cdots <\lambda_n$. Since $A$ is diagonal we know that $[e_i]$ are the critical points.
+		Hence critical points in $\R\PP^n$ are eigenvalues of $A$. Hence, for the function to be Morse, we need the critical points to be isolated, meaning that all eigenspaces have dimension one. So we assume that the diagonal entries in $A$ are all different. For simplicity we assume that $\lambda_0<\lambda_1\cdots <\lambda_n$. Since $A$ is diagonal we know that $[e_i]$ are the critical points. 
 		\begin{lemma}\label{lem: unstable manifolds of real projective space}
 			Each critical point $[e_i]$ is non degenerate, of index $i$ and its unstable manifold is
 			\begin{equation*}
@@ -151,6 +151,12 @@ We start with an easy example, but go through a lot of details, to get used to t
 			\lim_{t \to -\infty}([\phi_t(x)])=[e_l]\quad \text{ and, }\quad \lim_{t \to +\infty}([\phi_t(x)])=[e_k]\,.
 		\end{equation*} 
 			\end{proof}
+\begin{corollary}
+	If we define $\lambda_i\coloneq 2i$ we have, that the function $\frac{1}{2}\tilde{\Lambda}$ is not just a Morse Smale function, but its own adapted lyapunov function. Alternatively, we can assume $\lambda_i=i$ to have an adapted lyapunov function $\tilde{\Lambda}$ to the Morse Smale function $\tilde{\Lambda}$, as the $\sfrac{1}{2}$ is only there to simplify the calculations.
+\end{corollary}
+
+		
+
 			\begin{definition}[Orientations]
 				For orienting the unstable manifolds we make use of the projection $\R^{n+1}\supseteq S^n\to \R\PP^n$. Hence, we can lift $T_{[e_i]}\R\PP^n $ to $T_{\pm e_i}S^n$ and include that into $T_{\pm e_i}\R^{n+1}$, where we have the maps $Q_{\pm e_i}:\R^{n+1}\to T_{\pm e_i}\R^{n+1}$. In this way we get two canonical lifts of the tangent space:
 				\begin{center}
@@ -159,17 +165,17 @@ We start with an easy example, but go through a lot of details, to get used to t
 							T_{- e_i}S^n \arrow[r,"{Q_{-e_i}}"] & \langle (e_j)_{j\neq i} \rangle
 					\end{tikzcd}
 				\end{center}
-				In general, the diagram is not commutative. To see this notice how $\pi\circ -\id=\pi$. Hence $\restr{\diff \pi}{-e_i} \circ \restr{\diff -\id}{e_i} =\restr{\diff \pi}{e_i}$ and with that:  
+				In general, the diagram is not commutative. To see this notice how $\pi\circ -\id=\pi$ ($-\id$ is antipodal map). Hence $\restr{\diff \pi}{-e_i} \circ \restr{\diff (-\id)}{e_i} =\restr{\diff \pi}{e_i}$ and with that:  
 				\begin{align*}
 					Q_{-e_i}^{-1}\circ \restr{\diff \pi}{-e_i}^{-1}\circ \restr{\diff \pi}{e_i}\circ Q_{e_i}
 					&=Q_{-e_i}^{-1}\circ \restr{\diff \pi}{-e_i}^{-1}\circ \restr{\diff \pi}{-e_i} \circ \restr{\diff (-\id)}{e_i} \circ Q_{e_i}\\
 					&Q_{-e_i}^{-1}\circ \restr{\diff \pi}{-e_i}^{-1}\circ \restr{\diff \pi}{-e_i} \circ Q_{-e_i}\circ -\id \\
 					&=Q_{-e_i}^{-1}\circ Q_{-e_i} -\id =-\id\,.
-				\end{align*} Hence, we can define a canonical orientation on $T_{[e_i]}\R\PP^n$ that is given by $(e_j)_{j\neq i}$ or equivalent $(-e_j)_{j\neq i}$ depending on the choosen lift. Now in the same way we can induce orientations to the unstable manifolds $U_i$ by two equivalent ways:
+				\end{align*} Hence, we can define a canonical orientation on $T_{[e_i]}\R\PP^n$ in two different ways: by $(e_j)_{j\neq i}$ or equivalent $(-e_j)_{j\neq i}$ depending on the choosen lift. Now in the same way we can induce a unique orientation to the unstable manifolds $U_i$ by two equivalent ways:
 							\begin{center}
 					\begin{tikzcd}
 						T_{[e_i]}U_i \arrow[r,hook]& T_{[e_i]}\R\PP^n\\
-						\langle (e_0,\dots e_{i-1}) \rangle \arrow[u] \arrow[r,hook] & T_{e_i}S^n \arrow[u]
+						\langle e_0,\dots e_{i-1} \rangle \arrow[u] \arrow[r,hook] & T_{e_i}S^n \arrow[u]
 					\end{tikzcd} 	
 					or equivalently 
 					\begin{tikzcd}
@@ -190,28 +196,36 @@ We start with an easy example, but go through a lot of details, to get used to t
 			First we notice that $W([e_i]\to [e_{i-1}])$ is a one dimensional projective space with two points missing. If we would look at the Morse homology with coeficients in $\Z_2$ we would be done here, since $\R\PP^1\setminus \{p,q\}$ consists of two lines. Hence, over $\Z_2$ the boundary operator is trivial. However we want to use the orientations from above.
 			Now let 
 			\begin{equation*}
-				x\in W([x_i]\to [e_{i-1}])=\{[0:\cdots 0:x_{i-1}:x_{i}:0:\cdots 0]|x_{i-1}\neq 0 \text{ and }x_i\neq 0 \}\,.
-			\end{equation*} Then we can choose representatives, such that $x_{i-1}^2+x_i^2=1$, and $(x_{i-1},x_i)$ is in the upper halve plane meaning that $x_i>0$. Now take a $x\in W([e_i]\to [e_{i-1}])$. Then $T_xW([e_i]\to [e_{i-1}])$ has an oriented basis given as the pushforeward of $v=x_{i}e_{i-1}-x_{i-1}e_{i}$ under the projection $T_xS^n\to T_x\R\PP^n$. Now we want to analyze how this relates to the orientation induced by the flow and the two unstable orientations: if both $x_i$ and $x_{i-1}$ are positive, then $v$ points in the direction of the flow or said different, $-\grad_x(f)=v$. Else, if $x_{i-1}$ is negative, $-v$ points in the direction of the flow(i.e. $-\grad_x(f)=-v$). The parallel transport of $T_{[e_{i-1}]}U_{i-1}$ to the normal space of $-\grad_x(\tilde{\Lambda})$ induced by the negative flow maps the basis $(e_{0},\dots, e_{i-2})$ of $T_{[e_{i-1}]}U_i$ to $(e_{0},\dots e_{i-2})$ in the orthogonal complement of $-\grad_x(\tilde{\Lambda})$ in $T_x\R\PP^n$. So we need to compare in $T_x\R\PP^n$ the basis $(-\grad_x(f),e_0,\dots e_{i-2})$ to the  basis $(e_0,\dots e_{i-1})$ in $T_{[e_i]}U_i$ after transporting it to $T_x\R\PP^n$ along the flow. This latter transport maps the basis vectors as follows:
+				x\in W([e_i]\to [e_{i-1}])=\{[0:\cdots 0:x_{i-1}:x_{i}:0:\cdots 0]\in \R\PP^n \mid x_{i-1}\neq 0 \text{ and }x_i\neq 0 \}\,.
+			\end{equation*} Then we can choose representatives, such that $x_{i-1}^2+x_i^2=1$, and $(x_{i-1},x_i)$ is in the upper halve plane meaning that $x_i>0$. Now take a $x\in W([e_i]\to [e_{i-1}])$. Then $T_xW([e_i]\to [e_{i-1}])$ has an oriented basis given as the pushforeward of $v=x_{i}e_{i-1}-x_{i-1}e_{i}$ under the projection $T_xS^n\to T_x\R\PP^n$. Now we want to analyze how this relates to the orientation induced by the flow and the two unstable orientations: if both $x_i$ and $x_{i-1}$ are positive, then $v$ points in the direction of the flow or said different, $-\grad_x(f)=v$. Else, if $x_{i-1}$ is negative, $-v$ points in the direction of the flow(i.e. $-\grad_x(f)=-v$). 
+			In both cases, the basis $(e_0,\dots,e_{i-1},v)$ is a positive basis of $T_xW([e_i]\to)$. This can be seen, as the section
 			\begin{equation*}
-				e_j\mapsto \begin{cases*}
-					x_ie_{i-1}-x_{i-1}e_i& if $j=i-1$\\
-					e_j & else.
-				\end{cases*}
-			\end{equation*} In other words, we need to ask when the two basis
-			\begin{equation*}
-				((x_ie_{i-1}-x_{i-1}e_i),e_0,\dots e_{i-2}) \quad \text{ and }\quad (e_0,\dots e_{i-2},x_ie_{i-1}-x_{i-1}e_i)\,,
-			\end{equation*} if  $x_{i-1}>0$ are comparable.Then, the basis carry the same orientation, if and only if $i$ is odd, since then it takes evenly many transpositions of coordinates. 
+				[0:\cdots:0,1-t,t,0,\cdots,0]\to [e_0]\wedge[ e_1]\wedge\cdots \wedge [e_{i-2}]\wedge [((1-t)e_{i-1}-te_i)]
+			\end{equation*} is a nonvanishing section into the tangend bundle, that for $t=1$ gives the induced orientation in $T_[e_i]U_i$ and for $t=x_j$ the one that is represented by $(e_0,\dots,e_{i-2},v)$.
 			
-			If $x_{i-1}<0$ we notice, that our representation of $[e_{i-1}]$ is given by $-e_{i-1}$ and hence the unstable tangent space has the basis $-e_0,\cdots -e_{i-2}$. Hence in $x$ we get the oriented basis 
+			Now we need to bring $-\grad(f)$ to the front. This gives the  orientations:
 			\begin{equation*}
-				(-\grad_x(f),-e_0,\cdots -e_{i-2})=(-v,-e_0,\cdots -e_{i-2})\,.
-			\end{equation*} We compare this basis to basis that comes from transporting the basis $(e_0,\dots e_{i-1})$ of $T_{[e_i]}U_{[e_i]}$ to $x$ resulting in the basis $(e_0,\dots e_{i-2},v)$. Hence we compare the bases 
+				(-1)^{i-1}\cdot [v]\wedge [e_0] \wedge \cdots \wedge [e_{i-2}] \text{, if $x_{i-1}>0$}\,,\quad (-1)^{i}\cdot [-v]\wedge [e_0] \wedge \cdots \wedge [e_{i-2}] \text{, if $x_{i-1}<0$.}
+			\end{equation*}
+
+			\textit{ Case 1: $x_{i+1}>0$ and thereby $v=-\grad_x(f)$}
+
+			We need to check if the the orientation $(-1)^i\cdot [v]\wedge [e_0] \wedge \cdots \wedge [e_{i-2}] $ of $-\grad_x(f)\oplus Q_x^{[e_{i-1}]}$ is compatible with the one, that is induced by $T_{[e_{i-1}]}U_i=Q^{[e_{i-1}]}_{[e_{i-1}]}$. For this we lift everything into the $S^n$ by assuming that $x_i$ and $x_{i-1}>0$. In this lift, the normal bundle $Q^{[e_{i-1}]}$ is oriented by the section $x\mapsto  e_0\wedge \cdots \wedge e_{i-1}$ and thereby we need to compare the orientations: 
 			\begin{equation*}
-				(-v,-e_0,\cdots -e_{i-2}) \quad \text{and}\quad (e_0,\dots e_{i-2},v)
-			\end{equation*} we manipulate the first and keep note of the sign of the alterations:
+				(-1)^{i-1}\cdot \underbrace{v}_{=-\grad_x(f)}\wedge e_0 \wedge \cdots \wedge e_{i-2} \qquad \text{ to }\qquad  -\grad_x(f)\wedge e_0 \wedge \cdots \wedge e_{i-2}
+			\end{equation*}
+			Which results in equality if and only if $i$ is odd.
+			
+			\textit{ Case 2: $x_{i+1}<0$ and thereby $-v=-\grad_x(f)$}
+
+			Again, we check if the the orientation $(-1)^i\cdot [v]\wedge [e_0] \wedge \cdots \wedge [e_{i-2}] $ of $-\grad_x(f)\oplus Q_x^{[e_{i-1}]}$ is compatible with the one, that is induced by $T_{[e_{i-1}]}U_i=Q^{[e_{i-1}]}_{[e_{i-1}]}$.  For this we lift everything into the $S^n$ by assuming that $x_i>0$ and $x_{i-1}<0$. In this lift, the normal bundle $Q^{[e_{i-1}]}$ is oriented by the section $x\mapsto  -e_0\wedge \cdots \wedge -e_{i-1}$ and thereby we need to compare the orientations: 
 			\begin{equation*}
-				(-v,-e_0,\cdots -e_{i-2})=(-1)^{i}(v,e_0,\cdots e_{i-2}) =(-1)^{i+i-1}(e_0,\dots e_{i-2},v)\,.
-			\end{equation*} Hence, the orientations never agree. Now if $i$ is odd the two flow lines cancel out when counted with the sign and if $i$ is even, we count minus two flow lines. Therefore the counting of flow lines noted by $n(p,q)$ gives: 
+				(-1)^{i}\cdot \underbrace{v}_{=-\grad_x(f)}\wedge e_0 \wedge \cdots \wedge e_{i-2} \qquad \text{ to }\qquad  \underbrace{-\grad_x(f)\wedge -e_0 \wedge \cdots \wedge -e_{i-2}}_{(-1)^{i-1}-\grad_x(f)\wedge e_0 \wedge \cdots \wedge e_{i-2}}
+			\end{equation*}
+			Obviously, those two a never compatible.
+			
+			
+	In summary: if $i$ is odd the two flow lines cancel out when counted with the sign and if $i$ is even, we count minus two flow lines. Therefore the counting of flow lines noted by $n(p,q)$ gives: 
 			
 			\begin{equation*}
 				n(e_{i+1},e_i)={(-1)}^i-1\,,
@@ -259,11 +273,10 @@ We start with an easy example, but go through a lot of details, to get used to t
 			\end{tikzcd}
 		\end{center} giving us $K^0(\R\PP^2)\cong \Z\oplus \Z_2$. 
 		And similar $K^1(\R\PP^2)=0$. 
-		To understand the higher differentials we need to get specific about the used filtration. We define the filtration inductively as follows:
-	For any $i$ define $c_i\in (\lambda_i,\lambda_{i+1})$ and with this we define the filtration 
-	\begin{equation*}
-		N_{-1}\coloneq \emptyset,\quad N_i=\tilde{\Lambda}(-\infty,c_i) \text{ the sublevel sets }, \quad N_n\coloneq \R\PP^n\,.
-	\end{equation*} With this filtration it is somewhat easy to see that $(N_i,N_{i-1})$ gives a regular index pair of $[e_i]$. One just needs to go through the definitions: First it is clear, that the only critical point inside of the closure of $N_i\setminus N_{i-1}$ is $[e_i]$ and it is in the interiour. Secondly, the positiv lime invariance is clear, since $\tilde{\Lambda}$ decreases along flow lines. And $N_{i-1}$ is an exit set also by definition. Finally the cofibration property of the pair $N_i,N_{i-1}$ is to be shown. For this we notice, that $c_i$ is a regular value of $R$. Hence there exists an $\epsilon>0$, such that $f^{-1}\left([a,a+\epsilon)\right)$ contains no critical point and hence this defines an open color of $N_i$ inside $N_{i+1}$. This open color can be shown to be an NDR pair, which in turn is a cofibration. Those are standart arguments seen in \cite{Whitehead1978} Chapter 5.1.
+		To understand the higher differentials we assume $\lambda_i=i$ meaning that we $\tilde{\Lambda}$ is its own adapted lyapunov function and thereby we have a filtration given by the sublevelsets
+		\begin{equation*}
+		N_{-1}\coloneq \emptyset,\quad N_i=\tilde{\Lambda}(-\infty,c_i) \text{ the sublevel sets for }c_i\in(i,i+1), \quad N_n\coloneq \R\PP^n\,. 
+	\end{equation*} 
 	\begin{lemma}
 		In the filtration, each $N_i$ is homotopically equivalent to $\R\PP^i$. 
 	\end{lemma}
@@ -281,7 +294,7 @@ Notice how for all $i$ the sublevelset $\tilde{\Lambda}^{-1}(-\infty,\lambda_i]$
 First we need to check if this map is well defined in two senses. Is the definition invariant under the chosen representative and do we map into $L_\epsilon$. 
 For the independence of the chosen representative we notice that the image of $x$ and $-x$ differ by sign and hence define the same equivalence class. Also applying $\tilde{\Lambda}$ to the image we notice that the image is less then $\lambda_{i}+\epsilon$. this is true, since $\tilde{\Lambda}$ is a weighted sum of the eigenvalues and the addition of $(1-t)$ decreases the weights on the bigger eigenvalues reducing the overall weighted sum. \todo{in formeln nachrechnen}
 
-Now obviously $H_1$ maps to  $\tilde{\Lambda}{-1}(-\infty,\lambda_i]$. 
+Now obviously $H_1$ maps to  $\tilde{\Lambda}^{-1}(-\infty,\lambda_i]$. 
 	\end{proof}
 	
 	
@@ -350,3 +363,71 @@ Now obviously $H_1$ maps to  $\tilde{\Lambda}{-1}(-\infty,\lambda_i]$.
 				However this time, since $N_3\simeq \R\PP^3$ we have that $K^1(N_3)=\Z$ and we have that $K^1(N_2)=0$. Hence, $K^1(N_3,N_2)\to K^1(N_3)$ is surjective and hence an isomorphism, resulting in $\delta=0$. The next candidate for a nontrivial higher differential is $d_3^{3}$ which however is trivial since there is not other homomorphism form $Z_2$ to $\Z$. So our hope is on $d_5$ now! However this is again zero.... In fact all higher differential are zero!   
 			\end{comment}
 	\end{example}
+
+
+	\begin{fact}
+		In fact $K^0(\R\PP^n)\cong \Z \oplus \Z_{2^{\left\lfloor \frac{n}{2}\right\rfloor}}.$ 
+	\end{fact}
+	
+	\begin{example}
+		Make a produkt morse funktion on $\R\PP^2\times \R\PP^4$!. 
+		For this we assume that $\tilde{\Lambda}_2$ is a Morse function on $\R\PP^2$ and defined as above and similary $\tilde{\Lambda}_4$ is one for $\R\PP^4$.
+		From the established Künneth formular we know that the Morse cohomology of $\R\PP^2 \times \R\PP^4$ is as follows: 
+		\begin{equation*}
+			H^n(\R\PP^2\times \R\PP^4,\tilde{\Lambda_2}+\tilde{\Lambda}_4)\cong \bigoplus_i\left(
+			H^i(\R\PP^2,\tilde{\Lambda}_2)\otimes H^{n-i} (\R\PP^4,\tilde{\Lambda}_4)
+			\right) \oplus \bigoplus_i \Tor\left(
+			H^i(\R\PP^2,\tilde{\Lambda}_2),
+			 H^{n-i+1} (\R\PP^4,\tilde{\Lambda}_4)
+			\right)\,.
+		\end{equation*}
+		
+		First we list the Homology of $\R\PP^2$ and $\R\PP^4:$
+	\begin{equation*}
+		\begin{array}{c|c c}
+			& \R\PP^2 &\R\PP^4\\
+			\hline
+			H^0&\Z&\Z \\
+			H^1&0&0\\
+			H^2&\Z_2&\Z_2\\
+			H^3&0&0\\
+			H^4&0&\Z_2
+		\end{array}
+	\end{equation*}
+ Furthermore the only non-zero $\Tor$ is $\Tor(\Z_2,\Z_2)$. Which only appears for $n=3$ and $n=5$. Furtermore we have for the tensor groups for any $A$: $\Z\otimes A\cong A$ and $\Z_2\otimes \Z_2 \cong \Z_2$.  Hence we have the resulting isomorphisms: 
+ \begin{equation*}
+ 	H^i(\R\PP^2\times \R\PP^4)\cong \begin{cases}
+ 		\Z & \text{ if }i=  0\,,\\
+	 	0  & \text{ if }i=  1\,,\\
+	 	\Z_2\oplus \Z_2& \text{ if }i= 2\,,\\
+	 	\Z_2 & \text{ if }i=  3\,,\\
+	 	\Z_2\oplus \Z_2 & \text{ if }i=  4\,,\\
+	 	\Z_2& \text{ if }i=  5\,,\\
+	 	\Z_2& \text{ if }i=  6\,,\\
+	 	0& \text{ if }i>6\,.
+ 	\end{cases}
+ \end{equation*}
+ Hence the $E_3$ page looks with the only possible nontrivial differentials looks like
+ \begin{center}
+ 	\begin{tikzcd}
+ 		0&\Z &0&\Z_2\oplus \Z_2 \arrow[rrr,bend left,"d_3^2"]& \Z_2\arrow[rrr,bend left,"d_3^3"]&\Z_2\oplus \Z_2 &\Z_2&\Z_2&0
+ 	\end{tikzcd}
+ \end{center}
+	Now the K theory of the product space $\R\PP^2\times \R\PP^4$ is known and can be calculated for the $K$ groups of the factors via the Künneth formular for K-theory that gives us two short exact sequence
+	\begin{center}
+	\begin{tikzcd}
+		0 \arrow[r]&K^0(X)\otimes K^0(Y) \arrow[r]&K^0(X\times Y)\arrow[r]&\Tor(K^1(X),K^1(Y))\arrow[r]&0\\
+			0 \arrow[r]&K^1(X)\otimes K^1(Y) \arrow[r]&K^1(X\times Y)\arrow[r]&\Tor(K^0(X),K^0(Y))\arrow[r]&0
+	\end{tikzcd}
+	\end{center}In our case the two sequences lool like\begin{center}
+	
+		\begin{tikzcd}
+		0 \arrow[r]&¸(\Z\oplus \Z_2)\otimes (\Z\oplus \Z_4) \arrow[r]&K^0(\R\PP^2\times \R\PP^4)\arrow[r]&\Tor(0,0)\arrow[r]&0\\
+		0 \arrow[r]&0\arrow[r]&K^1(\R\PP^2\times \R\PP^4)\arrow[r]&\Tor(\Z_2,\Z_4)\arrow[r]&0
+	\end{tikzcd}
+	\end{center}
+	And thereby \begin{equation*}
+		K^0(\R\PP^2\times \R\PP^4)\cong \Z\oplus \Z_2\oplus \Z_2\oplus \Z_4\text{ and }	K^1(\R\PP^2\times \R\PP^4)\cong \Z_2
+	\end{equation*} Now the oreder of $\PP^4)\cong \Z\oplus \Z_2\oplus \Z_2\oplus \Z_4\text{ and }	K^1(\R\PP^2\times \R\PP^4)$ is two. Hence assuming all higher differentials beeing $0$ and thereby having the $E_3$ page as the last page this results in a contradiction since the sum over all odd entries of $EM_3$ gives a group of order four and the order stays invariant under group extensions. 	 
+	\end{example}
+	
