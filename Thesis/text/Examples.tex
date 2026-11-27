@@ -56,9 +56,8 @@ We start with an easy example, but go through a lot of details, to get used to t
 	\begin{equation*}
 		F^0K^0(S^3)\cong F^2K^0(S^3)\cong F^4K^0(S^3)\cong =0
 	\end{equation*}
-	Hence, the first short exact sequence gives is an isomorphism between $K^0(S^3)\cong \Z$ which is nothing new to us. 
+		Hence, the first short exact sequence gives is an isomorphism between $K^0(S^3)\cong \Z$ which is nothing new to us. 
 	\end{example} 
-	Now we want to calculate the K group of a non trivial example:
 
 
 
@@ -368,7 +367,86 @@ Now obviously $H_1$ maps to  $\tilde{\Lambda}^{-1}(-\infty,\lambda_i]$.
 	\begin{fact}
 		In fact $K^0(\R\PP^n)\cong \Z \oplus \Z_{2^{\left\lfloor \frac{n}{2}\right\rfloor}}.$ 
 	\end{fact}
+
+	Now we want to calculate the K group of a non trivial example.
 	
+	
+	\begin{proposition}[$\R\PP^2\times \R\PP^4$]
+		Let $M=\R\PP^2\times \R\PP^4$, and $F=\tilde{\Lambda}_2+\tilde{\Lambda}_4$ be the mose smale function that is the product function from the Morse Smale functions $\tilde{\Lambda}_i:\R\PP^i\to \R$ from before. (We assume that $\lambda_i=i$ and $M$ inherits the product metric.
+		Then 
+		\begin{equation*}
+			d^3_3:EM^3_3\cong \Z_2\to EM^6_4\Z_2
+		\end{equation*} is an isomorphism
+	\end{proposition}
+	\begin{proof}
+		 Then $F$ is its own adapted Lyapunov function, as $F([e_i],[e_j])=i+j=\ind_{F}([e_i],[e_j])$, and $N_k=\{F\leq c_k \}$ with $c_k\in(k,k+1)$. The Top critical point is $P\coloneq ([e_2],[e_4])$ of index $2+4=6=\dim(M)$. Thereby $N_6=M$, and by Definition \ref{cor:spectralsequence-associatedGradedGroupAtInfinityOfE} we know that 
+		 \begin{equation*}
+			EM^6_{\infty}\cong \frac{F^5K^0(M)}{F^6K^0(M)}=F^5K^0(M)=\ker\left(K^0(M)\to K^0(N_5)\right)=\im\left(K^0(M,N_5)\to K^0(M)\right)\,.
+		 \end{equation*} We used that $F^6K^0(M)=F^{\dim(M)}K^0(M)=0$ and the exact sequence of the pair $(M,N_5)$. 
+		 Let $0y\epsilon<\frac{1}{4}$ and 
+		 \begin{equation*}
+			U_2\coloneq \{\tilde{\Lambda}_2\geq 2-\epsilon\}\,\qquad U_4\coloneq \{\tilde{\Lambda}_4>4-\epsilon\}\,,\qquad U\coloneq U_2\times U_4\,.
+		 \end{equation*} Now choose $c_5<6-2\epsilon$ Then $U\subseteq \{F>6-\epsilon\}$ is disjoint from $N_5$, as any $(x_1,x_2)\in U$ satisfies $F((x_1,x_2))>2-\epsilon+4-\epsilon=6-2\epsilon$. And every $x\notin U$ satisfies $F(x)\leq 6-\epsilon$, as eiter $x_1\notin U_1$, or $x_2\notin U_2$, which gives either $F(x_1,x_2)\leq 2-\epsilon+4$ or$F(x_1,x_2)\leq 2+4-\epsilon$. Hence,
+		 \begin{equation*}
+			N_5\subseteq M\setminus U \subseteq \{F\leq 6-\epsilon\}\,,
+		 \end{equation*}and the outher inclusion $N_5\subseteq \{F\leq 6-\epsilon\}$ is a homotopy equivalence. This is an pllication of the first Morse lemma, as there is no critical value in $[c_5,6-\epsilon]$. (A expplicit homotopy equivalence is given by flowing along the negative gradient flow from  $\{F\leq 6-\epsilon\}$ to $N_5$)
+		 This gives us the situation of the commutative diagram
+		 \begin{equation}\label{eq:ExamplesThreeKernalsAgree}% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZARgBpiBdUkANwEMAbAVxiRAGkA9ABgAoBZAJQgAvqXSZc+Qim6luVWoxZsufADrrgAMQAEmhjACOugGwBaTTDTYGBTSOFiJ2PASJkF1es1aIOPAL66nAwOAC2WGBMcLoAqk7iIBiu0kQATPKKPir+arwAcgD6AKxOijBQAObwRKAAZgBOEOFIZCA4EEiZSr5sWJwAVCDUDHQARjAMAAqSbjIgjVhVABY4oklNLd3UnUgAzN7KfiADw6MTU7Op7v5Lq+vOIFutiHIdXYjtOSdYRcCaHTBQwmCxWGxYOxgBwiIYjECTMBQA7cJ4vJDvPaIQ69XKnf7FEqw84gMaTGZzNJ3ZZreGI5GIcz7VGbZqvTGfHo-fr-fiaUIRKIxeLE+Fkq6U26kmD1R6s7ZfXafHH0lFHPr+TQAYwIVVEFBEQA 
+\begin{tikzcd}
+K^0(\{F \leq 6-\epsilon\}) \arrow[r, "i^*"'] \arrow[rr, "\cong", bend left] & K^0(M \setminus U) \arrow[r, "i^*"']                                                                                             & K^0(N_5) \\
+                                                                            & K^0(M) \arrow[lu, "i_{\{F \leq 6-\epsilon\}}^*", bend left] \arrow[ru, "i_{N_5}^*"', bend right] \arrow[u, "i_{M\setminus U}^*"] &         
+\end{tikzcd}
+		 \end{equation}
+	\end{proof}
+	 A diagramm chasing gives us that $\ker(i_{\{F \leq 6-\epsilon\}}^*)\supseteq \ker(i_{M\setminus U}^*)\supseteq \ker(i_{N_5}^*)$ whilst the homeomorphism on the top gives us equality in those inclusions.
+	  Thereby (using the equality, the sequence of the pair $(M,M\setminus U)$ and the equality $K^=(M,M\setminus U)=\rK^0(M/(M\setminus U))$) we conclude
+	 \begin{equation}\label{eq:examplesEMinftyIsFn-1}
+		F^5K^0(M)=\ker(i_{N_5}^*)=\ker(i_{M\setminus U}^*)=\im(c_*:\rK^0(M/(M\setminus U)\to K^0(M))\,.
+	 \end{equation}
+	Since $M\setminus (U_2\times U_4)=\Big((\R\PP^2\setminus U_2)\times \R\PP^4 \big)\cup \big(\R\PP^2\times  (\R\PP^4\setminus U_4)\Big)$, we have a continuous bijectiong between compact Hausdorff spaces (and hence a homeomorphism):
+		\begin{align*}
+		M/(M\setminus U)
+		&=\frac{\R\PP^2\times\R\PP^4}{\big((\R\PP^2\setminus U_2)\times \R\PP^4\big)\cup\big(\R\PP^2\times(\R\PP^4\setminus U_4)\big)}\\
+		&\cong \frac{\R\PP^2/(\R\PP^2\setminus U_2)\;\times\;\R\PP^4/(\R\PP^4\setminus U_4)}{\R\PP^2/(\R\PP^2\setminus U_2)\;\vee\;\R\PP^4/(\R\PP^4\setminus U_4)} \\
+		&=\R\PP^2 /  (\R\PP^2\setminus U_2) \;\wedge \; \R\PP^4/(\R\PP^4\setminus U_4)\,.
+	\end{align*} Lets call that map $h$. Now choose $[e_0]$ to be the basepoint of $\R\PP^n$. Then, the map $c:M\to M/(M\setminus U)$ after $h$ becomes
+	\begin{equation*}
+		h\circ c=(c_2\wedge c_4)\circ q:M\to \R\PP^2 /  (\R\PP^2\setminus U_2) \;\wedge \; \R\PP^4/(\R\PP^4\setminus U_4)
+	\end{equation*} where $q$ is the projection $M\to \R\PP^2\wedge \R\PP^4$,and $c_2$ (resp. $c_4$) are the collapses in the corresponding factors. This is seen by just calculating the maps. Now $U_2$ and $U_4$ are discs and hence $\R\PP^2 / (\R\PP^2\setminus U_2)\cong_{f_1} S^2$ and $\R\PP^4/(\R\PP^4\setminus U_4)\cong_{f_2} S^4$. Let $a$ be a generator of $K^0(\R\PP^2 / (\R\PP^2\setminus U_2))\cong \Z$ and $b$ be a generator of $K^0(\R\PP^4/(\R\PP^4\setminus U_4))\cong \Z$. Then the multiplicity of the bott generator (and naturality of the external product) gives us a that $a\boxtimes b$ is a generator of the $0$-th K group of $\R\PP^2 / (\R\PP^2\setminus U_2)\wedge \R\PP^4/(\R\PP^4\setminus U_4)\cong_{f_1\wedge f_2} S^6$. Naturality of the external product gives us
+	\begin{equation*}
+		c^*\circ h^*(a\boxtimes b)=pr_2^*(c_2^*a)\cdot pr_4^*(c_4^*b)\,\in \rK^0(\R\PP^2 \times  \R\PP^4)\,.
+	\end{equation*}
+
+	Now we analyze $c_2^*a$ and $c_4^*b$ on their own: 
+	For this we inspect $EM^2_{\infty}/\R\PP^2=\im(K^0(M,N_1)\to K^0(M))$ and $EM^4_{\infty}/\R\PP^4=\im(K^0(M,N_3)\to K^0(M))$ similar to Equation (\ref{eq:examplesEMinftyIsFn-1}) and again by similar aguments to the once from Diagramm (\ref{eq:ExamplesThreeKernalsAgree}) we conclude that $c_2^*(a)\in EM^2_{\infty}(\R\PP^2)$ and $c_4^*b\in EM^4_{\infty}(\R\PP^4)$. As the later pages of the spectral sequence are subquotients from earlyer ones, we know that $EM^2_{\infty}(\R\PP^2)$ is a subquoptient of $H^2(\R\PP^2)\cong\Z_2$ and $ EM^4_{\infty}(\R\PP^4)$ is a subquotient of $H^4(\R\PP^2)\cong \Z_2$. So $ 2\cdot c_2^*(a)=0$ and $2\cdot c_4b^*=0$. On the other hand, $c_4b^*\in \rK^0(\R\PP^4)\cong \Z_4$. Hence, to live in there and be of order two, we need to be a multiple of two $c_4b^*=2w$ for some $w\in \rK^0(\R\PP^4)$. This results in the calculation
+	\begin{equation*}
+		c^*\circ h^*(a\boxtimes b)=pr_2^*(c_2^*a)\cdot pr_4^*(2w)=pr_2^*(2c_2^*a)\cdot pr_4^*(w)=0\,.
+	\end{equation*} For any $r$, a differential with target $EM^6_r$ starts in $E^{6-r}_r$ (with $r$ odd). For $r=3$ 
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	For this we need the Künneth Formular for complex K Theory: 
+	\begin{theorem}[Künneth Formular for complex K-Theory]
+    Let $X;Y$ be finite CW-complexes, then we have a natural exact sequence
+    \begin{center}
+        \begin{tikzcd}
+            0\arrow[r]&K^*(X)\otimes K^*(Y)\arrow[r,"\alpha"]& K^*(X\times Y)\arrow[r,"\beta"]&\Tor(K^*(X),K^*(Y))\to 0\,.
+        \end{tikzcd}
+    \end{center}
+    Here $\otimes$ and $\Tor$ are applied to abelian groups, and $\alpha$ is the natural map inducved by the product in $K^*$. Morover, the sequence is $\Z_2$ graded with $\deg(\alpha)=0$, $\deg(\beta)=1$,ehere $K^p\otimes K^q$ and $\Tor(K^p,K^q)$ are given degree $p+q$ ($p,q\in \Z_2$). 
+\end{theorem}
 	\begin{example}
 		Make a produkt morse funktion on $\R\PP^2\times \R\PP^4$!. 
 		For this we assume that $\tilde{\Lambda}_2$ is a Morse function on $\R\PP^2$ and defined as above and similary $\tilde{\Lambda}_4$ is one for $\R\PP^4$.
